@@ -45,7 +45,7 @@
 <body>
 
   <nav class="skip-links" aria-label="Skip links">
-    <a href="#papers-root" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   </nav>
 
   <header class="site-header">
@@ -129,13 +129,10 @@
 </div>
   </header>
 
-  <div class="page-hero">
-    <h1>Academic Papers on llvm.org</h1>
-    <p id="papers-subtitle">Loading papers...</p>
-  </div>
-
-  <section class="search-hero search-hero--compact" aria-label="Search papers">
+  <section class="search-hero" aria-label="Search papers">
     <div class="search-hero-shell">
+      <h1>Academic Papers on llvm.org</h1>
+      <p class="subtitle" id="papers-subtitle">Loading papers...</p>
       <div class="search-box" role="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -143,28 +140,106 @@
         <input
           type="search"
           class="search-input"
-          id="papers-search-input"
+          id="search-input"
           placeholder="Search papers, authors, topics..."
           autocomplete="off"
           spellcheck="false"
           aria-label="Search papers"
         >
-        <button class="search-clear" id="papers-search-clear" aria-label="Clear search" title="Clear" hidden>
+        <button class="search-clear" id="search-clear" aria-label="Clear search" title="Clear">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
           </svg>
         </button>
+        <div class="search-dropdown hidden" id="search-dropdown" role="listbox" aria-label="Search suggestions"></div>
       </div>
-      <div class="filter-group filter-group--wrap" id="paper-tag-filters" aria-label="Filter papers by tag"></div>
+      <div class="active-filters hidden" id="active-filters" role="status" aria-label="Active filters" aria-live="polite"></div>
     </div>
   </section>
 
-  <main class="talks-grid" id="papers-root" tabindex="-1">
-    <div class="loading-state">
-      <div class="spinner" aria-hidden="true"></div>
-      <p>Loading papers...</p>
-    </div>
-  </main>
+  <div class="hub-layout">
+    <aside class="filter-section" role="region" aria-label="Filters">
+      <div class="filter-sidebar-head">
+        <h2>Filters</h2>
+        <button class="mobile-filter-close" id="mobile-filter-close" aria-label="Close filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <button class="filter-collapse-btn" id="filter-collapse-btn" aria-label="Collapse filters" aria-pressed="false" title="Collapse filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="btn-clear-filters hidden" id="clear-filters" aria-label="Clear all filters">
+          Clear filters
+        </button>
+      </div>
+
+      <div class="filter-sidebar-body" id="filter-sidebar-body">
+        <section class="filter-accordion" data-accordion="topics">
+          <button class="filter-accordion-toggle" id="toggle-topics" aria-expanded="true" aria-controls="panel-topics">
+            <span>Topics</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="filter-accordion-panel" id="panel-topics">
+            <div class="filter-tags-row" id="filter-tags-row" aria-label="Filter by topic">
+              <div class="filter-tags-header">
+                <span class="filter-group-hint">Select one topic filter</span>
+              </div>
+              <div class="filter-group filter-group--wrap" id="filter-tags" aria-label="Topic filters"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="year">
+          <button class="filter-accordion-toggle" id="toggle-year" aria-expanded="true" aria-controls="panel-year">
+            <span>Year</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="filter-accordion-panel" id="panel-year">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by year">
+                <div class="filter-group" id="filter-years" aria-label="Year filters"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="mobile-filter-footer">
+          <button class="mobile-filter-footer-btn mobile-filter-footer-btn--secondary" id="mobile-filter-clear" type="button">Clear all</button>
+          <button class="mobile-filter-footer-btn" id="mobile-filter-apply" type="button">Apply filters</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="mobile-filter-scrim hidden" id="mobile-filter-scrim" aria-hidden="true"></div>
+
+    <main class="feed-column" id="main-content" tabindex="-1">
+      <div class="results-bar">
+        <div class="results-meta">
+          <button class="mobile-filter-toggle" id="mobile-filter-open" aria-label="Open filters" aria-controls="filter-sidebar-body" aria-expanded="false">
+            Filters
+          </button>
+          <span class="results-count" id="results-count" role="status" aria-live="polite" aria-atomic="true"></span>
+          <span class="results-context" id="results-context" aria-live="polite" aria-atomic="true"></span>
+        </div>
+      </div>
+
+      <div class="talks-container" id="papers-container">
+        <div id="papers-grid" class="talks-grid" role="feed" aria-label="Paper results" aria-busy="true">
+          <div class="loading-state">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Loading papers...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 
   <div class="about-modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-about-heading" hidden>
     <div class="about-modal-panel">
@@ -256,7 +331,8 @@
   })();
 </script>
 
-  <script src="js/papers-data.js?v=20260220-13"></script>
-  <script src="js/papers.js?v=20260220-13"></script>
+  <script src="js/shared/library-utils.js?v=20260220-12"></script>
+  <script src="js/papers-data.js?v=20260220-14"></script>
+  <script src="js/papers.js?v=20260220-14"></script>
 </body>
 </html>
