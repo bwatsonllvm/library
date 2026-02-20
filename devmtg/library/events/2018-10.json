@@ -1061,9 +1061,7 @@
       "videoId": null,
       "slidesUrl": null,
       "projectGithub": "",
-      "tags": [
-
-      ]
+      "tags": []
     },
     {
       "id": "2018-10-032",
@@ -1592,9 +1590,7 @@
       "videoId": "naF9r8O_3aY",
       "slidesUrl": null,
       "projectGithub": "",
-      "tags": [
-
-      ]
+      "tags": []
     },
     {
       "id": "2018-10-048",
@@ -1607,7 +1603,7 @@
       "speakers": [
         {
           "name": "Paul Robinson",
-          "affiliation": "Pavel Labath",
+          "affiliation": "",
           "github": "",
           "linkedin": "",
           "twitter": ""
@@ -2007,9 +2003,7 @@
       "meetingDate": "October 17-18, 2018",
       "category": "poster",
       "title": "Gaining fine-grain control over pass management",
-      "speakers": [
-
-      ],
+      "speakers": [],
       "abstract": "Gaining fine-grain control over pass management\n\n``opt`` is a great tool to schedule passes, test new combinations and prototype new interactions. However one quickly finds limitations: it is impossible to apply a function pass to a single function, to change the pass options on a per case usage, etc. There is nothing in the pass manager infrastructure preventing these enhancements, so we implemented a first interactive shell, ``optsh``, to provide these features.\n\nStill, the abstraction provided by the pass manager is not enough. In the context of code obfuscation, we reached limitations with this mechanism to perform fine grain transformations combinations when the choice of security vs. performance tradeoff must be delegated to the end-user.\n\nConsidering the Control Flow Graph Flattening transformation [0] which basically encodes the control flow of a function into a dispatcher, no extra obfuscation layer is performed on the newly generated Flow Dispatcher, as the user can't target this code with a pragma, function name etc (because it wasn't there at first).\n\nTo answer these needs, we abstracted the passes with a set of inputs and outputs, to describe their effects more precisely, and gain control over their interdependencies in order to chain them. For instance:\n\nDispatcher, Others = ControlFlowGraphFlattening(F) DuplicateBasicBlock(F) OpaqueConstants(Dispatcher)\n\nHowever, it raises issues about the component validity as the Flow Dispatcher returned by the Control Flow Graph Flattening transformation may not exist anymore after another transformation that could for instance split it.\n\nThis talk is about the new abstractions we are developping, some based on the new LLVM pass manager. Although we use code obfuscation as an illustration, we believe the ideas can be applied to a larger set of problems and appeal to a wider audience.\n\n[0] https://www.inf.u-szeged.hu/~akiss/pub/pdf/laszlo_obfuscating.pdf",
       "videoUrl": null,
       "videoId": null,
