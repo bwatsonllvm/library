@@ -82,13 +82,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "Arm & Jeff Niu",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "abstract": "Designing a dataflow analysis framework requires understanding the peculiarities of the compiler's IR: analyses need to run in a reasonable time and without algorithmic explosion, analyses need to compose, and the framework must be extensible to allow building a library of analyses. MLIR does not have fixed IR semantics. The IR is user-extensible, and this reflects the primary challenge of building core infrastructure in MLIR. It is not possible to build a dataflow analysis framework for MLIR the same way as they have been built for other compilers. We proposed (and upstreamed) a general-purpose dataflow analysis framework to MLIR designed according to MLIR's core principles: extensible, composable, and debuggable. Our framework is unique in that it separates the states of lattice elements from the logic that produces them: we allow users to define new kinds of state but also inject transfer functions for existing states. Our framework also has a dynamic dependency graph that is lazily instantiated according to the shape of the IR, reducing the number of iterations to converge. In our talk, we will present the mathematical formulation for transparently composable dataflow analyses. We will discuss the implementation in upstream MLIR and how core analyses like dead code analysis, constant propagation, and integer range analysis can be composed together with out-of-tree dialects and analyses. As an in-depth example, we will give an overview of Flang's stack arrays pass, which operates on Flang's MLIR dialects, It moves compiler-added array temporaries from the heap to the stack and uses data-flow analysis to ensure that pointer lifetimes do not escape the current stack frame. We show how this analysis is composed with in-tree analyses to achieve better results. If there is time, we will show how data flow analysis can be used in a wider context by reviewing the whole Flang stack arrays pass.",
@@ -534,13 +527,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "IIT Hyderabad",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "abstract": "With the growth in usage of Machine Learning (ML) to support compiler optimization decisions, there is a need for robust tools to support both training and inference. Such tools should be scalable and independent of the underlying model, and the ML framework upon which the model is built. We propose a unified infrastructure to aid ML based compiler optimizations in LLVM at each of training and inference stages by using: (1) LLVM-gRPC, a gRPC based framework to support training, (2) LLVM-InferenceEngine, a novel ONNX based infrastructure to support ML inference within LLVM. Our infrastructure allows seamless integration of both the approaches with ML based compiler optimization passes. When our LLVM-InferenceEngine is integrated with a recently proposed approach that uses Reinforcement Learning for performing Register Allocation, it results in a 12.5x speedup in compile time.",
@@ -594,13 +580,6 @@
       "speakers": [
         {
           "name": "Kunwar Grover",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "IIIT Hyderabad & Arjun Pitchanathan",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -714,13 +693,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "Igalia",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "abstract": "The GlobalISel framework was introduced with the intention of replacing SelectionDAG, aiming to provide advantages in terms of performance, granularity, and modularity. This tutorial will provide everything you need to know about using this framework for a new target, focusing on RISC-V as an example and working through some specific examples of challenging cases.",
@@ -747,13 +719,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "Mobileye",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "abstract": "Compiler heuristics play a crucial role in improving the performance of generated code. Revisiting some of the decisions taken by the compiler is possible using different compilation flags, and can sometimes overcome wrong compiler decisions. This talk introduces a different approach, where the compiler itself triggers new compiler runs with different heuristics. I will briefly outline how we implemented this new approach in our LLVM-based compiler.",
@@ -776,13 +741,6 @@
       "speakers": [
         {
           "name": "Omer Aviram",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Mobileye",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -834,13 +792,6 @@
       "speakers": [
         {
           "name": "Javed Absar",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Qualcomm",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -1209,13 +1160,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "Arm Limited",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "abstract": "Arm Limited has been continuously adding LLD support for embedded development on Arm/AArch64 targets. This lightning talk will be a short explanation of recently added features. 1) Armv8-M Security Extensions, also known as, Cortex-M Security Extensions (CMSE) 2) AArch64 Big Endian Support",
@@ -1297,13 +1241,6 @@
       "speakers": [
         {
           "name": "Alex Bradbury",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Igalia",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -1684,13 +1621,6 @@
       "speakers": [
         {
           "name": "Susana Monteiro",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "IST ULisboa",
           "affiliation": "",
           "github": "",
           "linkedin": "",
