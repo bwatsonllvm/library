@@ -1,21 +1,26 @@
 /**
- * papers-data.js - Load canonical paper data from ../papers/*.json files.
+ * papers-data.js - Load canonical paper data from papers/*.json files.
  */
 
 (function () {
   let inMemoryCache = null;
 
-  const MANIFEST_JSON_PATH = '../papers/index.json';
+  const MANIFEST_JSON_CANDIDATES = ['../papers/index.json', 'papers/index.json', './papers/index.json'];
   const CACHE_PREFIX = 'llvm-hub-paper-data:v1:';
 
-  function normalizeManifestJson(payload) {
+  function uniquePaths(paths) {
+    return [...new Set(paths.map((p) => String(p || '').trim()).filter(Boolean))];
+  }
+
+  function normalizeManifestJson(payload, manifestRef) {
+    const manifestLabel = String(manifestRef || 'papers/index.json');
     if (!payload || typeof payload !== 'object') {
-      throw new Error(`${MANIFEST_JSON_PATH}: expected JSON object`);
+      throw new Error(`${manifestLabel}: expected JSON object`);
     }
 
     const dataVersion = String(payload.dataVersion || '').trim();
     if (!dataVersion) {
-      throw new Error(`${MANIFEST_JSON_PATH}: missing "dataVersion"`);
+      throw new Error(`${manifestLabel}: missing "dataVersion"`);
     }
 
     const files = Array.isArray(payload.paperFiles)
@@ -23,25 +28,28 @@
       : (Array.isArray(payload.files) ? payload.files : []);
 
     if (!files.length) {
-      throw new Error(`${MANIFEST_JSON_PATH}: missing non-empty "paperFiles"`);
+      throw new Error(`${manifestLabel}: missing non-empty "paperFiles"`);
     }
 
+    const manifestUrl = new URL(manifestLabel, window.location.href);
     const paperRefs = files
       .map((file) => String(file || '').trim())
       .filter(Boolean)
       .map((file) => {
-        if (file.startsWith('../papers/')) return file;
-        if (file.startsWith('papers/')) return `../${file}`;
-        return `../papers/${file}`;
+        let normalized = file;
+        if (normalized.startsWith('../papers/')) normalized = normalized.slice('../papers/'.length);
+        else if (normalized.startsWith('papers/')) normalized = normalized.slice('papers/'.length);
+
+        return new URL(normalized, manifestUrl).toString();
       });
 
     for (const ref of paperRefs) {
-      if (!ref.toLowerCase().endsWith('.json')) {
-        throw new Error(`${MANIFEST_JSON_PATH}: paperFiles must reference .json files (${ref})`);
+      if (!new URL(ref, window.location.href).pathname.toLowerCase().endsWith('.json')) {
+        throw new Error(`${manifestLabel}: paperFiles must reference .json files (${ref})`);
       }
     }
 
-    return { dataVersion, paperRefs };
+    return { dataVersion, paperRefs, manifestRef: manifestLabel };
   }
 
   function normalizePaperBundle(payload, sourcePath) {
@@ -71,8 +79,19 @@
   }
 
   async function loadManifest() {
-    const manifestPayload = await fetchJson(MANIFEST_JSON_PATH);
-    return normalizeManifestJson(manifestPayload);
+    const candidates = uniquePaths(MANIFEST_JSON_CANDIDATES);
+    const failures = [];
+
+    for (const manifestRef of candidates) {
+      try {
+        const manifestPayload = await fetchJson(manifestRef);
+        return normalizeManifestJson(manifestPayload, manifestRef);
+      } catch (err) {
+        failures.push(String(err && err.message ? err.message : err));
+      }
+    }
+
+    throw new Error(`Could not load papers manifest from ${candidates.join(', ')} (${failures.join(' | ')})`);
   }
 
   function getStorage(kind) {
