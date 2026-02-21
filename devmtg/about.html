@@ -121,9 +121,16 @@
     }
 
     .about-talktype-card h3 {
-      margin: 0 0 0.32rem;
+      margin: 0 0 0.45rem;
       font-size: 0.98rem;
       line-height: 1.3;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-talktype-card .badge {
+      font-size: 0.74rem;
+      padding: 3px 10px;
     }
 
     .about-talktype-card p {
@@ -131,10 +138,47 @@
       font-size: 0.92rem;
       line-height: 1.45;
     }
+
+    .about-tag-legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .about-tag-card {
+      border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+      border-radius: 12px;
+      padding: 0.85rem;
+      background: var(--card, rgba(255, 255, 255, 0.85));
+    }
+
+    .about-tag-card h3 {
+      margin: 0 0 0.45rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-tag-card .badge {
+      font-size: 0.74rem;
+      padding: 3px 10px;
+    }
+
+    .about-tag-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .about-tag-note {
+      margin-top: 0.65rem;
+      font-size: 0.92rem;
+      opacity: 0.82;
+    }
   </style>
   <title>About — LLVM Developers' Meeting Library</title>
   <meta name="description" content="About the LLVM Developers' Meeting Library, including talk types, search behavior, and feature usage.">
-  <link rel="stylesheet" href="css/style.css?v=20260221-18">
+  <link rel="stylesheet" href="css/style.css?v=20260221-19">
 </head>
 <body>
 
@@ -201,6 +245,47 @@
           </svg>
         </button>
       </form>
+      <div class="share-menu" id="share-menu">
+        <button class="header-action-btn share-toggle" id="share-btn" aria-label="Share this page" title="Share" aria-haspopup="true" aria-expanded="false" aria-controls="share-panel">
+          Share
+        </button>
+        <div class="share-panel" id="share-panel" hidden>
+          <button class="share-option" id="share-native-share" type="button" hidden>Share via device</button>
+          <button class="share-option" id="share-copy-link" type="button">Copy link</button>
+          <a class="share-option" id="share-email-link" href="#">Email</a>
+          <a class="share-option" id="share-x-link" href="#" target="_blank" rel="noopener noreferrer">Share on X</a>
+          <a class="share-option" id="share-linkedin-link" href="#" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+        </div>
+      </div>
+      <div class="customization-menu" id="customization-menu">
+        <button class="customization-toggle" id="customization-toggle" aria-label="Display settings" title="Display settings" aria-haspopup="true" aria-expanded="false" aria-controls="customization-panel">
+          <svg class="icon-customize" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="18" y1="16" x2="22" y2="16"/>
+          </svg>
+        </button>
+        <div class="customization-panel" id="customization-panel" hidden>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-theme-select">Theme</label>
+            <select class="customization-select" id="custom-theme-select" aria-label="Theme preference">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-text-size-select">Text Size</label>
+            <select class="customization-select" id="custom-text-size-select" aria-label="Text size">
+              <option value="small">Small</option>
+              <option value="default">Default</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <button class="customization-reset" id="custom-reset-display" type="button">Reset display settings</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -241,21 +326,39 @@
     <section class="about-section" aria-labelledby="about-talk-types-heading">
       <h2 id="about-talk-types-heading">Talk Types Explained</h2>
       <p>
-        Talks are labeled with a normalized type so you can filter and compare content quickly:
+        Talks are labeled with normalized type badges. These same colors and styles are used throughout the library:
       </p>
       <div class="about-talktype-grid" aria-label="Talk type definitions">
-        <article class="about-talktype-card"><h3>Keynote</h3><p>High-level talks that frame direction, strategy, or major technical themes.</p></article>
-        <article class="about-talktype-card"><h3>Technical Talk</h3><p>Standard deep-dive sessions on implementation details, tooling, or engineering results.</p></article>
-        <article class="about-talktype-card"><h3>Tutorial</h3><p>Step-by-step educational sessions intended to teach workflows, tools, or APIs.</p></article>
-        <article class="about-talktype-card"><h3>Panel</h3><p>Multi-speaker discussion sessions focused on tradeoffs, perspectives, and community consensus.</p></article>
-        <article class="about-talktype-card"><h3>Quick Talk</h3><p>Shorter presentations that communicate one idea or result in a compact format.</p></article>
-        <article class="about-talktype-card"><h3>Lightning Talk</h3><p>Very short talks optimized for rapid updates, prototypes, or early ideas.</p></article>
-        <article class="about-talktype-card"><h3>Student Talk</h3><p>Talks highlighting student research or projects related to LLVM technologies.</p></article>
-        <article class="about-talktype-card"><h3>BoF</h3><p>Birds-of-a-Feather sessions: interactive discussion forums around a focused topic.</p></article>
-        <article class="about-talktype-card"><h3>Poster</h3><p>Poster-format research presentations, often exploratory or early-stage work.</p></article>
-        <article class="about-talktype-card"><h3>Workshop</h3><p>Hands-on or collaborative sessions with practical exercises and applied workflows.</p></article>
-        <article class="about-talktype-card"><h3>Other</h3><p>Sessions that do not map cleanly to the categories above.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-keynote">Keynote</span></h3><p>High-level talks that frame direction, strategy, or major technical themes.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-technical-talk">Technical Talk</span></h3><p>Standard deep-dive sessions on implementation details, tooling, or engineering results.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-tutorial">Tutorial</span></h3><p>Step-by-step educational sessions intended to teach workflows, tools, or APIs.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-panel">Panel</span></h3><p>Multi-speaker discussion sessions focused on tradeoffs, perspectives, and community consensus.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-quick-talk">Quick Talk</span></h3><p>Shorter presentations that communicate one idea or result in a compact format.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-lightning-talk">Lightning Talk</span></h3><p>Very short talks optimized for rapid updates, prototypes, or early ideas.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-student-talk">Student Talk</span></h3><p>Talks highlighting student research or projects related to LLVM technologies.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-bof">BoF</span></h3><p>Birds-of-a-Feather sessions: interactive discussion forums around a focused topic.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-poster">Poster</span></h3><p>Poster-format research presentations, often exploratory or early-stage work.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-workshop">Workshop</span></h3><p>Hands-on or collaborative sessions with practical exercises and applied workflows.</p></article>
+        <article class="about-talktype-card"><h3><span class="badge badge-other">Other</span></h3><p>Sessions that do not map cleanly to the categories above.</p></article>
       </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-tag-legend-heading">
+      <h2 id="about-tag-legend-heading">Content Tags and Colors</h2>
+      <p>
+        Beyond talk type badges, the library also uses content tags to distinguish cross-source material:
+      </p>
+      <div class="about-tag-legend-grid" aria-label="Content type tag legend">
+        <article class="about-tag-card">
+          <h3><span class="badge badge-paper">Paper</span></h3>
+          <p>Marks research publications and paper metadata indexed in the Papers section and global search.</p>
+        </article>
+        <article class="about-tag-card">
+          <h3><span class="badge badge-blog">Blog</span></h3>
+          <p>Reserved for upcoming LLVM ecosystem blog posts and technical writeups that will be added soon.</p>
+        </article>
+      </div>
+      <p class="about-tag-note">Talk entries use one of the talk-type badges above; papers and blogs use content-type badges.</p>
     </section>
 
     <section class="about-section" aria-labelledby="about-search-heading">
@@ -296,6 +399,6 @@
   <script src="js/papers-data.js?v=20260221-02"></script>
   <script src="js/shared/library-utils.js?v=20260221-24"></script>
   <script src="js/shared/global-search.js?v=20260221-22"></script>
-  <script src="js/about.js?v=20260221-01"></script>
+  <script src="js/about.js?v=20260221-02"></script>
 </body>
 </html>
