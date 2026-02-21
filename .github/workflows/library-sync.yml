@@ -1,0 +1,62 @@
+name: Library Data Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 9 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Sync devmtg talks/slides/videos from llvm-www
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/sync-devmtg-from-llvm-www.py \
+            --events-dir devmtg/events \
+            --manifest devmtg/events/index.json \
+            --github-token "${GITHUB_TOKEN}"
+
+      - name: Refresh OpenAlex discovered papers
+        run: |
+          python3 scripts/build-openalex-discovery.py \
+            --events-dir devmtg/events \
+            --papers-dir papers \
+            --index-json papers/index.json \
+            --app-js devmtg/js/app.js \
+            --extra-authors-file papers/extra-author-seeds.txt \
+            --max-pages-per-keyword 5 \
+            --per-page 200 \
+            --max-pages-per-author 1 \
+            --author-per-page 200 \
+            --mailto "llvm-library-bot@users.noreply.github.com"
+
+      - name: Validate bundle
+        run: scripts/validate-library-bundle.sh
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: codex/automated-library-sync
+          delete-branch: true
+          commit-message: "Automated library sync (OpenAlex + llvm-www/devmtg)"
+          title: "Automated library sync (OpenAlex + llvm-www/devmtg)"
+          body: |
+            Automated weekly sync:
+            - adds/updates talks/slides/videos from `llvm-www/devmtg`
+            - refreshes OpenAlex-discovered papers
+            - updates corresponding manifests/data versions
+          labels: automation,data-update

@@ -26,6 +26,7 @@ import urllib.parse
 import urllib.request
 
 from paper_keywords import PaperKeywordExtractor
+from tag_vocabulary import load_canonical_tags
 
 
 PLACEHOLDER_ABSTRACT = "No abstract available in llvm.org/pubs metadata."
@@ -48,22 +49,7 @@ def strip_tags(value: str) -> str:
 
 
 def parse_all_tags(app_js_path: Path) -> list[str]:
-    text = app_js_path.read_text(encoding="utf-8")
-    match = re.search(r"const\s+ALL_TAGS\s*=\s*\[(.*?)\];", text, flags=re.DOTALL)
-    if not match:
-        raise RuntimeError(f"Could not find ALL_TAGS in {app_js_path}")
-
-    tags_raw = match.group(1)
-    tags: list[str] = []
-    for single, double in re.findall(r"'([^']+)'|\"([^\"]+)\"", tags_raw):
-        tag = single or double
-        tag = collapse_ws(tag)
-        if tag:
-            tags.append(tag)
-
-    if not tags:
-        raise RuntimeError("Parsed empty ALL_TAGS list")
-    return tags
+    return load_canonical_tags(app_js_path)
 
 
 def extract_array_literal(js_text: str, var_name: str) -> str:

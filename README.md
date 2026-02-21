@@ -163,6 +163,38 @@ Optional check for malformed/blank speaker names:
 jq -r '.talks[] | select((.speakers // []) | map(.name // "") | any(. == "")) | [.id,.title] | @tsv' devmtg/events/*.json
 ```
 
+## Automated Sync (OpenAlex + llvm-www/devmtg)
+
+This repo now includes a scheduled workflow:
+
+- `.github/workflows/library-sync.yml`
+- Runs weekly on Monday at 09:17 UTC (and can be triggered manually with `workflow_dispatch`)
+
+What it does:
+
+1. Syncs talks/slides/videos from `llvm-www/devmtg` into `devmtg/events/*.json` while preserving current JSON schema.
+2. Runs OpenAlex discovery to refresh `papers/openalex-discovered.json` and `papers/index.json`.
+3. Validates the bundle and opens/updates a PR with changes.
+
+To run the devmtg sync locally:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/sync-devmtg-from-llvm-www.py \
+  --events-dir /Users/britton/Desktop/library/devmtg/events \
+  --manifest /Users/britton/Desktop/library/devmtg/events/index.json
+```
+
+To run OpenAlex discovery locally:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
+  --events-dir /Users/britton/Desktop/library/devmtg/events \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --index-json /Users/britton/Desktop/library/papers/index.json \
+  --app-js /Users/britton/Desktop/library/devmtg/js/app.js \
+  --extra-authors-file /Users/britton/Desktop/library/papers/extra-author-seeds.txt
+```
+
 ## Adding or Editing Papers
 
 Paper data is stored in:

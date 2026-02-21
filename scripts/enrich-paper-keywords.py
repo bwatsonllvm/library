@@ -14,6 +14,7 @@ import re
 from pathlib import Path
 
 from paper_keywords import PaperKeywordExtractor
+from tag_vocabulary import load_canonical_tags
 
 
 def collapse_ws(value: str) -> str:
@@ -25,20 +26,7 @@ def normalize_key(value: str) -> str:
 
 
 def parse_all_tags(app_js_path: Path) -> list[str]:
-    text = app_js_path.read_text(encoding="utf-8")
-    match = re.search(r"const\s+ALL_TAGS\s*=\s*\[(.*?)\];", text, flags=re.DOTALL)
-    if not match:
-        raise RuntimeError(f"Could not find ALL_TAGS in {app_js_path}")
-
-    tags_raw = match.group(1)
-    tags: list[str] = []
-    for single, double in re.findall(r"'([^']+)'|\"([^\"]+)\"", tags_raw):
-        tag = collapse_ws(single or double)
-        if tag:
-            tags.append(tag)
-    if not tags:
-        raise RuntimeError("Parsed empty ALL_TAGS list")
-    return tags
+    return load_canonical_tags(app_js_path)
 
 
 def load_manifest_files(manifest_path: Path) -> list[str]:
