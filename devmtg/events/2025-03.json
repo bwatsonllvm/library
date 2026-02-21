@@ -1,9 +1,9 @@
 {
   "meeting": {
     "slug": "2025-03",
-    "name": "2025 Ninth LLVM Performance Workshop @ CGO2025",
-    "date": "March 1-5, 2025",
-    "location": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
+    "name": "Ninth LLVM Performance Workshop at CGO",
+    "date": "",
+    "location": "",
     "canceled": false,
     "talkCount": 11
   },
@@ -16,22 +16,18 @@
       "meetingDate": "March 1-5, 2025",
       "category": "keynote",
       "title": "Compiler improvements in RISC-V",
-      "speakers": [
-
-      ],
+      "speakers": [],
       "abstract": "",
       "videoUrl": null,
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2025-03/slides/llvm-cgo-keynote-riscv.pdf",
       "projectGithub": "",
-      "tags": [
-
-      ]
+      "tags": []
     },
     {
       "id": "2025-03-002",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -77,7 +73,7 @@
     {
       "id": "2025-03-003",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -134,7 +130,7 @@
     {
       "id": "2025-03-004",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -178,7 +174,7 @@
     {
       "id": "2025-03-005",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -192,7 +188,7 @@
           "twitter": ""
         },
         {
-          "name": "Rudolf Eigenmann",
+          "name": "Rudolph Eigenmann",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -212,7 +208,7 @@
     {
       "id": "2025-03-006",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -255,7 +251,7 @@
     {
       "id": "2025-03-007",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -291,7 +287,7 @@
     {
       "id": "2025-03-008",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -347,7 +343,7 @@
     {
       "id": "2025-03-009",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -375,7 +371,7 @@
     {
       "id": "2025-03-010",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -442,7 +438,7 @@
     {
       "id": "2025-03-011",
       "meeting": "2025-03",
-      "meetingName": "2025 Ninth LLVM Performance Workshop @ CGO2025",
+      "meetingName": "Ninth LLVM Performance Workshop at CGO",
       "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
       "meetingDate": "March 1-5, 2025",
       "category": "technical-talk",
@@ -463,7 +459,7 @@
           "twitter": ""
         }
       ],
-      "abstract": "Offloading host computations to accelerators frequently incurs a substantial penalty in the form of memory transfer overhead. Although the traditional LLVM optimization pipeline offers robust static analyses, it remains unable to address optimising offload transfers directly due to architectural decisions that relocate transfer logic and metadata management to the runtime. This presentation examines both the potential and the constraints of optimizing offload memory transfers within LLVM's offloading runtime library - libomptarget, and runtime metadata produced by OpenMP offloading directives. We evaluate the scope for eliminating redundant data transfers, removing unused data segments, and thereby reducing transfer overhead based on currently available runtime information, while also considering what additional gains might be realized through enhanced metadata availability.\n\nWe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:):\n\nWhile the primary focus of the workshop is on these topics, we welcome any submission related to the LLVM project, its sub-projects (clang, mlir, lldb, Polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nProposals should provide sufficient information for the review committee to be able to judge the quality of the submission. Proposals can be submitted under the form of an extended abstract, full paper, or slides. Accepted presentations will be presented online. The presentations will be publicly available on https://llvm.org/devmtg/\n\nIn case of any queries please reach out to the workshop organizers: Aditya (hiraditya at msn.com), Jose M Monsalve Diaz (jmonsalvediaz at anl.gov), Shilei Tian (i at tianshilei.me), Rafael (rafaelhg at udel.edu), or Kevin Sala (kevin.sala at bsc.es).\n\nThe LLVM Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct. We also adhere to the CGO Code of Conduct.",
+      "abstract": "Offloading host computations to accelerators frequently incurs a substantial penalty in the form of memory transfer overhead. Although the traditional LLVM optimization pipeline offers robust static analyses, it remains unable to address optimising offload transfers directly due to architectural decisions that relocate transfer logic and metadata management to the runtime. This presentation examines both the potential and the constraints of optimizing offload memory transfers within LLVM's offloading runtime library - libomptarget, and runtime metadata produced by OpenMP offloading directives. We evaluate the scope for eliminating redundant data transfers, removing unused data segments, and thereby reducing transfer overhead based on currently available runtime information, while also considering what additional gains might be realized through enhanced metadata availability.",
       "videoUrl": null,
       "videoId": null,
       "slidesUrl": null,

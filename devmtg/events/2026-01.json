@@ -1,9 +1,9 @@
 {
   "meeting": {
     "slug": "2026-01",
-    "name": "2026 Tenth LLVM Performance Workshop @ CGO2026",
-    "date": "January 31, 2026",
-    "location": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
+    "name": "Tenth LLVM Performance Workshop at CGO",
+    "date": "",
+    "location": "",
     "canceled": false,
     "talkCount": 8
   },
@@ -11,10 +11,10 @@
     {
       "id": "2026-01-001",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
-      "category": "keynote",
+      "category": "technical-talk",
       "title": "ML Optimizations in Production LLVM: The Next Research Challenges (an engineer's opinion)",
       "speakers": [
         {
@@ -39,7 +39,7 @@
     {
       "id": "2026-01-002",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -90,7 +90,7 @@
     {
       "id": "2026-01-003",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -121,7 +121,7 @@
       "abstract": "Despite significant advances in database execution engine performance through Just-in-Time (JIT) compilation and optimized execution strategies, database systems continue to suffer from limited explainability and extensibility. Evaluating individual operator implementations typically requires modifying source code, and database operation reuse remains constrained by language boundaries. We present Polymer, a framework that leverages MLIR's hierarchical intermediate representation to model database execution engines. Polymer treats database operations as composable MLIR operators, enabling fine-grained debugging and systematic optimization across operator boundaries. By representing query execution plans as MLIR modules and lowering them to LLVM IR for execution via LLVM's ORC JIT runtime, Polymer provides a unified platform for evaluating query optimizers, comparing data format I/O performance, and identifying performance bottlenecks at the operator level. Our approach transforms database execution into a compiler-centric problem, enabling the application of mature compiler optimization techniques to database systems while preserving explainability through MLIR's multi-level representation.",
       "videoUrl": null,
       "videoId": null,
-      "slidesUrl": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-01/slides/polymer.pdf",
       "projectGithub": "",
       "tags": [
         "IR",
@@ -134,7 +134,7 @@
     {
       "id": "2026-01-004",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -172,7 +172,7 @@
       "abstract": "Profile-Guided Optimization (PGO) is a widely used technique for guiding compiler optimizations with runtime behavior. However, its adoption is limited by the high cost of collecting architecture-specific profiles, especially on resource-constrained devices or slow simulation platforms. We propose APGO, an architecture-agnostic PGO framework that enables \"profile once, optimize anywhere\". APGO treats profile transfer as a region-level alignment problem: APGO directly reuses matched profile regions and employs an AI-Guided Synthesizer to reconstruct missing profile data through architecture-aware layout adaptation and profile mapping. This approach removes the requirement for native profiling on divergent targets, enabling efficient profile reuse. Experimental results show that APGO reduces up to 32.78x profiling time compared to native architecture profiling, while achieving comparable performance on the majority of workloads (34/54 single-core and 11/20 multi-threaded) across RISC-V and ARM. Notably, APGO even surpasses native PGO on 14 single-core and 6 multi-threaded workloads, with peak improvements of 13%.",
       "videoUrl": null,
       "videoId": null,
-      "slidesUrl": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-01/slides/apgo_cgo_workshop.pdf",
       "projectGithub": "",
       "tags": [
         "Optimizations",
@@ -183,7 +183,7 @@
     {
       "id": "2026-01-005",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -290,7 +290,7 @@
     {
       "id": "2026-01-006",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -330,7 +330,7 @@
     {
       "id": "2026-01-007",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
@@ -358,7 +358,7 @@
     {
       "id": "2026-01-008",
       "meeting": "2026-01",
-      "meetingName": "2026 Tenth LLVM Performance Workshop @ CGO2026",
+      "meetingName": "Tenth LLVM Performance Workshop at CGO",
       "meetingLocation": "Tenth LLVM Performance Workshop @ CGO2026, Sydney, Australia",
       "meetingDate": "January 31, 2026",
       "category": "technical-talk",
