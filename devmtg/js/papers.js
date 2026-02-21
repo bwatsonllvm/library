@@ -369,6 +369,7 @@ function renderAuthorButtons(authors, tokens) {
 
 function renderPaperCard(paper, tokens) {
   const titleEsc = escapeHtml(paper.title);
+  const authorLabel = (paper.authors || []).map((author) => String(author.name || '').trim()).filter(Boolean).join(', ');
   const yearLabel = escapeHtml(paper._year || 'Unknown year');
   const venueLabel = escapeHtml(paper.venue || (paper.type ? paper.type.replace(/-/g, ' ') : 'Academic paper'));
   const abstractText = paper.abstract || 'No abstract available.';
@@ -394,7 +395,7 @@ function renderPaperCard(paper, tokens) {
 
   return `
     <article class="talk-card paper-card">
-      <div class="card-link-wrap">
+      <a href="paper.html?id=${escapeHtml(paper.id)}" class="card-link-wrap" aria-label="${titleEsc}${authorLabel ? ` by ${escapeHtml(authorLabel)}` : ''}">
         <div class="card-thumbnail paper-thumbnail" aria-hidden="true">
           <div class="card-thumbnail-placeholder paper-thumbnail-placeholder">
             ${paperThumbSvg}
@@ -410,7 +411,7 @@ function renderPaperCard(paper, tokens) {
           <p class="card-title">${highlightText(paper.title, tokens)}</p>
           <p class="card-abstract">${highlightText(abstractText, tokens)}</p>
         </div>
-      </div>
+      </a>
       <p class="card-speakers paper-authors">${renderAuthorButtons(paper.authors || [], tokens)}</p>
       ${tagsHtml}
       ${(paperLink || sourceLink) ? `<div class="card-footer">${paperLink}${sourceLink}</div>` : ''}

@@ -2791,6 +2791,13 @@ mark {
   text-overflow: unset;
 }
 
+/* Paper cards keep a compact author line; full authors are shown on paper detail page. */
+.paper-card > .card-speakers.paper-authors {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 /* On talk cards — inline button inside .card-speakers */
 .speaker-btn {

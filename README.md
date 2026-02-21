@@ -58,6 +58,7 @@ Open:
 - `http://localhost:8090/devmtg/meetings.html`
 - `http://localhost:8090/devmtg/talk.html?id=2019-10-001`
 - `http://localhost:8090/devmtg/papers.html`
+- `http://localhost:8090/devmtg/paper.html?id=pubs-2004-01-30-cgo-llvm`
 
 ### 4. Commit in `llvm-www`
 
