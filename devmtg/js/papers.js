@@ -445,7 +445,6 @@ function renderPaperCard(paper, tokens) {
   const yearLabel = escapeHtml(paper._year || 'Unknown year');
   const venueLabel = escapeHtml(paper.publication || paper.venue || (paper.type ? paper.type.replace(/-/g, ' ') : 'Academic paper'));
   const abstractText = paper.abstract || 'No abstract available.';
-  const paperThumbSvg = `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><polyline points="14 2 14 7 19 7"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/></svg>`;
 
   const sourceIsPdf = /\.pdf(?:$|[?#])/i.test(paper.sourceUrl || '');
   const sourceLink = sourceIsPdf && paper.sourceUrl !== paper.paperUrl
@@ -468,12 +467,6 @@ function renderPaperCard(paper, tokens) {
   return `
     <article class="talk-card paper-card">
       <a href="paper.html?id=${escapeHtml(paper.id)}" class="card-link-wrap" aria-label="${titleEsc}${authorLabel ? ` by ${escapeHtml(authorLabel)}` : ''}">
-        <div class="card-thumbnail paper-thumbnail" aria-hidden="true">
-          <div class="card-thumbnail-placeholder paper-thumbnail-placeholder">
-            ${paperThumbSvg}
-            <span class="paper-thumbnail-label">Paper</span>
-          </div>
-        </div>
         <div class="card-body">
           <div class="card-meta">
             <span class="badge badge-paper">Paper</span>
