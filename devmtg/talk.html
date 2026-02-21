@@ -26,24 +26,24 @@
         } else {
           document.documentElement.setAttribute('data-text-size', textSize);
         }
-        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#fafafa';
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
       } catch (_) {
         var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         var fallbackTheme = fallbackDark ? 'dark' : 'light';
         document.documentElement.setAttribute('data-theme', fallbackTheme);
         document.documentElement.setAttribute('data-theme-preference', 'system');
-        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#fafafa';
+        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
       }
     })();
   </script>
   <style>
-    html { background: #fafafa; }
+    html { background: #f5f5f5; }
     html[data-theme="dark"] { background: #000000; }
     body { background: transparent; }
   </style>
   <title>Talk — LLVM Developers' Meeting Library</title>
   <meta name="description" content="Talk details from the LLVM Developers' Meeting.">
-  <link rel="stylesheet" href="css/style.css?v=20260221-15">
+  <link rel="stylesheet" href="css/style.css?v=20260221-17">
 </head>
 <body>
 
