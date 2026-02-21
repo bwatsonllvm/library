@@ -547,6 +547,9 @@
     if (!slidesUrl) return false;
     return (
       slidesUrl.includes('/student-talks/') ||
+      slidesUrl.includes('/student_talks/') ||
+      slidesUrl.includes('/student-talk/') ||
+      slidesUrl.includes('/student_talk/') ||
       slidesUrl.includes('/studenttalks/') ||
       slidesUrl.includes('/student_technical_talk/') ||
       slidesUrl.includes('/student-technical-talk/')
