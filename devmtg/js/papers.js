@@ -12,15 +12,17 @@ let allPapers = [];
 let searchIndex = [];
 let debounceTimer = null;
 let searchMode = 'browse'; // 'browse' | 'exact' | 'fuzzy'
-let autocompleteIndex = { tags: [], speakers: [] };
+let autocompleteIndex = { tags: [], speakers: [], publications: [] };
 let dropdownActiveIdx = -1;
 
 const state = {
   query: '',
   activeSpeaker: '',
   activeTag: '',
+  activePublication: '',
   speaker: '', // exact author filter from author button click
   years: new Set(),
+  publications: new Set(),
 };
 
 // ============================================================
@@ -51,6 +53,70 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+function cleanMetadataValue(value) {
+  const cleaned = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!cleaned) return '';
+  const lowered = cleaned.toLowerCase();
+  if (['none', 'null', 'nan', 'n/a'].includes(lowered)) return '';
+  return cleaned;
+}
+
+function normalizePublicationAndVenue(publication, venue) {
+  let normalizedPublication = cleanMetadataValue(publication);
+  const rawVenueParts = String(venue || '')
+    .split('|')
+    .map((part) => cleanMetadataValue(part))
+    .filter(Boolean);
+
+  let volume = '';
+  let issue = '';
+  const extras = [];
+
+  for (const part of rawVenueParts) {
+    const volumeMatch = part.match(/^Vol\.\s*(.+?)(?:\s*\(Issue\s*(.+?)\))?$/i);
+    if (volumeMatch) {
+      volume = cleanMetadataValue(volumeMatch[1] || '');
+      issue = cleanMetadataValue(volumeMatch[2] || '');
+      continue;
+    }
+
+    const issueMatch = part.match(/^Issue\s+(.+)$/i);
+    if (issueMatch) {
+      issue = cleanMetadataValue(issueMatch[1] || '');
+      continue;
+    }
+
+    extras.push(part);
+  }
+
+  if (!normalizedPublication && extras.length > 0) {
+    const first = extras[0];
+    if (!/^Vol\./i.test(first) && !/^Issue\b/i.test(first)) {
+      normalizedPublication = first;
+    }
+  }
+
+  const normalizedVenueParts = [];
+  if (normalizedPublication) normalizedVenueParts.push(normalizedPublication);
+  for (const part of extras) {
+    if (normalizedPublication && part.toLowerCase() === normalizedPublication.toLowerCase()) continue;
+    if (!normalizedVenueParts.some((existing) => existing.toLowerCase() === part.toLowerCase())) {
+      normalizedVenueParts.push(part);
+    }
+  }
+
+  if (volume) {
+    normalizedVenueParts.push(`Vol. ${volume}${issue ? ` (Issue ${issue})` : ''}`);
+  } else if (issue) {
+    normalizedVenueParts.push(`Issue ${issue}`);
+  }
+
+  return {
+    publication: normalizedPublication,
+    venue: normalizedVenueParts.join(' | '),
+  };
+}
+
 function normalizePaperRecord(rawPaper) {
   if (!rawPaper || typeof rawPaper !== 'object') return null;
 
@@ -59,7 +125,9 @@ function normalizePaperRecord(rawPaper) {
   paper.title = String(paper.title || '').trim();
   paper.abstract = String(paper.abstract || '').trim();
   paper.year = String(paper.year || '').trim();
-  paper.venue = String(paper.venue || '').trim();
+  const metadata = normalizePublicationAndVenue(paper.publication, paper.venue);
+  paper.publication = metadata.publication;
+  paper.venue = metadata.venue;
   paper.type = String(paper.type || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
@@ -87,6 +155,7 @@ function normalizePaperRecord(rawPaper) {
   paper._authorLower = paper.authors.map((author) => `${author.name} ${author.affiliation || ''}`.trim()).join(' ').toLowerCase();
   paper._abstractLower = paper.abstract.toLowerCase();
   paper._tagsLower = paper.tags.join(' ').toLowerCase();
+  paper._publicationLower = paper.publication.toLowerCase();
   paper._venueLower = paper.venue.toLowerCase();
   paper._typeLower = paper.type.toLowerCase();
 
@@ -112,7 +181,8 @@ function normalizePaperRecord(rawPaper) {
   paper._fuzzyTitle = uniqueTokens([paper.title]);
   paper._fuzzyAuthors = uniqueTokens(paper.authors.map((author) => author.name));
   paper._fuzzyTags = uniqueTokens(paper.tags);
-  paper._fuzzyVenue = uniqueTokens([paper.venue, paper.type, paper.year]);
+  paper._fuzzyPublication = uniqueTokens([paper.publication]);
+  paper._fuzzyVenue = uniqueTokens([paper.venue, paper.publication, paper.type, paper.year]);
 
   return paper;
 }
@@ -147,6 +217,7 @@ function scorePaperMatch(indexedPaper, tokens) {
     const authors = String(indexedPaper._authorLower || '');
     const abstractText = String(indexedPaper._abstractLower || '');
     const tags = String(indexedPaper._tagsLower || '');
+    const publication = String(indexedPaper._publicationLower || '');
     const venue = String(indexedPaper._venueLower || '');
     const type = String(indexedPaper._typeLower || '');
     const year = String(indexedPaper._year || '');
@@ -156,6 +227,7 @@ function scorePaperMatch(indexedPaper, tokens) {
     if (authors.includes(token)) tokenScore += 34;
     if (tags.includes(token)) tokenScore += 20;
     if (abstractText.includes(token)) tokenScore += 12;
+    if (publication.includes(token)) tokenScore += 10;
     if (venue.includes(token)) tokenScore += 8;
     if (type.includes(token)) tokenScore += 6;
     if (year.includes(token)) tokenScore += 6;
@@ -240,12 +312,14 @@ function fuzzyScorePaper(indexedPaper, tokens) {
     const titleScore = fuzzyTokenScore(token, indexedPaper._fuzzyTitle || []);
     const authorScore = fuzzyTokenScore(token, indexedPaper._fuzzyAuthors || []);
     const tagScore = fuzzyTokenScore(token, indexedPaper._fuzzyTags || []);
+    const publicationScore = fuzzyTokenScore(token, indexedPaper._fuzzyPublication || []);
     const venueScore = fuzzyTokenScore(token, indexedPaper._fuzzyVenue || []);
 
     const best = Math.max(
       titleScore ? titleScore + 3 : 0,
       authorScore ? authorScore + 2 : 0,
       tagScore ? tagScore + 2 : 0,
+      publicationScore ? publicationScore + 1 : 0,
       venueScore,
     );
 
@@ -328,6 +402,16 @@ function filterAndSort() {
     );
   }
 
+  if (state.activePublication) {
+    const activePublication = normalizeFilterValue(state.activePublication);
+    results = results.filter((paper) => normalizeFilterValue(paper.publication) === activePublication);
+  }
+
+  if (state.publications.size > 0) {
+    const selectedPublications = new Set([...state.publications].map((publication) => normalizeFilterValue(publication)));
+    results = results.filter((paper) => selectedPublications.has(normalizeFilterValue(paper.publication)));
+  }
+
   if (state.years.size > 0) {
     results = results.filter((paper) => state.years.has(paper._year));
   }
@@ -371,7 +455,7 @@ function renderPaperCard(paper, tokens) {
   const titleEsc = escapeHtml(paper.title);
   const authorLabel = (paper.authors || []).map((author) => String(author.name || '').trim()).filter(Boolean).join(', ');
   const yearLabel = escapeHtml(paper._year || 'Unknown year');
-  const venueLabel = escapeHtml(paper.venue || (paper.type ? paper.type.replace(/-/g, ' ') : 'Academic paper'));
+  const venueLabel = escapeHtml(paper.publication || paper.venue || (paper.type ? paper.type.replace(/-/g, ' ') : 'Academic paper'));
   const abstractText = paper.abstract || 'No abstract available.';
   const paperThumbSvg = `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"/><polyline points="14 2 14 7 19 7"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/></svg>`;
 
@@ -431,6 +515,7 @@ function renderCards(results) {
 
     if (state.speaker) recoveryActions.push({ id: 'clear-author', label: 'Clear author' });
     if (state.years.size > 0) recoveryActions.push({ id: 'clear-year', label: 'Clear year' });
+    if (state.activePublication || state.publications.size > 0) recoveryActions.push({ id: 'clear-publication', label: 'Clear publication' });
     if (state.activeTag) recoveryActions.push({ id: 'clear-topic', label: 'Clear topic' });
     else if (state.query) recoveryActions.push({ id: 'clear-search', label: 'Clear search' });
     recoveryActions.push({ id: 'reset-all', label: 'Reset all' });
@@ -461,6 +546,21 @@ function renderCards(results) {
             chip.classList.remove('active');
             chip.setAttribute('aria-checked', 'false');
           });
+          updateClearBtn();
+          syncUrl();
+          render();
+          return;
+        }
+        if (action === 'clear-publication') {
+          const removedPublication = state.activePublication;
+          state.publications.clear();
+          state.activePublication = '';
+          if (removedPublication && normalizeFilterValue(state.query) === normalizeFilterValue(removedPublication)) {
+            state.query = '';
+            const input = document.getElementById('search-input');
+            if (input) input.value = '';
+          }
+          syncPublicationChipState();
           updateClearBtn();
           syncUrl();
           render();
@@ -498,9 +598,15 @@ function renderResultCount(count) {
   const activeFilterCount =
     (state.query ? 1 : 0) +
     (state.speaker ? 1 : 0) +
+    (state.publications.size > 0 || state.activePublication ? 1 : 0) +
     state.years.size;
 
-  const noActiveFilters = !state.query && !state.speaker && state.years.size === 0;
+  const noActiveFilters =
+    !state.query &&
+    !state.speaker &&
+    !state.activePublication &&
+    state.publications.size === 0 &&
+    state.years.size === 0;
 
   if (count === total && noActiveFilters) {
     el.innerHTML = `<strong>${total.toLocaleString()}</strong> papers`;
@@ -530,6 +636,17 @@ function updateHeroSubtitle(resultsCount) {
 
   if (state.activeTag && state.query && normalizeFilterValue(state.activeTag) === normalizeFilterValue(state.query)) {
     el.innerHTML = `Showing papers tagged <strong>${escapeHtml(state.activeTag)}</strong>`;
+    return;
+  }
+
+  if (state.activePublication) {
+    el.innerHTML = `Showing papers in <strong>${escapeHtml(state.activePublication)}</strong>`;
+    return;
+  }
+
+  if (state.publications.size === 1) {
+    const publication = [...state.publications][0];
+    el.innerHTML = `Showing papers in <strong>${escapeHtml(publication)}</strong>`;
     return;
   }
 
@@ -606,6 +723,8 @@ function renderActiveFilters() {
       typeLabel = 'Speaker';
     } else if (state.activeTag && normalizeFilterValue(state.activeTag) === normalizeFilterValue(state.query)) {
       typeLabel = 'Topic';
+    } else if (state.activePublication && normalizeFilterValue(state.activePublication) === normalizeFilterValue(state.query)) {
+      typeLabel = 'Publication';
     }
 
     pills.push(createActiveFilterPill(
@@ -622,6 +741,15 @@ function renderActiveFilters() {
       year,
       `Remove year filter: ${year}`,
       () => removeYearFilter(year)
+    ));
+  }
+
+  for (const publication of [...state.publications].sort((a, b) => a.localeCompare(b))) {
+    pills.push(createActiveFilterPill(
+      'Publication',
+      publication,
+      `Remove publication filter: ${publication}`,
+      () => removePublicationFilter(publication)
     ));
   }
 
@@ -643,10 +771,27 @@ function resolveCanonicalTag(value) {
   return matched ? matched.label : '';
 }
 
+function resolveCanonicalPublication(value) {
+  const normalized = normalizeFilterValue(value);
+  if (!normalized) return '';
+
+  const matched = autocompleteIndex.publications.find((publication) => normalizeFilterValue(publication.label) === normalized);
+  return matched ? matched.label : '';
+}
+
 function syncTopicChipState() {
   const activeTopic = normalizeFilterValue(state.activeTag);
   document.querySelectorAll('.filter-chip[data-type="tag"]').forEach((chip) => {
     const isActive = !!activeTopic && normalizeFilterValue(chip.dataset.value) === activeTopic;
+    chip.classList.toggle('active', isActive);
+    chip.setAttribute('aria-checked', isActive ? 'true' : 'false');
+  });
+}
+
+function syncPublicationChipState() {
+  const selected = new Set([...state.publications].map((publication) => normalizeFilterValue(publication)));
+  document.querySelectorAll('.filter-chip[data-type="publication"]').forEach((chip) => {
+    const isActive = selected.has(normalizeFilterValue(chip.dataset.value));
     chip.classList.toggle('active', isActive);
     chip.setAttribute('aria-checked', isActive ? 'true' : 'false');
   });
@@ -658,6 +803,7 @@ function applyTopicSearchFilter(tag) {
   state.speaker = '';
   state.activeSpeaker = '';
   state.activeTag = resolveCanonicalTag(tag);
+  state.activePublication = '';
   state.query = state.activeTag || tag;
 
   if (input) input.value = state.query;
@@ -688,9 +834,39 @@ function applyAutocompleteSelection(type, value, source = 'search') {
     return;
   }
 
+  if (type === 'publication') {
+    const sameActivePublication =
+      normalizedValue &&
+      normalizedValue === normalizeFilterValue(state.activePublication) &&
+      normalizedValue === normalizeFilterValue(state.query);
+
+    if (source === 'sidebar' && sameActivePublication) {
+      clearQuery();
+      return;
+    }
+
+    state.speaker = '';
+    state.activeSpeaker = '';
+    state.activeTag = '';
+    syncTopicChipState();
+
+    state.activePublication = resolveCanonicalPublication(value);
+    state.publications.clear();
+    syncPublicationChipState();
+    state.query = state.activePublication || value;
+
+    if (input) input.value = state.query;
+    closeDropdown();
+    updateClearBtn();
+    syncUrl();
+    render();
+    return;
+  }
+
   state.speaker = '';
   state.activeTag = '';
   syncTopicChipState();
+  state.activePublication = '';
 
   if (type === 'speaker') {
     state.activeSpeaker = value;
@@ -745,6 +921,39 @@ function removeYearFilter(year) {
   render();
 }
 
+function removePublicationFilter(publication) {
+  const target = normalizeFilterValue(publication);
+  const removedPublication = state.activePublication;
+
+  for (const currentPublication of [...state.publications]) {
+    if (normalizeFilterValue(currentPublication) === target) {
+      state.publications.delete(currentPublication);
+    }
+  }
+
+  if (normalizeFilterValue(state.activePublication) === target) {
+    state.activePublication = '';
+  }
+
+  if (removedPublication && state.query && normalizeFilterValue(state.query) === normalizeFilterValue(removedPublication)) {
+    state.query = '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+    closeDropdown();
+  }
+
+  document.querySelectorAll('.filter-chip[data-type="publication"]').forEach((chip) => {
+    if (normalizeFilterValue(chip.dataset.value) === target) {
+      chip.classList.remove('active');
+      chip.setAttribute('aria-checked', 'false');
+    }
+  });
+
+  updateClearBtn();
+  syncUrl();
+  render();
+}
+
 function clearQuery() {
   const input = document.getElementById('search-input');
   if (input) input.value = '';
@@ -752,6 +961,7 @@ function clearQuery() {
   state.query = '';
   state.activeSpeaker = '';
   state.activeTag = '';
+  state.activePublication = '';
 
   syncTopicChipState();
   closeDropdown();
@@ -764,8 +974,10 @@ function clearFilters() {
   state.query = '';
   state.activeSpeaker = '';
   state.activeTag = '';
+  state.activePublication = '';
   state.speaker = '';
   state.years.clear();
+  state.publications.clear();
 
   const input = document.getElementById('search-input');
   if (input) input.value = '';
@@ -796,6 +1008,7 @@ function syncYearChipsFromState() {
 function initFilters() {
   const tagCounts = {};
   const yearCounts = {};
+  const publicationCounts = {};
 
   for (const paper of allPapers) {
     for (const tag of (paper.tags || [])) {
@@ -804,6 +1017,10 @@ function initFilters() {
 
     if (paper._year) {
       yearCounts[paper._year] = (yearCounts[paper._year] || 0) + 1;
+    }
+
+    if (paper.publication) {
+      publicationCounts[paper.publication] = (publicationCounts[paper.publication] || 0) + 1;
     }
   }
 
@@ -833,6 +1050,19 @@ function initFilters() {
       </button>`).join('');
   }
 
+  const publications = Object.entries(publicationCounts)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+  const publicationContainer = document.getElementById('filter-publications');
+  if (publicationContainer) {
+    publicationContainer.innerHTML = publications.map(([publication, count]) => `
+      <button class="filter-chip" data-type="publication" data-value="${escapeHtml(publication)}"
+              role="switch" aria-checked="false">
+        ${escapeHtml(publication)}
+        <span class="filter-chip-count">${count.toLocaleString()}</span>
+      </button>`).join('');
+  }
+
   document.querySelectorAll('.filter-chip[data-type]').forEach((chip) => {
     chip.addEventListener('click', () => {
       const type = chip.dataset.type;
@@ -845,6 +1075,26 @@ function initFilters() {
           chip.setAttribute('aria-checked', 'false');
         } else {
           state.years.add(value);
+          chip.classList.add('active');
+          chip.setAttribute('aria-checked', 'true');
+        }
+
+        updateClearBtn();
+        syncUrl();
+        render();
+        return;
+      }
+
+      if (type === 'publication') {
+        if (state.publications.has(value)) {
+          state.publications.delete(value);
+          chip.classList.remove('active');
+          chip.setAttribute('aria-checked', 'false');
+          if (normalizeFilterValue(state.activePublication) === normalizeFilterValue(value)) {
+            state.activePublication = '';
+          }
+        } else {
+          state.publications.add(value);
           chip.classList.add('active');
           chip.setAttribute('aria-checked', 'true');
         }
@@ -1031,6 +1281,11 @@ function syncUrl() {
   if (state.speaker) params.set('speaker', state.speaker);
   if (state.query) params.set('q', state.query);
   if (state.years.size) params.set('year', [...state.years].join(','));
+  if (state.publications.size) {
+    for (const publication of state.publications) {
+      params.append('publication', publication);
+    }
+  }
 
   const newUrl = params.toString()
     ? `${window.location.pathname}?${params.toString()}`
@@ -1044,10 +1299,29 @@ function loadStateFromUrl() {
   state.query = String(params.get('q') || '').trim();
   state.speaker = String(params.get('speaker') || '').trim();
   state.years.clear();
+  state.publications.clear();
 
   const yearParam = String(params.get('year') || '').trim();
   if (yearParam) {
     yearParam.split(',').map((part) => part.trim()).filter(Boolean).forEach((year) => state.years.add(year));
+  }
+
+  let publicationValues = params.getAll('publication').map((value) => String(value || '').trim()).filter(Boolean);
+  if (publicationValues.length === 1) {
+    const onlyValue = publicationValues[0];
+    if (onlyValue.includes(',') && !resolveCanonicalPublication(onlyValue)) {
+      publicationValues = onlyValue.split(',').map((part) => part.trim()).filter(Boolean);
+    }
+  } else if (publicationValues.length === 0) {
+    const legacyPublication = String(params.get('venue') || '').trim();
+    if (legacyPublication) publicationValues = [legacyPublication];
+  }
+
+  if (publicationValues.length > 0) {
+    publicationValues.forEach((publication) => {
+      const canonical = resolveCanonicalPublication(publication);
+      state.publications.add(canonical || publication);
+    });
   }
 
   if (!state.query) {
@@ -1057,6 +1331,7 @@ function loadStateFromUrl() {
 
   state.activeSpeaker = '';
   state.activeTag = resolveCanonicalTag(state.query);
+  state.activePublication = resolveCanonicalPublication(state.query);
 
   const input = document.getElementById('search-input');
   if (input) input.value = state.query;
@@ -1065,6 +1340,7 @@ function loadStateFromUrl() {
 function applyUrlFilters() {
   syncYearChipsFromState();
   syncTopicChipState();
+  syncPublicationChipState();
   updateClearBtn();
 }
 
@@ -1075,6 +1351,7 @@ function applyUrlFilters() {
 function buildAutocompleteIndex() {
   const tagCounts = {};
   const speakerCounts = {};
+  const publicationCounts = {};
 
   for (const paper of allPapers) {
     for (const tag of (paper.tags || [])) {
@@ -1088,6 +1365,10 @@ function buildAutocompleteIndex() {
       seenAuthors.add(name);
       speakerCounts[name] = (speakerCounts[name] || 0) + 1;
     }
+
+    if (paper.publication) {
+      publicationCounts[paper.publication] = (publicationCounts[paper.publication] || 0) + 1;
+    }
   }
 
   autocompleteIndex.tags = Object.entries(tagCounts)
@@ -1095,6 +1376,10 @@ function buildAutocompleteIndex() {
     .map(([label, count]) => ({ label, count }));
 
   autocompleteIndex.speakers = Object.entries(speakerCounts)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([label, count]) => ({ label, count }));
+
+  autocompleteIndex.publications = Object.entries(publicationCounts)
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([label, count]) => ({ label, count }));
 }
@@ -1124,14 +1409,18 @@ function renderDropdown(query) {
   const matchedSpeakers = autocompleteIndex.speakers
     .filter((speaker) => speaker.label.toLowerCase().includes(q))
     .slice(0, 6);
+  const matchedPublications = autocompleteIndex.publications
+    .filter((publication) => publication.label.toLowerCase().includes(q))
+    .slice(0, 6);
 
-  if (matchedTags.length === 0 && matchedSpeakers.length === 0) {
+  if (matchedTags.length === 0 && matchedSpeakers.length === 0 && matchedPublications.length === 0) {
     dropdown.classList.add('hidden');
     dropdownActiveIdx = -1;
     return;
   }
 
   const tagIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`;
+  const publicationIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M20 22V2H6.5A2.5 2.5 0 0 0 4 4.5v15"/></svg>`;
   const speakerIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
 
   let html = '';
@@ -1159,6 +1448,20 @@ function renderDropdown(query) {
           <span class="search-dropdown-item-icon">${speakerIcon}</span>
           <span class="search-dropdown-item-label">${highlightMatch(speaker.label, query)}</span>
           <span class="search-dropdown-item-count">${speaker.count.toLocaleString()} paper${speaker.count === 1 ? '' : 's'}</span>
+        </button>`).join('')}
+    </div>`;
+  }
+
+  if (matchedPublications.length > 0) {
+    if (matchedTags.length > 0 || matchedSpeakers.length > 0) html += `<div class="search-dropdown-divider"></div>`;
+    html += `<div class="search-dropdown-section">
+      <div class="search-dropdown-label" aria-hidden="true">Publications</div>
+      ${matchedPublications.map((publication) => `
+        <button class="search-dropdown-item" role="option" aria-selected="false"
+                data-autocomplete-type="publication" data-autocomplete-value="${escapeHtml(publication.label)}">
+          <span class="search-dropdown-item-icon">${publicationIcon}</span>
+          <span class="search-dropdown-item-label">${highlightMatch(publication.label, query)}</span>
+          <span class="search-dropdown-item-count">${publication.count.toLocaleString()} paper${publication.count === 1 ? '' : 's'}</span>
         </button>`).join('')}
     </div>`;
   }
@@ -1227,6 +1530,9 @@ function initSearch() {
       state.activeTag = '';
       syncTopicChipState();
     }
+    if (rawValue.trim() !== state.activePublication) {
+      state.activePublication = '';
+    }
 
     if (rawValue.trim() && state.speaker) state.speaker = '';
 
@@ -1291,6 +1597,8 @@ function updateClearBtn() {
   const hasActivity =
     state.query.length > 0 ||
     state.speaker ||
+    state.activePublication ||
+    state.publications.size > 0 ||
     state.years.size > 0;
 
   const clearBtn = document.getElementById('clear-filters');
@@ -1323,8 +1631,14 @@ function filterByTag(tag) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function filterByPublication(publication) {
+  applyAutocompleteSelection('publication', publication, 'search');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 window.filterBySpeaker = filterBySpeaker;
 window.filterByTag = filterByTag;
+window.filterByPublication = filterByPublication;
 
 // ============================================================
 // Theme / UI menus

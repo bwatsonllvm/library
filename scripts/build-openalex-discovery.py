@@ -345,22 +345,40 @@ def pick_urls(work: dict) -> tuple[str, str]:
     return paper_url, source_url
 
 
-def pick_venue(work: dict) -> str:
+def _clean_meta_value(value: str) -> str:
+    clean = collapse_ws(value)
+    lowered = clean.lower()
+    if lowered in {"", "none", "null", "nan", "n/a"}:
+        return ""
+    return clean
+
+
+def pick_publication_and_venue(work: dict) -> tuple[str, str]:
     primary = work.get("primary_location") or {}
     source = primary.get("source") or {}
 
-    parts = []
-    venue = collapse_ws(str(source.get("display_name", "")))
-    if venue:
-        parts.append(venue)
+    publication = _clean_meta_value(str(source.get("display_name", "")))
+    if not publication:
+        for loc in (work.get("locations") or []):
+            src = (loc or {}).get("source") or {}
+            candidate = _clean_meta_value(str(src.get("display_name", "")))
+            if candidate:
+                publication = candidate
+                break
 
     biblio = work.get("biblio") or {}
-    volume = collapse_ws(str(biblio.get("volume", "")))
-    issue = collapse_ws(str(biblio.get("issue", "")))
+    volume = _clean_meta_value(str(biblio.get("volume", "")))
+    issue = _clean_meta_value(str(biblio.get("issue", "")))
+
+    parts = []
+    if publication:
+        parts.append(publication)
     if volume:
         parts.append(f"Vol. {volume}" + (f" (Issue {issue})" if issue else ""))
+    elif issue:
+        parts.append(f"Issue {issue}")
 
-    return " | ".join(parts)
+    return publication, " | ".join(parts)
 
 
 def classify_type(openalex_type: str) -> str:
@@ -485,8 +503,8 @@ def main() -> int:
             continue
 
         abstract = decode_abstract_inverted_index(work.get("abstract_inverted_index"))
-        venue = pick_venue(work)
-        focus_blob = f"{title} {abstract} {venue}"
+        publication, venue = pick_publication_and_venue(work)
+        focus_blob = f"{title} {abstract} {publication} {venue}"
         if not match_focus_terms(focus_blob):
             continue
 
@@ -527,9 +545,11 @@ def main() -> int:
             {
                 "id": paper_id,
                 "source": "openalex-discovery",
+                "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
                 "title": title,
                 "authors": authors,
                 "year": year,
+                "publication": publication,
                 "venue": venue,
                 "type": classify_type(openalex_type),
                 "abstract": abstract or "No abstract available in discovery metadata.",

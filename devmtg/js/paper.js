@@ -8,6 +8,70 @@ const HubUtils = window.LLVMHubUtils || {};
 // Data Loading
 // ============================================================
 
+function cleanMetadataValue(value) {
+  const cleaned = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!cleaned) return '';
+  const lowered = cleaned.toLowerCase();
+  if (['none', 'null', 'nan', 'n/a'].includes(lowered)) return '';
+  return cleaned;
+}
+
+function normalizePublicationAndVenue(publication, venue) {
+  let normalizedPublication = cleanMetadataValue(publication);
+  const rawVenueParts = String(venue || '')
+    .split('|')
+    .map((part) => cleanMetadataValue(part))
+    .filter(Boolean);
+
+  let volume = '';
+  let issue = '';
+  const extras = [];
+
+  for (const part of rawVenueParts) {
+    const volumeMatch = part.match(/^Vol\.\s*(.+?)(?:\s*\(Issue\s*(.+?)\))?$/i);
+    if (volumeMatch) {
+      volume = cleanMetadataValue(volumeMatch[1] || '');
+      issue = cleanMetadataValue(volumeMatch[2] || '');
+      continue;
+    }
+
+    const issueMatch = part.match(/^Issue\s+(.+)$/i);
+    if (issueMatch) {
+      issue = cleanMetadataValue(issueMatch[1] || '');
+      continue;
+    }
+
+    extras.push(part);
+  }
+
+  if (!normalizedPublication && extras.length > 0) {
+    const first = extras[0];
+    if (!/^Vol\./i.test(first) && !/^Issue\b/i.test(first)) {
+      normalizedPublication = first;
+    }
+  }
+
+  const normalizedVenueParts = [];
+  if (normalizedPublication) normalizedVenueParts.push(normalizedPublication);
+  for (const part of extras) {
+    if (normalizedPublication && part.toLowerCase() === normalizedPublication.toLowerCase()) continue;
+    if (!normalizedVenueParts.some((existing) => existing.toLowerCase() === part.toLowerCase())) {
+      normalizedVenueParts.push(part);
+    }
+  }
+
+  if (volume) {
+    normalizedVenueParts.push(`Vol. ${volume}${issue ? ` (Issue ${issue})` : ''}`);
+  } else if (issue) {
+    normalizedVenueParts.push(`Issue ${issue}`);
+  }
+
+  return {
+    publication: normalizedPublication,
+    venue: normalizedVenueParts.join(' | '),
+  };
+}
+
 function normalizePaperRecord(rawPaper) {
   if (!rawPaper || typeof rawPaper !== 'object') return null;
 
@@ -16,7 +80,9 @@ function normalizePaperRecord(rawPaper) {
   paper.title = String(paper.title || '').trim();
   paper.abstract = String(paper.abstract || '').trim();
   paper.year = String(paper.year || '').trim();
-  paper.venue = String(paper.venue || '').trim();
+  const metadata = normalizePublicationAndVenue(paper.publication, paper.venue);
+  paper.publication = metadata.publication;
+  paper.venue = metadata.venue;
   paper.type = String(paper.type || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
@@ -378,7 +444,8 @@ function renderPaperDetail(paper, allPapers) {
 
   const infoParts = [];
   if (paper._year) infoParts.push(paper._year);
-  if (paper.venue) infoParts.push(paper.venue);
+  if (paper.publication) infoParts.push(paper.publication);
+  if (paper.venue && paper.venue !== paper.publication) infoParts.push(paper.venue);
 
   const links = [];
   if (paper.paperUrl) {
@@ -404,6 +471,15 @@ function renderPaperDetail(paper, allPapers) {
           ${(paper.tags || []).map((tag) =>
             `<a href="papers.html?tag=${encodeURIComponent(tag)}" class="detail-tag" aria-label="Browse papers tagged ${escapeHtml(tag)}">${escapeHtml(tag)}</a>`
           ).join('')}
+        </div>
+      </section>`
+    : '';
+
+  const publicationHtml = paper.publication
+    ? `<section class="tags-section" aria-label="Publication">
+        <div class="section-label" aria-hidden="true">Publication</div>
+        <div class="detail-tags">
+          <a href="papers.html?publication=${encodeURIComponent(paper.publication)}" class="detail-tag" aria-label="Browse papers in ${escapeHtml(paper.publication)}">${escapeHtml(paper.publication)}</a>
         </div>
       </section>`
     : '';
@@ -439,6 +515,7 @@ function renderPaperDetail(paper, allPapers) {
         </div>
       </section>
 
+      ${publicationHtml}
       ${tagsHtml}
     </div>
 
@@ -667,4 +744,3 @@ async function init() {
 }
 
 init();
-

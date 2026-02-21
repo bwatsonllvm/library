@@ -207,6 +207,16 @@ This writes:
 - `papers/openalex-discovered.json`
 - updates `papers/index.json` (`paperFiles` + `dataVersion`)
 
+### Normalize Publication Metadata
+
+To standardize publication/source fields across existing bundles:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/normalize-paper-publications.py \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --manifest /Users/britton/Desktop/library/papers/index.json
+```
+
 ### Paper Record Format
 
 Each paper entry is an object in the `papers` array, for example:
@@ -215,6 +225,7 @@ Each paper entry is an object in the `papers` array, for example:
 {
   "id": "pubs-2004-01-30-cgo-llvm",
   "source": "llvm-org-pubs",
+  "sourceName": "LLVM Publications",
   "title": "LLVM: A Compilation Framework for Lifelong Program Analysis & Transformation",
   "authors": [
     {
@@ -227,6 +238,7 @@ Each paper entry is an object in the `papers` array, for example:
     }
   ],
   "year": "2004",
+  "publication": "CGO",
   "venue": "CGO",
   "type": "research-paper",
   "abstract": "Paper summary text.",

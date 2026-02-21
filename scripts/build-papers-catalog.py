@@ -461,6 +461,58 @@ def parse_authors(author_text: str) -> list[dict]:
     return authors
 
 
+def _clean_meta_value(value: str) -> str:
+    clean = collapse_ws(value)
+    lowered = clean.lower()
+    if lowered in {"", "none", "null", "nan", "n/a"}:
+        return ""
+    return clean
+
+
+def publication_from_venue_string(venue: str) -> str:
+    clean = _clean_meta_value(venue)
+    if not clean:
+        return ""
+    first = collapse_ws(clean.split("|", 1)[0])
+    if re.match(r"^(vol\.|issue\b)", first, flags=re.IGNORECASE):
+        return ""
+    return first
+
+
+def pick_publication(published: str, location: str, old: dict | None) -> str:
+    for candidate in [published, location]:
+        normalized = _clean_meta_value(strip_tags(candidate))
+        if normalized:
+            return normalized
+
+    if old:
+        old_pub = _clean_meta_value(strip_tags(str(old.get("publication", ""))))
+        if old_pub:
+            return old_pub
+        old_venue = _clean_meta_value(strip_tags(str(old.get("venue", ""))))
+        if old_venue:
+            return publication_from_venue_string(old_venue)
+
+    return ""
+
+
+def build_venue(publication: str, location: str, award: str) -> str:
+    parts: list[str] = []
+
+    if publication:
+        parts.append(publication)
+
+    for candidate in [location, award]:
+        normalized = _clean_meta_value(strip_tags(candidate))
+        if not normalized:
+            continue
+        if any(normalized.lower() == existing.lower() for existing in parts):
+            continue
+        parts.append(normalized)
+
+    return " | ".join(parts)
+
+
 def classify_type(title: str, published: str) -> str:
     blob = f"{title} {published}".lower()
     if "thesis" in blob or "dissertation" in blob:
@@ -656,13 +708,6 @@ def build_dataset(
         location = strip_tags(str(entry.get("location", "")))
         award = strip_tags(str(entry.get("award", "")))
 
-        venue_parts = [published]
-        if location:
-            venue_parts.append(location)
-        if award:
-            venue_parts.append(award)
-        venue = " | ".join([part for part in venue_parts if part])
-
         html_candidates = local_html_candidates(src_repo, raw_url)
         paper_url = resolve_primary_pdf_url(src_repo, raw_url, html_candidates)
 
@@ -695,6 +740,8 @@ def build_dataset(
 
         key = (year, normalize_title_key(title))
         old = old_map.get(key)
+        publication = pick_publication(published=published, location=location, old=old)
+        venue = build_venue(publication=publication, location=location, award=award)
 
         if not abstract and old:
             abstract = strip_tags(str(old.get("abstract", "")))
@@ -729,9 +776,11 @@ def build_dataset(
         record = {
             "id": paper_id,
             "source": "llvm-org-pubs",
+            "sourceName": "LLVM Publications",
             "title": title,
             "authors": authors,
             "year": year,
+            "publication": publication,
             "venue": venue,
             "type": classify_type(title, published),
             "abstract": abstract,
