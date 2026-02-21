@@ -3,10 +3,12 @@
  */
 
 const HubUtils = window.LLVMHubUtils || {};
+const PEOPLE_SORT_MODES = new Set(['works', 'citations', 'alpha', 'alpha-desc']);
 
 const state = {
   query: '',
   filter: 'all', // all | talks | papers | merged
+  sortBy: 'works',
 };
 
 let allPeople = [];
@@ -89,8 +91,39 @@ function filterPeople() {
   });
 }
 
+function sortPeople(people) {
+  const entries = [...(people || [])];
+
+  if (state.sortBy === 'citations') {
+    entries.sort((a, b) =>
+      (b.citationCount || 0) - (a.citationCount || 0) ||
+      b.totalCount - a.totalCount ||
+      a.name.localeCompare(b.name));
+    return entries;
+  }
+
+  if (state.sortBy === 'alpha') {
+    entries.sort((a, b) => a.name.localeCompare(b.name));
+    return entries;
+  }
+
+  if (state.sortBy === 'alpha-desc') {
+    entries.sort((a, b) => b.name.localeCompare(a.name));
+    return entries;
+  }
+
+  entries.sort((a, b) =>
+    b.totalCount - a.totalCount ||
+    (b.citationCount || 0) - (a.citationCount || 0) ||
+    a.name.localeCompare(b.name));
+  return entries;
+}
+
 function renderPersonCard(person, tokens) {
   const nameHtml = highlightText(person.name, tokens);
+  const citationHtml = Number(person.citationCount || 0) > 0
+    ? `<span class="meeting-label">${Number(person.citationCount || 0).toLocaleString()} citations</span>`
+    : '';
 
   const normalizeNameKey = (name) => {
     if (typeof HubUtils.normalizePersonKey === 'function') return HubUtils.normalizePersonKey(name);
@@ -129,13 +162,16 @@ function renderPersonCard(person, tokens) {
 
   return `
     <article class="talk-card person-card">
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="meeting-label">${person.totalCount.toLocaleString()} works</span>
+      <a href="work.html?mode=search&q=${encodeURIComponent(person.name)}" class="card-link-wrap" aria-label="Open all work for ${escapeHtml(person.name)}">
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="meeting-label">${person.totalCount.toLocaleString()} works</span>
+            ${citationHtml}
+          </div>
+          <p class="card-title">${nameHtml}</p>
+          ${variantsHtml}
         </div>
-        <p class="card-title">${nameHtml}</p>
-        ${variantsHtml}
-      </div>
+      </a>
       <div class="card-footer person-card-footer">
         ${talksLink}
         ${papersLink}
@@ -145,7 +181,7 @@ function renderPersonCard(person, tokens) {
 }
 
 function render() {
-  const people = filterPeople();
+  const people = sortPeople(filterPeople());
   const grid = document.getElementById('people-grid');
   const count = document.getElementById('people-results-count');
   const subtitle = document.getElementById('people-subtitle');
@@ -173,6 +209,26 @@ function render() {
 
   grid.setAttribute('aria-busy', 'false');
   grid.innerHTML = people.map((person) => renderPersonCard(person, tokens)).join('');
+}
+
+function syncSortControl() {
+  const select = document.getElementById('people-sort-select');
+  if (!select) return;
+  select.value = PEOPLE_SORT_MODES.has(state.sortBy) ? state.sortBy : 'works';
+}
+
+function initSortControl() {
+  const select = document.getElementById('people-sort-select');
+  if (!select) return;
+
+  select.addEventListener('change', () => {
+    const next = String(select.value || '').trim();
+    state.sortBy = PEOPLE_SORT_MODES.has(next) ? next : 'works';
+    syncSortControl();
+    render();
+  });
+
+  syncSortControl();
 }
 
 function syncFilterChips() {
@@ -267,6 +323,7 @@ async function init() {
   initMobileNavMenu();
   initSearch();
   initFilterChips();
+  initSortControl();
 
   let talks = [];
   let papers = [];

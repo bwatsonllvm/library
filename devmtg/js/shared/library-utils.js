@@ -258,6 +258,7 @@
   function mergePeopleBuckets(target, source) {
     target.talkCount += source.talkCount;
     target.paperCount += source.paperCount;
+    target.citationCount += source.citationCount;
 
     for (const [name, count] of source.nameCounts.entries()) {
       target.nameCounts.set(name, (target.nameCounts.get(name) || 0) + count);
@@ -302,6 +303,14 @@
     return false;
   }
 
+  function parsePaperCitationCount(paper) {
+    if (!paper || typeof paper !== 'object') return 0;
+    const raw = paper._citationCount ?? paper.citationCount;
+    const numeric = Number(raw);
+    if (!Number.isFinite(numeric) || numeric <= 0) return 0;
+    return Math.round(numeric);
+  }
+
   function buildPeopleIndex(talks, papers) {
     const buckets = new Map();
 
@@ -314,6 +323,7 @@
           signature,
           talkCount: 0,
           paperCount: 0,
+          citationCount: 0,
           nameCounts: new Map(),
           affiliationCounts: new Map(),
           talkNameCounts: new Map(),
@@ -342,12 +352,14 @@
     }
 
     for (const paper of (Array.isArray(papers) ? papers : [])) {
+      const paperCitationCount = parsePaperCitationCount(paper);
       for (const rawAuthor of (paper.authors || [])) {
         const author = normalizePersonRecord(rawAuthor);
         if (!author.name) continue;
         const bucket = ensureBucketByName(author.name);
         if (!bucket) continue;
         bucket.paperCount += 1;
+        bucket.citationCount += paperCitationCount;
         bucket.nameCounts.set(author.name, (bucket.nameCounts.get(author.name) || 0) + 1);
         bucket.paperNameCounts.set(author.name, (bucket.paperNameCounts.get(author.name) || 0) + 1);
         if (author.affiliation) {
@@ -422,6 +434,7 @@
           variantNames,
           talkCount: bucket.talkCount,
           paperCount: bucket.paperCount,
+          citationCount: bucket.citationCount || 0,
           totalCount: bucket.talkCount + bucket.paperCount,
         };
       })
