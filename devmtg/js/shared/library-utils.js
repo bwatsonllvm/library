@@ -358,9 +358,13 @@
     }
 
     const groupedByBaseKey = new Map();
+    const ungroupedBuckets = [];
     for (const bucket of buckets.values()) {
       const baseKey = bucket.signature.baseKey;
-      if (!baseKey) continue;
+      if (!baseKey) {
+        ungroupedBuckets.push(bucket);
+        continue;
+      }
       if (!groupedByBaseKey.has(baseKey)) groupedByBaseKey.set(baseKey, []);
       groupedByBaseKey.get(baseKey).push(bucket);
     }
@@ -386,7 +390,7 @@
       }
     }
 
-    const mergedBuckets = [];
+    const mergedBuckets = [...ungroupedBuckets];
     for (const group of groupedByBaseKey.values()) {
       mergedBuckets.push(...group);
     }
