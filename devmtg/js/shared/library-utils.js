@@ -400,11 +400,342 @@
     });
   }
 
+  const KEY_TOPIC_CANONICAL = [
+    'LLVM',
+    'Clang',
+    'MLIR',
+    'Flang',
+    'LLD',
+    'LLDB',
+    'CIRCT',
+    'Polly',
+    'OpenMP',
+    'compiler-rt',
+    'libc++',
+    'libc',
+    'BOLT',
+    'ORC JIT',
+    'IR',
+    'ClangIR',
+    'Backend',
+    'Frontend',
+    'Code Generation',
+    'Optimizations',
+    'Autovectorization',
+    'Loop transformations',
+    'Register Allocation',
+    'Instruction Selection',
+    'Instruction Scheduling',
+    'JIT',
+    'LTO',
+    'PGO',
+    'Debug Information',
+    'Static Analysis',
+    'Dynamic Analysis',
+    'Testing',
+    'Sanitizers',
+    'Security',
+    'Performance',
+    'Infrastructure',
+    'Libraries',
+    'GPU',
+    'CUDA',
+    'OpenCL',
+    'HIP',
+    'Embedded',
+    'RISC-V',
+    'AArch64',
+    'x86-64',
+    'WASM',
+    'AI',
+    'ML',
+    'C++',
+    'C++ Libs',
+    'C Libs',
+    'Programming Languages',
+    'Rust',
+    'Swift',
+    'Quantum Computing',
+    'Community Building',
+    'D&I',
+    'Incubator',
+    'MCP',
+    'VPlan',
+    'Mojo',
+    'Beginner',
+  ];
+
+  function normalizeTopicKey(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9+]+/g, '');
+  }
+
+  const KEY_TOPIC_CANONICAL_BY_KEY = new Map();
+  for (const topic of KEY_TOPIC_CANONICAL) {
+    KEY_TOPIC_CANONICAL_BY_KEY.set(normalizeTopicKey(topic), topic);
+  }
+
+  const KEY_TOPIC_ALIAS_MAP_RAW = {
+    llvm: 'LLVM',
+    clang: 'Clang',
+    clangd: 'Clang',
+    clangir: 'ClangIR',
+    mlir: 'MLIR',
+    flang: 'Flang',
+    lld: 'LLD',
+    lldb: 'LLDB',
+    circt: 'CIRCT',
+    polly: 'Polly',
+    openmp: 'OpenMP',
+    libomp: 'OpenMP',
+    compilerrt: 'compiler-rt',
+    'compiler-rt': 'compiler-rt',
+    libfuzzer: 'compiler-rt',
+    libcxx: 'libc++',
+    'libc++': 'libc++',
+    libc: 'libc',
+    bolt: 'BOLT',
+    orc: 'ORC JIT',
+    orcjit: 'ORC JIT',
+    ir: 'IR',
+    llvmir: 'IR',
+    intermediaterepresentation: 'IR',
+    backend: 'Backend',
+    frontend: 'Frontend',
+    codegen: 'Code Generation',
+    codegeneration: 'Code Generation',
+    optimization: 'Optimizations',
+    optimizations: 'Optimizations',
+    optimisation: 'Optimizations',
+    vectorization: 'Autovectorization',
+    autovectorization: 'Autovectorization',
+    loopoptimization: 'Loop transformations',
+    loopoptimizations: 'Loop transformations',
+    loopoptimisation: 'Loop transformations',
+    looptransformations: 'Loop transformations',
+    registerallocation: 'Register Allocation',
+    registerallocator: 'Register Allocation',
+    instructionselection: 'Instruction Selection',
+    instructionscheduling: 'Instruction Scheduling',
+    machinescheduler: 'Instruction Scheduling',
+    jit: 'JIT',
+    lto: 'LTO',
+    pgo: 'PGO',
+    debuginformation: 'Debug Information',
+    dwarf: 'Debug Information',
+    staticanalysis: 'Static Analysis',
+    staticanalyzer: 'Static Analysis',
+    dynamicanalysis: 'Dynamic Analysis',
+    testing: 'Testing',
+    fuzzing: 'Testing',
+    sanitizers: 'Sanitizers',
+    sanitizer: 'Sanitizers',
+    asan: 'Sanitizers',
+    tsan: 'Sanitizers',
+    ubsan: 'Sanitizers',
+    security: 'Security',
+    memorysafety: 'Security',
+    cfi: 'Security',
+    performance: 'Performance',
+    infrastructure: 'Infrastructure',
+    toolchain: 'Infrastructure',
+    libraries: 'Libraries',
+    gpu: 'GPU',
+    cuda: 'CUDA',
+    opencl: 'OpenCL',
+    hip: 'HIP',
+    rocm: 'HIP',
+    embedded: 'Embedded',
+    riscv: 'RISC-V',
+    aarch64: 'AArch64',
+    arm64: 'AArch64',
+    x8664: 'x86-64',
+    x86_64: 'x86-64',
+    wasm: 'WASM',
+    wasm32: 'WASM',
+    wasm64: 'WASM',
+    webassembly: 'WASM',
+    ai: 'AI',
+    artificialintelligence: 'AI',
+    ml: 'ML',
+    machinelearning: 'ML',
+    deeplearning: 'ML',
+    reinforcementlearning: 'ML',
+    cpp: 'C++',
+    cxx: 'C++',
+    'c++': 'C++',
+    cpplibs: 'C++ Libs',
+    cxxlibs: 'C++ Libs',
+    clibs: 'C Libs',
+    programminglanguages: 'Programming Languages',
+    rust: 'Rust',
+    swift: 'Swift',
+    quantumcomputing: 'Quantum Computing',
+    communitybuilding: 'Community Building',
+    diversityinclusion: 'D&I',
+    incubation: 'Incubator',
+    incubator: 'Incubator',
+    mcp: 'MCP',
+    vplan: 'VPlan',
+    mojo: 'Mojo',
+    beginner: 'Beginner',
+  };
+
+  const KEY_TOPIC_BY_KEY = new Map(KEY_TOPIC_CANONICAL_BY_KEY);
+  for (const [alias, canonical] of Object.entries(KEY_TOPIC_ALIAS_MAP_RAW)) {
+    const canonicalTopic = KEY_TOPIC_CANONICAL_BY_KEY.get(normalizeTopicKey(canonical));
+    if (!canonicalTopic) continue;
+    KEY_TOPIC_BY_KEY.set(normalizeTopicKey(alias), canonicalTopic);
+  }
+
+  const KEY_TOPIC_TEXT_RULES = [
+    { topic: 'LLVM', pattern: /\bllvm\b/i },
+    { topic: 'Clang', pattern: /\bclang(?:d)?\b/i },
+    { topic: 'MLIR', pattern: /\bmlir\b|\bmulti[- ]level intermediate representation\b/i },
+    { topic: 'Flang', pattern: /\bflang\b/i },
+    { topic: 'LLD', pattern: /\blld\b/i },
+    { topic: 'LLDB', pattern: /\blldb\b/i },
+    { topic: 'CIRCT', pattern: /\bcirct\b/i },
+    { topic: 'Polly', pattern: /\bpolly\b/i },
+    { topic: 'OpenMP', pattern: /\bopenmp\b|\blibomp\b/i },
+    { topic: 'compiler-rt', pattern: /\bcompiler[- ]?rt\b|\blibfuzzer\b/i },
+    { topic: 'libc++', pattern: /\blibc\+\+\b/i },
+    { topic: 'libc', pattern: /\blibc\b/i },
+    { topic: 'BOLT', pattern: /\bbolt\b/i },
+    { topic: 'ORC JIT', pattern: /\borc(?:\s*jit)?\b/i },
+    { topic: 'ClangIR', pattern: /\bclangir\b|\bclang\s+ir\b/i },
+    { topic: 'IR', pattern: /\bllvm\s+ir\b|\bintermediate representation\b|\bssa\b/i },
+    { topic: 'JIT', pattern: /\bjust[- ]in[- ]time\b|\bjit\b/i },
+    { topic: 'LTO', pattern: /\blto\b|\blink[- ]time optimization\b/i },
+    { topic: 'PGO', pattern: /\bpgo\b|\bprofile[- ]guided optimization\b/i },
+    { topic: 'Autovectorization', pattern: /\bauto[- ]?vectori[sz]ation\b|\bvectori[sz]ation\b/i },
+    { topic: 'Loop transformations', pattern: /\bloop (?:transform(?:ation|ations)?|optimization|optimisation|unroll(?:ing)?|fusion|tiling|interchange)\b/i },
+    { topic: 'Register Allocation', pattern: /\bregister allocation\b|\bregister allocator\b/i },
+    { topic: 'Instruction Scheduling', pattern: /\binstruction scheduling\b|\bmachine scheduler\b/i },
+    { topic: 'Instruction Selection', pattern: /\binstruction selection\b/i },
+    { topic: 'Code Generation', pattern: /\bcode generation\b|\bcodegen\b/i },
+    { topic: 'Debug Information', pattern: /\bdebug information\b|\bdwarf\b/i },
+    { topic: 'Static Analysis', pattern: /\bstatic analysis\b|\bstatic analyzer\b/i },
+    { topic: 'Dynamic Analysis', pattern: /\bdynamic analysis\b/i },
+    { topic: 'Testing', pattern: /\btesting\b|\bfuzz(?:ing|er|ers)?\b/i },
+    { topic: 'Sanitizers', pattern: /\bsanitizer(?:s)?\b|\baddresssanitizer\b|\bthreadsanitizer\b|\bubsan\b|\basan\b|\btsan\b/i },
+    { topic: 'Security', pattern: /\bsecurity\b|\bmemory safety\b|\bcontrol flow integrity\b|\bcfi\b/i },
+    { topic: 'Performance', pattern: /\bperformance\b/i },
+    { topic: 'Optimizations', pattern: /\boptimizations?\b|\boptimisation\b/i },
+    { topic: 'Infrastructure', pattern: /\binfrastructure\b|\btoolchain\b/i },
+    { topic: 'GPU', pattern: /\bgpu(?:s)?\b/i },
+    { topic: 'CUDA', pattern: /\bcuda\b/i },
+    { topic: 'OpenCL', pattern: /\bopencl\b/i },
+    { topic: 'HIP', pattern: /\bhip\b|\brocm\b/i },
+    { topic: 'Embedded', pattern: /\bembedded\b/i },
+    { topic: 'RISC-V', pattern: /\brisc[- ]?v\b/i },
+    { topic: 'AArch64', pattern: /\baarch64\b|\barm64\b/i },
+    { topic: 'x86-64', pattern: /\bx86[-_ ]?64\b/i },
+    { topic: 'WASM', pattern: /\bwebassembly\b|\bwasm(?:32|64)?\b/i },
+    { topic: 'AI', pattern: /\bartificial intelligence\b|\bagentic ai\b|\bai\b/i },
+    { topic: 'ML', pattern: /\bmachine learning\b|\bdeep learning\b|\breinforcement learning\b|\bml\b/i },
+    { topic: 'Rust', pattern: /\brust\b/i },
+    { topic: 'Swift', pattern: /\bswift\b/i },
+    { topic: 'Quantum Computing', pattern: /\bquantum (?:computing|compiler|compilation)\b/i },
+    { topic: 'MCP', pattern: /\bmcp\b/i },
+    { topic: 'VPlan', pattern: /\bvplan\b/i },
+    { topic: 'Mojo', pattern: /\bmojo\b/i },
+  ];
+
+  const TALK_KEY_TOPIC_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  const PAPER_KEY_TOPIC_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+
+  function canonicalizeKeyTopic(value) {
+    const key = normalizeTopicKey(collapseWhitespace(value));
+    if (!key) return '';
+    return KEY_TOPIC_BY_KEY.get(key) || '';
+  }
+
+  function collectCanonicalTopics(rawValues, text) {
+    const out = [];
+    const seen = new Set();
+
+    const add = (value) => {
+      const topic = canonicalizeKeyTopic(value);
+      const key = normalizeTopicKey(topic);
+      if (!topic || !key || seen.has(key)) return;
+      seen.add(key);
+      out.push(topic);
+    };
+
+    for (const value of (rawValues || [])) add(value);
+
+    const haystack = String(text || '');
+    if (haystack) {
+      for (const rule of KEY_TOPIC_TEXT_RULES) {
+        if (rule.pattern.test(haystack)) add(rule.topic);
+      }
+    }
+
+    return out;
+  }
+
+  function computeTalkKeyTopics(talk) {
+    const seed = [
+      ...((talk && talk.tags) || []),
+      ...((talk && talk.keywords) || []),
+    ];
+    const text = `${collapseWhitespace(talk && talk.title)} ${collapseWhitespace(talk && talk.abstract)}`.trim();
+    return collectCanonicalTopics(seed, text);
+  }
+
+  function computePaperKeyTopics(paper) {
+    const seed = [
+      ...((paper && paper.tags) || []),
+      ...((paper && paper.keywords) || []),
+    ];
+    const text = [
+      collapseWhitespace(paper && paper.title),
+      collapseWhitespace(paper && paper.abstract),
+      collapseWhitespace(paper && paper.publication),
+      collapseWhitespace(paper && paper.venue),
+    ].filter(Boolean).join(' ');
+    return collectCanonicalTopics(seed, text);
+  }
+
+  function getTalkKeyTopics(talk, limit = Infinity) {
+    if (!talk || typeof talk !== 'object') return [];
+
+    let cached = null;
+    if (TALK_KEY_TOPIC_CACHE && TALK_KEY_TOPIC_CACHE.has(talk)) {
+      cached = TALK_KEY_TOPIC_CACHE.get(talk);
+    } else {
+      cached = computeTalkKeyTopics(talk);
+      if (TALK_KEY_TOPIC_CACHE) TALK_KEY_TOPIC_CACHE.set(talk, cached);
+    }
+
+    if (!Number.isFinite(limit)) return [...cached];
+    return cached.slice(0, Math.max(0, Math.floor(limit)));
+  }
+
+  function getPaperKeyTopics(paper, limit = Infinity) {
+    if (!paper || typeof paper !== 'object') return [];
+
+    let cached = null;
+    if (PAPER_KEY_TOPIC_CACHE && PAPER_KEY_TOPIC_CACHE.has(paper)) {
+      cached = PAPER_KEY_TOPIC_CACHE.get(paper);
+    } else {
+      cached = computePaperKeyTopics(paper);
+      if (PAPER_KEY_TOPIC_CACHE) PAPER_KEY_TOPIC_CACHE.set(paper, cached);
+    }
+
+    if (!Number.isFinite(limit)) return [...cached];
+    return cached.slice(0, Math.max(0, Math.floor(limit)));
+  }
+
   const api = {
     CATEGORY_ORDER,
     compareRankedEntries,
     extractYouTubeId,
     formatMeetingDateUniversal,
+    getPaperKeyTopics,
+    getTalkKeyTopics,
     isYouTubeVideoId,
     normalizeSpeakerName,
     normalizeTalkRecord,

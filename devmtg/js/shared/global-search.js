@@ -52,6 +52,33 @@
     return Array.isArray(rawTalks) ? rawTalks : [];
   }
 
+  function getTalkKeyTopics(talk, limit = Infinity) {
+    if (typeof HubUtils.getTalkKeyTopics === 'function') {
+      return HubUtils.getTalkKeyTopics(talk, limit);
+    }
+    const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
+    return Number.isFinite(limit) ? tags.slice(0, limit) : tags;
+  }
+
+  function getPaperKeyTopics(paper, limit = Infinity) {
+    if (typeof HubUtils.getPaperKeyTopics === 'function') {
+      return HubUtils.getPaperKeyTopics(paper, limit);
+    }
+    const tags = Array.isArray(paper && paper.tags) ? paper.tags : [];
+    const keywords = Array.isArray(paper && paper.keywords) ? paper.keywords : [];
+    const out = [];
+    const seen = new Set();
+    for (const value of [...tags, ...keywords]) {
+      const label = String(value || '').trim();
+      const key = label.toLowerCase();
+      if (!label || seen.has(key)) continue;
+      seen.add(key);
+      out.push(label);
+      if (Number.isFinite(limit) && out.length >= limit) break;
+    }
+    return out;
+  }
+
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -150,7 +177,7 @@
           const talks = normalizeTalks(payload.talks || []);
 
           for (const talk of talks) {
-            for (const tag of (talk.tags || [])) addCount(topicCounts, tag);
+            for (const topic of getTalkKeyTopics(talk, 12)) addCount(topicCounts, topic);
             for (const speaker of (talk.speakers || [])) addCount(peopleCounts, speaker && speaker.name);
             addCount(talkTitleCounts, talk.title);
           }
@@ -165,23 +192,7 @@
           const papers = Array.isArray(payload.papers) ? payload.papers : [];
 
           for (const paper of papers) {
-            const seenPaperTopics = new Set();
-            for (const tag of (paper.tags || [])) {
-              const topic = String(tag || '').trim();
-              if (!topic) continue;
-              const key = topic.toLowerCase();
-              if (seenPaperTopics.has(key)) continue;
-              seenPaperTopics.add(key);
-              addCount(topicCounts, topic);
-            }
-            for (const keyword of (paper.keywords || []).slice(0, 8)) {
-              const topic = String(keyword || '').trim();
-              if (!topic || topic.length > 48) continue;
-              const key = topic.toLowerCase();
-              if (seenPaperTopics.has(key)) continue;
-              seenPaperTopics.add(key);
-              addCount(topicCounts, topic);
-            }
+            for (const topic of getPaperKeyTopics(paper, 12)) addCount(topicCounts, topic);
             for (const author of (paper.authors || [])) addCount(peopleCounts, author && author.name);
             addCount(paperTitleCounts, paper.title);
           }

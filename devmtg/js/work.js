@@ -39,7 +39,19 @@ function normalizeTopicKey(value) {
     .replace(/[^a-z0-9]+/g, '');
 }
 
+function getTalkKeyTopics(talk, limit = Infinity) {
+  if (typeof HubUtils.getTalkKeyTopics === 'function') {
+    return HubUtils.getTalkKeyTopics(talk, limit);
+  }
+  const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
+  return Number.isFinite(limit) ? tags.slice(0, limit) : tags;
+}
+
 function getPaperKeyTopics(paper, limit = Infinity) {
+  if (typeof HubUtils.getPaperKeyTopics === 'function') {
+    return HubUtils.getPaperKeyTopics(paper, limit);
+  }
+
   const out = [];
   const seen = new Set();
 
@@ -169,12 +181,13 @@ function tokenizeQuery(query) {
 }
 
 function indexTalkForSearch(talk) {
+  const keyTopics = getTalkKeyTopics(talk);
   return {
     ...talk,
     _titleLower: String(talk.title || '').toLowerCase(),
     _speakerLower: (talk.speakers || []).map((speaker) => speaker.name).join(' ').toLowerCase(),
     _abstractLower: String(talk.abstract || '').toLowerCase(),
-    _tagsLower: (talk.tags || []).join(' ').toLowerCase(),
+    _tagsLower: keyTopics.join(' ').toLowerCase(),
     _meetingLower: `${talk.meetingName || ''} ${talk.meetingLocation || ''} ${talk.meetingDate || ''}`.toLowerCase(),
     _year: talk.meeting ? String(talk.meeting).slice(0, 4) : '',
   };
@@ -254,7 +267,7 @@ function matchesTalkEntity(talk, normalizedNeedle) {
     return (talk.speakers || []).some((speaker) => normalizeValue(speaker.name) === normalizedNeedle);
   }
 
-  return (talk.tags || []).some((tag) => normalizeValue(tag) === normalizedNeedle);
+  return getTalkKeyTopics(talk).some((topic) => normalizeValue(topic) === normalizedNeedle);
 }
 
 function matchesPaperEntity(paper, normalizedNeedle) {
@@ -307,7 +320,7 @@ function renderTalkCard(talk) {
         </div>
       </a>
       ${speakersHtml ? `<p class="card-speakers">${speakersHtml}</p>` : ''}
-      ${renderTagLinks(talk.tags || [])}
+      ${renderTagLinks(getTalkKeyTopics(talk, 8))}
     </article>`;
 }
 

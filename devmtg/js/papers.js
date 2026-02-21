@@ -399,6 +399,10 @@ function normalizeTopicKey(value) {
 }
 
 function getPaperKeyTopics(paper, limit = Infinity) {
+  if (typeof HubUtils.getPaperKeyTopics === 'function') {
+    return HubUtils.getPaperKeyTopics(paper, limit);
+  }
+
   const out = [];
   const seen = new Set();
 

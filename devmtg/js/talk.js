@@ -65,6 +65,14 @@ function formatMeetingDate(value) {
   return String(value || '').trim();
 }
 
+function getTalkKeyTopics(talk, limit = Infinity) {
+  if (typeof HubUtils.getTalkKeyTopics === 'function') {
+    return HubUtils.getTalkKeyTopics(talk, limit);
+  }
+  const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
+  return Number.isFinite(limit) ? tags.slice(0, limit) : tags;
+}
+
 async function copyTextToClipboard(text) {
   if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
     try {
@@ -170,6 +178,7 @@ function updateTalkSeoMetadata(talk) {
   const speakers = (talk.speakers || [])
     .map((speaker) => String((speaker && speaker.name) || '').trim())
     .filter(Boolean);
+  const keyTopics = getTalkKeyTopics(talk, 24);
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': talk.videoUrl ? 'VideoObject' : 'CreativeWork',
@@ -178,7 +187,7 @@ function updateTalkSeoMetadata(talk) {
     url: canonicalUrl,
     uploadDate: talkDate || undefined,
     thumbnailUrl: imageUrl || undefined,
-    keywords: (talk.tags || []).join(', ') || undefined,
+    keywords: keyTopics.join(', ') || undefined,
     author: speakers.map((name) => ({ '@type': 'Person', name })),
     isPartOf: {
       '@type': 'Event',
@@ -634,7 +643,7 @@ function renderTalkDetail(talk, allTalks) {
     </div>` : '';
 
   // Tags
-  const tags = talk.tags || [];
+  const tags = getTalkKeyTopics(talk, 20);
   const tagsHtml = tags.length
     ? `<section class="tags-section" aria-label="Key Topics">
         <div class="section-label" aria-hidden="true">Key Topics</div>

@@ -21,8 +21,11 @@ let activeRenderTokens = [];
 let renderedCount = 0;
 let loadMoreObserver = null;
 let loadMoreScrollHandler = null;
+let topicLabelByNormalized = new Map();
 
 const ALL_WORK_PAGE_PATH = 'work.html';
+const MAX_TOPIC_FILTERS = 220;
+const MIN_TOPIC_FILTER_COUNT = 2;
 
 const state = {
   query: '',
@@ -36,16 +39,6 @@ const state = {
   meeting: '',       // slug filter set when arriving from meetings page
   meetingName: '',   // display name for the meeting pill
 };
-
-// All canonical tags in display order
-const ALL_TAGS = [
-  'AI','Autovectorization','Backend','Beginner','C++','C++ Libs','CIRCT','Clang',
-  'ClangIR','C Libs','Community Building','CUDA','D&I','Debug Information',
-  'Dynamic Analysis','Embedded','Flang','Frontend','GPU','Incubator','Infrastructure',
-  'IR','JIT','Libraries','LLD','LLDB','Loop transformations','LTO','MCP','ML','MLIR',
-  'Mojo','OpenCL','Optimizations','Performance','PGO','Polly','Programming Languages',
-  'Quantum Computing','Rust','Security','Static Analysis','Swift','Testing','VPlan',
-];
 
 // Category display names and order
 const CATEGORY_META = {
@@ -67,6 +60,26 @@ const CATEGORY_META = {
 // ============================================================
 
 const HubUtils = window.LLVMHubUtils || {};
+
+function getTalkKeyTopics(talk, limit = Infinity) {
+  if (typeof HubUtils.getTalkKeyTopics === 'function') {
+    return HubUtils.getTalkKeyTopics(talk, limit);
+  }
+  const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
+  return Number.isFinite(limit) ? tags.slice(0, limit) : tags;
+}
+
+function rebuildTopicLabelLookup() {
+  topicLabelByNormalized = new Map();
+  for (const talk of allTalks) {
+    for (const topic of getTalkKeyTopics(talk)) {
+      const label = String(topic || '').trim();
+      const normalized = normalizeFilterValue(label);
+      if (!label || !normalized || topicLabelByNormalized.has(normalized)) continue;
+      topicLabelByNormalized.set(normalized, label);
+    }
+  }
+}
 
 function normalizeTalks(rawTalks) {
   if (typeof HubUtils.normalizeTalks === 'function') {
@@ -121,19 +134,23 @@ function buildSearchIndex() {
     return out;
   };
 
-  searchIndex = allTalks.map(talk => ({
-    ...talk,
-    _titleLower:   talk.title.toLowerCase(),
-    _speakerLower: talk.speakers.map(s => s.name).join(' ').toLowerCase(),
-    _abstractLower: talk.abstract.toLowerCase(),
-    _tagsLower:    (talk.tags || []).join(' ').toLowerCase(),
-    _meetingLower: (talk.meetingName + ' ' + talk.meetingLocation + ' ' + talk.meetingDate).toLowerCase(),
-    _year:         talk.meeting ? talk.meeting.slice(0, 4) : '',
-    _fuzzyTitle: uniqueTokens([talk.title]),
-    _fuzzySpeakers: uniqueTokens((talk.speakers || []).map((s) => s.name)),
-    _fuzzyTags: uniqueTokens(talk.tags || []),
-    _fuzzyMeeting: uniqueTokens([talk.meetingName, talk.meetingLocation, talk.meetingDate, talk.meeting]),
-  }));
+  rebuildTopicLabelLookup();
+  searchIndex = allTalks.map(talk => {
+    const keyTopics = getTalkKeyTopics(talk);
+    return {
+      ...talk,
+      _titleLower:   talk.title.toLowerCase(),
+      _speakerLower: talk.speakers.map(s => s.name).join(' ').toLowerCase(),
+      _abstractLower: talk.abstract.toLowerCase(),
+      _tagsLower:    keyTopics.join(' ').toLowerCase(),
+      _meetingLower: (talk.meetingName + ' ' + talk.meetingLocation + ' ' + talk.meetingDate).toLowerCase(),
+      _year:         talk.meeting ? talk.meeting.slice(0, 4) : '',
+      _fuzzyTitle: uniqueTokens([talk.title]),
+      _fuzzySpeakers: uniqueTokens((talk.speakers || []).map((s) => s.name)),
+      _fuzzyTags: uniqueTokens(keyTopics),
+      _fuzzyMeeting: uniqueTokens([talk.meetingName, talk.meetingLocation, talk.meetingDate, talk.meeting]),
+    };
+  });
 }
 
 function tokenize(query) {
@@ -284,6 +301,12 @@ function filterAndSort() {
     const spLower = state.speaker.toLowerCase();
     results = results.filter(t =>
       (t.speakers || []).some(s => s.name.toLowerCase() === spLower)
+    );
+  }
+  if (state.activeTag) {
+    const activeTopic = normalizeFilterValue(state.activeTag);
+    results = results.filter((talk) =>
+      getTalkKeyTopics(talk).some((topic) => normalizeFilterValue(topic) === activeTopic)
     );
   }
   if (state.categories.size > 0) {
@@ -477,7 +500,7 @@ function renderCard(talk, tokens) {
     : placeholderHtml;
 
   // Tags (up to 4 shown on card)
-  const tags = talk.tags || [];
+  const tags = getTalkKeyTopics(talk, 8);
   const tagsHtml = tags.length
     ? `<div class="card-tags" aria-label="Key Topics">${tags.slice(0, 4).map(tag =>
         `<button class="card-tag" data-tag="${escapeHtml(tag)}" onclick="event.stopPropagation();filterByTag(${JSON.stringify(tag)})" aria-label="Filter by key topic: ${escapeHtml(tag)}">${escapeHtml(tag)}</button>`
@@ -918,15 +941,19 @@ function initFilters() {
     });
   }
 
-  // Topic filters — alphabetical for predictable scanning
+  // Key Topic filters — alphabetical for predictable scanning
   const tagCounts = {};
   for (const t of allTalks) {
-    for (const tag of (t.tags || [])) {
-      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    for (const topic of getTalkKeyTopics(t, 12)) {
+      if (String(topic || '').length > 48) continue;
+      tagCounts[topic] = (tagCounts[topic] || 0) + 1;
     }
   }
-  const activeTags = ALL_TAGS
-    .filter(tag => tagCounts[tag] > 0)
+  const activeTags = Object.entries(tagCounts)
+    .filter(([, count]) => count >= MIN_TOPIC_FILTER_COUNT)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .slice(0, MAX_TOPIC_FILTERS)
+    .map(([topic]) => topic)
     .sort((a, b) => a.localeCompare(b));
   const tagContainer = document.getElementById('filter-tags');
   if (tagContainer) {
@@ -1524,7 +1551,7 @@ function updateHeroSubtitle() {
   if (state.speaker) {
     el.innerHTML = `Showing all talks by <strong>${escapeHtml(state.speaker)}</strong>`;
   } else if (state.activeTag && state.query && !state.meeting) {
-    el.innerHTML = `Showing all talks tagged <strong>${escapeHtml(state.activeTag)}</strong>`;
+    el.innerHTML = `Showing all talks for key topic <strong>${escapeHtml(state.activeTag)}</strong>`;
   } else {
     el.innerHTML = `Browse <strong id="total-count">${allTalks.length.toLocaleString()}</strong> talks from 2007 to present`;
   }
@@ -1856,8 +1883,11 @@ function normalizeFilterValue(value) {
 function resolveCanonicalTag(value) {
   const normalized = normalizeFilterValue(value);
   if (!normalized) return '';
-  const matched = ALL_TAGS.find((tag) => normalizeFilterValue(tag) === normalized);
-  return matched || '';
+  if (topicLabelByNormalized.has(normalized)) {
+    return topicLabelByNormalized.get(normalized);
+  }
+  const matched = autocompleteIndex.tags.find((tag) => normalizeFilterValue(tag.label) === normalized);
+  return matched ? matched.label : '';
 }
 
 function syncTopicChipState() {
@@ -2043,7 +2073,7 @@ function buildAutocompleteIndex() {
   // Tags with counts (already computed in initFilters, but rebuild here independently)
   const tagCounts = {};
   for (const t of allTalks) {
-    for (const tag of (t.tags || [])) tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    for (const topic of getTalkKeyTopics(t, 12)) tagCounts[topic] = (tagCounts[topic] || 0) + 1;
   }
   autocompleteIndex.tags = Object.entries(tagCounts)
     .sort((a, b) => b[1] - a[1])
