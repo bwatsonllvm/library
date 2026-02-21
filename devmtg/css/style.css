@@ -10,39 +10,39 @@
   /* Color — Base (OpenAlex light) */
   --color-bg:            #fafafa;
   --color-surface:       #ffffff;
-  --color-surface-hover: #f5f5f5;
-  --color-border:        #e5e5e5;
+  --color-surface-hover: #f0f0f0;
+  --color-border:        #e0e0e0;
   --color-border-focus:  #000000;
-  --color-text:          #1a1a1a;
-  --color-text-muted:    #6b7280;
+  --color-text:          #0a0a0a;
+  --color-text-muted:    #52525b;
   --color-text-inverse:  #ffffff;
   --color-accent:        #1976d2;
   --color-accent-hover:  #2563eb;
   --color-accent-bg:     #e3f2fd;
   --color-accent-subtle: #f0f0f0;
-  --color-divider:       #f0f0f0;
+  --color-divider:       #e4e4e7;
 
   /* Color — Category Badges */
-  --badge-keynote-bg:      #e3f2fd;
-  --badge-keynote-text:    #1976d2;
-  --badge-technical-bg:    #e8f5e9;
-  --badge-technical-text:  #2e7d32;
-  --badge-tutorial-bg:     #f3e5f5;
-  --badge-tutorial-text:   #7b1fa2;
-  --badge-lightning-bg:    #fff3e0;
-  --badge-lightning-text:  #ef6c00;
-  --badge-quick-bg:        #ffebee;
-  --badge-quick-text:      #c62828;
-  --badge-panel-bg:        #e3f2fd;
-  --badge-panel-text:      #1976d2;
-  --badge-bof-bg:          #fff3e0;
-  --badge-bof-text:        #ef6c00;
-  --badge-student-bg:      #f3e5f5;
-  --badge-student-text:    #7b1fa2;
+  --badge-keynote-bg:      #f5f5f5;
+  --badge-keynote-text:    #52525b;
+  --badge-technical-bg:    #f5f5f5;
+  --badge-technical-text:  #52525b;
+  --badge-tutorial-bg:     #f5f5f5;
+  --badge-tutorial-text:   #52525b;
+  --badge-lightning-bg:    #f5f5f5;
+  --badge-lightning-text:  #52525b;
+  --badge-quick-bg:        #f5f5f5;
+  --badge-quick-text:      #52525b;
+  --badge-panel-bg:        #f5f5f5;
+  --badge-panel-text:      #52525b;
+  --badge-bof-bg:          #f5f5f5;
+  --badge-bof-text:        #52525b;
+  --badge-student-bg:      #f5f5f5;
+  --badge-student-text:    #52525b;
   --badge-poster-bg:       #f5f5f5;
   --badge-poster-text:     #52525b;
-  --badge-workshop-bg:     #e3f2fd;
-  --badge-workshop-text:   #1976d2;
+  --badge-workshop-bg:     #f5f5f5;
+  --badge-workshop-text:   #52525b;
   --badge-paper-bg:        #e3f2fd;
   --badge-paper-text:      #1976d2;
   --badge-other-bg:        #f5f5f5;
@@ -3360,4 +3360,105 @@ mark {
     padding: var(--space-8) var(--space-5) var(--space-10);
     border-radius: var(--radius-lg);
   }
+}
+
+/* ============================================================
+   OpenAlex Palette Refinement
+   ============================================================ */
+.site-header,
+.search-hero-shell,
+.results-bar,
+.talk-card,
+.meeting-card,
+.filter-section,
+.work-empty-state {
+  background: #ffffff;
+}
+
+.site-header,
+.search-hero-shell,
+.results-bar,
+.talk-card,
+.meeting-card,
+.filter-section {
+  border-color: #e5e5e5;
+}
+
+.search-hero .subtitle,
+.card-abstract,
+.meeting-card-date,
+.meeting-card-location,
+.results-context,
+.results-count,
+.results-sort-label,
+.work-section-count,
+.page-hero p,
+.info-section-body p,
+.howto-list li {
+  color: #52525b;
+}
+
+.global-search-input::placeholder,
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+.nav-link,
+.header-action-btn,
+.mobile-nav-toggle,
+.customization-toggle,
+.filter-chip,
+.btn-clear-filters,
+.view-btn,
+.mobile-filter-toggle,
+.results-sort-select,
+.filter-event-select,
+.work-more-btn,
+.empty-action-btn,
+.suggestion-chip,
+.back-btn,
+.card-link-btn {
+  color: #1a1a1a;
+  border-color: #e0e0e0;
+  background: #ffffff;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.header-action-btn:hover,
+.mobile-nav-toggle:hover,
+.customization-toggle:hover,
+.filter-chip:hover,
+.btn-clear-filters:hover,
+.view-btn:hover,
+.view-btn.active,
+.mobile-filter-toggle:hover,
+.work-more-btn:hover,
+.empty-action-btn:hover,
+.suggestion-chip:hover,
+.back-btn:hover,
+.card-link-btn:hover {
+  color: #1a1a1a;
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+}
+
+.filter-chip.active,
+.filter-chip--tag.active,
+.active-filter-pill {
+  color: #1a1a1a !important;
+  background: #f0f0f0 !important;
+  border-color: #d0d0d0 !important;
+}
+
+.card-link-btn--video {
+  color: #ffffff;
+  border-color: #1a1a1a;
+  background: #1a1a1a;
+}
+
+.card-link-btn--video:hover {
+  color: #ffffff;
+  border-color: #333333;
+  background: #333333;
 }
