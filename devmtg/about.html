@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
+          ? storedTheme
+          : 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
+        var storedTextSize = localStorage.getItem('llvm-hub-text-size');
+        var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
+
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.setAttribute('data-theme-preference', themePreference);
+        if (textSize === 'default') {
+          document.documentElement.removeAttribute('data-text-size');
+        } else {
+          document.documentElement.setAttribute('data-text-size', textSize);
+        }
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
+      } catch (_) {
+        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var fallbackTheme = fallbackDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', fallbackTheme);
+        document.documentElement.setAttribute('data-theme-preference', 'system');
+        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
+      }
+    })();
+  </script>
+  <style>
+    html { background: #f5f5f5; }
+    html[data-theme="dark"] { background: #000000; }
+    body { background: transparent; }
+
+    .about-main {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1rem 2.2rem;
+    }
+
+    .about-section {
+      margin: 0 0 1rem;
+      padding: 1.15rem 1.2rem;
+      border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+      border-radius: 16px;
+      background: var(--card, rgba(255, 255, 255, 0.9));
+    }
+
+    .about-section h2 {
+      margin: 0 0 0.6rem;
+      font-size: 1.12rem;
+      line-height: 1.35;
+    }
+
+    .about-section p {
+      margin: 0 0 0.65rem;
+      line-height: 1.5;
+    }
+
+    .about-section ul,
+    .about-section ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .about-section li {
+      margin: 0 0 0.45rem;
+    }
+
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .about-stat-card {
+      border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+      border-radius: 12px;
+      padding: 0.8rem 0.85rem;
+      background: var(--card, rgba(255, 255, 255, 0.85));
+    }
+
+    .about-stat-label {
+      margin: 0;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.72;
+    }
+
+    .about-stat-value {
+      margin: 0.2rem 0 0;
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .about-talktype-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.75rem;
+    }
+
+    .about-talktype-card {
+      border: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+      border-radius: 12px;
+      padding: 0.85rem;
+      background: var(--card, rgba(255, 255, 255, 0.85));
+    }
+
+    .about-talktype-card h3 {
+      margin: 0 0 0.32rem;
+      font-size: 0.98rem;
+      line-height: 1.3;
+    }
+
+    .about-talktype-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+  </style>
+  <title>About — LLVM Developers' Meeting Library</title>
+  <meta name="description" content="About the LLVM Developers' Meeting Library, including talk types, search behavior, and feature usage.">
+  <link rel="stylesheet" href="css/style.css?v=20260221-18">
+</head>
+<body>
+
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#about-main" class="skip-link">Skip to main content</a>
+  </nav>
+
+  <header class="site-header">
+    <a href="index.html" class="site-logo" aria-label="LLVM Developers' Meeting Library home">
+      <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
+      <span>LLVM Developers' Meeting Library</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link" aria-label="Talks">
+        <span aria-hidden="true">Talks</span>
+      </a>
+      <a href="meetings.html" class="nav-link" aria-label="Browse by meeting">
+        <span aria-hidden="true">By Meeting</span>
+      </a>
+      <a href="papers.html" class="nav-link" aria-label="Papers">
+        <span aria-hidden="true">Papers</span>
+      </a>
+      <a href="people.html" class="nav-link" aria-label="People">
+        <span aria-hidden="true">People</span>
+      </a>
+      <a href="about.html" class="nav-link active" aria-current="page" aria-label="About this site">
+        <span aria-hidden="true">About</span>
+      </a>
+    </nav>
+
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open navigation menu" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-nav-panel">
+        Browse
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-nav-panel" id="mobile-nav-panel" hidden>
+        <a href="index.html" class="mobile-nav-link">Talks</a>
+        <a href="meetings.html" class="mobile-nav-link">By Meeting</a>
+        <a href="papers.html" class="mobile-nav-link">Papers</a>
+        <a href="people.html" class="mobile-nav-link">People</a>
+        <a href="about.html" class="mobile-nav-link active" aria-current="page">About</a>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search talks and papers">
+        <input type="hidden" name="mode" value="search">
+        <input
+          type="search"
+          class="global-search-input"
+          name="q"
+          placeholder="Search talks + papers"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search talks and papers"
+        >
+        <button class="global-search-submit" type="submit" aria-label="Run global search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <section class="search-hero search-hero--compact" aria-label="About the library">
+    <div class="search-hero-shell">
+      <h1>About This Library</h1>
+      <p class="subtitle">A unified research index for LLVM talks, papers, meetings, and people.</p>
+    </div>
+  </section>
+
+  <main id="about-main" class="about-main" tabindex="-1">
+    <section class="about-section" aria-labelledby="about-overview-heading">
+      <h2 id="about-overview-heading">What This Website Contains</h2>
+      <p>
+        This library combines LLVM Developers' Meeting talks, LLVM-related research papers, and a merged people index.
+        It is designed for both quick lookup and deep research workflows.
+      </p>
+      <div class="about-stats-grid" aria-label="Library coverage">
+        <article class="about-stat-card">
+          <p class="about-stat-label">Talks</p>
+          <p class="about-stat-value" id="about-stat-talks">...</p>
+        </article>
+        <article class="about-stat-card">
+          <p class="about-stat-label">Papers</p>
+          <p class="about-stat-value" id="about-stat-papers">...</p>
+        </article>
+        <article class="about-stat-card">
+          <p class="about-stat-label">People</p>
+          <p class="about-stat-value" id="about-stat-people">...</p>
+        </article>
+        <article class="about-stat-card">
+          <p class="about-stat-label">Meetings</p>
+          <p class="about-stat-value" id="about-stat-meetings">...</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-talk-types-heading">
+      <h2 id="about-talk-types-heading">Talk Types Explained</h2>
+      <p>
+        Talks are labeled with a normalized type so you can filter and compare content quickly:
+      </p>
+      <div class="about-talktype-grid" aria-label="Talk type definitions">
+        <article class="about-talktype-card"><h3>Keynote</h3><p>High-level talks that frame direction, strategy, or major technical themes.</p></article>
+        <article class="about-talktype-card"><h3>Technical Talk</h3><p>Standard deep-dive sessions on implementation details, tooling, or engineering results.</p></article>
+        <article class="about-talktype-card"><h3>Tutorial</h3><p>Step-by-step educational sessions intended to teach workflows, tools, or APIs.</p></article>
+        <article class="about-talktype-card"><h3>Panel</h3><p>Multi-speaker discussion sessions focused on tradeoffs, perspectives, and community consensus.</p></article>
+        <article class="about-talktype-card"><h3>Quick Talk</h3><p>Shorter presentations that communicate one idea or result in a compact format.</p></article>
+        <article class="about-talktype-card"><h3>Lightning Talk</h3><p>Very short talks optimized for rapid updates, prototypes, or early ideas.</p></article>
+        <article class="about-talktype-card"><h3>Student Talk</h3><p>Talks highlighting student research or projects related to LLVM technologies.</p></article>
+        <article class="about-talktype-card"><h3>BoF</h3><p>Birds-of-a-Feather sessions: interactive discussion forums around a focused topic.</p></article>
+        <article class="about-talktype-card"><h3>Poster</h3><p>Poster-format research presentations, often exploratory or early-stage work.</p></article>
+        <article class="about-talktype-card"><h3>Workshop</h3><p>Hands-on or collaborative sessions with practical exercises and applied workflows.</p></article>
+        <article class="about-talktype-card"><h3>Other</h3><p>Sessions that do not map cleanly to the categories above.</p></article>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-search-heading">
+      <h2 id="about-search-heading">How Universal Search Works</h2>
+      <ul>
+        <li>Each main page has one search bar, and suggestions are grouped by <strong>Key Topics</strong>, <strong>Speakers + Authors</strong>, <strong>Talk Titles</strong>, and <strong>Paper Titles</strong>.</li>
+        <li>Selecting a suggestion can keep you on the current page (local filtering) or route you to <a href="work.html">All Work</a> for cross-library results when that is the better match.</li>
+        <li>If you press <code>Enter</code> on free text, the query is committed immediately. Depending on intent, it either filters locally or opens global search.</li>
+        <li>Keyboard support: <code>/</code> focuses search, <code>Arrow Up/Down</code> navigates suggestions, <code>Esc</code> closes the suggestion list.</li>
+      </ul>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-features-heading">
+      <h2 id="about-features-heading">How to Use All Features</h2>
+      <ol>
+        <li><strong>Start broad:</strong> use <a href="work.html">All Work</a> or any page search box to locate a topic, title, or contributor.</li>
+        <li><strong>Narrow with filters:</strong> Talks supports key topics, type, year, event, and resources; Papers supports key topics, year, and author targeting.</li>
+        <li><strong>Use sort + layout controls:</strong> switch between relevance, chronology, citations, and compact/card views where available.</li>
+        <li><strong>Pivot through People:</strong> open a person profile card to jump into their talks, papers, or global results.</li>
+        <li><strong>Browse by event history:</strong> use <a href="meetings.html">By Meeting</a> to inspect each LLVM Developers' Meeting edition.</li>
+        <li><strong>Open detail pages:</strong> talk and paper pages include abstracts, links, metadata, and source references.</li>
+        <li><strong>Share reproducible views:</strong> active filters and searches are encoded in the URL so links preserve context.</li>
+      </ol>
+    </section>
+
+    <section class="about-section" aria-labelledby="about-sources-heading">
+      <h2 id="about-sources-heading">Data and Scope Notes</h2>
+      <ul>
+        <li>This site curates metadata from public LLVM meeting archives and LLVM-related papers.</li>
+        <li>People records are merged across speaker/author name variants to reduce duplication.</li>
+        <li>Paper-author affiliations may be shown as published in source material; people cards intentionally omit affiliations.</li>
+        <li>For canonical meeting announcements and schedules, see the <a href="https://llvm.org/devmtg/" target="_blank" rel="noopener">official LLVM Developers' Meeting archive</a>.</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="js/events-data.js?v=20260220-12"></script>
+  <script src="js/papers-data.js?v=20260221-02"></script>
+  <script src="js/shared/library-utils.js?v=20260221-24"></script>
+  <script src="js/shared/global-search.js?v=20260221-22"></script>
+  <script src="js/about.js?v=20260221-01"></script>
+</body>
+</html>

@@ -74,9 +74,9 @@
   <a href="people.html" class="nav-link" aria-label="People">
     <span aria-hidden="true">People</span>
   </a>
-  <button class="nav-link nav-btn-about" id="about-btn" data-open-about="true" aria-label="About this site" aria-expanded="false" aria-controls="about-modal">
+  <a href="about.html" class="nav-link" aria-label="About this site">
     <span aria-hidden="true">About</span>
-  </button>
+  </a>
 </nav>
 
 <div class="mobile-nav-menu" id="mobile-nav-menu">
@@ -91,7 +91,7 @@
     <a href="meetings.html" class="mobile-nav-link">By Meeting</a>
     <a href="papers.html" class="mobile-nav-link">Papers</a>
     <a href="people.html" class="mobile-nav-link">People</a>
-    <button class="mobile-nav-link mobile-nav-link--button" id="about-btn-mobile" type="button" data-open-about="true" aria-label="About this site" aria-expanded="false" aria-controls="about-modal">About</button>
+    <a href="about.html" class="mobile-nav-link">About</a>
   </div>
 </div>
 
@@ -351,150 +351,6 @@
       </div>
     </main>
   </div>
-
-  <!-- ======================================================
-       About Modal
-  ====================================================== -->
-  <div class="about-modal-overlay" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="modal-about-heading" hidden>
-    <div class="about-modal-panel">
-      <button class="about-modal-close" id="about-modal-close" aria-label="Close about panel">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-
-      <div class="about-modal-inner">
-
-        <section class="info-section" aria-labelledby="modal-about-heading">
-          <div class="info-section-icon" aria-hidden="true">
-            <img src="images/llvm-logo.png" alt="">
-          </div>
-          <div class="info-section-body">
-            <h2 id="modal-about-heading">About This Library</h2>
-            <p>
-              This is a unified research library for LLVM, combining <strong>LLVM Developers' Meeting talks</strong>,
-              <strong>LLVM-related papers</strong>, and a <strong>People index</strong> into one searchable site.
-              It is designed for fast discovery across titles, abstracts, key topics, meetings, and contributors.
-            </p>
-            <p>
-              Use <a href="index.html">Talks</a>, <a href="papers.html">Papers</a>, <a href="people.html">People</a>,
-              <a href="meetings.html">By Meeting</a>, and <a href="work.html">All Work</a> together to move from broad
-              search to precise exploration.
-            </p>
-            <p>
-              Data is compiled from public LLVM sources and curated metadata. For canonical meeting listings and announcements,
-              see the <a href="https://llvm.org/devmtg/" target="_blank" rel="noopener">official LLVM meeting archive</a>.
-            </p>
-          </div>
-        </section>
-
-        <section class="info-section" aria-labelledby="modal-howto-heading">
-          <div class="info-section-icon info-section-icon--howto" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-          </div>
-          <div class="info-section-body">
-            <h2 id="modal-howto-heading">How to Use It</h2>
-            <ul class="howto-list">
-              <li>
-                <strong>Search first</strong> — Use the main search box for terms, phrases, contributor names, or topics.
-                Quoted phrases (for example <code>"register allocation"</code>) work for exact matching.
-              </li>
-              <li>
-                <strong>Refine with filters</strong> — Narrow by key topics, years, talk type, and resource availability
-                on Talks; narrow by key topics, year, and authors on Papers.
-              </li>
-              <li>
-                <strong>Sort and layout controls</strong> — Use Sort by controls and grid/list toggles to switch
-                between relevance, recency, citations, and compact reading layouts where available.
-              </li>
-              <li>
-                <strong>Use People for cross-navigation</strong> — Open the People index to find speakers/authors,
-                then jump to talks, papers, or global all-work search for that person.
-              </li>
-              <li>
-                <strong>Browse by meeting era</strong> — Use <a href="meetings.html">By Meeting</a> to inspect each LLVM
-                Developers' Meeting edition and open its full session list.
-              </li>
-              <li>
-                <strong>Open detail pages</strong> — Talk and paper detail pages include richer metadata,
-                full abstracts, related links, and source references.
-              </li>
-              <li>
-                <strong>Shareable URLs</strong> — Active queries and filters are encoded in page URLs,
-                so you can bookmark or share any filtered view directly.
-              </li>
-              <li>
-                <strong>Display settings</strong> — Theme and text size controls are available in the top-right menu
-                and are saved across visits.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-      </div>
-    </div>
-  </div>
-
-<script>
-  (function () {
-    var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-open-about="true"]'));
-    var modal = document.getElementById('about-modal');
-    var closeBtn = document.getElementById('about-modal-close');
-    var lastTrigger = null;
-
-    if (!triggers.length || !modal || !closeBtn) return;
-
-    function setExpanded(expanded) {
-      var value = expanded ? 'true' : 'false';
-      triggers.forEach(function (trigger) {
-        trigger.setAttribute('aria-expanded', value);
-      });
-    }
-
-    function openModal(trigger) {
-      lastTrigger = trigger || null;
-      modal.hidden = false;
-      document.body.style.overflow = 'hidden';
-      setExpanded(true);
-      closeBtn.focus();
-    }
-
-    function closeModal() {
-      modal.hidden = true;
-      document.body.style.overflow = '';
-      setExpanded(false);
-      if (lastTrigger && document.contains(lastTrigger) && !lastTrigger.closest('[hidden]')) {
-          lastTrigger.focus();
-        } else {
-          var fallbackTrigger = document.getElementById('about-btn');
-          if (fallbackTrigger) fallbackTrigger.focus();
-        }
-    }
-
-    triggers.forEach(function (trigger) {
-      trigger.addEventListener('click', function () {
-        if (modal.hidden) {
-          openModal(trigger);
-        } else {
-          closeModal();
-        }
-      });
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) { closeModal(); }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !modal.hidden) { closeModal(); }
-    });
-  })();
-</script>
-
   <!-- Event data loader -->
   <script src="js/events-data.js?v=20260220-12"></script>
   <script src="js/shared/library-utils.js?v=20260221-24"></script>
