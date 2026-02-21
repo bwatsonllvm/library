@@ -658,6 +658,7 @@ def main() -> int:
             time.sleep(0.08)
 
     matched_author_ids: dict[str, str] = {}
+    author_seeded_work_ids: set[str] = set()
     if extra_authors and not args.skip_author_queries:
         for author_name in extra_authors:
             if args.verbose:
@@ -706,6 +707,7 @@ def main() -> int:
                     work_id = collapse_ws(str(work.get("id", "")))
                     if work_id:
                         all_works[work_id] = work
+                        author_seeded_work_ids.add(work_id)
 
                 if page * args.author_per_page >= total_count:
                     break
@@ -717,6 +719,7 @@ def main() -> int:
     kept_existing_keys: set[tuple[str, str]] = set()
 
     for work in all_works.values():
+        work_id = collapse_ws(str(work.get("id", "")))
         openalex_type = collapse_ws(str(work.get("type", ""))).lower()
         if openalex_type and openalex_type not in ALLOWED_OPENALEX_TYPES:
             continue
@@ -728,7 +731,8 @@ def main() -> int:
         abstract = decode_abstract_inverted_index(work.get("abstract_inverted_index"))
         publication, venue = pick_publication_and_venue(work)
         focus_blob = f"{title} {abstract} {publication} {venue}"
-        if not match_focus_terms(focus_blob):
+        # Keep broad research output for explicit author-seeded queries.
+        if work_id not in author_seeded_work_ids and not match_focus_terms(focus_blob):
             continue
 
         authors = extract_author_list(work)
@@ -736,11 +740,18 @@ def main() -> int:
             continue
 
         matched = []
+        explicit_author_matches = []
+        for authorship in work.get("authorships", []) or []:
+            author = authorship.get("author") or {}
+            author_id = collapse_ws(str(author.get("id", "")))
+            if author_id and author_id in matched_author_ids:
+                explicit_author_matches.append(matched_author_ids[author_id])
+
         for author in authors:
             key = normalize_name(author.get("name", ""))
             if key in seed_authors:
                 matched.append(seed_authors[key])
-        matched = sorted(set(matched))
+        matched = sorted(set(matched + explicit_author_matches))
         if not matched:
             continue
 
