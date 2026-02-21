@@ -22,6 +22,8 @@ let activeRenderTokens = [];
 let renderedCount = 0;
 let loadMoreObserver = null;
 let loadMoreScrollHandler = null;
+const MIN_TOPIC_FILTER_COUNT = 4;
+const MAX_TOPIC_FILTERS = 180;
 
 const ALL_WORK_PAGE_PATH = 'work.html';
 const PAPER_SORT_MODES = new Set(['relevance', 'year', 'citations']);
@@ -158,6 +160,12 @@ function normalizePaperRecord(rawPaper) {
   paper.tags = Array.isArray(paper.tags)
     ? paper.tags.map((tag) => String(tag || '').trim()).filter(Boolean)
     : [];
+  paper.keywords = Array.isArray(paper.keywords)
+    ? paper.keywords.map((keyword) => String(keyword || '').trim()).filter(Boolean)
+    : [];
+  if (!paper.keywords.length && paper.tags.length) {
+    paper.keywords = [...paper.tags];
+  }
 
   if (!paper.id || !paper.title) return null;
 
@@ -167,6 +175,7 @@ function normalizePaperRecord(rawPaper) {
   paper._authorLower = paper.authors.map((author) => `${author.name} ${author.affiliation || ''}`.trim()).join(' ').toLowerCase();
   paper._abstractLower = paper.abstract.toLowerCase();
   paper._tagsLower = paper.tags.join(' ').toLowerCase();
+  paper._keywordsLower = paper.keywords.join(' ').toLowerCase();
   paper._publicationLower = paper.publication.toLowerCase();
   paper._venueLower = paper.venue.toLowerCase();
   paper._typeLower = paper.type.toLowerCase();
@@ -193,6 +202,7 @@ function normalizePaperRecord(rawPaper) {
   paper._fuzzyTitle = uniqueTokens([paper.title]);
   paper._fuzzyAuthors = uniqueTokens(paper.authors.map((author) => author.name));
   paper._fuzzyTags = uniqueTokens(paper.tags);
+  paper._fuzzyKeywords = uniqueTokens(paper.keywords);
   paper._fuzzyPublication = uniqueTokens([paper.publication]);
   paper._fuzzyVenue = uniqueTokens([paper.venue, paper.publication, paper.type, paper.year]);
 
@@ -249,6 +259,7 @@ function scorePaperMatch(indexedPaper, tokens) {
     const authors = String(indexedPaper._authorLower || '');
     const abstractText = String(indexedPaper._abstractLower || '');
     const tags = String(indexedPaper._tagsLower || '');
+    const keywords = String(indexedPaper._keywordsLower || '');
     const publication = String(indexedPaper._publicationLower || '');
     const venue = String(indexedPaper._venueLower || '');
     const type = String(indexedPaper._typeLower || '');
@@ -258,6 +269,7 @@ function scorePaperMatch(indexedPaper, tokens) {
     if (titleIdx !== -1) tokenScore += titleIdx === 0 ? 100 : 50;
     if (authors.includes(token)) tokenScore += 34;
     if (tags.includes(token)) tokenScore += 20;
+    if (keywords.includes(token)) tokenScore += 16;
     if (abstractText.includes(token)) tokenScore += 12;
     if (publication.includes(token)) tokenScore += 10;
     if (venue.includes(token)) tokenScore += 8;
@@ -344,6 +356,7 @@ function fuzzyScorePaper(indexedPaper, tokens) {
     const titleScore = fuzzyTokenScore(token, indexedPaper._fuzzyTitle || []);
     const authorScore = fuzzyTokenScore(token, indexedPaper._fuzzyAuthors || []);
     const tagScore = fuzzyTokenScore(token, indexedPaper._fuzzyTags || []);
+    const keywordScore = fuzzyTokenScore(token, indexedPaper._fuzzyKeywords || []);
     const publicationScore = fuzzyTokenScore(token, indexedPaper._fuzzyPublication || []);
     const venueScore = fuzzyTokenScore(token, indexedPaper._fuzzyVenue || []);
 
@@ -351,6 +364,7 @@ function fuzzyScorePaper(indexedPaper, tokens) {
       titleScore ? titleScore + 3 : 0,
       authorScore ? authorScore + 2 : 0,
       tagScore ? tagScore + 2 : 0,
+      keywordScore ? keywordScore + 2 : 0,
       publicationScore ? publicationScore + 1 : 0,
       venueScore,
     );
@@ -421,7 +435,8 @@ function filterAndSort() {
   if (state.activeTags.size > 0) {
     const activeTags = new Set([...state.activeTags].map((tag) => normalizeFilterValue(tag)));
     entries = entries.filter(({ paper }) =>
-      (paper.tags || []).some((tag) => activeTags.has(normalizeFilterValue(tag)))
+      [...(paper.tags || []), ...(paper.keywords || [])]
+        .some((tag) => activeTags.has(normalizeFilterValue(tag)))
     );
   }
 
@@ -515,8 +530,8 @@ function renderPaperCard(paper, tokens) {
     ? `<span class="paper-citation-count" aria-label="${citationCount.toLocaleString()} citations">${citationCount.toLocaleString()} citation${citationCount === 1 ? '' : 's'}</span>`
     : '';
 
-  const tags = paper.tags || [];
-  const tagsHtml = (paper.tags || []).length
+  const tags = (paper.tags && paper.tags.length) ? paper.tags : (paper.keywords || []);
+  const tagsHtml = tags.length
     ? `<div class="card-tags-wrap"><div class="card-tags" aria-label="Paper topics">${tags.slice(0, 4).map((tag) =>
         `<button class="card-tag" data-tag="${escapeHtml(tag)}" onclick="event.stopPropagation();filterByTag(${JSON.stringify(tag)})" aria-label="Filter by topic: ${escapeHtml(tag)}">${escapeHtml(tag)}</button>`
       ).join('')}${tags.length > 4 ? `<span class="card-tag card-tag--more" aria-hidden="true">+${tags.length - 4}</span>` : ''}</div></div>`
@@ -1115,8 +1130,19 @@ function initFilters() {
   const yearCounts = {};
 
   for (const paper of allPapers) {
+    const seenPaperTopics = new Set();
     for (const tag of (paper.tags || [])) {
+      const normalized = normalizeFilterValue(tag);
+      if (!normalized || seenPaperTopics.has(normalized)) continue;
+      seenPaperTopics.add(normalized);
       tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    }
+    for (const keyword of (paper.keywords || []).slice(0, 8)) {
+      const normalized = normalizeFilterValue(keyword);
+      if (!normalized || seenPaperTopics.has(normalized)) continue;
+      seenPaperTopics.add(normalized);
+      if (String(keyword || '').length > 48) continue;
+      tagCounts[keyword] = (tagCounts[keyword] || 0) + 1;
     }
 
     if (paper._year) {
@@ -1126,11 +1152,13 @@ function initFilters() {
   }
 
   const tags = Object.entries(tagCounts)
+    .filter(([, count]) => count >= MIN_TOPIC_FILTER_COUNT)
     .sort((a, b) => a[0].localeCompare(b[0]));
+  const visibleTags = tags.slice(0, MAX_TOPIC_FILTERS);
 
   const tagContainer = document.getElementById('filter-tags');
   if (tagContainer) {
-    tagContainer.innerHTML = tags.map(([tag, count]) => `
+    tagContainer.innerHTML = visibleTags.map(([tag, count]) => `
       <button class="filter-chip filter-chip--tag" data-type="tag" data-value="${escapeHtml(tag)}"
               role="switch" aria-checked="false">
         ${escapeHtml(tag)}
@@ -1405,8 +1433,18 @@ function buildAutocompleteIndex() {
   const speakerCounts = {};
 
   for (const paper of allPapers) {
+    const seenPaperTopics = new Set();
     for (const tag of (paper.tags || [])) {
+      const normalized = normalizeFilterValue(tag);
+      if (!normalized || seenPaperTopics.has(normalized)) continue;
+      seenPaperTopics.add(normalized);
       tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    }
+    for (const keyword of (paper.keywords || []).slice(0, 8)) {
+      const normalized = normalizeFilterValue(keyword);
+      if (!normalized || seenPaperTopics.has(normalized)) continue;
+      seenPaperTopics.add(normalized);
+      tagCounts[keyword] = (tagCounts[keyword] || 0) + 1;
     }
 
     const seenAuthors = new Set();

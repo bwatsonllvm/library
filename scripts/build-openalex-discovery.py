@@ -27,6 +27,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from paper_keywords import PaperKeywordExtractor
+
 
 OPENALEX_BASE = "https://api.openalex.org/works"
 OPENALEX_AUTHORS_BASE = "https://api.openalex.org/authors"
@@ -112,24 +114,6 @@ def parse_all_tags(app_js_path: Path) -> list[str]:
     if not tags:
         raise RuntimeError("Parsed empty ALL_TAGS list")
     return tags
-
-
-def extract_tags_from_text(tags: list[str], title: str, abstract: str) -> list[str]:
-    text = f"{title} {abstract}".lower()
-    found: list[str] = []
-
-    for tag in tags:
-        t = tag.lower()
-        alnum_len = len(re.sub(r"[^a-z0-9]", "", t))
-        if alnum_len <= 3:
-            pattern = rf"(?<![a-z0-9]){re.escape(t)}(?![a-z0-9])"
-            if re.search(pattern, text):
-                found.append(tag)
-        else:
-            if t in text:
-                found.append(tag)
-
-    return found
 
 
 def parse_manifest_paper_files(index_path: Path) -> list[str]:
@@ -609,6 +593,7 @@ def main() -> int:
 
     manifest_files = parse_manifest_paper_files(index_json)
     tags = parse_all_tags(app_js)
+    keyword_extractor = PaperKeywordExtractor(tags)
     seed_authors = load_seed_authors(events_dir, papers_dir, manifest_files, output_bundle_name)
     extra_authors = load_extra_authors(extra_authors_file, args.extra_author)
     added_seed_authors = merge_seed_authors(seed_authors, extra_authors)
@@ -752,7 +737,14 @@ def main() -> int:
             continue
 
         paper_url, source_url = pick_urls(work)
-        tags_for_paper = extract_tags_from_text(tags, title, abstract)
+        topics = keyword_extractor.extract(
+            title=title,
+            abstract=abstract,
+            publication=publication,
+            venue=venue,
+        )
+        tags_for_paper = topics["tags"]
+        keywords_for_paper = topics["keywords"]
 
         openalex_id = collapse_ws(str(work.get("id", "")))
         suffix = openalex_id.rsplit("/", 1)[-1].lower() if openalex_id else slugify(title)[:32]
@@ -779,6 +771,7 @@ def main() -> int:
                 "paperUrl": paper_url,
                 "sourceUrl": source_url,
                 "tags": tags_for_paper,
+                "keywords": keywords_for_paper,
                 "matchedAuthors": matched,
             }
         )

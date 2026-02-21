@@ -110,6 +110,12 @@ function normalizePaperRecord(rawPaper) {
   paper.tags = Array.isArray(paper.tags)
     ? paper.tags.map((tag) => String(tag || '').trim()).filter(Boolean)
     : [];
+  paper.keywords = Array.isArray(paper.keywords)
+    ? paper.keywords.map((keyword) => String(keyword || '').trim()).filter(Boolean)
+    : [];
+  if (!paper.keywords.length && paper.tags.length) {
+    paper.keywords = [...paper.tags];
+  }
 
   if (!paper.id || !paper.title) return null;
   paper._year = /^\d{4}$/.test(paper.year) ? paper.year : '';
@@ -209,6 +215,12 @@ function truncateText(value, maxLength = 180) {
   if (!text) return '';
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength - 1)}…`;
+}
+
+function normalizeKeywordKey(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
 }
 
 function makeBibtexKey(paper) {
@@ -671,6 +683,20 @@ function renderPaperDetail(paper, allPapers) {
       </section>`
     : '';
 
+  const keywordOnly = (paper.keywords || []).filter((keyword) =>
+    !(paper.tags || []).some((tag) => normalizeKeywordKey(tag) === normalizeKeywordKey(keyword))
+  );
+  const keywordsHtml = keywordOnly.length
+    ? `<section class="tags-section" aria-label="Keywords">
+        <div class="section-label" aria-hidden="true">Keywords</div>
+        <div class="detail-tags">
+          ${keywordOnly.slice(0, 18).map((keyword) =>
+            `<a href="papers.html?tag=${encodeURIComponent(keyword)}" class="detail-tag" aria-label="Browse papers for keyword ${escapeHtml(keyword)}">${escapeHtml(keyword)}</a>`
+          ).join('')}
+        </div>
+      </section>`
+    : '';
+
   const publicationHtml = paper.publication
     ? `<section class="tags-section" aria-label="Publication">
         <div class="section-label" aria-hidden="true">Publication</div>
@@ -733,6 +759,7 @@ function renderPaperDetail(paper, allPapers) {
       ${citationMetaHtml}
       ${publicationHtml}
       ${tagsHtml}
+      ${keywordsHtml}
     </div>
 
     ${related.length ? `

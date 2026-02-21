@@ -185,6 +185,7 @@ python3 /Users/britton/Desktop/library/scripts/build-papers-catalog.py \
 ```
 
 Tag assignment is derived from the canonical Dev Meeting talk tag list (`devmtg/js/app.js`), matching tag phrases against each paper title/abstract.
+In addition to canonical `tags`, builders now emit a richer `keywords` array derived from title/abstract/venue text (LLVM/compiler alias rules + phrase mining).
 
 `--resolve-empty-links-from-openalex` backfills entries that have no URL in `pubs.js` by querying OpenAlex with title/year and using DOI/landing URLs.
 
@@ -242,6 +243,17 @@ python3 /Users/britton/Desktop/library/scripts/normalize-paper-publications.py \
   --manifest /Users/britton/Desktop/library/papers/index.json
 ```
 
+### Enrich Paper Keywords (Existing Bundles)
+
+To backfill stronger keyword metadata across existing `papers/*.json` bundles:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/enrich-paper-keywords.py \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --manifest /Users/britton/Desktop/library/papers/index.json \
+  --app-js /Users/britton/Desktop/library/devmtg/js/app.js
+```
+
 ### Paper Record Format
 
 Each paper entry is an object in the `papers` array, for example:
@@ -270,6 +282,7 @@ Each paper entry is an object in the `papers` array, for example:
   "paperUrl": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf",
   "sourceUrl": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.html",
   "tags": ["Optimizations"],
+  "keywords": ["LLVM", "Intermediate Representation", "Code Generation", "Optimizations"],
   "doi": "10.1145/977395.977673",
   "openalexId": "https://openalex.org/W4365335066",
   "citationCount": 1234
@@ -281,6 +294,7 @@ Optional enrichment fields:
 - `doi`: DOI string (or DOI URL in `paperUrl`/`sourceUrl`, which UI can infer).
 - `openalexId`: OpenAlex work URL (`https://openalex.org/W...`).
 - `citationCount`: integer citation count (typically from OpenAlex).
+- `keywords`: richer topic phrases mined from title/abstract/venue text (not limited to canonical UI tags).
 
 ### Cache Refresh Requirement
 

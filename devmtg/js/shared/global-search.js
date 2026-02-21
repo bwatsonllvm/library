@@ -165,7 +165,23 @@
           const papers = Array.isArray(payload.papers) ? payload.papers : [];
 
           for (const paper of papers) {
-            for (const tag of (paper.tags || [])) addCount(topicCounts, tag);
+            const seenPaperTopics = new Set();
+            for (const tag of (paper.tags || [])) {
+              const topic = String(tag || '').trim();
+              if (!topic) continue;
+              const key = topic.toLowerCase();
+              if (seenPaperTopics.has(key)) continue;
+              seenPaperTopics.add(key);
+              addCount(topicCounts, topic);
+            }
+            for (const keyword of (paper.keywords || []).slice(0, 8)) {
+              const topic = String(keyword || '').trim();
+              if (!topic || topic.length > 48) continue;
+              const key = topic.toLowerCase();
+              if (seenPaperTopics.has(key)) continue;
+              seenPaperTopics.add(key);
+              addCount(topicCounts, topic);
+            }
             for (const author of (paper.authors || [])) addCount(peopleCounts, author && author.name);
             addCount(paperTitleCounts, paper.title);
           }

@@ -99,6 +99,12 @@ function normalizePaperRecord(rawPaper) {
   paper.tags = Array.isArray(paper.tags)
     ? paper.tags.map((tag) => String(tag || '').trim()).filter(Boolean)
     : [];
+  paper.keywords = Array.isArray(paper.keywords)
+    ? paper.keywords.map((keyword) => String(keyword || '').trim()).filter(Boolean)
+    : [];
+  if (!paper.keywords.length && paper.tags.length) {
+    paper.keywords = [...paper.tags];
+  }
 
   if (!paper.id || !paper.title) return null;
 
@@ -158,6 +164,7 @@ function scorePaperForQuery(paper, tokens) {
   const authors = (paper.authors || []).map((author) => `${author.name || ''}`).join(' ').toLowerCase();
   const abstractText = String(paper.abstract || '').toLowerCase();
   const tags = (paper.tags || []).join(' ').toLowerCase();
+  const keywords = (paper.keywords || []).join(' ').toLowerCase();
   const publication = String(paper.publication || '').toLowerCase();
   const venue = String(paper.venue || '').toLowerCase();
   const year = String(paper._year || '').toLowerCase();
@@ -168,6 +175,7 @@ function scorePaperForQuery(paper, tokens) {
     if (titleIdx !== -1) tokenScore += titleIdx === 0 ? 100 : 50;
     if (authors.includes(token)) tokenScore += 34;
     if (tags.includes(token)) tokenScore += 20;
+    if (keywords.includes(token)) tokenScore += 16;
     if (abstractText.includes(token)) tokenScore += 12;
     if (publication.includes(token)) tokenScore += 10;
     if (venue.includes(token)) tokenScore += 8;
@@ -230,7 +238,8 @@ function matchesPaperEntity(paper, normalizedNeedle) {
     return (paper.authors || []).some((author) => normalizeValue(author.name) === normalizedNeedle);
   }
 
-  return (paper.tags || []).some((tag) => normalizeValue(tag) === normalizedNeedle);
+  return [...(paper.tags || []), ...(paper.keywords || [])]
+    .some((tag) => normalizeValue(tag) === normalizedNeedle);
 }
 
 function renderEntityLinks(items, kind) {
@@ -284,6 +293,7 @@ function renderPaperCard(paper) {
   const year = escapeHtml(paper._year || 'Unknown year');
   const authorNames = (paper.authors || []).map((author) => author.name).filter(Boolean);
   const authorsHtml = renderEntityLinks(authorNames, 'speaker');
+  const topics = (paper.tags && paper.tags.length) ? paper.tags : (paper.keywords || []);
 
   return `
     <article class="talk-card paper-card">
@@ -298,7 +308,7 @@ function renderPaperCard(paper) {
         </div>
       </a>
       ${authorsHtml ? `<p class="card-speakers paper-authors">${authorsHtml}</p>` : ''}
-      ${renderTagLinks(paper.tags || [])}
+      ${renderTagLinks(topics)}
     </article>`;
 }
 

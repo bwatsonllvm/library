@@ -25,6 +25,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+from paper_keywords import PaperKeywordExtractor
+
 
 PLACEHOLDER_ABSTRACT = "No abstract available in llvm.org/pubs metadata."
 BASE_PUBS_URL = "https://llvm.org/pubs/"
@@ -643,24 +645,6 @@ def lookup_openalex_link_by_title(title: str, year: str, cache: dict[str, str], 
     return landing
 
 
-def extract_tags_from_text(tags: list[str], title: str, abstract: str) -> list[str]:
-    text = f"{title} {abstract}".lower()
-    found: list[str] = []
-
-    for tag in tags:
-        t = tag.lower()
-        alnum_len = len(re.sub(r"[^a-z0-9]", "", t))
-        if alnum_len <= 3:
-            pattern = rf"(?<![a-z0-9]){re.escape(t)}(?![a-z0-9])"
-            if re.search(pattern, text):
-                found.append(tag)
-        else:
-            if t in text:
-                found.append(tag)
-
-    return found
-
-
 def build_old_dataset_map(old_dataset_path: Path) -> dict[tuple[str, str], dict]:
     if not old_dataset_path.exists():
         return {}
@@ -681,7 +665,7 @@ def build_old_dataset_map(old_dataset_path: Path) -> dict[tuple[str, str], dict]
 
 def build_dataset(
     src_repo: Path,
-    tags: list[str],
+    keyword_extractor: PaperKeywordExtractor,
     old_map: dict[tuple[str, str], dict],
     resolve_empty_links_from_openalex: bool,
     openalex_cache: dict[str, str],
@@ -762,7 +746,14 @@ def build_dataset(
                     if strip_tags(str(author.get("name", "")))
                 ]
 
-        tags_for_paper = extract_tags_from_text(tags, title, abstract)
+        topics = keyword_extractor.extract(
+            title=title,
+            abstract=abstract,
+            publication=publication,
+            venue=venue,
+        )
+        tags_for_paper = topics["tags"]
+        keywords_for_paper = topics["keywords"]
 
         base_id = slugify(f"pubs-{year or 'unknown'}-{title}")
         paper_id = base_id
@@ -787,6 +778,7 @@ def build_dataset(
             "paperUrl": paper_url,
             "sourceUrl": source_url,
             "tags": tags_for_paper,
+            "keywords": keywords_for_paper,
         }
         out.append(record)
 
@@ -826,11 +818,12 @@ def main() -> int:
         raise SystemExit(f"Missing pubs.js under source repo: {src_repo}")
 
     tags = parse_all_tags(app_js)
+    keyword_extractor = PaperKeywordExtractor(tags)
     old_map = build_old_dataset_map(old_dataset)
     openalex_cache = load_openalex_cache(openalex_cache_path)
     papers = build_dataset(
         src_repo,
-        tags,
+        keyword_extractor,
         old_map,
         resolve_empty_links_from_openalex=args.resolve_empty_links_from_openalex,
         openalex_cache=openalex_cache,
