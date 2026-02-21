@@ -317,6 +317,33 @@ function initCustomizationMenu() {
   });
 }
 
+function initAboutHeroSearch() {
+  const input = document.getElementById('about-search-input');
+  const clearBtn = document.getElementById('about-search-clear');
+  if (!input || !clearBtn) return;
+
+  const syncClear = () => {
+    const hasText = String(input.value || '').trim().length > 0;
+    clearBtn.classList.toggle('visible', hasText);
+  };
+
+  input.addEventListener('input', syncClear);
+  input.addEventListener('focus', syncClear);
+  input.addEventListener('blur', () => {
+    window.setTimeout(syncClear, 150);
+  });
+
+  clearBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    input.value = '';
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    input.focus();
+    syncClear();
+  });
+
+  syncClear();
+}
+
 function setText(id, value) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -382,6 +409,7 @@ async function init() {
   initCustomizationMenu();
   initMobileNavMenu();
   initShareMenu();
+  initAboutHeroSearch();
   await loadAndRenderStats();
 }
 
