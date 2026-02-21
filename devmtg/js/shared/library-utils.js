@@ -16,6 +16,92 @@
     'workshop': 9,
     'other': 10,
   };
+  const KNOWN_TALK_CATEGORIES = new Set(Object.keys(CATEGORY_ORDER));
+  const TALK_CATEGORY_ALIAS_MAP = {
+    keynote: 'keynote',
+    keynotes: 'keynote',
+    'key-note': 'keynote',
+
+    'technical-talk': 'technical-talk',
+    'technical-talks': 'technical-talk',
+    technical: 'technical-talk',
+    'technical-session': 'technical-talk',
+    'technical-sessions': 'technical-talk',
+    'tech-talk': 'technical-talk',
+    'tech-talks': 'technical-talk',
+
+    tutorial: 'tutorial',
+    tutorials: 'tutorial',
+
+    panel: 'panel',
+    panels: 'panel',
+
+    'quick-talk': 'quick-talk',
+    'quick-talks': 'quick-talk',
+    quick: 'quick-talk',
+
+    'lightning-talk': 'lightning-talk',
+    'lightning-talks': 'lightning-talk',
+    lightning: 'lightning-talk',
+
+    'student-talk': 'student-talk',
+    'student-talks': 'student-talk',
+    'student-technical-talk': 'student-talk',
+    'student-technical-talks': 'student-talk',
+    'student-technical': 'student-talk',
+    'student-talk-session': 'student-talk',
+    'student-talk-sessions': 'student-talk',
+
+    bof: 'bof',
+    'birds-of-feather': 'bof',
+    'birds-of-a-feather': 'bof',
+    'birds-feather': 'bof',
+    'birds-a-feather': 'bof',
+    'round-table': 'bof',
+    'round-tables': 'bof',
+
+    poster: 'poster',
+    posters: 'poster',
+
+    workshop: 'workshop',
+    workshops: 'workshop',
+
+    other: 'other',
+  };
+
+  function normalizeCategoryKey(value) {
+    return String(value || '')
+      .toLowerCase()
+      .trim()
+      .replace(/&/g, ' and ')
+      .replace(/\+/g, ' plus ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+  function normalizeTalkCategory(value) {
+    const key = normalizeCategoryKey(value);
+    if (!key) return 'other';
+
+    const aliasMatch = TALK_CATEGORY_ALIAS_MAP[key];
+    if (aliasMatch) return aliasMatch;
+    if (KNOWN_TALK_CATEGORIES.has(key)) return key;
+    return 'other';
+  }
+
+  function normalizeTalkCategoryList(values) {
+    if (!Array.isArray(values)) return [];
+    const out = [];
+    const seen = new Set();
+    for (const value of values) {
+      const normalized = normalizeTalkCategory(value);
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      out.push(normalized);
+    }
+    return out;
+  }
 
   function isNonEmptyString(value) {
     return typeof value === 'string' && value.trim() !== '';
@@ -452,6 +538,21 @@
     return normalizePersonRecord(rawSpeaker);
   }
 
+  function looksLikeStudentTalkFromMetadata(talk) {
+    if (!talk || typeof talk !== 'object') return false;
+    const title = String(talk.title || '').toLowerCase();
+    if (/\bstudent(?:\s+technical)?\s+talks?\b/.test(title)) return true;
+
+    const slidesUrl = String(talk.slidesUrl || '').toLowerCase();
+    if (!slidesUrl) return false;
+    return (
+      slidesUrl.includes('/student-talks/') ||
+      slidesUrl.includes('/studenttalks/') ||
+      slidesUrl.includes('/student_technical_talk/') ||
+      slidesUrl.includes('/student-technical-talk/')
+    );
+  }
+
   function normalizeTalkRecord(talk) {
     if (!talk || typeof talk !== 'object') return talk;
 
@@ -469,6 +570,11 @@
           .map(normalizeSpeakerRecord)
           .filter((speaker) => isNonEmptyString(speaker.name))
       : [];
+    let normalizedCategory = normalizeTalkCategory(normalized.category);
+    if (looksLikeStudentTalkFromMetadata(normalized)) {
+      normalizedCategory = 'student-talk';
+    }
+    normalized.category = normalizedCategory;
 
     return normalized;
   }
@@ -682,7 +788,7 @@
       speaker: isNonEmptyString(params.speaker) ? normalizeSpeakerName(params.speaker) : '',
       meeting,
       meetingName,
-      categories: parseCsvParam(params.category),
+      categories: normalizeTalkCategoryList(parseCsvParam(params.category)),
       years: parseCsvParam(params.year),
       tags: parseCsvParam(params.tag),
       sort: isNonEmptyString(params.sort) ? params.sort.trim().toLowerCase() : '',
@@ -705,7 +811,7 @@
     return {
       query: isNonEmptyString(parsed.query) ? parsed.query : '',
       speaker: isNonEmptyString(parsed.speaker) ? normalizeSpeakerName(parsed.speaker) : '',
-      categories: Array.isArray(parsed.categories) ? parsed.categories.filter(isNonEmptyString) : [],
+      categories: normalizeTalkCategoryList(Array.isArray(parsed.categories) ? parsed.categories.filter(isNonEmptyString) : []),
       years: Array.isArray(parsed.years) ? parsed.years.filter(isNonEmptyString) : [],
       tags: Array.isArray(parsed.tags) ? parsed.tags.filter(isNonEmptyString) : [],
       sortBy: isNonEmptyString(parsed.sortBy)
@@ -1082,6 +1188,7 @@
     normalizePersonRecord,
     normalizePersonKey,
     normalizeSpeakerName,
+    normalizeTalkCategory,
     normalizeTalkRecord,
     normalizeTalks,
     parseMeetingDateRange,
