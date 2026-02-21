@@ -2133,7 +2133,7 @@ function ensureCrossWorkPrompt() {
   prompt.setAttribute('aria-live', 'polite');
   prompt.innerHTML = `
     <span class="cross-work-cta-text"></span>
-    <a class="cross-work-cta-link" href="work.html">See all work</a>
+    <a class="cross-work-cta-link" href="work.html">See Talks + Papers</a>
     <button class="cross-work-cta-dismiss" type="button" aria-label="Dismiss all work prompt">×</button>
   `;
   shell.appendChild(prompt);
@@ -2190,6 +2190,7 @@ function renderCrossWorkPromptFromState() {
 
 function filterBySpeaker(name) {
   applyAutocompleteSelection('speaker', name, 'search');
+  renderCrossWorkPromptFromState();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -2199,6 +2200,7 @@ function filterBySpeaker(name) {
 
 function filterByTag(tag) {
   applyAutocompleteSelection('tag', tag, 'search');
+  renderCrossWorkPromptFromState();
   // Scroll to top to show filtered results
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
