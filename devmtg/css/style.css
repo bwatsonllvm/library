@@ -2312,6 +2312,24 @@ mark {
   color: var(--color-accent);
 }
 
+.detail-tag--meta {
+  color: var(--color-text-muted);
+  background: var(--color-surface-subtle);
+  border-style: dashed;
+}
+
+.detail-tag--meta:hover {
+  color: var(--color-text-muted);
+  background: var(--color-surface-subtle);
+  border-color: var(--color-border);
+}
+
+.detail-tag--button {
+  appearance: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 /* Links Bar */
 .links-bar {
   display: flex;

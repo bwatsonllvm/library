@@ -306,7 +306,8 @@ function filterAndSort() {
     state.hasVideo ||
     state.hasSlides;
 
-  if (hasActiveFilters) {
+  // Preserve relevance order while searching; apply deterministic recency sort only in browse mode.
+  if (hasActiveFilters && tokens.length === 0) {
     results = [...results].sort((a, b) => {
       const meetingDiff = String(b.meeting || '').localeCompare(String(a.meeting || ''));
       if (meetingDiff !== 0) return meetingDiff;

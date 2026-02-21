@@ -511,7 +511,7 @@ function renderPaperCard(paper, tokens) {
     : '';
 
   const citationCount = Number.isFinite(paper._citationCount) ? paper._citationCount : 0;
-  const citationHtml = citationCount > 1
+  const citationHtml = citationCount > 0
     ? `<span class="paper-citation-count" aria-label="${citationCount.toLocaleString()} citations">${citationCount.toLocaleString()} citation${citationCount === 1 ? '' : 's'}</span>`
     : '';
 

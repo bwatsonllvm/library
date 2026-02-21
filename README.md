@@ -269,9 +269,18 @@ Each paper entry is an object in the `papers` array, for example:
   "abstract": "Paper summary text.",
   "paperUrl": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.pdf",
   "sourceUrl": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.html",
-  "tags": ["Optimizations"]
+  "tags": ["Optimizations"],
+  "doi": "10.1145/977395.977673",
+  "openalexId": "https://openalex.org/W4365335066",
+  "citationCount": 1234
 }
 ```
+
+Optional enrichment fields:
+
+- `doi`: DOI string (or DOI URL in `paperUrl`/`sourceUrl`, which UI can infer).
+- `openalexId`: OpenAlex work URL (`https://openalex.org/W...`).
+- `citationCount`: integer citation count (typically from OpenAlex).
 
 ### Cache Refresh Requirement
 

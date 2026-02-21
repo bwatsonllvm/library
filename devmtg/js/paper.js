@@ -86,6 +86,14 @@ function normalizePaperRecord(rawPaper) {
   paper.type = String(paper.type || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
+  paper.citationCount = parseCitationCount(rawPaper);
+  paper.openalexId = normalizeOpenAlexId(
+    paper.openalexId ||
+    paper.openAlexId ||
+    rawPaper.openalexId ||
+    rawPaper.openAlexId
+  );
+  paper.doi = extractDoi(rawPaper.doi) || extractDoi(paper.paperUrl) || extractDoi(paper.sourceUrl);
 
   paper.authors = Array.isArray(paper.authors)
     ? paper.authors
@@ -149,6 +157,98 @@ function normalizePaperType(type) {
     .join(' ');
 }
 
+function parseCitationCount(rawPaper) {
+  if (!rawPaper || typeof rawPaper !== 'object') return 0;
+
+  const fields = [
+    rawPaper.citationCount,
+    rawPaper.citation_count,
+    rawPaper.citedByCount,
+    rawPaper.cited_by_count,
+    rawPaper.citations,
+  ];
+
+  for (const value of fields) {
+    if (value === null || value === undefined || value === '') continue;
+    const parsed = Number.parseInt(String(value), 10);
+    if (Number.isFinite(parsed) && parsed > 0) return parsed;
+  }
+
+  return 0;
+}
+
+function normalizeOpenAlexId(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  if (/^https?:\/\/openalex\.org\/W\d+$/i.test(raw)) return raw;
+  if (/^W\d+$/i.test(raw)) return `https://openalex.org/${raw.toUpperCase()}`;
+  return '';
+}
+
+function extractDoi(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+
+  const doiUrlMatch = raw.match(/https?:\/\/(?:dx\.)?doi\.org\/(10\.\d{4,9}\/[-._;()/:A-Z0-9]+)/i);
+  if (doiUrlMatch && doiUrlMatch[1]) return doiUrlMatch[1];
+
+  const bareMatch = raw.match(/\b10\.\d{4,9}\/[-._;()/:A-Z0-9]+\b/i);
+  if (bareMatch && bareMatch[0]) return bareMatch[0];
+
+  return '';
+}
+
+function doiUrlFromValue(doi) {
+  const normalized = String(doi || '').trim();
+  if (!normalized) return '';
+  return `https://doi.org/${normalized}`;
+}
+
+function truncateText(value, maxLength = 180) {
+  const text = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength - 1)}…`;
+}
+
+function makeBibtexKey(paper) {
+  const firstAuthor = (paper.authors && paper.authors[0] && paper.authors[0].name)
+    ? paper.authors[0].name
+    : 'paper';
+  const authorSlug = String(firstAuthor).toLowerCase().replace(/[^a-z0-9]/g, '');
+  const year = paper._year || 'xxxx';
+  const titleSlug = String(paper.title || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 16);
+  const stem = authorSlug || titleSlug || 'paper';
+  return `${stem}${year}${titleSlug ? `-${titleSlug}` : ''}`;
+}
+
+function escapeBibtexValue(value) {
+  return String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\{/g, '\\{')
+    .replace(/\}/g, '\\}');
+}
+
+function buildBibtexEntry(paper) {
+  const type = paper.type === 'thesis' ? 'phdthesis' : 'article';
+  const fields = [];
+
+  fields.push(`title = {${escapeBibtexValue(paper.title)}}`);
+
+  if (paper.authors && paper.authors.length) {
+    const authorValue = paper.authors.map((author) => author.name).filter(Boolean).join(' and ');
+    if (authorValue) fields.push(`author = {${escapeBibtexValue(authorValue)}}`);
+  }
+  if (paper._year) fields.push(`year = {${escapeBibtexValue(paper._year)}}`);
+  if (paper.publication) fields.push(`journal = {${escapeBibtexValue(paper.publication)}}`);
+  if (paper.venue && paper.venue !== paper.publication) fields.push(`booktitle = {${escapeBibtexValue(paper.venue)}}`);
+  if (paper.doi) fields.push(`doi = {${escapeBibtexValue(paper.doi)}}`);
+  if (paper.paperUrl) fields.push(`url = {${escapeBibtexValue(paper.paperUrl)}}`);
+
+  const key = makeBibtexKey(paper);
+  return `@${type}{${key},\n  ${fields.join(',\n  ')}\n}`;
+}
+
 async function copyTextToClipboard(text) {
   if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
     try {
@@ -172,6 +272,86 @@ async function copyTextToClipboard(text) {
   } catch {
     return false;
   }
+}
+
+function upsertMetaTag(attrName, attrValue, content) {
+  if (!content) return;
+  const existing = Array.from(document.head.querySelectorAll(`meta[${attrName}]`))
+    .find((meta) => meta.getAttribute(attrName) === attrValue);
+  const el = existing || document.createElement('meta');
+  if (!existing) {
+    el.setAttribute(attrName, attrValue);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
+function upsertCanonical(url) {
+  if (!url) return;
+  let link = document.head.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', url);
+}
+
+function upsertJsonLd(scriptId, payload) {
+  if (!payload) return;
+  let script = document.getElementById(scriptId);
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = scriptId;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(payload);
+}
+
+function updatePaperSeoMetadata(paper) {
+  const canonical = new URL(window.location.href);
+  canonical.search = '';
+  canonical.hash = '';
+  canonical.searchParams.set('id', paper.id);
+  const canonicalUrl = canonical.toString();
+  const description = truncateText(paper.abstract || `${paper.title}.`, 180);
+
+  upsertCanonical(canonicalUrl);
+  upsertMetaTag('name', 'description', description);
+
+  upsertMetaTag('property', 'og:type', 'article');
+  upsertMetaTag('property', 'og:site_name', "LLVM Developers' Meeting Library");
+  upsertMetaTag('property', 'og:title', paper.title);
+  upsertMetaTag('property', 'og:description', description);
+  upsertMetaTag('property', 'og:url', canonicalUrl);
+  if (paper._year) upsertMetaTag('property', 'article:published_time', `${paper._year}-01-01`);
+
+  upsertMetaTag('name', 'twitter:card', 'summary');
+  upsertMetaTag('name', 'twitter:title', paper.title);
+  upsertMetaTag('name', 'twitter:description', description);
+
+  const authors = (paper.authors || [])
+    .map((author) => String(author.name || '').trim())
+    .filter(Boolean);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ScholarlyArticle',
+    headline: paper.title,
+    name: paper.title,
+    description,
+    author: authors.map((name) => ({ '@type': 'Person', name })),
+    datePublished: paper._year ? `${paper._year}-01-01` : undefined,
+    isPartOf: paper.publication ? { '@type': 'PublicationIssue', name: paper.publication } : undefined,
+    keywords: (paper.tags || []).join(', ') || undefined,
+    url: canonicalUrl,
+    sameAs: paper.openalexId || undefined,
+    identifier: paper.doi
+      ? { '@type': 'PropertyValue', propertyID: 'DOI', value: paper.doi }
+      : undefined,
+    mainEntityOfPage: canonicalUrl,
+  };
+  upsertJsonLd('paper-jsonld', jsonLd);
 }
 
 // ============================================================
@@ -441,6 +621,8 @@ function renderRelatedCard(paper) {
 function renderPaperDetail(paper, allPapers) {
   const root = document.getElementById('paper-detail-root');
   const authorsHtml = renderAuthors(paper.authors);
+  const citationCount = Number.isFinite(paper.citationCount) ? paper.citationCount : 0;
+  const doiUrl = doiUrlFromValue(paper.doi);
 
   const infoParts = [];
   if (paper._year) infoParts.push(paper._year);
@@ -463,6 +645,20 @@ function renderPaperDetail(paper, allPapers) {
         Source Listing
       </a>`);
   }
+  if (doiUrl) {
+    links.push(`
+      <a href="${escapeHtml(doiUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open DOI for ${escapeHtml(paper.title)} (opens in new tab)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 0 0-7.07-7.07L10 6"/><path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4a5 5 0 1 0 7.07 7.07L14 18"/></svg>
+        DOI
+      </a>`);
+  }
+  if (paper.openalexId) {
+    links.push(`
+      <a href="${escapeHtml(paper.openalexId)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open OpenAlex record for ${escapeHtml(paper.title)} (opens in new tab)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        OpenAlex
+      </a>`);
+  }
 
   const tagsHtml = (paper.tags || []).length
     ? `<section class="tags-section" aria-label="Topics">
@@ -483,6 +679,25 @@ function renderPaperDetail(paper, allPapers) {
         </div>
       </section>`
     : '';
+
+  const metadataItems = [];
+  if (citationCount > 0) {
+    metadataItems.push(`<span class="detail-tag detail-tag--meta" aria-label="${citationCount.toLocaleString()} citation${citationCount === 1 ? '' : 's'}">Cited by ${citationCount.toLocaleString()}</span>`);
+  }
+  if (paper.doi) {
+    metadataItems.push(`<a href="${escapeHtml(doiUrl)}" class="detail-tag" target="_blank" rel="noopener noreferrer" aria-label="Open DOI ${escapeHtml(paper.doi)} (opens in new tab)">DOI: ${escapeHtml(paper.doi)}</a>`);
+  }
+  if (paper.openalexId) {
+    metadataItems.push(`<a href="${escapeHtml(paper.openalexId)}" class="detail-tag" target="_blank" rel="noopener noreferrer" aria-label="Open OpenAlex record (opens in new tab)">OpenAlex record</a>`);
+  }
+  metadataItems.push('<button type="button" class="detail-tag detail-tag--button" id="copy-bibtex-btn" aria-label="Copy BibTeX citation">Copy BibTeX</button>');
+  const citationMetaHtml = `
+    <section class="tags-section" aria-label="Citation metadata">
+      <div class="section-label" aria-hidden="true">Citation Data</div>
+      <div class="detail-tags">
+        ${metadataItems.join('')}
+      </div>
+    </section>`;
 
   const related = getRelatedPapers(paper, allPapers);
 
@@ -515,6 +730,7 @@ function renderPaperDetail(paper, allPapers) {
         </div>
       </section>
 
+      ${citationMetaHtml}
       ${publicationHtml}
       ${tagsHtml}
     </div>
@@ -535,6 +751,18 @@ function renderPaperDetail(paper, allPapers) {
         event.preventDefault();
         window.history.back();
       }
+    });
+  }
+
+  const copyBibtexBtn = document.getElementById('copy-bibtex-btn');
+  if (copyBibtexBtn) {
+    const defaultLabel = copyBibtexBtn.textContent;
+    copyBibtexBtn.addEventListener('click', async () => {
+      const copied = await copyTextToClipboard(buildBibtexEntry(paper));
+      copyBibtexBtn.textContent = copied ? 'BibTeX copied' : 'Copy failed';
+      window.setTimeout(() => {
+        copyBibtexBtn.textContent = defaultLabel;
+      }, 1600);
     });
   }
 }
@@ -739,6 +967,7 @@ async function init() {
   }
 
   document.title = `${paper.title} — LLVM Developers' Meeting Library`;
+  updatePaperSeoMetadata(paper);
   renderPaperDetail(paper, allPapers);
   initShareMenu();
 }

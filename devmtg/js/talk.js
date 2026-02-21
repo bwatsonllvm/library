@@ -90,6 +90,107 @@ async function copyTextToClipboard(text) {
   }
 }
 
+function truncateText(value, maxLength = 180) {
+  const text = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength - 1)}…`;
+}
+
+function upsertMetaTag(attrName, attrValue, content) {
+  if (!content) return;
+  const existing = Array.from(document.head.querySelectorAll(`meta[${attrName}]`))
+    .find((meta) => meta.getAttribute(attrName) === attrValue);
+  const el = existing || document.createElement('meta');
+  if (!existing) {
+    el.setAttribute(attrName, attrValue);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', content);
+}
+
+function upsertCanonical(url) {
+  if (!url) return;
+  let link = document.head.querySelector('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', 'canonical');
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', url);
+}
+
+function upsertJsonLd(scriptId, payload) {
+  if (!payload) return;
+  let script = document.getElementById(scriptId);
+  if (!script) {
+    script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = scriptId;
+    document.head.appendChild(script);
+  }
+  script.textContent = JSON.stringify(payload);
+}
+
+function meetingSlugToIsoDate(slug) {
+  const text = String(slug || '').trim();
+  const match = text.match(/^(\d{4})-(\d{2})/);
+  if (!match) return '';
+  return `${match[1]}-${match[2]}-01`;
+}
+
+function updateTalkSeoMetadata(talk) {
+  const canonical = new URL(window.location.href);
+  canonical.search = '';
+  canonical.hash = '';
+  canonical.searchParams.set('id', talk.id);
+  const canonicalUrl = canonical.toString();
+  const description = truncateText(
+    talk.abstract || `${talk.title}${talk.meetingName ? ` (${talk.meetingName})` : ''}`,
+    180
+  );
+  const imageUrl = talk.videoId ? `https://img.youtube.com/vi/${talk.videoId}/hqdefault.jpg` : '';
+  const talkDate = meetingSlugToIsoDate(talk.meeting);
+
+  upsertCanonical(canonicalUrl);
+  upsertMetaTag('name', 'description', description);
+
+  upsertMetaTag('property', 'og:type', talk.videoUrl ? 'video.other' : 'article');
+  upsertMetaTag('property', 'og:site_name', "LLVM Developers' Meeting Library");
+  upsertMetaTag('property', 'og:title', talk.title);
+  upsertMetaTag('property', 'og:description', description);
+  upsertMetaTag('property', 'og:url', canonicalUrl);
+  if (imageUrl) upsertMetaTag('property', 'og:image', imageUrl);
+
+  upsertMetaTag('name', 'twitter:card', imageUrl ? 'summary_large_image' : 'summary');
+  upsertMetaTag('name', 'twitter:title', talk.title);
+  upsertMetaTag('name', 'twitter:description', description);
+  if (imageUrl) upsertMetaTag('name', 'twitter:image', imageUrl);
+
+  const speakers = (talk.speakers || [])
+    .map((speaker) => String((speaker && speaker.name) || '').trim())
+    .filter(Boolean);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': talk.videoUrl ? 'VideoObject' : 'CreativeWork',
+    name: talk.title,
+    description,
+    url: canonicalUrl,
+    uploadDate: talkDate || undefined,
+    thumbnailUrl: imageUrl || undefined,
+    keywords: (talk.tags || []).join(', ') || undefined,
+    author: speakers.map((name) => ({ '@type': 'Person', name })),
+    isPartOf: {
+      '@type': 'Event',
+      name: talk.meetingName || talk.meeting || "LLVM Developers' Meeting",
+      location: talk.meetingLocation || undefined,
+      startDate: talkDate || undefined,
+    },
+    mainEntityOfPage: canonicalUrl,
+  };
+  upsertJsonLd('talk-jsonld', jsonLd);
+}
+
 function initMobileNavMenu() {
   const menu = document.getElementById('mobile-nav-menu');
   const toggle = document.getElementById('mobile-nav-toggle');
@@ -793,7 +894,6 @@ async function init() {
   initTextSize();
   initCustomizationMenu();
   initMobileNavMenu();
-  initShareMenu();
 
   const params = new URLSearchParams(window.location.search);
   const talkId = params.get('id');
@@ -810,24 +910,29 @@ async function init() {
           <p>Ensure <code>events/index.json</code> and <code>events/*.json</code> are available and that <code>js/events-data.js</code> loads first.</p>
         </div>
       </div>`;
+    initShareMenu();
     return;
   }
 
   if (!talkId) {
     renderNotFound(null);
+    initShareMenu();
     return;
   }
 
   const talk = allTalks.find(t => t.id === talkId);
   if (!talk) {
     renderNotFound(talkId);
+    initShareMenu();
     return;
   }
 
   // Update page title
   document.title = `${talk.title} — LLVM Developers' Meeting Library`;
+  updateTalkSeoMetadata(talk);
 
   renderTalkDetail(talk, allTalks);
+  initShareMenu();
 }
 
 init();
