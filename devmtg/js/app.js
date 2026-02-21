@@ -13,6 +13,9 @@ let debounceTimer = null;
 let searchMode = 'browse'; // 'browse' | 'exact' | 'fuzzy'
 let meetingOptions = [];
 let yearFilterTouched = false; // true once user directly toggles a year chip this session
+let crossWorkPromptDismissTimer = null;
+
+const ALL_WORK_PAGE_PATH = 'work.html';
 
 const state = {
   query: '',
@@ -1048,6 +1051,7 @@ function clearFilters() {
   });
 
   renderMeetingFilterOptions();
+  hideCrossWorkPrompt();
   closeDropdown();
   updateClearBtn();
   syncUrl();
@@ -1060,6 +1064,7 @@ function clearQuery() {
   state.query = '';
   state.activeSpeaker = '';
   state.activeTag     = '';
+  hideCrossWorkPrompt();
   syncTopicChipState();
   closeDropdown();
   updateClearBtn();
@@ -2106,8 +2111,72 @@ function initCardNavigation() {
 // filterBySpeaker — called from speaker name buttons on cards
 // ============================================================
 
+function buildAllWorkUrl(kind, value) {
+  const params = new URLSearchParams();
+  params.set('kind', kind);
+  params.set('value', String(value || '').trim());
+  params.set('from', 'talks');
+  return `${ALL_WORK_PAGE_PATH}?${params.toString()}`;
+}
+
+function ensureCrossWorkPrompt() {
+  let prompt = document.getElementById('cross-work-cta');
+  if (prompt) return prompt;
+
+  const shell = document.querySelector('.search-hero-shell');
+  if (!shell) return null;
+
+  prompt = document.createElement('div');
+  prompt.id = 'cross-work-cta';
+  prompt.className = 'cross-work-cta hidden';
+  prompt.setAttribute('role', 'status');
+  prompt.setAttribute('aria-live', 'polite');
+  prompt.innerHTML = `
+    <span class="cross-work-cta-text"></span>
+    <a class="cross-work-cta-link" href="work.html">See talks + papers</a>
+    <button class="cross-work-cta-dismiss" type="button" aria-label="Dismiss all work prompt">×</button>
+  `;
+  shell.appendChild(prompt);
+
+  const dismissBtn = prompt.querySelector('.cross-work-cta-dismiss');
+  if (dismissBtn) dismissBtn.addEventListener('click', hideCrossWorkPrompt);
+
+  return prompt;
+}
+
+function hideCrossWorkPrompt() {
+  const prompt = document.getElementById('cross-work-cta');
+  if (!prompt) return;
+  prompt.classList.add('hidden');
+  if (crossWorkPromptDismissTimer) {
+    window.clearTimeout(crossWorkPromptDismissTimer);
+    crossWorkPromptDismissTimer = null;
+  }
+}
+
+function showCrossWorkPrompt(kind, value) {
+  const trimmedValue = String(value || '').trim();
+  if (!trimmedValue) return;
+
+  const prompt = ensureCrossWorkPrompt();
+  if (!prompt) return;
+
+  const label = kind === 'speaker' ? 'speaker' : 'topic';
+  const textEl = prompt.querySelector('.cross-work-cta-text');
+  const linkEl = prompt.querySelector('.cross-work-cta-link');
+  if (!textEl || !linkEl) return;
+
+  textEl.textContent = `Filtered by ${label}: ${trimmedValue}.`;
+  linkEl.href = buildAllWorkUrl(kind, trimmedValue);
+  prompt.classList.remove('hidden');
+
+  if (crossWorkPromptDismissTimer) window.clearTimeout(crossWorkPromptDismissTimer);
+  crossWorkPromptDismissTimer = window.setTimeout(hideCrossWorkPrompt, 12000);
+}
+
 function filterBySpeaker(name) {
   applyAutocompleteSelection('speaker', name, 'search');
+  showCrossWorkPrompt('speaker', name);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -2117,6 +2186,7 @@ function filterBySpeaker(name) {
 
 function filterByTag(tag) {
   applyAutocompleteSelection('tag', tag, 'search');
+  showCrossWorkPrompt('topic', tag);
   // Scroll to top to show filtered results
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
