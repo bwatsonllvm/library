@@ -2956,7 +2956,7 @@ async function init() {
   initSortControl();
 
   // URL params take priority over saved sessionStorage state.
-  // sessionStorage is only for back-button from a talk detail page to a bare index.html.
+  // sessionStorage is only for back-button from a talk detail page to the talks listing.
   const urlParams = new URLSearchParams(window.location.search);
   const hasUrlState = urlParams.has('speaker') || urlParams.has('q') || urlParams.has('tag') ||
     urlParams.has('meeting') || urlParams.has('category') || urlParams.has('year') ||

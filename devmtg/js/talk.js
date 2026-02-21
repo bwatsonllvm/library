@@ -513,7 +513,7 @@ function renderSpeakers(speakers) {
     return `
       <div class="speaker-chip">
         <div>
-          <a href="index.html?speaker=${encodeURIComponent(s.name)}" class="speaker-name-link" aria-label="View all talks by ${escapeHtml(s.name)}">${escapeHtml(s.name)}</a>
+          <a href="talks/?speaker=${encodeURIComponent(s.name)}" class="speaker-name-link" aria-label="View all talks by ${escapeHtml(s.name)}">${escapeHtml(s.name)}</a>
           ${s.affiliation ? `<br><span class="speaker-affiliation">${escapeHtml(s.affiliation)}</span>` : ''}
         </div>
         ${socialLinks.length ? `<div class="speaker-social" aria-label="Social links for ${escapeHtml(s.name)}">${socialLinks.join('')}</div>` : ''}
@@ -553,7 +553,7 @@ function renderRelatedCard(talk) {
   // Per-name speaker links that navigate to speaker-filtered search
   const speakerLinksHtml = talk.speakers?.length
     ? talk.speakers.map(s =>
-        `<a href="index.html?speaker=${encodeURIComponent(s.name)}" class="card-speaker-link" aria-label="View all talks by ${escapeHtml(s.name)}">${escapeHtml(s.name)}</a>`
+        `<a href="talks/?speaker=${encodeURIComponent(s.name)}" class="card-speaker-link" aria-label="View all talks by ${escapeHtml(s.name)}">${escapeHtml(s.name)}</a>`
       ).join('<span class="speaker-btn-sep">, </span>')
     : '';
 
@@ -649,7 +649,7 @@ function renderTalkDetail(talk, allTalks) {
         <div class="section-label" aria-hidden="true">Key Topics</div>
         <div class="detail-tags">
           ${tags.map(tag =>
-            `<a href="index.html?tag=${encodeURIComponent(tag)}" class="detail-tag" aria-label="Browse talks for key topic ${escapeHtml(tag)}">${escapeHtml(tag)}</a>`
+            `<a href="talks/?tag=${encodeURIComponent(tag)}" class="detail-tag" aria-label="Browse talks for key topic ${escapeHtml(tag)}">${escapeHtml(tag)}</a>`
           ).join('')}
         </div>
       </section>`
@@ -663,7 +663,7 @@ function renderTalkDetail(talk, allTalks) {
 
   const html = `
     <div class="talk-detail">
-      <a href="index.html" class="back-btn" id="back-btn" aria-label="Back to all talks">
+      <a href="talks/" class="back-btn" id="back-btn" aria-label="Back to all talks">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
         <span aria-hidden="true">All Talks</span>
       </a>
@@ -672,7 +672,7 @@ function renderTalkDetail(talk, allTalks) {
         <div class="talk-header-meta">
           <span class="${badgeCls}">${escapeHtml(categoryLabel(talk.category || 'other'))}</span>
           ${meetingInfoParts.length ? `
-          <a href="index.html?meeting=${escapeHtml(talk.meeting)}" class="meeting-info-badge" aria-label="Browse talks from ${escapeHtml(meetingInfoParts.join(', '))}">
+          <a href="talks/?meeting=${escapeHtml(talk.meeting)}" class="meeting-info-badge" aria-label="Browse talks from ${escapeHtml(meetingInfoParts.join(', '))}">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <span aria-hidden="true">${escapeHtml(meetingInfoParts.join(' · '))}</span>
           </a>` : ''}
@@ -736,7 +736,7 @@ function renderNotFound(id) {
   const root = document.getElementById('talk-detail-root');
   root.innerHTML = `
     <div class="talk-detail">
-      <a href="index.html" class="back-btn" aria-label="Back to all talks">
+      <a href="talks/" class="back-btn" aria-label="Back to all talks">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
         <span aria-hidden="true">All Talks</span>
       </a>
@@ -744,7 +744,7 @@ function renderNotFound(id) {
         <div class="empty-state-icon" aria-hidden="true">🔍</div>
         <h2>Talk not found</h2>
         <p>No talk found with ID <code>${escapeHtml(id || '(none)')}</code>.</p>
-        <p><a href="index.html">Browse all talks →</a></p>
+        <p><a href="talks/">Browse all talks →</a></p>
       </div>
     </div>`;
 }

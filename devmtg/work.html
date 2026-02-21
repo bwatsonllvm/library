@@ -76,7 +76,7 @@
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html" class="nav-link" aria-label="Talks">
+      <a href="talks/" class="nav-link" aria-label="Talks">
         <span aria-hidden="true">Talks</span>
       </a>
       <a href="meetings.html" class="nav-link" aria-label="Browse by meeting">
@@ -101,7 +101,7 @@
         </svg>
       </button>
       <div class="mobile-nav-panel" id="mobile-nav-panel" hidden>
-        <a href="index.html" class="mobile-nav-link">Talks</a>
+        <a href="talks/" class="mobile-nav-link">Talks</a>
         <a href="meetings.html" class="mobile-nav-link">By Meeting</a>
         <a href="papers.html" class="mobile-nav-link">Papers</a>
         <a href="people.html" class="mobile-nav-link">People</a>
@@ -110,7 +110,48 @@
     </div>
 
     <div class="header-right">
-      <a class="header-action-btn" id="work-back-link" href="index.html">Back</a>
+      <a class="header-action-btn" id="work-back-link" href="talks/">Back</a>
+      <div class="share-menu" id="share-menu">
+        <button class="header-action-btn share-toggle" id="share-btn" aria-label="Share this page" title="Share" aria-haspopup="true" aria-expanded="false" aria-controls="share-panel">
+          Share
+        </button>
+        <div class="share-panel" id="share-panel" hidden>
+          <button class="share-option" id="share-native-share" type="button" hidden>Share via device</button>
+          <button class="share-option" id="share-copy-link" type="button">Copy link</button>
+          <a class="share-option" id="share-email-link" href="#">Email</a>
+          <a class="share-option" id="share-x-link" href="#" target="_blank" rel="noopener noreferrer">Share on X</a>
+          <a class="share-option" id="share-linkedin-link" href="#" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+        </div>
+      </div>
+      <div class="customization-menu" id="customization-menu">
+        <button class="customization-toggle" id="customization-toggle" aria-label="Display settings" title="Display settings" aria-haspopup="true" aria-expanded="false" aria-controls="customization-panel">
+          <svg class="icon-customize" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="18" y1="16" x2="22" y2="16"/>
+          </svg>
+        </button>
+        <div class="customization-panel" id="customization-panel" hidden>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-theme-select">Theme</label>
+            <select class="customization-select" id="custom-theme-select" aria-label="Theme preference">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-text-size-select">Text Size</label>
+            <select class="customization-select" id="custom-text-size-select" aria-label="Text size">
+              <option value="small">Small</option>
+              <option value="default">Default</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <button class="customization-reset" id="custom-reset-display" type="button">Reset display settings</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -186,6 +227,6 @@
   <script src="js/papers-data.js?v=20260221-02"></script>
   <script src="js/shared/library-utils.js?v=20260221-24"></script>
   <script src="js/shared/global-search.js?v=20260221-22"></script>
-  <script src="js/work.js?v=20260221-22"></script>
+  <script src="js/work.js?v=20260221-23"></script>
 </body>
 </html>
