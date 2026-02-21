@@ -479,7 +479,7 @@ function renderPaperDetail(paper, allPapers) {
     ? `<section class="tags-section" aria-label="Publication">
         <div class="section-label" aria-hidden="true">Publication</div>
         <div class="detail-tags">
-          <a href="papers.html?publication=${encodeURIComponent(paper.publication)}" class="detail-tag" aria-label="Browse papers in ${escapeHtml(paper.publication)}">${escapeHtml(paper.publication)}</a>
+          <a href="papers.html?q=${encodeURIComponent(paper.publication)}" class="detail-tag" aria-label="Search papers for ${escapeHtml(paper.publication)}">${escapeHtml(paper.publication)}</a>
         </div>
       </section>`
     : '';

@@ -207,6 +207,31 @@ This writes:
 - `papers/openalex-discovered.json`
 - updates `papers/index.json` (`paperFiles` + `dataVersion`)
 
+To expand discovery with an explicit author list:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
+  --events-dir /Users/britton/Desktop/library/devmtg/events \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --index-json /Users/britton/Desktop/library/papers/index.json \
+  --app-js /Users/britton/Desktop/library/devmtg/js/app.js \
+  --extra-authors-file /Users/britton/Desktop/library/papers/extra-author-seeds.txt \
+  --max-pages-per-author 1 \
+  --author-per-page 200
+```
+
+If network access is unavailable, use cache-only keyword expansion while still adding the extra names to matching:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
+  --events-dir /Users/britton/Desktop/library/devmtg/events \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --index-json /Users/britton/Desktop/library/papers/index.json \
+  --app-js /Users/britton/Desktop/library/devmtg/js/app.js \
+  --extra-authors-file /Users/britton/Desktop/library/papers/extra-author-seeds.txt \
+  --skip-author-queries
+```
+
 ### Normalize Publication Metadata
 
 To standardize publication/source fields across existing bundles:

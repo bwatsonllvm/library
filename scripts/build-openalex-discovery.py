@@ -5,7 +5,9 @@ This script:
   1) Builds a seed author set from:
      - devmtg talk speakers
      - existing papers authors
+     - optional extra author lists
   2) Queries OpenAlex for LLVM-related keyword searches
+     and optionally direct per-author work searches
   3) Keeps works where at least one listed author matches a seed author exactly
      after normalization.
   4) Emits papers/openalex-discovered.json and updates papers/index.json.
@@ -15,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as _dt
+import hashlib
 import html
 import json
 import re
@@ -26,6 +29,7 @@ from pathlib import Path
 
 
 OPENALEX_BASE = "https://api.openalex.org/works"
+OPENALEX_AUTHORS_BASE = "https://api.openalex.org/authors"
 DEFAULT_KEYWORDS = [
     "llvm",
     "clang compiler",
@@ -195,6 +199,51 @@ def load_seed_authors(
     return normalized_to_display
 
 
+def load_extra_authors(extra_authors_file: Path | None, extra_authors: list[str]) -> list[str]:
+    names: list[str] = []
+
+    if extra_authors_file:
+        if not extra_authors_file.exists():
+            raise RuntimeError(f"Extra authors file does not exist: {extra_authors_file}")
+        for line in extra_authors_file.read_text(encoding="utf-8").splitlines():
+            name = collapse_ws(line)
+            if not name or name.startswith("#"):
+                continue
+            names.append(name)
+
+    for raw in extra_authors:
+        name = collapse_ws(raw)
+        if name:
+            names.append(name)
+
+    deduped: list[str] = []
+    seen: set[str] = set()
+    for name in names:
+        key = normalize_name(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        deduped.append(name)
+
+    return deduped
+
+
+def merge_seed_authors(seed_authors: dict[str, str], extra_names: list[str]) -> int:
+    added = 0
+    for name in extra_names:
+        key = normalize_name(name)
+        if key and key not in seed_authors:
+            seed_authors[key] = name
+            added += 1
+    return added
+
+
+def _slug_with_hash(value: str, fallback: str) -> str:
+    slug = slugify(value)[:40] or fallback
+    digest = hashlib.sha1(value.encode("utf-8")).hexdigest()[:10]
+    return f"{slug}-{digest}"
+
+
 def _http_get_json(url: str, timeout_s: int = 40, retries: int = 4):
     headers = {
         "User-Agent": "library-openalex-discovery/1.0 (+https://github.com/llvm/library)",
@@ -244,6 +293,117 @@ def fetch_openalex_page(
         "per-page": str(per_page),
         "sort": "publication_date:desc",
         "filter": f"from_publication_date:{start_year}-01-01",
+    }
+    if mailto:
+        params["mailto"] = mailto
+
+    url = OPENALEX_BASE + "?" + urllib.parse.urlencode(params)
+    payload = _http_get_json(url)
+    if use_cache:
+        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    return payload
+
+
+def fetch_openalex_author_search(
+    author_name: str,
+    cache_dir: Path,
+    mailto: str,
+    use_cache: bool,
+):
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_slug = _slug_with_hash(author_name, "author")
+    cache_file = cache_dir / f"{cache_slug}-author-search.json"
+    if use_cache and cache_file.exists():
+        return json.loads(cache_file.read_text(encoding="utf-8"))
+
+    params = {
+        "search": author_name,
+        "per-page": "10",
+    }
+    if mailto:
+        params["mailto"] = mailto
+
+    url = OPENALEX_AUTHORS_BASE + "?" + urllib.parse.urlencode(params)
+    payload = _http_get_json(url)
+    if use_cache:
+        cache_file.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    return payload
+
+
+def _name_match_quality(target: str, candidate: str) -> int:
+    if not target or not candidate:
+        return 0
+    if target == candidate:
+        return 100
+
+    target_parts = target.split()
+    candidate_parts = candidate.split()
+    if not target_parts or not candidate_parts:
+        return 0
+
+    target_set = set(target_parts)
+    candidate_set = set(candidate_parts)
+    overlap = len(target_set & candidate_set)
+    if overlap <= 0:
+        return 0
+
+    target_ratio = overlap / len(target_set)
+    cand_ratio = overlap / len(candidate_set)
+    if target_ratio >= 0.99 and cand_ratio >= 0.99:
+        return 95
+    if target_ratio >= 0.80 and cand_ratio >= 0.80:
+        return 70
+    if target_ratio >= 0.80:
+        return 45
+    if overlap >= 2:
+        return 25
+    return 0
+
+
+def pick_author_id(author_name: str, payload: dict) -> str:
+    target = normalize_name(author_name)
+    best_id = ""
+    best_score = -1
+
+    for result in payload.get("results", []) or []:
+        candidate_name = collapse_ws(str(result.get("display_name", "")))
+        if not candidate_name:
+            continue
+        candidate_norm = normalize_name(candidate_name)
+        quality = _name_match_quality(target, candidate_norm)
+        if quality <= 0:
+            continue
+
+        works_count = int(result.get("works_count") or 0)
+        score = quality * 1000 + min(works_count, 1_000_000)
+        author_id = collapse_ws(str(result.get("id", "")))
+        if author_id and score > best_score:
+            best_score = score
+            best_id = author_id
+
+    return best_id
+
+
+def fetch_openalex_author_works_page(
+    author_id: str,
+    page: int,
+    per_page: int,
+    start_year: int,
+    cache_dir: Path,
+    mailto: str,
+    use_cache: bool,
+):
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    author_suffix = collapse_ws(author_id).rstrip("/").rsplit("/", 1)[-1].lower() or "author"
+    cache_file = cache_dir / f"{author_suffix}-author-works-y{start_year}-n{per_page}-p{page}.json"
+    if use_cache and cache_file.exists():
+        return json.loads(cache_file.read_text(encoding="utf-8"))
+
+    params = {
+        "page": str(page),
+        "per-page": str(per_page),
+        "sort": "publication_date:desc",
+        "filter": f"authorships.author.id:{author_id},from_publication_date:{start_year}-01-01",
     }
     if mailto:
         params["mailto"] = mailto
@@ -427,8 +587,13 @@ def main() -> int:
     parser.add_argument("--start-year", type=int, default=2000)
     parser.add_argument("--max-pages-per-keyword", type=int, default=25)
     parser.add_argument("--per-page", type=int, default=200)
+    parser.add_argument("--max-pages-per-author", type=int, default=1)
+    parser.add_argument("--author-per-page", type=int, default=200)
     parser.add_argument("--mailto", default="")
     parser.add_argument("--keywords", nargs="*", default=DEFAULT_KEYWORDS)
+    parser.add_argument("--extra-authors-file", default="")
+    parser.add_argument("--extra-author", action="append", default=[])
+    parser.add_argument("--skip-author-queries", action="store_true")
     parser.add_argument("--verbose", action="store_true")
     parser.add_argument("--no-cache", action="store_true")
     args = parser.parse_args()
@@ -440,10 +605,13 @@ def main() -> int:
     output_bundle_name = args.output_bundle
     output_bundle_path = papers_dir / output_bundle_name
     cache_dir = Path(args.cache_dir).resolve()
+    extra_authors_file = Path(args.extra_authors_file).resolve() if args.extra_authors_file else None
 
     manifest_files = parse_manifest_paper_files(index_json)
     tags = parse_all_tags(app_js)
     seed_authors = load_seed_authors(events_dir, papers_dir, manifest_files, output_bundle_name)
+    extra_authors = load_extra_authors(extra_authors_file, args.extra_author)
+    added_seed_authors = merge_seed_authors(seed_authors, extra_authors)
     existing_title_keys = load_existing_title_keys(papers_dir, manifest_files, output_bundle_name)
 
     all_works: dict[str, dict] = {}
@@ -488,6 +656,61 @@ def main() -> int:
                 break
 
             time.sleep(0.08)
+
+    matched_author_ids: dict[str, str] = {}
+    if extra_authors and not args.skip_author_queries:
+        for author_name in extra_authors:
+            if args.verbose:
+                print(f"[openalex] author-search={author_name}", flush=True)
+
+            payload = fetch_openalex_author_search(
+                author_name=author_name,
+                cache_dir=cache_dir,
+                mailto=args.mailto,
+                use_cache=not args.no_cache,
+            )
+            total_requests += 1
+
+            author_id = pick_author_id(author_name, payload)
+            if not author_id:
+                continue
+            matched_author_ids.setdefault(author_id, author_name)
+
+        for author_id, author_name in matched_author_ids.items():
+            if args.verbose:
+                print(f"[openalex] author-works={author_name} ({author_id})", flush=True)
+
+            for page in range(1, args.max_pages_per_author + 1):
+                payload = fetch_openalex_author_works_page(
+                    author_id=author_id,
+                    page=page,
+                    per_page=args.author_per_page,
+                    start_year=args.start_year,
+                    cache_dir=cache_dir,
+                    mailto=args.mailto,
+                    use_cache=not args.no_cache,
+                )
+                total_requests += 1
+
+                results = payload.get("results", []) or []
+                total_count = int((payload.get("meta") or {}).get("count") or 0)
+                if args.verbose:
+                    print(
+                        f"  author-page={page} results={len(results)} total={total_count}",
+                        flush=True,
+                    )
+                if not results:
+                    break
+
+                for work in results:
+                    work_id = collapse_ws(str(work.get("id", "")))
+                    if work_id:
+                        all_works[work_id] = work
+
+                if page * args.author_per_page >= total_count:
+                    break
+
+                time.sleep(0.08)
 
     used_ids: set[str] = set()
     out_papers: list[dict] = []
@@ -580,6 +803,8 @@ def main() -> int:
     update_manifest(index_json, output_bundle_name, data_version)
 
     print(f"Seed authors: {len(seed_authors)}")
+    print(f"Extra author seeds loaded: {len(extra_authors)} (new seed authors: {added_seed_authors})")
+    print(f"Resolved extra author ids: {len(matched_author_ids)}")
     print(f"OpenAlex requests: {total_requests}")
     print(f"Unique works fetched: {len(all_works)}")
     print(f"Discovered papers written: {len(out_papers)} -> {output_bundle_path}")
