@@ -33,6 +33,24 @@ function normalizeValue(value) {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizePersonKey(value) {
+  if (typeof HubUtils.normalizePersonKey === 'function') {
+    return HubUtils.normalizePersonKey(value);
+  }
+  return normalizeValue(value);
+}
+
+function samePersonName(a, b) {
+  const keyA = normalizePersonKey(a);
+  const keyB = normalizePersonKey(b);
+  if (!keyA || !keyB) return false;
+  if (keyA === keyB) return true;
+  if (typeof HubUtils.arePersonMiddleVariants === 'function') {
+    return HubUtils.arePersonMiddleVariants(a, b);
+  }
+  return false;
+}
+
 function normalizeTopicKey(value) {
   return String(value || '')
     .toLowerCase()
@@ -124,6 +142,11 @@ function normalizePaperRecord(rawPaper) {
   paper.authors = Array.isArray(paper.authors)
     ? paper.authors
       .map((author) => {
+        if (typeof HubUtils.normalizePersonRecord === 'function') {
+          const normalized = HubUtils.normalizePersonRecord(author);
+          if (!normalized || !normalized.name) return null;
+          return { name: normalized.name, affiliation: normalized.affiliation || '' };
+        }
         if (!author || typeof author !== 'object') return null;
         const name = String(author.name || '').trim();
         if (!name) return null;
@@ -264,7 +287,7 @@ function rankPapersForQuery(papers, query) {
 
 function matchesTalkEntity(talk, normalizedNeedle) {
   if (state.kind === 'speaker') {
-    return (talk.speakers || []).some((speaker) => normalizeValue(speaker.name) === normalizedNeedle);
+    return (talk.speakers || []).some((speaker) => samePersonName(speaker.name, state.value));
   }
 
   return getTalkKeyTopics(talk).some((topic) => normalizeValue(topic) === normalizedNeedle);
@@ -272,7 +295,7 @@ function matchesTalkEntity(talk, normalizedNeedle) {
 
 function matchesPaperEntity(paper, normalizedNeedle) {
   if (state.kind === 'speaker') {
-    return (paper.authors || []).some((author) => normalizeValue(author.name) === normalizedNeedle);
+    return (paper.authors || []).some((author) => samePersonName(author.name, state.value));
   }
 
   return [...(paper.tags || []), ...(paper.keywords || [])]

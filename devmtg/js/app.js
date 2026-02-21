@@ -88,6 +88,24 @@ function normalizeTalks(rawTalks) {
   return Array.isArray(rawTalks) ? rawTalks : [];
 }
 
+function normalizePersonKey(value) {
+  if (typeof HubUtils.normalizePersonKey === 'function') {
+    return HubUtils.normalizePersonKey(value);
+  }
+  return String(value || '').trim().toLowerCase();
+}
+
+function samePersonName(a, b) {
+  const keyA = normalizePersonKey(a);
+  const keyB = normalizePersonKey(b);
+  if (!keyA || !keyB) return false;
+  if (keyA === keyB) return true;
+  if (typeof HubUtils.arePersonMiddleVariants === 'function') {
+    return HubUtils.arePersonMiddleVariants(a, b);
+  }
+  return false;
+}
+
 async function loadData() {
   if (typeof window.loadEventData !== 'function') {
     showError('Could not load event data loader. Ensure <code>js/events-data.js</code> is included before this script.');
@@ -298,9 +316,9 @@ function filterAndSort() {
     results = results.filter(t => t.meeting === state.meeting);
   }
   if (state.speaker) {
-    const spLower = state.speaker.toLowerCase();
+    const selectedSpeaker = state.speaker;
     results = results.filter(t =>
-      (t.speakers || []).some(s => s.name.toLowerCase() === spLower)
+      (t.speakers || []).some((s) => samePersonName(s.name, selectedSpeaker))
     );
   }
   if (state.activeTag) {
@@ -447,11 +465,11 @@ function getVideoLinkMeta(videoUrl, titleEsc) {
  */
 function renderSpeakerButtons(speakers, tokens) {
   if (!speakers || speakers.length === 0) return '';
-  const activeLower = (state.activeSpeaker || state.speaker || '').toLowerCase();
+  const activeSpeaker = state.activeSpeaker || state.speaker || '';
 
   return speakers.map(s => {
     let nameHtml;
-    if (activeLower && s.name.toLowerCase() === activeLower) {
+    if (activeSpeaker && samePersonName(s.name, activeSpeaker)) {
       nameHtml = `<mark>${escapeHtml(s.name)}</mark>`;
     } else {
       nameHtml = highlightText(s.name, tokens);
@@ -2080,15 +2098,25 @@ function buildAutocompleteIndex() {
     .map(([tag, count]) => ({ label: tag, count }));
 
   // Unique speaker names with talk counts
-  const speakerCounts = {};
+  const speakerBuckets = new Map();
   for (const t of allTalks) {
     for (const s of (t.speakers || [])) {
-      if (s.name) speakerCounts[s.name] = (speakerCounts[s.name] || 0) + 1;
+      const label = String((s && s.name) || '').trim();
+      const key = normalizePersonKey(label);
+      if (!label || !key) continue;
+      if (!speakerBuckets.has(key)) speakerBuckets.set(key, { count: 0, labels: new Map() });
+      const bucket = speakerBuckets.get(key);
+      bucket.count += 1;
+      bucket.labels.set(label, (bucket.labels.get(label) || 0) + 1);
     }
   }
-  autocompleteIndex.speakers = Object.entries(speakerCounts)
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([name, count]) => ({ label: name, count }));
+  autocompleteIndex.speakers = [...speakerBuckets.values()]
+    .map((bucket) => {
+      const label = [...bucket.labels.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+      return { label, count: bucket.count };
+    })
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 }
 
 function highlightMatch(text, query) {

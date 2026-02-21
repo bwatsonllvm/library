@@ -1758,6 +1758,62 @@ body.filter-collapsed .filter-collapse-btn svg {
   line-height: 1;
 }
 
+.card-link-btn--disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.people-filter-row {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.person-card .card-title {
+  margin-bottom: 2px;
+}
+
+.person-affiliation {
+  -webkit-line-clamp: 2;
+  min-height: 2.6em;
+}
+
+.person-affiliation--empty {
+  opacity: 0.7;
+}
+
+.person-variants {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-1);
+}
+
+.person-variants-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.person-variant-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-hover);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.person-card-footer {
+  flex-wrap: wrap;
+}
+
 .card-link-btn:hover {
   color: var(--color-text);
   border-color: var(--color-border-strong);

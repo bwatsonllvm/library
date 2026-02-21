@@ -98,6 +98,11 @@ function normalizePaperRecord(rawPaper) {
   paper.authors = Array.isArray(paper.authors)
     ? paper.authors
       .map((author) => {
+        if (typeof HubUtils.normalizePersonRecord === 'function') {
+          const normalized = HubUtils.normalizePersonRecord(author);
+          if (!normalized || !normalized.name) return null;
+          return { name: normalized.name, affiliation: normalized.affiliation || '' };
+        }
         if (!author || typeof author !== 'object') return null;
         const name = String(author.name || '').trim();
         const affiliation = String(author.affiliation || '').trim();

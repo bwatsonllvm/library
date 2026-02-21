@@ -79,6 +79,13 @@
     return out;
   }
 
+  function normalizePersonKey(value) {
+    if (typeof HubUtils.normalizePersonKey === 'function') {
+      return HubUtils.normalizePersonKey(value);
+    }
+    return String(value || '').trim().toLowerCase();
+  }
+
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -167,9 +174,19 @@
       await ensureDataLoaders();
 
       const topicCounts = new Map();
-      const peopleCounts = new Map();
+      const peopleBuckets = new Map();
       const talkTitleCounts = new Map();
       const paperTitleCounts = new Map();
+
+      const addPerson = (name) => {
+        const label = String(name || '').trim();
+        const key = normalizePersonKey(label);
+        if (!label || !key) return;
+        if (!peopleBuckets.has(key)) peopleBuckets.set(key, { count: 0, labels: new Map() });
+        const bucket = peopleBuckets.get(key);
+        bucket.count += 1;
+        bucket.labels.set(label, (bucket.labels.get(label) || 0) + 1);
+      };
 
       if (typeof window.loadEventData === 'function') {
         try {
@@ -178,7 +195,7 @@
 
           for (const talk of talks) {
             for (const topic of getTalkKeyTopics(talk, 12)) addCount(topicCounts, topic);
-            for (const speaker of (talk.speakers || [])) addCount(peopleCounts, speaker && speaker.name);
+            for (const speaker of (talk.speakers || [])) addPerson(speaker && speaker.name);
             addCount(talkTitleCounts, talk.title);
           }
         } catch {
@@ -193,7 +210,7 @@
 
           for (const paper of papers) {
             for (const topic of getPaperKeyTopics(paper, 12)) addCount(topicCounts, topic);
-            for (const author of (paper.authors || [])) addCount(peopleCounts, author && author.name);
+            for (const author of (paper.authors || [])) addPerson(author && author.name);
             addCount(paperTitleCounts, paper.title);
           }
         } catch {
@@ -202,7 +219,13 @@
       }
 
       autocompleteIndex.topics = mapToSortedEntries(topicCounts);
-      autocompleteIndex.people = mapToSortedEntries(peopleCounts);
+      autocompleteIndex.people = [...peopleBuckets.values()]
+        .map((bucket) => {
+          const label = [...bucket.labels.entries()]
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+          return { label, count: bucket.count };
+        })
+        .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
       autocompleteIndex.talks = mapToAlphaEntries(talkTitleCounts);
       autocompleteIndex.papers = mapToAlphaEntries(paperTitleCounts);
       return autocompleteIndex;

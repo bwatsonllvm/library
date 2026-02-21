@@ -103,21 +103,335 @@
     };
   }
 
-  function normalizeSpeakerName(value) {
+  function stripDiacritics(value) {
+    const text = String(value || '');
+    if (!text) return '';
+    return text.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function normalizePersonDisplayName(value) {
+    let text = collapseWhitespace(value);
+    if (!text) return '';
+
+    // Handle "Last, First" as "First Last" when comma appears once.
+    const commaMatch = text.match(/^([^,]+),\s*(.+)$/);
+    if (commaMatch) {
+      const left = collapseWhitespace(commaMatch[1]);
+      const right = collapseWhitespace(commaMatch[2]);
+      if (left && right) text = `${right} ${left}`;
+    }
+
+    text = text
+      .replace(/\s+([.,;:])/g, '$1')
+      .replace(/\s*-\s*/g, '-')
+      .replace(/\s{2,}/g, ' ');
+
+    return text.trim();
+  }
+
+  function normalizeAffiliation(value) {
+    let text = collapseWhitespace(value);
+    if (!text) return '';
+
+    const lower = text.toLowerCase();
+    if (lower === 'none' || lower === 'null' || lower === 'n/a' || lower === 'na' || lower === 'unknown') {
+      return '';
+    }
+
+    text = text
+      .replace(/\bUniv\.\b/gi, 'University')
+      .replace(/\bUniv\b/gi, 'University')
+      .replace(/\bInst\.\b/gi, 'Institute')
+      .replace(/\bInst\b/gi, 'Institute')
+      .replace(/\bDept\.\b/gi, 'Department')
+      .replace(/\bDept\b/gi, 'Department')
+      .replace(/\bLab\.\b/gi, 'Lab')
+      .replace(/\s*&\s*/g, ' & ')
+      .replace(/\s+,/g, ',')
+      .replace(/\(\s*United States\s*\)$/i, '')
+      .replace(/\(\s*USA\s*\)$/i, '')
+      .replace(/\(\s*United Kingdom\s*\)$/i, '')
+      .replace(/\(\s*UK\s*\)$/i, '');
+
+    return collapseWhitespace(text);
+  }
+
+  function normalizePersonName(value) {
     const parsed = splitSpeakerName(value);
-    return parsed.name || collapseWhitespace(value);
+    return normalizePersonDisplayName(parsed.name || value);
+  }
+
+  function normalizePersonRecord(rawPerson) {
+    const person = (rawPerson && typeof rawPerson === 'object')
+      ? { ...rawPerson }
+      : { name: String(rawPerson || '') };
+
+    const parsed = splitSpeakerName(person.name);
+    const explicitName = normalizePersonDisplayName(parsed.name || person.name);
+    const explicitAffiliation = normalizeAffiliation(person.affiliation);
+    const parsedAffiliation = normalizeAffiliation(parsed.affiliation);
+
+    person.name = explicitName;
+    person.affiliation = explicitAffiliation || parsedAffiliation;
+    return person;
+  }
+
+  function tokenizePersonName(value) {
+    return stripDiacritics(String(value || '').toLowerCase())
+      .replace(/[^a-z0-9' -]+/g, ' ')
+      .split(/[\s-]+/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function normalizePersonKey(value) {
+    return tokenizePersonName(value).join('');
+  }
+
+  function normalizeAffiliationKey(value) {
+    return stripDiacritics(normalizeAffiliation(value).toLowerCase())
+      .replace(/[^a-z0-9]+/g, '');
+  }
+
+  function buildPersonSignature(value) {
+    const tokens = tokenizePersonName(value);
+    if (!tokens.length) {
+      return {
+        first: '',
+        last: '',
+        middleInitials: '',
+        baseKey: '',
+        exactKey: '',
+      };
+    }
+
+    const first = tokens[0];
+    const last = tokens[tokens.length - 1];
+    const middleInitials = tokens.slice(1, -1).map((token) => token[0] || '').join('');
+
+    return {
+      first,
+      last,
+      middleInitials,
+      baseKey: `${first}|${last}`,
+      exactKey: tokens.join('|'),
+    };
+  }
+
+  function arePersonMiddleVariants(nameA, nameB) {
+    const a = buildPersonSignature(nameA);
+    const b = buildPersonSignature(nameB);
+    if (!a.baseKey || !b.baseKey) return false;
+    if (a.baseKey !== b.baseKey) return false;
+    if (a.exactKey === b.exactKey) return true;
+
+    const miA = a.middleInitials;
+    const miB = b.middleInitials;
+    if (!miA || !miB) return true;
+    if (miA === miB) return true;
+    return miA.startsWith(miB) || miB.startsWith(miA);
+  }
+
+  function chooseBestDisplayName(nameCounts) {
+    const entries = [...nameCounts.entries()];
+    if (!entries.length) return '';
+
+    const scoreName = (name, count) => {
+      const signature = buildPersonSignature(name);
+      const middlePenalty = signature.middleInitials.length;
+      const initialPenalty = /\b[A-Z]\.?(\s|$)/.test(name) ? 0.8 : 0;
+      const lengthPenalty = Math.max(0, name.length - 40) * 0.02;
+      return (count * 100) - (middlePenalty * 2) - initialPenalty - lengthPenalty;
+    };
+
+    entries.sort((a, b) => {
+      const scoreDiff = scoreName(b[0], b[1]) - scoreName(a[0], a[1]);
+      if (scoreDiff !== 0) return scoreDiff;
+      return a[0].localeCompare(b[0]);
+    });
+
+    return entries[0][0];
+  }
+
+  function mergePeopleBuckets(target, source) {
+    target.talkCount += source.talkCount;
+    target.paperCount += source.paperCount;
+
+    for (const [name, count] of source.nameCounts.entries()) {
+      target.nameCounts.set(name, (target.nameCounts.get(name) || 0) + count);
+    }
+    for (const [aff, count] of source.affiliationCounts.entries()) {
+      target.affiliationCounts.set(aff, (target.affiliationCounts.get(aff) || 0) + count);
+    }
+    for (const [name, count] of source.talkNameCounts.entries()) {
+      target.talkNameCounts.set(name, (target.talkNameCounts.get(name) || 0) + count);
+    }
+    for (const [name, count] of source.paperNameCounts.entries()) {
+      target.paperNameCounts.set(name, (target.paperNameCounts.get(name) || 0) + count);
+    }
+  }
+
+  function shouldMergePeopleBuckets(a, b) {
+    const nameA = chooseBestDisplayName(a.nameCounts);
+    const nameB = chooseBestDisplayName(b.nameCounts);
+    if (!nameA || !nameB) return false;
+    if (!arePersonMiddleVariants(nameA, nameB)) return false;
+
+    const affKeysA = new Set(
+      [...a.affiliationCounts.keys()]
+        .map((aff) => normalizeAffiliationKey(aff))
+        .filter(Boolean)
+    );
+    const affKeysB = new Set(
+      [...b.affiliationCounts.keys()]
+        .map((aff) => normalizeAffiliationKey(aff))
+        .filter(Boolean)
+    );
+
+    if (affKeysA.size && affKeysB.size) {
+      for (const key of affKeysA) {
+        if (affKeysB.has(key)) return true;
+      }
+      return false;
+    }
+
+    // If only one side has affiliation data, allow merge for middle-initial variants.
+    if ((affKeysA.size === 0) !== (affKeysB.size === 0)) return true;
+    return false;
+  }
+
+  function buildPeopleIndex(talks, papers) {
+    const buckets = new Map();
+
+    const ensureBucketByName = (name) => {
+      const key = normalizePersonKey(name);
+      if (!key) return null;
+      if (!buckets.has(key)) {
+        const signature = buildPersonSignature(name);
+        buckets.set(key, {
+          signature,
+          talkCount: 0,
+          paperCount: 0,
+          nameCounts: new Map(),
+          affiliationCounts: new Map(),
+          talkNameCounts: new Map(),
+          paperNameCounts: new Map(),
+        });
+      }
+      return buckets.get(key);
+    };
+
+    for (const talk of (Array.isArray(talks) ? talks : [])) {
+      for (const rawSpeaker of (talk.speakers || [])) {
+        const speaker = normalizePersonRecord(rawSpeaker);
+        if (!speaker.name) continue;
+        const bucket = ensureBucketByName(speaker.name);
+        if (!bucket) continue;
+        bucket.talkCount += 1;
+        bucket.nameCounts.set(speaker.name, (bucket.nameCounts.get(speaker.name) || 0) + 1);
+        bucket.talkNameCounts.set(speaker.name, (bucket.talkNameCounts.get(speaker.name) || 0) + 1);
+        if (speaker.affiliation) {
+          bucket.affiliationCounts.set(
+            speaker.affiliation,
+            (bucket.affiliationCounts.get(speaker.affiliation) || 0) + 1
+          );
+        }
+      }
+    }
+
+    for (const paper of (Array.isArray(papers) ? papers : [])) {
+      for (const rawAuthor of (paper.authors || [])) {
+        const author = normalizePersonRecord(rawAuthor);
+        if (!author.name) continue;
+        const bucket = ensureBucketByName(author.name);
+        if (!bucket) continue;
+        bucket.paperCount += 1;
+        bucket.nameCounts.set(author.name, (bucket.nameCounts.get(author.name) || 0) + 1);
+        bucket.paperNameCounts.set(author.name, (bucket.paperNameCounts.get(author.name) || 0) + 1);
+        if (author.affiliation) {
+          bucket.affiliationCounts.set(
+            author.affiliation,
+            (bucket.affiliationCounts.get(author.affiliation) || 0) + 1
+          );
+        }
+      }
+    }
+
+    const groupedByBaseKey = new Map();
+    for (const bucket of buckets.values()) {
+      const baseKey = bucket.signature.baseKey;
+      if (!baseKey) continue;
+      if (!groupedByBaseKey.has(baseKey)) groupedByBaseKey.set(baseKey, []);
+      groupedByBaseKey.get(baseKey).push(bucket);
+    }
+
+    for (const group of groupedByBaseKey.values()) {
+      if (!group || group.length < 2) continue;
+      let merged = true;
+      while (merged) {
+        merged = false;
+        for (let i = 0; i < group.length; i += 1) {
+          for (let j = i + 1; j < group.length; j += 1) {
+            const a = group[i];
+            const b = group[j];
+            if (!a || !b) continue;
+            if (!shouldMergePeopleBuckets(a, b)) continue;
+            mergePeopleBuckets(a, b);
+            group.splice(j, 1);
+            merged = true;
+            break;
+          }
+          if (merged) break;
+        }
+      }
+    }
+
+    const mergedBuckets = [];
+    for (const group of groupedByBaseKey.values()) {
+      mergedBuckets.push(...group);
+    }
+
+    const people = mergedBuckets
+      .map((bucket) => {
+        const displayName = chooseBestDisplayName(bucket.nameCounts);
+        const variantNames = [...bucket.nameCounts.entries()]
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .map(([name]) => name);
+
+        const affiliation = [...bucket.affiliationCounts.entries()]
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+          .map(([value]) => value)[0] || '';
+
+        const talkFilterName = chooseBestDisplayName(bucket.talkNameCounts) || displayName;
+        const paperFilterName = chooseBestDisplayName(bucket.paperNameCounts) || displayName;
+
+        return {
+          id: normalizePersonKey(displayName) || normalizePersonKey(variantNames[0] || ''),
+          name: displayName || variantNames[0] || '',
+          talkFilterName: talkFilterName || '',
+          paperFilterName: paperFilterName || '',
+          affiliation,
+          affiliations: [...bucket.affiliationCounts.entries()]
+            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+            .map(([value, count]) => ({ value, count })),
+          variantNames,
+          talkCount: bucket.talkCount,
+          paperCount: bucket.paperCount,
+          totalCount: bucket.talkCount + bucket.paperCount,
+        };
+      })
+      .filter((person) => person.name)
+      .sort((a, b) => b.totalCount - a.totalCount || a.name.localeCompare(b.name));
+
+    return people;
+  }
+
+  function normalizeSpeakerName(value) {
+    return normalizePersonName(value);
   }
 
   function normalizeSpeakerRecord(rawSpeaker) {
-    const speaker = (rawSpeaker && typeof rawSpeaker === 'object')
-      ? { ...rawSpeaker }
-      : { name: String(rawSpeaker || '') };
-
-    const parsed = splitSpeakerName(speaker.name);
-    const existingAffiliation = collapseWhitespace(speaker.affiliation);
-    speaker.name = parsed.name;
-    speaker.affiliation = existingAffiliation || parsed.affiliation;
-    return speaker;
+    return normalizePersonRecord(rawSpeaker);
   }
 
   function normalizeTalkRecord(talk) {
@@ -730,6 +1044,8 @@
   }
 
   const api = {
+    arePersonMiddleVariants,
+    buildPeopleIndex,
     CATEGORY_ORDER,
     compareRankedEntries,
     extractYouTubeId,
@@ -737,6 +1053,12 @@
     getPaperKeyTopics,
     getTalkKeyTopics,
     isYouTubeVideoId,
+    normalizeAffiliation,
+    normalizeAffiliationKey,
+    normalizePersonDisplayName,
+    normalizePersonName,
+    normalizePersonRecord,
+    normalizePersonKey,
     normalizeSpeakerName,
     normalizeTalkRecord,
     normalizeTalks,

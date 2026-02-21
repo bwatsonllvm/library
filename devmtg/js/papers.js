@@ -148,6 +148,11 @@ function normalizePaperRecord(rawPaper) {
   paper.authors = Array.isArray(paper.authors)
     ? paper.authors
       .map((author) => {
+        if (typeof HubUtils.normalizePersonRecord === 'function') {
+          const normalized = HubUtils.normalizePersonRecord(author);
+          if (!normalized || !normalized.name) return null;
+          return { name: normalized.name, affiliation: normalized.affiliation || '' };
+        }
         if (!author || typeof author !== 'object') return null;
         const name = String(author.name || '').trim();
         const affiliation = String(author.affiliation || '').trim();
@@ -392,6 +397,24 @@ function normalizeFilterValue(value) {
   return String(value || '').trim().toLowerCase();
 }
 
+function normalizePersonKey(value) {
+  if (typeof HubUtils.normalizePersonKey === 'function') {
+    return HubUtils.normalizePersonKey(value);
+  }
+  return normalizeFilterValue(value);
+}
+
+function samePersonName(a, b) {
+  const keyA = normalizePersonKey(a);
+  const keyB = normalizePersonKey(b);
+  if (!keyA || !keyB) return false;
+  if (keyA === keyB) return true;
+  if (typeof HubUtils.arePersonMiddleVariants === 'function') {
+    return HubUtils.arePersonMiddleVariants(a, b);
+  }
+  return false;
+}
+
 function normalizeTopicKey(value) {
   return String(value || '')
     .toLowerCase()
@@ -447,16 +470,16 @@ function filterAndSort() {
   }
 
   if (state.speaker) {
-    const selectedAuthor = normalizeFilterValue(state.speaker);
+    const selectedAuthor = state.speaker;
     entries = entries.filter(({ paper }) =>
-      (paper.authors || []).some((author) => normalizeFilterValue(author.name) === selectedAuthor)
+      (paper.authors || []).some((author) => samePersonName(author.name, selectedAuthor))
     );
   }
 
   if (state.activeSpeaker) {
-    const activeSpeaker = normalizeFilterValue(state.activeSpeaker);
+    const activeSpeaker = state.activeSpeaker;
     entries = entries.filter(({ paper }) =>
-      (paper.authors || []).some((author) => normalizeFilterValue(author.name) === activeSpeaker)
+      (paper.authors || []).some((author) => samePersonName(author.name, activeSpeaker))
     );
   }
 
@@ -517,15 +540,14 @@ function highlightText(text, tokens) {
 function renderAuthorButtons(authors, tokens) {
   if (!authors || authors.length === 0) return 'Authors unknown';
 
-  const activeLower = normalizeFilterValue(state.activeSpeaker || state.speaker || '');
+  const activeAuthor = state.activeSpeaker || state.speaker || '';
 
   return authors.map((author) => {
     const label = String(author.name || '').trim();
     if (!label) return '';
-    const nameLower = normalizeFilterValue(author.name);
     let labelHtml;
 
-    if (activeLower && nameLower === activeLower) {
+    if (activeAuthor && samePersonName(author.name, activeAuthor)) {
       labelHtml = `<mark>${escapeHtml(label)}</mark>`;
     } else {
       labelHtml = highlightText(label, tokens);
@@ -1448,7 +1470,7 @@ function applyUrlFilters() {
 
 function buildAutocompleteIndex() {
   const tagCounts = {};
-  const speakerCounts = {};
+  const speakerBuckets = new Map();
 
   for (const paper of allPapers) {
     for (const topic of getPaperKeyTopics(paper, 8)) {
@@ -1458,9 +1480,13 @@ function buildAutocompleteIndex() {
     const seenAuthors = new Set();
     for (const author of (paper.authors || [])) {
       const name = String(author.name || '').trim();
-      if (!name || seenAuthors.has(name)) continue;
-      seenAuthors.add(name);
-      speakerCounts[name] = (speakerCounts[name] || 0) + 1;
+      const key = normalizePersonKey(name);
+      if (!name || !key || seenAuthors.has(key)) continue;
+      seenAuthors.add(key);
+      if (!speakerBuckets.has(key)) speakerBuckets.set(key, { count: 0, labels: new Map() });
+      const bucket = speakerBuckets.get(key);
+      bucket.count += 1;
+      bucket.labels.set(name, (bucket.labels.get(name) || 0) + 1);
     }
 
   }
@@ -1469,9 +1495,13 @@ function buildAutocompleteIndex() {
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([label, count]) => ({ label, count }));
 
-  autocompleteIndex.speakers = Object.entries(speakerCounts)
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .map(([label, count]) => ({ label, count }));
+  autocompleteIndex.speakers = [...speakerBuckets.values()]
+    .map((bucket) => {
+      const label = [...bucket.labels.entries()]
+        .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0][0];
+      return { label, count: bucket.count };
+    })
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
 }
 
 function highlightMatch(text, query) {
