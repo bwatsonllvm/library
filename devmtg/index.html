@@ -330,20 +330,29 @@
           <span class="results-count" id="results-count" role="status" aria-live="polite" aria-atomic="true"></span>
           <span class="results-context" id="results-context" aria-live="polite" aria-atomic="true"></span>
         </div>
-        <div class="view-toggle" role="group" aria-label="View layout">
-          <button class="view-btn active" id="view-grid" title="Grid view" aria-label="Grid view" aria-pressed="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-            </svg>
-          </button>
-          <button class="view-btn" id="view-list" title="List view" aria-label="List view" aria-pressed="false">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
-              <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
-              <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
-            </svg>
-          </button>
+        <div class="results-controls">
+          <label for="talks-sort-select" class="results-sort-label">Sort by</label>
+          <select id="talks-sort-select" class="results-sort-select" aria-label="Sort talks">
+            <option value="relevance">Relevance</option>
+            <option value="newest">Newest meeting</option>
+            <option value="oldest">Oldest meeting</option>
+            <option value="title">Title</option>
+          </select>
+          <div class="view-toggle" role="group" aria-label="View layout">
+            <button class="view-btn active" id="view-grid" title="Grid view" aria-label="Grid view" aria-pressed="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              </svg>
+            </button>
+            <button class="view-btn" id="view-list" title="List view" aria-label="List view" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
+                <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
+                <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -514,8 +523,8 @@
 
   <!-- Event data loader -->
   <script src="js/events-data.js?v=20260220-12"></script>
-  <script src="js/shared/library-utils.js?v=20260221-22"></script>
+  <script src="js/shared/library-utils.js?v=20260221-23"></script>
   <script src="js/shared/global-search.js?v=20260221-22"></script>
-  <script src="js/app.js?v=20260221-21"></script>
+  <script src="js/app.js?v=20260221-23"></script>
 </body>
 </html>

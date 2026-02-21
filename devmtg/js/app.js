@@ -26,6 +26,7 @@ let topicLabelByNormalized = new Map();
 const ALL_WORK_PAGE_PATH = 'work.html';
 const MAX_TOPIC_FILTERS = 220;
 const MIN_TOPIC_FILTER_COUNT = 2;
+const TALK_SORT_MODES = new Set(['relevance', 'newest', 'oldest', 'title']);
 
 const state = {
   query: '',
@@ -38,6 +39,7 @@ const state = {
   hasSlides: false,
   meeting: '',       // slug filter set when arriving from meetings page
   meetingName: '',   // display name for the meeting pill
+  sortBy: 'relevance',
 };
 
 // Category display names and order
@@ -273,6 +275,38 @@ function fuzzyScoreTalk(indexedTalk, tokens) {
 // Filter + Sort Pipeline
 // ============================================================
 
+function compareTalksNewestFirst(a, b) {
+  const meetingDiff = String(b.meeting || '').localeCompare(String(a.meeting || ''));
+  if (meetingDiff !== 0) return meetingDiff;
+  const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
+  if (titleDiff !== 0) return titleDiff;
+  return String(a.id || '').localeCompare(String(b.id || ''));
+}
+
+function compareTalksOldestFirst(a, b) {
+  const meetingDiff = String(a.meeting || '').localeCompare(String(b.meeting || ''));
+  if (meetingDiff !== 0) return meetingDiff;
+  const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
+  if (titleDiff !== 0) return titleDiff;
+  return String(a.id || '').localeCompare(String(b.id || ''));
+}
+
+function compareTalksTitle(a, b) {
+  const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
+  if (titleDiff !== 0) return titleDiff;
+  const meetingDiff = String(b.meeting || '').localeCompare(String(a.meeting || ''));
+  if (meetingDiff !== 0) return meetingDiff;
+  return String(a.id || '').localeCompare(String(b.id || ''));
+}
+
+function sortTalkResults(results, tokens) {
+  if (state.sortBy === 'newest') return [...results].sort(compareTalksNewestFirst);
+  if (state.sortBy === 'oldest') return [...results].sort(compareTalksOldestFirst);
+  if (state.sortBy === 'title') return [...results].sort(compareTalksTitle);
+  if (!tokens.length) return [...results].sort(compareTalksNewestFirst);
+  return results;
+}
+
 function filterAndSort() {
   let results = searchIndex;
   const tokens = state.query.length >= 2 ? tokenize(state.query) : [];
@@ -307,9 +341,6 @@ function filterAndSort() {
       results = fuzzy.map((entry) => entry.talk);
       if (results.length > 0) searchMode = 'fuzzy';
     }
-  } else {
-    // Default: newest first
-    results = [...results].sort((a, b) => b.meeting.localeCompare(a.meeting));
   }
 
   if (state.meeting) {
@@ -336,29 +367,7 @@ function filterAndSort() {
   if (state.hasVideo)  results = results.filter(t => t.videoUrl);
   if (state.hasSlides) results = results.filter(t => t.slidesUrl);
 
-  const hasActiveFilters =
-    !!state.query ||
-    !!state.meeting ||
-    !!state.speaker ||
-    !!state.activeSpeaker ||
-    !!state.activeTag ||
-    state.categories.size > 0 ||
-    state.years.size > 0 ||
-    state.hasVideo ||
-    state.hasSlides;
-
-  // Preserve relevance order while searching; apply deterministic recency sort only in browse mode.
-  if (hasActiveFilters && tokens.length === 0) {
-    results = [...results].sort((a, b) => {
-      const meetingDiff = String(b.meeting || '').localeCompare(String(a.meeting || ''));
-      if (meetingDiff !== 0) return meetingDiff;
-      const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
-      if (titleDiff !== 0) return titleDiff;
-      return String(a.id || '').localeCompare(String(b.id || ''));
-    });
-  }
-
-  return results;
+  return sortTalkResults(results, tokens);
 }
 
 // ============================================================
@@ -803,6 +812,10 @@ function renderResultCount(count) {
   parts.push(activeFilterCount > 0
     ? `${activeFilterCount} filter${activeFilterCount === 1 ? '' : 's'} active`
     : 'All results');
+  if (state.sortBy === 'newest') parts.push('Sorted by newest meeting');
+  else if (state.sortBy === 'oldest') parts.push('Sorted by oldest meeting');
+  else if (state.sortBy === 'title') parts.push('Sorted by title');
+  else parts.push(state.query ? 'Sorted by relevance' : 'Sorted by newest meeting');
   if (searchMode === 'fuzzy') parts.push('Fuzzy match');
   contextEl.textContent = `· ${parts.join(' · ')}`;
 }
@@ -1263,6 +1276,7 @@ function syncUrl() {
   if (state.years.size)      params.set('year',     [...state.years].join(','));
   if (state.hasVideo)        params.set('video',    '1');
   if (state.hasSlides)       params.set('slides',   '1');
+  if (state.sortBy !== 'relevance') params.set('sort', state.sortBy);
 
   const newUrl = params.toString()
     ? `${window.location.pathname}?${params.toString()}`
@@ -1271,6 +1285,7 @@ function syncUrl() {
 }
 
 function loadStateFromUrl() {
+  const params = new URLSearchParams(window.location.search);
   if (typeof HubUtils.parseUrlState === 'function') {
     const parsed = HubUtils.parseUrlState(window.location.search, allTalks);
     const legacyTag = parsed.tags && parsed.tags.length ? parsed.tags[0] : '';
@@ -1282,8 +1297,9 @@ function loadStateFromUrl() {
     state.years = new Set(parsed.years || []);
     state.hasVideo = !!parsed.hasVideo;
     state.hasSlides = !!parsed.hasSlides;
+    const parsedSort = String(parsed.sort || '').trim().toLowerCase();
+    state.sortBy = TALK_SORT_MODES.has(parsedSort) ? parsedSort : 'relevance';
   } else {
-    const params = new URLSearchParams(window.location.search);
     if (params.get('q')) state.query = params.get('q');
     if (params.get('speaker')) state.speaker = params.get('speaker');
     if (params.get('meeting')) {
@@ -1300,6 +1316,9 @@ function loadStateFromUrl() {
     state.hasVideo = params.get('video') === '1';
     state.hasSlides = params.get('slides') === '1';
   }
+
+  const sortParam = String(params.get('sort') || '').trim().toLowerCase();
+  state.sortBy = TALK_SORT_MODES.has(sortParam) ? sortParam : state.sortBy;
 
   yearFilterTouched = false;
   state.activeTag = resolveCanonicalTag(state.query);
@@ -1340,6 +1359,7 @@ function applyUrlFilters() {
     slidesBtn.classList.toggle('active', state.hasSlides);
     slidesBtn.setAttribute('aria-checked', state.hasSlides ? 'true' : 'false');
   }
+  syncSortControl();
   updateClearBtn();
 }
 
@@ -1355,6 +1375,7 @@ function saveNavigationState() {
     years: [...state.years],
     hasVideo: state.hasVideo,
     hasSlides: state.hasSlides,
+    sortBy: state.sortBy,
     scrollY: window.scrollY,
   }));
 }
@@ -1380,6 +1401,8 @@ function restoreNavigationState() {
   if (!state.query && s.tags && s.tags.length) state.query = s.tags[0];
   if (s.hasVideo)   state.hasVideo  = true;
   if (s.hasSlides)  state.hasSlides = true;
+  const restoredSort = String(s.sortBy || s.sort || '').trim().toLowerCase();
+  state.sortBy = TALK_SORT_MODES.has(restoredSort) ? restoredSort : 'relevance';
 
   state.activeTag = resolveCanonicalTag(state.query);
   if (state.query) document.getElementById('search-input').value = state.query;
@@ -1397,16 +1420,36 @@ function restoreNavigationState() {
 // ============================================================
 
 function setViewMode(mode) {
-  viewMode = mode;
+  viewMode = mode === 'list' ? 'list' : 'grid';
   const grid = document.getElementById('talks-grid');
-  grid.className = mode === 'list' ? 'talks-list' : 'talks-grid';
+  if (!grid) return;
+  grid.className = viewMode === 'list' ? 'talks-list' : 'talks-grid';
 
-  document.getElementById('view-grid').classList.toggle('active', mode === 'grid');
-  document.getElementById('view-list').classList.toggle('active', mode === 'list');
-  document.getElementById('view-grid').setAttribute('aria-pressed', mode === 'grid');
-  document.getElementById('view-list').setAttribute('aria-pressed', mode === 'list');
+  document.getElementById('view-grid').classList.toggle('active', viewMode === 'grid');
+  document.getElementById('view-list').classList.toggle('active', viewMode === 'list');
+  document.getElementById('view-grid').setAttribute('aria-pressed', viewMode === 'grid' ? 'true' : 'false');
+  document.getElementById('view-list').setAttribute('aria-pressed', viewMode === 'list' ? 'true' : 'false');
 
-  localStorage.setItem('llvm-hub-view', mode);
+  localStorage.setItem('llvm-hub-view', viewMode);
+}
+
+function syncSortControl() {
+  const select = document.getElementById('talks-sort-select');
+  if (!select) return;
+  select.value = TALK_SORT_MODES.has(state.sortBy) ? state.sortBy : 'relevance';
+}
+
+function initSortControl() {
+  const select = document.getElementById('talks-sort-select');
+  if (!select) return;
+
+  select.addEventListener('change', () => {
+    const next = String(select.value || '').trim();
+    state.sortBy = TALK_SORT_MODES.has(next) ? next : 'relevance';
+    syncSortControl();
+    syncUrl();
+    render();
+  });
 }
 
 // ============================================================
@@ -2434,13 +2477,14 @@ async function init() {
   initFilterAccordions();
   initFilterSidebarCollapse();
   initSearch();
+  initSortControl();
 
   // URL params take priority over saved sessionStorage state.
   // sessionStorage is only for back-button from a talk detail page to a bare index.html.
   const urlParams = new URLSearchParams(window.location.search);
   const hasUrlState = urlParams.has('speaker') || urlParams.has('q') || urlParams.has('tag') ||
     urlParams.has('meeting') || urlParams.has('category') || urlParams.has('year') ||
-    urlParams.has('video') || urlParams.has('slides');
+    urlParams.has('video') || urlParams.has('slides') || urlParams.has('sort');
 
   const hasBackState = sessionStorage.getItem('llvm-hub-search-state');
 

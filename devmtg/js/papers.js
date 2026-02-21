@@ -10,6 +10,7 @@ const HubUtils = window.LLVMHubUtils || {};
 
 let allPapers = [];
 let searchIndex = [];
+let viewMode = 'grid'; // 'grid' | 'list'
 let debounceTimer = null;
 let searchMode = 'browse'; // 'browse' | 'exact' | 'fuzzy'
 let autocompleteIndex = { tags: [], speakers: [] };
@@ -1691,6 +1692,37 @@ function initSearch() {
 // Render + Control Sync
 // ============================================================
 
+function setViewMode(mode) {
+  viewMode = mode === 'list' ? 'list' : 'grid';
+  const grid = document.getElementById('papers-grid');
+  if (grid) {
+    grid.className = viewMode === 'list' ? 'talks-list' : 'talks-grid';
+  }
+
+  const gridBtn = document.getElementById('view-grid');
+  const listBtn = document.getElementById('view-list');
+  if (gridBtn && listBtn) {
+    gridBtn.classList.toggle('active', viewMode === 'grid');
+    listBtn.classList.toggle('active', viewMode === 'list');
+    gridBtn.setAttribute('aria-pressed', viewMode === 'grid' ? 'true' : 'false');
+    listBtn.setAttribute('aria-pressed', viewMode === 'list' ? 'true' : 'false');
+  }
+
+  localStorage.setItem('llvm-hub-view', viewMode);
+}
+
+function initViewControls() {
+  const gridBtn = document.getElementById('view-grid');
+  const listBtn = document.getElementById('view-list');
+  if (!gridBtn || !listBtn) return;
+
+  const savedView = localStorage.getItem('llvm-hub-view') || 'grid';
+  setViewMode(savedView);
+
+  gridBtn.addEventListener('click', () => setViewMode('grid'));
+  listBtn.addEventListener('click', () => setViewMode('list'));
+}
+
 function syncSortControl() {
   const select = document.getElementById('papers-sort-select');
   if (!select) return;
@@ -2182,6 +2214,7 @@ function initShareMenu() {
   initCustomizationMenu();
   initMobileNavMenu();
   initShareMenu();
+  initViewControls();
 
   const { papers } = await loadData();
   allPapers = Array.isArray(papers)
