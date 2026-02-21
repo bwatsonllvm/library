@@ -174,7 +174,8 @@ What it does:
 
 1. Syncs talks/slides/videos from `llvm-www/devmtg` into `devmtg/events/*.json` while preserving current JSON schema.
 2. Runs OpenAlex discovery to refresh `papers/openalex-discovered.json` and `papers/index.json`.
-3. Validates the bundle and opens/updates a PR with changes.
+3. Builds `devmtg/updates/index.json` to log newly added talks/slides/videos/papers with links.
+4. Validates the bundle and opens/updates a PR with changes.
 
 To run the devmtg sync locally:
 
@@ -207,7 +208,7 @@ python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
   --extra-authors-file /Users/britton/Desktop/library/papers/extra-author-seeds.txt
 ```
 
-You can run the full local auto-update pipeline (sync + discovery + validation) with:
+You can run the full local auto-update pipeline (sync + discovery + update log + validation) with:
 
 ```bash
 python3 /Users/britton/Desktop/library/scripts/sync-devmtg-from-llvm-www.py \
@@ -220,8 +221,16 @@ python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
   --app-js /Users/britton/Desktop/library/devmtg/js/app.js \
   --subprojects-file /Users/britton/Desktop/library/papers/subproject-seeds.txt \
   --extra-authors-file /Users/britton/Desktop/library/papers/extra-author-seeds.txt && \
+python3 /Users/britton/Desktop/library/scripts/build-update-log.py \
+  --repo-root /Users/britton/Desktop/library \
+  --log-json /Users/britton/Desktop/library/devmtg/updates/index.json && \
 /Users/britton/Desktop/library/scripts/validate-library-bundle.sh
 ```
+
+Update log output:
+
+- `devmtg/updates/index.json`
+- website page: `devmtg/updates.html`
 
 ## Adding or Editing Papers
 
