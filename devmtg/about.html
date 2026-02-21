@@ -52,6 +52,13 @@
       --about-font-badge: calc(var(--font-size-xs) * 0.95);
     }
 
+    .about-hero-shell {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .about-hero-search.global-search-form {
       display: block !important;
       width: min(760px, 100%) !important;
@@ -59,6 +66,7 @@
       border: 0 !important;
       background: transparent !important;
       border-radius: 0 !important;
+      margin-inline: auto;
     }
 
     .about-hero-search .global-search-input {
@@ -313,7 +321,7 @@
   </header>
 
   <section class="search-hero search-hero--compact" aria-label="About the library">
-    <div class="search-hero-shell">
+    <div class="search-hero-shell about-hero-shell">
       <h1>About This Library</h1>
       <p class="subtitle">A unified research index for LLVM talks, papers, meetings, and people.</p>
       <form class="search-box global-search-form about-hero-search" action="work.html" method="get" role="search" aria-label="Search talks, papers, and people">
