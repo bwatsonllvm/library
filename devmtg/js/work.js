@@ -145,7 +145,10 @@ function normalizePaperRecord(rawPaper) {
         if (typeof HubUtils.normalizePersonRecord === 'function') {
           const normalized = HubUtils.normalizePersonRecord(author);
           if (!normalized || !normalized.name) return null;
-          return { name: normalized.name, affiliation: normalized.affiliation || '' };
+          const affiliation = author && typeof author === 'object'
+            ? String(author.affiliation || '').trim()
+            : '';
+          return { name: normalized.name, affiliation };
         }
         if (!author || typeof author !== 'object') return null;
         const name = String(author.name || '').trim();

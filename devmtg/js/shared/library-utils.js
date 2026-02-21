@@ -124,6 +124,8 @@
     text = text
       .replace(/\s+([.,;:])/g, '$1')
       .replace(/\s*-\s*/g, '-')
+      .replace(/\s*&\s*$/g, '')
+      .replace(/[;,:-]+$/g, '')
       .replace(/\s{2,}/g, ' ');
 
     return text.trim();
@@ -398,13 +400,16 @@
     const people = mergedBuckets
       .map((bucket) => {
         const displayName = chooseBestDisplayName(bucket.nameCounts);
+        const seenVariantKeys = new Set();
         const variantNames = [...bucket.nameCounts.entries()]
           .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .map(([name]) => name);
-
-        const affiliation = [...bucket.affiliationCounts.entries()]
-          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-          .map(([value]) => value)[0] || '';
+          .map(([name]) => name)
+          .filter((name) => {
+            const key = normalizePersonKey(name);
+            if (!key || seenVariantKeys.has(key)) return false;
+            seenVariantKeys.add(key);
+            return true;
+          });
 
         const talkFilterName = chooseBestDisplayName(bucket.talkNameCounts) || displayName;
         const paperFilterName = chooseBestDisplayName(bucket.paperNameCounts) || displayName;
@@ -414,10 +419,6 @@
           name: displayName || variantNames[0] || '',
           talkFilterName: talkFilterName || '',
           paperFilterName: paperFilterName || '',
-          affiliation,
-          affiliations: [...bucket.affiliationCounts.entries()]
-            .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-            .map(([value, count]) => ({ value, count })),
           variantNames,
           talkCount: bucket.talkCount,
           paperCount: bucket.paperCount,

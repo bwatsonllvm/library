@@ -86,6 +86,13 @@
     return String(value || '').trim().toLowerCase();
   }
 
+  function normalizePersonLabel(value) {
+    if (typeof HubUtils.normalizePersonDisplayName === 'function') {
+      return HubUtils.normalizePersonDisplayName(value);
+    }
+    return String(value || '').trim();
+  }
+
   function escapeHtml(str) {
     if (!str) return '';
     return String(str)
@@ -179,7 +186,7 @@
       const paperTitleCounts = new Map();
 
       const addPerson = (name) => {
-        const label = String(name || '').trim();
+        const label = normalizePersonLabel(name);
         const key = normalizePersonKey(label);
         if (!label || !key) return;
         if (!peopleBuckets.has(key)) peopleBuckets.set(key, { count: 0, labels: new Map() });

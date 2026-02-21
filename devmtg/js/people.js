@@ -35,7 +35,10 @@ function normalizePapers(rawPapers) {
             if (typeof HubUtils.normalizePersonRecord === 'function') {
               const normalized = HubUtils.normalizePersonRecord(author);
               if (!normalized || !normalized.name) return null;
-              return { name: normalized.name, affiliation: normalized.affiliation || '' };
+              const affiliation = author && typeof author === 'object'
+                ? String(author.affiliation || '').trim()
+                : '';
+              return { name: normalized.name, affiliation };
             }
             if (!author || typeof author !== 'object') return null;
             const name = String(author.name || '').trim();
@@ -68,9 +71,7 @@ function highlightText(text, tokens) {
 function getPersonSearchBlob(person) {
   return [
     person.name,
-    person.affiliation,
     ...(person.variantNames || []),
-    ...((person.affiliations || []).map((item) => item.value)),
   ].join(' ').toLowerCase();
 }
 
@@ -90,11 +91,19 @@ function filterPeople() {
 
 function renderPersonCard(person, tokens) {
   const nameHtml = highlightText(person.name, tokens);
-  const affiliationHtml = person.affiliation
-    ? `<p class="card-abstract person-affiliation">${highlightText(person.affiliation, tokens)}</p>`
-    : `<p class="card-abstract person-affiliation person-affiliation--empty">Affiliation unavailable</p>`;
 
-  const variantNames = (person.variantNames || []).filter((name) => name !== person.name);
+  const normalizeNameKey = (name) => {
+    if (typeof HubUtils.normalizePersonKey === 'function') return HubUtils.normalizePersonKey(name);
+    return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  };
+  const personNameKey = normalizeNameKey(person.name);
+  const seenVariantKeys = new Set();
+  const variantNames = (person.variantNames || []).filter((name) => {
+    const key = normalizeNameKey(name);
+    if (!key || key === personNameKey || seenVariantKeys.has(key)) return false;
+    seenVariantKeys.add(key);
+    return true;
+  });
   const variantsHtml = variantNames.length
     ? `<div class="person-variants" aria-label="Name variants">
         <span class="person-variants-label">Also appears as</span>
@@ -122,11 +131,9 @@ function renderPersonCard(person, tokens) {
     <article class="talk-card person-card">
       <div class="card-body">
         <div class="card-meta">
-          <span class="badge badge-paper">Person</span>
           <span class="meeting-label">${person.totalCount.toLocaleString()} works</span>
         </div>
         <p class="card-title">${nameHtml}</p>
-        ${affiliationHtml}
         ${variantsHtml}
       </div>
       <div class="card-footer person-card-footer">
