@@ -287,6 +287,27 @@ function filterAndSort() {
   if (state.hasVideo)  results = results.filter(t => t.videoUrl);
   if (state.hasSlides) results = results.filter(t => t.slidesUrl);
 
+  const hasActiveFilters =
+    !!state.query ||
+    !!state.meeting ||
+    !!state.speaker ||
+    !!state.activeSpeaker ||
+    !!state.activeTag ||
+    state.categories.size > 0 ||
+    state.years.size > 0 ||
+    state.hasVideo ||
+    state.hasSlides;
+
+  if (hasActiveFilters) {
+    results = [...results].sort((a, b) => {
+      const meetingDiff = String(b.meeting || '').localeCompare(String(a.meeting || ''));
+      if (meetingDiff !== 0) return meetingDiff;
+      const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
+      if (titleDiff !== 0) return titleDiff;
+      return String(a.id || '').localeCompare(String(b.id || ''));
+    });
+  }
+
   return results;
 }
 

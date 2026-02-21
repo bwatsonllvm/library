@@ -414,6 +414,17 @@ function filterAndSort() {
     results = results.filter((paper) => state.years.has(paper._year));
   }
 
+  const hasActiveFilters =
+    !!state.query ||
+    !!state.speaker ||
+    !!state.activeSpeaker ||
+    !!state.activeTag ||
+    state.years.size > 0;
+
+  if (hasActiveFilters) {
+    results = [...results].sort(comparePapersNewestFirst);
+  }
+
   return results;
 }
 
