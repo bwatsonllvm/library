@@ -40,7 +40,7 @@
   </style>
   <title>Academic Papers - LLVM Developers' Meeting Library</title>
   <meta name="description" content="Browse academic LLVM papers hosted on llvm.org and available in llvm-www.">
-  <link rel="stylesheet" href="css/style.css?v=20260221-04">
+  <link rel="stylesheet" href="css/style.css?v=20260221-08">
 </head>
 <body>
 
@@ -85,6 +85,25 @@
 </div>
 
 <div class="header-right">
+  <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search talks and papers">
+    <input type="hidden" name="mode" value="search">
+    <input type="hidden" name="from" value="papers">
+    <input
+      type="search"
+      class="global-search-input"
+      name="q"
+      placeholder="Search talks + papers"
+      autocomplete="off"
+      spellcheck="false"
+      aria-label="Search talks and papers"
+    >
+    <button class="global-search-submit" type="submit" aria-label="Run global search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+  </form>
   <div class="share-menu" id="share-menu">
     <button class="header-action-btn share-toggle" id="share-btn" aria-label="Share this page" title="Share" aria-haspopup="true" aria-expanded="false" aria-controls="share-panel">
       Share
@@ -187,7 +206,7 @@
           <div class="filter-accordion-panel" id="panel-topics">
             <div class="filter-tags-row" id="filter-tags-row" aria-label="Filter by topic">
               <div class="filter-tags-header">
-                <span class="filter-group-hint">Select one topic filter</span>
+                <span class="filter-group-hint">Select one or more subject tags</span>
               </div>
               <div class="filter-group filter-group--wrap" id="filter-tags" aria-label="Topic filters"></div>
             </div>
@@ -227,6 +246,14 @@
           </button>
           <span class="results-count" id="results-count" role="status" aria-live="polite" aria-atomic="true"></span>
           <span class="results-context" id="results-context" aria-live="polite" aria-atomic="true"></span>
+        </div>
+        <div class="results-controls">
+          <label for="papers-sort-select" class="results-sort-label">Sort by</label>
+          <select id="papers-sort-select" class="results-sort-select" aria-label="Sort papers">
+            <option value="relevance">Relevance</option>
+            <option value="year">Year</option>
+            <option value="citations">Citation count</option>
+          </select>
         </div>
       </div>
 
@@ -333,6 +360,6 @@
 
   <script src="js/shared/library-utils.js?v=20260221-02"></script>
   <script src="js/papers-data.js?v=20260221-02"></script>
-  <script src="js/papers.js?v=20260221-07"></script>
+  <script src="js/papers.js?v=20260221-08"></script>
 </body>
 </html>

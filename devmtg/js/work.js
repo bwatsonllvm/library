@@ -8,8 +8,10 @@ const TALK_BATCH_SIZE = 24;
 const PAPER_BATCH_SIZE = 24;
 
 const state = {
+  mode: 'entity', // 'entity' | 'search'
   kind: 'topic', // 'speaker' | 'topic'
   value: '',
+  query: '',
   from: 'talks', // 'talks' | 'papers'
 };
 
@@ -49,13 +51,25 @@ function parseStateFromUrl() {
   const params = new URLSearchParams(window.location.search);
   const kindParam = normalizeValue(params.get('kind'));
   const kind = kindParam === 'speaker' ? 'speaker' : 'topic';
-  const value = String(params.get('value') || params.get('q') || '').trim();
+  const valueParam = String(params.get('value') || '').trim();
+  const queryParam = String(params.get('q') || '').trim();
+  const modeParam = normalizeValue(params.get('mode'));
   const fromParam = normalizeValue(params.get('from'));
   const from = fromParam === 'papers' ? 'papers' : 'talks';
+  const hasEntityContext = Boolean(valueParam || kindParam);
+  const isSearchMode = modeParam === 'search' || (!hasEntityContext && !!queryParam);
 
   state.kind = kind;
-  state.value = value;
+  state.mode = isSearchMode ? 'search' : 'entity';
+  state.query = isSearchMode ? queryParam : '';
+  state.value = isSearchMode ? '' : String(valueParam || queryParam || '').trim();
   state.from = from;
+}
+
+function syncGlobalSearchInput() {
+  const input = document.querySelector('.global-search-input');
+  if (!input) return;
+  input.value = state.mode === 'search' ? state.query : state.value;
 }
 
 function normalizePaperRecord(rawPaper) {
@@ -110,6 +124,97 @@ function comparePapersNewestFirst(a, b) {
   if (titleDiff !== 0) return titleDiff;
 
   return String(a.id || '').localeCompare(String(b.id || ''));
+}
+
+function tokenizeQuery(query) {
+  if (typeof HubUtils.tokenizeQuery === 'function') return HubUtils.tokenizeQuery(query);
+  const tokens = [];
+  const re = /"([^"]+)"|(\S+)/g;
+  let match;
+  while ((match = re.exec(String(query || ''))) !== null) {
+    const token = (match[1] || match[2] || '').toLowerCase().trim();
+    if (token.length >= 2) tokens.push(token);
+  }
+  return tokens;
+}
+
+function indexTalkForSearch(talk) {
+  return {
+    ...talk,
+    _titleLower: String(talk.title || '').toLowerCase(),
+    _speakerLower: (talk.speakers || []).map((speaker) => speaker.name).join(' ').toLowerCase(),
+    _abstractLower: String(talk.abstract || '').toLowerCase(),
+    _tagsLower: (talk.tags || []).join(' ').toLowerCase(),
+    _meetingLower: `${talk.meetingName || ''} ${talk.meetingLocation || ''} ${talk.meetingDate || ''}`.toLowerCase(),
+    _year: talk.meeting ? String(talk.meeting).slice(0, 4) : '',
+  };
+}
+
+function scorePaperForQuery(paper, tokens) {
+  if (!tokens.length) return 0;
+
+  let total = 0;
+  const title = String(paper.title || '').toLowerCase();
+  const authors = (paper.authors || []).map((author) => `${author.name || ''}`).join(' ').toLowerCase();
+  const abstractText = String(paper.abstract || '').toLowerCase();
+  const tags = (paper.tags || []).join(' ').toLowerCase();
+  const publication = String(paper.publication || '').toLowerCase();
+  const venue = String(paper.venue || '').toLowerCase();
+  const year = String(paper._year || '').toLowerCase();
+
+  for (const token of tokens) {
+    let tokenScore = 0;
+    const titleIdx = title.indexOf(token);
+    if (titleIdx !== -1) tokenScore += titleIdx === 0 ? 100 : 50;
+    if (authors.includes(token)) tokenScore += 34;
+    if (tags.includes(token)) tokenScore += 20;
+    if (abstractText.includes(token)) tokenScore += 12;
+    if (publication.includes(token)) tokenScore += 10;
+    if (venue.includes(token)) tokenScore += 8;
+    if (year.includes(token)) tokenScore += 6;
+    if (tokenScore === 0) return 0;
+    total += tokenScore;
+  }
+
+  const yearNumber = Number.parseInt(String(paper._year || ''), 10);
+  total += (Number.isFinite(yearNumber) ? yearNumber : 2002) * 0.01;
+  return total;
+}
+
+function rankTalksForQuery(talks, query) {
+  const indexedTalks = (talks || []).map(indexTalkForSearch);
+  const tokens = tokenizeQuery(query);
+  if (!tokens.length) return indexedTalks.sort(compareTalksNewestFirst);
+
+  if (typeof HubUtils.rankTalksByQuery === 'function') {
+    return HubUtils.rankTalksByQuery(indexedTalks, query);
+  }
+
+  if (typeof HubUtils.scoreMatch === 'function') {
+    const scored = [];
+    for (const talk of indexedTalks) {
+      const score = HubUtils.scoreMatch(talk, tokens);
+      if (score > 0) scored.push({ talk, score });
+    }
+    scored.sort((a, b) => (b.score - a.score) || compareTalksNewestFirst(a.talk, b.talk));
+    return scored.map((entry) => entry.talk);
+  }
+
+  return indexedTalks.sort(compareTalksNewestFirst);
+}
+
+function rankPapersForQuery(papers, query) {
+  const tokens = tokenizeQuery(query);
+  if (!tokens.length) return [...papers].sort(comparePapersNewestFirst);
+
+  const scored = [];
+  for (const paper of papers) {
+    const score = scorePaperForQuery(paper, tokens);
+    if (score > 0) scored.push({ paper, score });
+  }
+
+  scored.sort((a, b) => (b.score - a.score) || comparePapersNewestFirst(a.paper, b.paper));
+  return scored.map((entry) => entry.paper);
 }
 
 function matchesTalkEntity(talk, normalizedNeedle) {
@@ -201,9 +306,8 @@ function setEmptyState(gridId, label) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
   grid.setAttribute('aria-busy', 'false');
-  const scope = state.value
-    ? ` for "${escapeHtml(state.value)}"`
-    : '';
+  const scopeValue = state.mode === 'search' ? state.query : state.value;
+  const scope = scopeValue ? ` for "${escapeHtml(scopeValue)}"` : '';
   grid.innerHTML = `<div class="work-empty-state">No ${escapeHtml(label)} found${scope}.</div>`;
 }
 
@@ -291,17 +395,31 @@ function applyHeaderState() {
     secondaryBackLink.textContent = backText;
   }
 
-  if (!state.value) {
-    if (titleEl) titleEl.textContent = 'All Work';
-    if (subtitleEl) subtitleEl.textContent = 'Choose a speaker or topic from Talks or Papers to view all related work.';
-    if (summaryEl) summaryEl.textContent = 'No speaker/topic selected';
-    if (talksCountEl) talksCountEl.textContent = '';
-    if (papersCountEl) papersCountEl.textContent = '';
-    return;
-  }
+  if (state.mode === 'search') {
+    if (!state.query) {
+      if (titleEl) titleEl.textContent = 'Global Search';
+      if (subtitleEl) subtitleEl.textContent = 'Search talks and papers from one place.';
+      if (summaryEl) summaryEl.textContent = 'No search query provided';
+      if (talksCountEl) talksCountEl.textContent = '';
+      if (papersCountEl) papersCountEl.textContent = '';
+      return;
+    }
 
-  if (titleEl) titleEl.textContent = `${entityLabel}: ${state.value}`;
-  if (subtitleEl) subtitleEl.innerHTML = `Showing talks and papers for <strong>${escapeHtml(state.value)}</strong>`;
+    if (titleEl) titleEl.textContent = 'Global Search';
+    if (subtitleEl) subtitleEl.innerHTML = `Results for <strong>${escapeHtml(state.query)}</strong> across talks and papers`;
+  } else {
+    if (!state.value) {
+      if (titleEl) titleEl.textContent = 'All Work';
+      if (subtitleEl) subtitleEl.textContent = 'Choose a speaker or topic from Talks or Papers to view all related work.';
+      if (summaryEl) summaryEl.textContent = 'No speaker/topic selected';
+      if (talksCountEl) talksCountEl.textContent = '';
+      if (papersCountEl) papersCountEl.textContent = '';
+      return;
+    }
+
+    if (titleEl) titleEl.textContent = `${entityLabel}: ${state.value}`;
+    if (subtitleEl) subtitleEl.innerHTML = `Showing talks and papers for <strong>${escapeHtml(state.value)}</strong>`;
+  }
 
   if (talksCountEl) {
     talksCountEl.textContent = `${filteredTalks.length.toLocaleString()} talk${filteredTalks.length === 1 ? '' : 's'}`;
@@ -393,8 +511,16 @@ function initMobileNavMenu() {
 async function init() {
   initMobileNavMenu();
   parseStateFromUrl();
+  syncGlobalSearchInput();
 
-  if (!state.value) {
+  if (state.mode === 'search' && !state.query) {
+    applyHeaderState();
+    setEmptyState('work-talks-grid', 'talks');
+    setEmptyState('work-papers-grid', 'papers');
+    return;
+  }
+
+  if (state.mode === 'entity' && !state.value) {
     applyHeaderState();
     setEmptyState('work-talks-grid', 'talks');
     setEmptyState('work-papers-grid', 'papers');
@@ -420,15 +546,19 @@ async function init() {
       ? paperPayload.papers.map(normalizePaperRecord).filter(Boolean)
       : [];
 
-    const normalizedNeedle = normalizeValue(state.value);
+    if (state.mode === 'search') {
+      filteredTalks = rankTalksForQuery(talks, state.query);
+      filteredPapers = rankPapersForQuery(papers, state.query);
+    } else {
+      const normalizedNeedle = normalizeValue(state.value);
+      filteredTalks = talks
+        .filter((talk) => matchesTalkEntity(talk, normalizedNeedle))
+        .sort(compareTalksNewestFirst);
 
-    filteredTalks = talks
-      .filter((talk) => matchesTalkEntity(talk, normalizedNeedle))
-      .sort(compareTalksNewestFirst);
-
-    filteredPapers = papers
-      .filter((paper) => matchesPaperEntity(paper, normalizedNeedle))
-      .sort(comparePapersNewestFirst);
+      filteredPapers = papers
+        .filter((paper) => matchesPaperEntity(paper, normalizedNeedle))
+        .sort(comparePapersNewestFirst);
+    }
 
     applyHeaderState();
     renderTalkBatch(true);

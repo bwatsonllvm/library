@@ -24,13 +24,15 @@ let loadMoreObserver = null;
 let loadMoreScrollHandler = null;
 
 const ALL_WORK_PAGE_PATH = 'work.html';
+const PAPER_SORT_MODES = new Set(['relevance', 'year', 'citations']);
 
 const state = {
   query: '',
   activeSpeaker: '',
-  activeTag: '',
+  activeTags: new Set(),
   speaker: '', // exact author filter from author button click
   years: new Set(),
+  sortBy: 'relevance',
 };
 
 // ============================================================
@@ -139,6 +141,7 @@ function normalizePaperRecord(rawPaper) {
   paper.type = String(paper.type || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
+  paper.citationCount = parseCitationCount(rawPaper);
 
   paper.authors = Array.isArray(paper.authors)
     ? paper.authors
@@ -159,6 +162,7 @@ function normalizePaperRecord(rawPaper) {
   if (!paper.id || !paper.title) return null;
 
   paper._year = /^\d{4}$/.test(paper.year) ? paper.year : '';
+  paper._citationCount = paper.citationCount;
   paper._titleLower = paper.title.toLowerCase();
   paper._authorLower = paper.authors.map((author) => `${author.name} ${author.affiliation || ''}`.trim()).join(' ').toLowerCase();
   paper._abstractLower = paper.abstract.toLowerCase();
@@ -193,6 +197,26 @@ function normalizePaperRecord(rawPaper) {
   paper._fuzzyVenue = uniqueTokens([paper.venue, paper.publication, paper.type, paper.year]);
 
   return paper;
+}
+
+function parseCitationCount(rawPaper) {
+  if (!rawPaper || typeof rawPaper !== 'object') return 0;
+
+  const fields = [
+    rawPaper.citationCount,
+    rawPaper.citation_count,
+    rawPaper.citedByCount,
+    rawPaper.cited_by_count,
+    rawPaper.citations,
+  ];
+
+  for (const value of fields) {
+    if (value === null || value === undefined || value === '') continue;
+    const parsed = Number.parseInt(String(value), 10);
+    if (Number.isFinite(parsed) && parsed > 0) return parsed;
+  }
+
+  return 0;
 }
 
 function buildSearchIndex() {
@@ -339,8 +363,12 @@ function fuzzyScorePaper(indexedPaper, tokens) {
 }
 
 function comparePapersNewestFirst(a, b) {
-  const yearDiff = String(b._year || '').localeCompare(String(a._year || ''));
+  const yearA = Number.parseInt(String(a._year || ''), 10);
+  const yearB = Number.parseInt(String(b._year || ''), 10);
+  const yearDiff = (Number.isFinite(yearB) ? yearB : 0) - (Number.isFinite(yearA) ? yearA : 0);
   if (yearDiff !== 0) return yearDiff;
+  const citationDiff = (b._citationCount || 0) - (a._citationCount || 0);
+  if (citationDiff !== 0) return citationDiff;
   const titleDiff = String(a.title || '').localeCompare(String(b.title || ''));
   if (titleDiff !== 0) return titleDiff;
   return String(a.id || '').localeCompare(String(b.id || ''));
@@ -351,81 +379,85 @@ function normalizeFilterValue(value) {
 }
 
 function filterAndSort() {
-  let results = searchIndex;
   const tokens = state.query.length >= 2 ? tokenize(state.query) : [];
   searchMode = tokens.length > 0 ? 'exact' : 'browse';
+  let entries = searchIndex.map((paper) => ({ paper, score: 0 }));
 
   if (tokens.length > 0) {
     const scored = [];
-    for (const paper of results) {
+    for (const paper of searchIndex) {
       const score = scorePaperMatch(paper, tokens);
       if (score > 0) scored.push({ paper, score });
     }
 
-    scored.sort((a, b) => {
-      const scoreDiff = b.score - a.score;
-      if (scoreDiff !== 0) return scoreDiff;
-      return comparePapersNewestFirst(a.paper, b.paper);
-    });
-    results = scored.map((entry) => entry.paper);
+    entries = scored;
 
-    if (results.length === 0) {
+    if (entries.length === 0) {
       const fuzzy = [];
       for (const paper of searchIndex) {
         const score = fuzzyScorePaper(paper, tokens);
         if (score > 0) fuzzy.push({ paper, score });
       }
 
-      fuzzy.sort((a, b) => {
-        const scoreDiff = b.score - a.score;
-        if (scoreDiff !== 0) return scoreDiff;
-        return comparePapersNewestFirst(a.paper, b.paper);
-      });
-
-      results = fuzzy.map((entry) => entry.paper);
-      if (results.length > 0) searchMode = 'fuzzy';
+      entries = fuzzy;
+      if (entries.length > 0) searchMode = 'fuzzy';
     }
-  } else {
-    results = [...results].sort(comparePapersNewestFirst);
   }
 
   if (state.speaker) {
     const selectedAuthor = normalizeFilterValue(state.speaker);
-    results = results.filter((paper) =>
+    entries = entries.filter(({ paper }) =>
       (paper.authors || []).some((author) => normalizeFilterValue(author.name) === selectedAuthor)
     );
   }
 
   if (state.activeSpeaker) {
     const activeSpeaker = normalizeFilterValue(state.activeSpeaker);
-    results = results.filter((paper) =>
+    entries = entries.filter(({ paper }) =>
       (paper.authors || []).some((author) => normalizeFilterValue(author.name) === activeSpeaker)
     );
   }
 
-  if (state.activeTag) {
-    const activeTag = normalizeFilterValue(state.activeTag);
-    results = results.filter((paper) =>
-      (paper.tags || []).some((tag) => normalizeFilterValue(tag) === activeTag)
+  if (state.activeTags.size > 0) {
+    const activeTags = new Set([...state.activeTags].map((tag) => normalizeFilterValue(tag)));
+    entries = entries.filter(({ paper }) =>
+      (paper.tags || []).some((tag) => activeTags.has(normalizeFilterValue(tag)))
     );
   }
 
   if (state.years.size > 0) {
-    results = results.filter((paper) => state.years.has(paper._year));
+    entries = entries.filter(({ paper }) => state.years.has(paper._year));
   }
 
-  const hasActiveFilters =
-    !!state.query ||
-    !!state.speaker ||
-    !!state.activeSpeaker ||
-    !!state.activeTag ||
-    state.years.size > 0;
+  entries.sort((a, b) => {
+    if (state.sortBy === 'year') {
+      const yearDiff = comparePapersNewestFirst(a.paper, b.paper);
+      if (yearDiff !== 0) return yearDiff;
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      return 0;
+    }
 
-  if (hasActiveFilters) {
-    results = [...results].sort(comparePapersNewestFirst);
+    if (state.sortBy === 'citations') {
+      const citationDiff = (b.paper._citationCount || 0) - (a.paper._citationCount || 0);
+      if (citationDiff !== 0) return citationDiff;
+      const yearDiff = comparePapersNewestFirst(a.paper, b.paper);
+      if (yearDiff !== 0) return yearDiff;
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      return 0;
+    }
+
+    const scoreDiff = b.score - a.score;
+    if (scoreDiff !== 0) return scoreDiff;
+    return comparePapersNewestFirst(a.paper, b.paper);
+  });
+
+  if (!tokens.length && state.sortBy === 'relevance') {
+    entries.sort((a, b) => comparePapersNewestFirst(a.paper, b.paper));
   }
 
-  return results;
+  return entries.map((entry) => entry.paper);
 }
 
 function highlightText(text, tokens) {
@@ -478,6 +510,11 @@ function renderPaperCard(paper, tokens) {
     ? `<a href="${escapeHtml(paper.paperUrl)}" class="card-link-btn card-link-btn--video" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(paperActionLabel)} for ${titleEsc} (opens in new tab)"><span aria-hidden="true">${escapeHtml(paperActionLabel)}</span></a>`
     : '';
 
+  const citationCount = Number.isFinite(paper._citationCount) ? paper._citationCount : 0;
+  const citationHtml = citationCount > 1
+    ? `<span class="paper-citation-count" aria-label="${citationCount.toLocaleString()} citations">${citationCount.toLocaleString()} citation${citationCount === 1 ? '' : 's'}</span>`
+    : '';
+
   const tags = paper.tags || [];
   const tagsHtml = (paper.tags || []).length
     ? `<div class="card-tags-wrap"><div class="card-tags" aria-label="Paper topics">${tags.slice(0, 4).map((tag) =>
@@ -500,7 +537,7 @@ function renderPaperCard(paper, tokens) {
       </a>
       <p class="card-speakers paper-authors">${renderAuthorButtons(paper.authors || [], tokens)}</p>
       ${tagsHtml}
-      ${(paperLink || sourceLink) ? `<div class="card-footer">${paperLink}${sourceLink}</div>` : ''}
+      ${(paperLink || sourceLink || citationHtml) ? `<div class="card-footer">${paperLink}${sourceLink}${citationHtml}</div>` : ''}
     </article>`;
 }
 
@@ -615,7 +652,7 @@ function renderCards(results) {
 
     if (state.speaker) recoveryActions.push({ id: 'clear-author', label: 'Clear author' });
     if (state.years.size > 0) recoveryActions.push({ id: 'clear-year', label: 'Clear year' });
-    if (state.activeTag) recoveryActions.push({ id: 'clear-topic', label: 'Clear topic' });
+    if (state.activeTags.size > 0) recoveryActions.push({ id: 'clear-topic', label: 'Clear topic' });
     else if (state.query) recoveryActions.push({ id: 'clear-search', label: 'Clear search' });
     recoveryActions.push({ id: 'reset-all', label: 'Reset all' });
 
@@ -651,7 +688,11 @@ function renderCards(results) {
           return;
         }
         if (action === 'clear-topic' || action === 'clear-search') {
-          clearQuery();
+          if (action === 'clear-topic') {
+            clearTagFilters();
+          } else {
+            clearQuery();
+          }
           return;
         }
         if (action === 'reset-all') {
@@ -685,14 +726,17 @@ function renderResultCount(count) {
   if (!el) return;
 
   const total = allPapers.length;
+  const queryCountsAsFilter = !!state.query && !hasTagFilter(state.query);
   const activeFilterCount =
-    (state.query ? 1 : 0) +
+    (queryCountsAsFilter ? 1 : 0) +
     (state.speaker ? 1 : 0) +
+    state.activeTags.size +
     state.years.size;
 
   const noActiveFilters =
-    !state.query &&
+    !queryCountsAsFilter &&
     !state.speaker &&
+    state.activeTags.size === 0 &&
     state.years.size === 0;
 
   if (count === total && noActiveFilters) {
@@ -706,6 +750,9 @@ function renderResultCount(count) {
   parts.push(activeFilterCount > 0
     ? `${activeFilterCount} filter${activeFilterCount === 1 ? '' : 's'} active`
     : 'All results');
+  if (state.sortBy === 'year') parts.push('Sorted by year');
+  else if (state.sortBy === 'citations') parts.push('Sorted by citation count');
+  else parts.push('Sorted by relevance');
   if (searchMode === 'fuzzy') parts.push('Fuzzy match');
   contextEl.textContent = `· ${parts.join(' · ')}`;
 }
@@ -721,8 +768,14 @@ function updateHeroSubtitle(resultsCount) {
     return;
   }
 
-  if (state.activeTag && state.query && normalizeFilterValue(state.activeTag) === normalizeFilterValue(state.query)) {
-    el.innerHTML = `Showing papers tagged <strong>${escapeHtml(state.activeTag)}</strong>`;
+  if (state.activeTags.size === 1 && (!state.query || hasTagFilter(state.query))) {
+    const onlyTag = [...state.activeTags][0];
+    el.innerHTML = `Showing papers tagged <strong>${escapeHtml(onlyTag)}</strong>`;
+    return;
+  }
+
+  if (state.activeTags.size > 1 && !state.query) {
+    el.innerHTML = `Showing papers across <strong>${state.activeTags.size.toLocaleString()}</strong> topic filters`;
     return;
   }
 
@@ -798,12 +851,12 @@ function renderActiveFilters() {
     ));
   }
 
-  if (state.query) {
+  const queryMatchesTopicFilter = hasTagFilter(state.query);
+
+  if (state.query && !queryMatchesTopicFilter) {
     let typeLabel = 'Search';
     if (state.activeSpeaker && normalizeFilterValue(state.activeSpeaker) === normalizeFilterValue(state.query)) {
-      typeLabel = 'Speaker';
-    } else if (state.activeTag && normalizeFilterValue(state.activeTag) === normalizeFilterValue(state.query)) {
-      typeLabel = 'Topic';
+      typeLabel = 'Author';
     }
 
     pills.push(createActiveFilterPill(
@@ -811,6 +864,16 @@ function renderActiveFilters() {
       state.query,
       `Remove ${typeLabel} filter: ${state.query}`,
       clearQuery
+    ));
+  }
+
+  const sortedTags = [...state.activeTags].sort((a, b) => a.localeCompare(b));
+  for (const tag of sortedTags) {
+    pills.push(createActiveFilterPill(
+      'Topic',
+      tag,
+      `Remove topic filter: ${tag}`,
+      () => removeTagFilter(tag)
     ));
   }
 
@@ -841,22 +904,91 @@ function resolveCanonicalTag(value) {
   return matched ? matched.label : '';
 }
 
+function hasTagFilter(value) {
+  const normalized = normalizeFilterValue(value);
+  if (!normalized) return false;
+  for (const tag of state.activeTags) {
+    if (normalizeFilterValue(tag) === normalized) return true;
+  }
+  return false;
+}
+
 function syncTopicChipState() {
-  const activeTopic = normalizeFilterValue(state.activeTag);
   document.querySelectorAll('.filter-chip[data-type="tag"]').forEach((chip) => {
-    const isActive = !!activeTopic && normalizeFilterValue(chip.dataset.value) === activeTopic;
+    const isActive = hasTagFilter(chip.dataset.value);
     chip.classList.toggle('active', isActive);
     chip.setAttribute('aria-checked', isActive ? 'true' : 'false');
   });
 }
 
-function applyTopicSearchFilter(tag) {
+function addTagFilter(tag) {
+  const canonical = resolveCanonicalTag(tag) || String(tag || '').trim();
+  if (!canonical || hasTagFilter(canonical)) return canonical;
+  state.activeTags.add(canonical);
+  return canonical;
+}
+
+function removeTagFilter(tag, { skipRender = false } = {}) {
+  const target = normalizeFilterValue(tag);
+  if (!target) return;
+
+  for (const currentTag of [...state.activeTags]) {
+    if (normalizeFilterValue(currentTag) === target) {
+      state.activeTags.delete(currentTag);
+    }
+  }
+
+  if (state.query && normalizeFilterValue(state.query) === target) {
+    state.query = '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+  }
+
+  syncTopicChipState();
+  updateClearBtn();
+  syncUrl();
+  if (!skipRender) render();
+}
+
+function clearTagFilters({ skipRender = false } = {}) {
+  const shouldClearQuery = hasTagFilter(state.query);
+  state.activeTags.clear();
+  if (shouldClearQuery) {
+    state.query = '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = '';
+  }
+  syncTopicChipState();
+  updateClearBtn();
+  syncUrl();
+  if (!skipRender) render();
+}
+
+function toggleTagFilter(tag) {
+  if (hasTagFilter(tag)) {
+    removeTagFilter(tag);
+    return;
+  }
+  addTagFilter(tag);
+  syncTopicChipState();
+  updateClearBtn();
+  syncUrl();
+  render();
+}
+
+function applyTopicSearchFilter(tag, source = 'search') {
+  if (source === 'sidebar') {
+    toggleTagFilter(tag);
+    return;
+  }
+
   const input = document.getElementById('search-input');
+  const canonical = addTagFilter(tag) || String(tag || '').trim();
+  if (!canonical) return;
 
   state.speaker = '';
   state.activeSpeaker = '';
-  state.activeTag = resolveCanonicalTag(tag);
-  state.query = state.activeTag || tag;
+  state.query = canonical;
 
   if (input) input.value = state.query;
   syncTopicChipState();
@@ -869,26 +1001,13 @@ function applyTopicSearchFilter(tag) {
 
 function applyAutocompleteSelection(type, value, source = 'search') {
   const input = document.getElementById('search-input');
-  const normalizedValue = normalizeFilterValue(value);
 
   if (type === 'tag') {
-    const sameActiveTopic =
-      normalizedValue &&
-      normalizedValue === normalizeFilterValue(state.activeTag) &&
-      normalizedValue === normalizeFilterValue(state.query);
-
-    if (source === 'sidebar' && sameActiveTopic) {
-      clearQuery();
-      return;
-    }
-
-    applyTopicSearchFilter(value);
+    applyTopicSearchFilter(value, source);
     return;
   }
 
   state.speaker = '';
-  state.activeTag = '';
-  syncTopicChipState();
 
   if (type === 'speaker') {
     state.activeSpeaker = value;
@@ -949,10 +1068,8 @@ function clearQuery() {
 
   state.query = '';
   state.activeSpeaker = '';
-  state.activeTag = '';
 
   hideCrossWorkPrompt();
-  syncTopicChipState();
   closeDropdown();
   updateClearBtn();
   syncUrl();
@@ -962,7 +1079,7 @@ function clearQuery() {
 function clearFilters() {
   state.query = '';
   state.activeSpeaker = '';
-  state.activeTag = '';
+  state.activeTags.clear();
   state.speaker = '';
   state.years.clear();
 
@@ -1231,7 +1348,9 @@ function syncUrl() {
   const params = new URLSearchParams();
   if (state.speaker) params.set('speaker', state.speaker);
   if (state.query) params.set('q', state.query);
+  if (state.activeTags.size) params.set('tag', [...state.activeTags].sort((a, b) => a.localeCompare(b)).join(','));
   if (state.years.size) params.set('year', [...state.years].join(','));
+  if (state.sortBy !== 'relevance') params.set('sort', state.sortBy);
 
   const newUrl = params.toString()
     ? `${window.location.pathname}?${params.toString()}`
@@ -1244,6 +1363,9 @@ function loadStateFromUrl() {
 
   state.query = String(params.get('q') || '').trim();
   state.speaker = String(params.get('speaker') || '').trim();
+  const sortParam = String(params.get('sort') || '').trim();
+  state.sortBy = PAPER_SORT_MODES.has(sortParam) ? sortParam : 'relevance';
+  state.activeTags.clear();
   state.years.clear();
 
   const yearParam = String(params.get('year') || '').trim();
@@ -1256,13 +1378,12 @@ function loadStateFromUrl() {
     if (legacyPublication) state.query = legacyPublication;
   }
 
-  if (!state.query) {
-    const legacyTag = String(params.get('tag') || '').trim();
-    if (legacyTag) state.query = legacyTag;
+  const tagParam = String(params.get('tag') || '').trim();
+  if (tagParam) {
+    tagParam.split(',').map((part) => part.trim()).filter(Boolean).forEach((tag) => addTagFilter(tag));
   }
 
   state.activeSpeaker = '';
-  state.activeTag = resolveCanonicalTag(state.query);
 
   const input = document.getElementById('search-input');
   if (input) input.value = state.query;
@@ -1271,6 +1392,7 @@ function loadStateFromUrl() {
 function applyUrlFilters() {
   syncYearChipsFromState();
   syncTopicChipState();
+  syncSortControl();
   updateClearBtn();
 }
 
@@ -1430,10 +1552,6 @@ function initSearch() {
     const rawValue = input.value;
 
     if (rawValue.trim() !== state.activeSpeaker) state.activeSpeaker = '';
-    if (rawValue.trim() !== state.activeTag) {
-      state.activeTag = '';
-      syncTopicChipState();
-    }
 
     if (rawValue.trim() && state.speaker) state.speaker = '';
 
@@ -1494,10 +1612,30 @@ function initSearch() {
 // Render + Control Sync
 // ============================================================
 
+function syncSortControl() {
+  const select = document.getElementById('papers-sort-select');
+  if (!select) return;
+  select.value = PAPER_SORT_MODES.has(state.sortBy) ? state.sortBy : 'relevance';
+}
+
+function initSortControl() {
+  const select = document.getElementById('papers-sort-select');
+  if (!select) return;
+
+  select.addEventListener('change', () => {
+    const next = String(select.value || '').trim();
+    state.sortBy = PAPER_SORT_MODES.has(next) ? next : 'relevance';
+    syncSortControl();
+    syncUrl();
+    render();
+  });
+}
+
 function updateClearBtn() {
   const hasActivity =
     state.query.length > 0 ||
     state.speaker ||
+    state.activeTags.size > 0 ||
     state.years.size > 0;
 
   const clearBtn = document.getElementById('clear-filters');
@@ -1571,9 +1709,13 @@ function getCrossWorkSelection() {
     return { kind: 'speaker', value: state.activeSpeaker, label: 'author' };
   }
 
-  const normalizedActiveTag = normalizeFilterValue(state.activeTag);
-  if (state.activeTag && normalizedQuery && normalizedQuery === normalizedActiveTag) {
-    return { kind: 'topic', value: state.activeTag, label: 'topic' };
+  const sortedTags = [...state.activeTags].sort((a, b) => a.localeCompare(b));
+  if (sortedTags.length === 1) {
+    const onlyTag = sortedTags[0];
+    const normalizedOnlyTag = normalizeFilterValue(onlyTag);
+    if (!normalizedQuery || normalizedOnlyTag === normalizedQuery) {
+      return { kind: 'topic', value: onlyTag, label: 'topic' };
+    }
   }
 
   return null;
@@ -1967,6 +2109,7 @@ function initShareMenu() {
   initFilterAccordions();
   initFilterSidebarCollapse();
   initSearch();
+  initSortControl();
 
   loadStateFromUrl();
   applyUrlFilters();

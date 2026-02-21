@@ -40,7 +40,7 @@
   </style>
   <title>All Work — LLVM Developers' Meeting Library</title>
   <meta name="description" content="View talks and papers for a speaker or topic in one place.">
-  <link rel="stylesheet" href="css/style.css?v=20260221-04">
+  <link rel="stylesheet" href="css/style.css?v=20260221-08">
 </head>
 <body>
 
@@ -81,6 +81,24 @@
     </div>
 
     <div class="header-right">
+      <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search talks and papers">
+        <input type="hidden" name="mode" value="search">
+        <input
+          type="search"
+          class="global-search-input"
+          name="q"
+          placeholder="Search talks + papers"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search talks and papers"
+        >
+        <button class="global-search-submit" type="submit" aria-label="Run global search">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
       <a class="header-action-btn" id="work-back-link" href="index.html">Back</a>
     </div>
   </header>
@@ -134,6 +152,6 @@
   <script src="js/events-data.js?v=20260220-12"></script>
   <script src="js/papers-data.js?v=20260221-02"></script>
   <script src="js/shared/library-utils.js?v=20260221-02"></script>
-  <script src="js/work.js?v=20260221-04"></script>
+  <script src="js/work.js?v=20260221-05"></script>
 </body>
 </html>
