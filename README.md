@@ -179,10 +179,32 @@ The papers catalog is generated from `llvm-www-pubs/pubs.js` and local publicati
 ```bash
 python3 /Users/britton/Desktop/library/scripts/build-papers-catalog.py \
   --src-repo /tmp/llvm-www-pubs \
+  --resolve-empty-links-from-openalex \
   --out-dir /Users/britton/Desktop/library/papers
 ```
 
 Tag assignment is derived from the canonical Dev Meeting talk tag list (`devmtg/js/app.js`), matching tag phrases against each paper title/abstract.
+
+`--resolve-empty-links-from-openalex` backfills entries that have no URL in `pubs.js` by querying OpenAlex with title/year and using DOI/landing URLs.
+
+### Discover Additional Papers (Speakers + Authors)
+
+To discover more LLVM-related papers on the web for known LLVM speakers/authors:
+
+```bash
+python3 /Users/britton/Desktop/library/scripts/build-openalex-discovery.py \
+  --events-dir /Users/britton/Desktop/library/devmtg/events \
+  --papers-dir /Users/britton/Desktop/library/papers \
+  --index-json /Users/britton/Desktop/library/papers/index.json \
+  --app-js /Users/britton/Desktop/library/devmtg/js/app.js \
+  --max-pages-per-keyword 10 \
+  --per-page 200
+```
+
+This writes:
+
+- `papers/openalex-discovered.json`
+- updates `papers/index.json` (`paperFiles` + `dataVersion`)
 
 ### Paper Record Format
 

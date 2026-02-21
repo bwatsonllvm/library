@@ -18,8 +18,12 @@ import datetime as _dt
 import html
 import json
 import re
+import time
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
+import urllib.error
+import urllib.parse
+import urllib.request
 
 
 PLACEHOLDER_ABSTRACT = "No abstract available in llvm.org/pubs metadata."
@@ -477,6 +481,116 @@ def normalize_title_key(title: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
 
 
+def _http_get_json(url: str, timeout_s: int = 30, retries: int = 4):
+    headers = {
+        "User-Agent": "library-build-papers-catalog/1.0 (+https://github.com/llvm/library)",
+        "Accept": "application/json",
+    }
+    req = urllib.request.Request(url, headers=headers, method="GET")
+
+    for attempt in range(1, retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout_s) as resp:
+                body = resp.read()
+            return json.loads(body)
+        except urllib.error.HTTPError as err:
+            if err.code in (429, 500, 502, 503, 504) and attempt < retries:
+                retry_after = err.headers.get("Retry-After")
+                delay = float(retry_after) if retry_after and retry_after.isdigit() else 1.2 * attempt
+                time.sleep(delay)
+                continue
+            raise
+        except Exception:
+            if attempt < retries:
+                time.sleep(1.0 * attempt)
+                continue
+            raise
+
+    raise RuntimeError("Exhausted retries while fetching JSON")
+
+
+def load_openalex_cache(cache_path: Path) -> dict[str, str]:
+    if not cache_path.exists():
+        return {}
+    payload = json.loads(cache_path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        return {}
+    return {str(k): str(v) for k, v in payload.items()}
+
+
+def save_openalex_cache(cache_path: Path, cache: dict[str, str]):
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(json.dumps(cache, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def pick_openalex_result(results: list[dict], title: str, year: str) -> dict | None:
+    if not results:
+        return None
+    target_title = normalize_title_key(title)
+    target_year = int(year) if re.fullmatch(r"\d{4}", year) else None
+
+    best = None
+    best_score = -10_000
+    for item in results:
+        cand_title = strip_tags(str(item.get("title", "")))
+        if not cand_title:
+            continue
+        cand_key = normalize_title_key(cand_title)
+        score = 0
+        if cand_key == target_title:
+            score += 100
+        elif target_title and target_title in cand_key:
+            score += 40
+        elif cand_key and cand_key in target_title:
+            score += 20
+
+        cand_year = item.get("publication_year")
+        if isinstance(cand_year, int) and target_year:
+            if cand_year == target_year:
+                score += 20
+            elif abs(cand_year - target_year) == 1:
+                score += 10
+
+        if score > best_score:
+            best = item
+            best_score = score
+
+    return best if best_score >= 40 else None
+
+
+def lookup_openalex_link_by_title(title: str, year: str, cache: dict[str, str], enabled: bool) -> str:
+    if not enabled:
+        return ""
+
+    key = f"{year}|{normalize_title_key(title)}"
+    if key in cache:
+        return cache[key]
+
+    params = urllib.parse.urlencode({"search": title, "per-page": "3"})
+    url = f"https://api.openalex.org/works?{params}"
+
+    try:
+        payload = _http_get_json(url)
+    except Exception:
+        cache[key] = ""
+        return ""
+
+    best = pick_openalex_result(payload.get("results", []) or [], title, year)
+    if not best:
+        cache[key] = ""
+        return ""
+
+    doi = collapse_ws(str(best.get("doi", "")))
+    if doi:
+        cache[key] = doi
+        return doi
+
+    primary = best.get("primary_location") or {}
+    landing = collapse_ws(str(primary.get("landing_page_url", "")))
+    cache[key] = landing
+    return landing
+
+
 def extract_tags_from_text(tags: list[str], title: str, abstract: str) -> list[str]:
     text = f"{title} {abstract}".lower()
     found: list[str] = []
@@ -513,7 +627,13 @@ def build_old_dataset_map(old_dataset_path: Path) -> dict[tuple[str, str], dict]
     return out
 
 
-def build_dataset(src_repo: Path, tags: list[str], old_map: dict[tuple[str, str], dict]) -> list[dict]:
+def build_dataset(
+    src_repo: Path,
+    tags: list[str],
+    old_map: dict[tuple[str, str], dict],
+    resolve_empty_links_from_openalex: bool,
+    openalex_cache: dict[str, str],
+) -> list[dict]:
     pubs_js = (src_repo / "pubs.js").read_text(encoding="utf-8")
     array_text = extract_array_literal(pubs_js, "PUBS")
     entries = parse_pubs_array(array_text)
@@ -551,6 +671,21 @@ def build_dataset(src_repo: Path, tags: list[str], old_map: dict[tuple[str, str]
             source_url = resolve_paper_url(raw_url)
             if source_url == paper_url:
                 source_url = ""
+
+        # Keep non-PDF source links usable when a direct PDF is unavailable.
+        if not paper_url and source_url:
+            paper_url = source_url
+            source_url = ""
+
+        if not paper_url:
+            openalex_link = lookup_openalex_link_by_title(
+                title=title,
+                year=year,
+                cache=openalex_cache,
+                enabled=resolve_empty_links_from_openalex,
+            )
+            if openalex_link:
+                paper_url = openalex_link
 
         abstract = ""
         for candidate in html_candidates:
@@ -620,19 +755,37 @@ def main() -> int:
     parser.add_argument("--app-js", default="/Users/britton/Desktop/library/devmtg/js/app.js", help="Path to devmtg app.js")
     parser.add_argument("--old-dataset", default="/Users/britton/Desktop/library/papers/llvm-org-pubs.json", help="Existing dataset for abstract/author fallback")
     parser.add_argument("--out-dir", default="/Users/britton/Desktop/library/papers", help="Output directory for generated papers data")
+    parser.add_argument(
+        "--resolve-empty-links-from-openalex",
+        action="store_true",
+        help="Resolve entries with empty paper/source URLs via OpenAlex title lookup",
+    )
+    parser.add_argument(
+        "--openalex-cache",
+        default="/Users/britton/Desktop/library/papers/.cache/openalex-title-links.json",
+        help="Path to OpenAlex title lookup cache",
+    )
     args = parser.parse_args()
 
     src_repo = Path(args.src_repo).resolve()
     app_js = Path(args.app_js).resolve()
     old_dataset = Path(args.old_dataset).resolve()
     out_dir = Path(args.out_dir).resolve()
+    openalex_cache_path = Path(args.openalex_cache).resolve()
 
     if not (src_repo / "pubs.js").exists():
         raise SystemExit(f"Missing pubs.js under source repo: {src_repo}")
 
     tags = parse_all_tags(app_js)
     old_map = build_old_dataset_map(old_dataset)
-    papers = build_dataset(src_repo, tags, old_map)
+    openalex_cache = load_openalex_cache(openalex_cache_path)
+    papers = build_dataset(
+        src_repo,
+        tags,
+        old_map,
+        resolve_empty_links_from_openalex=args.resolve_empty_links_from_openalex,
+        openalex_cache=openalex_cache,
+    )
 
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -655,6 +808,9 @@ def main() -> int:
     }
     manifest_path = out_dir / "index.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    if args.resolve_empty_links_from_openalex:
+        save_openalex_cache(openalex_cache_path, openalex_cache)
 
     print(f"Wrote {len(papers)} papers to {bundle_path}")
     print(f"Wrote manifest to {manifest_path} (dataVersion={data_version})")
