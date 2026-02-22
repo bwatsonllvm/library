@@ -365,7 +365,22 @@ function normalizePapers(rawPapers) {
   return Array.isArray(rawPapers) ? rawPapers : [];
 }
 
+function isCanceledMeeting(meeting) {
+  if (!meeting || typeof meeting !== 'object') return false;
+  if (meeting.canceled === true) return true;
+  const location = String(meeting.location || '').toLowerCase();
+  return location.includes('canceled') || location.includes('cancelled');
+}
+
+function isDevelopersMeeting(meeting) {
+  if (!meeting || typeof meeting !== 'object') return false;
+  if (isCanceledMeeting(meeting)) return false;
+  const name = String(meeting.name || '').toLowerCase();
+  return name.includes("llvm developers' meeting");
+}
+
 async function loadAndRenderStats() {
+  let meetings = [];
   let talks = [];
   let papers = [];
 
@@ -373,6 +388,7 @@ async function loadAndRenderStats() {
     if (typeof window.loadEventData === 'function') {
       const events = await window.loadEventData();
       talks = normalizeTalks(events && events.talks);
+      meetings = Array.isArray(events && events.meetings) ? events.meetings : [];
     }
     if (typeof window.loadPaperData === 'function') {
       const paperPayload = await window.loadPaperData();
@@ -383,8 +399,9 @@ async function loadAndRenderStats() {
   }
 
   const uniqueMeetings = new Set(
-    talks
-      .map((talk) => String((talk && talk.meeting) || '').trim())
+    meetings
+      .filter((meeting) => isDevelopersMeeting(meeting))
+      .map((meeting) => String(meeting.slug || meeting.name || '').trim())
       .filter(Boolean)
   );
 
