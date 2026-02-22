@@ -437,18 +437,20 @@
         <li><strong>Use sort + layout controls:</strong> switch between relevance, chronology, citations, and compact/card views where available.</li>
         <li><strong>Pivot through People:</strong> open a person profile card to jump into their talks, papers, or global results.</li>
         <li><strong>Browse by event history:</strong> use <a href="meetings.html">By Meeting</a> to inspect each LLVM Developers' Meeting edition.</li>
-        <li><strong>Open detail pages:</strong> talk and paper pages include abstracts, links, metadata, and source references.</li>
+        <li><strong>Open detail pages:</strong> talk and paper pages include abstracts, structured fields, and source links.</li>
         <li><strong>Share reproducible views:</strong> active filters and searches are encoded in the URL so links preserve context.</li>
       </ol>
     </section>
 
     <section class="about-section" aria-labelledby="about-sources-heading">
-      <h2 id="about-sources-heading">Data and Scope Notes</h2>
+      <h2 id="about-sources-heading">How This Database Is Built</h2>
       <ul>
-        <li>This site curates metadata from public LLVM meeting archives and LLVM-related papers.</li>
-        <li>People records are merged across speaker/author name variants to reduce duplication.</li>
-        <li>Paper-author affiliations may be shown as published in source material; people cards intentionally omit affiliations.</li>
-        <li>For canonical meeting announcements and schedules, see the <a href="https://llvm.org/devmtg/" target="_blank" rel="noopener">official LLVM Developers' Meeting archive</a>.</li>
+        <li><strong>Talks:</strong> synchronized from public <code>llvm-www/devmtg</code> pages into <code>devmtg/events/*.json</code>, then normalized to a consistent schema (IDs, meeting fields, speakers, slides/video links, categories, tags).</li>
+        <li><strong>Papers:</strong> combined from LLVM publications (<code>llvm.org/pubs</code>) and OpenAlex discovery results that match LLVM-focused keywords/subprojects and known library contributors.</li>
+        <li><strong>People:</strong> derived from talk speakers and paper authors, then merged across name variants to reduce duplicates.</li>
+        <li><strong>Updates:</strong> generated from content deltas and shown newest-first, with links to in-library talk/paper detail pages.</li>
+        <li><strong>Scope:</strong> all indexed material is public; this site is a research index and does not replace canonical event schedules.</li>
+        <li>For official meeting announcements and schedules, see the <a href="https://llvm.org/devmtg/" target="_blank" rel="noopener">LLVM Developers' Meeting archive</a>.</li>
       </ul>
     </section>
   </main>
