@@ -202,8 +202,10 @@ function buildAutocompleteIndex() {
     for (const author of (paper.authors || [])) addPerson(author && author.name, 1);
   }
 
+  // Preserve canonical/variant name discoverability in autocomplete without
+  // inflating counts (talks/papers were already counted above).
   for (const person of allPeople) {
-    addPerson(person.name, person.totalCount || 1);
+    addPerson(person.name, 0);
     for (const variant of (person.variantNames || [])) addPerson(variant, 0);
   }
 
