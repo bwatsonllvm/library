@@ -2,7 +2,7 @@
 """Build a single canonical papers database from source bundles.
 
 This script:
-1) Loads source bundles (llvm-org-pubs + OpenAlex bundles).
+1) Loads source bundles (llvm-org-pubs + llvm-blog + OpenAlex bundles).
 2) Deduplicates records across bundles by OpenAlex id, DOI, and year+title.
 3) Refreshes OpenAlex-backed metadata (title/abstract/authors/affiliations/citations/urls).
 4) For non-English/missing OpenAlex text, probes landing-page metadata for English
@@ -64,6 +64,7 @@ LOW_QUALITY_TITLE_KEYS = {
 SOURCE_PRIORITY = {
     "openalex-discovery": 300,
     "openalex-llvm-query": 250,
+    "llvm-blog-www": 200,
     "llvm-org-pubs": 150,
 }
 
@@ -727,9 +728,16 @@ def record_identity_keys(record: dict) -> list[str]:
     doi = normalize_doi(str(record.get("doi", "")))
     if doi:
         keys.append(f"doi:{doi}")
+    source = collapse_ws(str(record.get("source", ""))).lower()
+    record_type = collapse_ws(str(record.get("type", ""))).lower()
+    is_blog = source == "llvm-blog-www" or record_type in {"blog-post", "blog"}
+    if is_blog:
+        blog_url = collapse_ws(str(record.get("paperUrl", ""))) or collapse_ws(str(record.get("sourceUrl", "")))
+        if blog_url:
+            keys.append(f"blog:{blog_url.lower()}")
     year = collapse_ws(str(record.get("year", "")))
     title = normalize_title_key(str(record.get("title", "")))
-    if year and title:
+    if not is_blog and year and title:
         keys.append(f"title:{year}:{title}")
     return keys
 
@@ -1290,7 +1298,7 @@ def main() -> int:
         dest="bundles",
         action="append",
         default=[],
-        help="Input papers bundle (repeat). Defaults to llvm-org-pubs + openalex bundles.",
+        help="Input papers bundle (repeat). Defaults to llvm-org-pubs + llvm-blog + openalex bundles.",
     )
     parser.add_argument("--output", default="papers/combined-all-papers-deduped.json")
     parser.add_argument("--manifest", default="papers/index.json")
@@ -1311,6 +1319,7 @@ def main() -> int:
 
     default_bundles = [
         "papers/llvm-org-pubs.json",
+        "papers/llvm-blog-posts.json",
         "papers/openalex-llvm-query.json",
         "papers/openalex-discovered.json",
     ]

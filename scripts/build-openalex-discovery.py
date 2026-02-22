@@ -223,6 +223,16 @@ def normalize_openalex_work_key(value: str) -> str:
     return ""
 
 
+def is_research_like_record(record: dict) -> bool:
+    source = collapse_ws(str(record.get("source", ""))).lower()
+    record_type = collapse_ws(str(record.get("type", ""))).lower()
+    if source == "llvm-blog-www":
+        return False
+    if record_type in {"blog-post", "blog", "news-post"}:
+        return False
+    return True
+
+
 def load_existing_identity_keys(
     papers_dir: Path, manifest_files: list[str], output_bundle_name: str
 ) -> tuple[set[tuple[str, str]], set[str], set[str]]:
@@ -238,6 +248,10 @@ def load_existing_identity_keys(
             continue
         payload = json.loads(path.read_text(encoding="utf-8"))
         for paper in payload.get("papers", []):
+            if not isinstance(paper, dict):
+                continue
+            if not is_research_like_record(paper):
+                continue
             year = collapse_ws(str(paper.get("year", "")))
             title = strip_tags(str(paper.get("title", "")))
             if not title:
@@ -294,6 +308,10 @@ def load_seed_authors(
             continue
         payload = json.loads(path.read_text(encoding="utf-8"))
         for paper in payload.get("papers", []):
+            if not isinstance(paper, dict):
+                continue
+            if not is_research_like_record(paper):
+                continue
             for author in paper.get("authors", []):
                 name = collapse_ws(str(author.get("name", "")))
                 if not name:

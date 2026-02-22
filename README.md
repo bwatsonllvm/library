@@ -27,14 +27,16 @@ The sync process preserves the current JSON schema and fills/updates structured 
 
 ### 2) Papers dataset (`papers/combined-all-papers-deduped.json`)
 
-The canonical papers database combines two public sources:
+The canonical papers database combines three public sources:
 - LLVM publications content from `llvm.org/pubs` (canonical LLVM papers)
 - OpenAlex discovery results for LLVM-related research
+- LLVM Project Blog posts from `llvm/llvm-blog-www`
 
 OpenAlex discovery is constrained by LLVM-focused keyword and subproject matching, then filtered against known library contributors derived from existing talk/paper records.
 
 The automated pipeline does not rely on a repository-maintained direct-name seed list.
 During the final merge, OpenAlex metadata is refreshed for titles, abstracts, authors, affiliations, citation counts, and URLs. For non-English or missing text, the pipeline also probes deeper landing-page metadata layers to recover English title/abstract when available.
+Blog entries are sourced directly from the blog repository and linked to their post files in GitHub, with the canonical blog URL also retained.
 Discovery output is treated as an intermediate input; the final single-database build is the stage that updates `papers/index.json`.
 
 ### 3) People index (runtime derived)
@@ -66,9 +68,10 @@ A scheduled GitHub Actions workflow (`.github/workflows/library-sync.yml`) runs 
 Automation stages:
 1. Sync talks/slides/videos from `llvm-www/devmtg`
 2. Refresh OpenAlex-discovered papers
-3. Rebuild the single canonical papers database (OpenAlex + llvm.org/pubs)
-4. Rebuild the updates log
-5. Validate bundle integrity
+3. Sync LLVM blog posts from `llvm-blog-www`
+4. Rebuild the single canonical papers database (OpenAlex + llvm.org/pubs + blog)
+5. Rebuild the updates log
+6. Validate bundle integrity
 
 ## Repository Layout
 
