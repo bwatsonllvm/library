@@ -329,6 +329,11 @@ def summarize_body(body: str, extension: str, max_words: int = 110) -> str:
     return " ".join(words[:max_words]).rstrip(" ,;:.") + "..."
 
 
+def normalize_body(body: str) -> str:
+    text = (body or "").replace("\r\n", "\n").replace("\r", "\n")
+    return text.strip()
+
+
 def run_curl(url: str, output_path: Path | None, user_agent: str, github_token: str, timeout_s: int, head_only: bool = False) -> str:
     cmd = [
         "curl",
@@ -498,7 +503,9 @@ def build_blog_bundle(
             blog_url = resolve_blog_url(front_matter, blog_base_url, file_name)
             blob_path = urllib.parse.quote(rel_path, safe="/-_.~")
             repo_blob_url = f"https://github.com/{repo}/blob/{urllib.parse.quote(ref)}/{blob_path}"
-            abstract = summarize_body(body, ext)
+            normalized_body = normalize_body(body)
+            abstract = summarize_body(normalized_body, ext)
+            content_format = "html" if ext in {".html", ".htm"} else "markdown"
 
             stem = file_name.rsplit(".", 1)[0]
             base_id = slugify(f"blog-{stem}") or "blog-post"
@@ -520,6 +527,8 @@ def build_blog_bundle(
                 "venue": "LLVM Project Blog",
                 "type": "blog-post",
                 "abstract": abstract,
+                "contentFormat": content_format,
+                "content": normalized_body,
                 # User requested direct links to repo posts.
                 "paperUrl": repo_blob_url,
                 "sourceUrl": blog_url if blog_url != repo_blob_url else "",

@@ -2407,6 +2407,90 @@ mark {
   margin-bottom: var(--space-1);
 }
 
+.abstract-body.blog-content {
+  line-height: 1.75;
+}
+
+.abstract-body.blog-content h1,
+.abstract-body.blog-content h2,
+.abstract-body.blog-content h3,
+.abstract-body.blog-content h4,
+.abstract-body.blog-content h5,
+.abstract-body.blog-content h6 {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-2);
+  line-height: 1.25;
+}
+
+.abstract-body.blog-content h1 { font-size: clamp(1.55rem, 2.6vw, 2rem); }
+.abstract-body.blog-content h2 { font-size: clamp(1.35rem, 2.2vw, 1.7rem); }
+.abstract-body.blog-content h3 { font-size: clamp(1.2rem, 1.9vw, 1.4rem); }
+
+.abstract-body.blog-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.abstract-body.blog-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  margin: var(--space-4) 0;
+}
+
+.abstract-body.blog-content pre {
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  overflow-x: auto;
+}
+
+.abstract-body.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+}
+
+.abstract-body.blog-content p code,
+.abstract-body.blog-content li code {
+  padding: 0 0.35em;
+  border-radius: 0.35em;
+  background: var(--color-surface-subtle);
+}
+
+.abstract-body.blog-content blockquote {
+  margin: var(--space-4) 0;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-text-muted);
+  background: var(--color-surface-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.abstract-body.blog-content hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-5) 0;
+}
+
+.abstract-body.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  display: block;
+  overflow-x: auto;
+}
+
+.abstract-body.blog-content th,
+.abstract-body.blog-content td {
+  border: 1px solid var(--color-border);
+  padding: 0.45rem 0.6rem;
+  vertical-align: top;
+}
+
 /* Detail page tags */
 .tags-section {
   margin-bottom: var(--space-6);

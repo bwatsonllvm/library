@@ -3,6 +3,7 @@
  */
 
 const HubUtils = window.LLVMHubUtils || {};
+const BLOG_SOURCE_SLUG = 'llvm-blog-www';
 
 // ============================================================
 // Data Loading
@@ -83,9 +84,12 @@ function normalizePaperRecord(rawPaper) {
   const metadata = normalizePublicationAndVenue(paper.publication, paper.venue);
   paper.publication = metadata.publication;
   paper.venue = metadata.venue;
+  paper.source = String(paper.source || '').trim();
   paper.type = String(paper.type || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
+  paper.contentFormat = String(paper.contentFormat || paper.bodyFormat || '').trim().toLowerCase();
+  paper.content = String(paper.content || paper.body || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
   paper.citationCount = parseCitationCount(rawPaper);
   paper.openalexId = normalizeOpenAlexId(
     paper.openalexId ||
@@ -127,6 +131,9 @@ function normalizePaperRecord(rawPaper) {
 
   if (!paper.id || !paper.title) return null;
   paper._year = /^\d{4}$/.test(paper.year) ? paper.year : '';
+  const normalizedType = paper.type.toLowerCase();
+  const normalizedSource = paper.source.toLowerCase();
+  paper._isBlog = normalizedSource === BLOG_SOURCE_SLUG || normalizedType === 'blog-post' || normalizedType === 'blog';
   return paper;
 }
 
@@ -166,9 +173,10 @@ function setIssueContext(context) {
 
 function setIssueContextForPaper(paper) {
   if (!paper || typeof paper !== 'object') return;
+  const itemType = isBlogPaper(paper) ? 'Blog Post' : 'Paper';
   setIssueContext({
     pageType: 'Paper',
-    itemType: 'Paper',
+    itemType,
     itemId: String(paper.id || '').trim(),
     itemTitle: String(paper.title || '').trim(),
     pageTitle: `${String(paper.title || '').trim()} — LLVM Research Library`,
@@ -191,6 +199,10 @@ function normalizePaperType(type) {
     .filter(Boolean)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
+}
+
+function isBlogPaper(paper) {
+  return !!(paper && paper._isBlog);
 }
 
 function parseCitationCount(rawPaper) {
@@ -379,7 +391,15 @@ function updatePaperSeoMetadata(paper) {
   canonical.hash = '';
   canonical.searchParams.set('id', paper.id);
   const canonicalUrl = canonical.toString();
-  const description = truncateText(paper.abstract || `${paper.title}.`, 180);
+  const descriptionSource = paper.abstract || paper.content || `${paper.title}.`;
+  const description = truncateText(
+    String(descriptionSource || '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim(),
+    180
+  ) || truncateText(`${paper.title}.`, 180);
+  const schemaType = isBlogPaper(paper) ? 'BlogPosting' : 'ScholarlyArticle';
 
   upsertCanonical(canonicalUrl);
   upsertMetaTag('name', 'description', description);
@@ -400,7 +420,7 @@ function updatePaperSeoMetadata(paper) {
     .filter(Boolean);
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ScholarlyArticle',
+    '@type': schemaType,
     headline: paper.title,
     name: paper.title,
     description,
@@ -574,6 +594,259 @@ function initShareMenu() {
 // Abstract + Author Rendering
 // ============================================================
 
+function resolveContentUrl(rawUrl, baseUrl, { allowData = false } = {}) {
+  const value = String(rawUrl || '').trim();
+  if (!value) return '';
+  if (value.startsWith('#')) return value;
+
+  const lower = value.toLowerCase();
+  if (lower.startsWith('javascript:') || lower.startsWith('vbscript:')) return '';
+  if (lower.startsWith('data:')) return allowData ? value : '';
+  if (lower.startsWith('//')) return `https:${value}`;
+
+  try {
+    if (/^[a-z][a-z0-9+.-]*:/i.test(value)) {
+      const parsed = new URL(value);
+      const scheme = parsed.protocol.toLowerCase();
+      if (scheme === 'http:' || scheme === 'https:' || scheme === 'mailto:' || scheme === 'tel:') {
+        return parsed.toString();
+      }
+      return '';
+    }
+
+    const base = baseUrl ? new URL(baseUrl, window.location.href) : new URL(window.location.href);
+    return new URL(value, base).toString();
+  } catch {
+    return '';
+  }
+}
+
+function sanitizeHtmlFragment(rawHtml, baseUrl) {
+  const template = document.createElement('template');
+  template.innerHTML = String(rawHtml || '');
+
+  const blocked = 'script,style,iframe,object,embed,form,meta,link,base'.split(',');
+  template.content.querySelectorAll(blocked.join(',')).forEach((node) => node.remove());
+
+  const allElements = template.content.querySelectorAll('*');
+  allElements.forEach((el) => {
+    for (const attr of [...el.attributes]) {
+      const name = attr.name.toLowerCase();
+      const value = attr.value;
+
+      if (name.startsWith('on') || name === 'srcdoc') {
+        el.removeAttribute(attr.name);
+        continue;
+      }
+
+      if (name === 'style') {
+        el.removeAttribute(attr.name);
+        continue;
+      }
+
+      if (name === 'href') {
+        const safe = resolveContentUrl(value, baseUrl, { allowData: false });
+        if (!safe) {
+          el.removeAttribute(attr.name);
+        } else {
+          el.setAttribute('href', safe);
+          if (el.tagName.toLowerCase() === 'a') {
+            el.setAttribute('target', '_blank');
+            el.setAttribute('rel', 'noopener noreferrer');
+          }
+        }
+        continue;
+      }
+
+      if (name === 'src') {
+        const safe = resolveContentUrl(value, baseUrl, { allowData: true });
+        if (!safe) el.removeAttribute(attr.name);
+        else el.setAttribute('src', safe);
+        continue;
+      }
+
+      if (name === 'srcset') {
+        el.removeAttribute(attr.name);
+      }
+    }
+  });
+
+  return template.innerHTML;
+}
+
+function formatInlineMarkdown(text, baseUrl) {
+  if (!text) return '';
+  let html = escapeHtml(text);
+
+  html = html.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (_, alt, url, title) => {
+    const safeUrl = resolveContentUrl(url, baseUrl, { allowData: true });
+    if (!safeUrl) return '';
+    const altText = escapeHtml(alt || '');
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+    return `<img src="${escapeHtml(safeUrl)}" alt="${altText}" loading="lazy"${titleAttr}>`;
+  });
+
+  html = html.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (_, label, url, title) => {
+    const safeUrl = resolveContentUrl(url, baseUrl, { allowData: false });
+    if (!safeUrl) return escapeHtml(label || '');
+    const titleAttr = title ? ` title="${escapeHtml(title)}"` : '';
+    return `<a href="${escapeHtml(safeUrl)}" target="_blank" rel="noopener noreferrer"${titleAttr}>${escapeHtml(label || '')}</a>`;
+  });
+
+  html = html.replace(/`([^`]+)`/g, (_, code) => `<code>${escapeHtml(code)}</code>`);
+  html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+  html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+  html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
+  html = html.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+  return html;
+}
+
+function renderMarkdownToHtml(markdownText, baseUrl) {
+  const lines = String(markdownText || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const out = [];
+  let paragraph = [];
+  let listType = '';
+  let listItems = [];
+  let codeFence = '';
+  let codeLines = [];
+  const htmlTagRe = /<\/?(a|p|div|span|img|h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|pre|code|br|hr)\b/i;
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    const text = paragraph.join(' ').replace(/\s+/g, ' ').trim();
+    if (text) out.push(`<p>${formatInlineMarkdown(text, baseUrl)}</p>`);
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (!listType || !listItems.length) {
+      listType = '';
+      listItems = [];
+      return;
+    }
+    out.push(`<${listType}>${listItems.map((item) => `<li>${formatInlineMarkdown(item, baseUrl)}</li>`).join('')}</${listType}>`);
+    listType = '';
+    listItems = [];
+  };
+
+  const flushCode = () => {
+    if (!codeFence) return;
+    const language = codeFence.replace(/[^a-z0-9_-]/gi, '').toLowerCase();
+    const classAttr = language ? ` class="language-${escapeHtml(language)}"` : '';
+    out.push(`<pre><code${classAttr}>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+    codeFence = '';
+    codeLines = [];
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine || '';
+    const trimmed = line.trim();
+
+    const fenceMatch = trimmed.match(/^```([A-Za-z0-9_-]*)\s*$/);
+    if (fenceMatch) {
+      if (codeFence) {
+        flushCode();
+      } else {
+        flushParagraph();
+        flushList();
+        codeFence = fenceMatch[1] || '';
+        codeLines = [];
+      }
+      continue;
+    }
+
+    if (codeFence) {
+      codeLines.push(line);
+      continue;
+    }
+
+    if (!trimmed) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    if (/^<[^>]+>/.test(trimmed) && htmlTagRe.test(trimmed)) {
+      flushParagraph();
+      flushList();
+      out.push(sanitizeHtmlFragment(trimmed, baseUrl));
+      continue;
+    }
+
+    const headingMatch = trimmed.match(/^(#{1,6})\s+(.*)$/);
+    if (headingMatch) {
+      flushParagraph();
+      flushList();
+      const level = headingMatch[1].length;
+      out.push(`<h${level}>${formatInlineMarkdown(headingMatch[2], baseUrl)}</h${level}>`);
+      continue;
+    }
+
+    if (/^([-*_])\1{2,}$/.test(trimmed)) {
+      flushParagraph();
+      flushList();
+      out.push('<hr>');
+      continue;
+    }
+
+    const unordered = trimmed.match(/^[-*+]\s+(.*)$/);
+    if (unordered) {
+      flushParagraph();
+      if (listType && listType !== 'ul') flushList();
+      listType = 'ul';
+      listItems.push(unordered[1]);
+      continue;
+    }
+
+    const ordered = trimmed.match(/^\d+[.)]\s+(.*)$/);
+    if (ordered) {
+      flushParagraph();
+      if (listType && listType !== 'ol') flushList();
+      listType = 'ol';
+      listItems.push(ordered[1]);
+      continue;
+    }
+
+    const quote = trimmed.match(/^>\s?(.*)$/);
+    if (quote) {
+      flushParagraph();
+      flushList();
+      out.push(`<blockquote><p>${formatInlineMarkdown(quote[1], baseUrl)}</p></blockquote>`);
+      continue;
+    }
+
+    paragraph.push(trimmed);
+  }
+
+  flushCode();
+  flushParagraph();
+  flushList();
+
+  return out.join('\n');
+}
+
+function renderBlogContent(paper) {
+  const body = String(paper.content || '').trim();
+  if (!body) {
+    return '<p><em>Blog content unavailable in local cache. Use the links above to open the original post.</em></p>';
+  }
+  const format = String(paper.contentFormat || '').toLowerCase();
+  const baseUrl = paper.sourceUrl || paper.paperUrl || window.location.href;
+
+  if (format === 'html') {
+    return sanitizeHtmlFragment(body, baseUrl);
+  }
+
+  // Some migrated markdown posts include inline HTML blocks.
+  if (/<\/?(a|p|div|span|img|h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|pre|code|br|hr)\b/i.test(body)) {
+    return sanitizeHtmlFragment(body, baseUrl);
+  }
+
+  return renderMarkdownToHtml(body, baseUrl);
+}
+
 function renderAbstract(abstract) {
   if (!abstract) return '<p><em>No abstract available.</em></p>';
 
@@ -648,6 +921,9 @@ function getRelatedPapers(paper, allPapers) {
 }
 
 function renderRelatedCard(paper) {
+  const blogEntry = isBlogPaper(paper);
+  const badgeClass = blogEntry ? 'badge-blog' : 'badge-paper';
+  const badgeLabel = blogEntry ? 'Blog Post' : 'Paper';
   const speakerLinksHtml = (paper.authors || []).length
     ? paper.authors.map((author) =>
       `<a href="papers.html?speaker=${encodeURIComponent(author.name)}" class="card-speaker-link" aria-label="View all papers by ${escapeHtml(author.name)}">${escapeHtml(author.name)}</a>`
@@ -663,12 +939,12 @@ function renderRelatedCard(paper) {
         <div class="card-thumbnail paper-thumbnail" aria-hidden="true">
           <div class="card-thumbnail-placeholder paper-thumbnail-placeholder">
             ${_PAPER_PLACEHOLDER}
-            <span class="paper-thumbnail-label">Paper</span>
+            <span class="paper-thumbnail-label">${escapeHtml(badgeLabel)}</span>
           </div>
         </div>
         <div class="card-body">
           <div class="card-meta">
-            <span class="badge badge-paper">Paper</span>
+            <span class="badge ${badgeClass}">${escapeHtml(badgeLabel)}</span>
             <span class="meeting-label">${year}</span>
           </div>
           <p class="card-title">${escapeHtml(paper.title)}</p>
@@ -687,6 +963,9 @@ function renderPaperDetail(paper, allPapers) {
   const authorsHtml = renderAuthors(paper.authors);
   const citationCount = Number.isFinite(paper.citationCount) ? paper.citationCount : 0;
   const doiUrl = doiUrlFromValue(paper.doi);
+  const blogEntry = isBlogPaper(paper);
+  const badgeClass = blogEntry ? 'badge-blog' : 'badge-paper';
+  const badgeLabel = blogEntry ? 'Blog Post' : 'Paper';
 
   const infoParts = [];
   if (paper._year) infoParts.push(paper._year);
@@ -696,17 +975,19 @@ function renderPaperDetail(paper, allPapers) {
   const links = [];
   if (paper.paperUrl) {
     const isPdf = /\.pdf(?:$|[?#])/i.test(paper.paperUrl);
+    const linkLabel = blogEntry ? 'Open Repository Post' : (isPdf ? 'Open PDF' : 'Open Paper');
     links.push(`
-      <a href="${escapeHtml(paper.paperUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open ${isPdf ? 'PDF' : 'paper'} for ${escapeHtml(paper.title)} (opens in new tab)">
+      <a href="${escapeHtml(paper.paperUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(linkLabel)} for ${escapeHtml(paper.title)} (opens in new tab)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        ${isPdf ? 'Open PDF' : 'Open Paper'}
+        ${escapeHtml(linkLabel)}
       </a>`);
   }
   if (paper.sourceUrl) {
+    const sourceLabel = blogEntry ? 'Open Blog Post' : 'Source Listing';
     links.push(`
-      <a href="${escapeHtml(paper.sourceUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open source listing for ${escapeHtml(paper.title)} (opens in new tab)">
+      <a href="${escapeHtml(paper.sourceUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(sourceLabel)} for ${escapeHtml(paper.title)} (opens in new tab)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 1 0-7.07-7.07L10 6"/><path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4a5 5 0 0 0 7.07 7.07L14 18"/></svg>
-        Source Listing
+        ${escapeHtml(sourceLabel)}
       </a>`);
   }
   if (doiUrl) {
@@ -780,7 +1061,7 @@ function renderPaperDetail(paper, allPapers) {
 
       <div class="talk-header">
         <div class="talk-header-meta">
-          <span class="badge badge-paper">Paper</span>
+          <span class="badge ${badgeClass}">${badgeLabel}</span>
           ${infoParts.length ? `<span class="meeting-info-badge">${escapeHtml(infoParts.join(' · '))}</span>` : ''}
         </div>
         <h1 class="talk-title">${escapeHtml(paper.title)}</h1>
@@ -793,10 +1074,10 @@ function renderPaperDetail(paper, allPapers) {
 
       ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
 
-      <section class="abstract-section" aria-label="Abstract">
-        <div class="section-label" aria-hidden="true">Abstract</div>
-        <div class="abstract-body">
-          ${renderAbstract(paper.abstract)}
+      <section class="abstract-section" aria-label="${blogEntry ? 'Blog post content' : 'Abstract'}">
+        <div class="section-label" aria-hidden="true">${blogEntry ? 'Article' : 'Abstract'}</div>
+        <div class="abstract-body${blogEntry ? ' blog-content' : ''}">
+          ${blogEntry ? renderBlogContent(paper) : renderAbstract(paper.abstract)}
         </div>
       </section>
 
@@ -806,8 +1087,8 @@ function renderPaperDetail(paper, allPapers) {
     </div>
 
     ${related.length ? `
-    <section class="related-section" aria-label="Related papers">
-      <h2>Related Papers</h2>
+    <section class="related-section" aria-label="Related ${blogEntry ? 'content' : 'papers'}">
+      <h2>${blogEntry ? 'Related Content' : 'Related Papers'}</h2>
       <div class="related-grid">
         ${related.map((relatedPaper) => renderRelatedCard(relatedPaper)).join('')}
       </div>

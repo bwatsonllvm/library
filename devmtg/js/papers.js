@@ -586,6 +586,9 @@ function renderAuthorButtons(authors, tokens) {
 }
 
 function renderPaperCard(paper, tokens) {
+  const blogEntry = isBlogPaper(paper);
+  const badgeClass = blogEntry ? 'badge-blog' : 'badge-paper';
+  const badgeLabel = blogEntry ? 'Blog Post' : 'Paper';
   const titleEsc = escapeHtml(paper.title);
   const authorLabel = (paper.authors || []).map((author) => String(author.name || '').trim()).filter(Boolean).join(', ');
   const yearLabel = escapeHtml(paper._year || 'Unknown year');
@@ -620,7 +623,7 @@ function renderPaperCard(paper, tokens) {
       <a href="paper.html?id=${escapeHtml(paper.id)}" class="card-link-wrap" aria-label="${titleEsc}${authorLabel ? ` by ${escapeHtml(authorLabel)}` : ''}">
         <div class="card-body">
           <div class="card-meta">
-            <span class="badge badge-paper">Paper</span>
+            <span class="badge ${badgeClass}">${badgeLabel}</span>
             <span class="meeting-label">${yearLabel}</span>
             <span class="meeting-label">${venueLabel}</span>
           </div>

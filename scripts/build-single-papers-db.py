@@ -824,6 +824,8 @@ def merge_records(base: dict, incoming: dict) -> dict:
         "venue",
         "type",
         "abstract",
+        "contentFormat",
+        "content",
         "paperUrl",
         "sourceUrl",
         "openalexId",
