@@ -53,6 +53,7 @@ jobs:
           python3 scripts/backfill-openalex-affiliations.py \
             --bundle papers/combined-all-papers-deduped.json \
             --bundle papers/openalex-discovered.json \
+            --bundle papers/openalex-llvm-query.json \
             --cache-dir papers/.cache/openalex \
             --manifest papers/index.json \
             --batch-size 40 \
