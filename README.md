@@ -64,8 +64,9 @@ A scheduled GitHub Actions workflow (`.github/workflows/library-sync.yml`) runs 
 Automation stages:
 1. Sync talks/slides/videos from `llvm-www/devmtg`
 2. Refresh OpenAlex-discovered papers
-3. Rebuild the updates log
-4. Validate bundle integrity
+3. Backfill paper affiliations from OpenAlex
+4. Rebuild the updates log
+5. Validate bundle integrity
 
 ## Repository Layout
 

@@ -77,6 +77,7 @@ ALLOWED_OPENALEX_TYPES = {
     "proceedings-article",
     "report",
 }
+MISSING_AFFILIATION_TOKENS = {"", "-", "--", "none", "null", "nan", "n/a", "na", "unknown", "no affiliation"}
 
 URLLIB_SSL_CONTEXT: ssl.SSLContext | None = None
 
@@ -92,6 +93,16 @@ def strip_tags(value: str) -> str:
     value = re.sub(r"<style\b[^>]*>.*?</style>", " ", value, flags=re.IGNORECASE | re.DOTALL)
     value = re.sub(r"<[^>]+>", " ", value)
     return collapse_ws(html.unescape(value))
+
+
+def clean_affiliation(value: str) -> str:
+    clean = collapse_ws(value).strip(" ,;|")
+    clean = re.sub(r"\s+,", ",", clean)
+    clean = re.sub(r"\(\s+", "(", clean)
+    clean = re.sub(r"\s+\)", ")", clean)
+    if clean.casefold() in MISSING_AFFILIATION_TOKENS:
+        return ""
+    return clean
 
 
 def slugify(value: str) -> str:
@@ -633,7 +644,7 @@ def extract_author_list(work: dict) -> list[dict]:
         institutions = authorship.get("institutions") or []
         if institutions and isinstance(institutions, list):
             first = institutions[0] or {}
-            affiliation = collapse_ws(str(first.get("display_name", "")))
+            affiliation = clean_affiliation(str(first.get("display_name", "")))
 
         out.append({"name": name, "affiliation": affiliation})
 

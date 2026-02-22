@@ -3,9 +3,9 @@
 
 Usage:
   ./scripts/backfill-openalex-affiliations.py \
-    --bundle /Users/britton/Desktop/library/papers/combined-all-papers-deduped.json \
-    --bundle /Users/britton/Desktop/library/papers/openalex-discovered.json \
-    --manifest /Users/britton/Desktop/library/papers/index.json
+    --bundle papers/combined-all-papers-deduped.json \
+    --bundle papers/openalex-discovered.json \
+    --manifest papers/index.json
 """
 
 from __future__ import annotations
@@ -45,8 +45,17 @@ def _load_json(path: Path) -> dict:
     return payload
 
 
-def _save_json(path: Path, payload: dict) -> None:
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+def _serialize_json(payload: dict) -> str:
+    return json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
+
+
+def _save_json_if_changed(path: Path, payload: dict) -> bool:
+    new_text = _serialize_json(payload)
+    old_text = path.read_text(encoding="utf-8") if path.exists() else ""
+    if old_text == new_text:
+        return False
+    path.write_text(new_text, encoding="utf-8")
+    return True
 
 
 def _collapse_ws(value: str) -> str:
@@ -153,9 +162,12 @@ def _fetch_openalex_works(short_ids: list[str], batch_size: int, mailto: str = "
         return {}
 
     works: dict[str, dict] = {}
-    total_batches = len(list(_chunks(short_ids, batch_size)))
+    pending_batches = [batch for batch in _chunks(short_ids, batch_size)]
+    completed_batches = 0
 
-    for idx, batch in enumerate(_chunks(short_ids, batch_size), start=1):
+    while pending_batches:
+        batch = pending_batches.pop(0)
+        completed_batches += 1
         params = {
             "filter": f"openalex:{'|'.join(batch)}",
             "per-page": str(len(batch)),
@@ -178,13 +190,47 @@ def _fetch_openalex_works(short_ids: list[str], batch_size: int, mailto: str = "
             "library-openalex-affiliations-backfill/1.0",
             url,
         ]
-        proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
-        payload = json.loads(proc.stdout)
+        payload = None
+        last_err = ""
+        for attempt in range(1, 4):
+            try:
+                proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
+                payload = json.loads(proc.stdout)
+                break
+            except subprocess.CalledProcessError as exc:
+                stderr = _collapse_ws(exc.stderr or "")
+                stdout = _collapse_ws(exc.stdout or "")
+                last_err = stderr or stdout or str(exc)
+                time.sleep(0.6 * attempt)
+            except json.JSONDecodeError as exc:
+                last_err = str(exc)
+                time.sleep(0.4 * attempt)
+
+        if payload is None:
+            if len(batch) > 1:
+                mid = len(batch) // 2
+                left = batch[:mid]
+                right = batch[mid:]
+                pending_batches = [left, right] + pending_batches
+                completed_batches -= 1
+                print(
+                    "[openalex] request failed; splitting batch "
+                    f"size={len(batch)} into {len(left)}+{len(right)} "
+                    f"(error={last_err})",
+                    flush=True,
+                )
+                continue
+            raise RuntimeError(f"OpenAlex request failed for id {batch[0]}: {last_err}")
+
         for work in _iter_works(payload):
             short_id = _openalex_short_id(str(work.get("id", "")))
             if short_id:
                 works[short_id] = work
-        print(f"[openalex] fetched batch {idx}/{total_batches} ({len(batch)} ids)", flush=True)
+        total_batches = completed_batches + len(pending_batches)
+        print(
+            f"[openalex] fetched batch {completed_batches}/{total_batches} ({len(batch)} ids)",
+            flush=True,
+        )
         time.sleep(0.08)
 
     return works
@@ -206,7 +252,7 @@ def _extract_authorships(work: dict) -> list[dict]:
         if not name:
             continue
 
-        affiliation = ""
+        affiliations: list[str] = []
         institutions = authorship.get("institutions")
         if isinstance(institutions, list):
             for institution in institutions:
@@ -214,8 +260,8 @@ def _extract_authorships(work: dict) -> list[dict]:
                     continue
                 display_name = _normalize_affiliation(str(institution.get("display_name", "")))
                 if display_name:
-                    affiliation = display_name
-                    break
+                    if not any(display_name.casefold() == existing.casefold() for existing in affiliations):
+                        affiliations.append(display_name)
 
         out.append(
             {
@@ -223,7 +269,8 @@ def _extract_authorships(work: dict) -> list[dict]:
                 "name_key": _normalize_name_key(name),
                 "signature": _name_signature(name),
                 "last": _name_last_token(name),
-                "affiliation": affiliation,
+                "affiliation": affiliations[0] if affiliations else "",
+                "affiliations": affiliations,
             }
         )
     return out
@@ -272,7 +319,7 @@ def _apply_affiliations_to_paper(paper: dict, work: dict) -> dict[str, int]:
             }
         )
 
-    matched: dict[int, int] = {}
+    matched: dict[int, tuple[int, str]] = {}
     used_authorship_idx: set[int] = set()
 
     # Pass 1: exact normalized-name match.
@@ -288,7 +335,7 @@ def _apply_affiliations_to_paper(paper: dict, work: dict) -> dict[str, int]:
         ]
         if len(candidates) == 1:
             chosen = candidates[0]
-            matched[local_idx] = chosen
+            matched[local_idx] = (chosen, "exact")
             used_authorship_idx.add(chosen)
 
     # Pass 2: last-name + first-initial signature.
@@ -306,7 +353,7 @@ def _apply_affiliations_to_paper(paper: dict, work: dict) -> dict[str, int]:
         ]
         if len(candidates) == 1:
             chosen = candidates[0]
-            matched[local_idx] = chosen
+            matched[local_idx] = (chosen, "signature")
             used_authorship_idx.add(chosen)
 
     # Pass 3: positional fallback when author counts align and last names are compatible.
@@ -320,7 +367,7 @@ def _apply_affiliations_to_paper(paper: dict, work: dict) -> dict[str, int]:
             local_last = str(local["last"])
             oa_last = str(authorships[local_idx]["last"])
             if _compatible_last_names(local_last, oa_last):
-                matched[local_idx] = local_idx
+                matched[local_idx] = (local_idx, "position")
                 used_authorship_idx.add(local_idx)
 
     authors_total = 0
@@ -340,10 +387,25 @@ def _apply_affiliations_to_paper(paper: dict, work: dict) -> dict[str, int]:
 
         if idx in matched:
             authors_matched += 1
-            oa_affiliation = str(authorships[matched[idx]]["affiliation"])
+            match_idx, _match_kind = matched[idx]
+            oa_affiliations = [
+                str(v)
+                for v in authorships[match_idx].get("affiliations", [])
+                if isinstance(v, str) and v
+            ]
+            oa_affiliation = oa_affiliations[0] if oa_affiliations else ""
             if oa_affiliation:
-                new_affiliation = oa_affiliation
-                changed_by_openalex = True
+                if cleaned_before:
+                    for candidate in oa_affiliations:
+                        if candidate.casefold() == cleaned_before.casefold():
+                            oa_affiliation = candidate
+                            break
+                # Keep any existing non-empty affiliation; this backfill is additive by default.
+                if cleaned_before:
+                    new_affiliation = cleaned_before
+                else:
+                    new_affiliation = oa_affiliation
+                    changed_by_openalex = True
 
         if new_affiliation != before:
             local["affiliation"] = new_affiliation
@@ -407,8 +469,10 @@ def _update_manifest_version(manifest_path: Path) -> str:
     payload = _load_json(manifest_path)
     today = _dt.date.today().isoformat()
     data_version = f"{today}-papers-openalex-affiliations-v1"
+    if str(payload.get("dataVersion", "")) == data_version:
+        return data_version
     payload["dataVersion"] = data_version
-    _save_json(manifest_path, payload)
+    _save_json_if_changed(manifest_path, payload)
     return data_version
 
 
@@ -423,7 +487,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--cache-dir",
-        default="/Users/britton/Desktop/library/papers/.cache/openalex",
+        default="papers/.cache/openalex",
         help="Directory of cached OpenAlex responses.",
     )
     parser.add_argument(
@@ -480,9 +544,11 @@ def main() -> int:
 
     print(f"OpenAlex works available total: {len(works_by_id)}")
 
+    any_bundle_changed = False
     for path, payload in bundle_payloads:
         stats = _apply_affiliations_to_bundle(payload, works_by_id)
-        _save_json(path, payload)
+        bundle_changed = _save_json_if_changed(path, payload)
+        any_bundle_changed = any_bundle_changed or bundle_changed
         print(
             "Updated bundle: "
             f"{path} | papers_total={stats['papers_total']} "
@@ -493,16 +559,19 @@ def main() -> int:
             f"authors_matched={stats['authors_matched']} "
             f"authors_openalex_applied={stats['authors_openalex_applied']} "
             f"authors_cleaned_only={stats['authors_cleaned_only']} "
-            f"fields_changed={stats['fields_changed']}",
+            f"fields_changed={stats['fields_changed']} "
+            f"file_changed={'yes' if bundle_changed else 'no'}",
             flush=True,
         )
 
-    if args.manifest:
+    if args.manifest and any_bundle_changed:
         manifest_path = Path(args.manifest).resolve()
         if not manifest_path.exists():
             raise SystemExit(f"Missing manifest file: {manifest_path}")
         data_version = _update_manifest_version(manifest_path)
         print(f"Updated manifest dataVersion: {data_version}")
+    elif args.manifest:
+        print("Skipped manifest dataVersion update (no bundle content changes)")
 
     return 0
 

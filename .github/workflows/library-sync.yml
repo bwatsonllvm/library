@@ -48,6 +48,16 @@ jobs:
             --per-page 200 \
             --mailto "llvm-library-bot@users.noreply.github.com"
 
+      - name: Backfill paper affiliations from OpenAlex
+        run: |
+          python3 scripts/backfill-openalex-affiliations.py \
+            --bundle papers/combined-all-papers-deduped.json \
+            --bundle papers/openalex-discovered.json \
+            --cache-dir papers/.cache/openalex \
+            --manifest papers/index.json \
+            --batch-size 40 \
+            --mailto "llvm-library-bot@users.noreply.github.com"
+
       - name: Build updates log
         run: |
           python3 scripts/build-update-log.py \
@@ -68,6 +78,7 @@ jobs:
             Automated weekly sync:
             - adds/updates talks/slides/videos from `llvm-www/devmtg`
             - refreshes OpenAlex-discovered papers
+            - backfills paper author affiliations from OpenAlex
             - records newly added items in `devmtg/updates/index.json`
             - updates corresponding manifests/data versions
           labels: automation,data-update
