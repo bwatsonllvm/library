@@ -621,6 +621,58 @@ function resolveContentUrl(rawUrl, baseUrl, { allowData = false } = {}) {
   }
 }
 
+function appendClassName(el, className) {
+  if (!el || !className) return;
+  const existing = String(el.getAttribute('class') || '').trim();
+  if (!existing) {
+    el.setAttribute('class', className);
+    return;
+  }
+  const classes = new Set(existing.split(/\s+/).filter(Boolean));
+  classes.add(className);
+  el.setAttribute('class', [...classes].join(' '));
+}
+
+function applyLegacyStyleSemantics(el, styleValue) {
+  const style = String(styleValue || '').toLowerCase();
+  if (!style) return;
+  const tag = String(el.tagName || '').toLowerCase();
+  const monospace = /(monospace|courier|menlo|monaco|consolas|sfmono|ui-monospace)/.test(style);
+  const preformatted = /white-space\s*:\s*(pre|pre-wrap|pre-line)/.test(style);
+  const blockCode = /display\s*:\s*block\b/.test(style);
+  const hasCodeSurface = /background(?:-color)?\s*:/.test(style);
+
+  if (monospace) appendClassName(el, 'blog-inline-mono');
+  if (preformatted) appendClassName(el, 'blog-preformatted');
+  if (blockCode && (tag === 'code' || tag === 'span' || tag === 'div')) appendClassName(el, 'blog-code-block-inline');
+  if (hasCodeSurface && (tag === 'code' || tag === 'pre' || monospace)) appendClassName(el, 'blog-code-surface');
+}
+
+function normalizeLegacyCodeMarkup(fragmentRoot) {
+  if (!fragmentRoot || typeof fragmentRoot.querySelectorAll !== 'function') return;
+
+  fragmentRoot.querySelectorAll('pre').forEach((pre) => appendClassName(pre, 'blog-code-block'));
+  fragmentRoot.querySelectorAll('pre > code').forEach((code) => appendClassName(code, 'blog-code'));
+
+  fragmentRoot.querySelectorAll('code').forEach((code) => {
+    if (code.closest('pre')) return;
+    const hasLineBreak = /\n/.test(code.textContent || '') || !!code.querySelector('br');
+    const wantsBlock = hasLineBreak
+      || code.classList.contains('blog-preformatted')
+      || code.classList.contains('blog-code-block-inline');
+    if (!wantsBlock) return;
+
+    const pre = document.createElement('pre');
+    appendClassName(pre, 'blog-code-block');
+    if (code.classList.contains('blog-code-surface')) appendClassName(pre, 'blog-code-surface');
+
+    const nextCode = code.cloneNode(true);
+    appendClassName(nextCode, 'blog-code');
+    pre.appendChild(nextCode);
+    code.replaceWith(pre);
+  });
+}
+
 function sanitizeHtmlFragment(rawHtml, baseUrl) {
   const template = document.createElement('template');
   template.innerHTML = String(rawHtml || '');
@@ -640,6 +692,7 @@ function sanitizeHtmlFragment(rawHtml, baseUrl) {
       }
 
       if (name === 'style') {
+        applyLegacyStyleSemantics(el, value);
         el.removeAttribute(attr.name);
         continue;
       }
@@ -671,12 +724,51 @@ function sanitizeHtmlFragment(rawHtml, baseUrl) {
     }
   });
 
+  normalizeLegacyCodeMarkup(template.content);
   return template.innerHTML;
+}
+
+function preserveInlineHtmlPlaceholders(text) {
+  const placeholders = [];
+  const inlineTagRe = /<\/?(mark|kbd|samp|sub|sup|br|em|strong|tt|ins|del)\b[^>]*>/gi;
+  const sanitizeInlineTag = (rawTag) => {
+    const match = String(rawTag || '').match(/^<\s*(\/?)\s*([a-z0-9-]+)\b[^>]*>$/i);
+    if (!match) return '';
+    const isClosing = !!match[1];
+    const tag = String(match[2] || '').toLowerCase();
+    if (!tag) return '';
+
+    if (isClosing) {
+      if (tag === 'br') return '';
+      return `</${tag}>`;
+    }
+
+    if (tag === 'br') return '<br>';
+    return `<${tag}>`;
+  };
+
+  const tokenizedText = String(text || '').replace(inlineTagRe, (rawTag) => {
+    const sanitizedTag = sanitizeInlineTag(rawTag);
+    if (!sanitizedTag) return '';
+    const placeholder = `@@BLOGHTMLTAG${placeholders.length}@@`;
+    placeholders.push({ placeholder, html: sanitizedTag });
+    return placeholder;
+  });
+  return { tokenizedText, placeholders };
+}
+
+function restoreInlineHtmlPlaceholders(text, placeholders) {
+  let output = String(text || '');
+  for (const entry of placeholders || []) {
+    output = output.split(entry.placeholder).join(entry.html);
+  }
+  return output;
 }
 
 function formatInlineMarkdown(text, baseUrl) {
   if (!text) return '';
-  let html = escapeHtml(text);
+  const { tokenizedText, placeholders } = preserveInlineHtmlPlaceholders(text);
+  let html = escapeHtml(tokenizedText);
 
   html = html.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (_, alt, url, title) => {
     const safeUrl = resolveContentUrl(url, baseUrl, { allowData: true });
@@ -700,7 +792,7 @@ function formatInlineMarkdown(text, baseUrl) {
   html = html.replace(/_([^_]+)_/g, '<em>$1</em>');
   html = html.replace(/~~([^~]+)~~/g, '<del>$1</del>');
 
-  return html;
+  return restoreInlineHtmlPlaceholders(html, placeholders);
 }
 
 function renderMarkdownToHtml(markdownText, baseUrl) {
@@ -709,9 +801,10 @@ function renderMarkdownToHtml(markdownText, baseUrl) {
   let paragraph = [];
   let listType = '';
   let listItems = [];
-  let codeFence = '';
+  let codeFenceMarker = '';
+  let codeFenceLanguage = '';
   let codeLines = [];
-  const htmlTagRe = /<\/?(a|p|div|span|img|h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|pre|code|br|hr)\b/i;
+  const htmlTagRe = /<\/?(a|p|div|span|img|h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|pre|code|br|hr|details|summary|figure|figcaption|mark|kbd|samp)\b/i;
 
   const flushParagraph = () => {
     if (!paragraph.length) return;
@@ -732,11 +825,12 @@ function renderMarkdownToHtml(markdownText, baseUrl) {
   };
 
   const flushCode = () => {
-    if (!codeFence) return;
-    const language = codeFence.replace(/[^a-z0-9_-]/gi, '').toLowerCase();
+    if (!codeFenceMarker) return;
+    const language = codeFenceLanguage.replace(/[^a-z0-9_+-]/gi, '').toLowerCase();
     const classAttr = language ? ` class="language-${escapeHtml(language)}"` : '';
     out.push(`<pre><code${classAttr}>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
-    codeFence = '';
+    codeFenceMarker = '';
+    codeFenceLanguage = '';
     codeLines = [];
   };
 
@@ -744,20 +838,25 @@ function renderMarkdownToHtml(markdownText, baseUrl) {
     const line = rawLine || '';
     const trimmed = line.trim();
 
-    const fenceMatch = trimmed.match(/^```([A-Za-z0-9_-]*)\s*$/);
+    const fenceMatch = trimmed.match(/^(```|~~~)\s*([A-Za-z0-9_+-]*)\s*$/);
     if (fenceMatch) {
-      if (codeFence) {
-        flushCode();
+      if (codeFenceMarker) {
+        if (fenceMatch[1] === codeFenceMarker) {
+          flushCode();
+        } else {
+          codeLines.push(line);
+        }
       } else {
         flushParagraph();
         flushList();
-        codeFence = fenceMatch[1] || '';
+        codeFenceMarker = fenceMatch[1] || '';
+        codeFenceLanguage = fenceMatch[2] || '';
         codeLines = [];
       }
       continue;
     }
 
-    if (codeFence) {
+    if (codeFenceMarker) {
       codeLines.push(line);
       continue;
     }
@@ -836,11 +935,6 @@ function renderBlogContent(paper) {
   const baseUrl = paper.sourceUrl || paper.paperUrl || window.location.href;
 
   if (format === 'html') {
-    return sanitizeHtmlFragment(body, baseUrl);
-  }
-
-  // Some migrated markdown posts include inline HTML blocks.
-  if (/<\/?(a|p|div|span|img|h[1-6]|ul|ol|li|blockquote|table|thead|tbody|tr|td|th|pre|code|br|hr)\b/i.test(body)) {
     return sanitizeHtmlFragment(body, baseUrl);
   }
 
