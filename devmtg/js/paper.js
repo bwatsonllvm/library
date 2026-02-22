@@ -158,6 +158,28 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+function setIssueContext(context) {
+  if (typeof window.setLibraryIssueContext !== 'function') return;
+  if (!context || typeof context !== 'object') return;
+  window.setLibraryIssueContext(context);
+}
+
+function setIssueContextForPaper(paper) {
+  if (!paper || typeof paper !== 'object') return;
+  setIssueContext({
+    pageType: 'Paper',
+    itemType: 'Paper',
+    itemId: String(paper.id || '').trim(),
+    itemTitle: String(paper.title || '').trim(),
+    pageTitle: `${String(paper.title || '').trim()} — LLVM Research Library`,
+    year: String(paper._year || '').trim(),
+    paperUrl: String(paper.paperUrl || '').trim(),
+    sourceUrl: String(paper.sourceUrl || '').trim(),
+    doi: String(paper.doi || '').trim(),
+    openalexId: String(paper.openalexId || '').trim(),
+  });
+}
+
 function normalizePaperType(type) {
   const raw = String(type || '').trim().toLowerCase();
   if (!raw) return 'Paper';
@@ -980,6 +1002,11 @@ async function init() {
 
   const params = new URLSearchParams(window.location.search);
   const paperId = params.get('id');
+  setIssueContext({
+    pageType: 'Paper',
+    itemType: 'Paper',
+    itemId: String(paperId || '').trim(),
+  });
   const allPapers = await loadPapers();
 
   if (!allPapers) {
@@ -998,6 +1025,10 @@ async function init() {
 
   if (!paperId) {
     renderNotFound(null);
+    setIssueContext({
+      itemTitle: 'Missing paper ID',
+      issueTitle: '[Paper] Missing paper ID',
+    });
     initShareMenu();
     return;
   }
@@ -1005,12 +1036,17 @@ async function init() {
   const paper = allPapers.find((candidate) => candidate.id === paperId);
   if (!paper) {
     renderNotFound(paperId);
+    setIssueContext({
+      itemTitle: `Unknown paper ID: ${paperId}`,
+      issueTitle: `[Paper] Unknown paper ID: ${paperId}`,
+    });
     initShareMenu();
     return;
   }
 
   document.title = `${paper.title} — LLVM Research Library`;
   updatePaperSeoMetadata(paper);
+  setIssueContextForPaper(paper);
   renderPaperDetail(paper, allPapers);
   initShareMenu();
 }

@@ -43,6 +43,12 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+function setIssueContext(context) {
+  if (typeof window.setLibraryIssueContext !== 'function') return;
+  if (!context || typeof context !== 'object') return;
+  window.setLibraryIssueContext(context);
+}
+
 function normalizeValue(value) {
   return String(value || '').trim().toLowerCase();
 }
@@ -234,6 +240,21 @@ function parseStateFromUrl() {
   state.query = isSearchMode ? queryParam : '';
   state.value = isSearchMode ? '' : String(valueParam || queryParam || '').trim();
   state.from = from;
+}
+
+function updateIssueContextForWork() {
+  const isSearch = state.mode === 'search';
+  const itemType = isSearch
+    ? 'Search'
+    : (state.kind === 'speaker' ? 'Person' : 'Topic');
+  const itemTitle = isSearch ? state.query : state.value;
+
+  setIssueContext({
+    pageType: 'Work',
+    itemType,
+    itemTitle,
+    query: state.query,
+  });
 }
 
 function syncGlobalSearchInput() {
@@ -1068,6 +1089,7 @@ async function init() {
   initShareMenu();
   initWorkHeroSearch();
   parseStateFromUrl();
+  updateIssueContextForWork();
   syncGlobalSearchInput();
 
   if (state.mode === 'search' && !state.query) {

@@ -40,6 +40,28 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+function setIssueContext(context) {
+  if (typeof window.setLibraryIssueContext !== 'function') return;
+  if (!context || typeof context !== 'object') return;
+  window.setLibraryIssueContext(context);
+}
+
+function setIssueContextForTalk(talk) {
+  if (!talk || typeof talk !== 'object') return;
+  setIssueContext({
+    pageType: 'Talk',
+    itemType: 'Talk',
+    itemId: String(talk.id || '').trim(),
+    itemTitle: String(talk.title || '').trim(),
+    pageTitle: `${String(talk.title || '').trim()} — LLVM Research Library`,
+    meeting: String(talk.meeting || '').trim(),
+    meetingName: String(talk.meetingName || '').trim(),
+    slidesUrl: String(talk.slidesUrl || '').trim(),
+    videoUrl: String(talk.videoUrl || '').trim(),
+    sourceUrl: String(talk.sourceUrl || '').trim(),
+  });
+}
+
 const CATEGORY_META = {
   'keynote':        'Keynote',
   'technical-talk': 'Technical Talk',
@@ -906,6 +928,11 @@ async function init() {
 
   const params = new URLSearchParams(window.location.search);
   const talkId = params.get('id');
+  setIssueContext({
+    pageType: 'Talk',
+    itemType: 'Talk',
+    itemId: String(talkId || '').trim(),
+  });
 
   const allTalks = await loadTalks();
 
@@ -925,6 +952,10 @@ async function init() {
 
   if (!talkId) {
     renderNotFound(null);
+    setIssueContext({
+      itemTitle: 'Missing talk ID',
+      issueTitle: '[Talk] Missing talk ID',
+    });
     initShareMenu();
     return;
   }
@@ -932,6 +963,10 @@ async function init() {
   const talk = allTalks.find(t => t.id === talkId);
   if (!talk) {
     renderNotFound(talkId);
+    setIssueContext({
+      itemTitle: `Unknown talk ID: ${talkId}`,
+      issueTitle: `[Talk] Unknown talk ID: ${talkId}`,
+    });
     initShareMenu();
     return;
   }
@@ -939,6 +974,7 @@ async function init() {
   // Update page title
   document.title = `${talk.title} — LLVM Research Library`;
   updateTalkSeoMetadata(talk);
+  setIssueContextForTalk(talk);
 
   renderTalkDetail(talk, allTalks);
   initShareMenu();
