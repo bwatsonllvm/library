@@ -3,6 +3,13 @@
  */
 
 const UPDATE_LOG_PATH = 'updates/index.json';
+const INITIAL_RENDER_BATCH_SIZE = 60;
+const RENDER_BATCH_SIZE = 40;
+const LOAD_MORE_ROOT_MARGIN = '900px 0px';
+let activeRenderEntries = [];
+let renderedCount = 0;
+let loadMoreObserver = null;
+let loadMoreScrollHandler = null;
 
 function escapeHtml(value) {
   return String(value || '')
@@ -28,6 +35,17 @@ function formatLoggedAt(value) {
     hour: '2-digit',
     minute: '2-digit',
   }).format(parsed);
+}
+
+function parseLoggedAtTimestamp(entry) {
+  if (!entry || typeof entry !== 'object') return Number.NEGATIVE_INFINITY;
+  const parsed = Date.parse(collapseWs(entry.loggedAt));
+  return Number.isFinite(parsed) ? parsed : Number.NEGATIVE_INFINITY;
+}
+
+function sortEntriesMostRecent(entries) {
+  if (!Array.isArray(entries)) return [];
+  return [...entries].sort((left, right) => parseLoggedAtTimestamp(right) - parseLoggedAtTimestamp(left));
 }
 
 function formatParts(parts) {
@@ -111,7 +129,7 @@ async function loadUpdateLog() {
   if (!payload || typeof payload !== 'object') {
     throw new Error(`${UPDATE_LOG_PATH}: expected JSON object`);
   }
-  const entries = Array.isArray(payload.entries) ? payload.entries : [];
+  const entries = sortEntriesMostRecent(payload.entries);
   return {
     generatedAt: collapseWs(payload.generatedAt),
     entries,
@@ -130,17 +148,152 @@ function updateSubtitle(entries, generatedAt) {
   subtitle.textContent = `${count.toLocaleString()} update entr${count === 1 ? 'y' : 'ies'}${generatedLabel}`;
 }
 
+function teardownInfiniteLoader() {
+  if (loadMoreObserver) {
+    loadMoreObserver.disconnect();
+    loadMoreObserver = null;
+  }
+
+  if (loadMoreScrollHandler) {
+    window.removeEventListener('scroll', loadMoreScrollHandler);
+    window.removeEventListener('resize', loadMoreScrollHandler);
+    loadMoreScrollHandler = null;
+  }
+
+  const sentinel = document.getElementById('updates-load-sentinel');
+  if (sentinel) sentinel.remove();
+}
+
+function ensureLoadMoreSentinel(root) {
+  let sentinel = document.getElementById('updates-load-sentinel');
+  if (!sentinel) {
+    sentinel = document.createElement('div');
+    sentinel.id = 'updates-load-sentinel';
+    sentinel.setAttribute('aria-hidden', 'true');
+    sentinel.style.width = '100%';
+    sentinel.style.height = '1px';
+    sentinel.style.gridColumn = '1 / -1';
+  }
+  root.appendChild(sentinel);
+  return sentinel;
+}
+
+function setLoadStatus(message) {
+  const root = document.getElementById('updates-root');
+  if (!root) return;
+
+  let status = document.getElementById('updates-load-status');
+  if (!message) {
+    if (status) status.remove();
+    return;
+  }
+
+  if (!status) {
+    status = document.createElement('p');
+    status.id = 'updates-load-status';
+    status.className = 'updates-load-status';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+  }
+  status.textContent = message;
+  root.appendChild(status);
+}
+
+function appendNextEntriesBatch(forceBatchSize = RENDER_BATCH_SIZE) {
+  const root = document.getElementById('updates-root');
+  if (!root) return;
+
+  if (!activeRenderEntries.length || renderedCount >= activeRenderEntries.length) {
+    teardownInfiniteLoader();
+    if (activeRenderEntries.length) {
+      setLoadStatus(`Loaded all ${activeRenderEntries.length.toLocaleString()} updates.`);
+    } else {
+      setLoadStatus('');
+    }
+    return;
+  }
+
+  const nextCount = Math.min(renderedCount + forceBatchSize, activeRenderEntries.length);
+  const nextHtml = activeRenderEntries
+    .slice(renderedCount, nextCount)
+    .map((entry) => renderEntry(entry))
+    .join('');
+
+  root.insertAdjacentHTML('beforeend', nextHtml);
+  renderedCount = nextCount;
+
+  if (renderedCount >= activeRenderEntries.length) {
+    teardownInfiniteLoader();
+    setLoadStatus(`Loaded all ${activeRenderEntries.length.toLocaleString()} updates.`);
+    return;
+  }
+
+  ensureLoadMoreSentinel(root);
+  setLoadStatus(`Showing ${renderedCount.toLocaleString()} of ${activeRenderEntries.length.toLocaleString()} updates...`);
+}
+
+function setupInfiniteLoader() {
+  const root = document.getElementById('updates-root');
+  if (!root) return;
+
+  teardownInfiniteLoader();
+  if (renderedCount >= activeRenderEntries.length) return;
+
+  const sentinel = ensureLoadMoreSentinel(root);
+
+  if ('IntersectionObserver' in window) {
+    loadMoreObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          appendNextEntriesBatch();
+          break;
+        }
+      }
+    }, { root: null, rootMargin: LOAD_MORE_ROOT_MARGIN, threshold: 0 });
+
+    loadMoreObserver.observe(sentinel);
+    return;
+  }
+
+  loadMoreScrollHandler = () => {
+    const activeSentinel = document.getElementById('updates-load-sentinel');
+    if (!activeSentinel) return;
+    const rect = activeSentinel.getBoundingClientRect();
+    if (rect.top <= window.innerHeight + 900) {
+      appendNextEntriesBatch();
+    }
+  };
+
+  window.addEventListener('scroll', loadMoreScrollHandler, { passive: true });
+  window.addEventListener('resize', loadMoreScrollHandler);
+  loadMoreScrollHandler();
+}
+
 function renderEntries(entries) {
   const root = document.getElementById('updates-root');
   if (!root) return;
+
+  teardownInfiniteLoader();
+  activeRenderEntries = [];
+  renderedCount = 0;
+
   if (!entries.length) {
+    setLoadStatus('');
     root.innerHTML = '<section class="updates-empty"><h2>No updates yet</h2><p>Newly added talks, slides, videos, and papers will appear here after sync runs.</p></section>';
     return;
   }
-  root.innerHTML = entries.map((entry) => renderEntry(entry)).join('');
+
+  activeRenderEntries = entries;
+  root.innerHTML = '';
+  appendNextEntriesBatch(INITIAL_RENDER_BATCH_SIZE);
+  setupInfiniteLoader();
 }
 
 function showError(message) {
+  teardownInfiniteLoader();
+  activeRenderEntries = [];
+  renderedCount = 0;
+  setLoadStatus('');
   const root = document.getElementById('updates-root');
   if (!root) return;
   root.innerHTML = `<section class="updates-empty"><h2>Could not load updates</h2><p>${escapeHtml(message)}</p></section>`;
