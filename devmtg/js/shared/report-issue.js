@@ -143,13 +143,75 @@
     params.set(key, bounded);
   }
 
-  function applyIssueButtonHref() {
-    const buttons = document.querySelectorAll('#report-issue-btn');
-    if (!buttons.length) return;
+  function buildIssueButtonLabel(context) {
+    const itemType = resolveIssueItemType(context);
+    if (itemType === 'Talk') return 'Report issue with this talk';
+    if (itemType === 'Paper') return 'Report issue with this paper';
+    if (itemType === 'Person') return 'Report issue with this person';
+    return 'Report issue';
+  }
 
-    const context = (window.LLVM_LIBRARY_ISSUE_CONTEXT && typeof window.LLVM_LIBRARY_ISSUE_CONTEXT === 'object')
-      ? window.LLVM_LIBRARY_ISSUE_CONTEXT
-      : {};
+  function createIssueButton(context) {
+    const issueButton = document.createElement('a');
+    issueButton.href = ISSUE_BASE_URL;
+    issueButton.className = 'link-btn';
+    issueButton.id = 'report-issue-btn';
+    issueButton.setAttribute('data-report-issue-inline', 'true');
+    issueButton.setAttribute('aria-label', `${buildIssueButtonLabel(context)} (opens in new tab)`);
+    issueButton.innerHTML = [
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">',
+      '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+      '<line x1="12" y1="7" x2="12" y2="13"/>',
+      '<line x1="12" y1="17" x2="12.01" y2="17"/>',
+      '</svg>',
+      buildIssueButtonLabel(context),
+    ].join('');
+    return issueButton;
+  }
+
+  function isDetailPage() {
+    return Boolean(document.getElementById('talk-detail-root') || document.getElementById('paper-detail-root'));
+  }
+
+  function ensureInlineIssueButtonPlacement(context) {
+    const legacyHeaderButtons = Array.from(
+      document.querySelectorAll('.site-header #report-issue-btn, .header-right #report-issue-btn')
+    );
+
+    // Keep issue links out of header-level controls.
+    for (const legacyButton of legacyHeaderButtons) {
+      legacyButton.remove();
+    }
+
+    if (!isDetailPage()) return;
+
+    const detailCard = document.querySelector('#talk-detail-root .talk-detail, #paper-detail-root .talk-detail');
+    if (!detailCard) return;
+
+    let linksBar = detailCard.querySelector('.links-bar');
+    if (!linksBar) {
+      linksBar = document.createElement('div');
+      linksBar.className = 'links-bar';
+      linksBar.setAttribute('aria-label', 'Resources');
+      const abstractSection = detailCard.querySelector('.abstract-section');
+      if (abstractSection && abstractSection.parentNode === detailCard) {
+        detailCard.insertBefore(linksBar, abstractSection);
+      } else {
+        detailCard.appendChild(linksBar);
+      }
+    }
+
+    const inlineButton = linksBar.querySelector('#report-issue-btn');
+    if (inlineButton) {
+      inlineButton.setAttribute('data-report-issue-inline', 'true');
+      return;
+    }
+
+    linksBar.appendChild(createIssueButton(context));
+  }
+
+  function buildIssueHref(contextInput) {
+    const context = (contextInput && typeof contextInput === 'object') ? contextInput : {};
     const publicUrl = normalizeText(context.pageUrl) || toPublicUrl(window.location.href);
     const itemType = resolveIssueItemType(context);
     const requestType = resolveRequestType(context, itemType);
@@ -176,14 +238,31 @@
     setParamIfPresent(params, 'openalex', context.openalexId, 200);
     setParamIfPresent(params, 'details', details, 1000);
     setParamIfPresent(params, 'references', references, 2000);
+    return `${ISSUE_BASE_URL}?${params.toString()}`;
+  }
 
-    const href = `${ISSUE_BASE_URL}?${params.toString()}`;
+  function applyIssueButtonHref() {
+    const context = (window.LLVM_LIBRARY_ISSUE_CONTEXT && typeof window.LLVM_LIBRARY_ISSUE_CONTEXT === 'object')
+      ? window.LLVM_LIBRARY_ISSUE_CONTEXT
+      : {};
+
+    ensureInlineIssueButtonPlacement(context);
+
+    const buttons = document.querySelectorAll('#report-issue-btn');
+    if (!buttons.length) return;
+
+    const href = buildIssueHref(context);
     for (const issueButton of buttons) {
       issueButton.href = href;
+      issueButton.setAttribute('aria-label', `${buildIssueButtonLabel(context)} (opens in new tab)`);
       issueButton.setAttribute('target', '_blank');
       issueButton.setAttribute('rel', 'noopener noreferrer');
     }
   }
+
+  window.buildLibraryIssueHref = function buildLibraryIssueHref(context) {
+    return buildIssueHref(context);
+  };
 
   window.setLibraryIssueContext = function setLibraryIssueContext(nextContext) {
     if (!nextContext || typeof nextContext !== 'object') return;
@@ -200,4 +279,17 @@
     pageTitle: normalizeText(document.title) || 'LLVM Research Library',
     pageUrl: toPublicUrl(window.location.href),
   });
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyIssueButtonHref, { once: true });
+  } else {
+    applyIssueButtonHref();
+  }
+
+  if (window.MutationObserver && document.body) {
+    const observer = new MutationObserver(() => {
+      applyIssueButtonHref();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 })();

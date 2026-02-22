@@ -7,6 +7,9 @@ const PEOPLE_SORT_MODES = new Set(['works', 'citations', 'alpha', 'alpha-desc'])
 const INITIAL_RENDER_BATCH_SIZE = 60;
 const RENDER_BATCH_SIZE = 40;
 const LOAD_MORE_ROOT_MARGIN = '900px 0px';
+const PUBLIC_SITE_BASE_URL = 'https://bwatsonllvm.github.io/library/';
+const ISSUE_BASE_URL = 'https://github.com/bwatsonllvm/library/issues/new';
+const ISSUE_DEFAULT_DETAILS = 'Describe what should be corrected or added.';
 
 const state = {
   query: '',
@@ -123,6 +126,38 @@ function getPersonSearchBlob(person) {
     person.name,
     ...(person.variantNames || []),
   ].join(' ').toLowerCase();
+}
+
+function buildPersonIssueUrl(person) {
+  const name = String((person && person.name) || '').trim();
+  const publicUrl = `${PUBLIC_SITE_BASE_URL}people.html${name ? `?q=${encodeURIComponent(name)}` : ''}`;
+  const context = {
+    pageType: 'Person',
+    itemType: 'Person',
+    pageTitle: 'People - LLVM Research Library',
+    pageUrl: publicUrl,
+    itemTitle: name,
+    query: name,
+    issueTitle: name ? `[Person] ${name}` : '[Person] Profile update',
+    details: ISSUE_DEFAULT_DETAILS,
+  };
+
+  if (typeof window.buildLibraryIssueHref === 'function') {
+    return window.buildLibraryIssueHref(context);
+  }
+
+  const params = new URLSearchParams();
+  params.set('template', 'record-update.yml');
+  params.set('title', context.issueTitle);
+  params.set('request_type', 'Correct person attribution');
+  params.set('public_url', publicUrl);
+  params.set('item_type', 'Person');
+  if (name) {
+    params.set('item_title', name);
+    params.set('query', name);
+  }
+  params.set('details', ISSUE_DEFAULT_DETAILS);
+  return `${ISSUE_BASE_URL}?${params.toString()}`;
 }
 
 function getTalkSearchBlob(talk) {
@@ -546,6 +581,9 @@ function renderPersonCard(person, tokens) {
   const allWorkLink = `<a class="card-link-btn card-link-btn--video" href="work.html?mode=search&q=${encodeURIComponent(person.name)}" aria-label="Search all work for ${escapeHtml(person.name)}">
       <span aria-hidden="true">All Work</span>
     </a>`;
+  const reportIssueLink = `<a class="card-link-btn" href="${escapeHtml(buildPersonIssueUrl(person))}" target="_blank" rel="noopener noreferrer" aria-label="Report an issue for ${escapeHtml(person.name)} (opens in new tab)">
+      <span aria-hidden="true">Report issue</span>
+    </a>`;
 
   return `
     <article class="talk-card person-card">
@@ -563,6 +601,7 @@ function renderPersonCard(person, tokens) {
         ${talksLink}
         ${papersLink}
         ${allWorkLink}
+        ${reportIssueLink}
       </div>
     </article>`;
 }
