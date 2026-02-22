@@ -1,5 +1,5 @@
 /**
- * talk.js — Talk detail page logic for LLVM Developers' Meeting Library
+ * talk.js — Talk detail page logic for LLVM Research Library
  */
 
 // ============================================================
@@ -164,7 +164,7 @@ function updateTalkSeoMetadata(talk) {
   upsertMetaTag('name', 'description', description);
 
   upsertMetaTag('property', 'og:type', talk.videoUrl ? 'video.other' : 'article');
-  upsertMetaTag('property', 'og:site_name', "LLVM Developers' Meeting Library");
+  upsertMetaTag('property', 'og:site_name', "LLVM Research Library");
   upsertMetaTag('property', 'og:title', talk.title);
   upsertMetaTag('property', 'og:description', description);
   upsertMetaTag('property', 'og:url', canonicalUrl);
@@ -265,7 +265,7 @@ function initShareMenu() {
   if (!menu || !toggle || !panel || !copyBtn || !emailLink || !xLink || !linkedInLink) return;
 
   const shareUrl = window.location.href;
-  const shareTitle = document.title || "LLVM Developers' Meeting Library";
+  const shareTitle = document.title || "LLVM Research Library";
   const defaultLabel = toggle.textContent.trim() || 'Share';
   let resetTimer = null;
 
@@ -937,7 +937,7 @@ async function init() {
   }
 
   // Update page title
-  document.title = `${talk.title} — LLVM Developers' Meeting Library`;
+  document.title = `${talk.title} — LLVM Research Library`;
   updateTalkSeoMetadata(talk);
 
   renderTalkDetail(talk, allTalks);

@@ -1,8 +1,8 @@
-# LLVM Developers' Meeting Library
+# LLVM Research Library
 
 Public site: https://llvm.org/devmtg/
 
-This repository contains the data and static web assets for the LLVM Developers' Meeting Library.
+This repository contains the data and static web assets for the LLVM Research Library.
 
 ## What This Library Is
 

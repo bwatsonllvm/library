@@ -48,6 +48,20 @@
       align-items: center;
     }
 
+    .home-title {
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .home-title-logo {
+      width: clamp(28px, 3vw, 40px);
+      height: auto;
+      flex: 0 0 auto;
+    }
+
     .home-hero-search.global-search-form {
       display: block !important;
       width: min(760px, 100%) !important;
@@ -108,7 +122,7 @@
       color: var(--color-text);
     }
   </style>
-  <title>LLVM Developers' Meeting Library</title>
+  <title>LLVM Research Library</title>
   <meta name="description" content="A unified research index for LLVM talks, papers, meetings, and people.">
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
@@ -122,9 +136,9 @@
   </nav>
 
   <header class="site-header">
-    <a href="index.html" class="site-logo" aria-label="LLVM Developers' Meeting Library home">
+    <a href="index.html" class="site-logo" aria-label="LLVM Research Library home">
       <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
-      <span>LLVM Developers' Meeting Library</span>
+      <span>LLVM Research Library</span>
     </a>
 
     <nav class="site-nav" aria-label="Main navigation">
@@ -212,7 +226,10 @@
 
   <section class="search-hero search-hero--compact" aria-label="Home">
     <div class="search-hero-shell home-hero-shell">
-      <h1>LLVM Developers' Meeting Library</h1>
+      <h1 class="home-title">
+        <img src="images/llvm-logo.png" alt="" aria-hidden="true" class="home-title-logo">
+        LLVM Research Library
+      </h1>
       <p class="subtitle">A unified research index for LLVM talks, papers, meetings, and people.</p>
       <form class="search-box global-search-form home-hero-search" action="work.html" method="get" role="search" aria-label="Search talks, papers, and people">
         <input type="hidden" name="mode" value="search">
@@ -254,6 +271,6 @@
 
   <script src="js/shared/library-utils.js?v=20260221-25"></script>
   <script src="js/shared/global-search.js?v=20260221-22"></script>
-  <script src="js/home.js?v=20260221-01"></script>
+  <script src="js/home.js?v=20260222-01"></script>
 </body>
 </html>

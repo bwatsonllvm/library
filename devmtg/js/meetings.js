@@ -1,5 +1,5 @@
 /**
- * meetings.js — Meetings grid page for LLVM Developers' Meeting Library
+ * meetings.js — Meetings grid page for LLVM Research Library
  */
 
 const HubUtils = window.LLVMHubUtils || {};
@@ -129,7 +129,7 @@ function initShareMenu() {
   if (!menu || !toggle || !panel || !copyBtn || !emailLink || !xLink || !linkedInLink) return;
 
   const shareUrl = window.location.href;
-  const shareTitle = document.title || "LLVM Developers' Meeting Library";
+  const shareTitle = document.title || "LLVM Research Library";
   const defaultLabel = toggle.textContent.trim() || 'Share';
   let resetTimer = null;
 

@@ -1,5 +1,5 @@
 /**
- * app.js — Main search, filter, and card rendering for LLVM Developers' Meeting Library
+ * app.js — Main search, filter, and card rendering for LLVM Research Library
  */
 
 // ============================================================
@@ -1708,7 +1708,7 @@ function initShareMenu() {
   if (!menu || !toggle || !panel || !copyBtn || !emailLink || !xLink || !linkedInLink) return;
 
   const shareUrl = window.location.href;
-  const shareTitle = document.title || "LLVM Developers' Meeting Library";
+  const shareTitle = document.title || "LLVM Research Library";
   const defaultLabel = toggle.textContent.trim() || 'Share';
   let resetTimer = null;
 

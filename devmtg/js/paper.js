@@ -1,5 +1,5 @@
 /**
- * paper.js — Paper detail page logic for LLVM Developers' Meeting Library
+ * paper.js — Paper detail page logic for LLVM Research Library
  */
 
 const HubUtils = window.LLVMHubUtils || {};
@@ -363,7 +363,7 @@ function updatePaperSeoMetadata(paper) {
   upsertMetaTag('name', 'description', description);
 
   upsertMetaTag('property', 'og:type', 'article');
-  upsertMetaTag('property', 'og:site_name', "LLVM Developers' Meeting Library");
+  upsertMetaTag('property', 'og:site_name', "LLVM Research Library");
   upsertMetaTag('property', 'og:title', paper.title);
   upsertMetaTag('property', 'og:description', description);
   upsertMetaTag('property', 'og:url', canonicalUrl);
@@ -462,7 +462,7 @@ function initShareMenu() {
   if (!menu || !toggle || !panel || !copyBtn || !emailLink || !xLink || !linkedInLink) return;
 
   const shareUrl = window.location.href;
-  const shareTitle = document.title || "LLVM Developers' Meeting Library";
+  const shareTitle = document.title || "LLVM Research Library";
   const defaultLabel = toggle.textContent.trim() || 'Share';
   let resetTimer = null;
 
@@ -1009,7 +1009,7 @@ async function init() {
     return;
   }
 
-  document.title = `${paper.title} — LLVM Developers' Meeting Library`;
+  document.title = `${paper.title} — LLVM Research Library`;
   updatePaperSeoMetadata(paper);
   renderPaperDetail(paper, allPapers);
   initShareMenu();
