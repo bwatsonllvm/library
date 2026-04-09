@@ -267,26 +267,392 @@ def clean_abstract_text(raw: str, title: str = "", speakers: list[dict] | None =
     return text
 
 
-def parse_speakers(raw: str) -> list[dict]:
+def build_speaker_record(name: str, affiliation: str = "") -> dict:
+    return {
+        "name": collapse_ws(name),
+        "affiliation": collapse_ws(affiliation),
+        "github": "",
+        "linkedin": "",
+        "twitter": "",
+    }
+
+
+def split_speaker_names(raw: str) -> list[str]:
     clean = collapse_ws(raw)
     if not clean or clean in {"-", "—"}:
         return []
 
-    parts = [collapse_ws(piece) for piece in clean.split(",")]
+    parts = re.split(r"\s*,\s*|\s+(?:and|&)\s+", clean)
+    out: list[str] = []
+    for part in parts:
+        text = collapse_ws(re.sub(r"^(?:and|&)\s+", "", part, flags=re.IGNORECASE))
+        if text:
+            out.append(text)
+    return out
+
+
+def parse_speaker_token(raw: str, default_affiliation: str = "") -> dict | None:
+    clean = collapse_ws(raw)
+    if not clean:
+        return None
+
+    affiliation = collapse_ws(default_affiliation)
+    name = clean
+
+    paren_match = re.match(r"^(.*?)\s*\(([^()]+)\)\s*$", clean)
+    if paren_match:
+        name = collapse_ws(paren_match.group(1))
+        affiliation = collapse_ws(paren_match.group(2)) or affiliation
+        if not name:
+            return None
+        return build_speaker_record(name, affiliation)
+
+    if not affiliation:
+        shared_match = re.match(r"^(.*?)\s*[-–—]\s*(.+)$", clean)
+        if shared_match and has_meaningful_meta_value(shared_match.group(2)):
+            name = collapse_ws(shared_match.group(1))
+            affiliation = collapse_ws(shared_match.group(2))
+
+    if not name:
+        return None
+    return build_speaker_record(name, affiliation)
+
+
+def parse_speakers(raw: str, default_affiliation: str = "") -> list[dict]:
+    clean = collapse_ws(raw)
+    if not clean or clean in {"-", "—"}:
+        return []
+
+    shared_affiliation = collapse_ws(default_affiliation)
+    if not shared_affiliation:
+        shared_match = re.match(r"^(.*?)\s*[-–—]\s*(.+)$", clean)
+        if shared_match and has_meaningful_meta_value(shared_match.group(2)):
+            clean = collapse_ws(shared_match.group(1))
+            shared_affiliation = collapse_ws(shared_match.group(2))
+
+    parts = split_speaker_names(clean)
+    if not parts and clean:
+        parts = [clean]
+
     out: list[dict] = []
     for part in parts:
-        if not part:
+        speaker = parse_speaker_token(part, default_affiliation=shared_affiliation)
+        if speaker:
+            out.append(speaker)
+    return out
+
+
+def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
+    table_match = re.search(
+        r"<table[^>]*id=['\"]devmtg['\"][^>]*>(.*?)</table>",
+        page_html,
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    if not table_match:
+        return []
+
+    talks: list[dict] = []
+    for row_html in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table_match.group(1), flags=re.IGNORECASE | re.DOTALL):
+        if "<th" in row_html.lower():
+            continue
+
+        cells = re.findall(r"<td\b[^>]*>(.*?)</td>", row_html, flags=re.IGNORECASE | re.DOTALL)
+        if len(cells) < 2:
+            continue
+
+        for idx in range(0, len(cells) - 1, 2):
+            media_cell, info_cell = cells[idx], cells[idx + 1]
+            info_parts = re.split(r"<br\s*/?>", info_cell, maxsplit=1, flags=re.IGNORECASE)
+            header_html = info_parts[0] if info_parts else info_cell
+            speaker_html = info_parts[1] if len(info_parts) > 1 else ""
+
+            title = clean_title(strip_html(header_html))
+            if not title:
+                continue
+
+            anchor_match = re.search(r"href=['\"]#([^'\"]+)['\"]", header_html, flags=re.IGNORECASE)
+            anchor_id = collapse_ws(anchor_match.group(1)) if anchor_match else ""
+
+            category = "technical-talk"
+            if title.lower().startswith("keynote:"):
+                category = "keynote"
+                title = collapse_ws(title.split(":", 1)[1])
+
+            shared_affiliation = " / ".join(
+                collapse_ws(strip_html(value))
+                for value in re.findall(r"<i\b[^>]*>(.*?)</i>", speaker_html, flags=re.IGNORECASE | re.DOTALL)
+                if collapse_ws(strip_html(value))
+            )
+            speaker_text = collapse_ws(
+                strip_html(
+                    re.sub(
+                        r"<i\b[^>]*>.*?</i>",
+                        " ",
+                        speaker_html,
+                        flags=re.IGNORECASE | re.DOTALL,
+                    )
+                )
+            )
+            speaker_text = re.sub(r"\s*,\s*$", "", speaker_text)
+
+            video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+            talks.append(
+                {
+                    "_anchorId": anchor_id,
+                    "title": title,
+                    "category": category,
+                    "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
+                    "abstract": "",
+                    "videoUrl": video_url,
+                    "videoId": parse_video_id(video_url),
+                    "slidesUrl": slides_url,
+                }
+            )
+
+    return talks
+
+
+def parse_legacy_section_entries(
+    page_html: str,
+    meeting_slug: str,
+    *,
+    section_id: str,
+    default_category: str,
+    anchor_prefix: str,
+) -> list[dict]:
+    section_match = re.search(
+        rf"<div[^>]*id=['\"]{re.escape(section_id)}['\"][^>]*>",
+        page_html,
+        flags=re.IGNORECASE,
+    )
+    if not section_match:
+        return []
+
+    section_html = page_html[section_match.end() :]
+    next_section = re.search(
+        r"<div[^>]*class=['\"]www_sectiontitle['\"][^>]*id=['\"][^'\"]+['\"][^>]*>",
+        section_html,
+        flags=re.IGNORECASE,
+    )
+    if next_section:
+        section_html = section_html[: next_section.start()]
+
+    anchor_pattern = re.compile(
+        rf"<a[^>]+id=['\"](?P<anchor>{re.escape(anchor_prefix)}\d+)['\"][^>]*>(?P<title>.*?)(?:</a>|</b>)",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+    anchors = list(anchor_pattern.finditer(section_html))
+    talks: list[dict] = []
+
+    for index, match in enumerate(anchors):
+        block_start = match.start()
+        block_end = anchors[index + 1].start() if index + 1 < len(anchors) else len(section_html)
+        block_html = section_html[block_start:block_end]
+
+        title = clean_title(strip_html(match.group("title")))
+        if not title:
+            continue
+
+        speaker_match = re.search(r"<i\b[^>]*>(.*?)</i>", block_html, flags=re.IGNORECASE | re.DOTALL)
+        speaker_html = speaker_match.group(1) if speaker_match else ""
+        speakers = parse_speakers(strip_html(speaker_html))
+
+        abstract_html = block_html[speaker_match.end() :] if speaker_match else block_html
+        abstract = clean_abstract_text(
+            collapse_ws(strip_html(abstract_html)),
+            title=title,
+            speakers=speakers,
+        )
+
+        video_url, slides_url = parse_links_from_html(block_html, meeting_slug)
+        talks.append(
+            {
+                "_anchorId": collapse_ws(match.group("anchor")),
+                "title": title,
+                "category": "keynote" if title.lower().startswith("keynote:") else default_category,
+                "speakers": speakers,
+                "abstract": abstract,
+                "videoUrl": video_url,
+                "videoId": parse_video_id(video_url),
+                "slidesUrl": slides_url,
+            }
+        )
+
+    return talks
+
+
+def parse_legacy_abstract_sections(page_html: str, meeting_slug: str) -> list[dict]:
+    return parse_legacy_section_entries(
+        page_html,
+        meeting_slug,
+        section_id="abstracts",
+        default_category="technical-talk",
+        anchor_prefix="talk",
+    )
+
+
+def parse_legacy_poster_sections(page_html: str, meeting_slug: str) -> list[dict]:
+    return parse_legacy_section_entries(
+        page_html,
+        meeting_slug,
+        section_id="poster",
+        default_category="poster",
+        anchor_prefix="poster",
+    )
+
+
+def merge_parsed_talk_collections(primary: list[dict], secondary: list[dict]) -> list[dict]:
+    merged: list[dict] = []
+    by_anchor: dict[str, dict] = {}
+    by_title: dict[str, dict] = {}
+
+    def register(talk: dict) -> None:
+        anchor_id = collapse_ws(str(talk.get("_anchorId", "")))
+        title_key = normalize_key(str(talk.get("title", "")))
+        if anchor_id:
+            by_anchor[anchor_id] = talk
+        if title_key and title_key not in by_title:
+            by_title[title_key] = talk
+
+    for talk in primary:
+        candidate = dict(talk)
+        merged.append(candidate)
+        register(candidate)
+
+    for talk in secondary:
+        anchor_id = collapse_ws(str(talk.get("_anchorId", "")))
+        title_key = normalize_key(str(talk.get("title", "")))
+        match = by_anchor.get(anchor_id) if anchor_id else None
+        if match is None and title_key:
+            match = by_title.get(title_key)
+
+        if match is None:
+            candidate = dict(talk)
+            merged.append(candidate)
+            register(candidate)
+            continue
+
+        if talk.get("title") and not match.get("title"):
+            match["title"] = talk.get("title")
+        if talk.get("category") and (
+            not match.get("category")
+            or (match.get("category") == "technical-talk" and talk.get("category") != "technical-talk")
+        ):
+            match["category"] = talk.get("category")
+        if talk.get("speakers"):
+            match["speakers"] = talk.get("speakers")
+        if has_meaningful_abstract(str(talk.get("abstract", ""))):
+            match["abstract"] = talk.get("abstract")
+        for field in ["videoUrl", "videoId", "slidesUrl"]:
+            if not match.get(field) and talk.get(field):
+                match[field] = talk.get(field)
+
+    for talk in merged:
+        talk.pop("_anchorId", None)
+    return merged
+
+
+AFFILIATIONISH_SPEAKER_TERMS = (
+    "apple",
+    "cnrs",
+    "consultant",
+    "deepbluecapital",
+    "freebsd",
+    "google",
+    "innovation center",
+    "intel",
+    "inria",
+    "mozilla",
+    "project",
+    "qualcomm",
+    "quic",
+    "university",
+)
+
+
+def normalize_speaker_records(speakers: list[dict] | None) -> list[dict]:
+    out: list[dict] = []
+    for speaker in speakers or []:
+        if not isinstance(speaker, dict):
+            continue
+        name = collapse_ws(str(speaker.get("name", "")))
+        if not name:
             continue
         out.append(
             {
-                "name": part,
-                "affiliation": "",
-                "github": "",
-                "linkedin": "",
-                "twitter": "",
+                "name": name,
+                "affiliation": collapse_ws(str(speaker.get("affiliation", ""))),
+                "github": collapse_ws(str(speaker.get("github", ""))),
+                "linkedin": collapse_ws(str(speaker.get("linkedin", ""))),
+                "twitter": collapse_ws(str(speaker.get("twitter", ""))),
             }
         )
     return out
+
+
+def speaker_name_looks_like_affiliation(name: str) -> bool:
+    text = collapse_ws(name).lower()
+    if not text:
+        return False
+    if text.startswith("the "):
+        return True
+    return any(term in text for term in AFFILIATIONISH_SPEAKER_TERMS)
+
+
+def merge_speaker_records(existing_speakers: list[dict] | None, source_speakers: list[dict]) -> list[dict]:
+    existing_by_name = {
+        normalize_speaker_name(str(speaker.get("name", ""))): speaker
+        for speaker in normalize_speaker_records(existing_speakers)
+    }
+    out: list[dict] = []
+    for source in normalize_speaker_records(source_speakers):
+        merged = dict(source)
+        existing = existing_by_name.get(normalize_speaker_name(str(source.get("name", ""))))
+        if existing:
+            for field in ["github", "linkedin", "twitter"]:
+                if not merged.get(field) and existing.get(field):
+                    merged[field] = existing.get(field)
+        out.append(merged)
+    return out
+
+
+def should_refresh_speakers(existing_speakers: list[dict] | None, source_speakers: list[dict] | None) -> bool:
+    current = normalize_speaker_records(existing_speakers)
+    remote = normalize_speaker_records(source_speakers)
+    if not remote:
+        return False
+    if not current:
+        return True
+
+    current_affiliations = sum(1 for speaker in current if has_meaningful_meta_value(str(speaker.get("affiliation", ""))))
+    remote_affiliations = sum(1 for speaker in remote if has_meaningful_meta_value(str(speaker.get("affiliation", ""))))
+    current_org_like = sum(1 for speaker in current if speaker_name_looks_like_affiliation(str(speaker.get("name", ""))))
+    remote_org_like = sum(1 for speaker in remote if speaker_name_looks_like_affiliation(str(speaker.get("name", ""))))
+    current_name_keys = {
+        normalize_key(str(speaker.get("name", "")))
+        for speaker in current
+        if normalize_key(str(speaker.get("name", "")))
+    }
+    remote_affiliation_keys = {
+        normalize_key(str(speaker.get("affiliation", "")))
+        for speaker in remote
+        if normalize_key(str(speaker.get("affiliation", "")))
+    }
+    affiliation_matches_current_name = any(
+        current_key.startswith(aff_key) or aff_key.startswith(current_key)
+        for current_key in current_name_keys
+        for aff_key in remote_affiliation_keys
+    )
+
+    if len(remote) > len(current):
+        return True
+    if remote_affiliations > current_affiliations and (len(remote) >= len(current) or current_org_like > 0):
+        return True
+    if affiliation_matches_current_name and remote_affiliations > current_affiliations:
+        return True
+    if current_org_like > remote_org_like:
+        return True
+    return False
 
 
 def category_from_heading(heading: str) -> str | None:
@@ -694,9 +1060,19 @@ def parse_meeting_page(page_html: str, slug: str) -> tuple[dict, list[dict]]:
         "talkCount": 0,
     }
 
-    talks = parse_session_entries(page_html, slug)
+    talks = merge_parsed_talk_collections(
+        parse_session_entries(page_html, slug),
+        parse_abstract_sections(page_html, slug),
+    )
     if not talks:
-        talks = parse_abstract_sections(page_html, slug)
+        talks = merge_parsed_talk_collections(
+            parse_legacy_table_entries(page_html, slug),
+            parse_legacy_abstract_sections(page_html, slug),
+        )
+        talks = merge_parsed_talk_collections(
+            talks,
+            parse_legacy_poster_sections(page_html, slug),
+        )
 
     talks = dedupe_parsed_talks(talks)
     meeting["talkCount"] = len(talks)
@@ -888,8 +1264,8 @@ def merge_meeting_talks(
         src_speakers = source.get("speakers")
         if isinstance(src_speakers, list) and src_speakers:
             existing_speakers = target.get("speakers")
-            if not (isinstance(existing_speakers, list) and existing_speakers):
-                target["speakers"] = src_speakers
+            if should_refresh_speakers(existing_speakers, src_speakers):
+                target["speakers"] = merge_speaker_records(existing_speakers, src_speakers)
                 changed = True
 
         # Resource links are safe to refresh from upstream when present.

@@ -66,7 +66,7 @@
   }
 
   const LIBRARY_ROOT_PATH = resolveLibraryRootPath();
-  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=7e24cef32634');
+  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=a4c1d79d88b3');
   const DOCS_SOURCES_CATALOG_SRC = resolveAssetUrl('docs/sources.json?v=5002438127ef');
   const ADVANCED_FIELDS = [
     'allWords',
