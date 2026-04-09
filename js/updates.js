@@ -406,7 +406,7 @@ function renderEntry(entry) {
   const topicHtml = keyTopics
     .map((topic) => {
       const href = topicFilterHref(kind, topic);
-      const browseScope = kind === 'talk' ? 'talks' : (kind === 'blog' ? 'blogs' : (kind === 'docs' ? 'docs pages' : 'papers'));
+      const browseScope = kind === 'talk' ? 'talks' : (kind === 'blog' ? 'blogs' : (kind === 'docs' ? 'docs sources' : 'papers'));
       return `<a class="card-tag" href="${escapeHtml(href)}" aria-label="Browse ${browseScope} for key topic ${escapeHtml(topic)}">${escapeHtml(topic)}</a>`;
     })
     .join('');

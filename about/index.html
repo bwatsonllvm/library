@@ -215,7 +215,7 @@
     }
   </style>
   <title>About — LLVM Research Library</title>
-  <meta name="description" content="About the LLVM Research Library, including talks, papers, blogs, docs, search behavior, and feature usage.">
+  <meta name="description" content="About the LLVM Research Library, including talks, papers, blogs, docs links, search behavior, and feature usage.">
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
@@ -265,19 +265,9 @@
       <a href="blogs/" class="nav-link" aria-label="Blogs">
         <span aria-hidden="true">Blogs</span>
       </a>
-      <div class="nav-dropdown nav-dropdown-docs">
-        <a href="docs/" class="nav-link nav-dropdown-toggle" aria-label="Documentation">
-          <span aria-hidden="true">Docs</span>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </a>
-        <div class="nav-dropdown-menu" role="menu" aria-label="Docs sources">
-          <a href="docs/" class="nav-dropdown-link" role="menuitem">LLVM Core</a>
-          <a href="docs/clang/" class="nav-dropdown-link" role="menuitem">Clang</a>
-          <a href="docs/lldb/" class="nav-dropdown-link" role="menuitem">LLDB</a>
-        </div>
-      </div>
+      <a href="docs/" class="nav-link" aria-label="Documentation">
+        <span aria-hidden="true">Docs</span>
+      </a>
       <a href="people/" class="nav-link" aria-label="People">
         <span aria-hidden="true">People</span>
       </a>
@@ -303,9 +293,7 @@
         <a href="talks/events.html" class="mobile-nav-link">Events</a>
         <a href="papers/" class="mobile-nav-link">Papers</a>
         <a href="blogs/" class="mobile-nav-link">Blogs</a>
-        <a href="docs/" class="mobile-nav-link">Docs: LLVM Core</a>
-        <a href="docs/clang/" class="mobile-nav-link">Docs: Clang</a>
-        <a href="docs/lldb/" class="mobile-nav-link">Docs: LLDB</a>
+        <a href="docs/" class="mobile-nav-link">Docs</a>
         <a href="people/" class="mobile-nav-link">People</a>
         <a href="updates/" class="mobile-nav-link">Updates</a>
         <a href="about/" class="mobile-nav-link">About</a>
@@ -361,7 +349,7 @@
   <section class="search-hero search-hero--compact" aria-label="About the library">
     <div class="search-hero-shell about-hero-shell">
       <h1>About This Library</h1>
-      <p class="subtitle">A research library for LLVM talks, papers, blogs, docs, and people.</p>
+      <p class="subtitle">A research library for LLVM talks, papers, blogs, docs links, and people.</p>
       <form class="search-box global-search-form about-hero-search" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, docs, people, and key topics">
         <input type="hidden" name="mode" value="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -392,7 +380,7 @@
     <section class="about-section" aria-labelledby="about-overview-heading">
       <h2 id="about-overview-heading">What This Website Contains</h2>
       <p>
-        This research library combines LLVM Developers' Meeting talks, LLVM-related research papers, LLVM Project Blog posts, wrapped LLVM/Clang/LLDB documentation, and a merged people index. It is designed for both quick lookup and cross-reference research workflows. Docs support currently includes local wrapped docs landing/search routing, source attribution, and unified search indexing alongside talks/papers/blogs. The library updates nightly at 00:00 UTC.
+        This research library combines LLVM Developers' Meeting talks, LLVM-related research papers, LLVM Project Blog posts, links to official LLVM/Clang/LLDB documentation, and a merged people index. It is designed for both quick lookup and cross-reference research workflows. The docs section now serves as a lightweight directory to the canonical upstream docs sites rather than a local mirror. The library updates nightly at 00:00 UTC.
       </p>
       <div class="about-stats-grid" aria-label="Library coverage">
         <article class="about-stat-card">
@@ -457,7 +445,7 @@
           <h3>
             <span class="badge badge-blog">Docs</span>
           </h3>
-          <p>Marks wrapped documentation updates from LLVM Core, Clang, and LLDB docs sources, with local navigation and upstream links.</p>
+          <p>Marks official LLVM, Clang, and LLDB docs sources linked from the library.</p>
         </article>
       </div>
       <p class="about-tag-note">Talk entries use one of the talk-type badges above; papers, blogs, and docs use content-type badges.</p>
@@ -466,7 +454,7 @@
     <section class="about-section" aria-labelledby="about-search-heading">
       <h2 id="about-search-heading">How Universal Search Works</h2>
       <ul>
-        <li>Each main page has one search bar, and suggestions are grouped by <strong>Key Topics</strong>, <strong>Speakers + Authors</strong>, <strong>Talk Titles</strong>, <strong>Paper + Blog Titles</strong>, and <strong>Docs Pages</strong>.</li>
+        <li>Each main page has one search bar, and suggestions are grouped by <strong>Key Topics</strong>, <strong>Speakers + Authors</strong>, <strong>Talk Titles</strong>, <strong>Paper + Blog Titles</strong>, and <strong>Docs Sources</strong>.</li>
         <li>Selecting a suggestion can keep you on the current page (local filtering), route you to <a href="work.html">All Work</a> for speaker/topic rollups, or open Search All for free-text cross-library ranking.</li>
         <li>Search All defaults to <strong>All</strong>, with one-click scope pivots to <strong>Talks</strong>, <strong>Papers</strong>, <strong>Blogs</strong>, or <strong>Docs</strong> while preserving your query.</li>
         <li>If you press <code>Enter</code> on free text, the query is committed immediately. Depending on intent, it either filters locally or opens Search All.</li>
@@ -480,7 +468,7 @@
         <li><strong>Start broad:</strong> use <a href="work.html?mode=search">Search All</a> for free-text queries, or <a href="work.html">All Work</a> for speaker/topic rollups.</li>
         <li><strong>Narrow with filters:</strong> Talks supports key topics, type, year, event, and resources; Papers supports key topics, type, year, and author targeting.</li>
         <li><strong>Use sort + layout controls:</strong> switch between relevance, chronology, citations, and compact/card views where available.</li>
-        <li><strong>Use docs wrappers:</strong> open the Docs section to jump into LLVM Core, Clang, or LLDB docs with local routing and source-home links.</li>
+        <li><strong>Use docs links:</strong> open the Docs section to jump directly to the official LLVM Core, Clang, or LLDB docs sites.</li>
         <li><strong>Pivot through People:</strong> open a person profile card to jump into their talks, papers, or global results.</li>
         <li><strong>Browse by event history:</strong> use <a href="talks/events.html">Events</a> to inspect each LLVM Developers' Meeting edition.</li>
         <li><strong>Open detail pages:</strong> talk and paper pages include abstracts (or full blog content), structured fields, and source links.</li>
@@ -494,9 +482,9 @@
         <li><strong>Talks:</strong> synchronized from public <code>llvm-www/devmtg</code> pages into <code>devmtg/events/*.json</code>, then normalized to a consistent schema (IDs, meeting fields, speakers, slides/video links, categories, tags).</li>
         <li><strong>Papers:</strong> combined from LLVM publications (<code>llvm.org/pubs</code>) and OpenAlex discovery results that match LLVM-focused keywords/subprojects and known library contributors.</li>
         <li><strong>Blogs:</strong> synchronized from <code>llvm/llvm-blog-www</code>, published in a dedicated Blogs section with full content and source links, and indexed alongside papers/talks/docs in search.</li>
-        <li><strong>Docs:</strong> synchronized from <code>llvm/llvm-project</code> docs paths into local wrapped docs roots (<code>docs/</code>, <code>docs/clang/</code>, <code>docs/lldb/</code>), then re-indexed for in-library docs search and global discoverability.</li>
+        <li><strong>Docs:</strong> curated in <code>docs/sources.json</code> as upstream LLVM, Clang, and LLDB documentation links.</li>
         <li><strong>People:</strong> derived from talk speakers and paper authors, then merged across name variants to reduce duplicates.</li>
-        <li><strong>Updates:</strong> generated from content deltas and shown newest-first, with links to in-library talk/paper/blog/docs pages.</li>
+        <li><strong>Updates:</strong> generated from content deltas and shown newest-first, with links to in-library talks, papers, and blogs.</li>
         <li><strong>Refresh cadence:</strong> automated sync jobs run nightly at 00:00 UTC, so new upstream changes may appear later here.</li>
         <li><strong>Scope and limits:</strong> all indexed material is public; this site is a research index and does not replace canonical LLVM project sources.</li>
         <li><strong>Use official sources for authoritative status:</strong> <a href="https://llvm.org/docs/" target="_blank" rel="noopener">LLVM documentation</a> and the <a href="https://github.com/llvm/llvm-project" target="_blank" rel="noopener">llvm/llvm-project repository</a> should be treated as primary references.</li>
@@ -507,8 +495,8 @@
 
   <script src="js/events-data.js?v=ff68e407abd5"></script>
   <script src="js/papers-data.js?v=c7e1dc09095c"></script>
-  <script src="js/shared/library-utils.js?v=b1a25785f395"></script>
-  <script src="js/shared/global-search.js?v=7bd87c9be610"></script>
+  <script src="js/shared/library-utils.js?v=fe7bdd91e4bb"></script>
+  <script src="js/shared/global-search.js?v=ebd1f5fd81b4"></script>
   <script src="js/about.js?v=40a133a35d02"></script>
 </body>
 </html>

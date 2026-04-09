@@ -1,5 +1,5 @@
 /**
- * docs.js — Upstream docs hub interactions (source catalog + local wrapper routing).
+ * docs.js — Upstream docs hub interactions.
  */
 
 (function () {
@@ -14,7 +14,7 @@
   const initMobileNavMenu = PageShell ? () => PageShell.initMobileNavMenu() : () => {};
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
 
-  const DOCS_SOURCES_CATALOG_SRC = 'sources.json?v=20260225-02';
+  const DOCS_SOURCES_CATALOG_SRC = 'sources.json?v=20260409-01';
   const DEFAULT_DOCS_SOURCES = [
     {
       id: 'llvm-core',
@@ -46,6 +46,30 @@
   ];
 
   let docsSources = [];
+
+  function initDocsHeroSearch() {
+    const input = document.getElementById('docs-global-search-input');
+    const clearBtn = document.getElementById('docs-global-search-clear');
+    if (!input || !clearBtn) return;
+
+    const syncClear = () => {
+      const hasText = normalizeText(input.value, 320).length > 0;
+      clearBtn.classList.toggle('visible', hasText);
+    };
+
+    input.addEventListener('input', syncClear);
+    input.addEventListener('focus', syncClear);
+    input.addEventListener('blur', () => window.setTimeout(syncClear, 150));
+    clearBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      input.value = '';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      input.focus();
+      syncClear();
+    });
+
+    syncClear();
+  }
 
   function normalizeText(value, maxLength = 300) {
     return String(value || '')
@@ -105,12 +129,16 @@
       .filter(Boolean);
   }
 
-  function resolveLocalDocsRoute(localPath, query) {
-    const normalizedPath = String(localPath || 'docs/').replace(/^\/+/, '');
-    const withSlash = normalizedPath.endsWith('/') ? normalizedPath : `${normalizedPath}/`;
+  function resolveDocsDestination(source, query) {
+    if (!source || typeof source !== 'object') return '';
     const trimmedQuery = normalizeText(query, 320);
-    if (!trimmedQuery) return `../${withSlash}`;
-    return `../${withSlash}?q=${encodeURIComponent(trimmedQuery)}`;
+    const docsUrl = sanitizeExternalUrl(source.docsUrl);
+    const searchTemplate = normalizeText(source.searchUrlTemplate, 420);
+    if (!trimmedQuery) return docsUrl;
+    if (searchTemplate.includes('{query}')) {
+      return searchTemplate.replaceAll('{query}', encodeURIComponent(trimmedQuery));
+    }
+    return docsUrl;
   }
 
   async function loadDocsSources() {
@@ -168,16 +196,19 @@
       const keywords = source.keywords.length
         ? `<p class="card-speakers paper-authors">${escapeHtml(source.keywords.slice(0, 6).join(' · '))}</p>`
         : '';
-      const localRoute = resolveLocalDocsRoute(source.localPath, activeQuery);
+      const destination = resolveDocsDestination(source, activeQuery);
+      const searchDestination = activeQuery
+        ? destination
+        : normalizeText(source.searchUrlTemplate, 420).replaceAll('{query}', '') || source.docsUrl;
       const actionLabel = activeQuery ? `Search ${source.name}` : `Open ${source.name}`;
 
       return `
         <article class="talk-card paper-card docs-card">
-          <a href="${escapeHtml(localRoute)}" class="card-link-wrap" aria-label="${escapeHtml(actionLabel)}">
+          <a href="${escapeHtml(destination)}" class="card-link-wrap" aria-label="${escapeHtml(actionLabel)}" target="_blank" rel="noopener noreferrer">
             <div class="card-body">
               <div class="card-meta">
                 <span class="badge badge-blog">Docs</span>
-                <span class="meeting-label">Wrapped</span>
+                <span class="meeting-label">Official</span>
               </div>
               <p class="card-title">${escapeHtml(source.name)} Documentation</p>
               ${source.description ? `<p class="card-abstract">${escapeHtml(source.description)}</p>` : ''}
@@ -186,11 +217,11 @@
             </div>
           </a>
           <div class="card-footer">
-            <a href="${escapeHtml(localRoute)}" class="card-link-btn card-link-btn--video" aria-label="${escapeHtml(actionLabel)}">
-              <span aria-hidden="true">${escapeHtml(activeQuery ? 'Search Docs' : 'Open Docs')}</span>
+            <a href="${escapeHtml(destination)}" class="card-link-btn card-link-btn--video" aria-label="${escapeHtml(actionLabel)}" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">${escapeHtml(activeQuery ? 'Search Upstream' : 'Open Docs')}</span>
             </a>
-            <a href="${escapeHtml(source.docsUrl)}" class="card-link-btn card-link-btn--slides" aria-label="Open ${escapeHtml(source.name)} source">
-              <span aria-hidden="true">Source Home</span>
+            <a href="${escapeHtml(searchDestination)}" class="card-link-btn card-link-btn--slides" aria-label="Open ${escapeHtml(source.name)} search" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">Search Site</span>
             </a>
           </div>
         </article>`;
@@ -240,7 +271,7 @@
       const source = docsSources.find((item) => item.id === sourceId) || docsSources[0];
       if (!source) return;
 
-      const destination = resolveLocalDocsRoute(source.localPath, query);
+      const destination = resolveDocsDestination(source, query);
       if (destination) {
         window.location.assign(destination);
       }
@@ -253,6 +284,7 @@
     initCustomizationMenu();
     initMobileNavMenu();
     initShareMenu();
+    initDocsHeroSearch();
 
     const { query, source } = getQueryParams();
     docsSources = await loadDocsSources();

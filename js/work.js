@@ -74,9 +74,7 @@ const WORK_YEAR_MIN = 1990;
 const WORK_YEAR_MAX = 2100;
 const UNIVERSAL_FALLBACK_PER_KIND_LIMIT = 240;
 const UNIVERSAL_MAX_RESULTS = 1200;
-const DOCS_UNIVERSAL_INDEX_SRC = 'docs/_static/docs-universal-search-index.js?v=82f8264a03c4';
-const CLANG_DOCS_UNIVERSAL_INDEX_SRC = 'docs/clang/_static/docs-universal-search-index.js?v=81be4613bf02';
-const LLDB_DOCS_UNIVERSAL_INDEX_SRC = 'docs/lldb/_static/docs-universal-search-index.js?v=eba40672f6e7';
+const DOCS_SOURCES_CATALOG_SRC = 'docs/sources.json?v=5002438127ef';
 const DOCS_UNIVERSAL_SEARCH_LIMIT = 420;
 const DOCS_BEGINNER_STRONG_RE = /\bbeginner(?:s)?\b|\bfor beginners\b|\bgetting started\b|\bbasics\b|\btutorial(?:s)?\b|\bbeginner[- ]friendly\b/;
 const DOCS_BEGINNER_INTRO_RE = /\bintro(?:duction)?(?:\s+to)?\b|\bintroductory\b/;
@@ -236,71 +234,19 @@ function scriptSrcMatches(candidateSrc, targetSrc) {
   return candidate.full === target.full || (candidate.base && candidate.base === target.base);
 }
 
-function isDocsUniversalPayload(payload) {
-  return !!(payload && Array.isArray(payload.entries));
-}
-
-function readDocsUniversalPayload(globalName) {
-  const payload = window[globalName];
-  return isDocsUniversalPayload(payload) ? payload : null;
-}
-
-async function loadDocsUniversalPayloadFromScript(src, globalName) {
-  try {
-    await ensureScript(src);
-    if (isDocsUniversalPayload(window.LLVMDocsUniversalSearchIndex)) {
-      window[globalName] = window.LLVMDocsUniversalSearchIndex;
-    }
-  } catch {
-    // Continue; docs search can still operate with whichever indexes loaded.
-  }
-  return readDocsUniversalPayload(globalName);
-}
-
 async function loadDocsUniversalRecords() {
   if (docsDataLoadPromise) return docsDataLoadPromise;
 
   docsDataLoadPromise = (async () => {
-    let llvmPayload = readDocsUniversalPayload('LLVMCoreDocsUniversalSearchIndex');
-    let clangPayload = readDocsUniversalPayload('LLVMClangDocsUniversalSearchIndex');
-    let lldbPayload = readDocsUniversalPayload('LLVMLLDBDocsUniversalSearchIndex');
-
-    if (!llvmPayload) {
-      llvmPayload = await loadDocsUniversalPayloadFromScript(
-        DOCS_UNIVERSAL_INDEX_SRC,
-        'LLVMCoreDocsUniversalSearchIndex'
-      );
+    try {
+      const response = await fetch(DOCS_SOURCES_CATALOG_SRC, { cache: 'force-cache' });
+      if (!response.ok) return [];
+      const payload = await response.json();
+      const sources = Array.isArray(payload && payload.sources) ? payload.sources : [];
+      return sources.map((entry, index) => normalizeDocsRecord(entry, index)).filter(Boolean);
+    } catch {
+      return [];
     }
-
-    if (!clangPayload) {
-      clangPayload = await loadDocsUniversalPayloadFromScript(
-        CLANG_DOCS_UNIVERSAL_INDEX_SRC,
-        'LLVMClangDocsUniversalSearchIndex'
-      );
-    }
-
-    if (!lldbPayload) {
-      lldbPayload = await loadDocsUniversalPayloadFromScript(
-        LLDB_DOCS_UNIVERSAL_INDEX_SRC,
-        'LLVMLLDBDocsUniversalSearchIndex'
-      );
-    }
-
-    if (llvmPayload) {
-      window.LLVMDocsUniversalSearchIndex = llvmPayload;
-    }
-
-    const llvmEntries = llvmPayload
-      ? llvmPayload.entries.map((entry, index) => normalizeDocsRecord(entry, index, 'docs'))
-      : [];
-    const clangEntries = clangPayload
-      ? clangPayload.entries.map((entry, index) => normalizeDocsRecord(entry, index + llvmEntries.length, 'docs/clang'))
-      : [];
-    const lldbEntries = lldbPayload
-      ? lldbPayload.entries.map((entry, index) => normalizeDocsRecord(entry, index + llvmEntries.length + clangEntries.length, 'docs/lldb'))
-      : [];
-
-    return [...llvmEntries, ...clangEntries, ...lldbEntries].filter(Boolean);
   })().catch(() => []);
 
   return docsDataLoadPromise;
@@ -1292,46 +1238,34 @@ function isBlogPaper(paper) {
   return !!(paper && paper._isBlog);
 }
 
-function resolveDocsRecordHref(rawHref, rawSlug, docsBasePrefix = 'docs') {
-  const href = String(rawHref || '').trim();
-  const slug = String(rawSlug || '').trim();
-  const basePrefix = String(docsBasePrefix || 'docs').replace(/^\/+|\/+$/g, '');
-  if (href) {
-    if (/^https?:\/\//i.test(href)) return href;
-    if (href.startsWith('/')) return href;
-    if (href.startsWith('docs/')) return href;
-    return `${basePrefix}/${href}`.replace(/\/{2,}/g, '/');
+function resolveDocsSearchHref(template, query, fallbackHref) {
+  const rawTemplate = String(template || '').trim();
+  const cleanQuery = normalizeAdvancedText(query, 320);
+  if (cleanQuery && rawTemplate.includes('{query}')) {
+    return rawTemplate.replaceAll('{query}', encodeURIComponent(cleanQuery));
   }
-  if (!slug || slug === 'index') return `${basePrefix}/`;
-  if (slug.endsWith('/index')) return `${basePrefix}/${slug.slice(0, -6)}/`.replace(/\/{2,}/g, '/');
-  return `${basePrefix}/${slug}.html`.replace(/\/{2,}/g, '/');
+  return fallbackHref;
 }
 
-function normalizeDocsRecord(rawEntry, fallbackIndex = 0, docsBasePrefix = 'docs') {
+function normalizeDocsRecord(rawEntry, fallbackIndex = 0) {
   if (!rawEntry || typeof rawEntry !== 'object') return null;
 
-  const title = normalizeAdvancedText(rawEntry.title, 320);
-  const slug = normalizeAdvancedText(rawEntry.slug, 320);
-  const summary = normalizeAdvancedText(rawEntry.summary, 420);
-  const chapter = normalizeAdvancedText(rawEntry.chapter, 200);
-  const outline = normalizeAdvancedText(rawEntry.outline, 80);
-  const headingTexts = Array.isArray(rawEntry.headings)
-    ? rawEntry.headings
-      .map((item) => normalizeAdvancedText(item && item.text, 180))
+  const title = normalizeAdvancedText(rawEntry.name || rawEntry.title, 320);
+  const slug = normalizeAdvancedText(rawEntry.id || rawEntry.slug, 120) || `docs-source-${fallbackIndex + 1}`;
+  const summary = normalizeAdvancedText(rawEntry.description || rawEntry.summary, 420);
+  const chapter = 'Official';
+  const outline = '';
+  const headingTexts = Array.isArray(rawEntry.keywords)
+    ? rawEntry.keywords
+      .map((item) => normalizeAdvancedText(item, 80))
       .filter(Boolean)
-      .slice(0, 10)
+      .slice(0, 8)
     : [];
-  const searchText = normalizeAdvancedText(rawEntry.search, 2200);
-  const href = resolveDocsRecordHref(rawEntry.href, slug, docsBasePrefix);
-  const idCore = slug || `doc-${fallbackIndex + 1}`;
-  const idPrefix = String(docsBasePrefix || 'docs').replace(/[^a-z0-9/_-]+/gi, '').replace(/\//g, '-');
-  const id = `${idPrefix}:${idCore}`;
-  const normalizedPrefix = String(docsBasePrefix || '').replace(/^\/+|\/+$/g, '');
-  const collection = ({
-    docs: 'LLVM Core',
-    'docs/clang': 'Clang',
-    'docs/lldb': 'LLDB',
-  }[normalizedPrefix] || 'LLVM Core');
+  const href = sanitizeExternalUrl(rawEntry.docsUrl || rawEntry.href);
+  const searchHref = resolveDocsSearchHref(rawEntry.searchUrlTemplate, state.query, href);
+  const searchText = `${title} ${summary} ${headingTexts.join(' ')}`.trim();
+  const id = `docs:${slug}`;
+  const collection = title;
 
   if (!title || !href) return null;
 
@@ -1339,8 +1273,9 @@ function normalizeDocsRecord(rawEntry, fallbackIndex = 0, docsBasePrefix = 'docs
     id,
     collection,
     slug,
-    title,
+    title: `${title} Documentation`,
     href,
+    searchHref,
     summary,
     chapter,
     outline,
@@ -1349,10 +1284,10 @@ function normalizeDocsRecord(rawEntry, fallbackIndex = 0, docsBasePrefix = 'docs
     _titleLower: normalizeSearchText(title),
     _slugLower: normalizeSearchText(slug),
     _chapterLower: normalizeSearchText(chapter),
-    _outlineLower: normalizeSearchText(outline),
+    _outlineLower: '',
     _headingsLower: normalizeSearchText(headingTexts.join(' ')),
     _summaryLower: normalizeSearchText(summary),
-    _searchLower: normalizeSearchText(searchText || `${title} ${headingTexts.join(' ')} ${summary} ${slug}`),
+    _searchLower: normalizeSearchText(searchText),
   };
 }
 
@@ -3094,10 +3029,11 @@ function renderDocsCard(doc, tokensOverride = null) {
     ? doc.headings.slice(0, 2).filter(Boolean).join(' · ')
     : '';
   const href = String(doc.href || '').trim() || 'docs/';
+  const searchHref = String(resolveDocsSearchHref(doc.searchHref, query, href) || href).trim() || href;
 
   return `
     <article class="talk-card paper-card docs-card">
-      <a href="${escapeHtml(href)}" class="card-link-wrap" aria-label="Open docs page: ${titleEsc}">
+      <a href="${escapeHtml(href)}" class="card-link-wrap" aria-label="Open docs site: ${titleEsc}" target="_blank" rel="noopener noreferrer">
         <div class="card-body">
           <div class="card-meta">
             <span class="badge badge-blog">Docs</span>
@@ -3112,8 +3048,11 @@ function renderDocsCard(doc, tokensOverride = null) {
         </div>
       </a>
       <div class="card-footer">
-        <a href="${escapeHtml(href)}" class="card-link-btn card-link-btn--video" aria-label="Open docs page: ${titleEsc}">
-          <span aria-hidden="true">Open Doc</span>
+        <a href="${escapeHtml(href)}" class="card-link-btn card-link-btn--video" aria-label="Open docs site: ${titleEsc}" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">Open Docs</span>
+        </a>
+        <a href="${escapeHtml(searchHref)}" class="card-link-btn" aria-label="Search docs site: ${titleEsc}" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">${escapeHtml(query ? 'Search Site' : 'Open Search')}</span>
         </a>
       </div>
     </article>`;
@@ -3325,7 +3264,7 @@ function applyHeaderState() {
     const searchLabel = buildSearchDisplayValue() || state.query;
     if (!hasActiveSearchCriteria()) {
       if (titleEl) titleEl.textContent = 'Search All';
-      if (subtitleEl) subtitleEl.textContent = 'Use Search All across talks, papers, blogs, docs, and people from one place.';
+      if (subtitleEl) subtitleEl.textContent = 'Use Search All across talks, papers, blogs, official docs sources, and people from one place.';
       if (summaryEl) summaryEl.textContent = 'No search query provided';
       if (universalCountEl) universalCountEl.textContent = '';
       if (talksCountEl) talksCountEl.textContent = '';
@@ -3340,7 +3279,7 @@ function applyHeaderState() {
     if (titleEl) titleEl.textContent = 'Search All';
     if (subtitleEl) {
       if (state.scope === 'all') {
-        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(searchLabel || 'advanced search')}</strong>, ranked across talks, papers, blogs, docs, and people`;
+        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(searchLabel || 'advanced search')}</strong>, ranked across talks, papers, blogs, official docs sources, and people`;
       } else {
         subtitleEl.innerHTML = `Results for <strong>${escapeHtml(searchLabel || 'advanced search')}</strong> in <strong>${escapeHtml(getSearchScopeLabel(state.scope))}</strong>`;
       }
@@ -3349,7 +3288,7 @@ function applyHeaderState() {
   } else {
     if (!state.value) {
       if (titleEl) titleEl.textContent = 'All Work';
-      if (subtitleEl) subtitleEl.textContent = 'Choose a speaker or key topic to view related talks, papers, blogs, docs, and people.';
+      if (subtitleEl) subtitleEl.textContent = 'Choose a speaker or key topic to view related talks, papers, blogs, official docs sources, and people.';
       if (summaryEl) summaryEl.textContent = 'No speaker/key topic selected';
       if (universalCountEl) universalCountEl.textContent = '';
       if (talksCountEl) talksCountEl.textContent = '';
@@ -3364,9 +3303,9 @@ function applyHeaderState() {
     if (titleEl) titleEl.textContent = `${entityLabel}: ${state.value}`;
     if (subtitleEl) {
       if (state.kind === 'speaker') {
-        subtitleEl.innerHTML = `All Work for <strong>${escapeHtml(state.value)}</strong> across talks, papers, blogs, docs, and people`;
+        subtitleEl.innerHTML = `All Work for <strong>${escapeHtml(state.value)}</strong> across talks, papers, blogs, official docs sources, and people`;
       } else {
-        subtitleEl.innerHTML = `All Work for key topic <strong>${escapeHtml(state.value)}</strong> across talks, papers, blogs, docs, and people`;
+        subtitleEl.innerHTML = `All Work for key topic <strong>${escapeHtml(state.value)}</strong> across talks, papers, blogs, official docs sources, and people`;
       }
     }
     setWorkDocumentTitle(`All Work: ${entityLabel} ${state.value}`);
@@ -3393,7 +3332,7 @@ function applyHeaderState() {
   }
 
   if (docsCountEl) {
-    docsCountEl.textContent = `${filteredDocs.length.toLocaleString()} doc${filteredDocs.length === 1 ? '' : 's'}`;
+    docsCountEl.textContent = `${filteredDocs.length.toLocaleString()} source${filteredDocs.length === 1 ? '' : 's'}`;
   }
 
   if (peopleCountEl) {

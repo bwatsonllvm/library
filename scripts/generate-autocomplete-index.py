@@ -10,7 +10,6 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
-import posixpath
 import re
 import sys
 from collections import defaultdict
@@ -127,92 +126,37 @@ def finalize_count_buckets(
 
     return entries[: max(0, limit)]
 
-
-def normalize_doc_url(raw_href: str, base_prefix: str) -> str:
-    href = collapse_ws(raw_href)
-    if not href:
-        return f"{base_prefix}/"
-    if re.match(r"^https?://", href, flags=re.IGNORECASE):
-        return href
-    if href.startswith("/"):
-        return href
-    if href.startswith("docs/"):
-        return href
-    joined = posixpath.join(base_prefix, href)
-    joined = re.sub(r"/{2,}", "/", joined)
-    return joined
-
-
 def collect_docs_entries(
     repo_root: Path,
     *,
     limit: int,
 ) -> list[dict[str, object]]:
-    sources = [
-        (
-            repo_root / "docs" / "_static" / "docs-universal-search-index.js",
-            "LLVM Core",
-            "docs",
-        ),
-        (
-            repo_root / "docs" / "clang" / "_static" / "docs-universal-search-index.js",
-            "Clang",
-            "docs/clang",
-        ),
-        (
-            repo_root / "docs" / "lldb" / "_static" / "docs-universal-search-index.js",
-            "LLDB",
-            "docs/lldb",
-        ),
-    ]
+    catalog_path = repo_root / "docs" / "sources.json"
+    if not catalog_path.exists():
+        return []
 
-    buckets: dict[str, dict] = {}
-
-    for js_path, source_label, base_prefix in sources:
-        payload = parse_docs_payload(js_path)
-        entries = payload.get("entries") if isinstance(payload, dict) else []
-        if not isinstance(entries, list):
-            continue
-
-        for raw_entry in entries:
-            if not isinstance(raw_entry, dict):
-                continue
-            title = normalize_label(str(raw_entry.get("title") or ""), 220)
-            if not title:
-                continue
-            rendered_label = f"{title} ({source_label})"
-            key = normalize_key(rendered_label)
-            if not key:
-                continue
-
-            bucket = buckets.setdefault(
-                key,
-                {
-                    "count": 0,
-                    "labels": defaultdict(int),
-                    "url": "",
-                },
-            )
-            bucket["count"] += 1
-            bucket["labels"][rendered_label] += 1
-            if not bucket["url"]:
-                bucket["url"] = normalize_doc_url(str(raw_entry.get("href") or ""), base_prefix)
+    payload = parse_json(catalog_path)
+    raw_sources = payload.get("sources") if isinstance(payload, dict) else []
+    if not isinstance(raw_sources, list):
+        return []
 
     out: list[dict[str, object]] = []
-    for bucket in buckets.values():
-        labels = bucket.get("labels") or {}
-        if not labels:
+    for raw_entry in raw_sources:
+        if not isinstance(raw_entry, dict):
             continue
-        label = sorted(labels.items(), key=lambda item: (-item[1], item[0]))[0][0]
+        name = normalize_label(str(raw_entry.get("name") or raw_entry.get("id") or ""), 220)
+        docs_url = normalize_label(str(raw_entry.get("docsUrl") or ""), 400)
+        if not name or not re.match(r"^https?://", docs_url, flags=re.IGNORECASE):
+            continue
         out.append(
             {
-                "label": label,
-                "count": int(bucket.get("count") or 0),
-                "url": str(bucket.get("url") or "docs/"),
+                "label": f"{name} Documentation",
+                "count": 1,
+                "url": docs_url,
             }
         )
 
-    out.sort(key=lambda item: (-int(item["count"]), str(item["label"]).lower()))
+    out.sort(key=lambda item: str(item["label"]).lower())
     return out[: max(0, limit)]
 
 

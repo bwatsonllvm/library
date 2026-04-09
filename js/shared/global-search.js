@@ -7,7 +7,7 @@
 
   let dataLoadPromise = null;
   let indexBuildPromise = null;
-  let docsIndexLoadPromise = null;
+  let docsCatalogLoadPromise = null;
   let prebuiltAutocompleteLoadPromise = null;
   const formStateMap = new WeakMap();
   const GLOBAL_SEARCH_LABEL = 'Search All across talks, papers, blogs, docs, people, and key topics';
@@ -66,10 +66,8 @@
   }
 
   const LIBRARY_ROOT_PATH = resolveLibraryRootPath();
-  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=e3206c4d460f');
-  const DOCS_UNIVERSAL_INDEX_SRC = resolveAssetUrl('docs/_static/docs-universal-search-index.js?v=82f8264a03c4');
-  const CLANG_DOCS_UNIVERSAL_INDEX_SRC = resolveAssetUrl('docs/clang/_static/docs-universal-search-index.js?v=81be4613bf02');
-  const LLDB_DOCS_UNIVERSAL_INDEX_SRC = resolveAssetUrl('docs/lldb/_static/docs-universal-search-index.js?v=eba40672f6e7');
+  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=7e24cef32634');
+  const DOCS_SOURCES_CATALOG_SRC = resolveAssetUrl('docs/sources.json?v=5002438127ef');
   const ADVANCED_FIELDS = [
     'allWords',
     'exactPhrase',
@@ -153,9 +151,9 @@
     if (scope === 'talks') return 'Tailored for talks, speakers, and event content';
     if (scope === 'papers') return 'Tailored for papers, authors, venues, and abstracts';
     if (scope === 'blogs') return 'Tailored for blog posts, authors, and post content';
-    if (scope === 'docs') return 'Tailored for LLVM Core, Clang, and LLDB docs pages, headings, and guide content';
+    if (scope === 'docs') return 'Tailored for official LLVM, Clang, and LLDB docs sources and upstream search links';
     if (scope === 'people') return 'Tailored for people, expertise, affiliations, and publications';
-    return 'Search across talks, papers, blogs, docs, and people';
+    return 'Search across talks, papers, blogs, official docs sources, and people';
   }
 
   function resolveAdvancedContextScope(defaultScope) {
@@ -1002,6 +1000,23 @@
     return out;
   }
 
+  function normalizeDocsSourceAutocompleteEntries(values) {
+    const list = Array.isArray(values) ? values : [];
+    const out = [];
+    for (const entry of list) {
+      if (!entry || typeof entry !== 'object') continue;
+      const name = normalizeText(entry.name || entry.label, 220);
+      const docsUrl = resolvePrebuiltAutocompleteUrl(entry.docsUrl || entry.url);
+      if (!name || !docsUrl) continue;
+      out.push({
+        label: `${name} Documentation`,
+        count: 1,
+        url: docsUrl,
+      });
+    }
+    return out;
+  }
+
   async function loadPrebuiltAutocompleteIndex() {
     if (prebuiltAutocompleteLoadPromise) return prebuiltAutocompleteLoadPromise;
 
@@ -1087,64 +1102,22 @@
     return candidate.full === target.full || (candidate.base && candidate.base === target.base);
   }
 
-  function isDocsUniversalPayload(payload) {
-    return !!(payload && Array.isArray(payload.entries));
-  }
+  async function loadDocsSourcesCatalog() {
+    if (docsCatalogLoadPromise) return docsCatalogLoadPromise;
 
-  function readDocsUniversalPayload(globalName) {
-    const payload = window[globalName];
-    return isDocsUniversalPayload(payload) ? payload : null;
-  }
-
-  async function loadDocsUniversalPayloadFromScript(src, globalName) {
-    try {
-      await ensureScript(src);
-      if (isDocsUniversalPayload(window.LLVMDocsUniversalSearchIndex)) {
-        window[globalName] = window.LLVMDocsUniversalSearchIndex;
+    docsCatalogLoadPromise = (async () => {
+      try {
+        const response = await fetch(DOCS_SOURCES_CATALOG_SRC, { cache: 'force-cache' });
+        if (!response.ok) return [];
+        const payload = await response.json();
+        const sources = Array.isArray(payload && payload.sources) ? payload.sources : [];
+        return normalizeDocsSourceAutocompleteEntries(sources);
+      } catch {
+        return [];
       }
-    } catch {
-      // Continue; docs autocomplete can still run with any available corpus.
-    }
-    return readDocsUniversalPayload(globalName);
-  }
+    })();
 
-  async function ensureDocsIndexLoader() {
-    if (docsIndexLoadPromise) return docsIndexLoadPromise;
-
-    docsIndexLoadPromise = (async () => {
-      let llvmPayload = readDocsUniversalPayload('LLVMCoreDocsUniversalSearchIndex');
-      let clangPayload = readDocsUniversalPayload('LLVMClangDocsUniversalSearchIndex');
-      let lldbPayload = readDocsUniversalPayload('LLVMLLDBDocsUniversalSearchIndex');
-
-      if (!llvmPayload) {
-        llvmPayload = await loadDocsUniversalPayloadFromScript(
-          DOCS_UNIVERSAL_INDEX_SRC,
-          'LLVMCoreDocsUniversalSearchIndex'
-        );
-      }
-
-      if (!clangPayload) {
-        clangPayload = await loadDocsUniversalPayloadFromScript(
-          CLANG_DOCS_UNIVERSAL_INDEX_SRC,
-          'LLVMClangDocsUniversalSearchIndex'
-        );
-      }
-
-      if (!lldbPayload) {
-        lldbPayload = await loadDocsUniversalPayloadFromScript(
-          LLDB_DOCS_UNIVERSAL_INDEX_SRC,
-          'LLVMLLDBDocsUniversalSearchIndex'
-        );
-      }
-
-      if (llvmPayload) {
-        window.LLVMDocsUniversalSearchIndex = llvmPayload;
-      }
-
-      return !!(llvmPayload || clangPayload || lldbPayload);
-    })().catch(() => false);
-
-    return docsIndexLoadPromise;
+    return docsCatalogLoadPromise;
   }
 
   async function ensureDataLoaders() {
@@ -1181,7 +1154,7 @@
       const peopleBuckets = new Map();
       const talkTitleCounts = new Map();
       const paperTitleCounts = new Map();
-      const docsTitleBuckets = new Map();
+      const docsSourceBuckets = new Map();
 
       const addPerson = (name) => {
         const label = normalizePersonLabel(name);
@@ -1193,25 +1166,14 @@
         bucket.labels.set(label, (bucket.labels.get(label) || 0) + 1);
       };
 
-      const addDocTitle = (title, href, sourceLabel, basePrefix) => {
-        const label = normalizeText(title, 220);
-        if (!label) return;
-        const renderedLabel = `${label} (${sourceLabel})`;
-        const rawHref = normalizeText(href, 400);
-        let url = '';
-        if (rawHref) {
-          if (/^https?:\/\//i.test(rawHref)) url = rawHref;
-          else if (rawHref.startsWith('/')) url = rawHref;
-          else if (rawHref.startsWith('docs/')) url = resolveAssetUrl(rawHref);
-          else url = `${basePrefix}/${rawHref}`.replace(/\/{2,}/g, '/');
+      const addDocSource = (label, url) => {
+        const cleanLabel = normalizeText(label, 220);
+        const cleanUrl = resolvePrebuiltAutocompleteUrl(url);
+        if (!cleanLabel || !cleanUrl) return;
+        if (!docsSourceBuckets.has(cleanLabel)) {
+          docsSourceBuckets.set(cleanLabel, { count: 0, url: cleanUrl });
         }
-        if (!url) {
-          url = `${basePrefix}/`.replace(/\/{2,}/g, '/');
-        }
-        if (!docsTitleBuckets.has(renderedLabel)) {
-          docsTitleBuckets.set(renderedLabel, { count: 0, url });
-        }
-        const bucket = docsTitleBuckets.get(renderedLabel);
+        const bucket = docsSourceBuckets.get(cleanLabel);
         bucket.count += 1;
       };
 
@@ -1245,23 +1207,10 @@
         }
       }
 
-      await ensureDocsIndexLoader();
-      const docsPayloads = [
-        { payload: window.LLVMCoreDocsUniversalSearchIndex, sourceLabel: 'LLVM Core', basePrefix: resolveAssetUrl('docs') },
-        { payload: window.LLVMClangDocsUniversalSearchIndex, sourceLabel: 'Clang', basePrefix: resolveAssetUrl('docs/clang') },
-        { payload: window.LLVMLLDBDocsUniversalSearchIndex, sourceLabel: 'LLDB', basePrefix: resolveAssetUrl('docs/lldb') },
-      ];
-      docsPayloads.forEach(({ payload, sourceLabel, basePrefix }) => {
-        if (!payload || !Array.isArray(payload.entries)) return;
-        try {
-          for (const entry of payload.entries) {
-            if (!entry || typeof entry !== 'object') continue;
-            addDocTitle(entry.title, entry.href, sourceLabel, basePrefix);
-          }
-        } catch {
-          // Ignore docs index parse failures; other autocomplete buckets remain available.
-        }
-      });
+      const docsSources = await loadDocsSourcesCatalog();
+      for (const source of docsSources) {
+        addDocSource(source.label, source.url);
+      }
 
       autocompleteIndex.topics = mapToSortedEntries(topicCounts);
       autocompleteIndex.people = [...peopleBuckets.values()]
@@ -1273,7 +1222,7 @@
         .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
       autocompleteIndex.talks = mapToAlphaEntries(talkTitleCounts);
       autocompleteIndex.papers = mapToAlphaEntries(paperTitleCounts);
-      autocompleteIndex.docs = [...docsTitleBuckets.entries()]
+      autocompleteIndex.docs = [...docsSourceBuckets.entries()]
         .map(([label, info]) => ({
           label,
           count: Number(info && info.count || 0),
@@ -1492,7 +1441,7 @@
     if (matches.docs.length) {
       sections.push(`
         <div class="search-dropdown-section">
-          <div class="search-dropdown-label" aria-hidden="true">Docs Pages</div>
+          <div class="search-dropdown-label" aria-hidden="true">Docs Sources</div>
           ${matches.docs.map((item) => `
             <button type="button" class="search-dropdown-item" role="option" aria-selected="false"
                     data-autocomplete-type="doc"
@@ -1707,7 +1656,7 @@
     if (scope === 'talks') return 'Search talks (titles, speakers, summaries)...';
     if (scope === 'papers') return 'Search papers (titles, authors, abstracts)...';
     if (scope === 'blogs') return 'Search blogs (titles, authors, content)...';
-    if (scope === 'docs') return 'Search docs (titles, headings, content)...';
+    if (scope === 'docs') return 'Search docs sources and official links...';
     if (scope === 'people') return 'Search people (names, expertise, affiliations)...';
     return GLOBAL_SEARCH_PLACEHOLDER;
   }

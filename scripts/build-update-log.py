@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build/update website update log entries for newly added talks/resources/papers/blogs/docs.
+"""Build/update website update log entries for newly added talks/resources/papers/blogs.
 
 Default mode:
   - compares current working tree JSON bundles against HEAD versions in git
@@ -8,7 +8,6 @@ Default mode:
       * slides added to an existing talk
       * videos added to an existing talk
       * papers/blogs newly added to any papers/*.json bundle
-      * docs metadata updates newly added to docs/*/_static/docs-sync-meta.json
   - collates talk + slides + video into one entry when they appear together
 
 Retroactive mode:
@@ -34,23 +33,7 @@ PART_ORDER = {
     "docs": 5,
 }
 
-DOCS_META_CONFIG_BY_PATH: dict[str, dict[str, str]] = {
-    "docs/_static/docs-sync-meta.json": {
-        "variantId": "llvm-core",
-        "sourceName": "LLVM Core",
-        "localUrl": "docs/",
-    },
-    "docs/clang/_static/docs-sync-meta.json": {
-        "variantId": "clang",
-        "sourceName": "Clang",
-        "localUrl": "docs/clang/",
-    },
-    "docs/lldb/_static/docs-sync-meta.json": {
-        "variantId": "lldb",
-        "sourceName": "LLDB",
-        "localUrl": "docs/lldb/",
-    },
-}
+DOCS_META_CONFIG_BY_PATH: dict[str, dict[str, str]] = {}
 
 TRACKED_CHANGE_PATHS = [
     "devmtg/events",

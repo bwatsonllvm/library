@@ -5869,11 +5869,7 @@
       });
 
       if (!docsLinks.length) {
-        docsLinks.push(
-          { href: 'docs/', label: 'LLVM Core', active: false, current: false },
-          { href: 'docs/clang/', label: 'Clang', active: false, current: false },
-          { href: 'docs/lldb/', label: 'LLDB', active: false, current: false },
-        );
+        docsLinks.push({ href: 'docs/', label: 'Docs', active: false, current: false });
       }
 
       return { browseLinks, docsLinks };

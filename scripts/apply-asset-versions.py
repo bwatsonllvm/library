@@ -16,6 +16,7 @@ from pathlib import Path
 VIEWER_PAGES = [
     "index.html",
     "work.html",
+    "docs/index.html",
     "talks/index.html",
     "talks/events.html",
     "talks/talk.html",
@@ -31,6 +32,7 @@ VIEWER_PAGES = [
 TARGET_JS_FILES = [
     "js/work.js",
     "js/shared/global-search.js",
+    "js/docs.js",
 ]
 
 SCRIPT_OR_LINK_RE = re.compile(
@@ -42,7 +44,7 @@ SCRIPT_OR_LINK_RE = re.compile(
 )
 
 DOCS_INDEX_RE = re.compile(
-    r'(?P<path>docs(?:/clang|/lldb)?/_static/docs-universal-search-index\.js)\?v=[0-9a-z-]+'
+    r'(?P<path>docs/sources\.json)\?v=[0-9a-z-]+'
 )
 AUTOCOMPLETE_INDEX_RE = re.compile(
     r'(?P<path>js/data/autocomplete-index\.json)\?v=[0-9a-z-]+'
