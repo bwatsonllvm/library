@@ -18,13 +18,13 @@ import urllib.parse
 from pathlib import Path
 
 
-REQUIRED_BRIDGE_MARKERS = [
-    "buildDocsTrustStrip",
-    "buildInlinePageToc",
-    "enhanceSearchPageExperience",
-    "initDocsUniversalSearch",
-    "initSearchShortcut",
-    "buildSidebarRelationBar",
+REQUIRED_BRIDGE_MARKER_ALTERNATIVES = [
+    ("buildDocsTrustStrip", "buildDocsSourceLinkBar"),
+    ("buildInlinePageToc",),
+    ("enhanceSearchPageExperience",),
+    ("initDocsUniversalSearch",),
+    ("initSearchShortcut",),
+    ("buildSidebarRelationBar",),
 ]
 
 
@@ -96,9 +96,11 @@ def verify_bridge_assets(repo_root: Path, docs_dir: Path) -> None:
 
     docs_js_path = repo_root / docs_dir / "_static/documentation_options.js"
     docs_js = docs_js_path.read_text(encoding="utf-8")
-    for marker in REQUIRED_BRIDGE_MARKERS:
-        if marker not in docs_js:
-            fail(f"Bridge marker missing in {docs_js_path.relative_to(repo_root)}: {marker}")
+    for marker_options in REQUIRED_BRIDGE_MARKER_ALTERNATIVES:
+        if any(marker in docs_js for marker in marker_options):
+            continue
+        expected = " or ".join(marker_options)
+        fail(f"Bridge marker missing in {docs_js_path.relative_to(repo_root)}: {expected}")
 
     universal_path = repo_root / docs_dir / "_static/docs-universal-search-index.js"
     universal_js = universal_path.read_text(encoding="utf-8")
