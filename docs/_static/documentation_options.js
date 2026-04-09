@@ -1139,48 +1139,20 @@ const DOCUMENTATION_OPTIONS = {
     return `${DOCS_REPORT_ISSUE_BASE}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
   }
 
-  function buildDocsTrustStrip(rootPath, docsBasePath = ACTIVE_DOCS_BASE_PATH) {
-    const strip = document.createElement('aside');
-    strip.className = 'docs-trust-strip';
-    strip.setAttribute('role', 'note');
-    strip.setAttribute('aria-label', 'Docs mirror status');
+  function buildDocsSourceLinkBar(rootPath, docsBasePath = ACTIVE_DOCS_BASE_PATH) {
+    const bar = document.createElement('div');
+    bar.className = 'links-bar';
+    bar.setAttribute('aria-label', 'Documentation links');
 
-    const badge = document.createElement('span');
-    badge.className = 'docs-trust-badge';
-    badge.textContent = `Mirrored from ${ACTIVE_DOCS_SOURCE_BASE_URL.replace(/^https?:\/\//, '').replace(/\/$/, '')}`;
-    strip.appendChild(badge);
+    const docsLink = document.createElement('a');
+    docsLink.className = 'link-btn';
+    docsLink.href = resolveOriginalDocsUrl(rootPath, docsBasePath);
+    docsLink.target = '_blank';
+    docsLink.rel = 'noopener noreferrer';
+    docsLink.textContent = `Open in ${getDocsCorpusLabel(ACTIVE_DOCS_KIND)} Docs`;
+    bar.appendChild(docsLink);
 
-    const sourceLink = document.createElement('a');
-    sourceLink.className = 'docs-trust-link';
-    sourceLink.href = ACTIVE_DOCS_SOURCE_BASE_URL;
-    sourceLink.target = '_blank';
-    sourceLink.rel = 'noopener noreferrer';
-    sourceLink.textContent = 'Source';
-    strip.appendChild(sourceLink);
-
-    const originalLink = document.createElement('a');
-    originalLink.className = 'docs-trust-link';
-    originalLink.href = resolveOriginalDocsUrl(rootPath, docsBasePath);
-    originalLink.target = '_blank';
-    originalLink.rel = 'noopener noreferrer';
-    originalLink.textContent = 'View original';
-    strip.appendChild(originalLink);
-
-    const issueLink = document.createElement('a');
-    issueLink.className = 'docs-trust-link';
-    issueLink.href = buildReportIssueUrl(rootPath, docsBasePath);
-    issueLink.target = '_blank';
-    issueLink.rel = 'noopener noreferrer';
-    issueLink.textContent = 'Report issue';
-    strip.appendChild(issueLink);
-
-    const syncLabel = document.createElement('span');
-    syncLabel.className = 'docs-sync-status';
-    syncLabel.setAttribute('data-docs-sync-label', '1');
-    syncLabel.textContent = getSyncStatusText();
-    strip.appendChild(syncLabel);
-
-    return strip;
+    return bar;
   }
 
   function ensureSyncMetaData(rootPath, onReady, docsBasePath = ACTIVE_DOCS_BASE_PATH) {
@@ -3391,7 +3363,7 @@ const DOCUMENTATION_OPTIONS = {
     }
     shell.appendChild(header);
 
-    shell.appendChild(buildDocsTrustStrip(rootPath));
+    shell.appendChild(buildDocsSourceLinkBar(rootPath));
 
     const articleSection = document.createElement('section');
     articleSection.className = 'abstract-section';

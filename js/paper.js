@@ -18,6 +18,17 @@
   const PAPERS_PAGE_PATH = 'papers/';
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const PAPER_TO_TALK_REDIRECTS = Object.freeze({});
+  const BLOG_HTML_ALLOWED_TAGS = new Set([
+    'a', 'b', 'blockquote', 'br', 'code', 'del', 'details', 'div', 'em', 'figcaption', 'figure',
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'i', 'img', 'kbd', 'li', 'mark', 'ol', 'p', 'pre',
+    's', 'samp', 'small', 'span', 'strong', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'th',
+    'thead', 'tr', 'ul',
+  ]);
+  const BLOG_HTML_VOID_TAGS = new Set(['br', 'hr', 'img']);
+  const BLOG_HTML_DROP_TAGS = new Set([
+    'button', 'embed', 'form', 'iframe', 'input', 'link', 'meta', 'noscript', 'object', 'script',
+    'select', 'style', 'textarea',
+  ]);
 
   function escapeHtml(value) {
     return String(value || '')
@@ -285,15 +296,457 @@
       .join('\n');
   }
 
+  function sanitizeContentHref(value, paper) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    if (raw.startsWith('#')) return raw;
+    try {
+      const baseUrl = sanitizeExternalUrl((paper && (paper.sourceUrl || paper.paperUrl)) || '') || window.location.href;
+      const parsed = new URL(raw, baseUrl);
+      const protocol = parsed.protocol.toLowerCase();
+      if (protocol === 'http:' || protocol === 'https:' || protocol === 'mailto:') return parsed.toString();
+    } catch {
+      return '';
+    }
+    return '';
+  }
+
+  function sanitizeContentSrc(value, paper) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    try {
+      const baseUrl = sanitizeExternalUrl((paper && (paper.sourceUrl || paper.paperUrl)) || '') || window.location.href;
+      const parsed = new URL(raw, baseUrl);
+      const protocol = parsed.protocol.toLowerCase();
+      if (protocol === 'http:' || protocol === 'https:') return parsed.toString();
+    } catch {
+      return '';
+    }
+    return '';
+  }
+
+  function createInlineHtmlTokenStore() {
+    const tokens = [];
+    return {
+      stash(html) {
+        const key = `\u0000BLOG_HTML_${tokens.length}\u0000`;
+        tokens.push(String(html || ''));
+        return key;
+      },
+      restore(text) {
+        return String(text || '').replace(/\u0000BLOG_HTML_(\d+)\u0000/g, (_, index) => tokens[Number(index)] || '');
+      },
+    };
+  }
+
+  function parseShortcodeAttributes(raw) {
+    const attrs = {};
+    const source = String(raw || '');
+    const attrRe = /([A-Za-z0-9_-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'}]+))/g;
+    let match;
+    while ((match = attrRe.exec(source)) !== null) {
+      const key = String(match[1] || '').trim().toLowerCase();
+      if (!key) continue;
+      const value = String(match[2] || match[3] || match[4] || '').trim();
+      attrs[key] = value;
+    }
+    return attrs;
+  }
+
+  function buildBlogFigureHtml(attrs, paper) {
+    const src = sanitizeContentSrc(attrs.src || '', paper);
+    const alt = String(attrs.alt || attrs.caption || attrs.title || '').trim();
+    const caption = String(attrs.caption || attrs.title || '').trim();
+    if (!src) {
+      const sourceHref = sanitizeExternalUrl(paper && paper.sourceUrl);
+      if (!sourceHref) return '';
+      return `<p><a class="hugo-shortcode-link" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener noreferrer">View figure on the original blog post</a></p>`;
+    }
+
+    const imgAttrs = [
+      `src="${escapeHtml(src)}"`,
+      `alt="${escapeHtml(alt)}"`,
+      'loading="lazy"',
+      'decoding="async"',
+    ];
+    return `<figure class="hugo-figure"><img ${imgAttrs.join(' ')}>${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ''}</figure>`;
+  }
+
+  function replaceHugoShortcodes(raw, paper) {
+    const source = String(raw || '');
+    if (!source.includes('{{')) return source;
+
+    const withFigures = source.replace(/\{\{[<%]\s*figure\b([\s\S]*?)[>%]\}\}/gi, (_, attrBlob) => {
+      return buildBlogFigureHtml(parseShortcodeAttributes(attrBlob), paper);
+    });
+
+    return withFigures.replace(/\{\{[<%][\s\S]*?[>%]\}\}/g, () => {
+      const sourceHref = sanitizeExternalUrl(paper && paper.sourceUrl);
+      if (!sourceHref) return '';
+      return `<p><a class="hugo-shortcode-link" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener noreferrer">View embedded content on the original blog post</a></p>`;
+    });
+  }
+
+  function sanitizeBlogHtmlFragment(rawHtml, paper) {
+    const source = String(rawHtml || '').trim();
+    if (!source || !document || typeof document.createElement !== 'function') return '';
+
+    function sanitizeNodes(nodes) {
+      return Array.from(nodes || []).map((node) => sanitizeNode(node)).join('');
+    }
+
+    function sanitizeNode(node) {
+      if (!node) return '';
+      if (node.nodeType === 3) return escapeHtml(node.textContent || '');
+      if (node.nodeType !== 1) return '';
+
+      const tag = String(node.tagName || '').toLowerCase();
+      if (BLOG_HTML_DROP_TAGS.has(tag)) return '';
+      if (!BLOG_HTML_ALLOWED_TAGS.has(tag)) return sanitizeNodes(node.childNodes);
+
+      const attrs = [];
+      const id = String(node.getAttribute('id') || '').trim();
+      const className = String(node.getAttribute('class') || '').trim();
+      const title = String(node.getAttribute('title') || '').trim();
+      const lang = String(node.getAttribute('lang') || '').trim();
+
+      if (id) attrs.push(`id="${escapeHtml(id)}"`);
+      if (className) attrs.push(`class="${escapeHtml(className)}"`);
+      if (title) attrs.push(`title="${escapeHtml(title)}"`);
+      if (lang) attrs.push(`lang="${escapeHtml(lang)}"`);
+
+      if (tag === 'a') {
+        const href = sanitizeContentHref(node.getAttribute('href'), paper);
+        if (!href) return sanitizeNodes(node.childNodes);
+        attrs.push(`href="${escapeHtml(href)}"`);
+        if (!href.startsWith('#') && !href.startsWith('mailto:')) {
+          attrs.push('target="_blank"', 'rel="noopener noreferrer"');
+        }
+      }
+
+      if (tag === 'img') {
+        const src = sanitizeContentSrc(node.getAttribute('src'), paper);
+        if (!src) return '';
+        attrs.push(`src="${escapeHtml(src)}"`);
+        attrs.push(`alt="${escapeHtml(String(node.getAttribute('alt') || '').trim())}"`);
+
+        const width = Number.parseInt(node.getAttribute('width') || '', 10);
+        const height = Number.parseInt(node.getAttribute('height') || '', 10);
+        if (Number.isFinite(width) && width > 0) attrs.push(`width="${width}"`);
+        if (Number.isFinite(height) && height > 0) attrs.push(`height="${height}"`);
+        attrs.push('loading="lazy"', 'decoding="async"');
+      }
+
+      if ((tag === 'td' || tag === 'th') && node.hasAttribute('colspan')) {
+        const colspan = Number.parseInt(node.getAttribute('colspan') || '', 10);
+        if (Number.isFinite(colspan) && colspan > 1) attrs.push(`colspan="${colspan}"`);
+      }
+      if ((tag === 'td' || tag === 'th') && node.hasAttribute('rowspan')) {
+        const rowspan = Number.parseInt(node.getAttribute('rowspan') || '', 10);
+        if (Number.isFinite(rowspan) && rowspan > 1) attrs.push(`rowspan="${rowspan}"`);
+      }
+      if (tag === 'details' && node.hasAttribute('open')) {
+        attrs.push('open');
+      }
+
+      if (BLOG_HTML_VOID_TAGS.has(tag)) {
+        return `<${tag}${attrs.length ? ` ${attrs.join(' ')}` : ''}>`;
+      }
+
+      return `<${tag}${attrs.length ? ` ${attrs.join(' ')}` : ''}>${sanitizeNodes(node.childNodes)}</${tag}>`;
+    }
+
+    const template = document.createElement('template');
+    template.innerHTML = replaceHugoShortcodes(source, paper);
+    return sanitizeNodes(template.content.childNodes).trim();
+  }
+
+  function renderInlineMarkdown(rawText, paper) {
+    const store = createInlineHtmlTokenStore();
+    let text = String(rawText || '');
+
+    text = text.replace(/`([^`]+)`/g, (_, code) => store.stash(`<code>${escapeHtml(code)}</code>`));
+
+    text = text.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (_, alt, rawSrc, title) => {
+      const src = sanitizeContentSrc(rawSrc, paper);
+      if (!src) return String(alt || '');
+      const attrs = [
+        `src="${escapeHtml(src)}"`,
+        `alt="${escapeHtml(alt || '')}"`,
+        'loading="lazy"',
+        'decoding="async"',
+      ];
+      if (title) attrs.push(`title="${escapeHtml(title)}"`);
+      return store.stash(`<img ${attrs.join(' ')}>`); // Inline markdown images are safe after URL sanitization.
+    });
+
+    text = text.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/g, (_, label, rawHref, title) => {
+      const href = sanitizeContentHref(rawHref, paper);
+      const labelHtml = renderInlineMarkdown(label, paper);
+      if (!href) return String(label || '');
+      const attrs = [`href="${escapeHtml(href)}"`];
+      if (title) attrs.push(`title="${escapeHtml(title)}"`);
+      if (!href.startsWith('#') && !href.startsWith('mailto:')) {
+        attrs.push('target="_blank"', 'rel="noopener noreferrer"');
+      }
+      return store.stash(`<a ${attrs.join(' ')}>${labelHtml}</a>`);
+    });
+
+    text = escapeHtml(text);
+    text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    text = text.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+    text = text.replace(/(^|[^\w*])\*([^*]+)\*(?!\*)/g, '$1<em>$2</em>');
+    text = text.replace(/(^|[^\w_])_([^_]+)_(?!\w)/g, '$1<em>$2</em>');
+    return store.restore(text);
+  }
+
+  function isTableSeparatorRow(line) {
+    const trimmed = String(line || '').trim();
+    if (!trimmed.includes('|')) return false;
+    return /^[:|\-\s]+$/.test(trimmed);
+  }
+
+  function splitTableCells(line) {
+    let trimmed = String(line || '').trim();
+    if (trimmed.startsWith('|')) trimmed = trimmed.slice(1);
+    if (trimmed.endsWith('|')) trimmed = trimmed.slice(0, -1);
+    return trimmed.split('|').map((cell) => cell.trim());
+  }
+
+  function looksLikeHtmlBlockStart(line) {
+    const trimmed = String(line || '').trim();
+    const match = trimmed.match(/^<\/?([A-Za-z][\w:-]*)\b/);
+    if (!match) return false;
+    const tag = String(match[1] || '').toLowerCase();
+    return BLOG_HTML_ALLOWED_TAGS.has(tag) || BLOG_HTML_DROP_TAGS.has(tag);
+  }
+
+  function renderMarkdownTable(lines, startIndex, paper) {
+    const headerLine = String(lines[startIndex] || '');
+    const separatorLine = String(lines[startIndex + 1] || '');
+    if (!headerLine.includes('|') || !isTableSeparatorRow(separatorLine)) return null;
+
+    let index = startIndex + 2;
+    const rowLines = [];
+    while (index < lines.length) {
+      const current = String(lines[index] || '');
+      if (!current.trim() || !current.includes('|')) break;
+      rowLines.push(current);
+      index += 1;
+    }
+
+    const headers = splitTableCells(headerLine)
+      .map((cell) => `<th>${renderInlineMarkdown(cell, paper)}</th>`)
+      .join('');
+    const bodyRows = rowLines
+      .map((row) => `<tr>${splitTableCells(row).map((cell) => `<td>${renderInlineMarkdown(cell, paper)}</td>`).join('')}</tr>`)
+      .join('');
+
+    return {
+      html: `<table><thead><tr>${headers}</tr></thead>${bodyRows ? `<tbody>${bodyRows}</tbody>` : ''}</table>`,
+      nextIndex: index,
+    };
+  }
+
+  function renderMarkdownList(lines, startIndex, paper) {
+    const ordered = /^\s*\d+\.\s+/.test(String(lines[startIndex] || ''));
+    const itemRe = ordered ? /^(\s*)\d+\.\s+(.*)$/ : /^(\s*)[-*+]\s+(.*)$/;
+    const items = [];
+    let index = startIndex;
+    let current = null;
+
+    while (index < lines.length) {
+      const line = String(lines[index] || '');
+      if (!line.trim()) break;
+
+      const match = line.match(itemRe);
+      if (match) {
+        if (current) items.push(current);
+        current = [String(match[2] || '').trim()];
+        index += 1;
+        continue;
+      }
+
+      if (current && /^\s{2,}\S/.test(line)) {
+        current.push(line.trim());
+        index += 1;
+        continue;
+      }
+      break;
+    }
+
+    if (current) items.push(current);
+    if (!items.length) return null;
+
+    const tag = ordered ? 'ol' : 'ul';
+    const html = items
+      .map((itemLines) => {
+        const rendered = renderInlineMarkdown(itemLines.join('\n'), paper)
+          .replace(/ {2,}\n/g, '<br>')
+          .replace(/\n/g, ' ');
+        return `<li>${rendered}</li>`;
+      })
+      .join('');
+
+    return { html: `<${tag}>${html}</${tag}>`, nextIndex: index };
+  }
+
+  function renderMarkdownBlockquote(lines, startIndex, paper) {
+    const quoteLines = [];
+    let index = startIndex;
+
+    while (index < lines.length) {
+      const line = String(lines[index] || '');
+      if (!line.trim()) {
+        quoteLines.push('');
+        index += 1;
+        continue;
+      }
+      if (!/^\s*>/.test(line)) break;
+      quoteLines.push(line.replace(/^\s*>\s?/, ''));
+      index += 1;
+    }
+
+    const innerHtml = renderMarkdownContent(quoteLines.join('\n'), paper);
+    if (!innerHtml) return null;
+    return { html: `<blockquote>${innerHtml}</blockquote>`, nextIndex: index };
+  }
+
+  function renderMarkdownParagraph(lines, startIndex, paper) {
+    const paragraphLines = [];
+    let index = startIndex;
+
+    while (index < lines.length) {
+      const line = String(lines[index] || '');
+      if (!line.trim()) break;
+      if (
+        /^(#{1,6})\s+/.test(line)
+        || /^\s*(?:[-*_]){3,}\s*$/.test(line)
+        || /^\s*>/.test(line)
+        || looksLikeHtmlBlockStart(line)
+        || /^\s*(?:[-*+]|\d+\.)\s+/.test(line)
+      ) {
+        if (paragraphLines.length) break;
+      }
+      if (paragraphLines.length && line.includes('|') && isTableSeparatorRow(lines[index + 1])) break;
+      paragraphLines.push(line);
+      index += 1;
+    }
+
+    const rendered = renderInlineMarkdown(paragraphLines.join('\n').trim(), paper)
+      .replace(/ {2,}\n/g, '<br>')
+      .replace(/\n/g, ' ');
+    return { html: rendered ? `<p>${rendered}</p>` : '', nextIndex: index };
+  }
+
+  function renderMarkdownContent(rawContent, paper) {
+    const content = replaceHugoShortcodes(String(rawContent || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'), paper);
+    if (!content.trim()) return '';
+
+    const lines = content.split('\n');
+    const parts = [];
+    let index = 0;
+
+    while (index < lines.length) {
+      const line = String(lines[index] || '');
+      const trimmed = line.trim();
+      if (!trimmed) {
+        index += 1;
+        continue;
+      }
+
+      const fenceMatch = trimmed.match(/^(```|~~~)\s*([A-Za-z0-9_+-]*)\s*$/);
+      if (fenceMatch) {
+        const fence = fenceMatch[1];
+        const language = String(fenceMatch[2] || '').trim().toLowerCase();
+        const codeLines = [];
+        index += 1;
+        while (index < lines.length && String(lines[index] || '').trim() !== fence) {
+          codeLines.push(String(lines[index] || ''));
+          index += 1;
+        }
+        if (index < lines.length) index += 1;
+        const className = language ? ` class="blog-code language-${escapeHtml(language)}"` : ' class="blog-code"';
+        parts.push(`<pre class="blog-code-block"><code${className}>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+        continue;
+      }
+
+      const headingMatch = trimmed.match(/^(#{1,6})\s+(.+)$/);
+      if (headingMatch) {
+        const level = Math.min(6, Math.max(1, headingMatch[1].length));
+        parts.push(`<h${level}>${renderInlineMarkdown(headingMatch[2], paper)}</h${level}>`);
+        index += 1;
+        continue;
+      }
+
+      if (/^\s*(?:[-*_]){3,}\s*$/.test(line)) {
+        parts.push('<hr>');
+        index += 1;
+        continue;
+      }
+
+      const table = renderMarkdownTable(lines, index, paper);
+      if (table) {
+        parts.push(table.html);
+        index = table.nextIndex;
+        continue;
+      }
+
+      if (/^\s*>/.test(line)) {
+        const quote = renderMarkdownBlockquote(lines, index, paper);
+        if (quote) {
+          parts.push(quote.html);
+          index = quote.nextIndex;
+          continue;
+        }
+      }
+
+      if (/^\s*(?:[-*+]|\d+\.)\s+/.test(line)) {
+        const list = renderMarkdownList(lines, index, paper);
+        if (list) {
+          parts.push(list.html);
+          index = list.nextIndex;
+          continue;
+        }
+      }
+
+      if (looksLikeHtmlBlockStart(line)) {
+        const htmlLines = [];
+        while (index < lines.length && String(lines[index] || '').trim()) {
+          htmlLines.push(String(lines[index] || ''));
+          index += 1;
+        }
+        const sanitized = sanitizeBlogHtmlFragment(htmlLines.join('\n'), paper);
+        if (sanitized) parts.push(sanitized);
+        continue;
+      }
+
+      const paragraph = renderMarkdownParagraph(lines, index, paper);
+      if (paragraph) {
+        if (paragraph.html) parts.push(paragraph.html);
+        index = paragraph.nextIndex;
+        continue;
+      }
+
+      index += 1;
+    }
+
+    return parts.join('\n');
+  }
+
   function renderBlogContent(paper) {
-    const content = String(paper && paper.content || '').trim();
+    const content = String((paper && paper.content) || '').trim();
     if (!content) return renderAbstract(paper && paper.abstract);
-    return content
-      .split(/\n{2,}|\r\n\r\n/)
-      .map((paragraph) => paragraph.trim())
-      .filter(Boolean)
-      .map((paragraph) => `<p>${escapeHtml(paragraph.replace(/\n/g, ' '))}</p>`)
-      .join('\n');
+
+    const format = String((paper && paper.contentFormat) || '').trim().toLowerCase();
+    if (format === 'html') {
+      const html = sanitizeBlogHtmlFragment(content, paper);
+      return html || renderAbstract(paper && paper.abstract);
+    }
+
+    const markdown = renderMarkdownContent(content, paper);
+    return markdown || renderAbstract(paper && paper.abstract);
   }
 
   function renderAuthors(authors, paper) {
