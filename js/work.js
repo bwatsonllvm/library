@@ -27,6 +27,7 @@ const normalizePersonRecord = requireHubFunction('normalizePersonRecord');
 const tokenizeQueryFromHub = requireHubFunction('tokenizeQuery');
 const hasStrongPersonQueryMatchFromHub = requireHubFunction('hasStrongPersonQueryMatch');
 const findStrongPersonMatchesFromHub = requireHubFunction('findStrongPersonMatches');
+const shouldUseContextualPeopleExpansionFromHub = requireHubFunction('shouldUseContextualPeopleExpansion');
 const buildSearchQueryModel = requireHubFunction('buildSearchQueryModel');
 const scoreTalkRecordByModel = requireHubFunction('scoreTalkRecordByModel');
 const scorePaperRecordByModel = requireHubFunction('scorePaperRecordByModel');
@@ -402,6 +403,10 @@ function hasStrongPersonQueryMatch(person, query, advancedOptions = null) {
 
 function findStrongPersonMatches(people, query, advancedOptions = null) {
   return findStrongPersonMatchesFromHub(people, query, { advanced: advancedOptions || undefined });
+}
+
+function shouldUseContextualPeopleExpansion(scope, options = null) {
+  return shouldUseContextualPeopleExpansionFromHub(scope, options || undefined);
 }
 
 function findPersonRecordByName(value) {
@@ -2320,11 +2325,17 @@ function recomputeFilteredResults() {
       .filter((person) => matchesPersonSearchFilters(person, filterWindow));
     const hasAuthorIntent = normalizeAdvancedText(advancedOptions.author).length > 0;
     const personContextScores = buildPersonContextScoreMap(scopedTalks, scopedPapers, scopedBlogs);
+    const useContextualPeopleExpansion = shouldUseContextualPeopleExpansion(state.scope, {
+      hasStrongDirectMatches: strongDirectPeople.length > 0,
+      hasAuthorIntent,
+    });
     const scopedPeople = strongDirectPeople.length
       ? strongDirectPeople
       : (hasAuthorIntent
         ? directPeople
-        : rankPeopleWithContext(directPeople, personContextScores, filterWindow));
+        : (useContextualPeopleExpansion
+          ? rankPeopleWithContext(directPeople, personContextScores, filterWindow)
+          : directPeople));
     filteredTalks = sortTalkResults(scopedTalks);
     filteredPapers = sortPaperResults(scopedPapers);
     filteredBlogs = sortPaperResults(scopedBlogs);

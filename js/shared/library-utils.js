@@ -700,6 +700,16 @@
     return matches;
   }
 
+  function shouldUseContextualPeopleExpansion(scope, options = {}) {
+    const normalizedScope = collapseWhitespace(scope).toLowerCase();
+    if (normalizedScope === 'people') return false;
+
+    const opts = options && typeof options === 'object' ? options : {};
+    if (opts.hasStrongDirectMatches) return false;
+    if (opts.hasAuthorIntent) return false;
+    return true;
+  }
+
   function normalizeAffiliationKey(value) {
     return stripDiacritics(normalizeAffiliation(value).toLowerCase())
       .replace(/[^a-z0-9]+/g, '');
@@ -6292,6 +6302,7 @@
     rankAutocompleteEntries,
     composeCrossTypeRelevance,
     rankPaperRecordsByQuery,
+    shouldUseContextualPeopleExpansion,
     rankTalksByQuery,
     scorePaperRecordByModel,
     scorePaperRecordByQuery,

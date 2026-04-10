@@ -157,6 +157,32 @@ test('findStrongPersonMatches keeps direct people hits when the query includes e
   assert.deepEqual(matches.map((person) => person.name), ['Wenlei He']);
 });
 
+test('shouldUseContextualPeopleExpansion disables related-people expansion for people scope', () => {
+  assert.equal(
+    utils.shouldUseContextualPeopleExpansion('people', {
+      hasStrongDirectMatches: false,
+      hasAuthorIntent: false,
+    }),
+    false
+  );
+
+  assert.equal(
+    utils.shouldUseContextualPeopleExpansion('all', {
+      hasStrongDirectMatches: false,
+      hasAuthorIntent: false,
+    }),
+    true
+  );
+
+  assert.equal(
+    utils.shouldUseContextualPeopleExpansion('all', {
+      hasStrongDirectMatches: true,
+      hasAuthorIntent: false,
+    }),
+    false
+  );
+});
+
 test('rankPaperRecordsByQuery prioritizes exact-title paper matches', () => {
   const papers = [
     {
