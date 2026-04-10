@@ -387,71 +387,119 @@ def parse_speakers(raw: str, default_affiliation: str = "") -> list[dict]:
 
 
 def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
-    table_match = re.search(
-        r"<table[^>]*id=['\"]devmtg['\"][^>]*>(.*?)</table>",
-        page_html,
-        flags=re.IGNORECASE | re.DOTALL,
+    table_matches = list(
+        re.finditer(
+            r"<table[^>]*id=['\"]devmtg['\"][^>]*>(.*?)</table>",
+            page_html,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
     )
-    if not table_match:
+    if not table_matches:
         return []
 
     talks: list[dict] = []
-    for row_html in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table_match.group(1), flags=re.IGNORECASE | re.DOTALL):
-        if "<th" in row_html.lower():
-            continue
 
-        cells = re.findall(r"<td\b[^>]*>(.*?)</td>", row_html, flags=re.IGNORECASE | re.DOTALL)
-        if len(cells) < 2:
-            continue
+    for table_match in table_matches:
+        table_html = table_match.group(1)
+        row_mode = "paired"
 
-        for idx in range(0, len(cells) - 1, 2):
-            media_cell, info_cell = cells[idx], cells[idx + 1]
-            info_parts = re.split(r"<br\s*/?>", info_cell, maxsplit=1, flags=re.IGNORECASE)
-            header_html = info_parts[0] if info_parts else info_cell
-            speaker_html = info_parts[1] if len(info_parts) > 1 else ""
+        header_match = re.search(r"<tr\b[^>]*>(.*?)</tr>", table_html, flags=re.IGNORECASE | re.DOTALL)
+        if header_match and "<th" in header_match.group(1).lower():
+            header_labels = [
+                collapse_ws(strip_html(cell)).lower()
+                for cell in re.findall(r"<th\b[^>]*>(.*?)</th>", header_match.group(1), flags=re.IGNORECASE | re.DOTALL)
+            ]
+            if len(header_labels) >= 3 and header_labels[0] == "author" and header_labels[1] == "title":
+                row_mode = "author-title-media"
 
-            title = clean_title(strip_html(header_html))
-            if not title:
+        for row_html in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table_html, flags=re.IGNORECASE | re.DOTALL):
+            if "<th" in row_html.lower():
                 continue
 
-            anchor_match = re.search(r"href=['\"]#([^'\"]+)['\"]", header_html, flags=re.IGNORECASE)
-            anchor_id = collapse_ws(anchor_match.group(1)) if anchor_match else ""
+            cells = re.findall(r"<td\b[^>]*>(.*?)</td>", row_html, flags=re.IGNORECASE | re.DOTALL)
+            if row_mode == "author-title-media":
+                if len(cells) < 3:
+                    continue
 
-            category = "technical-talk"
-            if title.lower().startswith("keynote:"):
-                category = "keynote"
-                title = collapse_ws(title.split(":", 1)[1])
+                speaker_cell, title_cell, media_cell = cells[0], cells[1], cells[2]
+                title = clean_title(strip_html(title_cell))
+                if not title:
+                    continue
 
-            shared_affiliation = " / ".join(
-                collapse_ws(strip_html(value))
-                for value in re.findall(r"<i\b[^>]*>(.*?)</i>", speaker_html, flags=re.IGNORECASE | re.DOTALL)
-                if collapse_ws(strip_html(value))
-            )
-            speaker_text = collapse_ws(
-                strip_html(
-                    re.sub(
-                        r"<i\b[^>]*>.*?</i>",
-                        " ",
-                        speaker_html,
-                        flags=re.IGNORECASE | re.DOTALL,
+                speaker_parts = re.split(r"<br\s*/?>", speaker_cell, maxsplit=1, flags=re.IGNORECASE)
+                speaker_text = collapse_ws(strip_html(speaker_parts[0])) if speaker_parts else ""
+                shared_affiliation = collapse_ws(strip_html(speaker_parts[1])) if len(speaker_parts) > 1 else ""
+
+                category = "technical-talk"
+                if title.lower().startswith("keynote:"):
+                    category = "keynote"
+                    title = collapse_ws(title.split(":", 1)[1])
+
+                video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+                talks.append(
+                    {
+                        "title": title,
+                        "category": category,
+                        "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
+                        "abstract": "",
+                        "videoUrl": video_url,
+                        "videoId": parse_video_id(video_url),
+                        "slidesUrl": slides_url,
+                    }
+                )
+                continue
+
+            if len(cells) < 2:
+                continue
+
+            for idx in range(0, len(cells) - 1, 2):
+                media_cell, info_cell = cells[idx], cells[idx + 1]
+                info_parts = re.split(r"<br\s*/?>", info_cell, maxsplit=1, flags=re.IGNORECASE)
+                header_html = info_parts[0] if info_parts else info_cell
+                speaker_html = info_parts[1] if len(info_parts) > 1 else ""
+
+                title = clean_title(strip_html(header_html))
+                if not title:
+                    continue
+
+                anchor_match = re.search(r"href=['\"]#([^'\"]+)['\"]", header_html, flags=re.IGNORECASE)
+                anchor_id = collapse_ws(anchor_match.group(1)) if anchor_match else ""
+
+                category = "technical-talk"
+                if title.lower().startswith("keynote:"):
+                    category = "keynote"
+                    title = collapse_ws(title.split(":", 1)[1])
+
+                shared_affiliation = " / ".join(
+                    collapse_ws(strip_html(value))
+                    for value in re.findall(r"<i\b[^>]*>(.*?)</i>", speaker_html, flags=re.IGNORECASE | re.DOTALL)
+                    if collapse_ws(strip_html(value))
+                )
+                speaker_text = collapse_ws(
+                    strip_html(
+                        re.sub(
+                            r"<i\b[^>]*>.*?</i>",
+                            " ",
+                            speaker_html,
+                            flags=re.IGNORECASE | re.DOTALL,
+                        )
                     )
                 )
-            )
-            speaker_text = re.sub(r"\s*,\s*$", "", speaker_text)
+                speaker_text = re.sub(r"\s*,\s*$", "", speaker_text)
 
-            video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
-            talks.append(
-                {
-                    "_anchorId": anchor_id,
-                    "title": title,
-                    "category": category,
-                    "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
-                    "abstract": "",
-                    "videoUrl": video_url,
-                    "videoId": parse_video_id(video_url),
-                    "slidesUrl": slides_url,
-                }
-            )
+                video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+                talks.append(
+                    {
+                        "_anchorId": anchor_id,
+                        "title": title,
+                        "category": category,
+                        "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
+                        "abstract": "",
+                        "videoUrl": video_url,
+                        "videoId": parse_video_id(video_url),
+                        "slidesUrl": slides_url,
+                    }
+                )
 
     return talks
 
@@ -1290,20 +1338,23 @@ def extract_talk_match_key(talk: dict) -> tuple[str, str]:
 
 
 def next_talk_id(existing_talks: list[dict], slug: str, used_ids: set[str]) -> str:
-    max_id = 0
     pattern = re.compile(rf"^{re.escape(slug)}-(\d+)$")
+    used_numbers: set[int] = set()
     for talk in existing_talks:
         talk_id = collapse_ws(str(talk.get("id", "")))
         match = pattern.match(talk_id)
         if match:
-            max_id = max(max_id, int(match.group(1)))
+            used_numbers.add(int(match.group(1)))
 
+    candidate_num = 1
     while True:
-        max_id += 1
-        candidate = f"{slug}-{max_id:03d}"
+        while candidate_num in used_numbers:
+            candidate_num += 1
+        candidate = f"{slug}-{candidate_num:03d}"
         if candidate not in used_ids:
             used_ids.add(candidate)
             return candidate
+        candidate_num += 1
 
 
 def merge_meeting_talks(
