@@ -3117,7 +3117,7 @@
 
     const matchThreshold = Number.isFinite(options.matchThreshold) ? options.matchThreshold : 0.92;
     const idfByToken = new Map();
-    const totalDocs = values.length;
+    const totalRecords = values.length;
     let maxIdf = 0;
 
     for (const clause of targetClauses) {
@@ -3132,7 +3132,7 @@
         if (score >= matchThreshold) docFreq += 1;
       }
 
-      const idf = Math.log(1 + ((totalDocs - docFreq + 0.5) / (docFreq + 0.5)));
+      const idf = Math.log(1 + ((totalRecords - docFreq + 0.5) / (docFreq + 0.5)));
       idfByToken.set(token, idf);
       if (idf > maxIdf) maxIdf = idf;
     }
@@ -3141,7 +3141,7 @@
       clauses: targetClauses,
       idfByToken,
       maxIdf,
-      totalDocs,
+      totalRecords,
       matchThreshold,
     };
   }
@@ -4910,7 +4910,6 @@
     talk: 1.02,
     paper: 1.0,
     blog: 0.98,
-    docs: 0.94,
     person: 0.92,
   });
 
@@ -5955,7 +5954,6 @@
       const nodes = [...panel.querySelectorAll('a.mobile-nav-link[href]')];
       const seen = new Set();
       const browseLinks = [];
-      const docsLinks = [];
 
       nodes.forEach((node) => {
         const href = String(node.getAttribute('href') || '').trim();
@@ -5966,23 +5964,16 @@
         if (seen.has(key)) return;
         seen.add(key);
 
-        const isDocsHref = /(^|\/)docs(?:\/|$)/i.test(href);
-        const isDocsLabel = /^docs\b/i.test(label);
         const entry = {
           href,
-          label: label.replace(/^docs:\s*/i, ''),
+          label,
           active: node.classList.contains('active') || node.getAttribute('aria-current') === 'page',
           current: node.getAttribute('aria-current') === 'page',
         };
-        if (isDocsHref || isDocsLabel) docsLinks.push(entry);
-        else browseLinks.push(entry);
+        browseLinks.push(entry);
       });
 
-      if (!docsLinks.length) {
-        docsLinks.push({ href: 'docs/', label: 'Docs', active: false, current: false });
-      }
-
-      return { browseLinks, docsLinks };
+      return { browseLinks };
     }
 
     function buildMobileNavGroup(groupLabel, groupAriaLabel, links) {
@@ -6024,13 +6015,10 @@
         return;
       }
 
-      const { browseLinks, docsLinks } = readMobilePanelLinkEntries(panel);
+      const { browseLinks } = readMobilePanelLinkEntries(panel);
       panel.innerHTML = '';
       if (browseLinks.length) {
         panel.appendChild(buildMobileNavGroup('Browse', 'Browse', browseLinks));
-      }
-      if (docsLinks.length) {
-        panel.appendChild(buildMobileNavGroup('Docs', 'Documentation sources', docsLinks));
       }
       ensureMobileSettingsGroup(panel);
     }

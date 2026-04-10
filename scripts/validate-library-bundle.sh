@@ -26,10 +26,6 @@ for f in \
   blogs/index.html \
   people/index.html \
   about/index.html \
-  docs/index.html \
-  docs/clang/index.html \
-  docs/lldb/index.html \
-  docs/sources.json \
   updates/index.html \
   updates/index.json \
   css/style.css \
@@ -42,7 +38,6 @@ for f in \
   js/papers-data.js \
   js/papers.js \
   js/updates.js \
-  js/docs.js \
   js/shared/library-utils.js \
   js/data/autocomplete-index.json \
   templates/site-header.html \
@@ -116,37 +111,6 @@ ruby -rjson -e '
     end
   end
 ' "$UPDATES_ROOT"
-
-# Validate docs sources catalog JSON.
-ruby -rjson -ruri -e '
-  path = ARGV.fetch(0)
-  payload = JSON.parse(File.read(path))
-  abort("docs/sources.json must contain an object") unless payload.is_a?(Hash)
-  sources = payload["sources"]
-  abort("docs/sources.json must contain a non-empty sources array") unless sources.is_a?(Array) && !sources.empty?
-
-  sources.each_with_index do |source, idx|
-    abort("docs/sources.json sources[#{idx}] must be an object") unless source.is_a?(Hash)
-    id = String(source["id"]).strip
-    name = String(source["name"]).strip
-    docs_url = String(source["docsUrl"]).strip
-    search_url = String(source["searchUrlTemplate"]).strip
-    abort("docs/sources.json sources[#{idx}] missing id") if id.empty?
-    abort("docs/sources.json sources[#{idx}] missing name") if name.empty?
-    abort("docs/sources.json sources[#{idx}] missing docsUrl") if docs_url.empty?
-    abort("docs/sources.json sources[#{idx}] missing searchUrlTemplate") if search_url.empty?
-    [docs_url, search_url].each do |url|
-      begin
-        uri = URI.parse(url)
-      rescue URI::InvalidURIError
-        abort("docs/sources.json sources[#{idx}] has invalid URL: #{url}")
-      end
-      unless %w[http https].include?(String(uri.scheme).downcase) && !String(uri.host).strip.empty?
-        abort("docs/sources.json sources[#{idx}] URL must be absolute http/https: #{url}")
-      end
-    end
-  end
-' "$SITE_ROOT/docs/sources.json"
 
 # Validate papers manifest points to existing JSON files.
 ruby -rjson -e '
@@ -274,7 +238,6 @@ ruby -e '
     blogs/index.html
     people/index.html
     about/index.html
-    docs/index.html
     updates/index.html
   ].map { |f| File.join(site_root, f) }
 

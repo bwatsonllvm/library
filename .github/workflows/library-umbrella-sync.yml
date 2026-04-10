@@ -1,6 +1,6 @@
-name: Auto Sync - Umbrella (All Silos, Single PR)
+name: Auto Sync - devmtg, Blogs, and Paper Discovery
 
-run-name: Umbrella autosync (llvm upstream + papers)
+run-name: Sync llvm-www/devmtg, blogs, and paper collation
 
 on:
   workflow_dispatch:
@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   sync-upstream:
-    name: Sync llvm-www + llvm-blog
+    name: Sync llvm-www/devmtg + llvm-blog
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Sync events talks/slides/videos from llvm-www
+      - name: Sync talks/slides/videos from llvm-www/devmtg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -87,7 +87,7 @@ jobs:
           retention-days: 3
 
   sync-papers:
-    name: Sync OpenAlex papers
+    name: Run paper search + collation
     runs-on: ubuntu-latest
     timeout-minutes: 70
     env:
@@ -106,7 +106,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Refresh OpenAlex discovered papers
+      - name: Refresh discovered papers from OpenAlex search
         run: |
           python3 scripts/build-openalex-discovery.py \
             --events-dir devmtg/events \
@@ -128,7 +128,7 @@ jobs:
             --output updates/openalex-update-summary.md \
             --skip-when-unchanged
 
-      - name: Build single canonical papers database
+      - name: Build canonical papers collation
         run: |
           python3 scripts/build-single-papers-db.py \
             --output papers/combined-all-papers-deduped.json \
@@ -178,7 +178,7 @@ jobs:
           retention-days: 3
 
   assemble-and-pr:
-    name: Assemble silo diffs + validate + create one PR
+    name: Assemble sync output + validate + create one PR
     runs-on: ubuntu-latest
     timeout-minutes: 90
     needs:
@@ -259,16 +259,17 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: main
-          branch: library/automated-sync-umbrella
+          branch: library/automated-sync-library-update
           delete-branch: true
-          commit-message: "Library umbrella sync (llvm upstream + papers)"
-          title: "Library umbrella sync (llvm upstream + papers)"
+          commit-message: "Library update sync (devmtg, blogs, papers)"
+          title: "Library update sync (devmtg, blogs, papers)"
           body: |
-            Automated umbrella sync (parallel silos, single PR):
+            Automated library update sync:
 
-            Silo change detection:
-            - llvm upstream (llvm-www + llvm-blog): `${{ needs.sync-upstream.outputs.has_changes }}`
-            - papers (OpenAlex + canonical DB): `${{ needs.sync-papers.outputs.has_changes }}`
+            Source stages:
+            - llvm-www/devmtg talks/slides/videos: `${{ needs.sync-upstream.outputs.has_changes }}`
+            - llvm-blog-www posts: included in the upstream sync stage above
+            - paper discovery + canonical collation: `${{ needs.sync-papers.outputs.has_changes }}`
 
             Finalization:
             - sanitizes URL-bearing fields

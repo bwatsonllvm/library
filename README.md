@@ -232,42 +232,21 @@ For canonical meeting schedules and announcements, use the official archive: htt
 
 ## Automation
 
-Automation is split into four scheduled PR workflows:
+Automation is centered on one scheduled PR workflow:
 
-1. LLVM upstream sync (`.github/workflows/llvm-upstream-sync.yml`)
+1. Library update sync (`.github/workflows/library-umbrella-sync.yml`)
    - syncs talks/slides/videos from `llvm-www/devmtg`
    - syncs LLVM blog posts from `llvm-blog-www`
-   - rebuilds the updates log
-2. Papers/library sync (`.github/workflows/library-papers-sync.yml`)
    - refreshes OpenAlex-discovered papers
-   - rebuilds the canonical papers database (OpenAlex + llvm.org/pubs + blog)
+   - rebuilds the canonical papers collation
    - backfills direct paper PDF links via OpenAlex + Unpaywall
-   - rebuilds the updates log
-3. Docs repo sync (LLVM Core + Clang) (`.github/workflows/docs-repo-sync.yml`)
-   - pulls docs sources from `llvm/llvm-project`
-   - rebuilds local docs artifacts for LLVM Core and Clang
-   - regenerates local docs search indexes and sync metadata for LLVM Core and Clang
-4. Docs LLDB sync (`.github/workflows/docs-lldb-sync.yml`)
-   - pulls LLDB docs sources from `llvm/llvm-project`
-   - rebuilds local docs artifacts for LLDB only
-   - regenerates LLDB docs search indexes and sync metadata
+   - rebuilds the updates log and viewer artifacts
 
-The split keeps:
-- lightweight llvm-www/blog updates independent from papers ingestion/enrichment
-- docs sync independent from both, so docs-specific issues do not block event/blog or papers updates
-- LLDB docs sync isolated from LLVM Core/Clang docs sync so LLDB-specific build issues do not block core docs updates
+There is one separate manual intake workflow:
 
-Docs source endpoint health is checked daily in:
-- `.github/workflows/docs-sources-health.yml`
-
-## Docs Source Boundaries
-
-The docs section keeps local formatted docs pages and search indexes while sourcing content from upstream LLVM repos:
-
-- Docs source definitions live in `docs/sources.json`.
-- Local docs pages are served from `docs/`, `docs/clang/`, and `docs/lldb/`.
-- Docs backend sync is repo-based (`scripts/sync-docs-from-llvm-project.py`), not website crawling.
-- The bridge shell/UI is intentionally preserved in local docs output (`docs/*/_static/documentation_options.js`) so docs keep the same header/search/presentation as the rest of the site.
+1. Manual paper intake (`.github/workflows/manual-paper-pr.yml`)
+   - appends a user-supplied paper URL into `papers/manual-added-papers.json`
+   - rebuilds the updates log and viewer artifacts
 
 ## Validation And Test Gates
 
@@ -287,17 +266,12 @@ Search relevance behavior is covered by deterministic regression tests in:
 These checks run in:
 - `.github/workflows/library-validate.yml` (PR validation)
 - `.github/workflows/pages.yml` (deploy gate)
-- `.github/workflows/llvm-upstream-sync.yml` (LLVM upstream automation PRs)
-- `.github/workflows/library-papers-sync.yml` (papers automation PRs)
-- `.github/workflows/docs-repo-sync.yml` (docs automation PRs for LLVM Core + Clang)
-- `.github/workflows/docs-lldb-sync.yml` (docs automation PRs for LLDB)
-- `.github/workflows/docs-sources-health.yml` (daily upstream docs endpoint health checks)
+- `.github/workflows/library-umbrella-sync.yml` (automated library update PRs)
+- `.github/workflows/manual-paper-pr.yml` (manual paper-intake PRs)
 
 ## Repository Layout
 
 - `index.html`, `work.html`, and section folders (`talks/`, `papers/`, `blogs/`, `people/`, `about/`, `updates/`): static site pages/routes
-- `docs/`, `docs/clang/`, `docs/lldb/`: local docs artifacts + bridge/search assets sourced from `llvm/llvm-project`
-- `docs/sources.json`: docs source catalog metadata
 - `css/`, `js/`, `images/`: shared site assets
 - `js/data/autocomplete-index.json`: prebuilt lightweight autocomplete payload consumed by header/global search
 - `devmtg/events/*.json`: talk/event records

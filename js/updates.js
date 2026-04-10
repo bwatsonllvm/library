@@ -1,5 +1,5 @@
 /**
- * updates.js — Render update log (talks/slides/videos/papers/blogs/docs additions).
+ * updates.js — Render update log for devmtg talks, blog posts, and papers.
  */
 
 const UPDATE_LOG_PATH = 'updates/index.json';
@@ -10,10 +10,9 @@ const INITIAL_BATCH_ENTRY_RENDER_SIZE = 60;
 const BATCH_ENTRY_RENDER_SIZE = 40;
 const BATCH_ENTRY_LOAD_ROOT_MARGIN = '600px 0px';
 const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
-const UPDATE_KIND_ORDER = ['paper', 'docs', 'talk', 'blog'];
+const UPDATE_KIND_ORDER = ['talk', 'blog', 'paper'];
 const UPDATE_KIND_LABELS = {
   paper: ['paper', 'papers'],
-  docs: ['docs update', 'docs updates'],
   talk: ['talk update', 'talk updates'],
   blog: ['blog post', 'blog posts'],
 };
@@ -128,7 +127,6 @@ function normalizeUpdateKind(rawKind) {
   const kindKey = collapseWs(rawKind).toLowerCase();
   if (kindKey === 'blog') return 'blog';
   if (kindKey === 'paper') return 'paper';
-  if (kindKey === 'docs') return 'docs';
   return 'talk';
 }
 
@@ -238,7 +236,6 @@ function topicFilterHref(kind, topic) {
   if (!label) return '#';
   if (kind === 'talk') return `talks/?tag=${encodeURIComponent(label)}`;
   if (kind === 'blog') return `blogs/?tag=${encodeURIComponent(label)}`;
-  if (kind === 'docs') return `work.html?mode=search&scope=docs&q=${encodeURIComponent(label)}`;
   return `papers/?tag=${encodeURIComponent(label)}`;
 }
 
@@ -291,13 +288,11 @@ function formatIncludedParts(entry, kind) {
     else if (part === 'video') add(videoLinkLabel(entry.videoUrl));
     else if (part === 'paper') add(isDirectPdfUrl(entry.paperUrl) ? 'PDF' : 'Paper');
     else if (part === 'blog') add('Post');
-    else if (part === 'docs') add('Docs');
   }
 
   if (!out.length) {
     if (kind === 'talk') add('Talk');
     else if (kind === 'blog') add('Post');
-    else if (kind === 'docs') add('Docs');
     else add(isDirectPdfUrl(entry.paperUrl) ? 'PDF' : 'Paper');
   }
   return out;
@@ -306,7 +301,6 @@ function formatIncludedParts(entry, kind) {
 function detailLinkLabel(kind) {
   if (kind === 'talk') return 'Talk Details';
   if (kind === 'blog') return 'Blog Details';
-  if (kind === 'docs') return 'Docs Home';
   return 'Paper Details';
 }
 
@@ -321,14 +315,14 @@ function renderLinkTag(url, label, external = false) {
 
 function renderEntry(entry) {
   const kind = normalizeUpdateKind(entry.kind);
-  const kindLabel = kind === 'talk' ? 'Talk' : (kind === 'blog' ? 'Blog' : (kind === 'docs' ? 'Docs' : 'Paper'));
+  const kindLabel = kind === 'talk' ? 'Talk' : (kind === 'blog' ? 'Blog' : 'Paper');
   const title = collapseWs(entry.title) || '(Untitled)';
   const url = normalizeLibraryUrl(entry.url);
   const loggedAtLabel = formatLoggedAt(entry.loggedAt);
   const includedLabels = formatIncludedParts(entry, kind);
   const keyTopics = formatKeyTopics(entry.keyTopics).filter((topic) => {
     const lower = collapseWs(topic).toLowerCase();
-    return lower !== 'paper' && lower !== 'blog' && lower !== 'docs';
+    return lower !== 'paper' && lower !== 'blog';
   });
 
   let context = '';
@@ -337,16 +331,6 @@ function renderEntry(entry) {
       collapseWs(entry.meetingName),
       collapseWs(entry.meetingDate),
       collapseWs(entry.meetingSlug),
-    ].filter(Boolean);
-    context = pieces.join(' · ');
-  } else if (kind === 'docs') {
-    const revision = collapseWs(entry.sourceRevision) || collapseWs(entry.sourceHeadRevision);
-    const revisionLabel = revision ? `rev ${revision.slice(0, 12)}` : '';
-    const pieces = [
-      collapseWs(entry.docsSourceName),
-      collapseWs(entry.releaseName) || collapseWs(entry.releaseTag),
-      revisionLabel,
-      collapseWs(entry.source),
     ].filter(Boolean);
     context = pieces.join(' · ');
   } else {
@@ -375,10 +359,6 @@ function renderEntry(entry) {
     } else if (!blogUrl && repoUrl) {
       addLink(repoUrl, 'Post', true);
     }
-  } else if (kind === 'docs') {
-    addLink(entry.sourceUrl, 'Upstream Docs', true);
-    addLink(entry.sourceCommitUrl, 'Source Commit', true);
-    addLink(entry.releaseUrl, 'Release', true);
   } else {
     const paperHref = sanitizeExternalUrl(entry.paperUrl);
     const sourceHref = sanitizeExternalUrl(entry.sourceUrl);
@@ -406,7 +386,7 @@ function renderEntry(entry) {
   const topicHtml = keyTopics
     .map((topic) => {
       const href = topicFilterHref(kind, topic);
-      const browseScope = kind === 'talk' ? 'talks' : (kind === 'blog' ? 'blogs' : (kind === 'docs' ? 'docs sources' : 'papers'));
+      const browseScope = kind === 'talk' ? 'talks' : (kind === 'blog' ? 'blogs' : 'papers');
       return `<a class="card-tag" href="${escapeHtml(href)}" aria-label="Browse ${browseScope} for key topic ${escapeHtml(topic)}">${escapeHtml(topic)}</a>`;
     })
     .join('');
@@ -484,7 +464,7 @@ function updateSubtitle(entries, batches, lastLibraryUpdateCompletedAt) {
   const completedLabel = lastLibraryUpdateCompletedAt
     ? ` · last library update completed ${formatLoggedAt(lastLibraryUpdateCompletedAt)}`
     : '';
-  subtitle.textContent = `${count.toLocaleString()} update entr${count === 1 ? 'y' : 'ies'} in ${batchCount.toLocaleString()} batch${batchCount === 1 ? '' : 'es'}${completedLabel}`;
+  subtitle.textContent = `${count.toLocaleString()} update entr${count === 1 ? 'y' : 'ies'} in ${batchCount.toLocaleString()} sync batch${batchCount === 1 ? '' : 'es'} from llvm-www/devmtg, llvm-blog-www, and paper discovery/collation${completedLabel}`;
 }
 
 function teardownInfiniteLoader() {
@@ -842,7 +822,7 @@ function renderEntries(batches) {
 
   if (!batches.length) {
     setLoadStatus('');
-    root.innerHTML = '<section class="updates-empty"><h2>No updates yet</h2><p>Newly added talks, slides, videos, papers, blogs, and docs updates will appear here after sync runs.</p></section>';
+    root.innerHTML = '<section class="updates-empty"><h2>No updates yet</h2><p>New llvm-www/devmtg talks, llvm-blog posts, and paper discovery results will appear here after sync runs.</p></section>';
     return;
   }
 

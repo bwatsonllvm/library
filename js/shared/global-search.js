@@ -1,5 +1,5 @@
 /**
- * global-search.js — Header Search All hydration + autocomplete (talks/papers/blogs/docs/people).
+ * global-search.js — Header Search All hydration + autocomplete (talks/papers/blogs/people).
  */
 
 (function () {
@@ -7,10 +7,9 @@
 
   let dataLoadPromise = null;
   let indexBuildPromise = null;
-  let docsCatalogLoadPromise = null;
   let prebuiltAutocompleteLoadPromise = null;
   const formStateMap = new WeakMap();
-  const GLOBAL_SEARCH_LABEL = 'Search All across talks, papers, blogs, docs, people, and key topics';
+  const GLOBAL_SEARCH_LABEL = 'Search All across talks, papers, blogs, people, and key topics';
   const GLOBAL_SEARCH_PLACEHOLDER = 'Search the full library...';
 
   function normalizeRootPath(raw) {
@@ -53,10 +52,6 @@
       }
     }
 
-    const path = String(window.location.pathname || '/');
-    const docsMatch = path.match(/^(.*?\/)docs(?:\/|$)/i);
-    if (docsMatch && docsMatch[1]) return normalizeRootPath(docsMatch[1]);
-
     return '/';
   }
 
@@ -66,8 +61,7 @@
   }
 
   const LIBRARY_ROOT_PATH = resolveLibraryRootPath();
-  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=3f83aa303620');
-  const DOCS_SOURCES_CATALOG_SRC = resolveAssetUrl('docs/sources.json?v=5002438127ef');
+  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=cd483944c951');
   const ADVANCED_FIELDS = [
     'allWords',
     'exactPhrase',
@@ -81,7 +75,7 @@
   ];
   const ADVANCED_FIELD_SET = new Set(ADVANCED_FIELDS);
   const ADVANCED_WHERE_VALUES = new Set(['anywhere', 'title', 'abstract']);
-  const SEARCH_SCOPE_VALUES = new Set(['all', 'talks', 'papers', 'blogs', 'docs', 'people']);
+  const SEARCH_SCOPE_VALUES = new Set(['all', 'talks', 'papers', 'blogs', 'people']);
   const SEARCH_SORT_VALUES = new Set(['relevance', 'newest', 'oldest', 'title', 'citations']);
   const DEFAULT_SEARCH_SORT = 'relevance';
   const ADVANCED_FIELDS_BY_CONTEXT = {
@@ -89,7 +83,6 @@
     talks: ['allWords', 'exactPhrase', 'anyWords', 'withoutWords', 'where', 'author', 'yearFrom', 'yearTo'],
     papers: ['allWords', 'exactPhrase', 'anyWords', 'withoutWords', 'where', 'author', 'publication', 'yearFrom', 'yearTo'],
     blogs: ['allWords', 'exactPhrase', 'anyWords', 'withoutWords', 'where', 'author', 'yearFrom', 'yearTo'],
-    docs: ['allWords', 'exactPhrase', 'anyWords', 'withoutWords', 'where'],
     people: ['allWords', 'exactPhrase', 'anyWords', 'withoutWords', 'author', 'publication', 'yearFrom', 'yearTo'],
   };
   const autocompleteIndex = {
@@ -97,7 +90,6 @@
     people: [],
     talks: [],
     papers: [],
-    docs: [],
   };
 
   function normalizeText(value, maxLength = 240) {
@@ -142,7 +134,6 @@
     if (scope === 'talks') return 'Talks';
     if (scope === 'papers') return 'Papers';
     if (scope === 'blogs') return 'Blogs';
-    if (scope === 'docs') return 'Docs';
     if (scope === 'people') return 'People';
     return 'All';
   }
@@ -151,9 +142,8 @@
     if (scope === 'talks') return 'Tailored for talks, speakers, and event content';
     if (scope === 'papers') return 'Tailored for papers, authors, venues, and abstracts';
     if (scope === 'blogs') return 'Tailored for blog posts, authors, and post content';
-    if (scope === 'docs') return 'Tailored for official LLVM, Clang, and LLDB docs sources and upstream search links';
     if (scope === 'people') return 'Tailored for people, expertise, affiliations, and publications';
-    return 'Search across talks, papers, blogs, official docs sources, and people';
+    return 'Search across talks, papers, blogs, and people';
   }
 
   function resolveAdvancedContextScope(defaultScope) {
@@ -161,7 +151,6 @@
     if (normalized === 'talks') return 'talks';
     if (normalized === 'papers') return 'papers';
     if (normalized === 'blogs') return 'blogs';
-    if (normalized === 'docs') return 'docs';
     if (normalized === 'people') return 'people';
     return 'all';
   }
@@ -177,14 +166,12 @@
       .toLowerCase();
     if (bodyScope === 'paper') return 'papers';
     if (bodyScope === 'blog') return 'blogs';
-    if (bodyScope === 'docs' || bodyScope === 'doc') return 'docs';
 
     const path = String(window.location.pathname || '').toLowerCase();
     if (path.includes('/people/')) return 'people';
     if (path.includes('/blogs/')) return 'blogs';
     if (path.includes('/papers/')) return 'papers';
     if (path.includes('/talks/')) return 'talks';
-    if (path.includes('/docs/')) return 'docs';
     return 'all';
   }
 
@@ -245,12 +232,6 @@
         <option value="anywhere">Anywhere in blogs</option>
         <option value="title">Post title</option>
         <option value="abstract">Post content</option>`;
-    }
-    if (contextScope === 'docs') {
-      return `
-        <option value="anywhere">Anywhere in docs</option>
-        <option value="title">Doc/page title</option>
-        <option value="abstract">Headings/content</option>`;
     }
     return `
       <option value="anywhere">Anywhere</option>
@@ -349,7 +330,6 @@
         { value: 'talks', label: 'Talks only' },
         { value: 'papers', label: 'Papers only' },
         { value: 'blogs', label: 'Blogs only' },
-        { value: 'docs', label: 'Docs only' },
         { value: 'people', label: 'People only' },
       ];
       out.push(`<label class="global-search-advanced-field">
@@ -1000,23 +980,6 @@
     return out;
   }
 
-  function normalizeDocsSourceAutocompleteEntries(values) {
-    const list = Array.isArray(values) ? values : [];
-    const out = [];
-    for (const entry of list) {
-      if (!entry || typeof entry !== 'object') continue;
-      const name = normalizeText(entry.name || entry.label, 220);
-      const docsUrl = resolvePrebuiltAutocompleteUrl(entry.docsUrl || entry.url);
-      if (!name || !docsUrl) continue;
-      out.push({
-        label: `${name} Documentation`,
-        count: 1,
-        url: docsUrl,
-      });
-    }
-    return out;
-  }
-
   async function loadPrebuiltAutocompleteIndex() {
     if (prebuiltAutocompleteLoadPromise) return prebuiltAutocompleteLoadPromise;
 
@@ -1031,9 +994,8 @@
         const people = normalizePrebuiltAutocompleteEntries(payload.people);
         const talks = normalizePrebuiltAutocompleteEntries(payload.talks);
         const papers = normalizePrebuiltAutocompleteEntries(payload.papers);
-        const docs = normalizePrebuiltAutocompleteEntries(payload.docs, { includeUrl: true });
 
-        if (!topics.length && !people.length && !talks.length && !papers.length && !docs.length) {
+        if (!topics.length && !people.length && !talks.length && !papers.length) {
           return false;
         }
 
@@ -1041,7 +1003,6 @@
         autocompleteIndex.people = people;
         autocompleteIndex.talks = talks;
         autocompleteIndex.papers = papers;
-        autocompleteIndex.docs = docs;
         return true;
       } catch {
         return false;
@@ -1102,24 +1063,6 @@
     return candidate.full === target.full || (candidate.base && candidate.base === target.base);
   }
 
-  async function loadDocsSourcesCatalog() {
-    if (docsCatalogLoadPromise) return docsCatalogLoadPromise;
-
-    docsCatalogLoadPromise = (async () => {
-      try {
-        const response = await fetch(DOCS_SOURCES_CATALOG_SRC, { cache: 'force-cache' });
-        if (!response.ok) return [];
-        const payload = await response.json();
-        const sources = Array.isArray(payload && payload.sources) ? payload.sources : [];
-        return normalizeDocsSourceAutocompleteEntries(sources);
-      } catch {
-        return [];
-      }
-    })();
-
-    return docsCatalogLoadPromise;
-  }
-
   async function ensureDataLoaders() {
     if (dataLoadPromise) return dataLoadPromise;
 
@@ -1154,7 +1097,6 @@
       const peopleBuckets = new Map();
       const talkTitleCounts = new Map();
       const paperTitleCounts = new Map();
-      const docsSourceBuckets = new Map();
 
       const addPerson = (name) => {
         const label = normalizePersonLabel(name);
@@ -1164,17 +1106,6 @@
         const bucket = peopleBuckets.get(key);
         bucket.count += 1;
         bucket.labels.set(label, (bucket.labels.get(label) || 0) + 1);
-      };
-
-      const addDocSource = (label, url) => {
-        const cleanLabel = normalizeText(label, 220);
-        const cleanUrl = resolvePrebuiltAutocompleteUrl(url);
-        if (!cleanLabel || !cleanUrl) return;
-        if (!docsSourceBuckets.has(cleanLabel)) {
-          docsSourceBuckets.set(cleanLabel, { count: 0, url: cleanUrl });
-        }
-        const bucket = docsSourceBuckets.get(cleanLabel);
-        bucket.count += 1;
       };
 
       if (typeof window.loadEventData === 'function') {
@@ -1207,11 +1138,6 @@
         }
       }
 
-      const docsSources = await loadDocsSourcesCatalog();
-      for (const source of docsSources) {
-        addDocSource(source.label, source.url);
-      }
-
       autocompleteIndex.topics = mapToSortedEntries(topicCounts);
       autocompleteIndex.people = [...peopleBuckets.values()]
         .map((bucket) => {
@@ -1222,13 +1148,6 @@
         .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
       autocompleteIndex.talks = mapToAlphaEntries(talkTitleCounts);
       autocompleteIndex.papers = mapToAlphaEntries(paperTitleCounts);
-      autocompleteIndex.docs = [...docsSourceBuckets.entries()]
-        .map(([label, info]) => ({
-          label,
-          count: Number(info && info.count || 0),
-          url: String(info && info.url || resolveAssetUrl('docs/')),
-        }))
-        .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
       return autocompleteIndex;
     })();
 
@@ -1332,7 +1251,7 @@
   function collectMatches(query) {
     const rawQuery = String(query || '').trim();
     if (!rawQuery) {
-      return { topics: [], people: [], talks: [], papers: [], docs: [] };
+      return { topics: [], people: [], talks: [], papers: [] };
     }
 
     return {
@@ -1340,7 +1259,6 @@
       people: rankAutocompleteMatches(autocompleteIndex.people, rawQuery, 6),
       talks: rankAutocompleteMatches(autocompleteIndex.talks, rawQuery, 4),
       papers: rankAutocompleteMatches(autocompleteIndex.papers, rawQuery, 4),
-      docs: rankAutocompleteMatches(autocompleteIndex.docs, rawQuery, 5),
     };
   }
 
@@ -1352,8 +1270,7 @@
       matches.topics.length > 0 ||
       matches.people.length > 0 ||
       matches.talks.length > 0 ||
-      matches.papers.length > 0 ||
-      matches.docs.length > 0;
+      matches.papers.length > 0;
 
     if (!hasAny) {
       closeDropdown(form);
@@ -1364,7 +1281,6 @@
     const personIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`;
     const talkIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
     const paperIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
-    const docsIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`;
     const searchIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`;
 
     const sections = [`
@@ -1438,22 +1354,6 @@
         </div>`);
     }
 
-    if (matches.docs.length) {
-      sections.push(`
-        <div class="search-dropdown-section">
-          <div class="search-dropdown-label" aria-hidden="true">Docs Sources</div>
-          ${matches.docs.map((item) => `
-            <button type="button" class="search-dropdown-item" role="option" aria-selected="false"
-                    data-autocomplete-type="doc"
-                    data-autocomplete-value="${escapeHtml(item.label)}"
-                    data-autocomplete-doc-url="${escapeHtml(String(item.url || 'docs/'))}">
-              <span class="search-dropdown-item-icon">${docsIcon}</span>
-              <span class="search-dropdown-item-label">${highlightMatch(item.label, query)}</span>
-              <span class="search-dropdown-item-count">Docs</span>
-            </button>`).join('')}
-        </div>`);
-    }
-
     dropdown.innerHTML = sections.join('<div class="search-dropdown-divider"></div>');
     dropdown.classList.remove('hidden');
     state.activeItemIndex = -1;
@@ -1467,13 +1367,6 @@
         event.preventDefault();
         event.stopPropagation();
         const requestedType = String(item.dataset.autocompleteType || 'query').trim().toLowerCase();
-        if (requestedType === 'doc') {
-          const directUrl = String(item.dataset.autocompleteDocUrl || '').trim();
-          if (!directUrl) return;
-          closeDropdown(form);
-          window.location.assign(directUrl);
-          return;
-        }
         const submitType = resolveSubmitType(form, requestedType);
         form.dataset.searchSubmitType = submitType;
         if (submitType === 'global') normalizeScopeForGlobalSubmit(form);
@@ -1606,13 +1499,6 @@
 
         event.preventDefault();
         const requestedType = String(activeItem.dataset.autocompleteType || 'query').trim().toLowerCase();
-        if (requestedType === 'doc') {
-          const directUrl = String(activeItem.dataset.autocompleteDocUrl || '').trim();
-          if (!directUrl) return;
-          closeDropdown(form);
-          window.location.assign(directUrl);
-          return;
-        }
         const submitType = resolveSubmitType(form, requestedType);
         form.dataset.searchSubmitType = submitType;
         if (submitType === 'global') normalizeScopeForGlobalSubmit(form);
@@ -1656,7 +1542,6 @@
     if (scope === 'talks') return 'Search talks (titles, speakers, summaries)...';
     if (scope === 'papers') return 'Search papers (titles, authors, abstracts)...';
     if (scope === 'blogs') return 'Search blogs (titles, authors, content)...';
-    if (scope === 'docs') return 'Search docs sources and official links...';
     if (scope === 'people') return 'Search people (names, expertise, affiliations)...';
     return GLOBAL_SEARCH_PLACEHOLDER;
   }

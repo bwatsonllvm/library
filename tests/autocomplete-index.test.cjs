@@ -16,10 +16,10 @@ test('autocomplete index exists and exposes required arrays', () => {
   assert.ok(fs.existsSync(AUTOCOMPLETE_INDEX_PATH), 'js/data/autocomplete-index.json must exist');
   const payload = parseJson(AUTOCOMPLETE_INDEX_PATH);
   assert.ok(payload && typeof payload === 'object', 'payload must be an object');
-  ['topics', 'people', 'talks', 'papers', 'docs'].forEach((key) => {
+  ['topics', 'people', 'talks', 'papers'].forEach((key) => {
     assert.ok(Array.isArray(payload[key]), `${key} must be an array`);
   });
-  assert.ok(payload.topics.length > 0 || payload.people.length > 0 || payload.talks.length > 0 || payload.papers.length > 0 || payload.docs.length > 0,
+  assert.ok(payload.topics.length > 0 || payload.people.length > 0 || payload.talks.length > 0 || payload.papers.length > 0,
     'at least one autocomplete list should be non-empty');
 });
 

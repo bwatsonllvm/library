@@ -16,7 +16,6 @@ from pathlib import Path
 VIEWER_PAGES = [
     "index.html",
     "work.html",
-    "docs/index.html",
     "talks/index.html",
     "talks/events.html",
     "talks/talk.html",
@@ -32,7 +31,6 @@ VIEWER_PAGES = [
 TARGET_JS_FILES = [
     "js/work.js",
     "js/shared/global-search.js",
-    "js/docs.js",
 ]
 
 SCRIPT_OR_LINK_RE = re.compile(
@@ -43,9 +41,6 @@ SCRIPT_OR_LINK_RE = re.compile(
     flags=re.IGNORECASE,
 )
 
-DOCS_INDEX_RE = re.compile(
-    r'(?P<path>docs/sources\.json)\?v=[0-9a-z-]+'
-)
 AUTOCOMPLETE_INDEX_RE = re.compile(
     r'(?P<path>js/data/autocomplete-index\.json)\?v=[0-9a-z-]+'
 )
@@ -97,8 +92,7 @@ def stamp_docs_index_constants(repo_root: Path, js_path: Path) -> bool:
             return match.group(0)
         return f"{rel}?v={version_for(resolved)}"
 
-    updated = DOCS_INDEX_RE.sub(repl, original)
-    updated = AUTOCOMPLETE_INDEX_RE.sub(repl, updated)
+    updated = AUTOCOMPLETE_INDEX_RE.sub(repl, original)
     if updated == original:
         return False
     js_path.write_text(updated, encoding="utf-8")

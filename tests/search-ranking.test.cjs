@@ -623,12 +623,12 @@ test('composeCrossTypeRelevance applies kind priors and global-ratio penalty', (
     tier: 'strict',
     kind: 'talk',
   });
-  const docsTop = utils.composeCrossTypeRelevance(100, {
+  const personTop = utils.composeCrossTypeRelevance(100, {
     kindTopScore: 100,
     globalTopScore: 100,
     rankIndex: 0,
     tier: 'strict',
-    kind: 'docs',
+    kind: 'person',
   });
   const highGlobal = utils.composeCrossTypeRelevance(120, {
     kindTopScore: 120,
@@ -645,6 +645,6 @@ test('composeCrossTypeRelevance applies kind priors and global-ratio penalty', (
     kind: 'talk',
   });
 
-  assert.ok(talkTop > docsTop);
+  assert.ok(talkTop > personTop);
   assert.ok(highGlobal > lowGlobal);
 });

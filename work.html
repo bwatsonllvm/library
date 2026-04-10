@@ -78,7 +78,7 @@
       <span>LLVM Research Library</span>
     </a>
 
-    <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, docs, people, and key topics">
+    <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
       <input type="hidden" name="mode" value="search">
       <input
         type="search"
@@ -87,7 +87,7 @@
         placeholder="Search the full library..."
         autocomplete="off"
         spellcheck="false"
-        aria-label="Search All across talks, papers, blogs, docs, people, and key topics"
+        aria-label="Search All across talks, papers, blogs, people, and key topics"
       >
       <button class="global-search-submit" type="submit" aria-label="Run Search All">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -109,9 +109,6 @@
       </a>
       <a href="blogs/" class="nav-link" aria-label="Blogs">
         <span aria-hidden="true">Blogs</span>
-      </a>
-      <a href="docs/" class="nav-link" aria-label="Documentation">
-        <span aria-hidden="true">Docs</span>
       </a>
       <a href="people/" class="nav-link" aria-label="People">
         <span aria-hidden="true">People</span>
@@ -138,7 +135,6 @@
         <a href="talks/events.html" class="mobile-nav-link">Events</a>
         <a href="papers/" class="mobile-nav-link">Papers</a>
         <a href="blogs/" class="mobile-nav-link">Blogs</a>
-        <a href="docs/" class="mobile-nav-link">Docs</a>
         <a href="people/" class="mobile-nav-link">People</a>
         <a href="updates/" class="mobile-nav-link">Updates</a>
         <a href="about/" class="mobile-nav-link">About</a>
@@ -195,7 +191,7 @@
     <div class="search-hero-shell">
       <h1 id="work-title">All Work</h1>
       <p class="subtitle" id="work-subtitle">Loading talks, papers, blogs, and people...</p>
-      <form class="search-box global-search-form work-hero-search" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, docs, people, and key topics">
+      <form class="search-box global-search-form work-hero-search" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
         <input type="hidden" name="mode" value="search">
         <input type="hidden" id="work-search-scope-input" name="scope" value="all">
         <input type="hidden" id="work-search-time-input" name="time" value="any">
@@ -220,7 +216,7 @@
           placeholder="Search the full library..."
           autocomplete="off"
           spellcheck="false"
-          aria-label="Search All across talks, papers, blogs, docs, people, and key topics"
+          aria-label="Search All across talks, papers, blogs, people, and key topics"
         >
         <button type="button" class="search-clear" id="work-search-clear" aria-label="Clear search" title="Clear">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
@@ -252,10 +248,6 @@
             <button type="button" class="work-scope-btn" data-work-scope="blogs" aria-pressed="false">
               <span>Blogs</span>
               <span class="work-scope-count" id="work-scope-count-blogs">0</span>
-            </button>
-            <button type="button" class="work-scope-btn" data-work-scope="docs" aria-pressed="false">
-              <span>Docs</span>
-              <span class="work-scope-count" id="work-scope-count-docs">0</span>
             </button>
             <button type="button" class="work-scope-btn" data-work-scope="people" aria-pressed="false">
               <span>People</span>
@@ -410,20 +402,6 @@
         <button class="work-more-btn hidden" id="work-blogs-more" type="button">Show more blogs</button>
       </section>
 
-      <section class="work-section hidden" id="work-docs-section" aria-labelledby="work-docs-heading">
-        <div class="work-section-header">
-          <h2 class="work-section-title" id="work-docs-heading">Docs</h2>
-          <span class="work-section-count" id="work-docs-count"></span>
-        </div>
-        <div id="work-docs-grid" class="talks-grid" role="feed" aria-label="Docs results" aria-busy="true">
-          <div class="loading-state">
-            <div class="spinner" aria-hidden="true"></div>
-            <p>Loading docs...</p>
-          </div>
-        </div>
-        <button class="work-more-btn hidden" id="work-docs-more" type="button">Show more docs</button>
-      </section>
-
       <section class="work-section" id="work-people-section" aria-labelledby="work-people-heading">
         <div class="work-section-header">
           <h2 class="work-section-title" id="work-people-heading">People</h2>
@@ -442,8 +420,8 @@
 
   <script src="js/events-data.js?v=ff68e407abd5"></script>
   <script src="js/papers-data.js?v=c7e1dc09095c"></script>
-  <script src="js/shared/library-utils.js?v=3516bf26c4ba"></script>
-  <script src="js/shared/global-search.js?v=6a08f7e77794"></script>
-  <script src="js/work.js?v=5467c74670d5"></script>
+  <script src="js/shared/library-utils.js?v=d0095581c4c6"></script>
+  <script src="js/shared/global-search.js?v=aeb3b6af4d82"></script>
+  <script src="js/work.js?v=838e1ad18924"></script>
 </body>
 </html>

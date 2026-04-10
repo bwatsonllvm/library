@@ -2,7 +2,7 @@
 """Generate a lightweight autocomplete artifact for viewer-side global search.
 
 The output is intentionally compact and pre-aggregated so browser runtime does
-not need to load full talks/papers/docs corpora just to render suggestions.
+not need to load full talks/papers corpora just to render suggestions.
 """
 
 from __future__ import annotations
@@ -224,40 +224,6 @@ def finalize_count_buckets(
 
     return entries[: max(0, limit)]
 
-def collect_docs_entries(
-    repo_root: Path,
-    *,
-    limit: int,
-) -> list[dict[str, object]]:
-    catalog_path = repo_root / "docs" / "sources.json"
-    if not catalog_path.exists():
-        return []
-
-    payload = parse_json(catalog_path)
-    raw_sources = payload.get("sources") if isinstance(payload, dict) else []
-    if not isinstance(raw_sources, list):
-        return []
-
-    out: list[dict[str, object]] = []
-    for raw_entry in raw_sources:
-        if not isinstance(raw_entry, dict):
-            continue
-        name = normalize_label(str(raw_entry.get("name") or raw_entry.get("id") or ""), 220)
-        docs_url = normalize_label(str(raw_entry.get("docsUrl") or ""), 400)
-        if not name or not re.match(r"^https?://", docs_url, flags=re.IGNORECASE):
-            continue
-        out.append(
-            {
-                "label": f"{name} Documentation",
-                "count": 1,
-                "url": docs_url,
-            }
-        )
-
-    out.sort(key=lambda item: str(item["label"]).lower())
-    return out[: max(0, limit)]
-
-
 def build_payload(
     repo_root: Path,
     *,
@@ -265,7 +231,6 @@ def build_payload(
     max_people: int,
     max_talk_titles: int,
     max_paper_titles: int,
-    max_docs_titles: int,
 ) -> dict[str, object]:
     events_dir = repo_root / "devmtg" / "events"
     papers_dir = repo_root / "papers"
@@ -309,8 +274,6 @@ def build_payload(
     people = finalize_count_buckets(people_buckets, limit=max_people, alpha=False)
     talks_out = finalize_count_buckets(talk_title_buckets, limit=max_talk_titles, alpha=True)
     papers_out = finalize_count_buckets(paper_title_buckets, limit=max_paper_titles, alpha=True)
-    docs_out = collect_docs_entries(repo_root, limit=max_docs_titles)
-
     return {
         "meta": {
             "source": "scripts/generate-autocomplete-index.py",
@@ -321,14 +284,12 @@ def build_payload(
                 "people": len(people),
                 "talks": len(talks_out),
                 "papers": len(papers_out),
-                "docs": len(docs_out),
             },
         },
         "topics": topics,
         "people": people,
         "talks": talks_out,
         "papers": papers_out,
-        "docs": docs_out,
     }
 
 
@@ -359,7 +320,6 @@ def main() -> int:
     parser.add_argument("--max-people", type=int, default=6000)
     parser.add_argument("--max-talk-titles", type=int, default=5000)
     parser.add_argument("--max-paper-titles", type=int, default=8000)
-    parser.add_argument("--max-docs-titles", type=int, default=4500)
     parser.add_argument("--check", action="store_true", help="Fail if output is not up to date.")
     args = parser.parse_args()
 
@@ -372,7 +332,6 @@ def main() -> int:
         max_people=max(1, args.max_people),
         max_talk_titles=max(1, args.max_talk_titles),
         max_paper_titles=max(1, args.max_paper_titles),
-        max_docs_titles=max(1, args.max_docs_titles),
     )
     existing_payload = None
     if output_path.exists():
