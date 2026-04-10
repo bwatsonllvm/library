@@ -66,14 +66,27 @@ def sanitize_http_url(value: str) -> str:
     if not raw:
         return ""
     try:
-        parsed = urllib.parse.urlparse(raw)
+        parsed = urllib.parse.urlsplit(raw)
     except Exception:
         return ""
-    if parsed.scheme.lower() not in {"http", "https"}:
+    scheme = parsed.scheme.lower()
+    if scheme not in {"http", "https"}:
         return ""
     if not parsed.netloc:
         return ""
-    return urllib.parse.urlunparse(parsed)
+    path = urllib.parse.quote(
+        urllib.parse.unquote(parsed.path or ""),
+        safe="/:@!$&'()*+,;=-._~",
+    )
+    query = urllib.parse.quote(
+        urllib.parse.unquote(parsed.query or ""),
+        safe="=&/?:@!$'()*+,;%-._~",
+    )
+    fragment = urllib.parse.quote(
+        urllib.parse.unquote(parsed.fragment or ""),
+        safe="/?:@!$&'()*+,;=-._~",
+    )
+    return urllib.parse.urlunsplit((scheme, parsed.netloc, path, query, fragment))
 
 
 def is_github_api_url(url: str) -> bool:
@@ -352,7 +365,7 @@ def parse_speaker_token(raw: str, default_affiliation: str = "") -> dict | None:
         return build_speaker_record(name, affiliation)
 
     if not affiliation:
-        shared_match = re.match(r"^(.*?)\s*[-–—]\s*(.+)$", clean)
+        shared_match = re.match(r"^(.*?)\s+[-–—]\s+(.+)$", clean)
         if shared_match and has_meaningful_meta_value(shared_match.group(2)):
             name = collapse_ws(shared_match.group(1))
             affiliation = collapse_ws(shared_match.group(2))
@@ -369,7 +382,7 @@ def parse_speakers(raw: str, default_affiliation: str = "") -> list[dict]:
 
     shared_affiliation = collapse_ws(default_affiliation)
     if not shared_affiliation:
-        shared_match = re.match(r"^(.*?)\s*[-–—]\s*(.+)$", clean)
+        shared_match = re.match(r"^(.*?)\s+[-–—]\s+(.+)$", clean)
         if shared_match and has_meaningful_meta_value(shared_match.group(2)):
             clean = collapse_ws(shared_match.group(1))
             shared_affiliation = collapse_ws(shared_match.group(2))
@@ -384,6 +397,169 @@ def parse_speakers(raw: str, default_affiliation: str = "") -> list[dict]:
         if speaker:
             out.append(speaker)
     return out
+
+
+def extract_anchor_links(fragment: str) -> list[tuple[str, str]]:
+    out: list[tuple[str, str]] = []
+    for match in re.finditer(r"<a\b(?P<attrs>[^>]*)>(?P<label>.*?)</a>", fragment, flags=re.IGNORECASE | re.DOTALL):
+        attrs = match.group("attrs") or ""
+        href_match = re.search(r"href\s*=\s*(.+)$", attrs, flags=re.IGNORECASE | re.DOTALL)
+        if not href_match:
+            continue
+        href_tail = href_match.group(1).lstrip()
+        href = ""
+        if href_tail[:1] in {'"', "'"}:
+            quote = href_tail[0]
+            end = href_tail.find(quote, 1)
+            if end > 1:
+                href = href_tail[1:end]
+            else:
+                href = re.split(r"[\s>]", href_tail.lstrip("\"'"), maxsplit=1)[0]
+        else:
+            href = re.split(r"[\s>]", href_tail, maxsplit=1)[0]
+        href = collapse_ws(href).strip("\"'")
+        if not href:
+            continue
+        out.append((href, match.group("label") or ""))
+    return out
+
+
+def normalize_talk_title_for_matching(title: str) -> str:
+    clean = clean_title(title)
+    lower = clean.lower()
+    for prefix in (
+        "keynote:",
+        "tutorial:",
+        "workshop:",
+        "panel:",
+        "quick talk:",
+        "quick talks:",
+        "bof:",
+        "lightning talk:",
+        "lightning talks:",
+        "poster:",
+    ):
+        if lower.startswith(prefix):
+            return collapse_ws(clean[len(prefix) :])
+    return clean
+
+
+def normalize_talk_title_key(title: str) -> str:
+    return normalize_key(normalize_talk_title_for_matching(title))
+
+
+def parse_legacy_speaker_cell(fragment: str) -> list[dict]:
+    chunks = [
+        part
+        for part in re.split(r"<br\s*/?>", fragment, flags=re.IGNORECASE)
+        if collapse_ws(strip_html(part))
+    ]
+    out: list[dict] = []
+    for chunk in chunks:
+        affiliations = [
+            collapse_ws(strip_html(value))
+            for value in re.findall(r"<i\b[^>]*>(.*?)</i>", chunk, flags=re.IGNORECASE | re.DOTALL)
+            if collapse_ws(strip_html(value))
+        ]
+        shared_affiliation = " / ".join(affiliations)
+        speaker_text = collapse_ws(
+            strip_html(
+                re.sub(
+                    r"<i\b[^>]*>.*?</i>",
+                    " ",
+                    chunk,
+                    flags=re.IGNORECASE | re.DOTALL,
+                )
+            )
+        )
+        speaker_text = re.sub(r"\s*,\s*$", "", speaker_text)
+        parsed = parse_speakers(speaker_text, default_affiliation=shared_affiliation)
+        if shared_affiliation:
+            parsed = [
+                speaker
+                for speaker in parsed
+                if not speaker_name_looks_like_affiliation(str(speaker.get("name", "")))
+            ]
+        out.extend(parsed)
+    return out
+
+
+def parse_legacy_info_cell(info_html: str) -> tuple[str, str, list[dict]]:
+    info_parts = re.split(r"<br\s*/?>", info_html, maxsplit=1, flags=re.IGNORECASE)
+    header_html = info_parts[0] if info_parts else info_html
+    speaker_html = info_parts[1] if len(info_parts) > 1 else ""
+    title = clean_title(strip_html(header_html))
+    anchor_match = re.search(r"href=['\"]#([^'\"]+)['\"]", header_html, flags=re.IGNORECASE)
+    anchor_id = collapse_ws(anchor_match.group(1)) if anchor_match else ""
+    speakers = parse_legacy_speaker_cell(speaker_html)
+    return title, anchor_id, speakers
+
+
+def legacy_category_marker_from_title(title: str) -> str | None:
+    clean = collapse_ws(title).lower().rstrip(":")
+    if clean in {"lightning talk", "lightning talks"}:
+        return "lightning-talk"
+    if clean in {"poster", "posters"}:
+        return "poster"
+    if clean in {"bof", "bofs", "birds of a feather"}:
+        return "bof"
+    return None
+
+
+def parse_inline_category_title(raw_title: str, default_category: str) -> tuple[str, str]:
+    title = clean_title(raw_title)
+    lower = title.lower()
+    if lower.startswith("keynote:"):
+        return "keynote", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("tutorial:"):
+        return "tutorial", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("workshop:"):
+        return "workshop", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("panel:"):
+        return "panel", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("quick talk:"):
+        return "quick-talk", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("quick talks:"):
+        return "quick-talk", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("bof:"):
+        return "bof", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("lightning talk:"):
+        return "lightning-talk", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("lightning talks:"):
+        return "lightning-talk", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("poster:"):
+        return "poster", collapse_ws(title.split(":", 1)[1])
+    return default_category, title
+
+
+def derive_legacy_table_context(page_html: str, table_start: int, meeting_slug: str) -> tuple[str, str]:
+    context_html = page_html[max(0, table_start - 1600) : table_start]
+    blocks = list(
+        re.finditer(
+            r"(<p\b[^>]*>\s*<b\b[^>]*>.*?</b>.*?</p>|<h[1-6]\b[^>]*>.*?</h[1-6]>|<div\b[^>]*class=['\"]www_sectiontitle['\"][^>]*>.*?</div>)",
+            context_html,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
+    )
+    if not blocks:
+        return "technical-talk", ""
+
+    heading_html = blocks[-1].group(1)
+    heading_text = clean_title(strip_html(heading_html))
+    category = "technical-talk"
+    heading_lower = heading_text.lower()
+    if "," not in heading_text and " and " not in heading_lower:
+        derived = category_from_heading(heading_text)
+        if derived:
+            category = derived
+
+    shared_video = ""
+    if category == "lightning-talk":
+        for href, label in reversed(extract_anchor_links(heading_html)):
+            if "video" in collapse_ws(strip_html(label)).lower():
+                shared_video = abs_devmtg_url(meeting_slug, href)
+                break
+    return category, shared_video
 
 
 def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
@@ -401,6 +577,11 @@ def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
 
     for table_match in table_matches:
         table_html = table_match.group(1)
+        current_category, shared_lightning_video = derive_legacy_table_context(
+            page_html,
+            table_match.start(),
+            meeting_slug,
+        )
         row_mode = "paired"
 
         header_match = re.search(r"<tr\b[^>]*>(.*?)</tr>", table_html, flags=re.IGNORECASE | re.DOTALL)
@@ -411,6 +592,13 @@ def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
             ]
             if len(header_labels) >= 3 and header_labels[0] == "author" and header_labels[1] == "title":
                 row_mode = "author-title-media"
+            elif (
+                len(header_labels) >= 3
+                and header_labels[0].startswith("video")
+                and "slides" in header_labels[1]
+                and header_labels[2] in {"talk", "title", "talk information"}
+            ):
+                row_mode = "video-slides-info"
 
         for row_html in re.findall(r"<tr\b[^>]*>(.*?)</tr>", table_html, flags=re.IGNORECASE | re.DOTALL):
             if "<th" in row_html.lower():
@@ -422,29 +610,67 @@ def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
                     continue
 
                 speaker_cell, title_cell, media_cell = cells[0], cells[1], cells[2]
-                title = clean_title(strip_html(title_cell))
+                raw_title = clean_title(strip_html(title_cell))
+                marker_category = legacy_category_marker_from_title(raw_title)
+                row_video_url, row_slides_url = parse_links_from_html(media_cell, meeting_slug)
+                if marker_category:
+                    if marker_category == "lightning-talk":
+                        current_category = marker_category
+                        if row_video_url:
+                            shared_lightning_video = row_video_url
+                    continue
+
+                category, title = parse_inline_category_title(raw_title, current_category)
                 if not title:
                     continue
 
                 speaker_parts = re.split(r"<br\s*/?>", speaker_cell, maxsplit=1, flags=re.IGNORECASE)
                 speaker_text = collapse_ws(strip_html(speaker_parts[0])) if speaker_parts else ""
                 shared_affiliation = collapse_ws(strip_html(speaker_parts[1])) if len(speaker_parts) > 1 else ""
-
-                category = "technical-talk"
-                if title.lower().startswith("keynote:"):
-                    category = "keynote"
-                    title = collapse_ws(title.split(":", 1)[1])
-
-                video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+                video_url = row_video_url or (shared_lightning_video if category == "lightning-talk" else "")
                 talks.append(
                     {
                         "title": title,
                         "category": category,
                         "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
                         "abstract": "",
-                        "videoUrl": video_url,
+                        "videoUrl": video_url or None,
                         "videoId": parse_video_id(video_url),
-                        "slidesUrl": slides_url,
+                        "slidesUrl": row_slides_url or None,
+                    }
+                )
+                continue
+
+            if row_mode == "video-slides-info":
+                if len(cells) < 3:
+                    continue
+
+                video_cell, slides_cell, info_cell = cells[0], cells[1], cells[2]
+                raw_title, anchor_id, speakers = parse_legacy_info_cell(info_cell)
+                marker_category = legacy_category_marker_from_title(raw_title)
+                row_video_url, _ = parse_links_from_html(video_cell, meeting_slug)
+                _, row_slides_url = parse_links_from_html(slides_cell, meeting_slug)
+                if marker_category:
+                    if marker_category == "lightning-talk":
+                        current_category = marker_category
+                        if row_video_url:
+                            shared_lightning_video = row_video_url
+                    continue
+
+                category, title = parse_inline_category_title(raw_title, current_category)
+                if not title:
+                    continue
+                video_url = row_video_url or (shared_lightning_video if category == "lightning-talk" else "")
+                talks.append(
+                    {
+                        "_anchorId": anchor_id,
+                        "title": title,
+                        "category": category,
+                        "speakers": speakers,
+                        "abstract": "",
+                        "videoUrl": video_url or None,
+                        "videoId": parse_video_id(video_url),
+                        "slidesUrl": row_slides_url or None,
                     }
                 )
                 continue
@@ -454,50 +680,32 @@ def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
 
             for idx in range(0, len(cells) - 1, 2):
                 media_cell, info_cell = cells[idx], cells[idx + 1]
-                info_parts = re.split(r"<br\s*/?>", info_cell, maxsplit=1, flags=re.IGNORECASE)
-                header_html = info_parts[0] if info_parts else info_cell
-                speaker_html = info_parts[1] if len(info_parts) > 1 else ""
+                raw_title, anchor_id, speakers = parse_legacy_info_cell(info_cell)
+                marker_category = legacy_category_marker_from_title(raw_title)
+                video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+                if marker_category:
+                    if marker_category == "lightning-talk":
+                        current_category = marker_category
+                        if video_url:
+                            shared_lightning_video = video_url
+                    continue
 
-                title = clean_title(strip_html(header_html))
+                category, title = parse_inline_category_title(raw_title, current_category)
                 if not title:
                     continue
 
-                anchor_match = re.search(r"href=['\"]#([^'\"]+)['\"]", header_html, flags=re.IGNORECASE)
-                anchor_id = collapse_ws(anchor_match.group(1)) if anchor_match else ""
-
-                category = "technical-talk"
-                if title.lower().startswith("keynote:"):
-                    category = "keynote"
-                    title = collapse_ws(title.split(":", 1)[1])
-
-                shared_affiliation = " / ".join(
-                    collapse_ws(strip_html(value))
-                    for value in re.findall(r"<i\b[^>]*>(.*?)</i>", speaker_html, flags=re.IGNORECASE | re.DOTALL)
-                    if collapse_ws(strip_html(value))
-                )
-                speaker_text = collapse_ws(
-                    strip_html(
-                        re.sub(
-                            r"<i\b[^>]*>.*?</i>",
-                            " ",
-                            speaker_html,
-                            flags=re.IGNORECASE | re.DOTALL,
-                        )
-                    )
-                )
-                speaker_text = re.sub(r"\s*,\s*$", "", speaker_text)
-
-                video_url, slides_url = parse_links_from_html(media_cell, meeting_slug)
+                if category == "lightning-talk" and not video_url and shared_lightning_video:
+                    video_url = shared_lightning_video
                 talks.append(
                     {
                         "_anchorId": anchor_id,
                         "title": title,
                         "category": category,
-                        "speakers": parse_speakers(speaker_text, default_affiliation=shared_affiliation),
+                        "speakers": speakers,
                         "abstract": "",
-                        "videoUrl": video_url,
+                        "videoUrl": video_url or None,
                         "videoId": parse_video_id(video_url),
-                        "slidesUrl": slides_url,
+                        "slidesUrl": slides_url or None,
                     }
                 )
 
@@ -506,11 +714,7 @@ def parse_legacy_table_entries(page_html: str, meeting_slug: str) -> list[dict]:
 
 def parse_labeled_links(fragment: str, meeting_slug: str) -> list[dict[str, str]]:
     out: list[dict[str, str]] = []
-    for _, href, label in re.findall(
-        r"<a[^>]+href=(['\"])(.*?)\1[^>]*>(.*?)</a>",
-        fragment,
-        flags=re.IGNORECASE | re.DOTALL,
-    ):
+    for href, label in extract_anchor_links(fragment):
         url = abs_devmtg_url(meeting_slug, href)
         label_text = collapse_ws(strip_html(label)).strip("[]")
         if not url or not label_text:
@@ -754,7 +958,7 @@ def merge_parsed_talk_collections(primary: list[dict], secondary: list[dict]) ->
 
     def register(talk: dict) -> None:
         anchor_id = collapse_ws(str(talk.get("_anchorId", "")))
-        title_key = normalize_key(str(talk.get("title", "")))
+        title_key = normalize_talk_title_key(str(talk.get("title", "")))
         if anchor_id:
             by_anchor[anchor_id] = talk
         if title_key and title_key not in by_title:
@@ -767,7 +971,7 @@ def merge_parsed_talk_collections(primary: list[dict], secondary: list[dict]) ->
 
     for talk in secondary:
         anchor_id = collapse_ws(str(talk.get("_anchorId", "")))
-        title_key = normalize_key(str(talk.get("title", "")))
+        title_key = normalize_talk_title_key(str(talk.get("title", "")))
         match = by_anchor.get(anchor_id) if anchor_id else None
         if match is None and title_key:
             match = by_title.get(title_key)
@@ -1134,11 +1338,7 @@ def parse_links_from_html(fragment: str, meeting_slug: str) -> tuple[str | None,
     video_url: str | None = None
     slides_url: str | None = None
 
-    for _, href, label in re.findall(
-        r"<a[^>]+href=(['\"])(.*?)\1[^>]*>(.*?)</a>",
-        fragment,
-        flags=re.IGNORECASE | re.DOTALL,
-    ):
+    for href, label in extract_anchor_links(fragment):
         text = collapse_ws(strip_html(label)).lower()
         url = abs_devmtg_url(meeting_slug, href)
         if not url:
@@ -1281,7 +1481,7 @@ def dedupe_parsed_talks(talks: list[dict]) -> list[dict]:
     out: list[dict] = []
     seen: set[str] = set()
     for talk in talks:
-        title_key = normalize_key(str(talk.get("title", "")))
+        title_key = normalize_talk_title_key(str(talk.get("title", "")))
         speaker_key = ",".join(
             normalize_speaker_name(str(s.get("name", "")))
             for s in (talk.get("speakers") or [])
@@ -1328,7 +1528,7 @@ def parse_meeting_page(page_html: str, slug: str) -> tuple[dict, list[dict]]:
 
 
 def extract_talk_match_key(talk: dict) -> tuple[str, str]:
-    title_key = normalize_key(str(talk.get("title", "")))
+    title_key = normalize_talk_title_key(str(talk.get("title", "")))
     speaker_key = ",".join(
         normalize_speaker_name(str(speaker.get("name", "")))
         for speaker in (talk.get("speakers") or [])

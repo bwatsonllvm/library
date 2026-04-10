@@ -5,9 +5,34 @@
     "date": "November 6-7, 2013",
     "location": "San Francisco, CA, USA",
     "canceled": false,
-    "talkCount": 32
+    "talkCount": 35
   },
   "talks": [
+    {
+      "id": "2013-11-001",
+      "meeting": "2013-11",
+      "meetingName": "2013 US LLVM Developers' Meeting",
+      "meetingLocation": "San Francisco, CA, USA",
+      "meetingDate": "November 6-7, 2013",
+      "category": "technical-talk",
+      "title": "Welcome",
+      "speakers": [
+        {
+          "name": "Tanya Lattner",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "",
+      "videoUrl": "https://youtu.be/GCsfjaAy7Es",
+      "videoId": "GCsfjaAy7Es",
+      "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Lattner-WelcomeTalk.pdf",
+      "posterUrl": null,
+      "projectGithub": "",
+      "tags": []
+    },
     {
       "id": "2013-11-002",
       "meeting": "2013-11",
@@ -19,22 +44,18 @@
       "speakers": [
         {
           "name": "Chris Lattner",
-          "affiliation": ""
-        },
-        {
-          "name": "Vikram Adve",
-          "affiliation": ""
-        },
-        {
-          "name": "Urbana-Champaign",
-          "affiliation": ""
+          "affiliation": "Apple, Vikram Adve - University of Illinois, Urbana-Champaign",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "LLVM: 10 years and going strong [1] [2] Keynote talk celebrating the 10th anniversary of LLVM 1.0.",
       "videoUrl": "https://youtu.be/RDMrBYigqPc",
       "videoId": "RDMrBYigqPc",
       "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Lattner-LLVM%20Early%20Days.pdf",
-      "tags": []
+      "tags": [],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-003",
@@ -47,7 +68,10 @@
       "speakers": [
         {
           "name": "Alon Zakai",
-          "affiliation": ""
+          "affiliation": "Mozilla",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Emscripten is an open source compiler that converts LLVM bitcode to JavaScript. JavaScript is a fairly unusual target for compilation, being a high-level dynamic language instead of a low-level CPU assembly, but efficient compilation to JavaScript is useful because of the ubiquity of web browsers which use it as their standard language. This talk will detail how Emscripten utilizes LLVM and clang to convert C/C++ into JavaScript, and cover the specific challenges that compiling to JavaScript entails, such as the lack of goto statements, while on the other hand making other aspects of compilation simpler, for example having native exception handling support. Some such issues are general and have to do with JavaScript itself, but specific challenges with Emscripten's interaction with LLVM will also be described, as well as opportunities for better integration between the projects in the future.",
@@ -57,7 +81,8 @@
       "tags": [
         "Clang",
         "IR"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-004",
@@ -70,11 +95,10 @@
       "speakers": [
         {
           "name": "Tobias Edler von Koch",
-          "affiliation": ""
-        },
-        {
-          "name": "Pranav Bhandarkar",
-          "affiliation": ""
+          "affiliation": "University of Edinburgh / QuIC, Pranav Bhandarkar - QuIC",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Code size reduction is a critical goal for compiler optimizations targeting embedded applications. While LLVM continues to improve its performance optimization capabilities, it is currently still lacking a robust set of optimizations specifically targeting code size. In our talk, we will describe an optimization pass that aims to reduce code size by merging similar functions at the IR level. Significantly extending the existing MergeFunctions optimization, the pass is capable of merging multiple functions even if there are minor differences between them. A number of heuristics are used to determine when merging of functions is profitable. Alongside hash tables, these also ensure that compilation time remains at an acceptable level. We will describe our experience of using this new optimization pass to reduce the code size of a significant embedded application at Qualcomm Innovation Center by 2%.",
@@ -85,7 +109,8 @@
         "Embedded",
         "Optimizations",
         "Performance"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-005",
@@ -98,14 +123,18 @@
       "speakers": [
         {
           "name": "Kristof Beyls",
-          "affiliation": ""
+          "affiliation": "ARM",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
       "videoId": null,
       "tags": [
         "Performance"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-006",
@@ -118,7 +147,10 @@
       "speakers": [
         {
           "name": "Keno Fischer",
-          "affiliation": ""
+          "affiliation": "Harvard College/MIT CSAIL",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Julia is a new high-level dynamic programming language specifically designed for scientific and technical computing, while at the same time not ignoring the need for the expressiveness and the power of a modern general purpose programming language. Thanks to LLVM's JIT compilation capabilities, for which Julia was written from the ground up, Julia can achieve a level of performance usually reserved for compiled programs written in C, C++ or other compiled languages. It thus manages to bridge the gap between very high level languages such as MATLAB, R or Python usually used for algorithm prototyping and those languages used when performance is of the essence, reducing development time and the possibility for subtle differences between the prototype and the production algorithms.",
@@ -129,7 +161,8 @@
         "JIT",
         "Performance",
         "Programming Languages"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-007",
@@ -142,7 +175,10 @@
       "speakers": [
         {
           "name": "Nuno Lopes",
-          "affiliation": ""
+          "affiliation": "INESC-ID / U. Lisboa",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Instcombine and Selection DAG optimizations, although usually simple, can easily hide bugs. We've had many cases in the past where these optimizers were producing wrong code in certain corner cases. In this talk I'll describe a way to prove the correctness of such optimization using an off-the-shelf SMT solver (bit-vector theory). I'll give examples of past bugs found in these optimizations, how to encode them into SMT-Lib 2 format, and how to spot the bugs. The encoding to the SMT format, although manual, is straightfoward and consumes little time. The verification is then automatic.",
@@ -151,7 +187,8 @@
       "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Lopes-SMT.pdf",
       "tags": [
         "Optimizations"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-008",
@@ -164,12 +201,16 @@
       "speakers": [
         {
           "name": "Mihail Popa",
-          "affiliation": ""
+          "affiliation": "ARM",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
       "videoId": null,
-      "tags": []
+      "tags": [],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-009",
@@ -182,11 +223,10 @@
       "speakers": [
         {
           "name": "Kostya Serebryany",
-          "affiliation": ""
-        },
-        {
-          "name": "Alexey Samsonov",
-          "affiliation": ""
+          "affiliation": "Google, Alexey Samsonov - Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "AddressSanitizer is a fast memory error detector that uses LLVM for compile-time instrumentation. In this talk we will present several new features in AddressSanitizer. Initialization order checker finds bugs where the program behavior depends on the order in which global variables from different modules are initialized. Stack-use-after-scope detector finds uses of stack-allocated objects outside of the scope where they are defined. Similarly, stack-use-after-return detector finds uses of stack variables after the functions they are defined in have exited. LeakSanitizer finds heap memory leaks; it is built on top of AddressSanitizer memory allocator. We will also give an update on AddressSanitizer for Linux kernel.",
@@ -196,7 +236,8 @@
       "tags": [
         "Dynamic Analysis",
         "Performance"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-010",
@@ -209,7 +250,10 @@
       "speakers": [
         {
           "name": "Tom Stellard",
-          "affiliation": ""
+          "affiliation": "Advanced Micro Devices Inc.",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "A Detailed Look at the R600 Backend The R600 backend, which targets AMD GPUs, was merged into LLVM prior to the 3.3 release. It is one component of AMD's open source GPU drivers which provide support for several popular graphics and compute APIs. The backend supports two different generation of GPUs, the older VLIW4/VLIW5 architecture and the more recent GCN architecture. In this talk, I will discuss the history of the R600 backend, how it is used, and why we choose to use LLVM for our open source drivers. Additionally, I'll give an in-depth look at the backend and its features and present an overview of the unique architecture of supported GPUs. I will describe the challenges this architecture presented in writing an LLVM backend and the approaches we have taken for instruction selection and scheduling. I will also look at the future goals for this backend and areas for improvement in the backend as well as core LLVM.",
@@ -219,7 +263,8 @@
       "tags": [
         "Backend",
         "GPU"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-011",
@@ -232,14 +277,18 @@
       "speakers": [
         {
           "name": "Eric Christopher",
-          "affiliation": ""
+          "affiliation": "Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
       "videoId": null,
       "tags": [
         "Debug Information"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-012",
@@ -252,7 +301,10 @@
       "speakers": [
         {
           "name": "Paul T. Robinson",
-          "affiliation": ""
+          "affiliation": "Sony Computer Entertainment America",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "The PlayStation®4 has a developer toolchain centered on Clang as the CPU compiler. We describe how Clang/LLVM fits into Sony Computer Entertainment's (mostly proprietary) toolchain, focusing on customizations, game-developer experience, and working with the open-source community.",
@@ -261,7 +313,8 @@
       "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Robinson-PS4Toolchain.pdf",
       "tags": [
         "Clang"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-013",
@@ -274,11 +327,10 @@
       "speakers": [
         {
           "name": "Alexandros Tzannes",
-          "affiliation": ""
-        },
-        {
-          "name": "Urbana-Champaign",
-          "affiliation": ""
+          "affiliation": "University of Illinois, Urbana-Champaign",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "The Annotations for Safe Parallelism (ASaP) project at UIUC is implementing a static checker in Clang to allow writing provably safe parallel code. ASaP is inspired by DPJ (Deterministic Parallel Java) but unlike it, it does not extend the base language. Instead, we rely on the rich C++11 attribute system to enrich C++ types and to pass information to our ASaP checker. The ASaP checker gives strong guarantees such as race-freedom, *strong* atomicity, and deadlock freedom for commonly used parallelism patterns, and it is at the prototyping stage where we can prove the parallel safety of simple TBB programs. We are evolving ASaP in collaboration with our Autodesk partners who help guide its design in order to solve incrementally complex problems faced by real software teams in industry. In this presentation, I will present an overview of how the checker works, what is currently supported, what we have \"in the works\", and some discussion about incorporating some of the ideas of the thread safety annotation to assist our analysis.",
@@ -288,7 +340,8 @@
       "tags": [
         "Clang",
         "Static Analysis"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-014",
@@ -301,22 +354,32 @@
       "speakers": [
         {
           "name": "Kostya Serebryany",
-          "affiliation": ""
+          "affiliation": "Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         },
         {
           "name": "Alexey Samsonov",
-          "affiliation": ""
+          "affiliation": "Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         },
         {
           "name": "Evgeniy Stepanov",
-          "affiliation": ""
+          "affiliation": "Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
       "videoId": null,
       "tags": [
         "Dynamic Analysis"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-015",
@@ -329,11 +392,10 @@
       "speakers": [
         {
           "name": "Nadav Rotem",
-          "affiliation": ""
-        },
-        {
-          "name": "Arnold Schwaighofer",
-          "affiliation": ""
+          "affiliation": "Apple, Arnold Schwaighofer - Apple",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Vectorization in LLVM Vectorization is a powerful optimization that can accelerate programs in multiple domains. Over the last year two new vectorization passes were added to LLVM: the Loop-vectorizer, which vectorizes loops, and the SLP-vectorizer, which combines independent scalar calculations into a vector. Both of these optimizations together show a significant performance increase on many applications. In this talk we’ll present our work on the vectorizers in the past year. We’ll discuss the overall architecture of these passes, the cost model for deciding when vectorization is profitable, and describe some interesting design tradeoffs. Finally, we want to talk about some ideas to further improve the vectorization infrastructure.",
@@ -344,7 +406,8 @@
         "Autovectorization",
         "Optimizations",
         "Performance"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-016",
@@ -357,15 +420,24 @@
       "speakers": [
         {
           "name": "Tobias Grosser",
-          "affiliation": ""
+          "affiliation": "INRIA",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         },
         {
           "name": "Sebastian Pop",
-          "affiliation": ""
+          "affiliation": "QuIC",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         },
         {
           "name": "Zino Benaissa",
-          "affiliation": ""
+          "affiliation": "QuIC",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
@@ -374,7 +446,8 @@
         "Loop transformations",
         "Optimizations",
         "Polly"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-018",
@@ -387,7 +460,10 @@
       "speakers": [
         {
           "name": "Skye Wanderman-Milne",
-          "affiliation": ""
+          "affiliation": "Cloudera",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "Building a Modern Database with LLVM Cloudera Impala is a low-latency SQL query engine for Apache Hadoop. In order to achieve optimal CPU efficiency and query execution times, Impala uses LLVM to perform JIT code generation to take advantage of query-specific information unavailable at compile time. For example, code generation allows us to remove many conditionals (and the associated branch misprediction overhead) necessary for handling multiples types, operators, functions, etc.; inline what would otherwise be virtual function calls; and propagate query-specific constants. These optimization can reduce overall query time by almost 300%. In this talk, I'll outline the motivation for using LLVM within Impala and go over some examples and results of JIT optimizations we currently perform, as well as ones we'd like to implement in the future.",
@@ -399,7 +475,8 @@
         "JIT",
         "Optimizations",
         "Performance"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-019",
@@ -412,11 +489,17 @@
       "speakers": [
         {
           "name": "Zino Benaissa",
-          "affiliation": ""
+          "affiliation": "QuIC",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         },
         {
           "name": "Tony Linthicum",
-          "affiliation": ""
+          "affiliation": "QuIC",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
@@ -424,7 +507,8 @@
       "tags": [
         "LTO",
         "Optimizations"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-020",
@@ -437,24 +521,20 @@
       "speakers": [
         {
           "name": "Bob Wilson",
-          "affiliation": ""
-        },
-        {
-          "name": "Chandler Carruth",
-          "affiliation": ""
-        },
-        {
-          "name": "Diego Novillo",
-          "affiliation": ""
+          "affiliation": "Apple, Chandler Carruth - Google, Diego Novillo - Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
-      "abstract": "PGO in LLVM: Status and Current Work",
+      "abstract": "Slides Video Profile Guided Optimization (PGO) is one of the most fundamental weaknesses in the LLVM optimization portfolio. We have had several attempts to build it, and to this day we still lack a holistic platform for driving optimizations through profiling. This talk will consist of three light-speed crash courses on where PGO is in LLVM, where it needs to be, and how several of us are working to get it there. First, we will present some motivational background on what PGO is good for and what it isn't. We will cover exactly how profile information interacts with the LLVM optimizations, the strategies we use at a high level to organize and use profile information, and the specific optimizations that are in turn driven by it. Much of this will cover infrastructure as it exists today, with some forward-looking information added into the mix. Next, we will cover one planned technique for getting profile information into LLVM: AutoProfile. This technique simplifies the use and deployment of PGO by using external profile sources such as Linux perf events or other sample-based external profilers. When available, it has some key advantages: no instrumentation build mode, reduced instrumentation overhead, and more predictable application behavior by using hardware to assist the profiling. Finally, we will cover an alternate strategy to provide more traditional and detailed profiling through compiler inserted instrumentation. This approach will also strive toward two fundamental goals: resilience of the profile to beth source code and compiler changes, and visualization of the profile by developers to understand how their code is being exercised. The second draws obvious parallels with code coverage tools, and the design tries to unify these two use cases in a way that the same infrastructure can drive both.",
       "videoUrl": "https://youtu.be/Fnkuz4ejgtU",
       "videoId": "Fnkuz4ejgtU",
       "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Carruth-PGO.pdf",
       "tags": [
         "PGO"
-      ]
+      ],
+      "projectGithub": ""
     },
     {
       "id": "2013-11-021",
@@ -467,14 +547,68 @@
       "speakers": [
         {
           "name": "Andy Kaylor",
-          "affiliation": ""
+          "affiliation": "Intel Corporation",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
         }
       ],
       "abstract": "",
       "videoId": null,
       "tags": [
         "JIT"
-      ]
+      ],
+      "projectGithub": ""
+    },
+    {
+      "id": "2013-11-017",
+      "meeting": "2013-11",
+      "meetingName": "2013 US LLVM Developers' Meeting",
+      "meetingLocation": "San Francisco, CA, USA",
+      "meetingDate": "November 6-7, 2013",
+      "category": "technical-talk",
+      "title": "Bringing clang and LLVM to Visual C++ users",
+      "speakers": [
+        {
+          "name": "Reid Kleckner",
+          "affiliation": "Google",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Slides Video This talk covers the work we've been doing to help make clang and LLVM more compatible with Microsoft's Visual C++ toolchain. With a compatible toolchain, we can deliver all of the features that clang and LLVM have to offer, such as AddressSanitizer. Perhaps the most important point of compatibility is the C++ ABI, which is a huge and complicated beast that covers name mangling, calling conventions, record layout, vtable layout, virtual inheritance, and more. This talk will go into detail about some of the more interesting parts of the ABI.",
+      "videoUrl": "https://youtu.be/u3sl2EwmbW0",
+      "videoId": "u3sl2EwmbW0",
+      "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Kleckner-ClangVisualC++.pdf",
+      "posterUrl": null,
+      "projectGithub": "",
+      "tags": []
+    },
+    {
+      "id": "2013-11-035",
+      "meeting": "2013-11",
+      "meetingName": "2013 US LLVM Developers' Meeting",
+      "meetingLocation": "San Francisco, CA, USA",
+      "meetingDate": "November 6-7, 2013",
+      "category": "technical-talk",
+      "title": "Adapting LLDB for your hardware: Remote Debugging the Hexagon DSP",
+      "speakers": [
+        {
+          "name": "Colin Riley",
+          "affiliation": "Codeplay",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Slides Video LLDB is at the stage of development where support is being added for a wide range of hardware devices. Its modular approach means adapting it to debug a new system has a well-defined step-by-step process, which can progress fairly quickly. Presented is a guide of what implementation steps are required to get your hardware supported via LLDB using Remote Debugging, giving examples from work we are doing to support the Hexagon DSP within LLDB.",
+      "videoUrl": "https://youtu.be/281sEoJYm8E",
+      "videoId": "281sEoJYm8E",
+      "slidesUrl": "https://llvm.org/devmtg/2013-11/slides/Riley-DebugginWithLLDB.pdf",
+      "posterUrl": null,
+      "projectGithub": "",
+      "tags": []
     },
     {
       "id": "2013-11-022",

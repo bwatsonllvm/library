@@ -633,6 +633,55 @@
     return tokenizePersonName(value).join('');
   }
 
+  function hasStrongPersonQueryMatch(person, query, options = {}) {
+    if (!person || typeof person !== 'object') return false;
+
+    const opts = options && typeof options === 'object' ? options : {};
+    const advanced = opts.advanced && typeof opts.advanced === 'object' ? opts.advanced : {};
+    const rawAuthorQuery = collapseWhitespace(advanced.author || '');
+    const rawQuery = rawAuthorQuery || collapseWhitespace(query || '');
+    if (!rawQuery) return false;
+
+    const queryTokens = tokenizeQuery(rawQuery).filter(Boolean);
+    if (!queryTokens.length || queryTokens.length > 6) return false;
+
+    const normalizedQuery = normalizeSearchText(rawQuery);
+    if (!normalizedQuery) return false;
+    const paddedQuery = ` ${normalizedQuery} `;
+
+    const candidateNames = [person.name, ...(Array.isArray(person.variantNames) ? person.variantNames : [])]
+      .map((value) => normalizePersonDisplayName(value))
+      .filter(Boolean);
+
+    for (const candidate of candidateNames) {
+      const normalizedCandidate = normalizeSearchText(candidate);
+      if (!normalizedCandidate) continue;
+      if (normalizedCandidate === normalizedQuery) return true;
+
+      const candidateTokens = tokenizeQuery(candidate).filter(Boolean);
+      if (!candidateTokens.length) continue;
+
+      if (candidateTokens.length >= 2 && paddedQuery.includes(` ${normalizedCandidate} `)) {
+        return true;
+      }
+
+      if (queryTokens.length === 1) {
+        if (candidateTokens.includes(queryTokens[0])) return true;
+        continue;
+      }
+
+      if (queryTokens.every((token) => candidateTokens.includes(token))) {
+        return true;
+      }
+
+      if (queryTokens.every((token) => token.length >= 3 && candidateTokens.some((word) => word.startsWith(token)))) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   function normalizeAffiliationKey(value) {
     return stripDiacritics(normalizeAffiliation(value).toLowerCase())
       .replace(/[^a-z0-9]+/g, '');
@@ -6222,6 +6271,7 @@
     normalizePublication,
     normalizePublicationKey,
     normalizePersonDisplayName,
+    hasStrongPersonQueryMatch,
     normalizePersonName,
     normalizePersonRecord,
     normalizePersonKey,

@@ -7,6 +7,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_PATH = REPO_ROOT / "scripts" / "sync-devmtg-from-llvm-www.py"
 FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "devmtg" / "legacy-2011-snippet.html"
 EUROLLVM_2012_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "devmtg" / "legacy-2012-table.html"
+USDEVMTG_2013_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "devmtg" / "legacy-2013-agenda.html"
+EUROLLVM_2015_FIXTURE_PATH = REPO_ROOT / "tests" / "fixtures" / "devmtg" / "legacy-2015-table.html"
 
 
 def load_sync_module():
@@ -23,6 +25,8 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
         cls.module = load_sync_module()
         cls.fixture_html = FIXTURE_PATH.read_text(encoding="utf-8")
         cls.eurollvm_2012_fixture_html = EUROLLVM_2012_FIXTURE_PATH.read_text(encoding="utf-8")
+        cls.usdevmtg_2013_fixture_html = USDEVMTG_2013_FIXTURE_PATH.read_text(encoding="utf-8")
+        cls.eurollvm_2015_fixture_html = EUROLLVM_2015_FIXTURE_PATH.read_text(encoding="utf-8")
 
     def test_legacy_page_parser_merges_schedule_and_abstracts(self):
         meeting, talks = self.module.parse_meeting_page(self.fixture_html, "2011-11")
@@ -246,6 +250,61 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
         self.assertEqual(new_count, 1)
         by_title = {talk["title"]: talk for talk in merged["talks"]}
         self.assertEqual(by_title["MCJIT"]["id"], "2012-04-12-002")
+
+    def test_legacy_agenda_parser_handles_section_markers_and_malformed_video_hrefs(self):
+        meeting, talks = self.module.parse_meeting_page(self.usdevmtg_2013_fixture_html, "2013-11")
+
+        self.assertEqual(meeting["talkCount"], 3)
+        by_title = {talk["title"]: talk for talk in talks}
+
+        self.assertEqual(by_title["Welcome"]["videoUrl"], "https://youtu.be/GCsfjaAy7Es")
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in by_title["Welcome"]["speakers"]],
+            [("Tanya Lattner", "LLVM Foundation")],
+        )
+
+        debug_bof = by_title["Debug Info"]
+        self.assertEqual(debug_bof["category"], "bof")
+        self.assertIsNone(debug_bof["videoUrl"])
+
+        visual_cpp = by_title["Bringing clang and LLVM to Visual C++ users"]
+        self.assertEqual(visual_cpp["videoUrl"], "https://youtu.be/u3sl2EwmbW0")
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in visual_cpp["speakers"]],
+            [("Reid Kleckner", "Google")],
+        )
+
+    def test_legacy_video_slides_talk_tables_apply_shared_lightning_video(self):
+        meeting, talks = self.module.parse_meeting_page(self.eurollvm_2015_fixture_html, "2015-04")
+
+        self.assertEqual(meeting["talkCount"], 3)
+        by_title = {talk["title"]: talk for talk in talks}
+
+        intro = by_title["Introduction"]
+        self.assertEqual(intro["videoUrl"], "https://youtu.be/sNDavmjNLQE")
+        self.assertEqual(intro["slidesUrl"], None)
+
+        keynote = by_title["C Concurrency: Still Tricky"]
+        self.assertEqual(keynote["category"], "keynote")
+        self.assertEqual(keynote["videoUrl"], "https://youtu.be/g8DUN8-AKgs")
+        self.assertEqual(
+            keynote["slidesUrl"],
+            "https://llvm.org/devmtg/2015-04/slides/CConcurrency_EuroLLVM2015.pdf",
+        )
+
+        lightning = by_title["Building Clang/LLVM efficiently"]
+        self.assertEqual(lightning["category"], "lightning-talk")
+        self.assertEqual(lightning["videoUrl"], "https://youtu.be/tqkK9HRiVIc")
+        self.assertEqual(
+            lightning["slidesUrl"],
+            "https://llvm.org/devmtg/2015-04/slides/eurollvm-2015-build.pdf",
+        )
+
+    def test_abs_devmtg_url_encodes_unsafe_path_characters(self):
+        self.assertEqual(
+            self.module.abs_devmtg_url("2013-11", "slides/Lattner-LLVM Early Days.pdf"),
+            "https://llvm.org/devmtg/2013-11/slides/Lattner-LLVM%20Early%20Days.pdf",
+        )
 
 
 if __name__ == "__main__":

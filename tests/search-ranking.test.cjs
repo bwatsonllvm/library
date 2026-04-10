@@ -122,6 +122,23 @@ test('buildPeopleIndex separates compound talk speaker names into individual peo
   );
 });
 
+test('hasStrongPersonQueryMatch detects direct name intent without substring false positives', () => {
+  const wenlei = {
+    name: 'Wenlei He',
+    variantNames: ['He, Wenlei'],
+  };
+  const unrelated = {
+    name: 'Theodore Johnson',
+    variantNames: [],
+  };
+
+  assert.equal(utils.hasStrongPersonQueryMatch(wenlei, 'Wenlei He'), true);
+  assert.equal(utils.hasStrongPersonQueryMatch(wenlei, 'Wenlei He pgo improvements'), true);
+  assert.equal(utils.hasStrongPersonQueryMatch(wenlei, 'He'), true);
+  assert.equal(utils.hasStrongPersonQueryMatch(unrelated, 'He'), false);
+  assert.equal(utils.hasStrongPersonQueryMatch(unrelated, 'machine learning'), false);
+});
+
 test('rankPaperRecordsByQuery prioritizes exact-title paper matches', () => {
   const papers = [
     {
