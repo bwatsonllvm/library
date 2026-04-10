@@ -74,6 +74,54 @@ test('buildSearchQueryModel does not force beginner intent for advanced introduc
   assert.equal(model.advancedResearchIntent, true);
 });
 
+test('normalizeTalkRecord splits combined speaker labels and repairs unmatched affiliations', () => {
+  const normalized = utils.normalizeTalkRecord({
+    speakers: [
+      { name: 'Andrey Bokhanko & Alexey Bataev' },
+      { name: 'Bernhard Rosenkränzer (Linaro' },
+      { name: 'Kristóf Umann (Ericsson Hungary' },
+      { name: 'Mike Pozulp (Lawrence Livermore National Laboratory and University of California' },
+      { name: 'Virgile Prevosto and Franck Védrine (CEA LIST)' },
+    ],
+  });
+
+  assert.deepEqual(
+    normalized.speakers.map((speaker) => [speaker.name, speaker.affiliation]),
+    [
+      ['Andrey Bokhanko', ''],
+      ['Alexey Bataev', ''],
+      ['Bernhard Rosenkränzer', 'Linaro'],
+      ['Kristóf Umann', 'Ericsson Hungary'],
+      ['Mike Pozulp', 'Lawrence Livermore National Laboratory and University of California'],
+      ['Virgile Prevosto', 'CEA LIST'],
+      ['Franck Védrine', 'CEA LIST'],
+    ]
+  );
+});
+
+test('buildPeopleIndex separates compound talk speaker names into individual people', () => {
+  const people = utils.buildPeopleIndex(
+    [
+      {
+        title: 'EuroLLVM talk',
+        category: 'lightning-talk',
+        speakers: [
+          { name: 'Andrey Bokhanko & Alexey Bataev' },
+          { name: 'Bernhard Rosenkränzer (Linaro' },
+          { name: 'Kristóf Umann (Ericsson Hungary, Eötvös Loránd University' },
+        ],
+        tags: ['llvm'],
+      },
+    ],
+    []
+  );
+
+  assert.deepEqual(
+    people.map((person) => person.name),
+    ['Alexey Bataev', 'Andrey Bokhanko', 'Bernhard Rosenkränzer', 'Kristóf Umann']
+  );
+});
+
 test('rankPaperRecordsByQuery prioritizes exact-title paper matches', () => {
   const papers = [
     {

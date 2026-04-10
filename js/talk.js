@@ -100,6 +100,7 @@
       meeting: String(talk.meeting || '').trim(),
       meetingName: String(talk.meetingName || '').trim(),
       slidesUrl: String(talk.slidesUrl || '').trim(),
+      posterUrl: String(talk.posterUrl || '').trim(),
       videoUrl: String(talk.videoUrl || '').trim(),
       sourceUrl: String(talk.sourceUrl || '').trim(),
     });
@@ -280,12 +281,19 @@
 
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk.slidesUrl);
+    const posterUrl = sanitizeExternalUrl(talk.posterUrl);
     const githubUrl = sanitizeExternalUrl(talk.projectGithub);
     const sourceUrl = sanitizeExternalUrl(talk.sourceUrl);
 
     const links = [];
     if (videoUrl) links.push(`<a href="${escapeHtml(videoUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Watch Video</a>`);
-    if (slidesUrl) links.push(`<a href="${escapeHtml(slidesUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">View Slides</a>`);
+    if (slidesUrl) {
+      const primaryDocLabel = String(talk.category || '').trim().toLowerCase() === 'poster' ? 'View Poster' : 'View Slides';
+      links.push(`<a href="${escapeHtml(slidesUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">${primaryDocLabel}</a>`);
+    }
+    if (posterUrl && posterUrl !== slidesUrl) {
+      links.push(`<a href="${escapeHtml(posterUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">View Poster</a>`);
+    }
     if (githubUrl) links.push(`<a href="${escapeHtml(githubUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Project on GitHub</a>`);
     if (sourceUrl) links.push(`<a href="${escapeHtml(sourceUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Source Listing</a>`);
 

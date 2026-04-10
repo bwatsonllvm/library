@@ -149,6 +149,7 @@
   }
 
   const SPEAKER_AFFILIATION_HINT_RE = /\b(university|college|institute|laboratory|lab|labs|research|center|centre|foundation|inc\.?|corp\.?|corporation|company|ltd\.?|llc|gmbh|technologies|technology|systems|intel|apple|google|microsoft|meta|facebook|amazon|ibm|amd|nvidia|arm|qualcomm|oracle|xilinx|broadcom|moderator)\b/i;
+  const SPEAKER_NAME_SUFFIX_RE = /^(?:jr\.?|sr\.?|ii|iii|iv|v)$/i;
 
   function collapseWhitespace(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
@@ -163,6 +164,15 @@
     return false;
   }
 
+  function looksLikeTrailingSpeakerMetadata(nameValue, value) {
+    const text = collapseWhitespace(value).replace(/^[,;:]+|[,;:]+$/g, '');
+    if (!text) return false;
+    if (SPEAKER_NAME_SUFFIX_RE.test(text)) return false;
+    if (looksLikeAffiliationLabel(text)) return true;
+    if (!looksLikePersonNameFragment(nameValue)) return false;
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'’&/-]+$/.test(text);
+  }
+
   function splitSpeakerName(rawName) {
     const input = collapseWhitespace(rawName);
     if (!input) return { name: '', affiliation: '' };
@@ -171,9 +181,17 @@
     let extractedAffiliation = '';
 
     const parenMatch = name.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
-    if (parenMatch && looksLikeAffiliationLabel(parenMatch[2])) {
+    if (parenMatch && looksLikeTrailingSpeakerMetadata(parenMatch[1], parenMatch[2])) {
       name = collapseWhitespace(parenMatch[1]);
       extractedAffiliation = collapseWhitespace(parenMatch[2]);
+    }
+
+    if (!extractedAffiliation) {
+      const unmatchedParenMatch = name.match(/^(.*?)\s*\(([^()]*)\s*$/);
+      if (unmatchedParenMatch && looksLikeTrailingSpeakerMetadata(unmatchedParenMatch[1], unmatchedParenMatch[2])) {
+        name = collapseWhitespace(unmatchedParenMatch[1]);
+        extractedAffiliation = collapseWhitespace(unmatchedParenMatch[2]);
+      }
     }
 
     if (!extractedAffiliation) {
@@ -204,6 +222,22 @@
     return text.normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
   }
 
+  function looksLikePersonNameFragment(value) {
+    const text = collapseWhitespace(value).replace(/^[,;:()[\]{}]+|[,;:()[\]{}]+$/g, '');
+    if (!text) return false;
+    if (looksLikeAffiliationLabel(text)) return false;
+    if (/\d/.test(text)) return false;
+
+    const tokens = text.split(/\s+/).filter(Boolean);
+    if (tokens.length < 2 || tokens.length > 5) return false;
+
+    return tokens.every((token) => {
+      const clean = token.replace(/^[.'’:-]+|[.'’:-]+$/g, '');
+      if (!clean) return false;
+      return /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[.'’:-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(clean);
+    });
+  }
+
   function normalizePersonDisplayName(value) {
     let text = collapseWhitespace(value);
     if (!text) return '';
@@ -224,6 +258,21 @@
       .replace(/\s{2,}/g, ' ');
 
     return text.trim();
+  }
+
+  function splitCombinedPersonNames(value) {
+    const text = normalizePersonDisplayName(value);
+    if (!text || !/\s(?:&|and)\s/i.test(text)) return text ? [text] : [];
+    if (text.includes(',')) return [text];
+
+    const parts = text
+      .split(/\s+(?:&|and)\s+/i)
+      .map((part) => normalizePersonDisplayName(part))
+      .filter(Boolean);
+
+    if (parts.length < 2) return text ? [text] : [];
+    if (!parts.every(looksLikePersonNameFragment)) return [text];
+    return parts;
   }
 
   function toAffiliationAliasKey(value) {
@@ -560,6 +609,16 @@
     person.name = explicitName;
     person.affiliation = explicitAffiliation || parsedAffiliation;
     return person;
+  }
+
+  function expandPersonRecords(rawPerson) {
+    const normalized = normalizePersonRecord(rawPerson);
+    const names = splitCombinedPersonNames(normalized.name);
+    if (!names.length) return normalized.name ? [normalized] : [];
+    return names.map((name) => ({
+      ...normalized,
+      name,
+    }));
   }
 
   function tokenizePersonName(value) {
@@ -908,21 +967,22 @@
     for (const talk of (Array.isArray(talks) ? talks : [])) {
       const talkTopics = getTalkKeyTopics(talk, Infinity);
       for (const rawSpeaker of (talk.speakers || [])) {
-        const speaker = normalizePersonRecord(rawSpeaker);
-        if (!speaker.name) continue;
-        const bucket = ensureBucketByName(speaker.name);
-        if (!bucket) continue;
-        bucket.talkCount += 1;
-        bucket.nameCounts.set(speaker.name, (bucket.nameCounts.get(speaker.name) || 0) + 1);
-        bucket.talkNameCounts.set(speaker.name, (bucket.talkNameCounts.get(speaker.name) || 0) + 1);
-        addTopicCounts(bucket, talkTopics);
-        if (speaker.affiliation) {
-          const affiliation = normalizeAffiliation(speaker.affiliation);
-          if (!affiliation) continue;
-          bucket.affiliationCounts.set(
-            affiliation,
-            (bucket.affiliationCounts.get(affiliation) || 0) + 1
-          );
+        for (const speaker of expandPersonRecords(rawSpeaker)) {
+          if (!speaker.name) continue;
+          const bucket = ensureBucketByName(speaker.name);
+          if (!bucket) continue;
+          bucket.talkCount += 1;
+          bucket.nameCounts.set(speaker.name, (bucket.nameCounts.get(speaker.name) || 0) + 1);
+          bucket.talkNameCounts.set(speaker.name, (bucket.talkNameCounts.get(speaker.name) || 0) + 1);
+          addTopicCounts(bucket, talkTopics);
+          if (speaker.affiliation) {
+            const affiliation = normalizeAffiliation(speaker.affiliation);
+            if (!affiliation) continue;
+            bucket.affiliationCounts.set(
+              affiliation,
+              (bucket.affiliationCounts.get(affiliation) || 0) + 1
+            );
+          }
         }
       }
     }
@@ -932,39 +992,40 @@
       const isBlog = isBlogPaperRecord(paper);
       const paperTopics = getPaperKeyTopics(paper, Infinity);
       for (const rawAuthor of (paper.authors || [])) {
-        const author = normalizePersonRecord(rawAuthor);
-        if (!author.name) continue;
-        const bucket = ensureBucketByName(author.name);
-        if (!bucket) continue;
-        if (isBlog) bucket.blogCount += 1;
-        else bucket.paperCount += 1;
-        bucket.citationCount += paperCitationCount;
-        bucket.nameCounts.set(author.name, (bucket.nameCounts.get(author.name) || 0) + 1);
-        if (isBlog) {
-          bucket.blogNameCounts.set(author.name, (bucket.blogNameCounts.get(author.name) || 0) + 1);
-        } else {
-          bucket.paperNameCounts.set(author.name, (bucket.paperNameCounts.get(author.name) || 0) + 1);
-        }
-        addTopicCounts(bucket, paperTopics);
-        if (author.affiliation) {
-          const affiliation = normalizeAffiliation(author.affiliation);
-          if (!affiliation) continue;
-          bucket.affiliationCounts.set(
-            affiliation,
-            (bucket.affiliationCounts.get(affiliation) || 0) + 1
-          );
-          bucket.paperAffiliationCounts.set(
-            affiliation,
-            (bucket.paperAffiliationCounts.get(affiliation) || 0) + 1
-          );
-        }
-        if (!isBlog) {
-          const publication = getPaperPrimaryPublication(paper);
-          if (publication) {
-            bucket.publicationCounts.set(
-              publication,
-              (bucket.publicationCounts.get(publication) || 0) + 1
+        for (const author of expandPersonRecords(rawAuthor)) {
+          if (!author.name) continue;
+          const bucket = ensureBucketByName(author.name);
+          if (!bucket) continue;
+          if (isBlog) bucket.blogCount += 1;
+          else bucket.paperCount += 1;
+          bucket.citationCount += paperCitationCount;
+          bucket.nameCounts.set(author.name, (bucket.nameCounts.get(author.name) || 0) + 1);
+          if (isBlog) {
+            bucket.blogNameCounts.set(author.name, (bucket.blogNameCounts.get(author.name) || 0) + 1);
+          } else {
+            bucket.paperNameCounts.set(author.name, (bucket.paperNameCounts.get(author.name) || 0) + 1);
+          }
+          addTopicCounts(bucket, paperTopics);
+          if (author.affiliation) {
+            const affiliation = normalizeAffiliation(author.affiliation);
+            if (!affiliation) continue;
+            bucket.affiliationCounts.set(
+              affiliation,
+              (bucket.affiliationCounts.get(affiliation) || 0) + 1
             );
+            bucket.paperAffiliationCounts.set(
+              affiliation,
+              (bucket.paperAffiliationCounts.get(affiliation) || 0) + 1
+            );
+          }
+          if (!isBlog) {
+            const publication = getPaperPrimaryPublication(paper);
+            if (publication) {
+              bucket.publicationCounts.set(
+                publication,
+                (bucket.publicationCounts.get(publication) || 0) + 1
+              );
+            }
           }
         }
       }
@@ -1193,7 +1254,7 @@
 
     normalized.speakers = Array.isArray(normalized.speakers)
       ? normalized.speakers
-          .map(normalizeSpeakerRecord)
+          .reduce((out, speaker) => out.concat(expandPersonRecords(speaker)), [])
           .filter((speaker) => isNonEmptyString(speaker.name))
       : [];
     let normalizedCategory = normalizeTalkCategory(normalized.category);

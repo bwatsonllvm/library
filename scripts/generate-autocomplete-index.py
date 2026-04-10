@@ -28,6 +28,104 @@ def normalize_label(value: str, max_len: int) -> str:
     return collapse_ws(value)[:max_len]
 
 
+SPEAKER_AFFILIATION_HINT_RE = re.compile(
+    r"\b(university|college|institute|laboratory|lab|labs|research|center|centre|"
+    r"foundation|inc\.?|corp\.?|corporation|company|ltd\.?|llc|gmbh|technologies|"
+    r"technology|systems|intel|apple|google|microsoft|meta|facebook|amazon|ibm|"
+    r"amd|nvidia|arm|qualcomm|oracle|xilinx|broadcom|moderator)\b",
+    flags=re.IGNORECASE,
+)
+SPEAKER_NAME_SUFFIX_RE = re.compile(r"^(?:jr\.?|sr\.?|ii|iii|iv|v)$", flags=re.IGNORECASE)
+
+
+def looks_like_affiliation_label(value: str) -> bool:
+    text = collapse_ws(value)
+    if not text:
+        return False
+    if SPEAKER_AFFILIATION_HINT_RE.search(text):
+        return True
+    if re.search(r"[\/&]", text):
+        return True
+    if re.fullmatch(r"[A-Z]{2,}(?:\s+[A-Za-z][\w.-]*)*", text):
+        return True
+    return False
+
+
+def looks_like_trailing_speaker_metadata(name_value: str, value: str) -> bool:
+    text = collapse_ws(value).strip(" ,;:")
+    if not text or SPEAKER_NAME_SUFFIX_RE.fullmatch(text):
+        return False
+    if looks_like_affiliation_label(text):
+        return True
+    if not looks_like_person_name_fragment(name_value):
+        return False
+    return bool(re.fullmatch(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'’&/-]+", text))
+
+
+def split_name_and_affiliation(value: str) -> tuple[str, str]:
+    text = collapse_ws(value)
+    if not text:
+        return "", ""
+
+    for pattern in (
+        r"^(.*?)\s*\(([^()]+)\)\s*$",
+        r"^(.*?)\s*\(([^()]*)\s*$",
+        r"^(.*?)\s+-\s+(.+)$",
+        r"^(.*?),\s+(.+)$",
+    ):
+        match = re.match(pattern, text)
+        if not match:
+            continue
+        candidate_name = collapse_ws(match.group(1))
+        candidate_affiliation = collapse_ws(match.group(2))
+        use_paren_heuristic = pattern.startswith(r"^(.*?)\s*\(")
+        if candidate_name and (
+            looks_like_affiliation_label(candidate_affiliation)
+            or (use_paren_heuristic and looks_like_trailing_speaker_metadata(candidate_name, candidate_affiliation))
+        ):
+            return candidate_name, candidate_affiliation
+    return text, ""
+
+
+def looks_like_person_name_fragment(value: str) -> bool:
+    text = collapse_ws(value).strip(" ,;:()[]{}")
+    if not text or looks_like_affiliation_label(text) or re.search(r"\d", text):
+        return False
+    tokens = [token for token in text.split() if token]
+    if len(tokens) < 2 or len(tokens) > 5:
+        return False
+    for token in tokens:
+        clean = token.strip(".,;:()[]{}'’:-")
+        if not clean or any(ch.isdigit() for ch in clean):
+            return False
+        if not any(ch.isalpha() for ch in clean):
+            return False
+    return True
+
+
+def split_compound_person_names(value: str) -> list[str]:
+    text = collapse_ws(value)
+    if not text:
+        return []
+    if not re.search(r"\s(?:&|and)\s", text, flags=re.IGNORECASE):
+        return [text]
+    if "," in text:
+        return [text]
+    parts = [
+        collapse_ws(part)
+        for part in re.split(r"\s+(?:&|and)\s+", text, flags=re.IGNORECASE)
+        if collapse_ws(part)
+    ]
+    if len(parts) < 2 or not all(looks_like_person_name_fragment(part) for part in parts):
+        return [text]
+    return parts
+
+
+def iter_person_labels(value: str) -> list[str]:
+    name, _ = split_name_and_affiliation(value)
+    return split_compound_person_names(name)
+
+
 def parse_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -190,7 +288,8 @@ def build_payload(
         speakers = talk.get("speakers") if isinstance(talk.get("speakers"), list) else []
         for speaker in speakers:
             if isinstance(speaker, dict):
-                add_count(people_buckets, str(speaker.get("name") or ""), max_len=120)
+                for label in iter_person_labels(str(speaker.get("name") or "")):
+                    add_count(people_buckets, label, max_len=120)
 
     for paper in papers:
         add_count(paper_title_buckets, str(paper.get("title") or ""), max_len=220)
@@ -203,7 +302,8 @@ def build_payload(
         authors = paper.get("authors") if isinstance(paper.get("authors"), list) else []
         for author in authors:
             if isinstance(author, dict):
-                add_count(people_buckets, str(author.get("name") or ""), max_len=120)
+                for label in iter_person_labels(str(author.get("name") or "")):
+                    add_count(people_buckets, label, max_len=120)
 
     topics = finalize_count_buckets(topic_buckets, limit=max_topics, alpha=False)
     people = finalize_count_buckets(people_buckets, limit=max_people, alpha=False)
