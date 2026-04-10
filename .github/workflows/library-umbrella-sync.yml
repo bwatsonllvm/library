@@ -88,6 +88,8 @@ jobs:
 
   sync-papers:
     name: Run paper search + collation
+    needs:
+      - sync-upstream
     runs-on: ubuntu-latest
     timeout-minutes: 70
     env:
@@ -105,6 +107,19 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+
+      - name: Download upstream patch
+        if: needs.sync-upstream.outputs.has_changes == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: patch-upstream
+          path: ${{ runner.temp }}/patch-upstream
+
+      - name: Apply upstream patch baseline
+        if: needs.sync-upstream.outputs.has_changes == 'true'
+        run: |
+          set -euo pipefail
+          git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-upstream/patch-upstream.diff"
 
       - name: Refresh discovered papers from OpenAlex search
         run: |
@@ -215,11 +230,10 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ "${{ needs.sync-upstream.outputs.has_changes }}" == "true" ]]; then
-            git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-upstream/patch-upstream.diff"
-          fi
           if [[ "${{ needs.sync-papers.outputs.has_changes }}" == "true" ]]; then
             git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-papers/patch-papers.diff"
+          elif [[ "${{ needs.sync-upstream.outputs.has_changes }}" == "true" ]]; then
+            git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-upstream/patch-upstream.diff"
           fi
 
       - name: Detect assembled changes
@@ -269,7 +283,7 @@ jobs:
             Source stages:
             - llvm-www/devmtg talks/slides/videos: `${{ needs.sync-upstream.outputs.has_changes }}`
             - llvm-blog-www posts: included in the upstream sync stage above
-            - paper discovery + canonical collation: `${{ needs.sync-papers.outputs.has_changes }}`
+            - paper discovery + canonical collation: `${{ needs.sync-papers.outputs.has_changes }}` (built on top of the upstream stage)
 
             Finalization:
             - sanitizes URL-bearing fields
