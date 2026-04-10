@@ -26,6 +26,7 @@ const highlightSearchTextFromHub = requireHubFunction('highlightSearchText');
 const normalizePersonRecord = requireHubFunction('normalizePersonRecord');
 const tokenizeQueryFromHub = requireHubFunction('tokenizeQuery');
 const hasStrongPersonQueryMatchFromHub = requireHubFunction('hasStrongPersonQueryMatch');
+const findStrongPersonMatchesFromHub = requireHubFunction('findStrongPersonMatches');
 const buildSearchQueryModel = requireHubFunction('buildSearchQueryModel');
 const scoreTalkRecordByModel = requireHubFunction('scoreTalkRecordByModel');
 const scorePaperRecordByModel = requireHubFunction('scorePaperRecordByModel');
@@ -397,6 +398,10 @@ function getPersonVariantNames(person) {
 
 function hasStrongPersonQueryMatch(person, query, advancedOptions = null) {
   return hasStrongPersonQueryMatchFromHub(person, query, { advanced: advancedOptions || undefined });
+}
+
+function findStrongPersonMatches(people, query, advancedOptions = null) {
+  return findStrongPersonMatchesFromHub(people, query, { advanced: advancedOptions || undefined });
 }
 
 function findPersonRecordByName(value) {
@@ -2311,12 +2316,15 @@ function recomputeFilteredResults() {
     const scopedPapers = rankedPapers.filter((paper) => matchesPaperSearchFilters(paper, filterWindow));
     const scopedBlogs = rankedBlogs.filter((paper) => matchesPaperSearchFilters(paper, filterWindow));
     const directPeople = rankedPeople.filter((person) => matchesPersonSearchFilters(person, filterWindow));
-    const strongDirectPeople = directPeople.filter((person) => hasStrongPersonQueryMatch(person, state.query, advancedOptions));
+    const strongDirectPeople = findStrongPersonMatches(allPeopleRecords, state.query, advancedOptions)
+      .filter((person) => matchesPersonSearchFilters(person, filterWindow));
     const hasAuthorIntent = normalizeAdvancedText(advancedOptions.author).length > 0;
     const personContextScores = buildPersonContextScoreMap(scopedTalks, scopedPapers, scopedBlogs);
-    const scopedPeople = (strongDirectPeople.length || hasAuthorIntent)
+    const scopedPeople = strongDirectPeople.length
       ? strongDirectPeople
-      : rankPeopleWithContext(directPeople, personContextScores, filterWindow);
+      : (hasAuthorIntent
+        ? directPeople
+        : rankPeopleWithContext(directPeople, personContextScores, filterWindow));
     filteredTalks = sortTalkResults(scopedTalks);
     filteredPapers = sortPaperResults(scopedPapers);
     filteredBlogs = sortPaperResults(scopedBlogs);

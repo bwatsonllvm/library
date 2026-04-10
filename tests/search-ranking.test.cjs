@@ -139,6 +139,24 @@ test('hasStrongPersonQueryMatch detects direct name intent without substring fal
   assert.equal(utils.hasStrongPersonQueryMatch(unrelated, 'machine learning'), false);
 });
 
+test('findStrongPersonMatches keeps direct people hits when the query includes extra topic terms', () => {
+  const matches = utils.findStrongPersonMatches(
+    [
+      {
+        name: 'Wenlei He',
+        variantNames: ['He, Wenlei'],
+      },
+      {
+        name: 'Theodore Johnson',
+        variantNames: [],
+      },
+    ],
+    'Wenlei He pgo improvements'
+  );
+
+  assert.deepEqual(matches.map((person) => person.name), ['Wenlei He']);
+});
+
 test('rankPaperRecordsByQuery prioritizes exact-title paper matches', () => {
   const papers = [
     {

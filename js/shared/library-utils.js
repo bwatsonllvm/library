@@ -682,6 +682,24 @@
     return false;
   }
 
+  function findStrongPersonMatches(people, query, options = {}) {
+    const records = Array.isArray(people) ? people : [];
+    const seen = new Set();
+    const matches = [];
+
+    for (const person of records) {
+      if (!hasStrongPersonQueryMatch(person, query, options)) continue;
+      const keys = [person && person.name, ...(Array.isArray(person && person.variantNames) ? person.variantNames : [])]
+        .map((value) => normalizePersonKey(value))
+        .filter(Boolean);
+      if (!keys.length || keys.some((key) => seen.has(key))) continue;
+      keys.forEach((key) => seen.add(key));
+      matches.push(person);
+    }
+
+    return matches;
+  }
+
   function normalizeAffiliationKey(value) {
     return stripDiacritics(normalizeAffiliation(value).toLowerCase())
       .replace(/[^a-z0-9]+/g, '');
@@ -6252,6 +6270,7 @@
     formatMeetingDateUniversal,
     getPaperKeyTopics,
     getTalkKeyTopics,
+    findStrongPersonMatches,
     highlightSearchText,
     isYouTubeVideoId,
     normalizeAffiliation,

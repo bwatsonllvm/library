@@ -142,7 +142,7 @@
     if (scope === 'talks') return 'Tailored for talks, speakers, and event content';
     if (scope === 'papers') return 'Tailored for papers, authors, venues, and abstracts';
     if (scope === 'blogs') return 'Tailored for blog posts, authors, and post content';
-    if (scope === 'people') return 'Tailored for people, expertise, affiliations, and publications';
+    if (scope === 'people') return 'Tailored for people, name variants, publications, and work';
     return 'Search across talks, papers, blogs, and people';
   }
 
@@ -1542,7 +1542,7 @@
     if (scope === 'talks') return 'Search talks (titles, speakers, summaries)...';
     if (scope === 'papers') return 'Search papers (titles, authors, abstracts)...';
     if (scope === 'blogs') return 'Search blogs (titles, authors, content)...';
-    if (scope === 'people') return 'Search people (names, expertise, affiliations)...';
+    if (scope === 'people') return 'Search people (names, variants, publications)...';
     return GLOBAL_SEARCH_PLACEHOLDER;
   }
 
