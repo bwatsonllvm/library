@@ -19,18 +19,13 @@
       "speakers": [
         {
           "name": "Chris Lattner",
-          "affiliation": "Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Apple"
         }
       ],
       "abstract": "",
-      "videoUrl": null,
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Lattner-Kickoff.pdf",
       "posterUrl": null,
-      "projectGithub": "",
       "tags": []
     },
     {
@@ -44,10 +39,7 @@
       "speakers": [
         {
           "name": "Hal Finkel",
-          "affiliation": "Argonne National Laboratory",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Argonne National Laboratory"
         }
       ],
       "abstract": "Gene/Q (BG/Q) now holds the first and third slots on the Top500 list of the world's most powerful supercomputers, and LLVM with Clang now provides a high-quality autovectorizing C/C++ compiler for the BG/Q. In this talk, I'll describe the process of porting LLVM and Clang to the BG/Q, and how the LLVM IR is mapped to the BG/Q's unique vector instruction set. This process has required enhancements to all levels: From the PowerPC backend through the frontend, including the development of the basic-block autovectorizer. I will demonstrate that, for a large class of codes, LLVM with Clang produces code with superior performance compared to that produced by the vendor-supplied compilers.",
@@ -61,8 +53,7 @@
         "Frontend",
         "IR",
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-003",
@@ -75,10 +66,7 @@
       "speakers": [
         {
           "name": "Tim Northover",
-          "affiliation": "ARM",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "ARM"
         }
       ],
       "abstract": "The AArch64 backend: status and plans A backend for ARM’s new 64-bit architecture, AArch64, will very soon be added to LLVM. I intend to discuss what we’ve done to make sure it is a good base for future work: correct, extensible and useful. I will talk about areas we’ve found easy to test and the more challenging corners. The MC Hammer suite introduced at the Euro-LLVM conference ensured the completeness and correctness of encoding information, and to a lesser extent, assembly. Difficult corners I will give more details on are the usual suspects: instruction selection, relocations and the constant island pass. As well as our testing methodology I will mention some idiosyncrasies of both the architecture and backend, and suggest potentially interesting future projects of varying sizes in optimisation and features for AArch64. I’ll describe some of the facilities already available for those wanting to work on the backend and what they can expect from it already: roughly speaking, correct compilation of standard C and C++ code with Clang. I will also describe some of our own plans for improving the backend and the goals we have for it in the medium term.",
@@ -89,8 +77,7 @@
         "Backend",
         "Clang",
         "Testing"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-004",
@@ -103,10 +90,7 @@
       "speakers": [
         {
           "name": "Dmitri Gribenko",
-          "affiliation": "HPC Center at National Technical University of Ukraine \"Kiev Polytechnic Institute\"",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "HPC Center at National Technical University of Ukraine \"Kiev Polytechnic Institute\""
         }
       ],
       "abstract": "Comments in Clang The documentation written in comments is usually processed by a third-party tool while the compiler just ignores it, but the compiler could extract some extra information from it. We could use documentation from comments to enhance tools based on Clang libraries. Now Clang does additional semantic checking on documentation and emits warnings to help the programmer ensure that comments don't get stale. Code completion APIs now include documentation associated with each completion result. libclang is enhanced with an API to get the documentation attached to any declaration; this could be used to build a Clang-based Doxygen-like tool. In future, when we try to tackle automatic refactoring, we could use this framework to update names referenced in comments so that documentation stays up to date.",
@@ -116,8 +100,7 @@
       "tags": [
         "C Libs",
         "Clang"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-005",
@@ -130,10 +113,7 @@
       "speakers": [
         {
           "name": "Kostya Serebryany",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "mentation Following the success of AddressSanitizer (asan), a fast detector of use-after-free and buffer overflow bugs, we have developed two more bug detection tools based on similar ideas. MemorySanitizer (msan, http://code.google.com/p/memory-sanitizer/) detects uninitialized memory reads. It shares many ideas with Valgrind/Memcheck, however it is also different in two important ways: it uses compile-time instrumentation (LLVM) and 1:1 direct shadow memory mapping. Unless the entire program (including libc) is instrumented, msan requires a simple binary instrumentation component (we have an implementation based on DynamoRIO). The slowdown introduced by the tool is typically 2x-3x (compare to Valgrind's 20x). ThreadSanitizer (tsan, http://code.google.com/p/thread-sanitizer/) detects data races. The tool has been briefly mentioned at the 2011 llvm dev meeting but has matured since that time. Similarly to asan and msan, it uses compile-time instrumentation (LLVM), but 95% of the logic is contained in the run-time library. Tsan uses 1:4 direct shadow memory mapping (i.e. uses ~5x more memory). It does not have locks or atomic instructions on the fast path, which makes it scale to large and heavily threaded applications. The slowdown varies between 3x and 10x.",
@@ -144,8 +124,7 @@
         "C Libs",
         "Dynamic Analysis",
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-006",
@@ -158,10 +137,7 @@
       "speakers": [
         {
           "name": "Santosh Nagarakatte",
-          "affiliation": "University of Pennsylvania/Rutgers University",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "University of Pennsylvania/Rutgers University"
         }
       ],
       "abstract": "This talk will describe our research on building Vellvm (verified LLVM), a framework for reasoning about programs expressed in LLVM’s intermediate representation and transformations that operate on it. Vellvm provides a mechanized formal semantics of LLVM’s intermediate representation, its type system, and properties of its SSA form. The framework is built using the Coq interactive theorem prover. It includes multiple operational semantics and proves relations among them to facilitate different reasoning styles and proof techniques. To validate Vellvm’s design, we extract an interpreter from the Coq formal semantics that can execute programs from LLVM test suite and thus be compared against LLVM reference implementations. This talk will also highlight Vellvm’s practicality by demonstrating our efforts in formalizing and verifing a variant of mem2reg optimization within the LLVM compiler suite, and our previoulsy proposed SoftBoundCETS memory safety transformation operating on the LLVM IR. The talk will conclude highlighting the benefits of such formalization efforts to expose compiler bugs and the avenues such a formalizing effort can benefit from compiler developer involvement. Joint work with Jianzhou Zhao, Milo M K Martin and Steve Zdancewic at the University of Pennsylvania.",
@@ -173,8 +149,7 @@
         "Optimizations",
         "Security",
         "Testing"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-007",
@@ -187,10 +162,7 @@
       "speakers": [
         {
           "name": "Doug Gregor",
-          "affiliation": "Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Apple"
         }
       ],
       "abstract": "The C preprocessor has long been a source of problems for programmers and tools alike. Programmers must contend with widespread macro pollution and include-ordering problems due to ill-behaved headers. Developers habitually employ various preprocessor workarounds, such as LONG_MACRO_PREFIXES, include guards, and the occasional #undef of a library macro to mitigate these problems. Tools, on the other hand, must cope with the inherent scalability problems associated with parsing the same headers repeatedly, because each different preprocessing context could effect how a header is interpreted---even though the programmer rarely wants it. Modules seeks to solve this problem by isolating the interface of a particular library and compiling it (once) into an efficient, serialized representation that can be efficiently imported whenever that library is used, improving both the programmer's experience and the scalability of the compilation process.",
@@ -198,7 +170,6 @@
       "videoId": "586c_QMXir4",
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Gregor-Modules.pdf",
       "posterUrl": null,
-      "projectGithub": "",
       "tags": []
     },
     {
@@ -212,10 +183,7 @@
       "speakers": [
         {
           "name": "Jared Carlson",
-          "affiliation": "GoToTheBoard",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "GoToTheBoard"
         }
       ],
       "abstract": "This talk will discuss how to leverage the LLVM and LLDB tools and technologies to create a flexible security infrastructure. The talk discusses incorporating both static and dynamic analysis techniques by using LLVM and LLDB components and that these can easily be integrated back into LLVM development workflow. These tools will help find exploitable bugs within the llvm development environment, illustrate their consequences and are customizable and easily shared within the community. Funded by DARPA as a Cyber Fast Track effort, we are currently incorporating LLDB and other open source python libraries along with re-written static analysis scripts so that the tools can be easily integrated and altered into a workflow. It is anticipated that milestone two, an alpha, will be finished in early September and then the project will wrap up in early November with a beta release. The talk will discuss how we use the tools to investigate bug severity, utilize artificial intelligence techniques to predispose fuzzing, draw conclusions, and utilize the LLVM technology quite to target various architectures if desired.",
@@ -228,8 +196,7 @@
         "LLDB",
         "Security",
         "Static Analysis"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-009",
@@ -242,10 +209,7 @@
       "speakers": [
         {
           "name": "Matt Beaumont-Gay",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "Most of the feedback we get on Clang’s diagnostics is in the form of bug reports (or occasionally people saying nice things about us on the Internet). As developers, we also eat our own proverbial dogfood, and we can assess new diagnostics against various open-source and proprietary codebases, but we don’t have a large-scale view into the diagnostics experience for code that’s under development. The build system for Google’s shared codebase keeps all of the output for all of the builds that we do. So, like a good Google engineer, I wrote a MapReduce, using the build result store as input. We now have a daily batch job that crunches through all of the compiler stderr from the last day, parses out detailed, structured information about the diagnostics that Clang produced, and writes the information into a database for later analysis. I’ll discuss the design of the MapReduce, touch on the various pieces of infrastructure that make it work, and present results on the diagnostics seen by Google engineers in their day-to-day work.",
@@ -255,8 +219,7 @@
       "tags": [
         "Clang",
         "Infrastructure"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-010",
@@ -269,10 +232,7 @@
       "speakers": [
         {
           "name": "Dan Gohman",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "TBAA in LLVM LLVM’s Type-Based Alias Analysis framework enables more aggressive optimization for the C family of languages, and it can also be used by other language frontends.",
@@ -283,8 +243,7 @@
         "Frontend",
         "Optimizations",
         "Programming Languages"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-011",
@@ -297,10 +256,7 @@
       "speakers": [
         {
           "name": "Dillon Sharlet",
-          "affiliation": "Intel",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Intel"
         }
       ],
       "abstract": "We describe “Shevlin Park”, a prototype implementation of Microsoft’s C++AMP built on CLANG, LLVM, and OpenCL. We fully describe Shevlin Park’s implementation including how CLANG/LLVM can be augmented to easily accommodate C++AMP programming constructs, how C++AMP computation can be expressed as OpenCL compute kernels, and finally how the C++AMP runtime library can be easily implemented on an OpenCL runtime. Using several benchmarks, we evaluate Shevlin Park’s performance, Microsoft’s DirectX based C++AMP, and also conventional OpenCL.",
@@ -312,8 +268,7 @@
         "GPU",
         "OpenCL",
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-012",
@@ -326,10 +281,7 @@
       "speakers": [
         {
           "name": "Hongbin Zheng",
-          "affiliation": "Sun Yat-sen University",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Sun Yat-sen University"
         }
       ],
       "abstract": "Though there exist several projects generating hardware description from LLVM IR (i.e. High-level Synthesis, HLS), they are all working on the LLVM IR layer. However, the LLVM IR layer is not the best layer to perform HLS. In this talk, I am going to introduce our open source HLS framework, named Shang. Our HLS framework mainly implements its transformations and analyses in the Target-Independent Code Generator, with the HLS-specific TargetMachine, named VTargetMachine.",
@@ -338,8 +290,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Hongbin-Generating.pdf",
       "tags": [
         "IR"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-013",
@@ -352,10 +303,7 @@
       "speakers": [
         {
           "name": "Chandler Carruth",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "Today, Clang is a fantastic C++ optimizing compiler. It leverages all of the compiler infrastructure built as part of the LLVM project and produces binaries which have excellent performance. As compiler writers, we have done our jobs very well. So what’s next? Where is the next big opportunity for optimizing compilers, especially in the context of modern C++ code? As C++ becomes more popular, and the C++ code bases of the world become larger and more modern, we are faced with some interesting optimization challenges. C++ is popular today due to its excellent performance, but too often certain aspects of this performance rely on hand-tuned code, despite the often elusive promise of C++ providing zero-cost abstractions to programmers. In practice, the abstractions of modern C++ are not in fact zero-cost. This creates a serious danger, as the design of C++, the standard library, and many user libraries, all rely upon the abstractions they introduce having zero cost to allow layering and composing them without a combinatorial explosion of overhead. We are approaching a world where the overheads and costs our compilers fail to remove from abstractions will be magnified into the reality of Wirth’s Law: our software is getting slower more rapidly than hardware becomes faster. How do we reverse this trend? We must begin to focus optimizations on decomposing the abstractions formed in modern languages. It is these abstractions, the things which programmers naively expect to be free, which lead to the most surprising and difficult to correct performance problems. These are what must be compiled optimally to allow both idiomatic and common programming patterns to remain efficient and to achieve system wide performance improvements in a world of flat profiles. In this talk, I will walk through what some of these abstractions end up looking like in modern C++ code, explain several ways in which LLVM optimizes away these abstractions, and propose several new optimizations to further address these problems.",
@@ -366,8 +314,7 @@
         "Clang",
         "Optimizations",
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-014",
@@ -380,10 +327,7 @@
       "speakers": [
         {
           "name": "Anna Zaks",
-          "affiliation": "Apple, Jordan Rose - Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Apple, Jordan Rose - Apple"
         }
       ],
       "abstract": "Building a Checker in 24 hours As supercomputing architectures change rapidly and larger amounts of data must be processed, it is difficult to create an efficient and versatile workflow for scientific simulations at scale. These large-scale scientific applications require computation, data analysis and visualization. Our approach is to explore building a programming language that can provide appropriate programming abstractions, a development toolchain and runtime layers that support existing scientific applications on emerging architectures without having to significantly rewrite or refactor their code. Towards this goal, we have developed Scout, a domain-specific language that provides conservative extensions to C/C++ via the LLVM/Clang compiler The poster will provide example Scout programs, a high-level system diagram, visualization support details and architecture support details. It will also contain a discussion of our experiences using LLVM/Clang, Scout design considerations and future goals.",
@@ -393,8 +337,7 @@
       "tags": [
         "Clang",
         "Programming Languages"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-015",
@@ -416,8 +359,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Martinez_ProjectDependencies.pdf",
       "tags": [
         "Clang"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-016",
@@ -439,8 +381,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Criswell_AutomatedDefense.pdf",
       "tags": [
         "Clang"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-017",
@@ -462,8 +403,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Weber_TypeAwareMemoryProfiling.pdf",
       "tags": [
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-018",
@@ -483,8 +423,7 @@
       "videoUrl": "https://youtu.be/-pxiJpMGm5w",
       "videoId": "-pxiJpMGm5w",
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Gribenko_MPITypeSafety.pdf",
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-019",
@@ -504,8 +443,7 @@
       "videoUrl": "https://youtu.be/wr-BcUGtFQY",
       "videoId": "wr-BcUGtFQY",
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Tzannes_ParallelismAnnotations.pdf",
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-020",
@@ -518,10 +456,7 @@
       "speakers": [
         {
           "name": "Ronan Keryell",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": ""
         }
       ],
       "abstract": "",
@@ -529,7 +464,6 @@
       "videoId": "h7aoPWjVxKA",
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Keryell_SoSlang.pdf",
       "posterUrl": null,
-      "projectGithub": "",
       "tags": []
     },
     {
@@ -552,8 +486,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Abbey_Bitcode.pdf",
       "tags": [
         "IR"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-022",
@@ -573,8 +506,7 @@
       "videoUrl": "https://youtu.be/WVI2JgoRm9U",
       "videoId": "WVI2JgoRm9U",
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Humphreys-LLVMTI.pdf",
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-023",
@@ -587,10 +519,7 @@
       "speakers": [
         {
           "name": "Zino Benaissa",
-          "affiliation": "QuIC",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "QuIC"
         }
       ],
       "abstract": "",
@@ -599,8 +528,7 @@
         "Loop transformations",
         "Optimizations",
         "Polly"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-024",
@@ -613,16 +541,12 @@
       "speakers": [
         {
           "name": "James Molloy",
-          "affiliation": "ARM",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "ARM"
         }
       ],
       "abstract": "",
       "videoId": null,
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-025",
@@ -635,24 +559,17 @@
       "speakers": [
         {
           "name": "Sergei Larin",
-          "affiliation": "QuIC / Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "QuIC / Apple"
         },
         {
           "name": "Andy Trick",
-          "affiliation": "QuIC / Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "QuIC / Apple"
         }
       ],
       "abstract": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Larin-Trick-Scheduling.pdf",
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-026",
@@ -665,10 +582,7 @@
       "speakers": [
         {
           "name": "Boaz Ouriel",
-          "affiliation": "Intel",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Intel"
         }
       ],
       "abstract": "",
@@ -676,8 +590,7 @@
       "tags": [
         "GPU",
         "OpenCL"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-027",
@@ -690,25 +603,18 @@
       "speakers": [
         {
           "name": "Santosh Nagarakatte",
-          "affiliation": "Rutgers University / University of Illinois",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Rutgers University / University of Illinois"
         },
         {
           "name": "John Criswell",
-          "affiliation": "Rutgers University / University of Illinois",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Rutgers University / University of Illinois"
         }
       ],
       "abstract": "",
       "videoId": null,
       "tags": [
         "Security"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-028",
@@ -721,10 +627,7 @@
       "speakers": [
         {
           "name": "Nadav Rotem",
-          "affiliation": "Apple",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Apple"
         }
       ],
       "abstract": "",
@@ -732,8 +635,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Rotem-VectorizationBOF.pdf",
       "tags": [
         "Autovectorization"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-029",
@@ -746,10 +648,7 @@
       "speakers": [
         {
           "name": "Kostya Serebryany",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "",
@@ -757,8 +656,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Serebryany-ASAN-TSAN-Poster.pdf",
       "tags": [
         "Dynamic Analysis"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-030",
@@ -771,17 +669,13 @@
       "speakers": [
         {
           "name": "Jaymie Strecker",
-          "affiliation": "Kosada",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Kosada"
         }
       ],
       "abstract": "Vuo is a new programming environment for multimedia artists. We’re building Vuo’s compiler and linker on top of LLVM. We chose LLVM because LLVM makes it easy to add features that multimedia artists enjoy — features that would have taken months or years to write from scratch. Why do multimedia artists need a programming environment? Because very often their job is to create software: interactive art and music, animations, visualizations, games, special effects, museum exhibits, and kiosks. Yet their background is in art or music, not programming. Many multimedia artists get around this by using programming environments where, instead of typing a program, they drag-and-drop building blocks onto a canvas and draw lines to connect them. These “node-based” or “visual” programming environments include Max, VVVV, Quartz Composer — and, soon, Vuo. LLVM is helping Vuo become more powerful and flexible. Vuo programs are compiled and therefore faster than interpreted programs — thanks to LLVM’s APIs for code generation and optimization. Vuo programs will be able to target Mac, Windows, Linux, iOS, and Android — thanks to LLVM’s support for various targets. Vuo developers will be able to write new building blocks in C and, eventually, other languages (e.g. C#, Python, JavaScript, PHP, Lua) — thanks to LLVM’s many frontends and Mono’s LLVM backend. LLVM solves problems of parsing and code generation so we don’t have to. Instead, we can focus on adding features that multimedia artists appreciate, like live coding (the ability to edit a program while it’s running) and easy debugging. LLVM is helping Vuo become flexible, feature-rich, and fun.",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Strecker-Vuo.pdf",
-      "tags": [],
-      "projectGithub": ""
+      "tags": []
     },
     {
       "id": "2012-11-033",
@@ -817,10 +711,7 @@
       "speakers": [
         {
           "name": "Christine Ahrens",
-          "affiliation": "Los Alamos National Laboratory",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Los Alamos National Laboratory"
         }
       ],
       "abstract": "As supercomputing architectures change rapidly and larger amounts of data must be processed, it is difficult to create an efficient and versatile workflow for scientific simulations at scale. These large-scale scientific applications require computation, data analysis and visualization. Our approach is to explore building a programming language that can provide appropriate programming abstractions, a development toolchain and runtime layers that support existing scientific applications on emerging architectures without having to significantly rewrite or refactor their code. Towards this goal, we have developed Scout, a domain-specific language that provides conservative extensions to C/C++ via the LLVM/Clang compiler The poster will provide example Scout programs, a high-level system diagram, visualization support details and architecture support details. It will also contain a discussion of our experiences using LLVM/Clang, Scout design considerations and future goals.",
@@ -828,8 +719,7 @@
       "slidesUrl": "https://llvm.org/devmtg/2012-11/Ahrens-ScoutPoster.pdf",
       "tags": [
         "Clang"
-      ],
-      "projectGithub": ""
+      ]
     },
     {
       "id": "2012-11-034",
@@ -863,10 +753,7 @@
       "speakers": [
         {
           "name": "Kostya Serebryany",
-          "affiliation": "Google",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
+          "affiliation": "Google"
         }
       ],
       "abstract": "Following the success of AddressSanitizer (asan), a fast detector of use-after-free and buffer overflow bugs, we have developed two more bug detection tools based on similar ideas. MemorySanitizer (msan, http://code.google.com/p/memory-sanitizer/) detects uninitialized memory reads. It shares many ideas with Valgrind/Memcheck, however it is also different in two important ways: it uses compile-time instrumentation (LLVM) and 1:1 direct shadow memory mapping. Unless the entire program (including libc) is instrumented, msan requires a simple binary instrumentation component (we have an implementation based on DynamoRIO). The slowdown introduced by the tool is typically 2x-3x (compare to Valgrind's 20x). ThreadSanitizer (tsan, http://code.google.com/p/thread-sanitizer/) detects data races. The tool has been briefly mentioned at the 2011 llvm dev meeting but has matured since that time. Similarly to asan and msan, it uses compile-time instrumentation (LLVM), but 95% of the logic is contained in the run-time library. Tsan uses 1:4 direct shadow memory mapping (i.e. uses ~5x more memory). It does not have locks or atomic instructions on the fast path, which makes it scale to large and heavily threaded applications. The slowdown varies between 3x and 10x.",
@@ -875,8 +762,7 @@
         "C Libs",
         "Dynamic Analysis",
         "Performance"
-      ],
-      "projectGithub": ""
+      ]
     }
   ]
 }
