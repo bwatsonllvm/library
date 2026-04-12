@@ -2449,6 +2449,82 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "HELIX: Verified compilation of cyber-physical control systems to LLVM IR",
+      "authors": [
+        {
+          "name": "Vadim Zaliva",
+          "affiliation": "Tufts University"
+        },
+        {
+          "name": "Yannick Zakowski",
+          "affiliation": ""
+        },
+        {
+          "name": "Ilia Zaichuk",
+          "affiliation": ""
+        },
+        {
+          "name": "Valerii Huhnin",
+          "affiliation": "Université Paris Cité"
+        },
+        {
+          "name": "Calvin Beck",
+          "affiliation": "Philadelphia University"
+        },
+        {
+          "name": "Irene Yoon",
+          "affiliation": ""
+        },
+        {
+          "name": "Steve Zdancewic",
+          "affiliation": "Philadelphia University"
+        }
+      ],
+      "year": "2026",
+      "publication": "2026",
+      "venue": "2026",
+      "type": "research-paper",
+      "abstract": "This paper presents the design of HELIX, an end-to-end verified codegeneration system with a focus on the intersection of high-performanceand high-assurance numerical computing. The code generation can befine-tuned to generate efficient code for a broad set of computerarchitectures while providing formal guarantees of the correctness ofsuch generated code.Using a real-life example of a cyber-physical robot system, this paperdemonstrates how, by using HELIX, one can start from a high-levelmathematical formulation of the problem, apply a series of algebraictransformations that target intermediate languages, and generate anefficient imperative implementation. This is done while formallyverifying semantic preservation from the original formulation down toLLVM IR.The method we used for high-performance code compilation is thealgebraic transformation of vector and matrix computations into adataflow optimised for parallel or vectorised processing on targethardware. The abstraction used to formalise and verify this techniqueis an operator language and accompanying semantics-preserving termrewriting. We use sparse vector abstraction to represent partialcomputations, enabling us to use algebraic reasoning to prove paralleldecomposition properties.HELIX's verification infrastructure comprises multiple intermediatelanguages and verification approaches, all implemented in the Coqproof assistant. In particular, it uses verified term rewriting,translation validation, metaprogramming, verified compilation, layeredmonadic interpreters; it also supports application-specific uses of(verified) numerical analysis as we demonstrate via the runningexample.",
+      "paperUrl": "https://hal.science/hal-05582008/document",
+      "sourceUrl": "https://hal.science/hal-05582008",
+      "openalexId": "https://openalex.org/W7153403731",
+      "doi": "",
+      "tags": [
+        "LLVM",
+        "IR",
+        "Backend",
+        "Code Generation",
+        "Performance",
+        "Infrastructure"
+      ],
+      "keywords": [
+        "LLVM",
+        "IR",
+        "Backend",
+        "Code Generation",
+        "Performance",
+        "Infrastructure",
+        "Intermediate Representation",
+        "Helix Verified Compilation",
+        "Cyber Physical Control",
+        "Verification"
+      ],
+      "matchedAuthors": [
+        "Calvin Beck",
+        "Ilia Zaichuk",
+        "Irene Yoon",
+        "Steve Zdancewic",
+        "Vadim Zaliva",
+        "Yannick Zakowski"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7153403731"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "From Loop Nests to Silicon: Mapping AI Workloads onto AMD NPUs with MLIR-AIR",
       "authors": [
         {
@@ -2842,6 +2918,127 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Diatom: Polylithic Binary Lifting with Data-Flow Summaries and Type-Aware IR Linking",
+      "authors": [
+        {
+          "name": "Anshunkang Zhou",
+          "affiliation": "Hong Kong University of Science and Technology"
+        },
+        {
+          "name": "Charles Zhang",
+          "affiliation": "Hong Kong University of Science and Technology"
+        }
+      ],
+      "year": "2026",
+      "publication": "Proceedings of the ACM on Programming Languages",
+      "venue": "Proceedings of the ACM on Programming Languages | Vol. 10 (Issue OOPSLA1)",
+      "type": "research-paper",
+      "abstract": "Binary lifting, which translates binary code into LLVM intermediate representations (IRs) through iterative IR transformations for recovering high-level constructs from low-level machine features, is the cornerstone of many binary analysis systems. Therefore, the scalability and precision of the upper layer analysis could be greatly affected by the underlying binary lifting. However, all existing binary lifters still suffer from severe performance problems in that they require much time to handle extremely large binaries, which becomes a barrier to achieving the expected performance gains in various analyses and hinders them from meeting the requirement of quick response in modern continuous integration pipelines. We found that the root cause of the scalability issue is the inherent \"monolithic\" design that performs all lifting stages on a single LLVM module, which entails a global environment that enforces sequential dependences between any two transformations on IRs, thus limiting the parallelism. This paper presents Diatom, a novel parallel binary lifter powered by a new \"polylithic\" design, which decomposes the monolithic LLVM module into partitions to perform fully parallelized binary lifting. In the meantime, it leverages light-weight data-flow summaries and type-aware IR linking to avoid soundness loss caused by separating dependent code fragments. Large-scale experiments on 16 real-world benchmarks whose sizes range from dozens of megabytes (MBs) to several gigabytes (GBs) show that Diatom achieves an average speedup of 7.45× and a maximum speedup of 16.8× over a traditional monolithic binary lifter, while still maintaining the lifting soundness. Diatom can complete the translation for the Linux Kernel binary within only 10 minutes, which significantly accelerates the overall binary code analysis process.",
+      "paperUrl": "https://doi.org/10.1145/3798206",
+      "openalexId": "https://openalex.org/W7153254026",
+      "doi": "10.1145/3798206",
+      "tags": [
+        "LLVM",
+        "IR",
+        "Performance",
+        "Programming Languages"
+      ],
+      "keywords": [
+        "LLVM",
+        "IR",
+        "Performance",
+        "Programming Languages",
+        "Intermediate Representation",
+        "Polylithic Binary Lifting",
+        "Diatom Polylithic Binary",
+        "Aware IR Linking",
+        "Type Aware IR",
+        "Flow Summaries",
+        "LLVM Module",
+        "Monolithic",
+        "Binary Lifter"
+      ],
+      "matchedAuthors": [
+        "Anshunkang Zhou",
+        "Charles Zhang"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7153254026"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Decompiling for Constant-Time Analysis",
+      "authors": [
+        {
+          "name": "Santiago Arranz Olmos",
+          "affiliation": "Max Planck Institute for Security and Privacy"
+        },
+        {
+          "name": "Gilles Barthe",
+          "affiliation": "Max Planck Institute for Security and Privacy"
+        },
+        {
+          "name": "Lionel Blatter",
+          "affiliation": "Max Planck Institute for Security and Privacy"
+        },
+        {
+          "name": "Youcef Bouzid",
+          "affiliation": "CEA Paris-Saclay"
+        },
+        {
+          "name": "Sören van der Wall",
+          "affiliation": "Technische Universität Braunschweig"
+        },
+        {
+          "name": "Zhiyuan Zhang",
+          "affiliation": "Max Planck Institute for Security and Privacy"
+        }
+      ],
+      "year": "2026",
+      "publication": "Proceedings of the ACM on Programming Languages",
+      "venue": "Proceedings of the ACM on Programming Languages | Vol. 10 (Issue OOPSLA1)",
+      "type": "research-paper",
+      "abstract": "The constant-time programming discipline is commonly used to protect cryptographic libraries against side-channel attacks. However, it is hard to write constant-time code; moreover, compilers can introduce constant-time violations. Therefore, it is important to ensure that assembly code is constant-time. One approach is to show that source programs are constant-time, and that constant-timeness is preserved by compilation. In this paper, we explore the methodological soundness and scalability of the Decompile-then-Analyze approach, a less conventional alternative that has been suggested in the broader setting of static analysis. Informally, the Decompile-then-Analyze approach uses decompilers a front-end for static analysis tools. As a motivation for our study, we show that current decompilers eliminate CT vulnerabilities before CT analysis, leading to non-CT programs being accepted as constant-time. Independently, we provide constructed examples of non-CT, exploitable, programs that are accepted by two popular CT analysis tools; in both cases the culprit are program transformations that are used internally prior to CT analysis and eliminate CT violations. While our examples do not invalidate the general approach of these tools, they emphasize the need for studying the Decompile-then-Analyze approach. On the methodological side, we define the notion of CT transparency. Informally, a program transformation is CT transparent if does not eliminate nor introduce CT violations. We also provide general methods for proving that a transformation is CT transparent, and show that several transformations of interest are transparent. We also sketch an extension of CT transparency to speculative constant-time, which is used by cryptographic software as a protection against Spectre attacks. On the practical side, we build a CT-transparent version of the popular LLVM-based decompiler RetDec, and combine it with CT-LLVM, an existing CT verification tool for LLVM. We evaluate the resulting tool, called CT-RetDec on a benchmark set of real-world vulnerabilities in binaries, and show that the modifications had significant impact on how well CT-RetDec performs.",
+      "paperUrl": "https://doi.org/10.1145/3798201",
+      "openalexId": "https://openalex.org/W7153120136",
+      "doi": "10.1145/3798201",
+      "tags": [
+        "LLVM",
+        "Static Analysis",
+        "Libraries",
+        "Programming Languages"
+      ],
+      "keywords": [
+        "LLVM",
+        "Static Analysis",
+        "Libraries",
+        "Programming Languages",
+        "Constant",
+        "Transparent",
+        "Analyze",
+        "Decompilers",
+        "Eliminate",
+        "Retdec",
+        "Violations"
+      ],
+      "matchedAuthors": [
+        "Gilles Barthe",
+        "Lionel Blatter",
+        "Santiago Arranz Olmos",
+        "Sören van der Wall",
+        "Zhiyuan Zhang"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7153120136"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Converting Binary Floating‐Point Numbers to Shortest Decimal Strings: An Experimental Review",
       "authors": [
         {
@@ -2979,6 +3176,75 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "CLower: Detecting Compiler Pessimization Bugs through Redundant Memory Accesses",
+      "authors": [
+        {
+          "name": "Jianhao Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunbo Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathias Payer",
+          "affiliation": ""
+        },
+        {
+          "name": "Kangjie Lu",
+          "affiliation": ""
+        },
+        {
+          "name": "Bing Mao",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "Proceedings of the ACM on Programming Languages",
+      "venue": "Proceedings of the ACM on Programming Languages | Vol. 10 (Issue OOPSLA1)",
+      "type": "research-paper",
+      "abstract": "Compilers are expected to generate optimized code, but they sometimes introduce pessimizations, quality-degrading redundant instructions. These bugs not only incur performance overhead but also, critically, expand the attack surface by introducing unexpected side effects (e.g., redundant memory accesses) without breaking compilation correctness. Existing bug-finding methods are neither designed for nor effective at identifying such security-sensitive pessimizations. This paper presents CLower, a novel, black-box approach for automatically detecting compiler pessimizations via redundant memory accesses. CLower's core insight is that any extra global memory accesses in a fully optimized binary, compared to the source, indicate a pessimization. To reliably distinguish compiler-introduced redundancy from source-level redundancy, we generate random C programs in which each global variable has a predetermined, controlled number of memory accesses. CLower then executes the instrumented binary and verifies whether superfluous accesses have been introduced during compilation. We applied CLower to GCC and LLVM, reporting 23 unique bugs (21 in GCC, 2 in Clang), with 16 confirmed as new pessimization bugs. Our evaluation shows that CLower accurately detects diverse, impactful pessimization bugs, the majority of which (75%) also manifest for heap-allocated objects, demonstrating that the underlying compiler flaws are general and not limited to global memory. Furthermore, we identify a systematic conflict between compiler optimizations and pessimization bugs, which causes many such bugs to remain hidden in compiler versions. This study sheds light on the under-explored area of compiler pessimization and provides a practical tool for improving compiler quality.",
+      "paperUrl": "https://doi.org/10.1145/3798250",
+      "openalexId": "https://openalex.org/W7153090080",
+      "doi": "10.1145/3798250",
+      "tags": [
+        "LLVM",
+        "Clang",
+        "Optimizations",
+        "Security",
+        "Performance",
+        "Programming Languages"
+      ],
+      "keywords": [
+        "LLVM",
+        "Clang",
+        "Optimizations",
+        "Security",
+        "Performance",
+        "Programming Languages",
+        "Redundant Memory Accesses",
+        "Memory Accesses Clower",
+        "Pessimization Bugs",
+        "Compiler Pessimization Bugs",
+        "Clower Detecting Compiler",
+        "Pessimizations",
+        "Binary",
+        "Compilation"
+      ],
+      "matchedAuthors": [
+        "Bing Mao",
+        "Kangjie Lu",
+        "Mathias Payer"
+      ],
+      "matchedSubprojects": [
+        "clang",
+        "llvm"
+      ],
+      "id": "openalex-w7153090080"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Boosting Compiler Fault Localization: Getting the Best of Both Worlds by Fusing Dynamic and Historical Data",
       "authors": [
         {
@@ -3112,6 +3378,63 @@
         "llvm"
       ],
       "id": "openalex-w7131106494"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Automatic Propagation of Profile Information through the Optimization Pipeline",
+      "authors": [
+        {
+          "name": "Elisa Fröhlich",
+          "affiliation": "Universidade Federal de Minas Gerais"
+        },
+        {
+          "name": "Angélica Aparecida Moreira",
+          "affiliation": "Microsoft (United States)"
+        },
+        {
+          "name": "F. B. Pereira",
+          "affiliation": "Universidade Federal de Minas Gerais"
+        }
+      ],
+      "year": "2026",
+      "publication": "Proceedings of the ACM on Programming Languages",
+      "venue": "Proceedings of the ACM on Programming Languages | Vol. 10 (Issue OOPSLA1)",
+      "type": "research-paper",
+      "abstract": "Profile-guided optimization (PGO) is a well-established technique for improving program performance, being integrated into major compilers such as GCC, LLVM/Clang, and Microsoft Visual C++. PGO collects information about a program's execution and uses it to guide optimizations such as inlining, and code layout. However, these very transformations alter the program's control flow, rendering the collected profiles stale or inaccurate. To deal with this problem, this paper investigates how to reuse profile data after optimization without re-executing the program. We study two complementary strategies: prediction, which estimates likely hot code paths in the optimized program, and projection, which transfers profile information from the original control-flow graph to its transformed version. We evaluate several techniques for reconstructing profile data, including a large language model (LLM)–based approach using GPT-4o, and a lightweight method that compares opcode histograms of code regions recursively to identify structural similarities. Our results show that the histogram-based method is not only simpler but also consistently more accurate than both the LLM-based approach and prior prediction and projection techniques, including those implemented in LLVM and the BOLT binary optimizer.",
+      "paperUrl": "https://doi.org/10.1145/3798247",
+      "openalexId": "https://openalex.org/W7153324563",
+      "doi": "10.1145/3798247",
+      "tags": [
+        "LLVM",
+        "Clang",
+        "BOLT",
+        "Optimizations",
+        "PGO",
+        "Performance",
+        "Programming Languages"
+      ],
+      "keywords": [
+        "LLVM",
+        "Clang",
+        "BOLT",
+        "Optimizations",
+        "PGO",
+        "Performance",
+        "Programming Languages",
+        "Profile-Guided Optimization",
+        "Optimization Pipeline",
+        "Control Flow"
+      ],
+      "matchedAuthors": [
+        "Angélica Aparecida Moreira"
+      ],
+      "matchedSubprojects": [
+        "bolt",
+        "clang",
+        "llvm"
+      ],
+      "id": "openalex-w7153324563"
     },
     {
       "source": "openalex-discovery",
@@ -9877,6 +10200,72 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Automatic Test Case Generation for Jasper App HDL Compiler: An Industry Experience",
+      "authors": [
+        {
+          "name": "Mirlaine Crepalde",
+          "affiliation": ""
+        },
+        {
+          "name": "Augusto Mafra",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Cavalini",
+          "affiliation": ""
+        },
+        {
+          "name": "Lucas Martins",
+          "affiliation": ""
+        },
+        {
+          "name": "Guilherme da Costa Amorim",
+          "affiliation": ""
+        },
+        {
+          "name": "Pedro Henrique Caroca Cavalcante dos Santos",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabiano Peixoto",
+          "affiliation": ""
+        }
+      ],
+      "year": "2025",
+      "publication": "Proceedings of the 34th ACM SIGPLAN International Conference on Compiler Construction",
+      "venue": "Proceedings of the 34th ACM SIGPLAN International Conference on Compiler Construction",
+      "type": "research-paper",
+      "abstract": "Random test case generation is a challenging subject in compiler testing. Due to the structured and strict nature of the languages required for compiler inputs, using randomization techniques for hunting bugs in compiler implementation represents a big challenge that requires trading off correctness and generation biases against fuzzing techniques for broader exploratory randomization. This paper shares the technology and the practical industry experience on two random testing frameworks developed for the Hardware Description Language (HDL) compiler of Jasper® App, a production formal verification software applied in Electronic Design Automation (EDA) industry. The two frameworks impact distinct parts of the compiler stack and provide different features and strengths for randomization: SystemVerilog Generator script, which creates random and formally provable HDL code, and Fuzz HDL Testing, a fuzzing solution applying LLVM’s libFuzzer to explore random textual inputs.",
+      "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3708493.3712681",
+      "sourceUrl": "https://doi.org/10.1145/3708493.3712681",
+      "openalexId": "https://openalex.org/W4407942958",
+      "doi": "10.1145/3708493.3712681",
+      "tags": [
+        "LLVM",
+        "Testing"
+      ],
+      "keywords": [
+        "LLVM",
+        "Testing",
+        "Formal Verification",
+        "Fuzzing",
+        "Randomization",
+        "Industry Experience",
+        "App Hdl Compiler",
+        "Jasper App Hdl"
+      ],
+      "matchedAuthors": [
+        "Mirlaine Crepalde"
+      ],
+      "matchedSubprojects": [
+        "libfuzzer",
+        "llvm"
+      ],
+      "id": "openalex-w4407942958"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Applying composable parallelism in programs using parallel libraries",
       "authors": [
         {
@@ -11103,6 +11492,7 @@
       "id": "openalex-w4400375984"
     },
     {
+      "id": "openalex-w4405182272",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "When Compiler Optimizations Meet Symbolic Execution: An Empirical Study",
@@ -11164,8 +11554,7 @@
       ],
       "matchedSubprojects": [
         "clang"
-      ],
-      "id": "openalex-w4405182272"
+      ]
     },
     {
       "source": "openalex-discovery",
@@ -13684,6 +14073,7 @@
       "id": "openalex-w4391951339"
     },
     {
+      "id": "openalex-w4408793818",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Quantifying and Analyzing Speculative Execution Risks: A Quantitative Security Framework",
@@ -13719,6 +14109,7 @@
       "type": "research-paper",
       "abstract": "The disclosure of Spectre and Meltdown vulnerabilities has significantly challenged processor security, exposing inherent flaws in microarchitectural design and revealing the limitations of existing countermeasures. Despite extensive mitigation efforts, completely preventing information leakage resulting from speculative execution continues to pose a significant challenge. A significant gap remains in the lack of a quantitative evaluation framework that rigorously assesses the effectiveness of these mitigation strategies. In this research, the SPECTECTOR analytical framework is utilized to introduce two novel quantitative metrics: Relative Leakage Entropy (RLE) and Normalized Conditional Entropy (NCE). These metrics are designed to evaluate the relative information leakage between speculative and non-speculative execution traces, providing distinct insights on leakage quantification. By utilizing these metrics to assess 15 example programs compiled with Intel ICC and CLANG compilers across different optimization levels and mitigation strategies, the analysis reveals that compiler optimization strategies markedly affect the magnitude of information leakage. The results indicate that, despite advanced mitigation techniques, substantial information leakage persists, highlighting the need for more effective security architectures in future processors and software systems.",
       "paperUrl": "https://doi.org/10.1109/swc62898.2024.00163",
+      "sourceUrl": "https://openalex.org/W4408793818",
       "openalexId": "https://openalex.org/W4408793818",
       "doi": "10.1109/swc62898.2024.00163",
       "tags": [
@@ -13749,8 +14140,7 @@
       ],
       "matchedSubprojects": [
         "clang"
-      ],
-      "id": "openalex-w4408793818"
+      ]
     },
     {
       "source": "openalex-discovery",
@@ -14175,6 +14565,119 @@
         "openmp"
       ],
       "id": "openalex-w4396671467"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Portage des chaînes de traitement sonar sur architecture hétérogène : conception et évaluation d'un environnement de programmation basé sur les tâches moldables",
+      "authors": [
+        {
+          "name": "Pierre-Étienne Polet",
+          "affiliation": ""
+        }
+      ],
+      "year": "2024",
+      "publication": "Informatique [cs]. Ecole normale supérieure de lyon - ENS LYON, 2024. Français. &#x27E8;NNT : 2024ENSL0004&#x27E9;",
+      "venue": "Informatique [cs]. Ecole normale supérieure de lyon - ENS LYON, 2024. Français. &#x27E8;NNT : 2024ENSL0004&#x27E9;",
+      "type": "thesis",
+      "abstract": "The increasing computational demands in SONAR processing chains lead to the choice of heterogeneous architectures based on GPGPU. The complexity of these architectures makes algorithm implementation challenging for individuals who are not specialists in both the application domain and parallel programming. This thesis aims to address this issue by leveraging task-based programming concepts. Static code analysis methods allowed us to group function calls on a GPU to limit certain overheads by increasing task granularity.To extend this approach to enable the utilization of multiple GPUs while controlling memory usage, we explored a moldable task model. This was instantiated into a new OpenMP directive that unifies several older parallelization directives. In this model, moldable tasks or sub-tasks retain the ability to have dependencies. The design of a prototype executive support for managing these moldable tasks focused on load balancing on a heterogeneous architecture and defining an algorithm to detect dependencies between such tasks. Experiments on a SONAR processing beamforming algorithm and the Cholesky factorization algorithm highlighted the method's benefits and some weaknesses in the implementation choices.",
+      "paperUrl": "https://theses.hal.science/tel-04633261v1/document",
+      "sourceUrl": "https://theses.hal.science/tel-04633261",
+      "openalexId": "https://openalex.org/W4400309329",
+      "doi": "",
+      "tags": [
+        "OpenMP",
+        "GPU"
+      ],
+      "keywords": [
+        "OpenMP",
+        "GPU",
+        "Parallel Computing",
+        "Moldable Tasks",
+        "Sonar Processing",
+        "Portage Des Cha",
+        "Programmation Bas Sur",
+        "Sonar Sur Architecture",
+        "Traitement Sonar Sur",
+        "Ches Moldables"
+      ],
+      "matchedAuthors": [
+        "Pierre-Étienne Polet"
+      ],
+      "matchedSubprojects": [
+        "openmp"
+      ],
+      "id": "openalex-w4400309329"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Portability of Fortran’s ‘do concurrent’ on GPUs",
+      "authors": [
+        {
+          "name": "Ronald M. Caplan",
+          "affiliation": "Predictive Science (United States)"
+        },
+        {
+          "name": "Miko M. Stulajter",
+          "affiliation": "Predictive Science (United States)"
+        },
+        {
+          "name": "J. A. Linker",
+          "affiliation": "Predictive Science (United States)"
+        },
+        {
+          "name": "Jeff Larkin",
+          "affiliation": "Nvidia (United States)"
+        },
+        {
+          "name": "Henry A. Gabb",
+          "affiliation": "Intel (United States)"
+        },
+        {
+          "name": "Shi-Quan Su",
+          "affiliation": "Intel (Taiwan)"
+        },
+        {
+          "name": "Iván Rodriguez",
+          "affiliation": "Hewlett Packard Enterprise (Ireland)"
+        },
+        {
+          "name": "Zachary S. Tschirhart",
+          "affiliation": "Hewlett Packard Enterprise (Ireland)"
+        },
+        {
+          "name": "Nicholas Malaya",
+          "affiliation": "Advanced Micro Devices (United States)"
+        }
+      ],
+      "year": "2024",
+      "publication": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+      "venue": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+      "type": "research-paper",
+      "abstract": "There is a continuing interest in using standard language constructs for accelerated computing in order to avoid (sometimes vendor-specific) external APIs. For Fortran codes, the do concurrent (DC) loop has been successfully demonstrated on the NVIDIA platform. However, support for DC on other platforms has taken longer to implement. Recently, Intel has added DC GPU offload support to its compiler, as has HPE for AMD GPUs. In this paper, we explore the current portability of using DC across GPU vendors using the in-production solar surface flux evolution code, HipFT. We discuss implementation and compilation details, including when/where using directive APIs for data movement is needed/desired compared to using a unified memory system. The performance achieved on both data center and consumer platforms is shown.",
+      "paperUrl": "https://arxiv.org/pdf/2408.07843",
+      "sourceUrl": "https://doi.org/10.1109/scw63240.2024.00240",
+      "openalexId": "https://openalex.org/W4406022754",
+      "doi": "10.1109/scw63240.2024.00240",
+      "tags": [
+        "offload",
+        "Performance",
+        "GPU"
+      ],
+      "keywords": [
+        "offload",
+        "Performance",
+        "GPU",
+        "Offloading"
+      ],
+      "matchedAuthors": [
+        "Nicholas Malaya"
+      ],
+      "matchedSubprojects": [
+        "offload"
+      ],
+      "id": "openalex-w4406022754"
     },
     {
       "source": "openalex-discovery",
@@ -17708,6 +18211,159 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating Performance Portability with the CMS Heterogeneous Pixel Reconstruction code",
+      "authors": [
+        {
+          "name": "Nikolaos Andriotis",
+          "affiliation": "Universitat Politècnica de Catalunya"
+        },
+        {
+          "name": "A. Bocci",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "E. Cano",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "Laura Cappelli",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Bologna"
+        },
+        {
+          "name": "Tony Di Pilato",
+          "affiliation": "University of Geneva"
+        },
+        {
+          "name": "Luca Ferragina",
+          "affiliation": "University of Bologna"
+        },
+        {
+          "name": "G. Hugo",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "M. J. Kortelainen",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "Martin Kwok",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "Juan Jose Olivera Loyola",
+          "affiliation": "Tecnológico de Monterrey"
+        },
+        {
+          "name": "F. Pantaleo",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "Aurora Perego",
+          "affiliation": "University of Milano-Bicocca"
+        },
+        {
+          "name": "W. Redjeb",
+          "affiliation": "RWTH Aachen University"
+        },
+        {
+          "name": "Mark Dewing",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "Julien Esseiva",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        }
+      ],
+      "year": "2024",
+      "publication": "EPJ Web of Conferences",
+      "venue": "EPJ Web of Conferences | Vol. 295",
+      "type": "research-paper",
+      "abstract": "In the past years the landscape of tools for expressing parallel algorithms in a portable way across various compute accelerators has continued to evolve significantly. There are many technologies on the market that provide portability between CPU, GPUs from several vendors, and in some cases even FPGAs. These technologies include C++ libraries such as Alpaka and Kokkos, compiler directives such as OpenMP, the SYCL open specification that can be implemented as a library or in a compiler, and standard C++ where the compiler is solely responsible for the offloading. Given this developing landscape, users have to choose the technology that best fits their applications and constraints. For example, in the CMS experiment the experience so far in heterogeneous reconstruction algorithms suggests that the full application contains a large number of relatively short computational kernels and memory transfer operations. In this work we use a stand-alone version of the CMS heterogeneous pixel reconstruction code as a realistic use case of HEP reconstruction software that is capable of leveraging GPUs effectively. We summarize the experience of porting this code base from CUDA to Alpaka, Kokkos, SYCL, std::par, and OpenMP offloading. We compare the event processing throughput achieved by each version on NVIDIA and AMD GPUs as well as on a CPU, and compare those to what a native version of the code achieves on each platform.",
+      "paperUrl": "https://www.epj-conferences.org/articles/epjconf/pdf/2024/05/epjconf_chep2024_11008.pdf",
+      "sourceUrl": "https://doi.org/10.1051/epjconf/202429511008",
+      "openalexId": "https://openalex.org/W4396681731",
+      "doi": "10.1051/epjconf/202429511008",
+      "tags": [
+        "OpenMP",
+        "Performance",
+        "Libraries",
+        "GPU",
+        "CUDA"
+      ],
+      "keywords": [
+        "OpenMP",
+        "Performance",
+        "Libraries",
+        "GPU",
+        "CUDA",
+        "Offloading",
+        "Heterogeneous Pixel Reconstruction",
+        "Cms Heterogeneous Pixel",
+        "Version",
+        "CPU",
+        "Evaluating Performance Portability"
+      ],
+      "matchedAuthors": [
+        "M. J. Kortelainen",
+        "Mark Dewing"
+      ],
+      "matchedSubprojects": [
+        "libsycl",
+        "offload",
+        "openmp"
+      ],
+      "id": "openalex-w4396681731"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating Operators in Deep Neural Networks for Improving Performance Portability of SYCL",
+      "authors": [
+        {
+          "name": "Zheming Jin",
+          "affiliation": "Oak Ridge National Laboratory"
+        }
+      ],
+      "year": "2024",
+      "publication": "Oak Ridge National Laboratory (ORNL)",
+      "venue": "Oak Ridge National Laboratory (ORNL)",
+      "type": "research-paper",
+      "abstract": "SYCL is a portable programming model that strives to be performance-portable across heterogeneous computing devices.Towards understanding and improving performance portability of SYCL for machine learning workloads, benchmarks for basic operators in deep neural networks (DNNs) are developed for performance evaluation.These operators could be offloaded to heterogeneous computing devices such as graphics processing units (GPUs) to speed up computation.In this work, we introduce the benchmarks, evaluate the performance of the operators on GPU-based systems, and describe the potential causes of the performance gap between the SYCL and Compute Unified Device Architecture (CUDA) kernels.We find that the gaps are related to the utilization of the texture cache for read-only data, optimization of the memory accesses with strength reduction, shared local memory accesses, and register usage per thread.We hope that the benchmarks for studying performance portability will facilitate discussion and interactions within the community.",
+      "paperUrl": "http://dx.doi.org/10.2172/2404613",
+      "sourceUrl": "https://doi.org/10.2172/2404613",
+      "openalexId": "https://openalex.org/W4400868580",
+      "doi": "10.2172/2404613",
+      "tags": [
+        "Optimizations",
+        "Performance",
+        "GPU",
+        "CUDA",
+        "ML"
+      ],
+      "keywords": [
+        "Optimizations",
+        "Performance",
+        "GPU",
+        "CUDA",
+        "ML",
+        "Heterogeneous Computing",
+        "Performance Portability",
+        "Evaluating Operators",
+        "Deep Neural Networks",
+        "Heterogeneous Computing Devices",
+        "Memory Accesses"
+      ],
+      "matchedAuthors": [
+        "Zheming Jin"
+      ],
+      "matchedSubprojects": [
+        "libsycl"
+      ],
+      "id": "openalex-w4400868580"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Enhanced OpenMP Algorithm to Compute All-Pairs Shortest Path on X86 Architectures",
       "authors": [
         {
@@ -19491,6 +20147,7 @@
       ]
     },
     {
+      "id": "openalex-w4391272839",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Application of performance portability solutions for GPUs and many-core CPUs to track reconstruction kernels",
@@ -19579,13 +20236,24 @@
         "Hardware"
       ],
       "matchedAuthors": [
+        "Alexei Strelchenko",
+        "Allison Reinsvold Hall",
         "Boyana Norris",
+        "Cong Wang",
+        "Daniel Riley",
+        "G. B. Cerati",
+        "Hammad Ather",
+        "K. H. M. Kwok",
+        "M. J. Kortelainen",
+        "M. Reid",
+        "O. Gutsche",
+        "S. Berkman",
+        "S. Lantz",
         "Seyong Lee"
       ],
       "matchedSubprojects": [
         "libsycl"
-      ],
-      "id": "openalex-w4391272839"
+      ]
     },
     {
       "source": "openalex-discovery",
@@ -22177,6 +22845,47 @@
         "libsycl"
       ],
       "id": "openalex-w4387670706"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "SYCL compute kernels for ExaHyPE",
+      "authors": [
+        {
+          "name": "Chung Ming Loi",
+          "affiliation": ""
+        },
+        {
+          "name": "Bockhorst, Heinrich",
+          "affiliation": ""
+        },
+        {
+          "name": "Weinzierl, Tobias",
+          "affiliation": ""
+        }
+      ],
+      "year": "2023",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "We discuss three SYCL realisations of a simple Finite Volume scheme over multiple Cartesian patches. The realisation flavours differ in the way how they map the compute steps onto loops and tasks: We compare an implementation that is exclusively using a sequence of for-loops to a version that uses nested parallelism, and finally benchmark these against a version modelling the calculations as task graph. Our work proposes realisation idioms to realise these flavours within SYCL. The results suggest that a mixture of classic task and data parallelism performs if we map this hybrid onto a solely data-parallel SYCL implementation, taking into account SYCL specifics and the problem size.",
+      "paperUrl": "https://arxiv.org/pdf/2306.16731",
+      "sourceUrl": "https://doi.org/10.48550/arxiv.2306.16731",
+      "openalexId": "https://openalex.org/W4382765723",
+      "doi": "10.48550/arxiv.2306.16731",
+      "tags": [],
+      "keywords": [
+        "Parallelism",
+        "Realisation",
+        "Sycl Compute Kernels"
+      ],
+      "matchedAuthors": [
+        "Chung Ming Loi"
+      ],
+      "matchedSubprojects": [
+        "libsycl"
+      ],
+      "id": "openalex-w4382765723"
     },
     {
       "source": "openalex-discovery",
@@ -27462,6 +28171,112 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating Performance Portability with the CMS Heterogeneous Pixel Reconstruction code",
+      "authors": [
+        {
+          "name": "Nikolaos Perego Andriotis",
+          "affiliation": ""
+        },
+        {
+          "name": "A. Bocci",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "E. Cano",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "Laura Cappelli",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Bologna"
+        },
+        {
+          "name": "Mark Dewing",
+          "affiliation": "Argonne National Laboratory"
+        },
+        {
+          "name": "Tony Di Pilato",
+          "affiliation": "Center for Advanced Systems Understanding"
+        },
+        {
+          "name": "Julien Esseiva",
+          "affiliation": ""
+        },
+        {
+          "name": "L. Ferragina",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Bologna"
+        },
+        {
+          "name": "G. Hugo",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "M. J. Kortelainen",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "M. Kwok",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "Juan Jose Olivera Loyola",
+          "affiliation": "Centro de Investigación y de Estudios Avanzados del Instituto Politécnico Nacional"
+        },
+        {
+          "name": "F. Pantaleo",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "Albino Perego",
+          "affiliation": "Istituto Nazionale di Fisica Nucleare, Sezione di Milano"
+        },
+        {
+          "name": "W. Redjeb",
+          "affiliation": "RWTH Aachen University"
+        }
+      ],
+      "year": "2023",
+      "publication": "Evaluating Performance Portability with the CMS Heterogeneous Pixel Reconstruction code",
+      "venue": "Evaluating Performance Portability with the CMS Heterogeneous Pixel Reconstruction code",
+      "type": "research-paper",
+      "abstract": "In the past years the landscape of tools for expressing parallel algorithms in a portable way across various compute accelerators has continued to evolve significantly. There are many technologies on the market that provide portability between CPU, GPUs from several vendors, and in some cases even FPGAs. These technologies include C++ libraries such as Alpaka and Kokkos, compiler directives such as OpenMP, the SYCL open specification that can be implemented as a library or in a compiler, and standard C++ where the compiler is solely responsible for the offloading. Given this developing landscape, users have to choose the technology that best fits their applications and constraints. For example, in the CMS experiment the experience so far in heterogeneous reconstruction algorithms suggests that the full application contains a large number of relatively short computational kernels and memory transfer operations. In this work we use a stand-alone version of the CMS heterogeneous pixel reconstruction code as a realistic use case of HEP reconstruction software that is capable of leveraging GPUs effectively. We summarize the experience of porting this code base from CUDA to Alpaka, Kokkos, SYCL, std::par, and OpenMP offloading. We compare the event processing throughput achieved by each version on NVIDIA and AMD GPUs as well as on a CPU, and compare those to what a native version of the code achieves on each platform.",
+      "paperUrl": "http://dx.doi.org/10.2172/1973419",
+      "sourceUrl": "https://doi.org/10.2172/1973419",
+      "openalexId": "https://openalex.org/W4376636019",
+      "doi": "10.2172/1973419",
+      "tags": [
+        "OpenMP",
+        "Performance",
+        "Libraries",
+        "GPU",
+        "CUDA"
+      ],
+      "keywords": [
+        "OpenMP",
+        "Performance",
+        "Libraries",
+        "GPU",
+        "CUDA",
+        "Offloading",
+        "Heterogeneous Pixel Reconstruction",
+        "Cms Heterogeneous Pixel",
+        "Version",
+        "CPU",
+        "Evaluating Performance Portability"
+      ],
+      "matchedAuthors": [
+        "M. J. Kortelainen",
+        "Mark Dewing"
+      ],
+      "matchedSubprojects": [
+        "libsycl",
+        "offload",
+        "openmp"
+      ],
+      "id": "openalex-w4376636019"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Enhanced Memory Corruption Detection in C/C++ Programs",
       "authors": [
         {
@@ -29692,6 +30507,44 @@
         "openmp"
       ],
       "id": "openalex-w4319067047"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "An Investigation into the Performance and Portability of SYCL Compiler Implementations",
+      "authors": [
+        {
+          "name": "Wageesha R. Shilpage",
+          "affiliation": "University of York"
+        },
+        {
+          "name": "Steven A. Wright",
+          "affiliation": "University of York"
+        }
+      ],
+      "year": "2023",
+      "publication": "Lecture Notes in Computer Science",
+      "venue": "Lecture Notes in Computer Science",
+      "type": "research-paper",
+      "abstract": "No abstract available in discovery metadata.",
+      "paperUrl": "https://eprints.whiterose.ac.uk/id/eprint/202971/1/SYCL_LNCS.pdf",
+      "sourceUrl": "https://doi.org/10.1007/978-3-031-40843-4_45",
+      "openalexId": "https://openalex.org/W4386124558",
+      "doi": "10.1007/978-3-031-40843-4_45",
+      "tags": [
+        "Performance"
+      ],
+      "keywords": [
+        "Performance",
+        "Sycl Compiler"
+      ],
+      "matchedAuthors": [
+        "Steven A. Wright"
+      ],
+      "matchedSubprojects": [
+        "libsycl"
+      ],
+      "id": "openalex-w4386124558"
     },
     {
       "source": "openalex-discovery",
@@ -32057,7 +32910,6 @@
       ]
     },
     {
-      "id": "openalex-w4393822699",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Securisation of the exececution of applications against fault injection attacks by a counter-measure integrated into the processor",
@@ -32102,7 +32954,8 @@
       ],
       "matchedSubprojects": [
         "llvm"
-      ]
+      ],
+      "id": "openalex-w4393822699"
     },
     {
       "source": "openalex-discovery",
@@ -35251,6 +36104,67 @@
         "clang",
         "llvm"
       ]
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Collage",
+      "authors": [
+        {
+          "name": "Byungsoo Jeon",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Sunghyun Park",
+          "affiliation": ""
+        },
+        {
+          "name": "Peiyuan Liao",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Sheng Xu",
+          "affiliation": "Amazon (United States)"
+        },
+        {
+          "name": "Tianqi Chen",
+          "affiliation": "Carnegie Mellon University"
+        },
+        {
+          "name": "Zhihao Jia",
+          "affiliation": "Carnegie Mellon University"
+        }
+      ],
+      "year": "2022",
+      "publication": "Proceedings of the International Conference on Parallel Architectures and Compilation Techniques",
+      "venue": "Proceedings of the International Conference on Parallel Architectures and Compilation Techniques",
+      "type": "research-paper",
+      "abstract": "The strong demand for efficient and performant deployment of Deep Learning (DL) applications prompts the rapid development of a rich DL ecosystem. To keep up with this fast advancement, it is crucial for modern DL frameworks to efficiently integrate a variety of optimized tensor algebra libraries and runtimes as their backends and generate the fastest possible executable using these backends. However, current DL frameworks require significant manual effort and expertise to integrate every new backend while failing to unleash its full potential. Given the fast-evolving nature of the DL ecosystem, this manual approach often slows down continuous innovations across different layers; it prevents hardware vendors from the fast deployment of their cutting-edge libraries, DL framework developers must repeatedly adjust their hand-coded rules to accommodate new versions of libraries, and machine learning practitioners need to wait for the integration of new technologies and often encounter unsatisfactory performance.",
+      "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3559009.3569651",
+      "sourceUrl": "https://doi.org/10.1145/3559009.3569651",
+      "openalexId": "https://openalex.org/W4307789874",
+      "doi": "10.1145/3559009.3569651",
+      "tags": [
+        "runtimes",
+        "Backend",
+        "Performance",
+        "Libraries",
+        "ML"
+      ],
+      "keywords": [
+        "runtimes",
+        "Backend",
+        "Performance",
+        "Libraries",
+        "ML"
+      ],
+      "matchedAuthors": [
+        "Tianqi Chen"
+      ],
+      "matchedSubprojects": [
+        "runtimes"
+      ],
+      "id": "openalex-w4307789874"
     },
     {
       "source": "openalex-discovery",
@@ -43293,6 +44207,172 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "LAMINA: An MLIR-Based Translation Library for Heterogeneous Quantum-Classical Compilation",
+      "authors": [
+        {
+          "name": "Michael Broughton",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Guillaume Verdon",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Trevor McCourt",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Antonio J. Martinez",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jae Hyeon Yoo",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Sergei V. Isakov",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Philip Massey",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ramin Halavati",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Murphy Yuezhen Niu",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alexander Zlokapa",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Evan Peters",
+          "affiliation": "Fermi National Accelerator Laboratory"
+        },
+        {
+          "name": "Owen Lockwood",
+          "affiliation": "Rensselaer Polytechnic Institute"
+        },
+        {
+          "name": "Andrea Skolik",
+          "affiliation": "Ames Research Center"
+        },
+        {
+          "name": "Sofiène Jerbi",
+          "affiliation": ""
+        },
+        {
+          "name": "Vedran Dunjko",
+          "affiliation": ""
+        },
+        {
+          "name": "Martin Leib",
+          "affiliation": ""
+        },
+        {
+          "name": "Michael Streif",
+          "affiliation": "Ames Research Center"
+        },
+        {
+          "name": "David Von Dollen",
+          "affiliation": ""
+        },
+        {
+          "name": "Hongxiang Chen",
+          "affiliation": "University College London"
+        },
+        {
+          "name": "Shuxiang Cao",
+          "affiliation": "Science Oxford"
+        },
+        {
+          "name": "Roeland Wiersema",
+          "affiliation": ""
+        },
+        {
+          "name": "Hsin-Yuan Huang",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Jarrod R. McClean",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Ryan Babbush",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Sergio Boixo",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Dave Bacon",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Alan Ho",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Hartmut Neven",
+          "affiliation": "Google (United States)"
+        },
+        {
+          "name": "Masoud Mohseni",
+          "affiliation": "Google (United States)"
+        }
+      ],
+      "year": "2020",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Quantum computing is increasingly integrated into High-Performance Computing (HPC) environments, where quantum processors act as specialized accelerators within hybrid workflows. The Munich Quantum Software Stack (MQSS) - a unified compilation and runtime framework for hybrid quantum–classical computing - provides the foundation for this integration. However, the growing heterogeneity of applications demands more flexible compilation tools. This work introduces an MultiLevel Intermediate Representation (MLIR)-based translation library that extends MQSS by enabling the conversion of CUDA-Quantum (CUDA-Q) (quake) dialects into machine learning–oriented MLIR representations compatible with modern compiler ecosystems. Leveraging MLIR’s dialect-driven design, the library enables hardware-agnostic transformations, device-specific optimizations, and seamless integration with MQSS components. The proposed approach bridges quantum compilation and contemporary machine learning frameworks, facilitating GPU-accelerated circuit simulation, hybrid quantum–classical workflows, and heterogeneous execution, thereby advancing a unified compiler infrastructure for quantum computing.",
+      "paperUrl": "https://arxiv.org/pdf/2003.02989",
+      "sourceUrl": "https://doi.org/10.4230/oasics.parma-ditam.2026.5",
+      "openalexId": "https://openalex.org/W3010243192",
+      "doi": "10.4230/oasics.parma-ditam.2026.5",
+      "tags": [
+        "MLIR",
+        "IR",
+        "Optimizations",
+        "Performance",
+        "Infrastructure",
+        "GPU",
+        "CUDA",
+        "ML",
+        "Quantum Computing"
+      ],
+      "keywords": [
+        "MLIR",
+        "Optimizations",
+        "Performance",
+        "Infrastructure",
+        "GPU",
+        "CUDA",
+        "Quantum Computing",
+        "Intermediate Representation",
+        "Quantum Compilation",
+        "Hybrid Quantum Classical",
+        "Quantum Classical Compilation",
+        "Library",
+        "Machine Learning",
+        "Heterogeneous Quantum Classical"
+      ],
+      "matchedAuthors": [
+        "Masoud Mohseni"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w3010243192"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Instead of Rewriting Foreign Code for Machine Learning, Automatically Synthesize Fast Gradients",
       "authors": [
         {
@@ -43549,6 +44629,65 @@
       "id": "openalex-w3046771328"
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "GPU Usage in ATLAS Reconstruction and Analysis",
+      "authors": [
+        {
+          "name": "A. Krasznahorkay",
+          "affiliation": "European Organization for Nuclear Research"
+        },
+        {
+          "name": "C. Leggett",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        },
+        {
+          "name": "A. S. Mete",
+          "affiliation": "University of California, Irvine"
+        },
+        {
+          "name": "S. Snyder",
+          "affiliation": "Brookhaven National Laboratory"
+        },
+        {
+          "name": "Vakho Tsulaia",
+          "affiliation": "Lawrence Berkeley National Laboratory"
+        }
+      ],
+      "year": "2020",
+      "publication": "EPJ Web of Conferences",
+      "venue": "EPJ Web of Conferences | Vol. 245",
+      "type": "research-paper",
+      "abstract": "With Graphical Processing Units (GPUs) and other kinds of accelerators becoming ever more accessible, High Performance Computing Centres all around the world using them ever more, ATLAS has to find the best way of making use of such accelerators in much of its computing. Tests with GPUs – mainly with CUDA – have been performed in the past in the experiment. At that time the conclusion was that it was not advantageous for the ATLAS offline and trigger software to invest time and money into GPUs. However as the usage of accelerators has become cheaper and simpler in recent years, their re-evaluation in ATLAS’s offline software is warranted. We show new results of using GPU accelerated calculations in ATLAS’s offline software environment using the ATLAS offline/analysis (xAOD) Event Data Model. We compare the performance and flexibility of a couple of the available GPU programming methods, and show how different memory management setups affect our ability to offload different types of calculations to a GPU efficiently.",
+      "paperUrl": "https://www.epj-conferences.org/articles/epjconf/pdf/2020/21/epjconf_chep2020_05006.pdf",
+      "sourceUrl": "https://doi.org/10.1051/epjconf/202024505006",
+      "openalexId": "https://openalex.org/W3101248227",
+      "doi": "10.1051/epjconf/202024505006",
+      "tags": [
+        "offload",
+        "Performance",
+        "GPU",
+        "CUDA"
+      ],
+      "keywords": [
+        "offload",
+        "Performance",
+        "GPU",
+        "CUDA",
+        "Offloading",
+        "Atlas Offline",
+        "Accelerators",
+        "Atlas Reconstruction"
+      ],
+      "matchedAuthors": [
+        "C. Leggett"
+      ],
+      "matchedSubprojects": [
+        "offload"
+      ],
+      "id": "openalex-w3101248227"
+    },
+    {
       "id": "openalex-w3016562408",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
@@ -43703,6 +44842,7 @@
       "id": "openalex-w3081652063"
     },
     {
+      "id": "openalex-w3017891227",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Experiences in porting mini‐applications to OpenACC and OpenMP on heterogeneous systems",
@@ -43758,12 +44898,13 @@
         "Christopher Daley",
         "Rahulkumar Gayatri",
         "Reuben D. Budiardja",
+        "Verónica Melesse Vergara",
+        "Wayne Joubert",
         "Óscar Hernández"
       ],
       "matchedSubprojects": [
         "openmp"
-      ],
-      "id": "openalex-w3017891227"
+      ]
     },
     {
       "id": "openalex-w3125884626",
@@ -46420,6 +47561,59 @@
       ]
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating Auto-Vectorizing Compilers through Objective Withdrawal of Useful Information",
+      "authors": [
+        {
+          "name": "Sergi Siso",
+          "affiliation": "University of Liverpool"
+        },
+        {
+          "name": "Wesley Armour",
+          "affiliation": "University of Oxford"
+        },
+        {
+          "name": "Jeyan Thiyagalingam",
+          "affiliation": "Rutherford Appleton Laboratory"
+        }
+      ],
+      "year": "2019",
+      "publication": "ACM Transactions on Architecture and Code Optimization",
+      "venue": "ACM Transactions on Architecture and Code Optimization | Vol. 16 (Issue 4)",
+      "type": "research-paper",
+      "abstract": "The need for compilers to generate highly vectorized code is at an all-time high with the increasing vectorization capabilities of modern processors. To this end, the information that compilers have at their disposal, either through code analysis or via user annotations, is instrumental for auto-vectorization, and hence for the overall performance. However, the information that is available to compilers at compile time and its accuracy varies greatly, as does the resulting performance of vectorizing compilers. Benchmarks like the Test Suite for Vectorizing Compilers (TSVC) have been developed to evaluate the vectorization capability of such compilers. The overarching approach of TSVC and similar benchmarks is to evaluate the compilers under the best possible scenario (i.e., assuming that compilers have access to all useful contextual information at compile time). Although this idealistic view is useful to observe the capability of compilers for auto-vectorization, it is not a true reflection of the conditions found in real-world applications. In this article, we propose a novel method for evaluating the auto-vectorization capability of compilers. Instead of assuming that compilers have access to a wealth of information at compile time, we formulate a method to objectively supply or withdraw information that would otherwise aid the compiler in the auto-vectorization process. This method is orthogonal to the approach adopted by TSVC, and as such, it provides the means of assessing the capabilities of modern vectorizing compilers in a more detailed way. Using this new method, we exhaustively evaluated five industry-grade compilers (GNU, Intel, Clang, PGI, and IBM) on four representative vector platforms (AVX-2, AVX-512 (Skylake), AVX-512 (KNL), and AltiVec) using the modified version of TSVC and application-level proxy kernels. The results show the impact that withdrawing information has on the vectorization capabilities of each compiler and also prove the validity of the presented technique.",
+      "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3356842",
+      "sourceUrl": "https://doi.org/10.1145/3356842",
+      "openalexId": "https://openalex.org/W2979513934",
+      "doi": "10.1145/3356842",
+      "tags": [
+        "Clang",
+        "Optimizations",
+        "Autovectorization",
+        "Performance"
+      ],
+      "keywords": [
+        "Clang",
+        "Optimizations",
+        "Autovectorization",
+        "Performance",
+        "Auto Vectorizing Compilers",
+        "Useful",
+        "Vectorization Capabilities",
+        "Vectorization Capability",
+        "Evaluating Auto Vectorizing",
+        "Objective Withdrawal"
+      ],
+      "matchedAuthors": [
+        "Sergi Siso"
+      ],
+      "matchedSubprojects": [
+        "clang"
+      ],
+      "id": "openalex-w2979513934"
+    },
+    {
       "id": "openalex-w2999423666",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
@@ -47528,6 +48722,60 @@
         "threadsanitizer"
       ],
       "id": "openalex-w2808284296"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "The HPCG benchmark: analysis, shared memory preliminary improvements and evaluation on an Arm-based platform",
+      "authors": [
+        {
+          "name": "Daniel Ruiz",
+          "affiliation": ""
+        },
+        {
+          "name": "Filippo Mantovani",
+          "affiliation": ""
+        },
+        {
+          "name": "Marc Casas",
+          "affiliation": ""
+        },
+        {
+          "name": "Jesús José Labarta Mancho",
+          "affiliation": ""
+        },
+        {
+          "name": "Filippo Spiga",
+          "affiliation": ""
+        }
+      ],
+      "year": "2018",
+      "publication": "QRU Quaderns de Recerca en Urbanisme",
+      "venue": "QRU Quaderns de Recerca en Urbanisme",
+      "type": "research-paper",
+      "abstract": "The High-Performance Conjugate Gradient (HPCG) benchmark complements the LINPACK benchmark in the performance evaluation coverage of large High-Performance Computing (HPC) systems. Due to its lower arithmetic intensity and higher memory pressure, HPCG is recognized as a more representative benchmark for data-center and irregular memory access pattern workloads, therefore its popularity and acceptance is raising within the HPC community. As only a small fraction of the reference version of the HPCG benchmark is parallelized with shared memory techniques (OpenMP), we introduce in this report two OpenMP parallelization methods. Due to the increasing importance of Arm architecture in the HPC scenario, we evaluate our HPCG code at scale on a state-of-the-art HPC system based on Cavium ThunderX2 SoC. We consider our work as a contribution to the Arm ecosystem: along with this technical report, we plan in fact to release our code for boosting the tuning of the HPCG benchmark within the Arm community.",
+      "paperUrl": "http://hdl.handle.net/2117/116642",
+      "openalexId": "https://openalex.org/W2802556464",
+      "doi": "",
+      "tags": [
+        "OpenMP",
+        "Performance"
+      ],
+      "keywords": [
+        "OpenMP",
+        "Performance",
+        "ARM",
+        "Shared Memory Preliminary",
+        "HPC",
+        "Memory Preliminary Improvements"
+      ],
+      "matchedAuthors": [
+        "Filippo Spiga"
+      ],
+      "matchedSubprojects": [
+        "openmp"
+      ],
+      "id": "openalex-w2802556464"
     },
     {
       "id": "openalex-w2914656287",
