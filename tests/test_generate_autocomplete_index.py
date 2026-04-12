@@ -41,7 +41,7 @@ class GenerateAutocompleteIndexTests(unittest.TestCase):
         self.assertEqual(labels, ["Virgile Prevosto", "Franck Védrine"])
 
     def test_iter_person_labels_applies_known_person_aliases(self):
-        self.assertEqual(self.module.iter_person_labels("Alex Zinenko"), ["Oleksandr Zinenko"])
+        self.assertEqual(self.module.iter_person_labels("Oleksandr Zinenko"), ["Alex Zinenko"])
         self.assertEqual(self.module.iter_person_labels("Owen T. Anderson"), ["Owen Anderson"])
 
 

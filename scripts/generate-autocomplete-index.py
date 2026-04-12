@@ -29,7 +29,7 @@ def normalize_label(value: str, max_len: int) -> str:
 
 
 PERSON_NAME_CANONICAL_MAP: dict[str, str] = {
-    "alex zinenko": "Oleksandr Zinenko",
+    "oleksandr zinenko": "Alex Zinenko",
     "owen t anderson": "Owen Anderson",
 }
 

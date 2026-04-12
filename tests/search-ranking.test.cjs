@@ -146,7 +146,7 @@ test('person normalization merges known aliases while preserving alternate spell
   );
 
   assert.equal(people.length, 1);
-  assert.equal(people[0].name, 'Oleksandr Zinenko');
+  assert.equal(people[0].name, 'Alex Zinenko');
   assert.ok(Array.isArray(people[0].variantNames));
   assert.ok(people[0].variantNames.includes('Alex Zinenko'));
   assert.ok(people[0].variantNames.includes('Oleksandr Zinenko'));

@@ -267,15 +267,41 @@
       .trim();
   }
 
-  const PERSON_NAME_CANONICAL_MAP = new Map([
-    ['alex zinenko', 'Oleksandr Zinenko'],
-    ['owen t anderson', 'Owen Anderson'],
-  ]);
+  const PERSON_NAME_ALIAS_GROUPS = [
+    {
+      canonical: 'Alex Zinenko',
+      aliases: ['Oleksandr Zinenko'],
+    },
+    {
+      canonical: 'Owen Anderson',
+      aliases: ['Owen T. Anderson'],
+    },
+  ];
+  const PERSON_NAME_CANONICAL_MAP = new Map();
+  const PERSON_NAME_ALIAS_MAP = new Map();
+  for (const group of PERSON_NAME_ALIAS_GROUPS) {
+    const canonical = normalizePersonDisplayName(group.canonical);
+    if (!canonical) continue;
+    const aliases = (group.aliases || [])
+      .map((value) => normalizePersonDisplayName(value))
+      .filter(Boolean);
+    PERSON_NAME_CANONICAL_MAP.set(toPersonAliasKey(canonical), canonical);
+    PERSON_NAME_ALIAS_MAP.set(canonical, aliases);
+    for (const alias of aliases) {
+      PERSON_NAME_CANONICAL_MAP.set(toPersonAliasKey(alias), canonical);
+    }
+  }
 
   function canonicalizePersonDisplayName(value) {
     const normalized = normalizePersonDisplayName(value);
     if (!normalized) return '';
     return PERSON_NAME_CANONICAL_MAP.get(toPersonAliasKey(normalized)) || normalized;
+  }
+
+  function getKnownPersonAliases(value) {
+    const canonical = canonicalizePersonDisplayName(value);
+    if (!canonical) return [];
+    return [...(PERSON_NAME_ALIAS_MAP.get(canonical) || [])];
   }
 
   function splitCombinedPersonNames(value) {
@@ -611,7 +637,7 @@
 
   function normalizePersonName(value) {
     const parsed = splitSpeakerName(value);
-    return normalizePersonDisplayName(parsed.name || value);
+    return canonicalizePersonDisplayName(parsed.name || value);
   }
 
   function normalizePersonRecord(rawPerson) {
@@ -620,7 +646,7 @@
       : { name: String(rawPerson || '') };
 
     const parsed = splitSpeakerName(person.name);
-    const explicitName = normalizePersonDisplayName(parsed.name || person.name);
+    const explicitName = canonicalizePersonDisplayName(parsed.name || person.name);
     const explicitAffiliation = normalizeAffiliation(person.affiliation);
     const parsedAffiliation = normalizeAffiliation(parsed.affiliation);
 
@@ -1192,6 +1218,12 @@
             seenVariantKeys.add(key);
             return true;
           });
+        for (const alias of getKnownPersonAliases(displayName || variantNames[0] || '')) {
+          const key = normalizePersonVariantKey(alias);
+          if (!key || seenVariantKeys.has(key)) continue;
+          seenVariantKeys.add(key);
+          variantNames.push(alias);
+        }
 
         const talkFilterName = chooseBestDisplayName(bucket.talkNameCounts) || displayName;
         const paperFilterName = chooseBestDisplayName(bucket.paperNameCounts) || displayName;

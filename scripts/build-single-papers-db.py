@@ -213,7 +213,7 @@ PUBLICATION_ALIAS_MAP: dict[str, str] = {
     "proceedingsoftheinstituteforsystemprogrammingofras": "Proceedings of the Institute for System Programming of the RAS",
 }
 PERSON_NAME_CANONICAL_MAP: dict[str, str] = {
-    "alex zinenko": "Oleksandr Zinenko",
+    "oleksandr zinenko": "Alex Zinenko",
     "owen t anderson": "Owen Anderson",
 }
 
