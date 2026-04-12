@@ -17,6 +17,7 @@ function requireHubFunction(name) {
 
 const createPageShell = requireHubFunction('createPageShell');
 const normalizePersonKeyFromHub = requireHubFunction('normalizePersonKey');
+const normalizePersonVariantKeyFromHub = requireHubFunction('normalizePersonVariantKey');
 const arePersonMiddleVariants = requireHubFunction('arePersonMiddleVariants');
 const normalizePersonDisplayNameFromHub = requireHubFunction('normalizePersonDisplayName');
 const getTalkKeyTopicsFromHub = requireHubFunction('getTalkKeyTopics');
@@ -370,6 +371,10 @@ function normalizePersonKey(value) {
   return normalizePersonKeyFromHub(value);
 }
 
+function normalizePersonVariantKey(value) {
+  return normalizePersonVariantKeyFromHub(value);
+}
+
 function samePersonName(a, b) {
   const keyA = normalizePersonKey(a);
   const keyB = normalizePersonKey(b);
@@ -389,7 +394,7 @@ function getPersonVariantNames(person) {
   const seen = new Set();
   for (const candidate of candidates) {
     const label = normalizePersonDisplayName(candidate);
-    const key = normalizePersonKey(label);
+    const key = normalizePersonVariantKey(label);
     if (!label || !key || seen.has(key)) continue;
     seen.add(key);
     out.push(label);

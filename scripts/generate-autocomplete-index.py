@@ -28,6 +28,12 @@ def normalize_label(value: str, max_len: int) -> str:
     return collapse_ws(value)[:max_len]
 
 
+PERSON_NAME_CANONICAL_MAP: dict[str, str] = {
+    "alex zinenko": "Oleksandr Zinenko",
+    "owen t anderson": "Owen Anderson",
+}
+
+
 SPEAKER_AFFILIATION_HINT_RE = re.compile(
     r"\b(university|college|institute|laboratory|lab|labs|research|center|centre|"
     r"foundation|inc\.?|corp\.?|corporation|company|ltd\.?|llc|gmbh|technologies|"
@@ -121,9 +127,18 @@ def split_compound_person_names(value: str) -> list[str]:
     return parts
 
 
+def canonicalize_person_name(value: str) -> str:
+    clean = collapse_ws(value).strip(" ,;")
+    if not clean:
+        return ""
+    alias_key = re.sub(r"[^a-z0-9 ]+", " ", clean.lower())
+    alias_key = collapse_ws(alias_key)
+    return PERSON_NAME_CANONICAL_MAP.get(alias_key, clean)
+
+
 def iter_person_labels(value: str) -> list[str]:
     name, _ = split_name_and_affiliation(value)
-    return split_compound_person_names(name)
+    return [canonicalize_person_name(label) for label in split_compound_person_names(name) if canonicalize_person_name(label)]
 
 
 def parse_json(path: Path):

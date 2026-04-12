@@ -976,7 +976,7 @@ function renderPersonCard(person, tokens) {
     : '<p class="card-speakers person-affiliation person-affiliation--empty">No paper affiliation data</p>';
 
   const normalizeNameKey = (name) => {
-    if (typeof HubUtils.normalizePersonKey === 'function') return HubUtils.normalizePersonKey(name);
+    if (typeof HubUtils.normalizePersonVariantKey === 'function') return HubUtils.normalizePersonVariantKey(name);
     return String(name || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
   };
   const personNameKey = normalizeNameKey(person.name);

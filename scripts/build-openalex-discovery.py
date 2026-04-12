@@ -238,8 +238,23 @@ def slugify(value: str) -> str:
     return lowered.strip("-")
 
 
+PERSON_NAME_CANONICAL_MAP: dict[str, str] = {
+    "alex zinenko": "Oleksandr Zinenko",
+    "owen t anderson": "Owen Anderson",
+}
+
+
+def canonicalize_person_name(value: str) -> str:
+    clean = collapse_ws(value).strip(" ,;")
+    if not clean:
+        return ""
+    alias_key = re.sub(r"[^a-z0-9 ]+", " ", clean.lower())
+    alias_key = collapse_ws(alias_key)
+    return PERSON_NAME_CANONICAL_MAP.get(alias_key, clean)
+
+
 def normalize_name(value: str) -> str:
-    v = collapse_ws(value).lower()
+    v = canonicalize_person_name(value).lower()
     v = re.sub(r"[^a-z0-9 ]+", "", v)
     return collapse_ws(v)
 
@@ -855,7 +870,7 @@ def extract_author_list(work: dict) -> list[dict]:
 
     for authorship in work.get("authorships", []) or []:
         author = authorship.get("author") or {}
-        name = collapse_ws(str(author.get("display_name", "")))
+        name = canonicalize_person_name(str(author.get("display_name", "")))
         if not name:
             continue
         key = normalize_name(name)
@@ -1071,10 +1086,10 @@ def normalize_author_entries(authors_obj) -> list[dict]:
     seen: set[str] = set()
     for author in authors_obj:
         if isinstance(author, dict):
-            name = collapse_ws(str(author.get("name", "")))
+            name = canonicalize_person_name(str(author.get("name", "")))
             affiliation = clean_affiliation(str(author.get("affiliation", "")))
         else:
-            name = collapse_ws(str(author))
+            name = canonicalize_person_name(str(author))
             affiliation = ""
         if not name:
             continue

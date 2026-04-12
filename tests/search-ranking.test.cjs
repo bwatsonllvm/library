@@ -122,6 +122,36 @@ test('buildPeopleIndex separates compound talk speaker names into individual peo
   );
 });
 
+test('person normalization merges known aliases while preserving alternate spellings as variants', () => {
+  assert.equal(utils.normalizePersonKey('Alex Zinenko'), utils.normalizePersonKey('Oleksandr Zinenko'));
+  assert.equal(utils.normalizePersonKey('Owen T. Anderson'), utils.normalizePersonKey('Owen Anderson'));
+
+  const people = utils.buildPeopleIndex(
+    [
+      {
+        title: 'Transform tutorial',
+        category: 'tutorial',
+        speakers: [{ name: 'Alex Zinenko' }],
+        tags: ['mlir'],
+      },
+    ],
+    [
+      {
+        title: 'Structured code generation',
+        authors: [{ name: 'Oleksandr Zinenko', affiliation: 'Google' }],
+        citationCount: 5,
+        tags: ['mlir'],
+      },
+    ]
+  );
+
+  assert.equal(people.length, 1);
+  assert.equal(people[0].name, 'Oleksandr Zinenko');
+  assert.ok(Array.isArray(people[0].variantNames));
+  assert.ok(people[0].variantNames.includes('Alex Zinenko'));
+  assert.ok(people[0].variantNames.includes('Oleksandr Zinenko'));
+});
+
 test('hasStrongPersonQueryMatch detects direct name intent without substring false positives', () => {
   const wenlei = {
     name: 'Wenlei He',

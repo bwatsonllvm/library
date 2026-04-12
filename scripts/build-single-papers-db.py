@@ -212,6 +212,10 @@ PUBLICATION_ALIAS_MAP: dict[str, str] = {
     "proceedingsoftheinstituteforsystemprogrammingoftheras": "Proceedings of the Institute for System Programming of the RAS",
     "proceedingsoftheinstituteforsystemprogrammingofras": "Proceedings of the Institute for System Programming of the RAS",
 }
+PERSON_NAME_CANONICAL_MAP: dict[str, str] = {
+    "alex zinenko": "Oleksandr Zinenko",
+    "owen t anderson": "Owen Anderson",
+}
 
 
 def collapse_ws(value: str) -> str:
@@ -313,8 +317,17 @@ def soft_text_key(value: str) -> str:
     return collapse_ws(text)
 
 
+def canonicalize_person_name(value: str) -> str:
+    text = collapse_ws(strip_markup(value)).strip(" ,;")
+    if not text:
+        return ""
+    alias_key = re.sub(r"[^a-z0-9 ]+", " ", strip_diacritics(text).lower())
+    alias_key = collapse_ws(alias_key)
+    return PERSON_NAME_CANONICAL_MAP.get(alias_key, text)
+
+
 def normalize_name_key(value: str) -> str:
-    text = strip_markup(value)
+    text = canonicalize_person_name(value)
     text = unicodedata.normalize("NFKD", text)
     text = "".join(ch for ch in text if unicodedata.category(ch) != "Mn")
     text = text.lower()
@@ -765,7 +778,7 @@ def extract_openalex_authors(work: dict, keep_existing_nonempty_affiliations: bo
         for author in existing_authors:
             if not isinstance(author, dict):
                 continue
-            name = collapse_ws(str(author.get("name", "")))
+            name = canonicalize_person_name(str(author.get("name", "")))
             aff = normalize_affiliation(str(author.get("affiliation", "")))
             key = normalize_name_key(name)
             if key and aff:
@@ -773,7 +786,7 @@ def extract_openalex_authors(work: dict, keep_existing_nonempty_affiliations: bo
 
     for authorship in work.get("authorships", []) or []:
         author = (authorship or {}).get("author") or {}
-        name = collapse_ws(str(author.get("display_name", "")))
+        name = canonicalize_person_name(str(author.get("display_name", "")))
         if not name:
             continue
         name_key = normalize_name_key(name)

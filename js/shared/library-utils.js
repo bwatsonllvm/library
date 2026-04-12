@@ -260,6 +260,24 @@
     return text.trim();
   }
 
+  function toPersonAliasKey(value) {
+    return stripDiacritics(normalizePersonDisplayName(value).toLowerCase())
+      .replace(/[^a-z0-9 ]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  const PERSON_NAME_CANONICAL_MAP = new Map([
+    ['alex zinenko', 'Oleksandr Zinenko'],
+    ['owen t anderson', 'Owen Anderson'],
+  ]);
+
+  function canonicalizePersonDisplayName(value) {
+    const normalized = normalizePersonDisplayName(value);
+    if (!normalized) return '';
+    return PERSON_NAME_CANONICAL_MAP.get(toPersonAliasKey(normalized)) || normalized;
+  }
+
   function splitCombinedPersonNames(value) {
     const text = normalizePersonDisplayName(value);
     if (!text || !/\s(?:&|and)\s/i.test(text)) return text ? [text] : [];
@@ -621,12 +639,24 @@
     }));
   }
 
-  function tokenizePersonName(value) {
-    return stripDiacritics(String(value || '').toLowerCase())
+  function tokenizePersonVariantName(value) {
+    return stripDiacritics(normalizePersonDisplayName(value).toLowerCase())
       .replace(/[^a-z0-9' -]+/g, ' ')
       .split(/[\s-]+/)
       .map((part) => part.trim())
       .filter(Boolean);
+  }
+
+  function tokenizePersonName(value) {
+    return stripDiacritics(canonicalizePersonDisplayName(value).toLowerCase())
+      .replace(/[^a-z0-9' -]+/g, ' ')
+      .split(/[\s-]+/)
+      .map((part) => part.trim())
+      .filter(Boolean);
+  }
+
+  function normalizePersonVariantKey(value) {
+    return tokenizePersonVariantName(value).join('');
   }
 
   function normalizePersonKey(value) {
@@ -906,7 +936,10 @@
       const middlePenalty = signature.middleInitials.length;
       const initialPenalty = /\b[A-Z]\.?(\s|$)/.test(name) ? 0.8 : 0;
       const lengthPenalty = Math.max(0, name.length - 40) * 0.02;
-      return (count * 100) - (middlePenalty * 2) - initialPenalty - lengthPenalty;
+      const canonical = canonicalizePersonDisplayName(name);
+      const canonicalBonus = canonical === name ? 3 : 0;
+      const aliasPenalty = canonical && canonical !== name ? 3 : 0;
+      return (count * 100) + canonicalBonus - aliasPenalty - (middlePenalty * 2) - initialPenalty - lengthPenalty;
     };
 
     entries.sort((a, b) => {
@@ -1154,7 +1187,7 @@
           .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
           .map(([name]) => name)
           .filter((name) => {
-            const key = normalizePersonKey(name);
+            const key = normalizePersonVariantKey(name);
             if (!key || seenVariantKeys.has(key)) return false;
             seenVariantKeys.add(key);
             return true;
@@ -6288,6 +6321,7 @@
     normalizePublication,
     normalizePublicationKey,
     normalizePersonDisplayName,
+    normalizePersonVariantKey,
     hasStrongPersonQueryMatch,
     normalizePersonName,
     normalizePersonRecord,
