@@ -740,6 +740,78 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "The MQT Compiler Collection: A Blueprint for a Future-Proof Quantum-Classical Compilation Framework",
+      "authors": [
+        {
+          "name": "Lukas Burgholzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Haag",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Stade",
+          "affiliation": ""
+        },
+        {
+          "name": "Damian Rovara",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Hopf",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert Wille",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "As the capabilities of quantum computing hardware continue to rise, algorithms that exploit them are becoming increasingly complex. These developments increase the need for sophisticated compilation frameworks that translate high-level algorithms into executable code. In the past, most solutions were built with a quantum-first approach and handled mostly pure quantum programs without classical elements such as structured control flow. However, developments in quantum algorithms, error correction, and optimization, as well as the integration into high-performance computing (HPC) environments, depend on such classical elements. As quantum-first approaches increasingly struggle to handle these concepts, classical-first approaches are becoming a promising alternative. In this work, we present the MQT Compiler Collection, a blueprint for a future-proof quantum-classical compilation framework built on the Multi-Level Intermediate Representation (MLIR). After years of experience with the quantum-first approach and its shortcomings, we propose a framework that embraces core MLIR concepts to support the full compilation pipeline from high-level algorithms to hardware-specific instructions. The proposed architecture is designed from the ground up to support complex optimizations beyond, e.g., simple gate cancellation. It is publicly available at https://github.com/munich-quantum-toolkit/core.",
+      "paperUrl": "https://doi.org/10.48550/arxiv.2604.08674",
+      "openalexId": "https://openalex.org/W7154170040",
+      "doi": "10.48550/arxiv.2604.08674",
+      "tags": [
+        "MLIR",
+        "IR",
+        "Optimizations",
+        "Performance",
+        "Quantum Computing"
+      ],
+      "keywords": [
+        "MLIR",
+        "Optimizations",
+        "Performance",
+        "Quantum Computing",
+        "Intermediate Representation",
+        "Quantum Compilation",
+        "Future Proof Quantum",
+        "Proof Quantum Classical",
+        "Quantum Classical Compilation",
+        "Mqt Compiler Collection",
+        "Classical Elements",
+        "Hardware"
+      ],
+      "matchedAuthors": [
+        "Damian Rovara",
+        "Lukas Burgholzer",
+        "Patrick Hopf",
+        "Robert Wille",
+        "Yannick Stade"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w7154170040",
+      "citationCount": 0
+    },
+    {
       "id": "openalex-w7118082668",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -24285,7 +24357,7 @@
         "polly"
       ],
       "id": "openalex-w4399304396",
-      "citationCount": 1
+      "citationCount": 2
     },
     {
       "id": "openalex-w4401454438",
@@ -29767,7 +29839,7 @@
         "AI"
       ],
       "openalexId": "https://openalex.org/W4402727014",
-      "citationCount": 31,
+      "citationCount": 32,
       "doi": "10.1109/cvpr52733.2024.02061"
     },
     {
@@ -49535,7 +49607,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W4384154578",
-      "citationCount": 48,
+      "citationCount": 49,
       "doi": "10.1145/3597926.3598130"
     },
     {
@@ -54100,6 +54172,53 @@
         "mlir"
       ],
       "citationCount": 72
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "CERN Openlab Report: CMS Heterogeneous Pixel Track Reconstruction using SYCL",
+      "authors": [
+        {
+          "name": "Nikolaos Perego Andriotis",
+          "affiliation": ""
+        }
+      ],
+      "year": "2023",
+      "publication": "Zenodo (CERN European Organization for Nuclear Research)",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "type": "research-paper",
+      "abstract": "The CMS software framework (CMSSW) has been recently extended to perform part of the physics reconstruction with NVIDIA GPUs. To avoid writing different implementations of the code for each back-end the decision was to use a performance portability library and so Alpaka has been chosen as the solution for Run-3. In the meantime different studies have been performed to test the track reconstruction and clustering algorithms on different back-ends like CUDA and Alpaka. With the idea of exploring new solutions, Intel GPUs have been considered as a new possible back-end and their implementation is currently under development. This is achieved using SYCL, that is a cross-platform abstraction C++ programming model for heterogeneous computing. It allows developers to reuse code across different hardware and also perform custom tuning for a specific accelerator. The SYCL implementation used is the Data Parallel C++ library (DPC++) in the Intel oneAPI Toolkit. In this report, we will present strengths and weaknesses of this heterogeneous programming model as well as the performance of a physics reconstruction algorithm (clustering) on different hardware.",
+      "paperUrl": "https://zenodo.org/record/7528535",
+      "sourceUrl": "https://doi.org/10.5281/zenodo.7528535",
+      "openalexId": "https://openalex.org/W4315751168",
+      "doi": "10.5281/zenodo.7528535",
+      "tags": [
+        "Performance",
+        "GPU",
+        "CUDA"
+      ],
+      "keywords": [
+        "Performance",
+        "GPU",
+        "CUDA",
+        "Heterogeneous Computing",
+        "Pixel Track Reconstruction",
+        "Cms Heterogeneous Pixel",
+        "Physics Reconstruction",
+        "Hardware",
+        "Cern Openlab Report",
+        "Heterogeneous Pixel Track",
+        "Openlab Report Cms",
+        "Report Cms Heterogeneous"
+      ],
+      "matchedAuthors": [
+        "Nikolaos Perego Andriotis"
+      ],
+      "matchedSubprojects": [
+        "libsycl"
+      ],
+      "id": "openalex-w4315751168",
+      "citationCount": 0
     },
     {
       "id": "openalex-w4382562836",
@@ -65521,7 +65640,7 @@
       "matchedSubprojects": [
         "clang"
       ],
-      "citationCount": 19
+      "citationCount": 20
     },
     {
       "source": "openalex-discovery",
@@ -67194,7 +67313,7 @@
       "venue": "ACM Transactions on Software Engineering and Methodology | Vol. 31 (Issue 2)",
       "type": "research-paper",
       "abstract": "Shadow stacks play an important role in protecting return addresses to mitigate ROP attacks. Parallel shadow stacks, which shadow the call stack of each thread at the same constant offset for all threads, are known not to support multi-threading well. On the other hand, compact shadow stacks must maintain a separate shadow stack pointer in thread-local storage (TLS) , which can be implemented in terms of a register or the per-thread Thread-Control-Block (TCB) , suffering from poor compatibility in the former or high performance overhead in the latter. In addition, shadow stacks are vulnerable to information disclosure attacks. In this paper, we propose to mitigate ROP attacks for single- and multi-threaded server programs running on general-purpose computing systems by using a novel stack layout, called a buddy stack (referred to as Bustk ), that is highly performant, compatible with existing code, and provides meaningful security. These goals are met due to three novel design aspects in Bustk . First, Bustk places a parallel shadow stack just below a thread’s call stack (as each other’s buddies allocated together), avoiding the need to maintain a separate shadow stack pointer and making it now well-suited for multi-threading. Second, Bustk uses an efficient stack-based thread-local storage mechanism, denoted STK-TLS , to store thread-specific metadata in two TLS sections just below the shadow stack in dual redundancy (as each other’s buddies), so that both can be accessed and updated in a lightweight manner from the call stack pointer rsp alone. Finally, Bustk re-randomizes continuously (on the order of milliseconds) the return addresses on the shadow stack by using a new microsecond-level runtime re-randomization technique, denoted STK-MSR . This mechanism aims to obsolete leaked information, making it extremely unlikely for the attacker to hijack return addresses, particularly against a server program that sits often tens of milliseconds away from the attacker. Our evaluation using web servers, Nginx and Apache Httpd , shows that Bustk works well in terms of performance, compatibility, and security provided, with its parallel shadow stacks incurring acceptable memory overhead for real-world applications and its STK-TLS mechanism costing only two pages per thread. In particular, Bustk can protect the Nginx and Apache servers with an adaptive 1-ms re-randomization policy (without observable overheads when IO is intensive, with about 17,000 requests per second). In addition, we have also evaluated Bustk using other non-server applications, Firefox , Python , LLVM , JDK and SPEC CPU2006 , to demonstrate further the same degree of performance and compatibility provided, but the protection provided for, say, browsers, is weaker (since network-access delays can no longer be assumed).",
-      "paperUrl": "http://hdl.handle.net/1959.4/unsworks_83696",
+      "paperUrl": "https://unsworks.unsw.edu.au/bitstreams/fe2bc693-c921-4686-bee8-370302930a64/download",
       "sourceUrl": "https://doi.org/10.1145/3494516",
       "tags": [
         "Performance",
@@ -69110,7 +69229,7 @@
         "clang"
       ],
       "id": "openalex-w3206733312",
-      "citationCount": 15
+      "citationCount": 16
     },
     {
       "id": "openalex-w3196948719",
@@ -71394,7 +71513,7 @@
         "Polly"
       ],
       "openalexId": "https://openalex.org/W3205717712",
-      "citationCount": 77,
+      "citationCount": 78,
       "doi": "10.1109/pact52795.2021.00011"
     },
     {
@@ -72916,7 +73035,7 @@
       "paperUrl": "https://doi.org/10.1109/icse-companion52605.2021.00028",
       "tags": [],
       "openalexId": "https://openalex.org/W3163095639",
-      "citationCount": 5,
+      "citationCount": 6,
       "doi": "10.1109/icse-companion52605.2021.00028"
     },
     {
@@ -79819,7 +79938,7 @@
         "MLIR"
       ],
       "openalexId": "https://openalex.org/W3172873298",
-      "citationCount": 6,
+      "citationCount": 7,
       "doi": "10.1145/3447818.3462213"
     },
     {
@@ -82384,7 +82503,7 @@
         "mlir"
       ],
       "id": "openalex-w2995506849",
-      "citationCount": 3
+      "citationCount": 4
     },
     {
       "source": "openalex-discovery",
@@ -83039,7 +83158,7 @@
       "matchedSubprojects": [
         "openmp"
       ],
-      "citationCount": 1405
+      "citationCount": 1407
     },
     {
       "id": "openalex-w3107362213",
@@ -83073,7 +83192,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W3107362213",
-      "citationCount": 119,
+      "citationCount": 120,
       "doi": "10.1145/3428264"
     },
     {
@@ -86541,7 +86660,6 @@
       "doi": "10.1109/vlsi-dat49148.2020.9196477"
     },
     {
-      "id": "openalex-w3017891227",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Experiences in porting mini‐applications to OpenACC and OpenMP on heterogeneous systems",
@@ -86602,6 +86720,7 @@
       "matchedSubprojects": [
         "openmp"
       ],
+      "id": "openalex-w3017891227",
       "citationCount": 15
     },
     {
@@ -97158,7 +97277,7 @@
         "llvm"
       ],
       "id": "openalex-w2952416601",
-      "citationCount": 84
+      "citationCount": 86
     },
     {
       "id": "openalex-w3016059855",
@@ -99915,7 +100034,7 @@
         "Static Analysis"
       ],
       "openalexId": "https://openalex.org/W2895847757",
-      "citationCount": 17,
+      "citationCount": 18,
       "doi": "10.14794/icai.10.2017.23"
     },
     {
@@ -113274,7 +113393,7 @@
       "matchedSubprojects": [
         "clang"
       ],
-      "citationCount": 7
+      "citationCount": 8
     },
     {
       "source": "openalex-discovery",
@@ -115624,7 +115743,7 @@
         "addresssanitizer"
       ],
       "id": "openalex-w2499909786",
-      "citationCount": 37
+      "citationCount": 38
     },
     {
       "id": "openalex-w2551339185",
@@ -146683,7 +146802,7 @@
       "publication": "Proceedings of 5th European conference on Computer systems",
       "openalexId": "https://openalex.org/W2107558499",
       "doi": "10.1145/1755913.1755932",
-      "citationCount": 74
+      "citationCount": 75
     },
     {
       "id": "pubs-2010-quality-of-service-profiling",

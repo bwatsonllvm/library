@@ -592,6 +592,77 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "The MQT Compiler Collection: A Blueprint for a Future-Proof Quantum-Classical Compilation Framework",
+      "authors": [
+        {
+          "name": "Lukas Burgholzer",
+          "affiliation": ""
+        },
+        {
+          "name": "Daniel Haag",
+          "affiliation": ""
+        },
+        {
+          "name": "Yannick Stade",
+          "affiliation": ""
+        },
+        {
+          "name": "Damian Rovara",
+          "affiliation": ""
+        },
+        {
+          "name": "Patrick Hopf",
+          "affiliation": ""
+        },
+        {
+          "name": "Robert Wille",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "As the capabilities of quantum computing hardware continue to rise, algorithms that exploit them are becoming increasingly complex. These developments increase the need for sophisticated compilation frameworks that translate high-level algorithms into executable code. In the past, most solutions were built with a quantum-first approach and handled mostly pure quantum programs without classical elements such as structured control flow. However, developments in quantum algorithms, error correction, and optimization, as well as the integration into high-performance computing (HPC) environments, depend on such classical elements. As quantum-first approaches increasingly struggle to handle these concepts, classical-first approaches are becoming a promising alternative. In this work, we present the MQT Compiler Collection, a blueprint for a future-proof quantum-classical compilation framework built on the Multi-Level Intermediate Representation (MLIR). After years of experience with the quantum-first approach and its shortcomings, we propose a framework that embraces core MLIR concepts to support the full compilation pipeline from high-level algorithms to hardware-specific instructions. The proposed architecture is designed from the ground up to support complex optimizations beyond, e.g., simple gate cancellation. It is publicly available at https://github.com/munich-quantum-toolkit/core.",
+      "paperUrl": "https://doi.org/10.48550/arxiv.2604.08674",
+      "openalexId": "https://openalex.org/W7154170040",
+      "doi": "10.48550/arxiv.2604.08674",
+      "tags": [
+        "MLIR",
+        "IR",
+        "Optimizations",
+        "Performance",
+        "Quantum Computing"
+      ],
+      "keywords": [
+        "MLIR",
+        "Optimizations",
+        "Performance",
+        "Quantum Computing",
+        "Intermediate Representation",
+        "Quantum Compilation",
+        "Future Proof Quantum",
+        "Proof Quantum Classical",
+        "Quantum Classical Compilation",
+        "Mqt Compiler Collection",
+        "Classical Elements",
+        "Hardware"
+      ],
+      "matchedAuthors": [
+        "Damian Rovara",
+        "Lukas Burgholzer",
+        "Patrick Hopf",
+        "Robert Wille",
+        "Yannick Stade"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w7154170040"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "TPDE: A Fast Adaptable Compiler Back-End Framework",
       "authors": [
         {
@@ -29531,6 +29602,52 @@
       "id": "openalex-w4388561315"
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "CERN Openlab Report: CMS Heterogeneous Pixel Track Reconstruction using SYCL",
+      "authors": [
+        {
+          "name": "Nikolaos Perego Andriotis",
+          "affiliation": ""
+        }
+      ],
+      "year": "2023",
+      "publication": "Zenodo (CERN European Organization for Nuclear Research)",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "type": "research-paper",
+      "abstract": "The CMS software framework (CMSSW) has been recently extended to perform part of the physics reconstruction with NVIDIA GPUs. To avoid writing different implementations of the code for each back-end the decision was to use a performance portability library and so Alpaka has been chosen as the solution for Run-3. In the meantime different studies have been performed to test the track reconstruction and clustering algorithms on different back-ends like CUDA and Alpaka. With the idea of exploring new solutions, Intel GPUs have been considered as a new possible back-end and their implementation is currently under development. This is achieved using SYCL, that is a cross-platform abstraction C++ programming model for heterogeneous computing. It allows developers to reuse code across different hardware and also perform custom tuning for a specific accelerator. The SYCL implementation used is the Data Parallel C++ library (DPC++) in the Intel oneAPI Toolkit. In this report, we will present strengths and weaknesses of this heterogeneous programming model as well as the performance of a physics reconstruction algorithm (clustering) on different hardware.",
+      "paperUrl": "https://zenodo.org/record/7528535",
+      "sourceUrl": "https://doi.org/10.5281/zenodo.7528535",
+      "openalexId": "https://openalex.org/W4315751168",
+      "doi": "10.5281/zenodo.7528535",
+      "tags": [
+        "Performance",
+        "GPU",
+        "CUDA"
+      ],
+      "keywords": [
+        "Performance",
+        "GPU",
+        "CUDA",
+        "Heterogeneous Computing",
+        "Pixel Track Reconstruction",
+        "Cms Heterogeneous Pixel",
+        "Physics Reconstruction",
+        "Hardware",
+        "Cern Openlab Report",
+        "Heterogeneous Pixel Track",
+        "Openlab Report Cms",
+        "Report Cms Heterogeneous"
+      ],
+      "matchedAuthors": [
+        "Nikolaos Perego Andriotis"
+      ],
+      "matchedSubprojects": [
+        "libsycl"
+      ],
+      "id": "openalex-w4315751168"
+    },
+    {
       "id": "openalex-w4386365673",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
@@ -44842,7 +44959,6 @@
       "id": "openalex-w3081652063"
     },
     {
-      "id": "openalex-w3017891227",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Experiences in porting mini‐applications to OpenACC and OpenMP on heterogeneous systems",
@@ -44904,7 +45020,8 @@
       ],
       "matchedSubprojects": [
         "openmp"
-      ]
+      ],
+      "id": "openalex-w3017891227"
     },
     {
       "id": "openalex-w3125884626",
