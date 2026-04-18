@@ -775,6 +775,7 @@
       "type": "research-paper",
       "abstract": "As the capabilities of quantum computing hardware continue to rise, algorithms that exploit them are becoming increasingly complex. These developments increase the need for sophisticated compilation frameworks that translate high-level algorithms into executable code. In the past, most solutions were built with a quantum-first approach and handled mostly pure quantum programs without classical elements such as structured control flow. However, developments in quantum algorithms, error correction, and optimization, as well as the integration into high-performance computing (HPC) environments, depend on such classical elements. As quantum-first approaches increasingly struggle to handle these concepts, classical-first approaches are becoming a promising alternative. In this work, we present the MQT Compiler Collection, a blueprint for a future-proof quantum-classical compilation framework built on the Multi-Level Intermediate Representation (MLIR). After years of experience with the quantum-first approach and its shortcomings, we propose a framework that embraces core MLIR concepts to support the full compilation pipeline from high-level algorithms to hardware-specific instructions. The proposed architecture is designed from the ground up to support complex optimizations beyond, e.g., simple gate cancellation. It is publicly available at https://github.com/munich-quantum-toolkit/core.",
       "paperUrl": "https://doi.org/10.48550/arxiv.2604.08674",
+      "sourceUrl": "https://arxiv.org/abs/2604.08674",
       "openalexId": "https://openalex.org/W7154170040",
       "doi": "10.48550/arxiv.2604.08674",
       "tags": [
@@ -3031,6 +3032,91 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Interferences within a certifiable design methodology for high-performance multi-core platforms",
+      "authors": [
+        {
+          "name": "Mohamed Amine Khelassi",
+          "affiliation": ""
+        },
+        {
+          "name": "Felix Suchert",
+          "affiliation": ""
+        },
+        {
+          "name": "Abderaouf Amalou",
+          "affiliation": ""
+        },
+        {
+          "name": "Benjamin Lesage",
+          "affiliation": ""
+        },
+        {
+          "name": "Anika Christmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Robin Hapka",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeronimo Castrillon",
+          "affiliation": ""
+        },
+        {
+          "name": "Mihail Asavoae",
+          "affiliation": ""
+        },
+        {
+          "name": "Mathieu Jan",
+          "affiliation": ""
+        },
+        {
+          "name": "Claire Pagetti",
+          "affiliation": ""
+        },
+        {
+          "name": "Selma Saidi",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "The adoption of high-performance multi-core platforms in avionics and automotive systems introduces significant challenges in ensuring predictable execution, primarily due to shared resource interferences. Many existing approaches study interference from a single angle-for example, through hardware-level analysis or by monitoring software execution. However, no single abstraction level is sufficient on its own. Hardware behavior, program structure, and system configuration all interact, and a complete view is needed to understand where interferences come from and how to reduce them. In this paper, we present a methodology that brings together several tools that operate at different abstraction levels. At the lowest level, PHYLOG provides a formal model of the hardware and identifies possible interference channels using micro-architectural transactions. At the program level, machine learning analysis locates the exact parts of the code that are most sensitive to shared-resource contention. At the compilation level, MLIR-based transformations use this information to reshape memory access patterns and reduce pressure on shared resources. Finally, at the system level, Linux cgroups enforce static execution constraints to prevent highly interfering tasks from running together. The goal of our approach is to reduce memory interference and improve the system's predictability, thereby easing the certification process of multi-core systems in safety-critical domains.",
+      "paperUrl": "https://arxiv.org/pdf/2604.09559",
+      "sourceUrl": "https://arxiv.org/abs/2604.09559",
+      "openalexId": "https://openalex.org/W7154539526",
+      "doi": "",
+      "tags": [
+        "MLIR",
+        "Performance",
+        "ML"
+      ],
+      "keywords": [
+        "MLIR",
+        "Performance",
+        "Multi Core Platforms",
+        "Performance Multi Core",
+        "Interferences",
+        "Hardware",
+        "Reduce",
+        "Shared Resource",
+        "Memory"
+      ],
+      "matchedAuthors": [
+        "Felix Suchert",
+        "Jeronimo Castrillon"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w7154539526",
+      "citationCount": 0
+    },
+    {
       "id": "openalex-w7127883925",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -4939,6 +5025,66 @@
       "openalexId": "https://openalex.org/W7118996119",
       "citationCount": 0,
       "doi": "10.1002/cpe.70525"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "AnyPoC: Universal Proof-of-Concept Test Generation for Scalable LLM-Based Bug Detection",
+      "authors": [
+        {
+          "name": "Zijie Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Chenyuan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Weidong Wang",
+          "affiliation": ""
+        },
+        {
+          "name": "Yihan Yang",
+          "affiliation": ""
+        },
+        {
+          "name": "Ziqi Zhang",
+          "affiliation": ""
+        },
+        {
+          "name": "Lingming Zhang",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "While recent LLM-based agents can identify many candidate bugs in source code, their reports remain static hypotheses that require manual validation, limiting the practicality of automated bug detection. We frame this challenge as a test generation task: given a candidate report, synthesizing an executable proof-of-concept test, or simply a PoC - such as a script, command sequence, or crafted input - to trigger the suspected defect. Automated PoC generation can act as a scalable validation oracle, enabling end-to-end autonomous bug detection by providing concrete execution evidence. However, naive LLM agents are unreliable validators: they are biased toward \"success\" and may reward-hack by producing plausible but non-functional PoCs or even hallucinated traces. To address this, we present AnyPoC, a general multi-agent framework that (1) analyzes and fact-checks a candidate bug report, (2) iteratively synthesizes and executes a PoC while collecting execution traces, and (3) independently re-executes and scrutinizes the PoC to mitigate hallucination and reward hacking. In addition, AnyPoC also continuously extracts and evolves a PoC knowledge base to handle heterogeneous tasks. AnyPoC operates on candidate bug reports regardless of their source and can be paired with different bug reporters. To demonstrate practicality and generality, we apply AnyPoC, with a simple agentic bug reporter, on 12 critical software systems across diverse languages/domains (many with millions of lines of code) including Firefox, Chromium, LLVM, OpenSSL, SQLite, FFmpeg, and Redis. Compared to the state-of-the-art coding agents, e.g., Claude Code and Codex, AnyPoC produces 1.3x more valid PoCs for true-positive bug reports and rejects 9.8x more false-positive bug reports. To date, AnyPoC has discovered 122 new bugs (105 confirmed, 86 already fixed), with 45 generated PoCs adopted as official regression tests.",
+      "paperUrl": "https://doi.org/10.48550/arxiv.2604.11950",
+      "openalexId": "https://openalex.org/W7154526831",
+      "doi": "10.48550/arxiv.2604.11950",
+      "tags": [
+        "LLVM"
+      ],
+      "keywords": [
+        "LLVM",
+        "Anypoc Universal Proof",
+        "Bug Detection",
+        "Positive Bug Reports",
+        "Candidate Bug",
+        "Agents",
+        "Scalable Llm"
+      ],
+      "matchedAuthors": [
+        "Chenyuan Yang",
+        "Lingming Zhang"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7154526831",
+      "citationCount": 0
     },
     {
       "source": "openalex-discovery",
@@ -7741,7 +7887,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W4409967258",
-      "citationCount": 0,
+      "citationCount": 1,
       "doi": "10.1007/978-3-031-90660-2_21"
     },
     {
@@ -8281,13 +8427,14 @@
       "venue": "2025 IEEE 36th International Symposium on Software Reliability Engineering (ISSRE)",
       "type": "research-paper",
       "abstract": "Return-Oriented Programming (ROP) attacks, a persistent security threat for over a decade, pose significant risks to computing devices by exploiting vulnerabilities to hijack control flow and execute arbitrary code. While memory isolation and shadow stacks raise the bar, advanced memory disclosure attacks can still bypass these defenses. As a more resilient software-based defense against such advanced threats, we introduce ShadowGuard, a novel approach that leverages Low-Level Virtual Machine (LLVM) passes, programmatic transformations during compilation, to enhance return address protection and prevent ROP attacks on (embedded) systems that to not feature hardware support for control flow protection.ShadowGuard employs dual XOR-based obfuscation and a HMAC-SHA256 keyed hash algorithm to mask return addresses and ensure their integrity. This combination allows for the detection of tampering attempts. Additionally, a separate, secure shadow stack stores obfuscated addresses and their authentication hashed keys, preventing unauthorized access or modification by attackers.Through comprehensive evaluation using real-life applications and the Coreutils-8.32 benchmark, we demonstrate that our approach effectively detects and mitigates ROP attacks while maintaining practicality. The runtime overhead is approximately 31%, and the binary size increase 2%, on average. This solution offers a scalable and robust defense mechanism for securing return addresses in modern real-world applications.",
-      "paperUrl": "https://doi.org/10.1109/issre66568.2025.00024",
+      "paperUrl": "https://eprints.glos.ac.uk/15360/8/15360%20Ilahi,%20S%20et%20al%20.%20(2025)%20ShadowGuard%20-%20Cryptographic%20Shadow%20Stack%20Protection%20with%20XOR%20Obfuscation%20and%20HMAC%20Integrity.pdf",
       "tags": [
         "Embedded",
         "Security"
       ],
       "openalexId": "https://openalex.org/W4416233701",
       "citationCount": 0,
+      "sourceUrl": "https://doi.org/10.1109/issre66568.2025.00024",
       "doi": "10.1109/issre66568.2025.00024"
     },
     {
@@ -10380,6 +10527,7 @@
       "citationCount": 2
     },
     {
+      "id": "openalex-w4417409444",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Portable Targeted Sampling Framework Using LLVM",
@@ -10429,7 +10577,6 @@
       "matchedSubprojects": [
         "llvm"
       ],
-      "id": "openalex-w4417409444",
       "citationCount": 0
     },
     {
@@ -11596,6 +11743,7 @@
       "doi": "10.5281/zenodo.17934861"
     },
     {
+      "id": "openalex-w4416069017",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Noise Injection for__Performance Bottleneck Analysis",
@@ -11651,7 +11799,6 @@
       "matchedSubprojects": [
         "llvm"
       ],
-      "id": "openalex-w4416069017",
       "citationCount": 0
     },
     {
@@ -12058,6 +12205,7 @@
       ],
       "openalexId": "https://openalex.org/W7117741326",
       "citationCount": 0,
+      "sourceUrl": "https://doi.org/10.1109/rtss66672.2025.00043",
       "doi": "10.1109/rtss66672.2025.00043"
     },
     {
@@ -13672,7 +13820,7 @@
         "Rust"
       ],
       "openalexId": "https://openalex.org/W4414988634",
-      "citationCount": 0,
+      "citationCount": 1,
       "doi": "10.1145/3763167"
     },
     {
@@ -22070,7 +22218,7 @@
         "Quantum Computing"
       ],
       "openalexId": "https://openalex.org/W4415924552",
-      "citationCount": 0,
+      "citationCount": 1,
       "doi": "10.1007/s11227-025-07969-2"
     },
     {
@@ -26974,7 +27122,7 @@
         "Security"
       ],
       "openalexId": "https://openalex.org/W4401753021",
-      "citationCount": 1,
+      "citationCount": 2,
       "doi": "10.1109/eurosp60621.2024.00028"
     },
     {
@@ -27901,7 +28049,7 @@
         "Security"
       ],
       "openalexId": "https://openalex.org/W4406658494",
-      "citationCount": 0,
+      "citationCount": 1,
       "doi": "10.1109/rtss62706.2024.00042"
     },
     {
@@ -30712,7 +30860,7 @@
       "sourceUrl": "https://doi.org/10.3390/mca29050085",
       "tags": [],
       "openalexId": "https://openalex.org/W4402861657",
-      "citationCount": 1,
+      "citationCount": 2,
       "doi": "10.3390/mca29050085"
     },
     {
@@ -30805,7 +30953,7 @@
         "C++"
       ],
       "openalexId": "https://openalex.org/W4394001881",
-      "citationCount": 3,
+      "citationCount": 4,
       "doi": "10.1007/978-3-031-57259-3_18"
     },
     {
@@ -35685,6 +35833,7 @@
       "doi": "10.1145/3671016.3671387"
     },
     {
+      "id": "openalex-w4405270109",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Detecting Compiler Error Recovery Defects via Program Mutation Exploration",
@@ -35716,6 +35865,7 @@
       "type": "research-paper",
       "abstract": "Compiler error recovery diagnostics facilitates software development as it provides the possible causes and suggestions on potential programming errors. However, due to compiler bugs, error recovery diagnostics could be erroneous, spurious, missing, or even crashing for mature production compilers like GCC and Clang. Compiler testing is one of the most widely used ways of ensuring its quality. However, existing compiler diagnostics testing approaches (e.g., DIPROM) only consider the typically syntactically valid test programs as inputs, which are unlikely to trigger compiler error recovery defects. Therefore, in this paper, we propose the first mutation based approach for Compiler Error Recovery diagnostics Testing, called CERTest. Specifically, CERTest first explores the mutation space for a given seed program, and leverages a series of <i>mutation configurations</i> (which are referred as a series of mutators applying for a seed) to iteratively mutate the structures of the seed, so as to generate error-sensitive program variants for triggering compiler error recovery mechanisms. To effectively construct error-sensitive structures, CERTest then applies a novel furthest-first based selection approach to select a set of representative mutation configurations to generate program variants in each iteration. With the generated program variants, CERTest finally leverages differential testing to detect error recovery defects in different compilers. The experiments on GCC and Clang demonstrate that CERTest outperforms five state-of-the-art approaches (i.e., DIPROM, <small>Ccoft</small>, <small>Clang-fuzzer</small>, AFL++, and HiCOND) by up to 13.10%<inline-formula><tex-math notation=\"LaTeX\">$\\sim$</tex-math></inline-formula>221.61% on average in the term of bug-finding capability, and CERTest detects 9 new error recovery defects, 5 of which have been confirmed or fixed by developers.",
       "paperUrl": "https://doi.org/10.1109/tse.2024.3510912",
+      "sourceUrl": "https://openalex.org/W4405270109",
       "openalexId": "https://openalex.org/W4405270109",
       "doi": "10.1109/tse.2024.3510912",
       "tags": [
@@ -35748,7 +35898,6 @@
       "matchedSubprojects": [
         "clang"
       ],
-      "id": "openalex-w4405270109",
       "citationCount": 0
     },
     {
@@ -37762,7 +37911,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W4399850836",
-      "citationCount": 18,
+      "citationCount": 19,
       "doi": "10.1145/3656386"
     },
     {
@@ -39991,7 +40140,7 @@
         "AI"
       ],
       "openalexId": "https://openalex.org/W4394862623",
-      "citationCount": 252,
+      "citationCount": 253,
       "doi": "10.1109/wacvw60836.2024.00106"
     },
     {
@@ -48759,7 +48908,7 @@
         "Security"
       ],
       "openalexId": "https://openalex.org/W4320341428",
-      "citationCount": 4,
+      "citationCount": 5,
       "doi": "10.1016/j.cose.2023.103104"
     },
     {
@@ -49607,7 +49756,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W4384154578",
-      "citationCount": 49,
+      "citationCount": 50,
       "doi": "10.1145/3597926.3598130"
     },
     {
@@ -50627,7 +50776,7 @@
       "publication": "Journal of Systems Architecture",
       "venue": "Journal of Systems Architecture | Vol. 146",
       "type": "research-paper",
-      "abstract": "No abstract available in discovery metadata.",
+      "abstract": "The software development complexity of automotive systems has significantly increased during the last decade due to the latest Advanced Driving Assistance System (ADAS) functionalities. To effectively address this complexity, domain specific modeling languages (DSMLs) like AUTOSAR or an open-source system performance model for AUTOSAR-aligned systems, APP4MC, have become a common trend in the automotive industry. DSMLs allow for easily capturing the functional and non-functional requirements of the system without needing to master low level details of the programming model or the processor architecture. Unfortunately, current DSMLs do not support the parallel programming models, like OpenMP and CUDA, that are used to exploit parallel heterogeneous architectures featuring acceleration devices such as GPUs and FPGAs required. These architectures are however essential to cope with the performance needs of ADAS. This exposes a gap between the DSMLs used by automotive designers to enhance software productivity and leverage verification and validation processes, and the parallel processor architectures used in this domain. This paper presents a complete framework to safely exploit the inherent parallelism exposed by the AMALTHEA system description, supported in APP4MC, by: (1) automatically transforming the high-level design into the OpenMP parallel programming model targeting both host and accelerator parallelism, and (2) using compiler analysis techniques to prove the correctness of the model transformed to OpenMP code. The paper contributes also with (3) an analysis of the parallel execution model allowed by the AMALTHEA DSML and that of OpenMP, and (4) a performance plus productivity evaluation of the proposed framework on real automotive systems executed on an embedded GPU-based processor architecture.",
       "paperUrl": "https://upcommons.upc.edu/bitstreams/a66b496c-4d33-4209-8d92-62e3f6fc43bf/download",
       "sourceUrl": "https://doi.org/10.1016/j.sysarc.2023.103034",
       "openalexId": "https://openalex.org/W4389138244",
@@ -56563,6 +56712,7 @@
       "citationCount": 0
     },
     {
+      "id": "openalex-w4388964727",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "A Survey on Multimodal Large Language Models for Autonomous Driving",
@@ -56697,7 +56847,6 @@
       "matchedSubprojects": [
         "llvm"
       ],
-      "id": "openalex-w4388964727",
       "citationCount": 27
     },
     {
@@ -67186,7 +67335,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W4286383582",
-      "citationCount": 5,
+      "citationCount": 7,
       "doi": "10.1145/3524482.3527646"
     },
     {
@@ -75013,7 +75162,7 @@
         "Programming Languages"
       ],
       "openalexId": "https://openalex.org/W3186074728",
-      "citationCount": 43,
+      "citationCount": 44,
       "doi": "10.1007/978-3-030-81685-8_20"
     },
     {
@@ -75075,7 +75224,7 @@
         "Frontend"
       ],
       "openalexId": "https://openalex.org/W3137473159",
-      "citationCount": 14,
+      "citationCount": 15,
       "doi": "10.1007/978-3-030-72013-1_27"
     },
     {
@@ -79589,7 +79738,7 @@
         "IR"
       ],
       "openalexId": "https://openalex.org/W3164004581",
-      "citationCount": 86,
+      "citationCount": 87,
       "doi": "10.1145/3453483.3454030"
     },
     {
@@ -83158,7 +83307,7 @@
       "matchedSubprojects": [
         "openmp"
       ],
-      "citationCount": 1407
+      "citationCount": 1409
     },
     {
       "id": "openalex-w3107362213",
@@ -83948,6 +84097,7 @@
       "doi": "10.1007/978-3-030-57675-2_13"
     },
     {
+      "id": "openalex-w2975489744",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "NeuroVectorizer: end-to-end vectorization with deep reinforcement learning",
@@ -84017,7 +84167,6 @@
       "matchedSubprojects": [
         "llvm"
       ],
-      "id": "openalex-w2975489744",
       "citationCount": 5
     },
     {
@@ -84998,7 +85147,7 @@
         "Programming Languages"
       ],
       "openalexId": "https://openalex.org/W3106716751",
-      "citationCount": 13,
+      "citationCount": 14,
       "doi": "10.4230/lipics.ecoop.2020.7"
     },
     {
@@ -86660,6 +86809,7 @@
       "doi": "10.1109/vlsi-dat49148.2020.9196477"
     },
     {
+      "id": "openalex-w3017891227",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Experiences in porting mini‐applications to OpenACC and OpenMP on heterogeneous systems",
@@ -86720,7 +86870,6 @@
       "matchedSubprojects": [
         "openmp"
       ],
-      "id": "openalex-w3017891227",
       "citationCount": 15
     },
     {
@@ -87302,7 +87451,7 @@
       "paperUrl": "https://doi.org/10.1007/978-3-030-59152-6_33",
       "tags": [],
       "openalexId": "https://openalex.org/W3092559988",
-      "citationCount": 15,
+      "citationCount": 16,
       "doi": "10.1007/978-3-030-59152-6_33"
     },
     {
@@ -94590,7 +94739,7 @@
       "paperUrl": "https://doi.org/10.1007/978-3-030-30942-8_35",
       "tags": [],
       "openalexId": "https://openalex.org/W2958298858",
-      "citationCount": 14,
+      "citationCount": 15,
       "doi": "10.1007/978-3-030-30942-8_35"
     },
     {
@@ -99788,7 +99937,7 @@
       "sourceUrl": "https://doi.org/10.1007/978-3-030-02508-3_17",
       "tags": [],
       "openalexId": "https://openalex.org/W2806600916",
-      "citationCount": 25,
+      "citationCount": 26,
       "doi": "10.1007/978-3-030-02508-3_17"
     },
     {
@@ -102697,7 +102846,7 @@
         "Static Analysis"
       ],
       "openalexId": "https://openalex.org/W2792181598",
-      "citationCount": 54,
+      "citationCount": 55,
       "doi": "10.14722/ndss.2018.23326"
     },
     {
@@ -110019,7 +110168,7 @@
         "C++"
       ],
       "openalexId": "https://openalex.org/W2758909434",
-      "citationCount": 56,
+      "citationCount": 57,
       "doi": "10.1007/978-3-319-68167-2_14"
     },
     {
@@ -113223,7 +113372,7 @@
         "runtimes"
       ],
       "id": "openalex-w2765106570",
-      "citationCount": 117
+      "citationCount": 118
     },
     {
       "id": "openalex-w2624263823",
@@ -114043,7 +114192,7 @@
         "C++"
       ],
       "openalexId": "https://openalex.org/W2748224507",
-      "citationCount": 21,
+      "citationCount": 22,
       "doi": "10.1007/978-3-319-66706-5_8"
     },
     {
@@ -115258,7 +115407,7 @@
       "paperUrl": "https://doi.org/10.1007/978-3-662-49674-9_4",
       "tags": [],
       "openalexId": "https://openalex.org/W2467005784",
-      "citationCount": 36,
+      "citationCount": 37,
       "doi": "10.1007/978-3-662-49674-9_4"
     },
     {
@@ -115292,7 +115441,7 @@
       "paperUrl": "https://doi.org/10.1007/978-3-319-32582-8_14",
       "tags": [],
       "openalexId": "https://openalex.org/W2468888700",
-      "citationCount": 12,
+      "citationCount": 13,
       "doi": "10.1007/978-3-319-32582-8_14"
     },
     {
@@ -123912,7 +124061,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W2245493112",
-      "citationCount": 1473,
+      "citationCount": 1475,
       "doi": "10.1145/2833157.2833162"
     },
     {
@@ -134590,7 +134739,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W2997653900",
-      "citationCount": 204,
+      "citationCount": 205,
       "doi": "10.1145/2666356.2594334"
     },
     {
@@ -136553,7 +136702,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W2294628582",
-      "citationCount": 273,
+      "citationCount": 274,
       "sourceUrl": "https://doi.org/10.1145/2490301.2451150",
       "doi": "10.1145/2451116.2451150"
     },
@@ -140768,7 +140917,7 @@
       "paperUrl": "https://doi.org/10.1007/978-3-642-35182-2_9",
       "tags": [],
       "openalexId": "https://openalex.org/W19404793",
-      "citationCount": 26,
+      "citationCount": 27,
       "doi": "10.1007/978-3-642-35182-2_9"
     },
     {
@@ -147736,7 +147885,7 @@
       "publication": "2010 IEEE Symposium on Security and Privacy",
       "openalexId": "https://openalex.org/W2133592286",
       "doi": "10.1109/sp.2010.30",
-      "citationCount": 407
+      "citationCount": 408
     },
     {
       "id": "blog-2010-04-14-extensible-metadata-in-llvm-ir",
@@ -152351,7 +152500,7 @@
       "publication": "Proceedings of 28th ACM SIGPLAN Conference on Programming Language Design and Implementation",
       "openalexId": "https://openalex.org/W2048229966",
       "doi": "10.1145/1250734.1250766",
-      "citationCount": 237
+      "citationCount": 238
     },
     {
       "id": "openalex-w2151135945",
@@ -152511,7 +152660,7 @@
       "publication": "Proceedings of 5th workshop on Software engineering properties of languages and aspect technologies",
       "openalexId": "https://openalex.org/W1985265967",
       "doi": "10.1145/1233843.1233844",
-      "citationCount": 8
+      "citationCount": 9
     },
     {
       "id": "pubs-2007-a-profile-driven-statistical-analysis-framework-for-the-design-optimization-of-soft-real-time-applications",
@@ -153492,7 +153641,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W4246166885",
-      "citationCount": 2502,
+      "citationCount": 2508,
       "sourceUrl": "https://llvm.org/pubs/2004-01-30-CGO-LLVM.html",
       "doi": "10.1109/cgo.2004.1281665"
     },
