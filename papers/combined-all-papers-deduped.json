@@ -1419,6 +1419,89 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "QLLVM: A Scalable Quantum-Classical Co-Compilation Framework based on LLVM",
+      "authors": [
+        {
+          "name": "Yu Zhu",
+          "affiliation": ""
+        },
+        {
+          "name": "Qiming Du",
+          "affiliation": ""
+        },
+        {
+          "name": "Yuqiong Jin",
+          "affiliation": ""
+        },
+        {
+          "name": "Woji He",
+          "affiliation": ""
+        },
+        {
+          "name": "Hang Lian",
+          "affiliation": ""
+        },
+        {
+          "name": "Xin Zhou",
+          "affiliation": ""
+        },
+        {
+          "name": "Jinchen Xu",
+          "affiliation": ""
+        },
+        {
+          "name": "Zheng Shan",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "To address the urgent need in the NISQ era for high-performance, scalable quantum compilers and to advance the integration of classical and quantum computing, we present QLLVM, an advanced Quantum-Classical co-compilation framework built on LLVM. To our knowledge, QLLVM delivers an end-to-end, LLVM-based compilation workflow that unifies the build of classical high-performance programs, including CUDA, MPI, and C++, together with quantum programs into a single executable. For quantum program compilation, QLLVM adopts a three-stage design: high-level optimizations are implemented in the MLIR Quantum dialect and then lowered to QIR, an LLVM IR-based representation, for low-level optimization and hardware mapping. Its extensible architecture and seamless interoperability with classical high-performance computing provide an efficient, flexible, industrial-grade compilation infrastructure for future quantum software development. Experimental results show that, on the MQTBench benchmark suite, QLLVM reduces circuit depth and gate counts compared with state-of-the-art compilers and demonstrates clear advantages in compiling hybrid classical-quantum programs.",
+      "paperUrl": "https://arxiv.org/pdf/2604.15094",
+      "sourceUrl": "https://arxiv.org/abs/2604.15094",
+      "openalexId": "https://openalex.org/W7154864968",
+      "doi": "",
+      "tags": [
+        "LLVM",
+        "MLIR",
+        "IR",
+        "Optimizations",
+        "Performance",
+        "Infrastructure",
+        "CUDA",
+        "Quantum Computing"
+      ],
+      "keywords": [
+        "LLVM",
+        "MLIR",
+        "Optimizations",
+        "Performance",
+        "Infrastructure",
+        "CUDA",
+        "Quantum Computing",
+        "Intermediate Representation",
+        "Quantum Compilation",
+        "Scalable Quantum",
+        "Scalable Quantum Classical",
+        "Quantum Programs"
+      ],
+      "matchedAuthors": [
+        "Jinchen Xu",
+        "Yu Zhu",
+        "Zheng Shan"
+      ],
+      "matchedSubprojects": [
+        "llvm",
+        "mlir"
+      ],
+      "id": "openalex-w7154864968",
+      "citationCount": 0
+    },
+    {
       "id": "openalex-w7128408966",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -3909,6 +3992,87 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating Cross-Architecture Performance Modeling of Distributed ML Workloads Using StableHLO",
+      "authors": [
+        {
+          "name": "Jonas Svedas",
+          "affiliation": ""
+        },
+        {
+          "name": "Nathan Laubeuf",
+          "affiliation": ""
+        },
+        {
+          "name": "Ryan Harvey",
+          "affiliation": ""
+        },
+        {
+          "name": "Arjun Singh",
+          "affiliation": ""
+        },
+        {
+          "name": "Changhai Man",
+          "affiliation": ""
+        },
+        {
+          "name": "Abubakr Nada",
+          "affiliation": ""
+        },
+        {
+          "name": "Tushar Krishna",
+          "affiliation": ""
+        },
+        {
+          "name": "James Myers",
+          "affiliation": ""
+        },
+        {
+          "name": "Debjyoti Bhattacharjee",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Predicting the performance of large-scale distributed machine learning (ML) workloads across multiple accelerator architectures remains a central challenge in ML system design. Existing GPU and TPU focused simulators are typically architecture-specific, while distributed training simulators rely on workload-specific analytical models or costly post-execution traces, limiting portability and cross-platform comparison. This work evaluates whether MLIR's StableHLO dialect can serve as a unified workload representation for cross-architecture and cross-fidelity performance modeling of distributed ML workloads. The study establishes a StableHLO-based simulation methodology that maps a single workload representation onto multiple performance models, spanning analytical, profiling-based, and simulator-driven predictors. Using this methodology, workloads are evaluated across GPUs and TPUs without requiring access to scaled-out physical systems, enabling systematic comparison across modeling fidelities. An empirical evaluation covering distributed GEMM kernels, ResNet, and large language model training workloads demonstrates that StableHLO preserves relative performance trends across architectures and fidelities, while exposing accuracy trade-offs and simulator limitations. Across evaluated scenarios, prediction errors remain within practical bounds for early-stage design exploration, and the methodology reveals fidelity-dependent limitations in existing GPU simulators. These results indicate that StableHLO provides a viable foundation for unified, distributed ML performance modeling across accelerator architectures and simulators, supporting reusable evaluation workflows and cross-validation throughout the ML system design process.",
+      "paperUrl": "https://arxiv.org/pdf/2604.12090",
+      "sourceUrl": "https://arxiv.org/abs/2604.12090",
+      "openalexId": "https://openalex.org/W7154655888",
+      "doi": "",
+      "tags": [
+        "MLIR",
+        "Performance",
+        "GPU",
+        "ML"
+      ],
+      "keywords": [
+        "MLIR",
+        "Performance",
+        "GPU",
+        "Distributed ML",
+        "Architecture Performance Modeling",
+        "Stablehlo",
+        "Distributed ML Workloads",
+        "Simulators",
+        "Cross Architecture Performance",
+        "Methodology",
+        "Accelerator Architectures",
+        "Workload Representation",
+        "Evaluating Cross Architecture"
+      ],
+      "matchedAuthors": [
+        "Tushar Krishna"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w7154655888",
+      "citationCount": 0
+    },
+    {
       "id": "openalex-w7119468303",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -4439,6 +4603,63 @@
         "llvm"
       ],
       "id": "openalex-w7153120136",
+      "citationCount": 0
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Debugging Performance Issues in WebAssembly Runtimes via Mutation-based Inference",
+      "authors": [
+        {
+          "name": "Ruiying Zeng",
+          "affiliation": ""
+        },
+        {
+          "name": "Shuyao Jiang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wenxuan Zhao",
+          "affiliation": ""
+        },
+        {
+          "name": "Yangfan Zhou",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Performance debugging in WebAssembly (Wasm) runtimes is essential for ensuring the robustness of Wasm, especially since performance issues have frequently occurred in Wasm runtimes, which can significantly degrade the capabilities of hosted services. Many performance issues in Wasm runtimes result from suboptimal compilation of input Wasm programs, for which existing performance debugging methods primarily designed for application-level inefficiencies are not well-suited. In this paper, we present WarpL, a novel mutation-based approach that aims to identify the exact suboptimal instruction sequences responsible for the performance issues in Wasm runtimes, thereby narrowing down the root causes. Specifically, WarpL obtains a functionally similar mutant in which the performance issue does not manifest, and isolates the exact suboptimal instructions by comparing the machine code of the original and mutated programs. We implement WarpL as an open-source tool and evaluate it on 12 real-world performance issues across three widely used Wasm runtimes. WarpL identified the exact causes in 10 out of 12 issues. Notably, we have used WarpL to successfully diagnose six previously unknown performance issues in Wasmtime.",
+      "paperUrl": "https://arxiv.org/pdf/2604.13693",
+      "sourceUrl": "https://arxiv.org/abs/2604.13693",
+      "openalexId": "https://openalex.org/W7154789955",
+      "doi": "",
+      "tags": [
+        "runtimes",
+        "Performance",
+        "WASM"
+      ],
+      "keywords": [
+        "runtimes",
+        "Performance",
+        "WASM",
+        "Performance Debugging",
+        "WASM Runtimes",
+        "Exact Suboptimal",
+        "Debugging Performance",
+        "Webassembly Runtimes"
+      ],
+      "matchedAuthors": [
+        "Ruiying Zeng",
+        "Shuyao Jiang",
+        "Yangfan Zhou"
+      ],
+      "matchedSubprojects": [
+        "runtimes"
+      ],
+      "id": "openalex-w7154789955",
       "citationCount": 0
     },
     {
@@ -26131,7 +26352,7 @@
       "matchedSubprojects": [
         "clang"
       ],
-      "citationCount": 1
+      "citationCount": 2
     },
     {
       "source": "openalex-discovery",
@@ -56955,7 +57176,7 @@
       "matchedSubprojects": [
         "llvm"
       ],
-      "citationCount": 4
+      "citationCount": 5
     },
     {
       "id": "openalex-w4386952440",
@@ -59949,7 +60170,7 @@
       "matchedSubprojects": [
         "clang"
       ],
-      "citationCount": 3
+      "citationCount": 4
     },
     {
       "source": "openalex-discovery",
@@ -62198,6 +62419,100 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "MSWasm: Soundly Enforcing Memory-Safe Execution of Unsafe Code",
+      "authors": [
+        {
+          "name": "Alexandra E. Michael",
+          "affiliation": ""
+        },
+        {
+          "name": "Anitha Gollamudi",
+          "affiliation": ""
+        },
+        {
+          "name": "Jay Bosamiya",
+          "affiliation": ""
+        },
+        {
+          "name": "Craig Disselkoen",
+          "affiliation": ""
+        },
+        {
+          "name": "Aidan Denlinger",
+          "affiliation": ""
+        },
+        {
+          "name": "Conrad Watt",
+          "affiliation": ""
+        },
+        {
+          "name": "Bryan Parno",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Patrignani",
+          "affiliation": ""
+        },
+        {
+          "name": "Marco Vassena",
+          "affiliation": ""
+        },
+        {
+          "name": "Deian Stefan",
+          "affiliation": ""
+        }
+      ],
+      "year": "2022",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Most programs compiled to WebAssembly (Wasm) today are written in unsafe languages like C and C++. Unfortunately, memory-unsafe C code remains unsafe when compiled to Wasm -- and attackers can exploit buffer overflows and use-after-frees in Wasm almost as easily as they can on native platforms. Memory-Safe WebAssembly (MSWasm) proposes to extend Wasm with language-level memory-safety abstractions to precisely address this problem. In this paper, we build on the original MSWasm position paper to realize this vision. We give a precise and formal semantics of MSWasm, and prove that well-typed MSWasm programs are, by construction, robustly memory safe. To this end, we develop a novel, language-independent memory-safety property based on colored memory locations and pointers. This property also lets us reason about the security guarantees of a formal C-to-MSWasm compiler -- and prove that it always produces memory-safe programs (and preserves the semantics of safe programs). We use these formal results to then guide several implementations: Two compilers of MSWasm to native code, and a C-to-MSWasm compiler (that extends Clang). Our MSWasm compilers support different enforcement mechanisms, allowing developers to make security-performance trade-offs according to their needs. Our evaluation shows that the overhead of enforcing memory safety in software ranges from 22% (enforcing spatial safety alone) to 198% (enforcing full memory safety) on the PolyBenchC suite. More importantly, MSWasm's design makes it easy to swap between enforcement mechanisms; as fast (especially hardware-based) enforcement techniques become available, MSWasm will be able to take advantage of these advances almost for free.",
+      "paperUrl": "https://arxiv.org/pdf/2208.13583",
+      "sourceUrl": "https://doi.org/10.48550/arxiv.2208.13583",
+      "openalexId": "https://openalex.org/W4293820470",
+      "doi": "10.48550/arxiv.2208.13583",
+      "tags": [
+        "Clang",
+        "Security",
+        "Performance",
+        "WASM"
+      ],
+      "keywords": [
+        "Clang",
+        "Security",
+        "Performance",
+        "WASM",
+        "Memory Safety",
+        "Mswasm Compiler",
+        "Unsafe",
+        "Soundly Enforcing Memory",
+        "Enforcement Mechanisms",
+        "Formal",
+        "Semantics",
+        "Memory Safe Execution",
+        "Mswasm Soundly Enforcing"
+      ],
+      "matchedAuthors": [
+        "Aidan Denlinger",
+        "Alexandra E. Michael",
+        "Anitha Gollamudi",
+        "Bryan Parno",
+        "Conrad Watt",
+        "Craig Disselkoen",
+        "Deian Stefan",
+        "Jay Bosamiya",
+        "Marco Patrignani",
+        "Marco Vassena"
+      ],
+      "matchedSubprojects": [
+        "clang"
+      ],
+      "id": "openalex-w4293820470",
+      "citationCount": 0
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "MOM: Matrix Operations in MLIR",
       "authors": [
         {
@@ -63319,7 +63634,7 @@
         "Security"
       ],
       "openalexId": "https://openalex.org/W4205586362",
-      "citationCount": 10,
+      "citationCount": 11,
       "doi": "10.1145/3498688"
     },
     {
@@ -73105,7 +73420,7 @@
         "mlir"
       ],
       "id": "openalex-w3122286897",
-      "citationCount": 474
+      "citationCount": 477
     },
     {
       "id": "openalex-w4287109491",
@@ -82249,7 +82564,7 @@
         "Optimizations"
       ],
       "openalexId": "https://openalex.org/W3107397589",
-      "citationCount": 5,
+      "citationCount": 6,
       "doi": "10.1002/cpe.6089"
     },
     {
@@ -83341,7 +83656,7 @@
         "Testing"
       ],
       "openalexId": "https://openalex.org/W3107362213",
-      "citationCount": 120,
+      "citationCount": 121,
       "doi": "10.1145/3428264"
     },
     {
@@ -86809,7 +87124,6 @@
       "doi": "10.1109/vlsi-dat49148.2020.9196477"
     },
     {
-      "id": "openalex-w3017891227",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Experiences in porting mini‐applications to OpenACC and OpenMP on heterogeneous systems",
@@ -86870,6 +87184,7 @@
       "matchedSubprojects": [
         "openmp"
       ],
+      "id": "openalex-w3017891227",
       "citationCount": 15
     },
     {
@@ -111676,6 +111991,67 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Experiences with Building Domain-Specific Compilation Plugins in Graal",
+      "authors": [
+        {
+          "name": "Colin Barrett",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Christos Kotselidis",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Foivos S. Zakkak",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Nikos Foutris",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Mikel Luján",
+          "affiliation": "University of Manchester"
+        }
+      ],
+      "year": "2017",
+      "publication": "Proceedings of the 14th International Conference on Managed Languages and Runtimes",
+      "venue": "Proceedings of the 14th International Conference on Managed Languages and Runtimes",
+      "type": "research-paper",
+      "abstract": "In this paper, we describe our experiences in co-designing a domain-specific compilation stack. Our motivation stems from the missed optimization opportunities we observed while implementing a computer vision library in Java. To tackle the performance shortcomings, we developed Indigo, a computer vision API co-designed with a compilation plugin for optimizing computer vision applications.",
+      "paperUrl": "https://pure.manchester.ac.uk/ws/files/59896524/CBarrett_paper.pdf",
+      "sourceUrl": "https://doi.org/10.1145/3132190.3132207",
+      "openalexId": "https://openalex.org/W2755100767",
+      "doi": "10.1145/3132190.3132207",
+      "tags": [
+        "runtimes",
+        "Optimizations",
+        "Performance"
+      ],
+      "keywords": [
+        "runtimes",
+        "Optimizations",
+        "Performance",
+        "Computer Vision",
+        "Domain Specific Compilation",
+        "Building Domain Specific",
+        "Specific Compilation Plugins"
+      ],
+      "matchedAuthors": [
+        "Christos Kotselidis",
+        "Colin Barrett",
+        "Mikel Luján",
+        "Nikos Foutris"
+      ],
+      "matchedSubprojects": [
+        "runtimes"
+      ],
+      "id": "openalex-w2755100767",
+      "citationCount": 1
+    },
+    {
       "id": "openalex-w2622799487",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -111943,7 +112319,7 @@
       "venue": "2017 IEEE/ACM International Symposium on Code Generation and Optimization (CGO) | Vol. 127",
       "type": "research-paper",
       "abstract": "Discovering and exploiting scalar reductions in programs has been studied for many years. The discovery of more complex reduction operations has, however, received less attention. Such reductions contain compile-time unknown parameters, indirect memory accesses and dynamic control flow, which are challenging for existing approaches. In this paper we develop a new compiler based approach that automatically detects a wide class of reductions. This is based on a constraint formulation of the reduction idiom and has been implemented as an LLVM pass. We use a custom constraint solver to identify program subsets that adhere to the constraint specification. Once discovered, we automatically generate parallel code to exploit the reduction. This approach is robust and was evaluated on C versions of well known benchmark suites: NAS, Parboil and Rodinia. We detected 84 scalar reductions and 6 histograms, outperforming existing approaches. We show that the exploitation of histograms gives significant performance improvement.",
-      "paperUrl": "https://www.research.ed.ac.uk/en/publications/7469b7fd-6ee6-4962-866c-bade978ee51f",
+      "paperUrl": "https://www.research.ed.ac.uk/files/31544673/reduc_1.pdf",
       "sourceUrl": "https://doi.org/10.1109/cgo.2017.7863746",
       "tags": [
         "Performance"
@@ -124007,7 +124383,7 @@
         "Security"
       ],
       "openalexId": "https://openalex.org/W4247464060",
-      "citationCount": 216,
+      "citationCount": 217,
       "doi": "10.1109/spro.2015.10"
     },
     {
@@ -124061,7 +124437,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W2245493112",
-      "citationCount": 1475,
+      "citationCount": 1476,
       "doi": "10.1145/2833157.2833162"
     },
     {
