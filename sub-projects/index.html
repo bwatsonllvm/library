@@ -1,4 +1,57 @@
-<header class="site-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <base href="../">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
+          ? storedTheme
+          : 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
+        var storedTextSize = localStorage.getItem('llvm-hub-text-size');
+        var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.setAttribute('data-theme-preference', themePreference);
+        if (textSize === 'default') document.documentElement.removeAttribute('data-text-size');
+        else document.documentElement.setAttribute('data-text-size', textSize);
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
+      } catch (_) {
+        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var fallbackTheme = fallbackDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', fallbackTheme);
+        document.documentElement.setAttribute('data-theme-preference', 'system');
+        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
+      }
+    })();
+  </script>
+  <style>
+    html { background: #f5f5f5; }
+    html[data-theme="dark"] { background: #000000; }
+    body { background: transparent; }
+  </style>
+  <title>Sub-Projects — LLVM Research Library</title>
+  <meta name="description" content="Browse LLVM subproject-specific collections.">
+  <link rel="icon" type="image/png" href="images/llvm-favicon.png">
+  <link rel="shortcut icon" href="images/llvm-favicon.png">
+  <link rel="apple-touch-icon" href="images/llvm-favicon.png">
+  <link rel="stylesheet" href="css/style.css?v=41c08e27799c">
+</head>
+<body>
+
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </nav>
+
+  <header class="site-header">
     <a href="index.html" class="site-logo" aria-label="LLVM Research Library home">
       <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
       <span>LLVM Research Library</span>
@@ -116,3 +169,31 @@
       </div>
     </div>
   </header>
+
+  <section class="search-hero" aria-label="Subprojects">
+    <div class="search-hero-shell">
+      <div class="search-hero-title-row">
+        <h1>Sub-Projects</h1>
+        <p class="search-hero-title-aside">Focused collections that stay outside the main event archive</p>
+      </div>
+      <p class="subtitle">Explore subproject-specific materials that deserve their own space in the library.</p>
+    </div>
+  </section>
+
+  <main class="subproject-shell" id="main-content" tabindex="-1">
+    <section class="subproject-intro" aria-label="Subproject overview">
+      <p class="subproject-copy">Subproject pages preserve the same library goals around browsing and discoverability, but they do not merge their content into the main LLVM Developers' Meeting event corpus.</p>
+      <div class="subproject-card-grid">
+        <a href="sub-projects/mlir/" class="subproject-card">
+          <h2 class="subproject-card-title">MLIR</h2>
+          <p class="subproject-card-copy">Dedicated talks and publication views for the MLIR project, including curated upstream materials and archive papers tagged to MLIR.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/library-utils.js?v=5391bfd85146"></script>
+  <script src="js/shared/global-search.js?v=915049fdd754"></script>
+  <script src="js/subproject-home.js?v=1"></script>
+</body>
+</html>

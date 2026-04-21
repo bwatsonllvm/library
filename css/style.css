@@ -3777,6 +3777,121 @@ mark {
   gap: var(--space-2);
 }
 
+.subproject-shell {
+  width: min(1120px, calc(100vw - 2rem));
+  margin: 0 auto 3rem;
+}
+
+.subproject-intro {
+  margin: 0 auto var(--space-8);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.subproject-copy {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+.subproject-copy:last-child {
+  margin-bottom: 0;
+}
+
+.subproject-section {
+  margin-bottom: var(--space-8);
+}
+
+.subproject-group {
+  margin-top: var(--space-5);
+}
+
+.subproject-group:first-of-type {
+  margin-top: 0;
+}
+
+.subproject-group-title {
+  margin: 0 0 var(--space-3);
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+}
+
+.subproject-entry-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.subproject-entry {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.subproject-entry-kicker {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.subproject-entry-title {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.35;
+}
+
+.subproject-entry-summary {
+  margin: var(--space-3) 0 0;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+.subproject-entry-actions {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.subproject-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.subproject-card {
+  display: block;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.subproject-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  transform: translateY(-1px);
+}
+
+.subproject-card-title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+}
+
+.subproject-card-copy {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
 /* Related Talks */
 .related-section {
   border-top: 1px solid var(--color-border);

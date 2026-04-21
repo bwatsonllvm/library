@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
-  <base href="../">
+  <base href="../../../">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,29 +12,17 @@
     (function () {
       try {
         var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
-        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
-          ? storedTheme
-          : 'system';
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system') ? storedTheme : 'system';
         var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
         var storedTextSize = localStorage.getItem('llvm-hub-text-size');
         var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
-
         document.documentElement.setAttribute('data-theme', resolvedTheme);
         document.documentElement.setAttribute('data-theme-preference', themePreference);
-        if (textSize === 'default') {
-          document.documentElement.removeAttribute('data-text-size');
-        } else {
-          document.documentElement.setAttribute('data-text-size', textSize);
-        }
+        if (textSize === 'default') document.documentElement.removeAttribute('data-text-size');
+        else document.documentElement.setAttribute('data-text-size', textSize);
         document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
-      } catch (_) {
-        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var fallbackTheme = fallbackDark ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', fallbackTheme);
-        document.documentElement.setAttribute('data-theme-preference', 'system');
-        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
-      }
+      } catch (_) {}
     })();
   </script>
   <style>
@@ -42,14 +30,14 @@
     html[data-theme="dark"] { background: #000000; }
     body { background: transparent; }
   </style>
-  <title>Blogs - LLVM Research Library</title>
-  <meta name="description" content="Browse LLVM Project Blog posts in a searchable index.">
+  <title>MLIR Publications — LLVM Research Library</title>
+  <meta name="description" content="Curated MLIR publications and MLIR-tagged archive papers within the LLVM Research Library.">
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=c9d1ddeab03e">
+  <link rel="stylesheet" href="css/style.css?v=41c08e27799c">
 </head>
-<body data-content-scope="blog">
+<body data-content-scope="paper" data-required-tags="MLIR" data-paper-detail-from="mlir-pubs">
 
   <nav class="skip-links" aria-label="Skip links">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -174,36 +162,35 @@
     </div>
   </header>
 
-  <section class="search-hero" aria-label="Search blogs">
+  <section class="search-hero" aria-label="MLIR publications">
     <div class="search-hero-shell">
       <div class="search-hero-title-row">
-        <h1>The LLVM Project Blog</h1>
-        <p class="search-hero-title-aside">LLVM Project News and Details from the Trenches</p>
+        <h1>MLIR Publications</h1>
+        <p class="search-hero-title-aside">Curated upstream publications plus MLIR-tagged archive papers</p>
       </div>
-      <p class="subtitle" id="papers-subtitle">Loading blogs...</p>
+      <p class="subtitle" id="papers-subtitle">Loading MLIR publications…</p>
       <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
         <input type="hidden" name="mode" value="search">
-        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input
-          type="search"
-          class="search-input global-search-input"
-          id="search-input"
-          name="q"
-          placeholder="Search the full library..."
-          autocomplete="off"
-          spellcheck="false"
-          aria-label="Search All across talks, papers, blogs, people, and key topics"
-        >
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" class="search-input global-search-input" id="search-input" name="q" placeholder="Search MLIR papers in the archive…" autocomplete="off" spellcheck="false" aria-label="Search MLIR papers in the archive">
         <button type="button" class="search-clear" id="search-clear" aria-label="Clear search" title="Clear">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="search-dropdown hidden" id="search-dropdown" role="listbox" aria-label="Search suggestions"></div>
       </form>
       <div class="active-filters hidden" id="active-filters" role="status" aria-label="Active filters" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="subproject-shell" aria-label="Curated MLIR publications">
+    <div class="subproject-intro">
+      <p class="subproject-copy" id="mlir-curated-pubs-summary">Loading curated publications from mlir.llvm.org…</p>
+    </div>
+    <div id="mlir-curated-pubs-root">
+      <div class="loading-state">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading curated MLIR publications…</p>
+      </div>
     </div>
   </section>
 
@@ -212,33 +199,23 @@
       <div class="filter-sidebar-head">
         <h2>Filters</h2>
         <button class="mobile-filter-close" id="mobile-filter-close" aria-label="Close filters">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <button class="filter-collapse-btn" id="filter-collapse-btn" aria-label="Collapse filters" aria-pressed="false" title="Collapse filters">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-        <button class="btn-clear-filters hidden" id="clear-filters" aria-label="Clear all filters">
-          Clear filters
-        </button>
+        <button class="btn-clear-filters hidden" id="clear-filters" aria-label="Clear all filters">Clear filters</button>
       </div>
 
       <div class="filter-sidebar-body" id="filter-sidebar-body">
         <section class="filter-accordion" data-accordion="topics">
           <button class="filter-accordion-toggle" id="toggle-topics" aria-expanded="true" aria-controls="panel-topics">
             <span>Key Topics</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="filter-accordion-panel" id="panel-topics">
             <div class="filter-tags-row" id="filter-tags-row" aria-label="Filter by key topic">
-              <div class="filter-tags-header">
-                <span class="filter-group-hint">Select one or more subject tags</span>
-              </div>
+              <div class="filter-tags-header"><span class="filter-group-hint">Select one or more subject tags</span></div>
               <div class="filter-group filter-group--wrap" id="filter-tags" aria-label="Key Topic filters"></div>
             </div>
           </div>
@@ -247,15 +224,47 @@
         <section class="filter-accordion" data-accordion="year">
           <button class="filter-accordion-toggle" id="toggle-year" aria-expanded="true" aria-controls="panel-year">
             <span>Year</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <div class="filter-accordion-panel" id="panel-year">
             <div class="filter-scroll filter-scroll--secondary">
-              <div class="filter-cluster" aria-label="Filter by year">
-                <div class="filter-group" id="filter-years" aria-label="Year filters"></div>
-              </div>
+              <div class="filter-cluster" aria-label="Filter by year"><div class="filter-group" id="filter-years" aria-label="Year filters"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="citations">
+          <button class="filter-accordion-toggle" id="toggle-citations" aria-expanded="true" aria-controls="panel-citations">
+            <span>Citations</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-accordion-panel" id="panel-citations">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by citation bucket"><div class="filter-group" id="filter-citations" aria-label="Citation filters"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="publications">
+          <button class="filter-accordion-toggle" id="toggle-publications" aria-expanded="true" aria-controls="panel-publications">
+            <span>Publications</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-accordion-panel" id="panel-publications">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by publication"><div class="filter-group filter-group--wrap" id="filter-publications" aria-label="Publication filters"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="affiliations">
+          <button class="filter-accordion-toggle" id="toggle-affiliations" aria-expanded="true" aria-controls="panel-affiliations">
+            <span>Affiliations</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="filter-accordion-panel" id="panel-affiliations">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by affiliation"><div class="filter-group filter-group--wrap" id="filter-affiliations" aria-label="Affiliation filters"></div></div>
             </div>
           </div>
         </section>
@@ -272,15 +281,13 @@
     <main class="feed-column" id="main-content" tabindex="-1">
       <div class="results-bar">
         <div class="results-meta">
-          <button class="mobile-filter-toggle" id="mobile-filter-open" aria-label="Open filters" aria-controls="filter-sidebar-body" aria-expanded="false">
-            Filters
-          </button>
+          <button class="mobile-filter-toggle" id="mobile-filter-open" aria-label="Open filters" aria-controls="filter-sidebar-body" aria-expanded="false">Filters</button>
           <span class="results-count" id="results-count" role="status" aria-live="polite" aria-atomic="true"></span>
           <span class="results-context" id="results-context" aria-live="polite" aria-atomic="true"></span>
         </div>
         <div class="results-controls">
           <label for="papers-sort-select" class="results-sort-label">Sort by</label>
-          <select id="papers-sort-select" class="results-sort-select" aria-label="Sort blogs">
+          <select id="papers-sort-select" class="results-sort-select" aria-label="Sort papers">
             <option value="relevance">Relevance</option>
             <option value="year">Year</option>
             <option value="citations">Citation count</option>
@@ -288,35 +295,30 @@
           </select>
           <div class="view-toggle" role="group" aria-label="View layout">
             <button class="view-btn active" id="view-grid" title="Grid view" aria-label="Grid view" aria-pressed="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
-                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
             </button>
             <button class="view-btn" id="view-list" title="List view" aria-label="List view" aria-pressed="false">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/>
-                <line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/>
-                <line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
-              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
             </button>
           </div>
         </div>
       </div>
 
       <div class="talks-container" id="papers-container">
-        <div id="papers-grid" class="talks-grid" role="feed" aria-label="Blog results" aria-busy="true">
+        <div id="papers-grid" class="talks-grid" role="feed" aria-label="Paper results" aria-busy="true">
           <div class="loading-state">
             <div class="spinner" aria-hidden="true"></div>
-            <p>Loading blogs...</p>
+            <p>Loading papers…</p>
           </div>
         </div>
       </div>
     </main>
   </div>
+
   <script src="js/shared/library-utils.js?v=5391bfd85146"></script>
   <script src="js/papers-data.js?v=c7e1dc09095c"></script>
   <script src="js/shared/global-search.js?v=915049fdd754"></script>
-  <script src="js/papers.js?v=4552bf395f48"></script>
+  <script src="js/papers.js?v=f1b8336cfbd8"></script>
+  <script src="js/mlir-pubs.js?v=1"></script>
 </body>
 </html>

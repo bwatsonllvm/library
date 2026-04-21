@@ -134,6 +134,11 @@ const PAGE_SCOPE = (() => {
 const PAGE_SCOPE_LABELS = PAGE_SCOPE === BLOG_FILTER_VALUE
   ? { singular: 'blog', plural: 'blogs', singularTitle: 'blog post', pluralTitle: 'blog posts' }
   : { singular: 'paper', plural: 'papers', singularTitle: 'paper', pluralTitle: 'papers' };
+const PAGE_REQUIRED_TAGS = String(document.body && document.body.dataset ? document.body.dataset.requiredTags || '' : '')
+  .split(',')
+  .map((value) => String(value || '').trim())
+  .filter(Boolean);
+const PAGE_PAPER_DETAIL_FROM = String(document.body && document.body.dataset ? document.body.dataset.paperDetailFrom || '' : '').trim();
 
 const state = {
   query: '',
@@ -818,6 +823,48 @@ function normalizeTopicKey(value) {
     .replace(/[^a-z0-9]+/g, '');
 }
 
+function getRequiredTagValues() {
+  return [...PAGE_REQUIRED_TAGS];
+}
+
+function isRequiredTag(tag) {
+  const target = normalizeFilterValue(tag);
+  if (!target) return false;
+  return getRequiredTagValues().some((value) => normalizeFilterValue(value) === target);
+}
+
+function getVisibleActiveTags() {
+  return [...state.activeTags].filter((tag) => !isRequiredTag(tag));
+}
+
+function resetActiveTagsToRequired() {
+  state.activeTags.clear();
+  for (const tag of getRequiredTagValues()) {
+    state.activeTags.add(tag);
+  }
+}
+
+function ensureRequiredTagFilters() {
+  for (const tag of getRequiredTagValues()) {
+    addTagFilter(tag);
+  }
+}
+
+function getPrimaryRequiredTag() {
+  const values = getRequiredTagValues();
+  return values.length === 1 ? values[0] : '';
+}
+
+function getScopedPluralLabel() {
+  const primaryTag = getPrimaryRequiredTag();
+  if (!primaryTag || PAGE_SCOPE !== PAPER_FILTER_VALUE) return PAGE_SCOPE_LABELS.pluralTitle;
+  return `${primaryTag} ${PAGE_SCOPE_LABELS.pluralTitle}`;
+}
+
+function getPaperDetailFromValue() {
+  return PAGE_PAPER_DETAIL_FROM || PAGE_SCOPE;
+}
+
 function getPaperKeyTopics(paper, limit = Infinity) {
   if (getPaperKeyTopicsFromHub) {
     return getPaperKeyTopicsFromHub(paper, limit);
@@ -1061,7 +1108,7 @@ function renderPaperCard(paper, tokens) {
   const sourceIsPdf = isDirectPdfUrl(paper.sourceUrl || '');
   const sourceHref = sanitizeExternalUrl(paper.sourceUrl);
   const paperHref = sanitizeExternalUrl(paper.paperUrl);
-  const detailHref = `papers/paper.html?id=${encodeURIComponent(paper.id)}&from=${PAGE_SCOPE}`;
+  const detailHref = `papers/paper.html?id=${encodeURIComponent(paper.id)}&from=${encodeURIComponent(getPaperDetailFromValue())}`;
   const directPdfHref = !blogEntry
     ? (paperIsPdf && paperHref
       ? paperHref
@@ -1224,7 +1271,7 @@ function renderCards(results) {
     if (state.publications.size > 0) recoveryActions.push({ id: 'clear-publication', label: 'Clear publication' });
     if (state.affiliations.size > 0) recoveryActions.push({ id: 'clear-affiliation', label: 'Clear affiliation' });
     if (state.contentTypes.size > 0) recoveryActions.push({ id: 'clear-content', label: 'Clear content type' });
-    if (state.activeTags.size > 0) recoveryActions.push({ id: 'clear-topic', label: 'Clear key topic' });
+    if (getVisibleActiveTags().length > 0) recoveryActions.push({ id: 'clear-topic', label: 'Clear key topic' });
     else if (state.query) recoveryActions.push({ id: 'clear-search', label: 'Clear search' });
     recoveryActions.push({ id: 'reset-all', label: 'Reset all' });
 
@@ -1315,10 +1362,11 @@ function renderResultCount(count) {
 
   const total = scopedPapers.length;
   const queryCountsAsFilter = !!state.query && !hasTagFilter(state.query);
+  const visibleActiveTags = getVisibleActiveTags();
   const activeFilterCount =
     (queryCountsAsFilter ? 1 : 0) +
     (state.speaker ? 1 : 0) +
-    state.activeTags.size +
+    visibleActiveTags.length +
     state.years.size +
     state.contentTypes.size +
     state.citationBuckets.size +
@@ -1328,7 +1376,7 @@ function renderResultCount(count) {
   const noActiveFilters =
     !queryCountsAsFilter &&
     !state.speaker &&
-    state.activeTags.size === 0 &&
+    visibleActiveTags.length === 0 &&
     state.years.size === 0 &&
     state.contentTypes.size === 0 &&
     state.citationBuckets.size === 0 &&
@@ -1360,21 +1408,22 @@ function updateHeroSubtitle(resultsCount) {
 
   const total = scopedPapers.length;
   const singular = PAGE_SCOPE_LABELS.singularTitle;
-  const plural = PAGE_SCOPE_LABELS.pluralTitle;
+  const plural = getScopedPluralLabel();
+  const visibleActiveTags = getVisibleActiveTags();
 
   if (state.speaker) {
     el.innerHTML = `Showing all ${escapeHtml(plural)} by <strong>${escapeHtml(state.speaker)}</strong>`;
     return;
   }
 
-  if (state.activeTags.size === 1 && (!state.query || hasTagFilter(state.query))) {
-    const onlyTag = [...state.activeTags][0];
+  if (visibleActiveTags.length === 1 && (!state.query || hasTagFilter(state.query))) {
+    const onlyTag = visibleActiveTags[0];
     el.innerHTML = `Showing ${escapeHtml(plural)} for key topic <strong>${escapeHtml(onlyTag)}</strong>`;
     return;
   }
 
-  if (state.activeTags.size > 1 && !state.query) {
-    el.innerHTML = `Showing ${escapeHtml(plural)} across <strong>${state.activeTags.size.toLocaleString()}</strong> key topic filters`;
+  if (visibleActiveTags.length > 1 && !state.query) {
+    el.innerHTML = `Showing ${escapeHtml(plural)} across <strong>${visibleActiveTags.length.toLocaleString()}</strong> key topic filters`;
     return;
   }
 
@@ -1447,17 +1496,19 @@ function createActiveFilterPill(typeLabel, valueLabel, ariaLabel, onRemove, opti
     pill.appendChild(workLink);
   }
 
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'active-filter-pill__remove';
-  button.setAttribute('aria-label', ariaLabel);
-  button.innerHTML = _xIcon;
-  button.addEventListener('click', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    onRemove();
-  });
-  pill.appendChild(button);
+  if (typeof onRemove === 'function') {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'active-filter-pill__remove';
+    button.setAttribute('aria-label', ariaLabel);
+    button.innerHTML = _xIcon;
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      onRemove();
+    });
+    pill.appendChild(button);
+  }
 
   return pill;
 }
@@ -1505,7 +1556,7 @@ function renderActiveFilters() {
     ));
   }
 
-  const sortedTags = [...state.activeTags].sort((a, b) => a.localeCompare(b));
+  const sortedTags = getVisibleActiveTags().sort((a, b) => a.localeCompare(b));
   for (const tag of sortedTags) {
     pills.push(createActiveFilterPill(
       'Key Topic',
@@ -1648,6 +1699,7 @@ function addTagFilter(tag) {
 }
 
 function removeTagFilter(tag, { skipRender = false } = {}) {
+  if (isRequiredTag(tag)) return;
   const target = normalizeFilterValue(tag);
   if (!target) return;
 
@@ -1671,7 +1723,7 @@ function removeTagFilter(tag, { skipRender = false } = {}) {
 
 function clearTagFilters({ skipRender = false } = {}) {
   const shouldClearQuery = hasTagFilter(state.query);
-  state.activeTags.clear();
+  resetActiveTagsToRequired();
   if (shouldClearQuery) {
     state.query = '';
     const input = document.getElementById('search-input');
@@ -1816,7 +1868,7 @@ function clearQuery() {
 function clearFilters() {
   state.query = '';
   state.activeSpeaker = '';
-  state.activeTags.clear();
+  resetActiveTagsToRequired();
   state.speaker = '';
   state.years.clear();
   state.contentTypes.clear();
@@ -2473,7 +2525,7 @@ function loadStateFromUrl() {
   state.speaker = String(params.get('speaker') || '').trim();
   const sortParam = String(params.get('sort') || '').trim();
   state.sortBy = PAPER_SORT_MODES.has(sortParam) ? sortParam : 'relevance';
-  state.activeTags.clear();
+  resetActiveTagsToRequired();
   state.years.clear();
   state.contentTypes.clear();
   state.citationBuckets.clear();
@@ -2503,6 +2555,7 @@ function loadStateFromUrl() {
   if (tagParam) {
     tagParam.split(',').map((part) => part.trim()).filter(Boolean).forEach((tag) => addTagFilter(tag));
   }
+  ensureRequiredTagFilters();
 
   const citationParam = String(params.get('cite') || '').trim();
   if (citationParam) {
@@ -3132,7 +3185,7 @@ function findPaperTitleEntry(value) {
 function hasNonSearchFiltersApplied() {
   return !!(
     state.speaker ||
-    state.activeTags.size > 0 ||
+    getVisibleActiveTags().length > 0 ||
     state.years.size > 0 ||
     state.contentTypes.size > 0 ||
     state.citationBuckets.size > 0 ||
@@ -3438,7 +3491,7 @@ function updateClearBtn() {
   const hasActivity =
     state.query.length > 0 ||
     state.speaker ||
-    state.activeTags.size > 0 ||
+    getVisibleActiveTags().length > 0 ||
     state.years.size > 0 ||
     state.contentTypes.size > 0 ||
     state.citationBuckets.size > 0 ||
@@ -3492,7 +3545,7 @@ function filterBySpeaker(name) {
   state.speaker = value;
   state.activeSpeaker = '';
   state.query = '';
-  state.activeTags.clear();
+  resetActiveTagsToRequired();
   syncTopicChipState();
 
   if (input) input.value = '';

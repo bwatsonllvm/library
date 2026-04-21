@@ -16,6 +16,7 @@
 
   const BLOGS_PAGE_PATH = 'blogs/';
   const PAPERS_PAGE_PATH = 'papers/';
+  const MLIR_PUBS_PAGE_PATH = 'sub-projects/mlir/pubs/';
   const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const PAPER_TO_TALK_REDIRECTS = Object.freeze({});
@@ -200,11 +201,25 @@
     return isBlogPaper(paper) ? 'blogs' : 'papers';
   }
 
-  function fallbackListingPathFromUrl() {
+  function fallbackListingContextFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const from = String(params.get('from') || '').trim().toLowerCase();
-    if (from === 'blogs' || from === 'blog') return BLOGS_PAGE_PATH;
-    return PAPERS_PAGE_PATH;
+    if (from === 'blogs' || from === 'blog') {
+      return { path: BLOGS_PAGE_PATH, label: 'blogs', title: 'All Blogs', itemType: 'Blog' };
+    }
+    if (from === 'mlir-pubs') {
+      return { path: MLIR_PUBS_PAGE_PATH, label: 'MLIR publications', title: 'MLIR Publications', itemType: 'Paper' };
+    }
+    return { path: PAPERS_PAGE_PATH, label: 'papers', title: 'All Papers', itemType: 'Paper' };
+  }
+
+  function getListingContextForPaper(paper) {
+    if (isBlogPaper(paper)) {
+      return { path: BLOGS_PAGE_PATH, label: 'blogs', title: 'All Blogs', itemType: 'Blog' };
+    }
+    const requested = fallbackListingContextFromUrl();
+    if (requested.path === MLIR_PUBS_PAGE_PATH) return requested;
+    return { path: PAPERS_PAGE_PATH, label: 'papers', title: 'All Papers', itemType: 'Paper' };
   }
 
   function buildSpeakerWorkUrl(name, paper) {
@@ -1056,16 +1071,17 @@
       </article>`;
   }
 
-  function renderNotFound(id, listingPath) {
+  function renderNotFound(id, listingContext) {
     const root = document.getElementById('paper-detail-root');
     if (!root) return;
-    const label = listingPath === BLOGS_PAGE_PATH ? 'blogs' : 'papers';
-    const title = listingPath === BLOGS_PAGE_PATH ? 'All Blogs' : 'All Papers';
+    const context = listingContext && typeof listingContext === 'object'
+      ? listingContext
+      : { path: PAPERS_PAGE_PATH, label: 'papers', title: 'All Papers' };
     root.innerHTML = `
       <div class="talk-detail">
-        <a href="${listingPath}" class="back-btn" aria-label="Back to all ${label}">
+        <a href="${context.path}" class="back-btn" aria-label="Back to ${context.label}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-          <span aria-hidden="true">${title}</span>
+          <span aria-hidden="true">${context.title}</span>
         </a>
         <div class="empty-state">
           <div class="empty-state-icon" aria-hidden="true">!</div>
@@ -1093,8 +1109,9 @@
     if (!root) return;
 
     const blogEntry = isBlogPaper(paper);
-    const listingPath = getListingPathForPaper(paper);
-    const listingLabel = getListingLabelForPaper(paper);
+    const listingContext = getListingContextForPaper(paper);
+    const listingPath = listingContext.path;
+    const listingLabel = listingContext.label;
 
     const infoParts = [];
     if (blogEntry && paper._publishedDateLabel) infoParts.push(paper._publishedDateLabel);
@@ -1135,7 +1152,7 @@
       <div class="talk-detail">
         <a href="${listingPath}" class="back-btn" id="back-btn" aria-label="Back to all ${listingLabel}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-          <span aria-hidden="true">${escapeHtml(blogEntry ? 'All Blogs' : 'All Papers')}</span>
+          <span aria-hidden="true">${escapeHtml(listingContext.title)}</span>
         </a>
 
         <div class="talk-header">
@@ -1196,19 +1213,19 @@
 
     const params = new URLSearchParams(window.location.search);
     const paperId = String(params.get('id') || '').trim();
-    const fallbackListingPath = fallbackListingPathFromUrl();
+    const fallbackListingContext = fallbackListingContextFromUrl();
 
     setIssueContext({
       pageType: 'Paper',
-      itemType: fallbackListingPath === BLOGS_PAGE_PATH ? 'Blog' : 'Paper',
+      itemType: fallbackListingContext.itemType,
       itemId: paperId,
     });
 
     if (!paperId) {
-      renderNotFound(null, fallbackListingPath);
+      renderNotFound(null, fallbackListingContext);
       setIssueContext({
-        itemTitle: `Missing ${(fallbackListingPath === BLOGS_PAGE_PATH ? 'blog' : 'paper')} ID`,
-        issueTitle: `[${fallbackListingPath === BLOGS_PAGE_PATH ? 'Blog' : 'Paper'}] Missing ${(fallbackListingPath === BLOGS_PAGE_PATH ? 'blog' : 'paper')} ID`,
+        itemTitle: `Missing ${fallbackListingContext.itemType.toLowerCase()} ID`,
+        issueTitle: `[${fallbackListingContext.itemType}] Missing ${fallbackListingContext.itemType.toLowerCase()} ID`,
       });
       initShareMenu();
       return;
@@ -1229,8 +1246,8 @@
 
     const paper = context.paper;
     if (!paper) {
-      renderNotFound(paperId, fallbackListingPath);
-      const typeLabel = fallbackListingPath === BLOGS_PAGE_PATH ? 'Blog' : 'Paper';
+      renderNotFound(paperId, fallbackListingContext);
+      const typeLabel = fallbackListingContext.itemType;
       setIssueContext({
         itemTitle: `Unknown ${typeLabel.toLowerCase()} ID: ${paperId}`,
         issueTitle: `[${typeLabel}] Unknown ${typeLabel.toLowerCase()} ID: ${paperId}`,

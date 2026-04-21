@@ -19,6 +19,10 @@ VIEWER_PAGES = [
     "papers/paper.html",
     "blogs/index.html",
     "people/index.html",
+    "sub-projects/index.html",
+    "sub-projects/mlir/index.html",
+    "sub-projects/mlir/talks/index.html",
+    "sub-projects/mlir/pubs/index.html",
     "updates/index.html",
     "about/index.html",
 ]

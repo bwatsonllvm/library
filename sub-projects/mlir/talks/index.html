@@ -1,4 +1,49 @@
-<header class="site-header">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <base href="../../../">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system') ? storedTheme : 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
+        var storedTextSize = localStorage.getItem('llvm-hub-text-size');
+        var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.setAttribute('data-theme-preference', themePreference);
+        if (textSize === 'default') document.documentElement.removeAttribute('data-text-size');
+        else document.documentElement.setAttribute('data-text-size', textSize);
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    html { background: #f5f5f5; }
+    html[data-theme="dark"] { background: #000000; }
+    body { background: transparent; }
+  </style>
+  <title>MLIR Talks — LLVM Research Library</title>
+  <meta name="description" content="Talks and open design meeting presentations from the MLIR project.">
+  <link rel="icon" type="image/png" href="images/llvm-favicon.png">
+  <link rel="shortcut icon" href="images/llvm-favicon.png">
+  <link rel="apple-touch-icon" href="images/llvm-favicon.png">
+  <link rel="stylesheet" href="css/style.css?v=41c08e27799c">
+</head>
+<body>
+
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+  </nav>
+
+  <header class="site-header">
     <a href="index.html" class="site-logo" aria-label="LLVM Research Library home">
       <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
       <span>LLVM Research Library</span>
@@ -116,3 +161,35 @@
       </div>
     </div>
   </header>
+
+  <section class="search-hero" aria-label="MLIR talks">
+    <div class="search-hero-shell">
+      <div class="search-hero-title-row">
+        <h1>MLIR Talks</h1>
+        <p class="search-hero-title-aside">Synced from the MLIR project’s talks page</p>
+      </div>
+      <p class="subtitle" id="mlir-talks-subtitle">Loading MLIR talks…</p>
+      <div class="search-box">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="search" class="search-input" id="mlir-talks-search" placeholder="Search MLIR talks, tutorials, and design meeting topics…" autocomplete="off" spellcheck="false" aria-label="Search MLIR talks">
+      </div>
+    </div>
+  </section>
+
+  <main class="subproject-shell" id="main-content" tabindex="-1">
+    <section class="subproject-intro" aria-label="MLIR talks note">
+      <p class="subproject-copy">These entries are synced from the MLIR project’s own talks index and kept separate from the main LLVM event browser. They preserve their own upstream structure instead of being folded into the Developers' Meeting event model.</p>
+    </section>
+    <div id="mlir-talks-root">
+      <div class="loading-state">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading MLIR talks…</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/shared/library-utils.js?v=5391bfd85146"></script>
+  <script src="js/shared/global-search.js?v=915049fdd754"></script>
+  <script src="js/mlir-talks.js?v=1"></script>
+</body>
+</html>

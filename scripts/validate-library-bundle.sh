@@ -25,6 +25,10 @@ for f in \
   papers/paper.html \
   blogs/index.html \
   people/index.html \
+  sub-projects/index.html \
+  sub-projects/mlir/index.html \
+  sub-projects/mlir/talks/index.html \
+  sub-projects/mlir/pubs/index.html \
   about/index.html \
   updates/index.html \
   updates/index.json \
@@ -38,14 +42,20 @@ for f in \
   js/papers-data.js \
   js/papers.js \
   js/updates.js \
+  js/mlir-talks.js \
+  js/mlir-pubs.js \
+  js/subproject-home.js \
   js/shared/library-utils.js \
   js/data/autocomplete-index.json \
   js/data/talk-paper-links.json \
+  sub-projects/mlir/data/talks.json \
+  sub-projects/mlir/data/publications.json \
   templates/site-header.html \
   scripts/build-viewer-artifacts.sh \
   scripts/sync-site-header.py \
   scripts/generate-autocomplete-index.py \
   scripts/generate-talk-paper-links.py \
+  scripts/sync-mlir-subproject.py \
   scripts/apply-asset-versions.py \
   images/llvm-logo.png \
   images/llvm-favicon.png \
@@ -246,6 +256,48 @@ ruby -rjson -e '
   end
 ' "$SITE_ROOT"
 
+# Validate MLIR subproject artifacts.
+ruby -rjson -e '
+  site_root = ARGV.fetch(0)
+  {
+    "sub-projects/mlir/data/talks.json" => "MLIR Talks",
+    "sub-projects/mlir/data/publications.json" => "MLIR Publications",
+  }.each do |rel, label|
+    path = File.join(site_root, rel)
+    payload = JSON.parse(File.read(path))
+    abort("#{rel} must contain an object") unless payload.is_a?(Hash)
+    abort("#{rel} missing dataVersion") if String(payload["dataVersion"]).strip.empty?
+    abort("#{rel} missing generatedAt") if String(payload["generatedAt"]).strip.empty?
+    abort("#{rel} missing title") if String(payload["title"]).strip.empty?
+    abort("#{rel} missing sourceUrl") if String(payload["sourceUrl"]).strip.empty?
+    sections = payload["sections"]
+    abort("#{rel} missing sections array") unless sections.is_a?(Array)
+    sections.each_with_index do |section, sidx|
+      abort("#{rel} section #{sidx} must be object") unless section.is_a?(Hash)
+      abort("#{rel} section #{sidx} missing title") if String(section["title"]).strip.empty?
+      groups = section["groups"]
+      abort("#{rel} section #{sidx} missing groups array") unless groups.is_a?(Array)
+      groups.each_with_index do |group, gidx|
+        abort("#{rel} section #{sidx} group #{gidx} must be object") unless group.is_a?(Hash)
+        entries = group["entries"]
+        abort("#{rel} section #{sidx} group #{gidx} missing entries array") unless entries.is_a?(Array)
+        entries.each_with_index do |entry, eidx|
+          abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} must be object") unless entry.is_a?(Hash)
+          abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} missing id") if String(entry["id"]).strip.empty?
+          abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} missing title") if String(entry["title"]).strip.empty?
+          actions = entry["actions"]
+          abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} missing actions array") unless actions.is_a?(Array)
+          actions.each_with_index do |action, aidx|
+            abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} action #{aidx} must be object") unless action.is_a?(Hash)
+            abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} action #{aidx} missing label") if String(action["label"]).strip.empty?
+            abort("#{rel} section #{sidx} group #{gidx} entry #{eidx} action #{aidx} missing url") if String(action["url"]).strip.empty?
+          end
+        end
+      end
+    end
+  end
+' "$SITE_ROOT"
+
 # Validate local asset references in HTML files.
 ruby -e '
   site_root = ARGV.fetch(0)
@@ -260,6 +312,10 @@ ruby -e '
     papers/paper.html
     blogs/index.html
     people/index.html
+    sub-projects/index.html
+    sub-projects/mlir/index.html
+    sub-projects/mlir/talks/index.html
+    sub-projects/mlir/pubs/index.html
     about/index.html
     updates/index.html
   ].map { |f| File.join(site_root, f) }
