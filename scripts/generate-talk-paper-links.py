@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""Generate slide-reference paper links for talk detail pages.
+"""Generate slide-reference paper links for talk and paper detail pages.
 
-The talk page resolves speaker-authored and abstract-mentioned papers at runtime.
-This generator adds the more expensive PDF/slide-only references into a compact
-JSON artifact that the viewer can load quickly.
+Only explicit slide-deck references should be emitted. Title-only mentions are
+filtered unless nearby slide text also looks like a citation.
 """
 
 from __future__ import annotations
@@ -23,7 +22,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-ARTIFACT_VERSION = 1
+ARTIFACT_VERSION = 2
 BLOG_SOURCE_SLUGS = {"llvm-blog-www", "llvm-www-blog"}
 USER_AGENT = "llvm-library-talk-paper-links/1.0"
 MATCH_STOPWORDS = {
@@ -47,6 +46,24 @@ GENERIC_TITLE_VARIANT_BLOCKLIST = {
     "introduction",
 }
 WHITESPACE_BYTES = b" \t\n\r\f\x00"
+CITATION_CONTEXT_PHRASES = (
+    "et al",
+    "doi",
+    "arxiv",
+    "preprint",
+    "research paper",
+    "references",
+    "bibliography",
+    "citation",
+    "citations",
+    "journal",
+    "conference",
+    "symposium",
+    "workshop",
+    "proceedings",
+    "for more information",
+)
+AUTHOR_SUFFIX_TOKENS = {"jr", "sr", "ii", "iii", "iv", "v"}
 
 
 def collapse_ws(value: str) -> str:
@@ -107,6 +124,24 @@ def build_title_variants(title: str) -> list[str]:
     return variants
 
 
+def extract_author_surnames(authors: Iterable[dict]) -> list[str]:
+    surnames: list[str] = []
+    for author in authors or []:
+        if not isinstance(author, dict):
+            continue
+        name = normalize_match_text(str(author.get("name", "")))
+        tokens = [token for token in name.split(" ") if token]
+        while tokens and tokens[-1] in AUTHOR_SUFFIX_TOKENS:
+            tokens.pop()
+        if not tokens:
+            continue
+        surname = tokens[-1]
+        if len(surname) < 4 or surname in surnames:
+            continue
+        surnames.append(surname)
+    return surnames
+
+
 def parse_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -143,6 +178,8 @@ def load_papers(repo_root: Path) -> list[dict]:
                     "id": paper_id,
                     "title": title,
                     "titleVariants": build_title_variants(title),
+                    "year": collapse_ws(str(paper.get("year", ""))),
+                    "authorSurnames": extract_author_surnames(paper.get("authors", [])),
                     "doi": (
                         extract_doi(str(paper.get("doi", "")))
                         or extract_doi(str(paper.get("paperUrl", "")))
@@ -177,7 +214,10 @@ def load_existing_artifact(path: Path) -> dict:
     if not isinstance(talks, dict):
         talks = {}
     payload["talks"] = talks
-    payload["processorVersion"] = ARTIFACT_VERSION
+    try:
+        payload["processorVersion"] = int(payload.get("processorVersion") or 0)
+    except (TypeError, ValueError):
+        payload["processorVersion"] = 0
     return payload
 
 
@@ -617,7 +657,7 @@ def extract_text_from_content_stream(
     return "".join(chunks)
 
 
-def extract_pdf_text(pdf_bytes: bytes) -> str:
+def extract_pdf_pages(pdf_bytes: bytes) -> list[str]:
     objects = parse_pdf_objects(pdf_bytes)
     font_cmaps: dict[tuple[int, int], dict[int, str]] = {}
 
@@ -698,18 +738,50 @@ def extract_pdf_text(pdf_bytes: bytes) -> str:
             page_chunks.append(extract_text_from_content_stream(content_stream, alias_to_cmap, xobject_text=xobject_text))
         page_chunks.extend(resolve_annotation_uris(body, objects))
         if page_chunks:
-            pages.append("\n".join(page_chunks))
+            page_text = collapse_ws("\n".join(page_chunks))
+            if page_text:
+                pages.append(page_text)
 
-    return collapse_ws("\n\n".join(pages))
+    return pages
 
 
-def find_slide_paper_matches(slide_text: str, papers: list[dict]) -> list[str]:
+def extract_pdf_text(pdf_bytes: bytes) -> str:
+    return collapse_ws("\n\n".join(extract_pdf_pages(pdf_bytes)))
+
+
+def page_has_title_citation_context(normalized_page: str, paper: dict) -> bool:
+    variants = paper.get("titleVariants") or []
+    if not variants or not normalized_page:
+        return False
+
+    author_surnames = paper.get("authorSurnames") or []
+    year = collapse_ws(str(paper.get("year", "")))
+
+    for variant in variants:
+        needle = f" {variant} "
+        start = normalized_page.find(needle)
+        while start != -1:
+            window = normalized_page[max(0, start - 220): start + len(needle) + 220]
+            if any(f" {surname} " in window for surname in author_surnames):
+                return True
+            if re.fullmatch(r"\d{4}", year) and (f" {year} " in window or f" {year[-2:]} " in window):
+                return True
+            if any(phrase in window for phrase in CITATION_CONTEXT_PHRASES):
+                return True
+            start = normalized_page.find(needle, start + len(needle))
+
+    return False
+
+
+def find_slide_paper_matches(slide_pages: list[str], papers: list[dict]) -> list[str]:
+    page_texts = [collapse_ws(page) for page in slide_pages if collapse_ws(page)]
+    slide_text = "\n\n".join(page_texts)
     raw_lower = collapse_ws(slide_text).lower()
     normalized = normalize_match_text(slide_text)
     if not normalized:
         return []
 
-    padded = f" {normalized} "
+    normalized_pages = [f" {normalize_match_text(page)} " for page in page_texts]
     matched_ids: list[str] = []
     seen: set[str] = set()
 
@@ -730,8 +802,7 @@ def find_slide_paper_matches(slide_text: str, papers: list[dict]) -> list[str]:
             matched_ids.append(paper_id)
             continue
 
-        variants = paper.get("titleVariants") or []
-        if any(f" {variant} " in padded for variant in variants):
+        if any(page_has_title_citation_context(page, paper) for page in normalized_pages):
             seen.add(paper_id)
             matched_ids.append(paper_id)
 
@@ -749,6 +820,7 @@ def generate_talk_artifact(
     local_devmtg_root: Path | None,
 ) -> dict:
     talks_map = dict(existing.get("talks") or {})
+    existing_processor_version = int(existing.get("processorVersion") or 0)
 
     for talk in talks:
         talk_id = collapse_ws(str(talk.get("id", "")))
@@ -758,15 +830,22 @@ def generate_talk_artifact(
         slides_url = collapse_ws(str(talk.get("slidesUrl", "")))
         previous = talks_map.get(talk_id)
         previous_slides_url = collapse_ws(str((previous or {}).get("slidesUrl", "")))
-        if not fetch_pdf_references or not slides_url.lower().startswith(("http://", "https://")):
+        if not fetch_pdf_references:
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": (previous or {}).get("slidePaperIds", []),
             }
             continue
+        if not slides_url.lower().startswith(("http://", "https://")):
+            talks_map[talk_id] = {
+                "slidesUrl": slides_url,
+                "slidePaperIds": [],
+            }
+            continue
 
         if (
             not refresh_existing
+            and existing_processor_version == ARTIFACT_VERSION
             and previous
             and previous_slides_url == slides_url
             and isinstance(previous.get("slidePaperIds"), list)
@@ -777,8 +856,8 @@ def generate_talk_artifact(
 
         try:
             pdf_bytes = fetch_bytes(slides_url, timeout=timeout, local_devmtg_root=local_devmtg_root)
-            pdf_text = extract_pdf_text(pdf_bytes)
-            slide_paper_ids = find_slide_paper_matches(pdf_text, papers)
+            pdf_pages = extract_pdf_pages(pdf_bytes)
+            slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": slide_paper_ids,
@@ -786,7 +865,7 @@ def generate_talk_artifact(
             }
             print(f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers", file=sys.stderr)
         except Exception as exc:
-            if previous:
+            if previous and not refresh_existing and existing_processor_version == ARTIFACT_VERSION:
                 talks_map[talk_id] = previous
             else:
                 talks_map[talk_id] = {"slidesUrl": slides_url, "slidePaperIds": []}

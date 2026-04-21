@@ -109,6 +109,15 @@
     return '';
   }
 
+  function buildEmbeddedVideoUrl(videoUrl) {
+    const normalized = sanitizeExternalUrl(videoUrl);
+    if (!normalized) return '';
+    const youtubeId = typeof HubUtils.extractYouTubeId === 'function'
+      ? HubUtils.extractYouTubeId(normalized)
+      : '';
+    return youtubeId ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeId)}?rel=0` : '';
+  }
+
   function normalizePeople(rawPeople) {
     const values = Array.isArray(rawPeople) ? rawPeople : [];
     return values.map((rawPerson) => {
@@ -638,6 +647,7 @@
     const meetingMeta = [meetingDate, meetingLocation].filter(Boolean).join(' · ');
 
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
+    const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk.slidesUrl);
     const posterUrl = sanitizeExternalUrl(talk.posterUrl);
     const githubUrl = sanitizeExternalUrl(talk.projectGithub);
@@ -689,6 +699,21 @@
         </section>
 
         ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
+
+        ${embeddedVideoUrl ? `
+        <section class="video-section" aria-label="Video player">
+          <div class="section-label" aria-hidden="true">Video</div>
+          <div class="video-embed">
+            <iframe
+              src="${escapeHtml(embeddedVideoUrl)}"
+              title="${escapeHtml(title || 'Talk video')}"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>` : ''}
 
         <section class="abstract-section" aria-label="Abstract">
           <div class="section-label" aria-hidden="true">Abstract</div>
