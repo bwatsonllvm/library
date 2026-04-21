@@ -286,7 +286,7 @@ The talks sync workflow is a receiver only. To trigger it automatically from `ll
 
 ## Repository Layout
 
-- `index.html`, `work.html`, and section folders (`talks/`, `papers/`, `blogs/`, `people/`, `about/`, `updates/`): static site pages/routes
+- `index.html`, `work.html`, and section folders (`talks/`, `papers/`, `blogs/`, `people/`, `sub-projects/`, `about/`, `updates/`): static site pages/routes
 - `css/`, `js/`, `images/`: shared site assets
 - `js/data/autocomplete-index.json`: prebuilt lightweight autocomplete payload consumed by header/global search
 - `devmtg/events/*.json`: talk/event records
