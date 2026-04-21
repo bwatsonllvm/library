@@ -1,28 +1,38 @@
 /**
- * mlir-talks.js - MLIR subproject talks page runtime.
+ * mlir-talks.js - adapts MLIR upstream talk metadata to the core talks index runtime.
  */
 
 (function () {
-  const HubUtils = window.LLVMHubUtils || {};
-  const PageShell = typeof HubUtils.createPageShell === 'function'
-    ? HubUtils.createPageShell()
-    : null;
-
-  const initTheme = PageShell ? () => PageShell.initTheme() : () => {};
-  const initTextSize = PageShell ? () => PageShell.initTextSize() : () => {};
-  const initCustomizationMenu = PageShell ? () => PageShell.initCustomizationMenu() : () => {};
-  const initMobileNavMenu = PageShell ? () => PageShell.initMobileNavMenu() : () => {};
-  const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
-
   const DATA_PATH = 'sub-projects/mlir/data/talks.json';
+  const HubUtils = window.LLVMHubUtils || {};
+  const MONTH_LOOKUP = Object.freeze({
+    jan: '01', january: '01',
+    feb: '02', february: '02',
+    mar: '03', march: '03',
+    apr: '04', april: '04',
+    may: '05',
+    jun: '06', june: '06',
+    jul: '07', july: '07',
+    aug: '08', august: '08',
+    sep: '09', sept: '09', september: '09',
+    oct: '10', october: '10',
+    nov: '11', november: '11',
+    dec: '12', december: '12',
+  });
+  const SECTION_CATEGORY_MAP = Object.freeze({
+    tutorials: 'tutorial',
+    'tech-talks': 'technical-talk',
+    'open-design-meeting-presentations': 'bof',
+    'upcoming-talks-or-presentations': 'technical-talk',
+    'past-conferences-and-workshops': 'workshop',
+  });
+  const GENERIC_GROUP_KEYS = new Set([
+    '',
+    'past-editions',
+    'past-editions:',
+  ]);
 
-  function escapeHtml(value) {
-    return String(value || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
+  let talksPromise = null;
 
   function collapseWhitespace(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
@@ -41,192 +51,313 @@
     return '';
   }
 
-  function tokenize(query) {
-    return collapseWhitespace(query)
+  function slugify(value) {
+    return collapseWhitespace(value)
       .toLowerCase()
-      .split(' ')
-      .filter((token) => token.length >= 2);
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
   }
 
-  function countEntries(sections) {
-    let total = 0;
-    for (const section of (Array.isArray(sections) ? sections : [])) {
-      for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
-        total += Array.isArray(group && group.entries) ? group.entries.length : 0;
+  function uniqueStrings(values) {
+    const out = [];
+    const seen = new Set();
+    for (const value of (Array.isArray(values) ? values : [])) {
+      const text = collapseWhitespace(value);
+      const key = text.toLowerCase();
+      if (!text || seen.has(key)) continue;
+      seen.add(key);
+      out.push(text);
+    }
+    return out;
+  }
+
+  function cleanTopicLabel(value) {
+    const text = collapseWhitespace(value).replace(/:$/, '');
+    const key = slugify(text);
+    if (!text || GENERIC_GROUP_KEYS.has(key)) return '';
+    return text;
+  }
+
+  function pad2(value) {
+    return String(value || '').padStart(2, '0');
+  }
+
+  function parseDateFromTitle(title) {
+    const match = collapseWhitespace(title).match(/^(\d{4})-(\d{2})-(\d{2})(?:\b|[:\s-])/);
+    if (!match) return null;
+    return {
+      sortKey: `${match[1]}-${match[2]}-${match[3]}`,
+      label: `${match[1]}-${match[2]}-${match[3]}`,
+      year: match[1],
+    };
+  }
+
+  function parseDateFromText(text) {
+    const match = collapseWhitespace(text).match(
+      /\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:\s*[-/]\s*(\d{1,2}))?,?\s+((?:19|20)\d{2})\b/i
+    );
+    if (!match) return null;
+    const month = MONTH_LOOKUP[String(match[1] || '').toLowerCase()];
+    if (!month) return null;
+    return {
+      sortKey: `${match[4]}-${month}-${pad2(match[2])}`,
+      label: collapseWhitespace(match[0]),
+      year: String(match[4]),
+    };
+  }
+
+  function parseDateFromUrls(urls) {
+    for (const url of (Array.isArray(urls) ? urls : [])) {
+      const text = String(url || '');
+      const exact = text.match(/\/((?:19|20)\d{2})-(\d{2})-(\d{2})(?:[^\d]|$)/);
+      if (exact) {
+        return {
+          sortKey: `${exact[1]}-${exact[2]}-${exact[3]}`,
+          label: `${exact[1]}-${exact[2]}-${exact[3]}`,
+          year: exact[1],
+        };
+      }
+      const monthMatch = text.match(/\/((?:19|20)\d{2})-(\d{2})(?:[^\d]|$)/);
+      if (monthMatch) {
+        return {
+          sortKey: `${monthMatch[1]}-${monthMatch[2]}-00`,
+          label: `${monthMatch[1]}-${monthMatch[2]}`,
+          year: monthMatch[1],
+        };
+      }
+      const yearMatch = text.match(/\/((?:19|20)\d{2})(?:[^\d]|$)/);
+      if (yearMatch) {
+        return {
+          sortKey: `${yearMatch[1]}-00-00`,
+          label: yearMatch[1],
+          year: yearMatch[1],
+        };
       }
     }
-    return total;
+    return null;
   }
 
-  function buildEntryMeta(sectionTitle, groupTitle) {
-    const parts = [String(sectionTitle || '').trim(), String(groupTitle || '').trim()].filter(Boolean);
-    return parts.join(' / ');
+  function parseDateInfo(entry, actions) {
+    const fromTitle = parseDateFromTitle(entry && entry.title);
+    if (fromTitle) return fromTitle;
+
+    const fromText = parseDateFromText(entry && (entry.summary || entry.text));
+    if (fromText) return fromText;
+
+    const fromUrls = parseDateFromUrls((actions || []).map((action) => action && action.url));
+    if (fromUrls) return fromUrls;
+
+    const fallbackYear = collapseWhitespace(entry && (entry.summary || entry.text || entry.title)).match(/\b((?:19|20)\d{2})\b/);
+    if (fallbackYear) {
+      return {
+        sortKey: `${fallbackYear[1]}-00-00`,
+        label: fallbackYear[1],
+        year: fallbackYear[1],
+      };
+    }
+
+    return {
+      sortKey: '0000-00-00',
+      label: '',
+      year: '',
+    };
   }
 
-  function renderDescriptions(values) {
-    const descriptions = Array.isArray(values) ? values.map((value) => collapseWhitespace(value)).filter(Boolean) : [];
-    if (!descriptions.length) return '';
-    return descriptions.map((value) => `<p class="subproject-copy">${escapeHtml(value)}</p>`).join('');
+  function cleanEventName(value) {
+    return collapseWhitespace(value)
+      .replace(/\.$/, '')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
   }
 
-  function renderEntry(entry, metaLabel) {
-    const actions = Array.isArray(entry && entry.actions) ? entry.actions : [];
-    const title = collapseWhitespace(entry && entry.title);
+  function inferMeetingName(entry, sectionTitle, groupTitle, actions) {
     const summary = collapseWhitespace(entry && entry.summary);
-    return `
-      <article class="subproject-entry">
-        ${metaLabel ? `<div class="subproject-entry-kicker">${escapeHtml(metaLabel)}</div>` : ''}
-        <h3 class="subproject-entry-title">${escapeHtml(title || '(untitled item)')}</h3>
-        ${summary ? `<p class="subproject-entry-summary">${escapeHtml(summary)}</p>` : ''}
-        ${actions.length ? `
-          <div class="subproject-entry-actions">
-            ${actions.map((action) => {
-              const href = sanitizeExternalUrl(action && action.url);
-              const label = collapseWhitespace(action && action.label);
-              if (!href || !label) return '';
-              return `<a href="${escapeHtml(href)}" class="link-btn" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
-            }).join('')}
-          </div>` : ''}
-      </article>`;
+    const text = collapseWhitespace(entry && entry.text);
+    const title = collapseWhitespace(entry && entry.title);
+
+    if (summary.includes(' @ ')) {
+      return cleanEventName(summary.split(' @ ').pop());
+    }
+    if (text.includes(' @ ')) {
+      return cleanEventName(text.split(' @ ').pop());
+    }
+
+    const prefixMatch = title.match(/^([^:]+):/);
+    if (prefixMatch && /\b((?:19|20)\d{2})\b/.test(prefixMatch[1])) {
+      return cleanEventName(
+        prefixMatch[1]
+          .replace(/\b(Keynote|Talk|Tutorial|Presentation|Workshop)\b/gi, '')
+          .replace(/\s{2,}/g, ' ')
+      );
+    }
+
+    if (slugify(sectionTitle) === 'open-design-meeting-presentations') {
+      return 'MLIR Open Design Meeting';
+    }
+
+    const eventAction = (actions || []).find((action) => action && action.kind === 'event' && collapseWhitespace(action.label).toLowerCase() !== 'event');
+    if (eventAction) return cleanEventName(eventAction.label);
+
+    return cleanTopicLabel(groupTitle) || collapseWhitespace(sectionTitle) || 'MLIR Talk';
   }
 
-  function buildGroupedMarkup(payload) {
-    const sections = Array.isArray(payload && payload.sections) ? payload.sections : [];
-    return sections.map((section) => {
-      const sectionTitle = collapseWhitespace(section && section.title);
-      const sectionGroups = Array.isArray(section && section.groups) ? section.groups : [];
-      const groupsHtml = sectionGroups.map((group) => {
-        const groupTitle = collapseWhitespace(group && group.title);
-        const entries = Array.isArray(group && group.entries) ? group.entries : [];
-        if (!entries.length) return '';
-        return `
-          <div class="subproject-group">
-            ${groupTitle ? `<h3 class="subproject-group-title">${escapeHtml(groupTitle)}</h3>` : ''}
-            ${renderDescriptions(group && group.descriptions)}
-            <div class="subproject-entry-list">
-              ${entries.map((entry) => renderEntry(entry, '')).join('')}
-            </div>
-          </div>`;
-      }).join('');
-
-      if (!groupsHtml && !(Array.isArray(section && section.descriptions) && section.descriptions.length)) return '';
-
-      return `
-        <section class="subproject-section">
-          ${sectionTitle ? `<div class="section-label" aria-hidden="true">${escapeHtml(sectionTitle)}</div>` : ''}
-          ${renderDescriptions(section && section.descriptions)}
-          ${groupsHtml}
-        </section>`;
-    }).join('');
+  function normalizeSpeakerName(value) {
+    const normalized = typeof HubUtils.normalizePersonRecord === 'function'
+      ? HubUtils.normalizePersonRecord({ name: value })
+      : null;
+    const name = collapseWhitespace(normalized && normalized.name ? normalized.name : value);
+    return name
+      .replace(/\((?:filling in for|moderator|host)[^)]+\)/gi, '')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/^[,;:]+|[,;:]+$/g, '')
+      .trim();
   }
 
-  function buildSearchResults(payload, query) {
-    const tokens = tokenize(query);
-    const matches = [];
-    const sections = Array.isArray(payload && payload.sections) ? payload.sections : [];
+  function looksLikePersonName(value) {
+    const text = normalizeSpeakerName(value);
+    if (!text || /\d/.test(text)) return false;
+    const tokens = text.split(/\s+/).filter(Boolean);
+    if (tokens.length < 2 || tokens.length > 6) return false;
+    return tokens.every((token) => {
+      const cleaned = token.replace(/^[.'’()-]+|[.'’()-]+$/g, '');
+      if (!cleaned) return false;
+      return /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[.'’-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(cleaned);
+    });
+  }
 
-    for (const section of sections) {
+  function extractSpeakers(entry) {
+    const rawCandidates = [];
+    for (const source of [entry && entry.summary, entry && entry.text]) {
+      let candidate = collapseWhitespace(source);
+      if (!candidate) continue;
+      if (candidate.includes(' @ ')) candidate = candidate.split(' @ ')[0];
+      if (candidate.includes(';')) candidate = candidate.split(';').pop();
+      candidate = candidate
+        .replace(/\b(?:slides?|recordings?|recording|transcript|event|talk|part\s+\d+|additional slides?)\b/gi, ' ')
+        .replace(/[()]/g, ' ')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      if (candidate) rawCandidates.push(candidate);
+    }
+
+    const speakers = [];
+    const seen = new Set();
+    for (const candidate of rawCandidates) {
+      const names = candidate.split(/\s*(?:,| and |\/)\s*/i);
+      for (const rawName of names) {
+        const name = normalizeSpeakerName(rawName);
+        const key = name.toLowerCase();
+        if (!looksLikePersonName(name) || seen.has(key)) continue;
+        seen.add(key);
+        speakers.push({ name, affiliation: '' });
+      }
+      if (speakers.length) break;
+    }
+
+    return speakers;
+  }
+
+  function pickFirstAction(actions, predicate) {
+    return (Array.isArray(actions) ? actions : []).find((action) => action && predicate(action)) || null;
+  }
+
+  function buildTalkRecord(entry, sectionTitle, groupTitle, fallbackUrl) {
+    const actions = Array.isArray(entry && entry.actions)
+      ? entry.actions
+          .map((action) => ({
+            kind: collapseWhitespace(action && action.kind).toLowerCase(),
+            label: collapseWhitespace(action && action.label),
+            url: sanitizeExternalUrl(action && action.url),
+          }))
+          .filter((action) => action.url)
+      : [];
+
+    const primaryAction = pickFirstAction(actions, (action) => action.kind === 'primary')
+      || pickFirstAction(actions, (action) => action.kind === 'slides')
+      || pickFirstAction(actions, (action) => action.kind === 'recording')
+      || pickFirstAction(actions, (action) => action.kind === 'event')
+      || pickFirstAction(actions, (action) => action.kind === 'link')
+      || actions[0]
+      || null;
+
+    const detailUrl = collapseWhitespace(primaryAction && primaryAction.url) || fallbackUrl;
+    const videoAction = pickFirstAction(actions, (action) => action.kind === 'recording')
+      || (primaryAction && (primaryAction.kind === 'recording' || typeof HubUtils.extractYouTubeId === 'function' && HubUtils.extractYouTubeId(primaryAction.url))
+        ? primaryAction
+        : null);
+    const slidesAction = pickFirstAction(actions, (action) => action.kind === 'slides');
+    const githubAction = pickFirstAction(actions, (action) => /github\.com/i.test(action.url));
+
+    const meetingName = inferMeetingName(entry, sectionTitle, groupTitle, actions);
+    const dateInfo = parseDateInfo(entry, actions);
+    const sortSuffix = slugify(meetingName || entry && entry.title || entry && entry.id || '').slice(0, 48);
+    const meeting = sortSuffix
+      ? `${dateInfo.sortKey}-${sortSuffix}`
+      : dateInfo.sortKey;
+
+    const topics = uniqueStrings([
+      cleanTopicLabel(groupTitle),
+      ...(slugify(sectionTitle) === 'open-design-meeting-presentations' ? ['Open Design Meeting'] : []),
+    ]);
+
+    return {
+      id: collapseWhitespace(entry && entry.id) || slugify(entry && entry.title) || slugify(detailUrl),
+      title: collapseWhitespace(entry && entry.title) || 'Untitled MLIR Talk',
+      abstract: uniqueStrings([
+        cleanTopicLabel(groupTitle),
+        collapseWhitespace(entry && (entry.summary || entry.text)),
+      ]).join('. '),
+      speakers: extractSpeakers(entry),
+      category: SECTION_CATEGORY_MAP[slugify(sectionTitle)] || 'other',
+      tags: topics,
+      meeting,
+      meetingName,
+      meetingDate: dateInfo.label,
+      meetingLocation: '',
+      videoUrl: collapseWhitespace(videoAction && videoAction.url),
+      slidesUrl: collapseWhitespace(slidesAction && slidesAction.url),
+      projectGithub: collapseWhitespace(githubAction && githubAction.url),
+      sourceUrl: detailUrl,
+      detailUrl,
+      mlirSection: collapseWhitespace(sectionTitle),
+      mlirGroup: cleanTopicLabel(groupTitle),
+    };
+  }
+
+  function transformPayload(payload) {
+    const fallbackUrl = sanitizeExternalUrl(payload && payload.sourceUrl);
+    const talks = [];
+
+    for (const section of (Array.isArray(payload && payload.sections) ? payload.sections : [])) {
       const sectionTitle = collapseWhitespace(section && section.title);
       for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
         const groupTitle = collapseWhitespace(group && group.title);
         for (const entry of (Array.isArray(group && group.entries) ? group.entries : [])) {
-          const haystack = collapseWhitespace([
-            entry && entry.title,
-            entry && entry.summary,
-            entry && entry.text,
-            sectionTitle,
-            groupTitle,
-          ].join(' ')).toLowerCase();
-          if (!tokens.every((token) => haystack.includes(token))) continue;
-          matches.push({ entry, meta: buildEntryMeta(sectionTitle, groupTitle) });
+          if (!entry || typeof entry !== 'object') continue;
+          talks.push(buildTalkRecord(entry, sectionTitle, groupTitle, fallbackUrl));
         }
       }
     }
 
-    if (!matches.length) {
-      return `
-        <div class="empty-state" role="status">
-          <div class="empty-state-icon" aria-hidden="true">!</div>
-          <h2>No MLIR talks found</h2>
-          <p>No upstream MLIR talks matched <strong>${escapeHtml(query)}</strong>.</p>
-        </div>`;
-    }
-
-    return `
-      <section class="subproject-section">
-        <div class="section-label" aria-hidden="true">Search Results</div>
-        <div class="subproject-entry-list">
-          ${matches.map(({ entry, meta }) => renderEntry(entry, meta)).join('')}
-        </div>
-      </section>`;
+    return talks.filter((talk) => talk.id && talk.title);
   }
 
-  function updateSubtitle(totalEntries, query) {
-    const subtitle = document.getElementById('mlir-talks-subtitle');
-    if (!subtitle) return;
-    const cleanQuery = collapseWhitespace(query);
-    if (!cleanQuery) {
-      subtitle.innerHTML = `Browse <strong>${totalEntries.toLocaleString()}</strong> talks and design meeting presentations from the MLIR project.`;
-      return;
-    }
-    subtitle.innerHTML = `Filtering <strong>${totalEntries.toLocaleString()}</strong> MLIR talks for <strong>${escapeHtml(cleanQuery)}</strong>.`;
-  }
+  async function loadMLIRTalks() {
+    if (talksPromise) return talksPromise;
 
-  function syncUrl(query) {
-    const params = new URLSearchParams(window.location.search);
-    const value = collapseWhitespace(query);
-    if (value) params.set('q', value);
-    else params.delete('q');
-    const nextUrl = params.toString()
-      ? `${window.location.pathname}?${params.toString()}`
-      : window.location.pathname;
-    history.replaceState(null, '', nextUrl);
-  }
-
-  async function init() {
-    initTheme();
-    initTextSize();
-    initCustomizationMenu();
-    initMobileNavMenu();
-
-    const root = document.getElementById('mlir-talks-root');
-    const searchInput = document.getElementById('mlir-talks-search');
-    if (!root || !searchInput) {
-      initShareMenu();
-      return;
-    }
-
-    const params = new URLSearchParams(window.location.search);
-    searchInput.value = collapseWhitespace(params.get('q') || '');
-
-    try {
+    talksPromise = (async () => {
       const response = await fetch(DATA_PATH, { cache: 'default' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
-      const totalEntries = countEntries(payload && payload.sections);
+      return transformPayload(payload);
+    })();
 
-      const render = () => {
-        const query = collapseWhitespace(searchInput.value);
-        updateSubtitle(totalEntries, query);
-        root.innerHTML = query
-          ? buildSearchResults(payload, query)
-          : buildGroupedMarkup(payload);
-        syncUrl(query);
-      };
-
-      searchInput.addEventListener('input', render);
-      render();
-    } catch (error) {
-      root.innerHTML = `
-        <div class="empty-state" role="alert">
-          <div class="empty-state-icon" aria-hidden="true">!</div>
-          <h2>Could not load MLIR talks</h2>
-          <p>${escapeHtml(String(error && error.message ? error.message : error))}</p>
-        </div>`;
-    }
-
-    initShareMenu();
+    return talksPromise;
   }
 
-  init();
+  window.loadEventData = async function loadEventData() {
+    return { talks: await loadMLIRTalks() };
+  };
 })();

@@ -616,6 +616,8 @@ function renderCard(talk, tokens) {
 
   // Footer action buttons — outside the card link to avoid nested interactives
   const titleEsc = escapeHtml(talk.title);
+  const explicitDetailHref = sanitizeExternalUrl(talk.detailUrl);
+  const detailHref = explicitDetailHref || `talks/talk.html?id=${encodeURIComponent(String(talk.id || ''))}`;
   const videoHref = sanitizeExternalUrl(talk.videoUrl);
   const slidesHref = sanitizeExternalUrl(talk.slidesUrl);
   const githubHref = sanitizeExternalUrl(talk.projectGithub);
@@ -653,7 +655,7 @@ function renderCard(talk, tokens) {
 
   return `
     <article class="talk-card">
-      <a href="talks/talk.html?id=${escapeHtml(talk.id)}" class="card-link-wrap" aria-label="${titleEsc}${escapeHtml(speakerLabel)}">
+      <a href="${escapeHtml(detailHref)}" class="card-link-wrap" aria-label="${titleEsc}${escapeHtml(speakerLabel)}">
         <div class="card-thumbnail" aria-hidden="true">
           ${thumbnailHtml}
           ${talk.videoId ? `<div class="play-overlay" aria-hidden="true"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>` : ''}
@@ -1509,12 +1511,17 @@ function updateHeroCount() {
 function updateHeroSubtitle() {
   const el = document.getElementById('hero-subtitle');
   if (!el) return;
+  const browseDescription = String(
+    document.body && document.body.dataset
+      ? document.body.dataset.talkBrowseDescription || ''
+      : ''
+  ).replace(/\s+/g, ' ').trim() || 'talks from 2007 to present with filters below.';
   if (state.speaker) {
     el.innerHTML = `Showing all talks by <strong>${escapeHtml(state.speaker)}</strong>`;
   } else if (state.activeTag && state.query && !state.meeting) {
     el.innerHTML = `Showing all talks for key topic <strong>${escapeHtml(state.activeTag)}</strong>`;
   } else {
-    el.innerHTML = `Browse <strong id="total-count">${allTalks.length.toLocaleString()}</strong> talks from 2007 to present with filters below.`;
+    el.innerHTML = `Browse <strong id="total-count">${allTalks.length.toLocaleString()}</strong> ${escapeHtml(browseDescription)}`;
   }
 }
 
