@@ -17,6 +17,7 @@
 
   const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
+  const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
   const MATCH_STOPWORDS = new Set([
     'about', 'after', 'against', 'algorithm', 'algorithms', 'among', 'analysis', 'approach',
     'approaches', 'around', 'based', 'being', 'between', 'beyond', 'compiler', 'compilers',
@@ -136,6 +137,24 @@
     return match ? String(match[0]).trim().toLowerCase() : '';
   }
 
+  function doiUrlFromValue(doi) {
+    const normalized = extractDoi(doi);
+    return normalized ? `https://doi.org/${normalized}` : '';
+  }
+
+  function normalizeOpenAlexId(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    if (/^https?:\/\//i.test(raw)) return sanitizeExternalUrl(raw);
+    const cleaned = raw.replace(/^https?:\/\/openalex\.org\//i, '').replace(/^works\//i, '').trim();
+    if (!/^W\d+$/i.test(cleaned)) return '';
+    return `https://openalex.org/${cleaned.toUpperCase()}`;
+  }
+
+  function isDirectPdfUrl(value) {
+    return DIRECT_PDF_URL_RE.test(String(value || '').trim());
+  }
+
   function normalizePaperRecord(rawPaper) {
     if (!rawPaper || typeof rawPaper !== 'object') return null;
 
@@ -155,6 +174,7 @@
       ? paper.matchedSubprojects.map((value) => String(value || '').trim()).filter(Boolean)
       : [];
     paper.doi = extractDoi(paper.doi) || extractDoi(paper.paperUrl) || extractDoi(paper.sourceUrl);
+    paper.openalexId = normalizeOpenAlexId(paper.openalexId || paper.openAlexId || '');
     paper._isBlog = BLOG_SOURCE_SLUGS.has(String(paper.source || '').trim().toLowerCase())
       || ['blog', 'blog-post'].includes(String(paper.type || '').trim().toLowerCase());
     paper._titleTokens = tokenizeImportantWords(paper.title);
@@ -175,6 +195,45 @@
 
   function buildPaperDetailUrl(paper) {
     return `papers/paper.html?id=${encodeURIComponent(String(paper && paper.id || '').trim())}&from=papers`;
+  }
+
+  function buildRelatedPaperActions(paper) {
+    const title = String(paper && paper.title || '').trim() || 'this paper';
+    const titleEsc = escapeHtml(title);
+    const detailUrl = buildPaperDetailUrl(paper);
+    const paperHref = sanitizeExternalUrl(paper && paper.paperUrl || '');
+    const sourceHref = sanitizeExternalUrl(paper && paper.sourceUrl || '');
+    const paperIsPdf = isDirectPdfUrl(paperHref);
+    const sourceIsPdf = isDirectPdfUrl(sourceHref);
+    const directPdfHref = paperIsPdf
+      ? paperHref
+      : (sourceIsPdf ? sourceHref : '');
+    const publisherHref = paperHref && paperHref !== directPdfHref ? paperHref : '';
+    const sourceListingHref = sourceHref && sourceHref !== directPdfHref && sourceHref !== publisherHref ? sourceHref : '';
+    const doiHref = sanitizeExternalUrl(doiUrlFromValue(paper && paper.doi || ''));
+    const openAlexHref = normalizeOpenAlexId(paper && (paper.openalexId || paper.openAlexId) || '');
+
+    const actions = [
+      `<a href="${escapeHtml(detailUrl)}" class="link-btn" aria-label="Open library page for ${titleEsc}">Paper</a>`,
+    ];
+
+    if (directPdfHref) {
+      actions.push(`<a href="${escapeHtml(directPdfHref)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open PDF for ${titleEsc} (opens in new tab)">PDF</a>`);
+    }
+    if (publisherHref) {
+      actions.push(`<a href="${escapeHtml(publisherHref)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open publisher page for ${titleEsc} (opens in new tab)">Publisher</a>`);
+    }
+    if (sourceListingHref) {
+      actions.push(`<a href="${escapeHtml(sourceListingHref)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open source listing for ${titleEsc} (opens in new tab)">Source</a>`);
+    }
+    if (doiHref && doiHref !== publisherHref && doiHref !== sourceListingHref) {
+      actions.push(`<a href="${escapeHtml(doiHref)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open DOI record for ${titleEsc} (opens in new tab)">DOI</a>`);
+    }
+    if (openAlexHref) {
+      actions.push(`<a href="${escapeHtml(openAlexHref)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open OpenAlex record for ${titleEsc} (opens in new tab)">OpenAlex</a>`);
+    }
+
+    return actions.join('');
   }
 
   function buildPaperTitleVariants(title) {
@@ -368,12 +427,11 @@
       ? paper.authors.map((author) => String(author && author.name || '').trim()).filter(Boolean)
       : [];
     const detailUrl = buildPaperDetailUrl(paper);
-    const externalUrl = sanitizeExternalUrl(paper.paperUrl || paper.sourceUrl);
 
     return `
       <li class="talk-paper-list-item">
         <div class="talk-paper-title-row">
-          <a href="${detailUrl}" class="talk-paper-link">${escapeHtml(String(paper.title || '').trim())}</a>
+          <a href="${escapeHtml(detailUrl)}" class="talk-paper-link">${escapeHtml(String(paper.title || '').trim())}</a>
           ${paper.year ? `<span class="talk-paper-year">${escapeHtml(String(paper.year || '').trim())}</span>` : ''}
         </div>
         ${authors.length ? `<p class="talk-paper-authors">${authors.map((name) => escapeHtml(name)).join(', ')}</p>` : ''}
@@ -381,7 +439,9 @@
           <div class="talk-paper-reason-list">
             ${(entry.reasons || []).map((reason) => `<span class="detail-tag detail-tag--meta">${escapeHtml(reason)}</span>`).join('')}
           </div>
-          ${externalUrl ? `<a href="${escapeHtml(externalUrl)}" class="talk-paper-external-link" target="_blank" rel="noopener noreferrer">Publisher link</a>` : ''}
+        </div>
+        <div class="talk-paper-actions">
+          ${buildRelatedPaperActions(paper)}
         </div>
       </li>`;
   }

@@ -3671,7 +3671,6 @@ mark {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   gap: var(--space-2);
 }
 
@@ -3681,15 +3680,11 @@ mark {
   gap: var(--space-2);
 }
 
-.talk-paper-external-link {
-  color: var(--color-accent);
-  font-size: var(--font-size-sm);
-  text-decoration: none;
-}
-
-.talk-paper-external-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.talk-paper-actions {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
 }
 
 /* Related Talks */
