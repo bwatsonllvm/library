@@ -16,6 +16,7 @@ import re
 import sys
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 import zlib
 from pathlib import Path
@@ -196,7 +197,46 @@ def select_target_talks(all_talks: Iterable[dict], meetings: set[str], talk_ids:
     return selected
 
 
-def fetch_bytes(url: str, timeout: float) -> bytes:
+def resolve_local_slide_path(slides_url: str, local_devmtg_root: Path | None) -> Path | None:
+    if local_devmtg_root is None:
+        return None
+
+    raw = collapse_ws(slides_url)
+    if not raw:
+        return None
+
+    try:
+        parsed = urllib.parse.urlparse(raw)
+    except ValueError:
+        return None
+
+    url_path = collapse_ws(urllib.parse.unquote(parsed.path or ""))
+    if not url_path:
+        return None
+
+    marker = "/devmtg/"
+    if marker not in url_path:
+        return None
+
+    relative = url_path.split(marker, 1)[1].lstrip("/")
+    if not relative:
+        return None
+
+    root = local_devmtg_root.resolve()
+    candidate = (root / relative).resolve()
+    try:
+        candidate.relative_to(root)
+    except ValueError:
+        return None
+    if not candidate.is_file():
+        return None
+    return candidate
+
+
+def fetch_bytes(url: str, timeout: float, *, local_devmtg_root: Path | None = None) -> bytes:
+    local_path = resolve_local_slide_path(url, local_devmtg_root)
+    if local_path is not None:
+        return local_path.read_bytes()
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return response.read()
@@ -706,6 +746,7 @@ def generate_talk_artifact(
     fetch_pdf_references: bool,
     timeout: float,
     refresh_existing: bool,
+    local_devmtg_root: Path | None,
 ) -> dict:
     talks_map = dict(existing.get("talks") or {})
 
@@ -735,7 +776,7 @@ def generate_talk_artifact(
             continue
 
         try:
-            pdf_bytes = fetch_bytes(slides_url, timeout=timeout)
+            pdf_bytes = fetch_bytes(slides_url, timeout=timeout, local_devmtg_root=local_devmtg_root)
             pdf_text = extract_pdf_text(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_text, papers)
             talks_map[talk_id] = {
@@ -769,11 +810,13 @@ def main() -> int:
     parser.add_argument("--fetch-pdf-references", action="store_true")
     parser.add_argument("--refresh-existing", action="store_true")
     parser.add_argument("--timeout", type=float, default=20.0)
+    parser.add_argument("--local-devmtg-root", default="")
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
     output_path = (repo_root / args.output).resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    local_devmtg_root = Path(args.local_devmtg_root).resolve() if collapse_ws(args.local_devmtg_root) else None
 
     all_talks = load_event_bundles(repo_root)
     papers = load_papers(repo_root)
@@ -797,6 +840,7 @@ def main() -> int:
         fetch_pdf_references=args.fetch_pdf_references,
         timeout=args.timeout,
         refresh_existing=args.refresh_existing,
+        local_devmtg_root=local_devmtg_root,
     )
 
     output_path.write_text(json.dumps(artifact, indent=2, sort_keys=False) + "\n", encoding="utf-8")

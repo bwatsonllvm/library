@@ -16,6 +16,7 @@
 
   const BLOGS_PAGE_PATH = 'blogs/';
   const PAPERS_PAGE_PATH = 'papers/';
+  const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const PAPER_TO_TALK_REDIRECTS = Object.freeze({});
   const BLOG_HTML_ALLOWED_TAGS = new Set([
@@ -29,6 +30,8 @@
     'button', 'embed', 'form', 'iframe', 'input', 'link', 'meta', 'noscript', 'object', 'script',
     'select', 'style', 'textarea',
   ]);
+
+  let talkPaperLinkIndexPromise = null;
 
   function escapeHtml(value) {
     return String(value || '')
@@ -161,6 +164,18 @@
     return rawPapers.map(normalizePaperRecord).filter(Boolean);
   }
 
+  function normalizeTalks(rawTalks) {
+    if (typeof HubUtils.normalizeTalks === 'function') return HubUtils.normalizeTalks(rawTalks);
+    return Array.isArray(rawTalks) ? rawTalks : [];
+  }
+
+  function formatMeetingDate(value) {
+    if (typeof HubUtils.formatMeetingDateUniversal === 'function') {
+      return HubUtils.formatMeetingDateUniversal(value);
+    }
+    return String(value || '').trim();
+  }
+
   function getPaperTopics(paper, limit = Infinity) {
     if (typeof HubUtils.getPaperKeyTopics === 'function') {
       return HubUtils.getPaperKeyTopics(paper, limit);
@@ -251,6 +266,24 @@
   function doiUrlFromValue(doi) {
     const normalized = extractDoi(doi);
     return normalized ? `https://doi.org/${normalized}` : '';
+  }
+
+  async function loadTalkPaperLinkIndex() {
+    if (talkPaperLinkIndexPromise) return talkPaperLinkIndexPromise;
+
+    talkPaperLinkIndexPromise = (async () => {
+      try {
+        const response = await fetch(TALK_PAPER_LINKS_PATH, { cache: 'default' });
+        if (!response.ok) return { talks: {} };
+        const payload = await response.json();
+        if (!payload || typeof payload !== 'object') return { talks: {} };
+        return payload;
+      } catch {
+        return { talks: {} };
+      }
+    })();
+
+    return talkPaperLinkIndexPromise;
   }
 
   async function loadPaperDetailContextById(paperId) {
@@ -839,6 +872,158 @@
     return scored.slice(0, 6).map((entry) => entry.paper);
   }
 
+  function buildTalkDetailUrl(talk) {
+    return `talks/talk.html?id=${encodeURIComponent(String(talk && talk.id || '').trim())}`;
+  }
+
+  function getFeaturedTalkIdsForPaper(indexPayload, paper) {
+    const targetId = String(paper && paper.id || '').trim();
+    if (!targetId || !indexPayload || typeof indexPayload !== 'object') return [];
+
+    const talks = indexPayload.talks;
+    if (!talks || typeof talks !== 'object') return [];
+
+    const ids = [];
+    for (const [talkId, entry] of Object.entries(talks)) {
+      if (!talkId || !entry || typeof entry !== 'object') continue;
+      const slidePaperIds = Array.isArray(entry.slidePaperIds)
+        ? entry.slidePaperIds.map((value) => String(value || '').trim()).filter(Boolean)
+        : [];
+      if (slidePaperIds.includes(targetId)) ids.push(String(talkId).trim());
+    }
+    return [...new Set(ids.filter(Boolean))];
+  }
+
+  async function loadFeaturedTalksById(talkIds) {
+    const ids = Array.isArray(talkIds)
+      ? [...new Set(talkIds.map((value) => String(value || '').trim()).filter(Boolean))]
+      : [];
+    if (!ids.length || typeof window.loadTalkRecordById !== 'function') return [];
+
+    const talks = await Promise.all(ids.map(async (talkId) => {
+      try {
+        const payload = await window.loadTalkRecordById(talkId);
+        if (!payload || typeof payload !== 'object') return null;
+        const normalized = normalizeTalks([payload.talk]);
+        return normalized.length ? normalized[0] : null;
+      } catch {
+        return null;
+      }
+    }));
+
+    return talks
+      .filter(Boolean)
+      .sort((a, b) => {
+        const idDiff = String(b && b.id || '').localeCompare(String(a && a.id || ''));
+        if (idDiff !== 0) return idDiff;
+        return String(a && a.title || '').localeCompare(String(b && b.title || ''));
+      });
+  }
+
+  function renderFeaturedTalkSpeakers(talk, paper) {
+    const speakers = Array.isArray(talk && talk.speakers)
+      ? talk.speakers.map((speaker) => String(speaker && speaker.name || '').trim()).filter(Boolean)
+      : [];
+    if (!speakers.length) return '';
+
+    return `
+      <p class="paper-talk-speakers">
+        ${speakers.map((name) =>
+          `<a href="${buildSpeakerWorkUrl(name, paper)}" class="paper-talk-speaker-link" aria-label="View talks and papers by ${escapeHtml(name)}">${escapeHtml(name)}</a>`
+        ).join('<span class="speaker-btn-sep">, </span>')}
+      </p>`;
+  }
+
+  function buildFeaturedTalkActions(talk) {
+    const title = String(talk && talk.title || '').trim() || 'this talk';
+    const titleEsc = escapeHtml(title);
+    const talkUrl = buildTalkDetailUrl(talk);
+    const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl || '');
+    const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl || '');
+    const sourceUrl = sanitizeExternalUrl(talk && talk.sourceUrl || '');
+    const primaryDocLabel = String(talk && talk.category || '').trim().toLowerCase() === 'poster'
+      ? 'Poster'
+      : 'Slides';
+
+    const actions = [
+      `<a href="${escapeHtml(talkUrl)}" class="link-btn" aria-label="Open talk page for ${titleEsc}">Talk</a>`,
+    ];
+    if (slidesUrl) {
+      actions.push(`<a href="${escapeHtml(slidesUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(primaryDocLabel.toLowerCase())} for ${titleEsc} (opens in new tab)">${escapeHtml(primaryDocLabel)}</a>`);
+    }
+    if (videoUrl) {
+      actions.push(`<a href="${escapeHtml(videoUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Watch video for ${titleEsc} (opens in new tab)">Video</a>`);
+    }
+    if (sourceUrl) {
+      actions.push(`<a href="${escapeHtml(sourceUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open source listing for ${titleEsc} (opens in new tab)">Source</a>`);
+    }
+    return actions.join('');
+  }
+
+  function renderFeaturedTalkEntry(talk, paper) {
+    const title = String(talk && talk.title || '').trim();
+    const talkUrl = buildTalkDetailUrl(talk);
+    const meetingCode = String(talk && talk.meeting || '').trim();
+    const meetingDate = formatMeetingDate(talk && talk.meetingDate || '');
+    const meetingLocation = String(talk && talk.meetingLocation || '').trim();
+    const meetingName = String(talk && talk.meetingName || '').trim();
+    const meetingSummary = [meetingName, [meetingDate, meetingLocation].filter(Boolean).join(' · ')]
+      .filter(Boolean)
+      .join(' · ');
+
+    return `
+      <li class="paper-talk-list-item">
+        <div class="paper-talk-title-row">
+          <a href="${escapeHtml(talkUrl)}" class="paper-talk-link">${escapeHtml(title)}</a>
+          ${meetingCode ? `<span class="paper-talk-meeting">${escapeHtml(meetingCode)}</span>` : ''}
+        </div>
+        ${meetingSummary ? `<p class="paper-talk-meeting-details">${escapeHtml(meetingSummary)}</p>` : ''}
+        ${renderFeaturedTalkSpeakers(talk, paper)}
+        <div class="paper-talk-meta-row">
+          <div class="paper-talk-reason-list">
+            <span class="detail-tag detail-tag--meta">Mentioned in slides</span>
+          </div>
+        </div>
+        <div class="paper-talk-actions">
+          ${buildFeaturedTalkActions(talk)}
+        </div>
+      </li>`;
+  }
+
+  async function populateFeaturedTalks(paper) {
+    const section = document.getElementById('paper-featured-talks-section');
+    if (!section) return;
+
+    if (!paper || isBlogPaper(paper) || typeof window.loadTalkRecordById !== 'function') {
+      section.remove();
+      return;
+    }
+
+    try {
+      const indexPayload = await loadTalkPaperLinkIndex();
+      const talkIds = getFeaturedTalkIdsForPaper(indexPayload, paper);
+      if (!talkIds.length) {
+        section.remove();
+        return;
+      }
+
+      const talks = await loadFeaturedTalksById(talkIds);
+      if (!talks.length) {
+        section.remove();
+        return;
+      }
+
+      section.innerHTML = `
+        <div class="section-label" aria-hidden="true">Featured Talks</div>
+        <ul class="paper-talk-list">
+          ${talks.map((talk) => renderFeaturedTalkEntry(talk, paper)).join('')}
+        </ul>`;
+      section.setAttribute('aria-busy', 'false');
+    } catch {
+      section.remove();
+    }
+  }
+
   function renderRelatedCard(paper) {
     const blogEntry = isBlogPaper(paper);
     const listingPath = getListingPathForPaper(paper);
@@ -975,6 +1160,12 @@
           </div>
         </section>
 
+        ${!blogEntry ? `
+        <section class="paper-talk-links-section" id="paper-featured-talks-section" aria-label="Featured talks" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Featured Talks</div>
+          <p class="paper-talk-links-loading">Loading talks that reference this paper…</p>
+        </section>` : ''}
+
         ${topicsHtml}
       </div>
 
@@ -1051,6 +1242,7 @@
     document.title = `${paper.title} — LLVM Research Library`;
     updateSeo(paper);
     renderPaperDetail(paper, context.relatedPool);
+    void populateFeaturedTalks(paper);
     setIssueContextForPaper(paper);
     initShareMenu();
   }
