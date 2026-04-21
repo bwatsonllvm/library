@@ -1,0 +1,419 @@
+{
+  "videos": {
+    "Y4SvqTtOIDk": {
+      "videoId": "Y4SvqTtOIDk",
+      "videoUrl": "https://www.youtube.com/watch?v=Y4SvqTtOIDk",
+      "title": "MLIR Tutorial",
+      "rawDescription": "https://llvm.org/devmtg/2020-09/\n\u2014\nMLIR Tutorial - Mehdi Amini, River Riddle\n\nSlides: https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf\n\u2014\nMLIR is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to LLVM. It aims at generalizing the success of LLVM\u2019s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning, to HW design. More LLVM sub-projects are using MLIR: flang has already been merged and is using MLIR for FIR, its own high-level IR.\n\nTwo new projects are proposed for incubation in LLVM mlir-npcomp, a numpy compiler ; and CIRCT, which is applying MLIR to the domain of hardware design tools.\n\n\u00a0\nIn this tutorial, we will explain how the few core concepts present in MLIR can be combined to represent and transform various IRs, including LLVM IR itself, by demonstrating the development of an optimizing compiler for a custom DSL step by step. The tutorial should be sufficient for the developers of compilers, IRs and similar tools to start using MLIR to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. We will provide an overview of MLIR ecosystem and related efforts, building the analogy with existing LLVM subsystems and frequently discussed LLVM extension proposals, e.g. loop optimizations or GPU-specific abstractions.\n\u2014",
+      "fetchedAt": "2026-04-21T23:53:42Z"
+    },
+    "0bxyZDGs-aA": {
+      "videoId": "0bxyZDGs-aA",
+      "videoUrl": "https://www.youtube.com/watch?v=0bxyZDGs-aA",
+      "title": "LLVM Compiler Infrastructure in HPC Workshop Keynote: MLIR: an Agile Infrastructure for Building a Compiler Ecosystem (slides",
+      "rawDescription": "https://llvm-hpc-2020-workshop.github.io/\n----\nKeynote: MLIR: an Agile Infrastructure for Building a Compiler Ecosystem\n\nPresentation by Mehdi Amini, 2020-11-12.\n----\nSlides: https://llvm-hpc-2020-workshop.github.io/presentations/llvmhpc2020-amini.pdf",
+      "fetchedAt": "2026-04-21T23:53:42Z"
+    },
+    "Hx3A0A2lM84": {
+      "videoId": "Hx3A0A2lM84",
+      "videoUrl": "https://www.youtube.com/watch?v=Hx3A0A2lM84&list=PLQY2H8rRoyvzuJw20FG82Lgm2SZjTdIXU&index=12",
+      "title": "MLIR: Accelerating TF with compilers",
+      "rawDescription": "This talk will describe MLIR - machine learning compiler infrastructure for TensorFlow and explain how it helps TensorFlow to scale faster to meet the needs of rapidly evolving machine learning software and hardware.\n\nSpeaker:\nJacques Pienaar - Software Engineer\n\nLinks:\nMLIR project site (documentation, tutorial, links to source code, discussion forums) \u2192 https://goo.gle/3aKHfcC\nTensorFlow MLIR SIG \u2192 https://goo.gle/2OfQZBU\n\nWatch all TensorFlow Dev Summit 2020 sessions \u2192 https://goo.gle/TFDS20\nSubscribe to the TensorFlow YouTube channel! \u2192 https://goo.gle/TensorFlow\n\n\nevent: TensorFlow Dev Summit 2020; re_ty: Publish; product: TensorFlow - MLIR; fullname: Jacques Pienaar;",
+      "fetchedAt": "2026-04-21T23:53:43Z"
+    },
+    "QYV0Se167hM": {
+      "videoId": "QYV0Se167hM",
+      "videoUrl": "https://youtu.be/QYV0Se167hM",
+      "title": "MLIR: Accelerating AI",
+      "rawDescription": "Subscribe to O'Reilly on YouTube: http://goo.gl/n3QSYi\n\nFollow O'Reilly on: \nTwitter: http://twitter.com/oreillymedia\nFacebook: http://facebook.com/OReilly\nInstagram: https://www.instagram.com/oreillymedia\nLinkedIn: https://www.linkedin.com/company-beta/8459/",
+      "fetchedAt": "2026-04-21T23:53:44Z"
+    },
+    "ff3ngdvUang": {
+      "videoId": "ff3ngdvUang",
+      "videoUrl": "https://youtu.be/ff3ngdvUang",
+      "title": "An MLIR Dialect for High-Level Optimization of Fortran",
+      "rawDescription": "http://llvm.org/devmtg/2019-10/\n\u2014\nAn MLIR Dialect for High-Level Optimization of Fortran  - Eric Schweitz\n\nSlides: Coming soon\n\u2014\nThe LLVM-based Flang project is actively developing a standards-compliant compiler for Fortran's \u201dthe world's\u2122s first high-level programming language and still an important language for science and engineering today. While Fortran's core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. The Flang project has been exploring the use of MLIR, specifically the definition of Flang's Fortran IR (FIR) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of Flang. This talk will explore what the FIR dialect is, how it is built upon and uses other aspects of MLIR, as well as some of the high-level optimizations achieved.\n\u2014\nVideos Filmed & Edited by Bash Films: http://www.BashFilms.com",
+      "fetchedAt": "2026-04-21T23:53:45Z"
+    },
+    "1VOWzfULX2w": {
+      "videoId": "1VOWzfULX2w",
+      "videoUrl": "https://youtu.be/1VOWzfULX2w",
+      "title": "Swift as syntactic sugar for MLIR",
+      "rawDescription": "ai.bythebay.io Nov 2025, Oakland, full-stack AI conference Scale By the Bay 2019 is held on November 13-15 in sunny Oakland, California, on the shores of Lake Merritt: https://scale.bythebay.io.  Join us!\n-----\n\n[Swift fo TensorFlow is covered in several talks at https://scale.bythebay.io, Bay Area, November 14-15, 2019.]\n\nSwift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. The two options today are LLVM (there's a running joke that Swift is just syntactic sugar for LLVM) and TensorFlow graphs (which is the contribution of early versions of Swift for TensorFlow).\n\nMulti-Level Intermediate Representation (MLIR) is a generalization of both the LLVM IR and TensorFlow graphs to represent arbitrary computations at multiple levels of abstraction. This enables domain-specific optimizations and code generation (e.g. for CPUs, GPUs, TPUs, and other hardware targets).\n\nIn the talk, we'll present some thoughts on how Swift could compile down to MLIR and show a few demos of prototype technologies that we've developed.\n\nEugene Burmako (burmako@google.com) is working on Swift for TensorFlow at Google AI. Before joining Google, he made major contributions to Scala at EPFL and Twitter, founding Reasonable Scala compiler, Scalameta and Scala macros. Eugene loves compilers, and his mission is to change the world with compiler technology.\n\nAlex Suhan (asuhan@google.com) is also working on Swift for TensorFlow at Google AI. He has been using LLVM to accelerate machine learning and data analytics workloads for the last five years. Alex enjoys working at the interface between software and various hardware accelerators.\n\nOur work is the result of discussions and collaboration with many folks - our colleagues from Google, the Swift compiler team from Apple, as well as our community members, including Jeremy Howard from http://fast.ai. We're very grateful for everyone's input and contributions!",
+      "fetchedAt": "2026-04-21T23:53:45Z"
+    },
+    "M6hl2si20NE": {
+      "videoId": "M6hl2si20NE",
+      "videoUrl": "https://youtu.be/M6hl2si20NE",
+      "title": "Targeting Accelerators with MLIR.jl",
+      "rawDescription": "MLIR is a flexible compiler infrastructure with an open ecosystem of dialects, built for a world of increasingly heterogeneous hardware. With its support for metaprogramming and extensible JIT compiler, Julia is well-positioned as a frontend language for the MLIR stack.",
+      "fetchedAt": "2026-04-21T23:53:46Z"
+    },
+    "R5LLIj8EMxw": {
+      "videoId": "R5LLIj8EMxw",
+      "videoUrl": "https://youtu.be/R5LLIj8EMxw",
+      "title": "Inside TensorFlow: MLIR for TF developers",
+      "rawDescription": "Take an inside look into the TensorFlow team\u2019s own internal training sessions--technical deep dives into TensorFlow by the very people who are building it. On this episode of Inside TensorFlow, Software Engineer Jacques Pienaar discusses MLIR: multi-level intermediate representation compiler infrastructure for TensorFlow developers. Let us know what you think about this presentation in the comments below!\n\nLinks:\nMLIR on GitHub \u2192 https://goo.gle/2NM2AcV\nMLIR SIG \u2192 https://goo.gle/2OfQZBU\nTF-Lite Converter \u2192 https://goo.gle/2CLyekx\n\nWatch more from Inside TensorFlow Playlist \u2192 https://goo.gle/31Ge5GF\nSubscribe to the TensorFlow channel \u2192 https://goo.gle/TensorFlow",
+      "fetchedAt": "2026-04-21T23:53:47Z"
+    },
+    "Cl5SgDxvZ8w": {
+      "videoId": "Cl5SgDxvZ8w",
+      "videoUrl": "https://youtu.be/Cl5SgDxvZ8w",
+      "title": "Compiling Ruby with MLIR",
+      "rawDescription": "This is a recording of my talk at LLVM Social Berlin #20.\n\nThe talk presents MLIR basics by building a very simplifiied version of AOT (ahead of time) compiler for mruby.\n\nThe end goal is to build a fullly functional compiler that is \"runtime-compatible\" with mruby and integrate it into https://dragonruby.org\n\nCode https://github.com/AlexDenisov/mlir-tutorial\nMeetup page https://www.meetup.com/llvm-social-berlin/events/287586655/\n\nThere is a series of blog-posts about building a n mruby compiler with MLIR: https://lowlevelbits.org/compiling-ruby-part-0/\n\nP.S. There is a slight mismatch between the screen recording and voice over, sorry about that \ud83d\ude03",
+      "fetchedAt": "2026-04-21T23:53:48Z"
+    },
+    "PqlnAZRnlI0": {
+      "videoId": "PqlnAZRnlI0",
+      "videoUrl": "https://youtu.be/PqlnAZRnlI0",
+      "title": "2025-08-14: Discussion on the next steps on Properties slides 1 and slides 2",
+      "rawDescription": "In this meeting we're discussing the next steps on the migration to properties.\nDiscuss on LLVM forums: https://discourse.llvm.org/t/mlir-open-meeting-properties-design-discussion-and-next-steps/87774\n\nSlides: \n- https://mlir.llvm.org/OpenMeetings/2025-08-14-Properties1.pdf\n- https://mlir.llvm.org/OpenMeetings/2025-08-14-Properties2.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:49Z"
+    },
+    "emyOylywgs0": {
+      "videoId": "emyOylywgs0",
+      "videoUrl": "https://youtu.be/emyOylywgs0",
+      "title": "2025-06-26: WebAssembly Dialect slides",
+      "rawDescription": "An open design meeting on the proposed WebAssembly Dialect for MLIR.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2025-06-26-WASM-Dialect.pdf\n\nDiscuss on Discourse :https://discourse.llvm.org/t/rfc-mlir-dialect-for-webassembly/86758\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:50Z"
+    },
+    "CyOtFU6kzDs": {
+      "videoId": "CyOtFU6kzDs",
+      "videoUrl": "https://youtu.be/CyOtFU6kzDs",
+      "title": "2025-06-12: Rank-0 Vectors slides",
+      "rawDescription": "An open design meeting on Rank-0 vector design in MLIR.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2025-06-12-Rank0-Vectors.pdf\n\nSee related discussion on Discourse: https://discourse.llvm.org/t/tcdg-tensor-compiler-design-group-meeting-notes-2025-05-28/86583\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:51Z"
+    },
+    "dVxCynKK1AM": {
+      "videoId": "dVxCynKK1AM",
+      "videoUrl": "https://youtu.be/dVxCynKK1AM",
+      "title": "2025-04-03: Upstreaming SMT and Verif Dialects (cont'd) recording",
+      "rawDescription": "See the part 1 here: https://youtu.be/a9fRzBWI0AE.\n\nA continued open design meeting on SMT (satisfiability modulo theories) and Verif dialects available in #CIRCT proposed for upstreaming to MLIR.\n\nSee related discussion on Discourse: https://discourse.llvm.org/t/rfc-upstreaming-circts-verif-and-smt-dialects/85299\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:52Z"
+    },
+    "a9fRzBWI0AE": {
+      "videoId": "a9fRzBWI0AE",
+      "videoUrl": "https://youtu.be/a9fRzBWI0AE",
+      "title": "2025-03-27: Upstreaming SMT and Verif Dialects recording",
+      "rawDescription": "An open design meeting on SMT (satisfiability modulo theories) and Verif dialects available in #CIRCT proposed for upstreaming to MLIR.\n\nSee related discussion on Discourse: https://discourse.llvm.org/t/rfc-upstreaming-circts-verif-and-smt-dialects/85299\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:53Z"
+    },
+    "-qoMMrlYvGs": {
+      "videoId": "-qoMMrlYvGs",
+      "videoUrl": "https://youtu.be/-qoMMrlYvGs",
+      "title": "2024-08-22: Upstream SPIR-V Conversion slides",
+      "rawDescription": "This is a presention about a generic MLIR lowering pass to SPIR-V, with the goal of having a better test coverage of SPIR-V compilation upstream, and enabling writing simple kernels by hand. The presentation includes a breakdown of the stages (i.e., function signature conversion, vector unrolling, dialect conversions, etc.), IR examples, limitations and future plans.\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-22-8-2024-mlir-spir-v-lowering-pass/80796\n\nSlides: https://mlir.llvm.org/OpenMeetings/2024-08-22-Upstream-SPIRV-Conversion.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:54Z"
+    },
+    "lOK6JPuVFYg": {
+      "videoId": "lOK6JPuVFYg",
+      "videoUrl": "https://youtu.be/lOK6JPuVFYg",
+      "title": "2024-02-15: OpenMP GPU target offload slides",
+      "rawDescription": "In this meeting, Fabian led a discussion on the [RFC] about adding support for OpenMP GPU target offload and the on-going work on revamping our offloading infrastructure in MLIR.\n\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-2-15-2024-discussion-on-openmp-gpu-target-offloading-infrastructure/76970\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-12-21-PyDSL.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:55Z"
+    },
+    "csWPOQfgLMo": {
+      "videoId": "csWPOQfgLMo",
+      "videoUrl": "https://youtu.be/csWPOQfgLMo",
+      "title": "2023-12-14: Vector dialect, reshape, and handling of unit dimensions slides",
+      "rawDescription": "This is a design discussion on the topic of handling reshapes in the vector dialect.\n\nHere is the high-level agenda:\n\n- Formalizing the definition of a virtual vector\n- How to position various reshape operations (collapse/expand/squeeze/unsqueeze/shape_cast) within the dialect\n- How do we expect to target SPIR-V/LLVM/Scalable Vectors without each being so sensitive to small canonicalization/pattern changes\n- How does this all relate to vector layouts and/or SIMT\n\nThis could turn into a separate discussion related to the earlier RFC on layouts, but it seemed like there was interest in discussing layout as a part of this thread as well.\n\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-12-14-2023-discussion-on-improving-handling-of-unit-dimensions-in-the-vector-dialect/75683\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-12-14-Vector-reshapes.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:56Z"
+    },
+    "xNe9fPvU7-U": {
+      "videoId": "xNe9fPvU7-U",
+      "videoUrl": "https://youtu.be/xNe9fPvU7-U",
+      "title": "2023-11-16: Targeting H100 with NVGPU and NVVM Dialects slides",
+      "rawDescription": "In this talk, Guray presents the developments within the NVGPU and NVVM dialects to target H100.\n\nTo unlock NVIDIA H100 full potential, leveraging new features is essential. The focus will be on illustrating the implementation of key elements such as the Tensor Memory Accelerator (TMA), warp-group level tensor core instructions, and transactional barriers.\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-11-15-2023-targeting-h100-with-nvgpu-and-nvvm-dialects/74972\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-11-16-Targeting_H100_in_MLIR_ODM.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:57Z"
+    },
+    "VB6Ec3RnMEE": {
+      "videoId": "VB6Ec3RnMEE",
+      "videoUrl": "https://youtu.be/VB6Ec3RnMEE",
+      "title": "2023-11-02: A MPI Dialect Proposal slides",
+      "rawDescription": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads.\n\nThis presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-11-2-2023-proposal-for-a-mpi-dialect/74602\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-11-02-MPI-dialect.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:57Z"
+    },
+    "wsKP-guEB5s": {
+      "videoId": "wsKP-guEB5s",
+      "videoUrl": "https://youtu.be/wsKP-guEB5s",
+      "title": "2023-10-26: A Polynomial Dialect Proposal slides",
+      "rawDescription": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891\n\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-10-26-2023-a-polynomial-dialect-proposal/74372\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-10-26-Polynomial-dialect.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:58Z"
+    },
+    "vL6VNbJkc6Q": {
+      "videoId": "vL6VNbJkc6Q",
+      "videoUrl": "https://youtu.be/vL6VNbJkc6Q",
+      "title": "2023-09-28: Sharding Framework for Device Mesh slides",
+      "rawDescription": "Nowadays, a robust sharding infrastructure is imperative for distributed computing, in particular for ML and Large Language Models, regardless of whether sharding is determined manually or automatically. Meanwhile, mesh-like deep learning clusters are being extensively employed. For instance, the TPU 3D torus is explicitly defined as a mesh-like cluster, and several DGX boxes could be regarded as a 2-D mesh-like cluster.\n\nThe motivation of this presentation is to propose the design of the Mesh dialect, aiming to represent the mesh cluster and the sharding, along with collective communication operations on it. Additionally, it will outline a typical workflow for undertaking sharding annotation from frontends, performing sharding propagation and optimization, and converting the IR to SPMD format.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-9-28-2023-rfc-sharding-framework-design-for-device-mesh/73695\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-09-28-Sharding-Framework-Design-for-Device-Mesh.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:59Z"
+    },
+    "eFNS4ubazO4": {
+      "videoId": "eFNS4ubazO4",
+      "videoUrl": "https://youtu.be/eFNS4ubazO4",
+      "title": "2023-07-13: mlir-query: Tool to query MLIR IR dynamically slides",
+      "rawDescription": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as \u201cisConstant\u201d. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-7-13-2023-mlir-query-tool-to-query-mlir-ir-dynamically/71993\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:53:59Z"
+    },
+    "0Uc4RTJ8QI4": {
+      "videoId": "0Uc4RTJ8QI4",
+      "videoUrl": "https://youtu.be/0Uc4RTJ8QI4",
+      "title": "2023-07-06: RFC on Pattern Matching for Library and Acceleration Instruction Rewriting slides",
+      "rawDescription": "In this presentation, Vinicius Espindola presents an approach to Pattern Matching for Library and Acceleration Instruction Rewriting. The motivation for this work is to support modern ISA extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. Although recent works have proposed different ways of raising code abstraction, they rely on specialized languages, compiler recompilation, or in-depth dialect knowledge. With this in mind, we developed Source-based Matching and Rewriting (SMR), an MLIR based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-7-6-2023-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting/71844\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-07-06-SMR.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:01Z"
+    },
+    "jrniGW_Hzno": {
+      "videoId": "jrniGW_Hzno",
+      "videoUrl": "https://youtu.be/jrniGW_Hzno",
+      "title": "2023-06-22: Targeting ARM SME from MLIR and SME Dialect slides part 1",
+      "rawDescription": "This is a review and discussion of the RFC on creating a ArmSME Dialect. We will first have an introduction into Arm\u2019s Scalable Matrix Extension, including the MLIR codegen perspective, the work done so far to target SME from MLIR, and discuss what\u2019s the best way to target \u201cCPU accelerators\u201d from MLIR. Then we will have a second part to detail the proposal for this dialect.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-6-22-2023-rfc-on-armsme-dialect/71515\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-06-08-Numba.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:02Z"
+    },
+    "BwrQkHmp1Ss": {
+      "videoId": "BwrQkHmp1Ss",
+      "videoUrl": "https://youtu.be/BwrQkHmp1Ss",
+      "title": "2023-05-25: Distinct Attributes: Modeling LLVM's distinct metadata in MLIR slides",
+      "rawDescription": "In this session, Tobias Gysi introduces the problem of modeling LLVM disctinct metadata in MLIR and explore various design options, before discussing collectively the tradeoffs. \n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-5-24-2023-rfc-discussion-about-distinct-attribute-in-mlir/70856\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-05-25-Distinct_Attributes.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:02Z"
+    },
+    "Z8knnMYRPx0": {
+      "videoId": "Z8knnMYRPx0",
+      "videoUrl": "https://youtu.be/Z8knnMYRPx0",
+      "title": "2023-03-23: Nelli, a lightweight, Pythonic, frontend for MLIR slides",
+      "rawDescription": "In this talk, Maksim Levental presents Nelli: a Python embedded domain-specific language for emitting MLIR. It builds on top of existing MLIR Python bindings to map Python primitives (such as if s, for s, and class es) to various MLIR dialects. The foremost goal of Nelli is to make MLIR more ergonomic to use and thereby more accessible. A secondary goal is to enable compiler engineers to easily write \u201cmicro-kernels\u201d that are performant and compatible with various MLIR dialects. Nelli realizes these aims by remaining \u201cPythonic\u201d while preserving the semantics of MLIR (vis-a-vis the in-tree Python bindings).\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-3-23-2023-nelli-a-python-embedded-domain-specific-language-for-emitting-mlir/69465\n\nSlides: https://mlir.llvm.org/OpenMeetings/OpenMeetings/2023-03-23-Nelli.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:04Z"
+    },
+    "4qJanPAMUBs": {
+      "videoId": "4qJanPAMUBs",
+      "videoUrl": "https://youtu.be/4qJanPAMUBs",
+      "title": "2023-03-09: Integrating Convolution Optimization into MLIR to Improve Performance Beyond Im2Col+GEMM slides",
+      "rawDescription": "Convolution is one of the most common linear algebra operations for machine-learning applications. With the increasingly important compiler integration into such frameworks, improving performance in code-generated implementations of convolution is key for the future. In this talk, Victor Ferrari (UNICAMP) presents a new convolution approach for MLIR which improves performance when compared to the traditional Im2Col + GEMM method used in the linalg dialect and many other places.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-3-9-2023-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm/69018\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-03-09-Convolution-Optimization.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/\n\n0:00 Introduction\n4:41 Model Inference Results\n10:35 Optimizing Convolutions for CPUs\n14:05 Optimizing Convolutions in MLIR\n16:30 Current Compilation Flow\n23:57 Convolution Slicing Analysis (CSA)\n32:12 Optimized Micro-Kernel\n35:47 Micro-Kernel: access pattern\n40:02 Useful Observation\n46:03 Experimental Setup\n49:07 Packing Improvements\n49:46 Next Steps (Macro-Kernel Lowering)\n51:56 A little bit of code navigation\n58:05 Next Steps (Micro-Kernel Lowering)",
+      "fetchedAt": "2026-04-21T23:54:05Z"
+    },
+    "ayQSyekVa3c": {
+      "videoId": "ayQSyekVa3c",
+      "videoUrl": "https://youtu.be/ayQSyekVa3c",
+      "title": "2023-02-23: MLIR Actions: Tracing and Debugging MLIR-based Compilers slides",
+      "rawDescription": "In this presentation, Mehdi Amini presents the new \"Action\" framework to trace and debug MLIR-based compiler.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-23-2023-mlir-actions-tracing-and-debugging-mlir-based-compilers/68680\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-02-23-Actions.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:06Z"
+    },
+    "7ofnlCFzlqg": {
+      "videoId": "7ofnlCFzlqg",
+      "videoUrl": "https://youtu.be/7ofnlCFzlqg",
+      "title": "2023-02-09: Deep Dive on MLIR Internals, Operation&Attribute, towards Properties slides",
+      "rawDescription": "In this presentation, Mehdi AMINI will introduce some of the nitty-gritty aspects of MLIR internal core data-structures. If you ever wondered what happens when you create an Operation or an Attribute in MLIR, this may be interesting! \nThen we introduce Operation Properties as a new concept to potentially replace inherent Attributes on Operation. \nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297\n\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-02-09-Properties.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:07Z"
+    },
+    "j0xAlkvvEEg": {
+      "videoId": "j0xAlkvvEEg",
+      "videoUrl": "https://youtu.be/j0xAlkvvEEg",
+      "title": "2023-01-26: Controllable Transformations in MLIR",
+      "rawDescription": "Alex Zinenko discusses the transform dialect and related infrastructure for precise control of compiler transformations, particularly useful for code generation. Numerous high-performance code generators rely on explicit or implicit schedules that describe how the program is to be run separately from the program itself, including Halide, TVM and Rise. The transform dialect approach brings the notion of schedules to the MLIR ecosystem and connects it to code generation for structured ops, bufferization and vectorizaton. It allows for code generation heuristics to be externalized (e.g., stored and shipped as IR or bytecode) or generated by third-party tools. It also inspired the extension of the core infrastructure, in particular dialect extensions, and more variants of pattern rewriting. This talk discusses the current state of the transform dialect infrastructure, its evolution since the original RFC, and the expected longer-term effects on MLIR-based compiler construction.\n\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-01-26-Controllable-transformations.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:08Z"
+    },
+    "WulQdjPy8DQ": {
+      "videoId": "WulQdjPy8DQ",
+      "videoUrl": "https://youtu.be/WulQdjPy8DQ",
+      "title": "2022-11-03: Poison Semantics in MLIR",
+      "rawDescription": "In this MLIR Open Meeting, we discussed the RFC about Poison Semantics in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-11-03-Poison-Semantics-For-MLIR.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:08Z"
+    },
+    "SlCXx5IFV40": {
+      "videoId": "SlCXx5IFV40",
+      "videoUrl": "https://youtu.be/SlCXx5IFV40",
+      "title": "2022-06-02: IRDL, a dialect to represent IR definitions",
+      "rawDescription": "In this meeting, Mathieu Fehr presents IRDL,  a dialect to represent IR definitions.\n\nIRDL can represent types, attributes, and operations in a similar manner than TableGen, and register them at runtime without having to compile to C++. IRDL also compiles to IRDL-SSA, which is an SSA-based representation of dialect definitions that are easier to generate and modify. The hope is that IRDL and IRDL-SSA will allow users to more easily define dialects from other languages and projects, as well as to more easily reason about the dialect definitions.\n\nMore info on: https://discourse.llvm.org/t/open-mlir-meeting-6-2-2022-irdl-a-dialect-to-represent-ir-definitions/62885\nSlides: https://mlir.llvm.org/OpenMeetings/2022-06-02-IRDL-dialect-to-represent-IR-definitions.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:09Z"
+    },
+    "A19Qp6kcFNM": {
+      "videoId": "A19Qp6kcFNM",
+      "videoUrl": "https://youtu.be/A19Qp6kcFNM",
+      "title": "2022-03-17: Interfaces and dialects for precise IR transformation control",
+      "rawDescription": "In this meeting, Alex Zinenko presents a mechanism for more precise control over IR transformation by reifying the sequence of IR transformation instructions as more IR. The simplest way to use such Transform IR operations is to create a \u201cschedule interpreter\u201d that calls \u201capply\u201d following some predefined rules, e.g., sequentially. This is similar to the approach adopted by Halide, TVM, etc.\n\nMore info on: https://discourse.llvm.org/t/rfc-interfaces-and-dialects-for-precise-ir-transformation-control/60927\nSlides: https://mlir.llvm.org/OpenMeetings/2022-03-17-Transform_Interfaces.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:10Z"
+    },
+    "koxh9NuxIDM": {
+      "videoId": "koxh9NuxIDM",
+      "videoUrl": "https://youtu.be/koxh9NuxIDM",
+      "title": "2022-01-27: PyTACO",
+      "rawDescription": "Bixia Zheng\u200e will talk about the MLIR-PyTACO bridge, which connects the PyTACO DSL to the MLIR sparse compiler.\nSee the earlier 2021 LLVM Dev Presentation for some background on the topic: https://youtu.be/x-nHc3hBxHM\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-02-10-PyTACO.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:11Z"
+    },
+    "A805W2KSCxQ": {
+      "videoId": "A805W2KSCxQ",
+      "videoUrl": "https://youtu.be/A805W2KSCxQ",
+      "title": "2022-01-27: Anatomy of Linalg.generic",
+      "rawDescription": "Yi Zhang presents the \u201cAnatomy of a Linalg Op\u201d, a nice introduction to Linalg and Linalg.generic concepts.\n\nMore info: https://llvm.discourse.group/t/open-mlir-meeting-1-27-2022-intro-beginner-session-anatomy-of-a-linalg-op/6028\nLinalg doc: https://mlir.llvm.org/docs/Dialects/Linalg/\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-01-27-Intro-to-Linalg.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:12Z"
+    },
+    "TXEo59CYS9A": {
+      "videoId": "TXEo59CYS9A",
+      "videoUrl": "https://youtu.be/TXEo59CYS9A",
+      "title": "2022-01-13: One-Shot Function Bufferization of Tensor Programs",
+      "rawDescription": "In this talk, Matthias Springer will give an overview of the new one-shot bufferization, how to use it, and how it can be extended to support new ops. Finally, he will also discuss plans for unifying both bufferization solutions.\nMore complete description: https://llvm.discourse.group/t/open-mlir-meeting-1-13-2021-one-shot-function-bufferization-of-tensor-programs/5197\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-01-13-One-Shot-Bufferization.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:13Z"
+    },
+    "NCMme4H_HYQ": {
+      "videoId": "NCMme4H_HYQ",
+      "videoUrl": "https://youtu.be/NCMme4H_HYQ",
+      "title": "2021-12-02: End-to-end flow for ML Compilation; slides",
+      "rawDescription": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf\n\nAt the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We\u2019ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:14Z"
+    },
+    "T0yz4SqG5nc": {
+      "videoId": "T0yz4SqG5nc",
+      "videoUrl": "https://youtu.be/T0yz4SqG5nc",
+      "title": "2021-11-04: PDLL: a Frontend for PDL",
+      "rawDescription": "This presentation assumes some background on PDL, see previous talks on this topic on: https://mlir.llvm.org/talks/\n\n- 2021-04-15: Pattern Descriptor Language\n- 2019-12-19: Interpreted Pattern Match Execution\n\nThis is a modern take on providing a declarative rewrite language specifically designed and tailored for MLIR. It\u2019s design and structure are heavily influenced by MLIR constructs, and it also boasts modern tooling (code completion, go-to-definition, etc.) that developers except from a programming language. We\u2019ll give an introduction to the language, and gather community feedback on its design and direction before a formal RFC.\n\nSee this Discourse thread for more info: https://llvm.discourse.group/t/open-mlir-meeting-11-04-2021-new-declarative-pattern-rewrite-frontend-targeting-pdl/4666\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-11-04-PDLL-Pattern-Frontend-Language.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:15Z"
+    },
+    "B5hM0ijowOM": {
+      "videoId": "B5hM0ijowOM",
+      "videoUrl": "https://youtu.be/B5hM0ijowOM",
+      "title": "2021-09-09: An ML-Driven Autoconfigurator for Sparse Tensor Kernels in MLIR",
+      "rawDescription": "Gus Smith presents the results of his work on \u201cML-Driven Auto-Configurator for Sparse Tensor Kernels in MLIR\u201d.\n\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-09-09-ML-Driven-Autoconfigurator-for-Sparse-Tensor-Kernels.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:16Z"
+    },
+    "XEfkPEUw-08": {
+      "videoId": "XEfkPEUw-08",
+      "videoUrl": "https://youtu.be/XEfkPEUw-08",
+      "title": "2021-08-26: High Performance GPU Tensor CoreCode Generation for Matmul Using MLIR",
+      "rawDescription": "Discussion Thread on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-8-26-2021-high-performance-code-generation-for-gpu-tensor-cores/4173/\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-08-26-High-Performance-GPU-Tensor-CoreCode-Generation-for-Matmul-Using-MLIR.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:17Z"
+    },
+    "FEXab1sgZLA": {
+      "videoId": "FEXab1sgZLA",
+      "videoUrl": "https://youtu.be/FEXab1sgZLA",
+      "title": "2021-07-22: MLIR data visualization using PassInstrumentation",
+      "rawDescription": "In this talk, Scott Todd presents his work on MLIR data visualization using PassInstrumentation\nand discuss possible integration upstream and future direction for this kind of tooling.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-07-22-MLIR-data-visualization.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:18Z"
+    },
+    "GkorNMHPFPI": {
+      "videoId": "GkorNMHPFPI",
+      "videoUrl": "https://youtu.be/GkorNMHPFPI",
+      "title": "2021-07-15: From MHLO To Linalg in IREE",
+      "rawDescription": "Initially IREE used MHLO dialect as the input dialect for its compilation stack. Over time it became apparent that MHLO is at a higher level abstraction than what is needed within IREEs core compilation stack. As a result, the IREE core compilation stack was moved to use Linalg on Tensors as its input dialect. In this talk, Mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in IREE as well as Linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-07-25-From-MHLO-To-Linalg-in-IREE.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:18Z"
+    },
+    "hqcM6fJWntM": {
+      "videoId": "hqcM6fJWntM",
+      "videoUrl": "https://www.youtube.com/watch?v=hqcM6fJWntM",
+      "title": "2021-06-24: Typedefs in MLIR",
+      "rawDescription": "Mike Urbach explored how to model \"typedef\" in MLIR in the context of emitting nicer and more readable Verilog in CIRCT (https://circt.llvm.org). This meeting combine a presentation and a community discussion on how we could support this better in MLIR.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-06-24-Typedefs-in-MLIR.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:19Z"
+    },
+    "bxFpvjUO288": {
+      "videoId": "bxFpvjUO288",
+      "videoUrl": "https://youtu.be/bxFpvjUO288",
+      "title": "2021-06-17: Defining operations, types, attributes, and dialects at runtime",
+      "rawDescription": "Mathieu Fehr presents a new way to define operations, types, attributes, and dialects, all at runtime! This should also allow users to also extend existing dialects with new operations and types, as well as defining them in other languages, for instance Python with the right Python API.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-06-17-Dynamic-Dialects.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:20Z"
+    },
+    "HZx1Wal3loA": {
+      "videoId": "HZx1Wal3loA",
+      "videoUrl": "https://youtu.be/HZx1Wal3loA",
+      "title": "2021-06-10: MLIR Language Server (Modern IDE features for .mlir files)",
+      "rawDescription": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-06-10-Language-Server.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:21Z"
+    },
+    "XKY4LLBwmmg": {
+      "videoId": "XKY4LLBwmmg",
+      "videoUrl": "https://youtu.be/XKY4LLBwmmg",
+      "title": "2025-04-10: Inet: Interaction Network Dialect",
+      "rawDescription": "An open design meeting on the Inet Dialect for modeling Interaction Networks paradigm, adopted among others by HVM2 and Vine IVM.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2025-04-10-Inet-Dialect.pdf\n\nSee related discussion on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-april-10-2025-inet-interaction-nets-dialect/85763\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:21Z"
+    },
+    "qofyrgPfuUI": {
+      "videoId": "qofyrgPfuUI",
+      "videoUrl": "https://youtu.be/qofyrgPfuUI",
+      "title": "2024-10-17: Shaderpulse, a GLSL Frontend for MLIR SPIR-V",
+      "rawDescription": "In this meeting, talks about Shaderpulse: a new GLSL frontend for MLIR SPIR-V. He walks through the project through example compute shaders, and show how the Shaderpulse AST maps to the SPIR-V MLIR Dialect.\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-10-17-2024-glsl-frontend-for-mlir-spir-v/82538\n\nSlides: https://mlir.llvm.org/OpenMeetings/2024-10-17-Shaderpulse.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:22Z"
+    },
+    "8KKjYeXGHOM": {
+      "videoId": "8KKjYeXGHOM",
+      "videoUrl": "https://youtu.be/8KKjYeXGHOM",
+      "title": "2024-09-12: XLA Indexing Maps",
+      "rawDescription": "In this meeting, Alex talks about XLA Indexing maps, which are affine maps + domain information. XLA:GPU relies on the indexing maps for coalescing analysis, tiling, defining thread/block mappings and code generation.\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-9-12-2024-xla-indexing-maps/81166\n\nSlides: https://mlir.llvm.org/OpenMeetings/2024-09-12-XLA-Indexing-Analysis.pdf \n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:23Z"
+    },
+    "nmtHeRkl850": {
+      "videoId": "nmtHeRkl850",
+      "videoUrl": "https://youtu.be/nmtHeRkl850",
+      "title": "2023-12-22: PyDSL, a small subset of Python for constructing affine & transform dialects slides",
+      "rawDescription": "Kai Ting Wang and Kevin Lee present PyDSL: a small subset of the Python language aiming to assist users in constructing MLIR particularly in the affine and transform dialects. They have developed several in-house optimizations in the affine dialect, and they wish to expose these optimizations to the kernel developers via usage of the transform ops. Programming in MLIR\u2019s Python binding is quite verbose which gives birth to this fun project. They designed a light-weight wrapper-like language utilizing Python\u2019s AST package and the decorator syntax to allow kernel developers to construct MLIR.\n\nDiscuss on LLVM forums: https://discourse.llvm.org/t/open-mlir-meeting-12-21-2023-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects/75851\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-12-21-PyDSL.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:23Z"
+    },
+    "ATvH4JOW4tA": {
+      "videoId": "ATvH4JOW4tA",
+      "videoUrl": "https://youtu.be/ATvH4JOW4tA",
+      "title": "2023-06-08/15: Update on Numba/MLIR slides",
+      "rawDescription": "Ivan Butygin presents the progress on python compiler based on Numba and MLIR.\n\nThe goal of this project is to create compiler for numeric python code which provides efficient code generation for CPUs and portable and efficient offload capabilities for GPUs.\nNumba is used as a frontend and mapped to a set of custom MLIR dialects: Ntensor - dialect for numpy arrays and functions, which supports mutable tensors, broadcasting on dynamic shapes, ArrayAPI-style compute-follows-data approach and lowering to linalg-on-tensors/memrefs. GPUX/gpu_runtime - extension to exisitng GPU dialect which allows more precise control over offloading scope, device/queue selection, kernel loading and supports lowering to SYCL runtime.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-6-8-2023-update-on-numba-mlir/71132\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-06-08-Numba.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:24Z"
+    },
+    "VY-Rsi5SFB8": {
+      "videoId": "VY-Rsi5SFB8",
+      "videoUrl": "https://youtu.be/VY-Rsi5SFB8",
+      "title": "2023-05-04: Catalyst, an AOT/JIT compiler for hybrid quantum programs",
+      "rawDescription": "In this presentation, David Ittah presents Catalyst: an AOT/JIT compiler for hybrid classical-quantum programs, with integration into the Python ML ecosystem and the PennyLane quantum programming framework. A new quantum MLIR dialect (on top of existing MLIR dialects) provides the core IR for the compiler, and enables classical and quantum optimization, code generation, and automatic differentiation at the IR level. \n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-5-4-2023-catalyst-an-aot-jit-compiler-for-hybrid-classical-quantum-programs/70317\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-05-04-Catalyst-compiler-for-hybrid-quantum-programs.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:25Z"
+    },
+    "kEcLBhbncEg": {
+      "videoId": "kEcLBhbncEg",
+      "videoUrl": "https://youtu.be/kEcLBhbncEg",
+      "title": "2023-03-30: Representing dataflow with MLIR",
+      "rawDescription": "In this presentation, Pedro Ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. This talk approaches this problem by creating an IR for static dataflow using MLIR, and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. In this presentation, we\u2019ll focus on the challenges related to the use of MLIR and open the way for feedback and discussion regarding the found solutions.\n\nMore info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-3-30-2023-representing-dataflow-with-mlir/69557\n\nSlides: https://mlir.llvm.org/OpenMeetings/2023-03-30-Representing-Dataflow-With-MLIR.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:25Z"
+    },
+    "euws5GvM3oo": {
+      "videoId": "euws5GvM3oo",
+      "videoUrl": "https://youtu.be/euws5GvM3oo",
+      "title": "2022-12-15: Embedded reactive programming in MLIR",
+      "rawDescription": "In this MLIR Open Meeting, Dumitru Potop-Butucaru presents their work on Embedded Reactive Programming in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317\n\nToday\u2019s machine learning (ML) frameworks (TensorFlow, PyTorch\u2026) and compilers (MLIR, Glow\u2026) allow the specification and efficient implementation of deep neural networks (DNNs) that have ever-increasing precision when applied to Big Data that is already stored in large databases. By contrast, in various applications, a clear need emerges for reactive ML applications that operate in a stateful fashion on streams of data, in time (in RNNs, attention-based approaches, reinforcement learning - RL - or even when scheduling convolutional networks in time to reduce memory requirements). Beyond this view focused on ML algorithmic design, the field of embedded ML, where ML components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. Existing ML frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. The situation has reached a point where ML algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - RL- or in transformers) is largely distinct from embedded ML engineering, the latter focusing on simpler (often stateless) network architectures. Ad hoc remedies are proposed in the literature for specific and limited cases. For instance, the time dimension of RL applications is traversed using (interpreted) Python code unsuitable for an embedded implementation. Modifications to the Python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).\n\nTo bridge between ML algorithmic research and reactive embedded implementation, instead of the existing ad hoc workarounds, we propose the direct integration of general-purpose reactiveness into the specification formalisms and compilers of ML frameworks. We have integrated low-level (imperative) and high-level (dataflow) synchronous reactive programming into MLIR. We first recall commonalities between dataflow synchronous languages and the static single assignment (SSA) form of general-purpose/ML compilers. We highlight the key mechanisms of synchronous languages that SSA does not cover\u2014denotational concepts such as synchronizing computations with an external time base, cyclic and reactive I/O, as well as the operational notions of relaxing control flow dominance and the modeling of absent values. We discover that initialization-related static analyses and code generation aspects can be fully decoupled from other aspects of synchronous semantics such as memory management and causality analysis, the latter being covered by existing dominance-based algorithms of SSA-form compilers. We show how the SSA form can be seamlessly extended to enable all SSA-based transformations and optimizations on reactive programs with synchronous concurrency. We derive a compilation flow suitable for both high-performance and reactive aspects of a control application, by embedding the Lustre dataflow synchronous language into the SSA-based MLIR/LLVM compiler infrastructure. This allows the modeling of signal processing and deep neural network inference in the (closed) loop of feedback-directed control systems. Performance is not affected by the use of reactive modeling.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-12-15-Reactive-Programming.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:26Z"
+    },
+    "xrMJis3Rak0": {
+      "videoId": "xrMJis3Rak0",
+      "videoUrl": "https://youtu.be/xrMJis3Rak0",
+      "title": "2022-10-06: Coordinate Transformations in AMD\u2019s rocMLIR",
+      "rawDescription": "Krzysztof Drewniak presents the coordinate transformations system used by AMD\u2019s high-performance GPU code generator at the core of the rocMLIR project, which is currently focused on convolution and matrix multiplication kernels.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-10-06-Rocm-affine.pdf\nDiscussions for this talk: https://discourse.llvm.org/t/open-mlir-meeting-10-6-2022-coordinate-transformations-in-amds-rocmlir/65742/\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:27Z"
+    },
+    "yOk63LWbkqk": {
+      "videoId": "yOk63LWbkqk",
+      "videoUrl": "https://youtu.be/yOk63LWbkqk",
+      "title": "2022-08-11: HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
+      "rawDescription": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations.\n\nWith the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.\n\nTo tackle this challenge, we introduce HeteroCL, a programming infrastructure comprised of a Python-based domain-specific language (DSL) and a compilation flow. The HeteroCL DSL provides a clean programming abstraction that decouples algorithm specification from three important types of hardware customization in compute, data types, and memory architectures. HeteroCL can further capture the interdependence among these different customization techniques, allowing programmers to explore various performance/area/accuracy trade-offs in a systematic and productive manner. In addition, our framework currently provides two advanced domain-specific optimizations with stencil analysis and systolic array generation, which produce highly efficient microarchitectures for accelerating popular workloads from image processing and deep learning domains.\n\nMore info on: https://discourse.llvm.org/t/open-mlir-meeting-8-11-2022-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations/64375\nSlides: https://mlir.llvm.org/OpenMeetings/2022-08-11-HeteroCL.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:28Z"
+    },
+    "mhyz5S7uYJE": {
+      "videoId": "mhyz5S7uYJE",
+      "videoUrl": "https://youtu.be/mhyz5S7uYJE",
+      "title": "2022-02-17: IREE's ML input dialects",
+      "rawDescription": "Stella Laurenzo talks about IREE\u2019s input dialect and what we have converged on for representing programs from current ML frontends. She'll be covering the current status of frontend support in the MLIR ecosystem (using our work on IREE as a case to look at), the contents of the dialect to give an overview of the gaps/goals IREE had, and some ideas on what can be done upstream to make this more common.\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-02-17-IREE_Input_Dialect.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:29Z"
+    },
+    "VxUifMWaHeI": {
+      "videoId": "VxUifMWaHeI",
+      "videoUrl": "https://youtu.be/VxUifMWaHeI",
+      "title": "2022-01-20: A Data-Centric Model for Performance Portability on Heterogeneous Architectures",
+      "rawDescription": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR.\n\nDaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.\n\nMore info: https://llvm.discourse.group/t/open-mlir-meeting-1-20-2021-a-data-centric-dialect-for-mlir/5815\n\nSlides: https://mlir.llvm.org/OpenMeetings/2022-01-2001~Data-Centric-Model.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:29Z"
+    },
+    "QbNkex-gizs": {
+      "videoId": "QbNkex-gizs",
+      "videoUrl": "https://youtu.be/QbNkex-gizs",
+      "title": "2021-10-7: The Torch MLIR Project",
+      "rawDescription": "Anush Elangovan (Nod.ai) and Sean Silva (Google) present the Torch MLIR project (formerly mlir-npcomp).\n\nSlides: https://mlir.llvm.org/OpenMeetings/2021-10-07-The-Torch-MLIR-project.pdf\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:30Z"
+    },
+    "_qXCzP5YAZY": {
+      "videoId": "_qXCzP5YAZY",
+      "videoUrl": "https://www.youtube.com/watch?v=_qXCzP5YAZY",
+      "title": "2021-05-27: Quantum-Classical Compilation with MLIR",
+      "rawDescription": "Slides: https://mlir.llvm.org/OpenMeetings/2021-05-27-Quantum-Classical-Compilation-with-MLIR.pdf\n\nMore Tech talks on #MLIR: https://mlir.llvm.org/talks/",
+      "fetchedAt": "2026-04-21T23:54:31Z"
+    }
+  },
+  "schemaVersion": 1,
+  "generatedAt": "2026-04-21T23:54:31Z"
+}

@@ -7,6 +7,7 @@ import argparse
 import datetime as dt
 import json
 import re
+import subprocess
 import sys
 import urllib.parse
 import urllib.request
@@ -14,13 +15,29 @@ from pathlib import Path
 
 
 USER_AGENT = "llvm-library-mlir-sync/1.0"
+BROWSER_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/135.0.0.0 Safari/537.36"
+)
 MLIR_SITE_BASE = "https://mlir.llvm.org/"
+TALKS_PAGE_URL = urllib.parse.urljoin(MLIR_SITE_BASE, "talks/")
+PUBS_PAGE_URL = urllib.parse.urljoin(MLIR_SITE_BASE, "pubs/")
 DEFAULT_TALKS_SOURCE = "https://raw.githubusercontent.com/llvm/mlir-www/main/website/content/talks/_index.md"
 DEFAULT_PUBS_SOURCE = "https://raw.githubusercontent.com/llvm/mlir-www/main/website/content/pubs/_index.md"
+DEFAULT_YOUTUBE_CACHE = "sub-projects/mlir/data/youtube-abstracts.json"
 EXCLUDED_TALK_SECTION_IDS = {
     "upcoming-talks-or-presentations",
     "past-conferences-and-workshops",
 }
+RESOURCE_LINE_RE = re.compile(
+    r"^(?:slides?|recordings?|recording|event|agenda|calendar|forums?|discussion|register|playlist|chapter|chapters|timestamps?)\s*:",
+    re.IGNORECASE,
+)
+GENERIC_DESCRIPTION_RE = re.compile(
+    r"\b(?:more tech talks on #mlir|subscribe|follow us|playlist|click here|watch more|coming soon|discuss on llvm forums|videos filmed|edited by|bash films|twitter|facebook|instagram|linkedin|join us|oreilly)\b",
+    re.IGNORECASE,
+)
 
 
 def collapse_ws(value: str) -> str:
@@ -38,10 +55,55 @@ def normalize_url(value: str, base_url: str = MLIR_SITE_BASE) -> str:
     return urllib.parse.urljoin(base_url, raw)
 
 
-def fetch_text(url: str, timeout: float) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+def detect_local_mlir_www_root(repo_root: Path) -> Path | None:
+    candidates = [
+        repo_root.parent / "mlir-www",
+        repo_root / "mlir-www",
+    ]
+    for candidate in candidates:
+        talks_index = candidate / "website/content/talks/_index.md"
+        pubs_index = candidate / "website/content/pubs/_index.md"
+        if talks_index.exists() and pubs_index.exists():
+            return candidate
+    return None
+
+
+def resolve_source_path(source: str, *, repo_root: Path, local_root: Path | None, relative_path: str, default_source: str) -> str:
+    raw = collapse_ws(source)
+    if raw and raw != default_source:
+        return raw
+    if local_root is not None:
+        candidate = (local_root / relative_path).resolve()
+        if candidate.exists():
+            return str(candidate)
+    return default_source
+
+
+def fetch_text(url: str, timeout: float, *, user_agent: str = USER_AGENT) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": user_agent})
     with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read().decode("utf-8")
+        return response.read().decode("utf-8", errors="replace")
+
+
+def fetch_text_with_curl(url: str, timeout: float, *, user_agent: str = USER_AGENT) -> str:
+    result = subprocess.run(
+        [
+            "curl",
+            "-L",
+            "--fail",
+            "--silent",
+            "--show-error",
+            "--max-time",
+            str(int(max(timeout, 1))),
+            "-A",
+            user_agent,
+            url,
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return result.stdout
 
 
 def load_text(source: str, timeout: float) -> str:
@@ -49,7 +111,10 @@ def load_text(source: str, timeout: float) -> str:
     if not raw:
         return ""
     if raw.startswith(("http://", "https://")):
-        return fetch_text(raw, timeout)
+        try:
+            return fetch_text(raw, timeout)
+        except Exception:
+            return fetch_text_with_curl(raw, timeout)
     return Path(raw).read_text(encoding="utf-8")
 
 
@@ -180,6 +245,205 @@ def dedupe_actions(actions: list[dict]) -> list[dict]:
         seen.add(key)
         out.append(action)
     return out
+
+
+def extract_youtube_video_id(url: str) -> str:
+    normalized = normalize_url(url)
+    if not normalized:
+        return ""
+    parsed = urllib.parse.urlparse(normalized)
+    host = parsed.netloc.lower()
+    if host.endswith("youtu.be"):
+        return collapse_ws(parsed.path.strip("/").split("/", 1)[0])
+    if "youtube.com" not in host and "youtube-nocookie.com" not in host:
+        return ""
+    query = urllib.parse.parse_qs(parsed.query)
+    if query.get("v"):
+        return collapse_ws(query["v"][0])
+    for prefix in ("/embed/", "/shorts/", "/live/"):
+        if parsed.path.startswith(prefix):
+            return collapse_ws(parsed.path[len(prefix) :].split("/", 1)[0])
+    return ""
+
+
+def load_json_file(path: Path) -> dict:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def extract_json_string_field(text: str, marker: str) -> str:
+    idx = text.find(marker)
+    if idx == -1:
+        return ""
+    start = text.find('"', idx + len(marker))
+    if start == -1:
+        return ""
+    try:
+        value, _ = json.JSONDecoder().raw_decode(text[start:])
+    except json.JSONDecodeError:
+        return ""
+    return value if isinstance(value, str) else ""
+
+
+def fetch_youtube_short_description(video_id: str, timeout: float) -> str:
+    watch_url = f"https://www.youtube.com/watch?v={video_id}"
+    try:
+        html = fetch_text(watch_url, timeout, user_agent=BROWSER_USER_AGENT)
+    except Exception:
+        html = fetch_text_with_curl(watch_url, timeout, user_agent=BROWSER_USER_AGENT)
+    return extract_json_string_field(html, '"shortDescription":')
+
+
+def clean_description_line(line: str) -> str:
+    text = collapse_ws(line.replace("\u00a0", " "))
+    text = text.lstrip("•-–— \t")
+    return collapse_ws(text)
+
+
+def is_url_line(line: str) -> bool:
+    return bool(re.fullmatch(r"https?://\S+", collapse_ws(line)))
+
+
+def is_separator_line(line: str) -> bool:
+    text = collapse_ws(line)
+    return bool(text) and all(char in "-—_=~•·" for char in text)
+
+
+def looks_like_title_line(line: str, title: str) -> bool:
+    candidate = collapse_ws(line).lower()
+    title_text = collapse_ws(title).lower()
+    if not candidate or not title_text:
+        return False
+    if candidate == title_text:
+        return True
+    if title_text in candidate and len(candidate.split()) <= len(title_text.split()) + 8:
+        return True
+    if candidate in title_text and len(candidate.split()) >= max(4, len(title_text.split()) // 2):
+        return True
+    return False
+
+
+def is_abstract_paragraph(paragraph: str, title: str) -> bool:
+    text = collapse_ws(paragraph)
+    if len(text) < 40:
+        return False
+    if len(text.split()) < 8:
+        return False
+    if text.startswith("[") and text.endswith("]"):
+        return False
+    if len(re.findall(r"https?://\S+", text)) >= 2:
+        return False
+    if is_url_line(text) or is_separator_line(text):
+        return False
+    if RESOURCE_LINE_RE.match(text):
+        return False
+    if GENERIC_DESCRIPTION_RE.search(text):
+        return False
+    if looks_like_title_line(text, title):
+        return False
+    return True
+
+
+def extract_abstract_from_youtube_description(description: str, title: str) -> str:
+    if not description:
+        return ""
+
+    lines = [clean_description_line(line) for line in description.replace("\r\n", "\n").replace("\r", "\n").split("\n")]
+    paragraphs: list[str] = []
+    current: list[str] = []
+
+    def flush() -> None:
+        nonlocal current
+        paragraph = collapse_ws(" ".join(current))
+        if paragraph:
+            paragraphs.append(paragraph)
+        current = []
+
+    for line in lines:
+        if not line:
+            flush()
+            continue
+        if is_separator_line(line) or is_url_line(line):
+            flush()
+            continue
+        if RESOURCE_LINE_RE.match(line):
+            flush()
+            continue
+        if GENERIC_DESCRIPTION_RE.search(line):
+            flush()
+            continue
+        if looks_like_title_line(line, title):
+            flush()
+            continue
+        current.append(line)
+    flush()
+
+    selected: list[str] = []
+    total_length = 0
+    for paragraph in paragraphs:
+        if not is_abstract_paragraph(paragraph, title):
+            continue
+        selected.append(paragraph)
+        total_length += len(paragraph)
+        if len(selected) >= 2 or total_length >= 1200:
+            break
+
+    return "\n\n".join(selected)
+
+
+def enrich_talk_abstracts_with_youtube(
+    sections: list[dict],
+    *,
+    timeout: float,
+    cache_path: Path,
+    refresh: bool,
+) -> None:
+    cache = load_json_file(cache_path) if cache_path.exists() else {}
+    cache_videos = cache.setdefault("videos", {})
+    cache_dirty = False
+
+    for section in sections:
+        for group in section.get("groups", []):
+            for entry in group.get("entries", []):
+                actions = entry.get("actions", [])
+                recording_url = ""
+                for action in actions:
+                    url = collapse_ws(action.get("url", ""))
+                    if collapse_ws(action.get("kind", "")).lower() == "recording" and extract_youtube_video_id(url):
+                        recording_url = url
+                        break
+                if not recording_url:
+                    continue
+
+                video_id = extract_youtube_video_id(recording_url)
+                if not video_id:
+                    continue
+
+                cached = cache_videos.get(video_id, {}) if isinstance(cache_videos, dict) else {}
+                raw_description = str(cached.get("rawDescription", "") or "")
+
+                if refresh or not raw_description:
+                    raw_description = fetch_youtube_short_description(video_id, timeout)
+                    cached = {
+                        "videoId": video_id,
+                        "videoUrl": recording_url,
+                        "title": collapse_ws(entry.get("title", "")),
+                        "rawDescription": raw_description,
+                        "fetchedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+                    }
+                    cache_videos[video_id] = cached
+                    cache_dirty = True
+
+                abstract = extract_abstract_from_youtube_description(raw_description, collapse_ws(entry.get("title", "")))
+                if abstract:
+                    entry["abstract"] = abstract
+                    entry["abstractSource"] = "youtube"
+
+    if cache_dirty:
+        cache["schemaVersion"] = 1
+        cache["generatedAt"] = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        write_json(cache_path, cache)
 
 
 def parse_talk_entry(raw_markdown: str) -> dict:
@@ -360,13 +624,14 @@ def filter_talk_sections(sections: list[dict]) -> list[dict]:
     ]
 
 
-def build_payload(*, title: str, source_url: str, sections: list[dict]) -> dict:
+def build_payload(*, title: str, source_url: str, source_path: str, sections: list[dict]) -> dict:
     timestamp = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     return {
         "dataVersion": f"{dt.date.today().isoformat()}-{slugify(title)}",
         "generatedAt": timestamp,
         "title": title,
         "sourceUrl": source_url,
+        "sourcePath": source_path,
         "sections": sections,
     }
 
@@ -379,27 +644,61 @@ def write_json(path: Path, payload: dict) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo-root", default=".")
+    parser.add_argument("--mlir-www-root", default="")
     parser.add_argument("--talks-source", default=DEFAULT_TALKS_SOURCE)
     parser.add_argument("--pubs-source", default=DEFAULT_PUBS_SOURCE)
     parser.add_argument("--talks-output", default="sub-projects/mlir/data/talks.json")
     parser.add_argument("--pubs-output", default="sub-projects/mlir/data/publications.json")
+    parser.add_argument("--youtube-cache", default=DEFAULT_YOUTUBE_CACHE)
+    parser.add_argument("--skip-youtube-abstracts", action="store_true")
+    parser.add_argument("--refresh-youtube-abstracts", action="store_true")
     parser.add_argument("--timeout", type=float, default=20.0)
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
-    talks_source = collapse_ws(args.talks_source)
-    pubs_source = collapse_ws(args.pubs_source)
+    local_mlir_root = Path(args.mlir_www_root).resolve() if collapse_ws(args.mlir_www_root) else detect_local_mlir_www_root(repo_root)
+    talks_source = resolve_source_path(
+        args.talks_source,
+        repo_root=repo_root,
+        local_root=local_mlir_root,
+        relative_path="website/content/talks/_index.md",
+        default_source=DEFAULT_TALKS_SOURCE,
+    )
+    pubs_source = resolve_source_path(
+        args.pubs_source,
+        repo_root=repo_root,
+        local_root=local_mlir_root,
+        relative_path="website/content/pubs/_index.md",
+        default_source=DEFAULT_PUBS_SOURCE,
+    )
 
     talks_text = load_text(talks_source, args.timeout)
     pubs_text = load_text(pubs_source, args.timeout)
 
     talk_sections = filter_talk_sections(parse_markdown_page(talks_text, page_kind="talks"))
     pub_sections = parse_markdown_page(pubs_text, page_kind="publications")
+    if not args.skip_youtube_abstracts:
+        enrich_talk_abstracts_with_youtube(
+            talk_sections,
+            timeout=args.timeout,
+            cache_path=(repo_root / args.youtube_cache).resolve(),
+            refresh=args.refresh_youtube_abstracts,
+        )
     assign_entry_ids(talk_sections, prefix="mlir-talk")
     assign_entry_ids(pub_sections, prefix="mlir-pub")
 
-    talks_payload = build_payload(title="MLIR Talks", source_url=talks_source, sections=talk_sections)
-    pubs_payload = build_payload(title="MLIR Related Publications", source_url=pubs_source, sections=pub_sections)
+    talks_payload = build_payload(
+        title="MLIR Talks",
+        source_url=TALKS_PAGE_URL,
+        source_path=talks_source,
+        sections=talk_sections,
+    )
+    pubs_payload = build_payload(
+        title="MLIR Related Publications",
+        source_url=PUBS_PAGE_URL,
+        source_path=pubs_source,
+        sections=pub_sections,
+    )
 
     talks_output = (repo_root / args.talks_output).resolve()
     pubs_output = (repo_root / args.pubs_output).resolve()

@@ -301,6 +301,9 @@
   }
 
   function buildAbstract(entry, speakers) {
+    const explicit = collapseWhitespace(entry && entry.abstract);
+    if (explicit) return explicit;
+
     const title = cleanTalkTitle(entry && entry.title);
     const titleLower = title.toLowerCase();
     const rawCandidates = [
