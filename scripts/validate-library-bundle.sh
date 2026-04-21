@@ -40,10 +40,12 @@ for f in \
   js/updates.js \
   js/shared/library-utils.js \
   js/data/autocomplete-index.json \
+  js/data/talk-paper-links.json \
   templates/site-header.html \
   scripts/build-viewer-artifacts.sh \
   scripts/sync-site-header.py \
   scripts/generate-autocomplete-index.py \
+  scripts/generate-talk-paper-links.py \
   scripts/apply-asset-versions.py \
   images/llvm-logo.png \
   images/llvm-favicon.png \
@@ -222,6 +224,27 @@ ruby -rjson -ruri -e '
     exit 1
   end
 ' "$EVENTS_ROOT" "$UPDATES_ROOT" "$PAPERS_ROOT"
+
+# Validate talk paper links JSON.
+ruby -rjson -e '
+  site_root = ARGV.fetch(0)
+  path = File.join(site_root, "js", "data", "talk-paper-links.json")
+  payload = JSON.parse(File.read(path))
+  abort("talk-paper-links.json must contain an object") unless payload.is_a?(Hash)
+  abort("talk-paper-links.json missing dataVersion") if String(payload["dataVersion"]).strip.empty?
+  abort("talk-paper-links.json missing generatedAt") if String(payload["generatedAt"]).strip.empty?
+  talks = payload["talks"]
+  abort("talk-paper-links.json missing talks object") unless talks.is_a?(Hash)
+  talks.each do |talk_id, entry|
+    abort("talk-paper-links.json talk id must be non-empty") if String(talk_id).strip.empty?
+    abort("talk-paper-links.json entry for #{talk_id} must be object") unless entry.is_a?(Hash)
+    slide_ids = entry["slidePaperIds"]
+    abort("talk-paper-links.json entry for #{talk_id} missing slidePaperIds array") unless slide_ids.is_a?(Array)
+    slide_ids.each do |paper_id|
+      abort("talk-paper-links.json entry for #{talk_id} contains empty paper id") if String(paper_id).strip.empty?
+    end
+  end
+' "$SITE_ROOT"
 
 # Validate local asset references in HTML files.
 ruby -e '

@@ -1,5 +1,5 @@
 /**
- * talk.js - minimal talk detail runtime.
+ * talk.js - talk detail runtime with related paper linking.
  */
 
 (function () {
@@ -15,6 +15,19 @@
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
   const safeSessionGet = PageShell ? PageShell.safeSessionGet : () => null;
 
+  const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
+  const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
+  const MATCH_STOPWORDS = new Set([
+    'about', 'after', 'against', 'algorithm', 'algorithms', 'among', 'analysis', 'approach',
+    'approaches', 'around', 'based', 'being', 'between', 'beyond', 'compiler', 'compilers',
+    'design', 'details', 'during', 'each', 'from', 'have', 'into', 'llvm', 'more', 'most',
+    'other', 'over', 'part', 'parts', 'paper', 'papers', 'program', 'programs', 'research',
+    'results', 'same', 'show', 'shows', 'some', 'study', 'system', 'systems', 'talk', 'their',
+    'these', 'this', 'through', 'using', 'with', 'within', 'work',
+  ]);
+
+  let talkPaperLinkIndexPromise = null;
+
   function normalizeTalks(rawTalks) {
     if (typeof HubUtils.normalizeTalks === 'function') return HubUtils.normalizeTalks(rawTalks);
     return Array.isArray(rawTalks) ? rawTalks : [];
@@ -26,6 +39,19 @@
     }
     const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
     return Number.isFinite(limit) ? tags.slice(0, Math.max(0, Math.floor(limit))) : tags;
+  }
+
+  function getPaperTopics(paper, limit = Infinity) {
+    if (typeof HubUtils.getPaperKeyTopics === 'function') {
+      return HubUtils.getPaperKeyTopics(paper, limit);
+    }
+    const values = [
+      ...(Array.isArray(paper && paper.tags) ? paper.tags : []),
+      ...(Array.isArray(paper && paper.keywords) ? paper.keywords : []),
+      ...(Array.isArray(paper && paper.matchedSubprojects) ? paper.matchedSubprojects : []),
+    ];
+    const deduped = [...new Set(values.map((value) => String(value || '').trim()).filter(Boolean))];
+    return Number.isFinite(limit) ? deduped.slice(0, Math.max(0, Math.floor(limit))) : deduped;
   }
 
   function formatMeetingDate(value) {
@@ -43,6 +69,32 @@
       .replace(/"/g, '&quot;');
   }
 
+  function collapseWhitespace(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function stripDiacritics(value) {
+    return String(value || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  function normalizeMatchText(value) {
+    return collapseWhitespace(
+      stripDiacritics(String(value || '').toLowerCase())
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9]+/g, ' ')
+    );
+  }
+
+  function tokenizeImportantWords(value) {
+    return [...new Set(
+      normalizeMatchText(value)
+        .split(' ')
+        .filter((token) => token.length >= 4 && !MATCH_STOPWORDS.has(token))
+    )];
+  }
+
   function sanitizeExternalUrl(value) {
     const raw = String(value || '').trim();
     if (!raw) return '';
@@ -54,6 +106,318 @@
       return '';
     }
     return '';
+  }
+
+  function normalizePeople(rawPeople) {
+    const values = Array.isArray(rawPeople) ? rawPeople : [];
+    return values.map((rawPerson) => {
+      if (typeof HubUtils.normalizePersonRecord === 'function') {
+        const normalized = HubUtils.normalizePersonRecord(rawPerson);
+        if (!normalized || !normalized.name) return null;
+        return {
+          name: String(normalized.name || '').trim(),
+          affiliation: String(normalized.affiliation || '').trim(),
+        };
+      }
+      if (!rawPerson || typeof rawPerson !== 'object') return null;
+      const name = String(rawPerson.name || '').trim();
+      if (!name) return null;
+      return {
+        name,
+        affiliation: String(rawPerson.affiliation || '').trim(),
+      };
+    }).filter(Boolean);
+  }
+
+  function extractDoi(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const match = raw.match(/10\.\d{4,9}\/[\w.()\-;/:%+]+/i);
+    return match ? String(match[0]).trim().toLowerCase() : '';
+  }
+
+  function normalizePaperRecord(rawPaper) {
+    if (!rawPaper || typeof rawPaper !== 'object') return null;
+
+    const paper = { ...rawPaper };
+    paper.id = String(paper.id || '').trim();
+    paper.title = String(paper.title || '').trim();
+    paper.abstract = String(paper.abstract || '').trim();
+    paper.year = String(paper.year || '').trim();
+    paper.source = String(paper.source || '').trim();
+    paper.type = String(paper.type || '').trim();
+    paper.paperUrl = sanitizeExternalUrl(paper.paperUrl || '');
+    paper.sourceUrl = sanitizeExternalUrl(paper.sourceUrl || '');
+    paper.authors = normalizePeople(paper.authors);
+    paper.tags = Array.isArray(paper.tags) ? paper.tags.map((value) => String(value || '').trim()).filter(Boolean) : [];
+    paper.keywords = Array.isArray(paper.keywords) ? paper.keywords.map((value) => String(value || '').trim()).filter(Boolean) : [];
+    paper.matchedSubprojects = Array.isArray(paper.matchedSubprojects)
+      ? paper.matchedSubprojects.map((value) => String(value || '').trim()).filter(Boolean)
+      : [];
+    paper.doi = extractDoi(paper.doi) || extractDoi(paper.paperUrl) || extractDoi(paper.sourceUrl);
+    paper._isBlog = BLOG_SOURCE_SLUGS.has(String(paper.source || '').trim().toLowerCase())
+      || ['blog', 'blog-post'].includes(String(paper.type || '').trim().toLowerCase());
+    paper._titleTokens = tokenizeImportantWords(paper.title);
+    paper._topicKeys = [...new Set(
+      getPaperTopics(paper, Infinity)
+        .map((topic) => normalizeMatchText(topic))
+        .filter(Boolean)
+    )];
+
+    if (!paper.id || !paper.title || paper._isBlog) return null;
+    return paper;
+  }
+
+  function normalizePapers(rawPapers) {
+    if (!Array.isArray(rawPapers)) return [];
+    return rawPapers.map(normalizePaperRecord).filter(Boolean);
+  }
+
+  function buildPaperDetailUrl(paper) {
+    return `papers/paper.html?id=${encodeURIComponent(String(paper && paper.id || '').trim())}&from=papers`;
+  }
+
+  function buildPaperTitleVariants(title) {
+    const variants = [];
+    const add = (value) => {
+      const normalized = normalizeMatchText(value);
+      if (!normalized) return;
+      const tokenCount = normalized.split(' ').filter(Boolean).length;
+      if (normalized.length < 16 || tokenCount < 3) return;
+      if (!variants.includes(normalized)) variants.push(normalized);
+    };
+
+    const rawTitle = collapseWhitespace(title);
+    if (!rawTitle) return variants;
+
+    add(rawTitle);
+    add(rawTitle.replace(/[“”"']/g, ''));
+
+    const splitMatch = rawTitle.split(/\s*(?:[:\-–—])\s*/).map((part) => collapseWhitespace(part)).filter(Boolean);
+    if (splitMatch.length > 1) {
+      add(splitMatch[0]);
+    }
+
+    add(rawTitle.replace(/^(?:a|an|the)\s+/i, ''));
+    return variants;
+  }
+
+  function hasTitleMention(haystack, titleVariants) {
+    const text = ` ${String(haystack || '')} `;
+    for (const variant of (Array.isArray(titleVariants) ? titleVariants : [])) {
+      if (text.includes(` ${variant} `)) return true;
+    }
+    return false;
+  }
+
+  function countOverlap(values, set) {
+    let total = 0;
+    for (const value of (Array.isArray(values) ? values : [])) {
+      if (set.has(value)) total += 1;
+    }
+    return total;
+  }
+
+  function buildAuthorPaperCountMap(papers) {
+    const counts = new Map();
+    for (const paper of (Array.isArray(papers) ? papers : [])) {
+      for (const author of (paper && paper.authors) || []) {
+        const key = typeof HubUtils.normalizePersonKey === 'function'
+          ? HubUtils.normalizePersonKey(author && author.name)
+          : normalizeMatchText(author && author.name);
+        if (!key) continue;
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+    }
+    return counts;
+  }
+
+  async function loadTalkPaperLinkIndex() {
+    if (talkPaperLinkIndexPromise) return talkPaperLinkIndexPromise;
+
+    talkPaperLinkIndexPromise = (async () => {
+      try {
+        const response = await fetch(TALK_PAPER_LINKS_PATH, { cache: 'default' });
+        if (!response.ok) return { talks: {} };
+        const payload = await response.json();
+        if (!payload || typeof payload !== 'object') return { talks: {} };
+        return payload;
+      } catch {
+        return { talks: {} };
+      }
+    })();
+
+    return talkPaperLinkIndexPromise;
+  }
+
+  function getSlideReferencedPaperIds(indexPayload, talk) {
+    if (!indexPayload || typeof indexPayload !== 'object') return [];
+    const talks = indexPayload.talks;
+    if (!talks || typeof talks !== 'object') return [];
+    const talkId = String(talk && talk.id || '').trim();
+    if (!talkId) return [];
+    const entry = talks[talkId];
+    if (!entry || typeof entry !== 'object') return [];
+
+    const indexedSlidesUrl = sanitizeExternalUrl(entry.slidesUrl || '');
+    const currentSlidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
+    if (indexedSlidesUrl && currentSlidesUrl && indexedSlidesUrl !== currentSlidesUrl) return [];
+
+    return Array.isArray(entry.slidePaperIds)
+      ? entry.slidePaperIds.map((value) => String(value || '').trim()).filter(Boolean)
+      : [];
+  }
+
+  function buildRelatedPaperEntries(talk, papers, slideReferenceIndex) {
+    if (!talk || typeof talk !== 'object') return [];
+
+    const talkAbstractText = normalizeMatchText(talk.abstract || '');
+    const talkTopicSet = new Set(
+      getTalkTopics(talk, Infinity)
+        .map((topic) => normalizeMatchText(topic))
+        .filter(Boolean)
+    );
+    const talkTitleTokens = new Set(tokenizeImportantWords([
+      talk.title,
+      talk.abstract,
+      ...(Array.isArray(talk.tags) ? talk.tags : []),
+      ...(Array.isArray(talk.keywords) ? talk.keywords : []),
+    ].filter(Boolean).join(' ')));
+    const slidePaperIds = new Set(getSlideReferencedPaperIds(slideReferenceIndex, talk));
+    const speakerKeys = new Set(
+      (Array.isArray(talk.speakers) ? talk.speakers : [])
+        .map((speaker) => {
+          const name = String(speaker && speaker.name || '').trim();
+          if (!name) return '';
+          return typeof HubUtils.normalizePersonKey === 'function'
+            ? HubUtils.normalizePersonKey(name)
+            : normalizeMatchText(name);
+        })
+        .filter(Boolean)
+    );
+    const authorPaperCounts = buildAuthorPaperCountMap(papers);
+
+    const results = [];
+    for (const paper of (Array.isArray(papers) ? papers : [])) {
+      if (!paper || typeof paper !== 'object') continue;
+
+      const titleVariants = buildPaperTitleVariants(paper.title);
+      const sharedAuthors = [];
+      for (const author of paper.authors || []) {
+        const key = typeof HubUtils.normalizePersonKey === 'function'
+          ? HubUtils.normalizePersonKey(author && author.name)
+          : normalizeMatchText(author && author.name);
+        if (key && speakerKeys.has(key)) sharedAuthors.push(author);
+      }
+
+      const sharedTopicCount = countOverlap(paper._topicKeys, talkTopicSet);
+      const titleTokenOverlap = countOverlap(paper._titleTokens, talkTitleTokens);
+      const mentionedInAbstract = hasTitleMention(talkAbstractText, titleVariants)
+        || (paper.doi && talkAbstractText.includes(paper.doi));
+      const mentionedInSlides = slidePaperIds.has(String(paper.id || '').trim());
+      const sameAuthor = sharedAuthors.length > 0;
+      const hasCompactAuthorCorpus = sharedAuthors.some((author) => {
+        const key = typeof HubUtils.normalizePersonKey === 'function'
+          ? HubUtils.normalizePersonKey(author && author.name)
+          : normalizeMatchText(author && author.name);
+        return key && (authorPaperCounts.get(key) || 0) <= 3;
+      });
+
+      if (!mentionedInSlides && !mentionedInAbstract) {
+        if (!sameAuthor) continue;
+        if (!hasCompactAuthorCorpus && sharedTopicCount < 1 && titleTokenOverlap < 2) continue;
+      }
+
+      const reasons = [];
+      if (sameAuthor) reasons.push('Speaker-authored');
+      if (mentionedInAbstract) reasons.push('Mentioned in abstract');
+      if (mentionedInSlides) reasons.push('Mentioned in slides');
+
+      let score = 0;
+      if (mentionedInSlides) score += 320;
+      if (mentionedInAbstract) score += 220;
+      if (sameAuthor) score += 90;
+      score += sharedTopicCount * 24;
+      score += titleTokenOverlap * 10;
+      if (hasCompactAuthorCorpus) score += 10;
+      if (/^\d{4}$/.test(paper.year)) score += Number.parseInt(paper.year, 10) * 0.001;
+
+      results.push({
+        paper,
+        reasons,
+        score,
+      });
+    }
+
+    results.sort((a, b) => {
+      const scoreDiff = b.score - a.score;
+      if (scoreDiff !== 0) return scoreDiff;
+      const yearDiff = Number.parseInt(String(b.paper.year || '0'), 10) - Number.parseInt(String(a.paper.year || '0'), 10);
+      if (yearDiff !== 0) return yearDiff;
+      return String(a.paper.title || '').localeCompare(String(b.paper.title || ''));
+    });
+
+    return results.slice(0, 10);
+  }
+
+  function renderRelatedPaperEntry(entry) {
+    const paper = entry && entry.paper;
+    if (!paper) return '';
+
+    const authors = Array.isArray(paper.authors)
+      ? paper.authors.map((author) => String(author && author.name || '').trim()).filter(Boolean)
+      : [];
+    const detailUrl = buildPaperDetailUrl(paper);
+    const externalUrl = sanitizeExternalUrl(paper.paperUrl || paper.sourceUrl);
+
+    return `
+      <li class="talk-paper-list-item">
+        <div class="talk-paper-title-row">
+          <a href="${detailUrl}" class="talk-paper-link">${escapeHtml(String(paper.title || '').trim())}</a>
+          ${paper.year ? `<span class="talk-paper-year">${escapeHtml(String(paper.year || '').trim())}</span>` : ''}
+        </div>
+        ${authors.length ? `<p class="talk-paper-authors">${authors.map((name) => escapeHtml(name)).join(', ')}</p>` : ''}
+        <div class="talk-paper-meta-row">
+          <div class="talk-paper-reason-list">
+            ${(entry.reasons || []).map((reason) => `<span class="detail-tag detail-tag--meta">${escapeHtml(reason)}</span>`).join('')}
+          </div>
+          ${externalUrl ? `<a href="${escapeHtml(externalUrl)}" class="talk-paper-external-link" target="_blank" rel="noopener noreferrer">Publisher link</a>` : ''}
+        </div>
+      </li>`;
+  }
+
+  async function populateRelatedPapers(talk) {
+    const section = document.getElementById('talk-related-papers-section');
+    if (!section) return;
+
+    if (typeof window.loadPaperData !== 'function') {
+      section.remove();
+      return;
+    }
+
+    try {
+      const [paperPayload, slideReferenceIndex] = await Promise.all([
+        window.loadPaperData(),
+        loadTalkPaperLinkIndex(),
+      ]);
+
+      const papers = normalizePapers(paperPayload && paperPayload.papers);
+      const entries = buildRelatedPaperEntries(talk, papers, slideReferenceIndex);
+      if (!entries.length) {
+        section.remove();
+        return;
+      }
+
+      section.hidden = false;
+      section.removeAttribute('aria-busy');
+      section.innerHTML = `
+        <div class="section-label" aria-hidden="true">Related Papers</div>
+        <ul class="talk-paper-list">
+          ${entries.map((entry) => renderRelatedPaperEntry(entry)).join('')}
+        </ul>`;
+    } catch {
+      section.remove();
+    }
   }
 
   function upsertMeta(attrName, attrValue, content) {
@@ -185,7 +549,7 @@
     const targetId = String(talk && talk.id || '').trim();
     if (!targetId || !values.length) return [];
 
-    const MAX = 6;
+    const maxItems = 6;
     const sameMeeting = [];
     const sameCategory = [];
 
@@ -211,7 +575,7 @@
         if (!id || seen.has(id)) continue;
         seen.add(id);
         out.push(item);
-        if (out.length >= MAX) return out;
+        if (out.length >= maxItems) return out;
       }
     }
     return out;
@@ -221,7 +585,7 @@
     const title = String(talk && talk.title || '').trim() || '(untitled talk)';
     const meeting = String(talk && talk.meeting || '').trim();
     const speakers = Array.isArray(talk && talk.speakers)
-      ? talk.speakers.map((s) => String(s && s.name || '').trim()).filter(Boolean)
+      ? talk.speakers.map((speaker) => String(speaker && speaker.name || '').trim()).filter(Boolean)
       : [];
     const speakerText = speakers.join(', ');
     const label = speakerText ? `${title} by ${speakerText}` : title;
@@ -337,6 +701,11 @@
           <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
         </section>
 
+        <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Related papers" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Related Papers</div>
+          <p class="talk-paper-links-loading">Loading speaker-authored and cited papers…</p>
+        </section>
+
         ${topicsHtml}
       </div>
 
@@ -400,6 +769,7 @@
     document.title = `${String(talk.title || '').trim()} — LLVM Research Library`;
     updateSeo(talk);
     renderTalkDetail(talk, context.relatedPool);
+    void populateRelatedPapers(talk);
     setIssueContextForTalk(talk);
     initShareMenu();
   }

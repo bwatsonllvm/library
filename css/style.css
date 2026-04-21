@@ -3609,6 +3609,89 @@ mark {
   margin-left: auto;
 }
 
+.talk-paper-links-section {
+  margin-bottom: var(--space-8);
+}
+
+.talk-paper-links-loading {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.talk-paper-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.talk-paper-list-item {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.talk-paper-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.talk-paper-link {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semi);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.talk-paper-link:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.talk-paper-year {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.talk-paper-authors {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.talk-paper-meta-row {
+  margin-top: var(--space-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.talk-paper-reason-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.talk-paper-external-link {
+  color: var(--color-accent);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+
+.talk-paper-external-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Related Talks */
 .related-section {
   border-top: 1px solid var(--color-border);

@@ -48,6 +48,24 @@ jobs:
         run: |
           python3 scripts/sanitize-library-urls.py --repo-root .
 
+      - name: Refresh slide-reference paper links for changed meetings
+        run: |
+          set -euo pipefail
+          meetings="$(git diff --name-only -- devmtg/events/*.json | sed -n 's#^devmtg/events/\([0-9]\{4\}-[0-9]\{2\}\)\.json$#\1#p' | sort -u)"
+          if [[ -z "${meetings}" ]]; then
+            exit 0
+          fi
+          args=()
+          while IFS= read -r meeting; do
+            [[ -n "${meeting}" ]] || continue
+            args+=(--meeting "${meeting}")
+          done <<< "${meetings}"
+          python3 scripts/generate-talk-paper-links.py \
+            --repo-root . \
+            --output js/data/talk-paper-links.json \
+            --fetch-pdf-references \
+            "${args[@]}"
+
       - name: Detect content changes
         id: content
         run: |
