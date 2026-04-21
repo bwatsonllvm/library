@@ -329,94 +329,28 @@
 
   function buildRelatedPaperEntries(talk, papers, slideReferenceIndex) {
     if (!talk || typeof talk !== 'object') return [];
+    const slidePaperIds = getSlideReferencedPaperIds(slideReferenceIndex, talk);
+    if (!slidePaperIds.length) return [];
 
-    const talkAbstractText = normalizeMatchText(talk.abstract || '');
-    const talkTopicSet = new Set(
-      getTalkTopics(talk, Infinity)
-        .map((topic) => normalizeMatchText(topic))
-        .filter(Boolean)
-    );
-    const talkTitleTokens = new Set(tokenizeImportantWords([
-      talk.title,
-      talk.abstract,
-      ...(Array.isArray(talk.tags) ? talk.tags : []),
-      ...(Array.isArray(talk.keywords) ? talk.keywords : []),
-    ].filter(Boolean).join(' ')));
-    const slidePaperIds = new Set(getSlideReferencedPaperIds(slideReferenceIndex, talk));
-    const speakerKeys = new Set(
-      (Array.isArray(talk.speakers) ? talk.speakers : [])
-        .map((speaker) => {
-          const name = String(speaker && speaker.name || '').trim();
-          if (!name) return '';
-          return typeof HubUtils.normalizePersonKey === 'function'
-            ? HubUtils.normalizePersonKey(name)
-            : normalizeMatchText(name);
-        })
-        .filter(Boolean)
-    );
-    const authorPaperCounts = buildAuthorPaperCountMap(papers);
-
-    const results = [];
+    const paperById = new Map();
     for (const paper of (Array.isArray(papers) ? papers : [])) {
       if (!paper || typeof paper !== 'object') continue;
+      const paperId = String(paper.id || '').trim();
+      if (!paperId || paperById.has(paperId)) continue;
+      paperById.set(paperId, paper);
+    }
 
-      const titleVariants = buildPaperTitleVariants(paper.title);
-      const sharedAuthors = [];
-      for (const author of paper.authors || []) {
-        const key = typeof HubUtils.normalizePersonKey === 'function'
-          ? HubUtils.normalizePersonKey(author && author.name)
-          : normalizeMatchText(author && author.name);
-        if (key && speakerKeys.has(key)) sharedAuthors.push(author);
-      }
-
-      const sharedTopicCount = countOverlap(paper._topicKeys, talkTopicSet);
-      const titleTokenOverlap = countOverlap(paper._titleTokens, talkTitleTokens);
-      const mentionedInAbstract = hasTitleMention(talkAbstractText, titleVariants)
-        || (paper.doi && talkAbstractText.includes(paper.doi));
-      const mentionedInSlides = slidePaperIds.has(String(paper.id || '').trim());
-      const sameAuthor = sharedAuthors.length > 0;
-      const hasCompactAuthorCorpus = sharedAuthors.some((author) => {
-        const key = typeof HubUtils.normalizePersonKey === 'function'
-          ? HubUtils.normalizePersonKey(author && author.name)
-          : normalizeMatchText(author && author.name);
-        return key && (authorPaperCounts.get(key) || 0) <= 3;
-      });
-
-      if (!mentionedInSlides && !mentionedInAbstract) {
-        if (!sameAuthor) continue;
-        if (!hasCompactAuthorCorpus && sharedTopicCount < 1 && titleTokenOverlap < 2) continue;
-      }
-
-      const reasons = [];
-      if (sameAuthor) reasons.push('Speaker-authored');
-      if (mentionedInAbstract) reasons.push('Mentioned in abstract');
-      if (mentionedInSlides) reasons.push('Mentioned in slides');
-
-      let score = 0;
-      if (mentionedInSlides) score += 320;
-      if (mentionedInAbstract) score += 220;
-      if (sameAuthor) score += 90;
-      score += sharedTopicCount * 24;
-      score += titleTokenOverlap * 10;
-      if (hasCompactAuthorCorpus) score += 10;
-      if (/^\d{4}$/.test(paper.year)) score += Number.parseInt(paper.year, 10) * 0.001;
-
+    const results = [];
+    for (const paperId of slidePaperIds) {
+      const paper = paperById.get(String(paperId || '').trim());
+      if (!paper) continue;
       results.push({
         paper,
-        reasons,
-        score,
+        reasons: ['Referenced in slides'],
       });
     }
 
-    results.sort((a, b) => {
-      const scoreDiff = b.score - a.score;
-      if (scoreDiff !== 0) return scoreDiff;
-      const yearDiff = Number.parseInt(String(b.paper.year || '0'), 10) - Number.parseInt(String(a.paper.year || '0'), 10);
-      if (yearDiff !== 0) return yearDiff;
-      return String(a.paper.title || '').localeCompare(String(b.paper.title || ''));
-    });
-
-    return results.slice(0, 10);
+    return results;
   }
 
   function renderRelatedPaperEntry(entry) {
@@ -471,7 +405,7 @@
       section.hidden = false;
       section.removeAttribute('aria-busy');
       section.innerHTML = `
-        <div class="section-label" aria-hidden="true">Related Papers</div>
+        <div class="section-label" aria-hidden="true">Referenced Papers</div>
         <ul class="talk-paper-list">
           ${entries.map((entry) => renderRelatedPaperEntry(entry)).join('')}
         </ul>`;
@@ -761,9 +695,9 @@
           <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
         </section>
 
-        <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Related papers" aria-busy="true">
-          <div class="section-label" aria-hidden="true">Related Papers</div>
-          <p class="talk-paper-links-loading">Loading speaker-authored and cited papers…</p>
+        <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Referenced papers" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Referenced Papers</div>
+          <p class="talk-paper-links-loading">Loading slide-referenced papers…</p>
         </section>
 
         ${topicsHtml}
