@@ -26,11 +26,16 @@
     'upcoming-talks-or-presentations': 'technical-talk',
     'past-conferences-and-workshops': 'workshop',
   });
+  const EXCLUDED_SECTION_KEYS = new Set([
+    'upcoming-talks-or-presentations',
+    'past-conferences-and-workshops',
+  ]);
   const GENERIC_GROUP_KEYS = new Set([
     '',
     'past-editions',
     'past-editions:',
   ]);
+  const RESOURCE_ONLY_RE = /\b(?:slides?|recordings?|recording|transcript|talk|talks|event|events|part\s+\d+|additional slides?)\b/gi;
 
   let talksPromise = null;
 
@@ -78,6 +83,21 @@
     const key = slugify(text);
     if (!text || GENERIC_GROUP_KEYS.has(key)) return '';
     return text;
+  }
+
+  function cleanTalkTitle(value) {
+    let title = collapseWhitespace(value);
+    if (!title) return '';
+
+    title = title
+      .replace(/\s*\((?:slides?|recordings?|recording|transcript)\s*$/i, '')
+      .replace(/\s*[-;:]\s*(?:slides?|recordings?|recording|transcript|additional slides?)\s*$/i, '')
+      .replace(/\s+(?:slides?|recordings?|recording|transcript)\s*$/i, '')
+      .replace(/\s{2,}/g, ' ')
+      .replace(/[(:;\-]+$/g, '')
+      .trim();
+
+    return title;
   }
 
   function pad2(value) {
@@ -227,7 +247,15 @@
     });
   }
 
-  function extractSpeakers(entry) {
+  function looksLikeSpeakerList(value) {
+    const text = collapseWhitespace(value);
+    if (!text) return false;
+    const parts = text.split(/\s*(?:,| and |\/|;)\s*/i).map((part) => normalizeSpeakerName(part)).filter(Boolean);
+    if (!parts.length || parts.length > 6) return false;
+    return parts.every((part) => looksLikePersonName(part));
+  }
+
+  function extractSpeakers(entry, actions) {
     const rawCandidates = [];
     for (const source of [entry && entry.summary, entry && entry.text]) {
       let candidate = collapseWhitespace(source);
@@ -240,6 +268,10 @@
         .replace(/\s{2,}/g, ' ')
         .trim();
       if (candidate) rawCandidates.push(candidate);
+    }
+    for (const action of (Array.isArray(actions) ? actions : [])) {
+      const label = normalizeSpeakerName(action && action.label);
+      if (looksLikePersonName(label)) rawCandidates.push(label);
     }
 
     const speakers = [];
@@ -257,6 +289,43 @@
     }
 
     return speakers;
+  }
+
+  function stripTalkMetadata(value) {
+    return collapseWhitespace(value)
+      .replace(/\s+@\s+.+$/, '')
+      .replace(RESOURCE_ONLY_RE, ' ')
+      .replace(/\s*[-;:,/]\s*/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+  }
+
+  function buildAbstract(entry, speakers) {
+    const title = cleanTalkTitle(entry && entry.title);
+    const titleLower = title.toLowerCase();
+    const rawCandidates = [
+      collapseWhitespace(entry && entry.summary),
+      collapseWhitespace(entry && entry.text),
+    ];
+
+    for (const raw of rawCandidates) {
+      if (!raw) continue;
+      let candidate = raw;
+      if (title && candidate.toLowerCase().startsWith(titleLower)) {
+        candidate = candidate.slice(title.length).trim();
+      }
+      candidate = stripTalkMetadata(candidate);
+      if (!candidate) continue;
+      if (looksLikeSpeakerList(candidate)) continue;
+      if (Array.isArray(speakers) && speakers.length) {
+        const speakerNames = speakers.map((speaker) => normalizeSpeakerName(speaker && speaker.name).toLowerCase());
+        if (speakerNames.includes(candidate.toLowerCase())) continue;
+      }
+      if (candidate.split(/\s+/).length < 4) continue;
+      return candidate;
+    }
+
+    return '';
   }
 
   function pickFirstAction(actions, predicate) {
@@ -290,9 +359,12 @@
     const slidesAction = pickFirstAction(actions, (action) => action.kind === 'slides');
     const githubAction = pickFirstAction(actions, (action) => /github\.com/i.test(action.url));
 
-    const meetingName = inferMeetingName(entry, sectionTitle, groupTitle, actions);
+    const cleanedTitle = cleanTalkTitle(entry && entry.title) || 'Untitled MLIR Talk';
+    const speakers = extractSpeakers(entry, actions);
+    const abstract = buildAbstract({ ...entry, title: cleanedTitle }, speakers);
+    const meetingName = inferMeetingName({ ...entry, title: cleanedTitle }, sectionTitle, groupTitle, actions);
     const dateInfo = parseDateInfo(entry, actions);
-    const sortSuffix = slugify(meetingName || entry && entry.title || entry && entry.id || '').slice(0, 48);
+    const sortSuffix = slugify(meetingName || cleanedTitle || entry && entry.id || '').slice(0, 48);
     const meeting = sortSuffix
       ? `${dateInfo.sortKey}-${sortSuffix}`
       : dateInfo.sortKey;
@@ -304,12 +376,9 @@
 
     return {
       id: collapseWhitespace(entry && entry.id) || slugify(entry && entry.title) || slugify(detailUrl),
-      title: collapseWhitespace(entry && entry.title) || 'Untitled MLIR Talk',
-      abstract: uniqueStrings([
-        cleanTopicLabel(groupTitle),
-        collapseWhitespace(entry && (entry.summary || entry.text)),
-      ]).join('. '),
-      speakers: extractSpeakers(entry),
+      title: cleanedTitle,
+      abstract,
+      speakers,
       category: SECTION_CATEGORY_MAP[slugify(sectionTitle)] || 'other',
       tags: topics,
       meeting,
@@ -332,6 +401,8 @@
 
     for (const section of (Array.isArray(payload && payload.sections) ? payload.sections : [])) {
       const sectionTitle = collapseWhitespace(section && section.title);
+      const sectionKey = slugify(sectionTitle);
+      if (EXCLUDED_SECTION_KEYS.has(sectionKey)) continue;
       for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
         const groupTitle = collapseWhitespace(group && group.title);
         for (const entry of (Array.isArray(group && group.entries) ? group.entries : [])) {

@@ -17,6 +17,10 @@ USER_AGENT = "llvm-library-mlir-sync/1.0"
 MLIR_SITE_BASE = "https://mlir.llvm.org/"
 DEFAULT_TALKS_SOURCE = "https://raw.githubusercontent.com/llvm/mlir-www/main/website/content/talks/_index.md"
 DEFAULT_PUBS_SOURCE = "https://raw.githubusercontent.com/llvm/mlir-www/main/website/content/pubs/_index.md"
+EXCLUDED_TALK_SECTION_IDS = {
+    "upcoming-talks-or-presentations",
+    "past-conferences-and-workshops",
+}
 
 
 def collapse_ws(value: str) -> str:
@@ -348,6 +352,14 @@ def assign_entry_ids(sections: list[dict], *, prefix: str) -> None:
                 entry["id"] = f"{prefix}-{base}{suffix}"
 
 
+def filter_talk_sections(sections: list[dict]) -> list[dict]:
+    return [
+        section
+        for section in sections
+        if collapse_ws(section.get("id", "")) not in EXCLUDED_TALK_SECTION_IDS
+    ]
+
+
 def build_payload(*, title: str, source_url: str, sections: list[dict]) -> dict:
     timestamp = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     return {
@@ -381,7 +393,7 @@ def main() -> int:
     talks_text = load_text(talks_source, args.timeout)
     pubs_text = load_text(pubs_source, args.timeout)
 
-    talk_sections = parse_markdown_page(talks_text, page_kind="talks")
+    talk_sections = filter_talk_sections(parse_markdown_page(talks_text, page_kind="talks"))
     pub_sections = parse_markdown_page(pubs_text, page_kind="publications")
     assign_entry_ids(talk_sections, prefix="mlir-talk")
     assign_entry_ids(pub_sections, prefix="mlir-pub")

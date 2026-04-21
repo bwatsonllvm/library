@@ -3800,6 +3800,26 @@ mark {
   margin-bottom: 0;
 }
 
+.feed-inline-section {
+  margin: 0 0 var(--space-8);
+  padding: 0;
+}
+
+.feed-inline-section h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semi);
+  margin: 0 0 var(--space-3);
+  letter-spacing: -0.02em;
+}
+
+.feed-inline-section .subproject-copy {
+  margin-bottom: var(--space-5);
+}
+
+.feed-inline-section .talks-container {
+  padding-bottom: var(--space-8);
+}
+
 .subproject-section {
   margin-bottom: var(--space-8);
 }
@@ -4797,6 +4817,14 @@ mark {
   .related-section {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
+  }
+
+  .feed-inline-section {
+    margin-bottom: var(--space-6);
+  }
+
+  .feed-inline-section .talks-container {
+    padding-bottom: var(--space-6);
   }
 
   .related-grid {

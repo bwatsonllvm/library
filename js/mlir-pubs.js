@@ -10,6 +10,7 @@
 
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
   const DATA_PATH = 'sub-projects/mlir/data/publications.json';
+  const PAGE_PATH = 'sub-projects/mlir/pubs/';
 
   function escapeHtml(value) {
     return String(value || '')
@@ -34,6 +35,18 @@
       return '';
     }
     return '';
+  }
+
+  function getPaperTopics(entry) {
+    if (typeof HubUtils.getPaperKeyTopics !== 'function') return [];
+    const summary = collapseWhitespace(entry && entry.summary);
+    return HubUtils.getPaperKeyTopics({
+      title: collapseWhitespace(entry && entry.title),
+      abstract: summary,
+      tags: [],
+      keywords: [],
+      matchedSubprojects: ['MLIR'],
+    }, 8);
   }
 
   function countEntries(sections) {
@@ -106,13 +119,35 @@
     return collapseWhitespace(primaryAction && primaryAction.url) || sanitizeExternalUrl(fallbackUrl);
   }
 
+  function buildFilterHref(param, value) {
+    const params = new URLSearchParams(window.location.search);
+    params.delete('q');
+    params.delete('sort');
+    params.set(param, value);
+    return params.toString() ? `${PAGE_PATH}?${params.toString()}` : PAGE_PATH;
+  }
+
   function renderAuthors(entry) {
     const authors = extractAuthors(entry);
     if (!authors.length) return '';
     return `
       <p class="card-speakers paper-authors">
-        ${authors.map((name) => `<span class="card-speaker-link">${escapeHtml(name)}</span>`).join('<span class="speaker-btn-sep">, </span>')}
+        ${authors.map((name) => `<a href="${escapeHtml(buildFilterHref('speaker', name))}" class="speaker-btn" aria-label="Filter MLIR publications by ${escapeHtml(name)}">${escapeHtml(name)}</a>`).join('<span class="speaker-btn-sep">, </span>')}
       </p>`;
+  }
+
+  function renderTopicTags(entry) {
+    const topics = getPaperTopics(entry);
+    if (!topics.length) return '';
+    return `
+      <div class="card-tags-wrap">
+        <div class="card-tags" aria-label="Key Topics">
+          ${topics.slice(0, 4).map((topic) =>
+            `<a href="${escapeHtml(buildFilterHref('tag', topic))}" class="card-tag" aria-label="Filter MLIR publications by key topic ${escapeHtml(topic)}">${escapeHtml(topic)}</a>`
+          ).join('')}
+          ${topics.length > 4 ? `<span class="card-tag card-tag--more" aria-hidden="true">+${topics.length - 4}</span>` : ''}
+        </div>
+      </div>`;
   }
 
   function renderActionButtons(actions) {
@@ -135,7 +170,7 @@
 
     return `
       <article class="talk-card paper-card">
-        <a href="${escapeHtml(detailHref)}" class="card-link-wrap" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(title)} in a new tab">
+        <a href="${escapeHtml(detailHref)}" class="card-link-wrap" aria-label="Open ${escapeHtml(title)}">
           <div class="card-body">
             <div class="card-meta">
               <span class="badge badge-paper">Paper</span>
@@ -147,6 +182,7 @@
           </div>
         </a>
         ${renderAuthors(entry)}
+        ${renderTopicTags(entry)}
         ${actions.length ? `<div class="card-footer">${renderActionButtons(actions)}</div>` : ''}
       </article>`;
   }
