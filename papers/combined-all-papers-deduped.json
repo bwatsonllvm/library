@@ -12802,6 +12802,59 @@
       "citationCount": 0
     },
     {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "MaTSa: Race Detection in Java",
+      "authors": [
+        {
+          "name": "Alexandros Emmanouil Antonakakis",
+          "affiliation": "University of Crete"
+        },
+        {
+          "name": "Iacovos G. Kolokasis",
+          "affiliation": "University of Crete"
+        },
+        {
+          "name": "Foivos S. Zakkak",
+          "affiliation": "Red Hat (Ireland)"
+        },
+        {
+          "name": "Angelos Bilas",
+          "affiliation": "University of Crete"
+        },
+        {
+          "name": "Polyvios Pratikakis",
+          "affiliation": "University of Crete"
+        }
+      ],
+      "year": "2025",
+      "publication": "Proceedings of the 17th ACM SIGPLAN International Workshop on Virtual Machines and Intermediate Languages",
+      "venue": "Proceedings of the 17th ACM SIGPLAN International Workshop on Virtual Machines and Intermediate Languages",
+      "type": "research-paper",
+      "abstract": "Parallel programs are prone to data races, which are concurrency bugs that are difficult to track and reproduce. Various attempts have been made to create or incorporate tools that aim to dynamically detect data races in Java, but most rely on external race detectors that: a) miss some of the nuances in the Java Memory Model (JMM), b) are too slow and complicated to be used in complex real-world applications, or c) produce a lot of false positive reports. In this paper, we present MaTSa, a tool built within OpenJDK, that aims to dynamically detect data races and offer informative pointers to the origin of the race. We evaluate MaTSa and detect several races in the Renaissance benchmark suite and the Quarkus framework, many of which have been reported and resulted in upstream fixes. We compare MaTSa to Java TSan, the only current state-of-the-art dynamic race detector that works on recent OpenJDK versions. We analyze issues with false positives and false negatives for both tools and explain the design decisions causing them. We found MaTSa to be 15x faster on average, while scaling to large programs not supported by other tools.",
+      "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3759548.3763369",
+      "sourceUrl": "https://doi.org/10.1145/3759548.3763369",
+      "openalexId": "https://openalex.org/W4415002527",
+      "doi": "10.1145/3759548.3763369",
+      "tags": [
+        "Testing"
+      ],
+      "keywords": [
+        "Testing",
+        "Race Detection",
+        "Dynamically Detect",
+        "Matsa Race Detection"
+      ],
+      "matchedAuthors": [
+        "Foivos S. Zakkak"
+      ],
+      "matchedSubprojects": [
+        "threadsanitizer"
+      ],
+      "id": "openalex-w4415002527",
+      "citationCount": 0
+    },
+    {
       "id": "openalex-w7105738277",
       "source": "openalex-llvm-query",
       "sourceName": "OpenAlex Query (title/abstract: llvm)",
@@ -16711,6 +16764,65 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "EPSO: A Caching-Based Efficient Superoptimizer for BPF Bytecode",
+      "authors": [
+        {
+          "name": "Qian Zhu",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "YuXuan Liu",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Ziyuan Zhu",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Shangqing Liu",
+          "affiliation": "Nanjing University"
+        },
+        {
+          "name": "Lei Bu",
+          "affiliation": "Nanjing University"
+        }
+      ],
+      "year": "2025",
+      "publication": "2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+      "venue": "2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)",
+      "type": "research-paper",
+      "abstract": "Extended Berkeley Packet Filter (eBPF) allows developers to extend Linux kernel functionality without modifying its source code. To ensure system safety, an in-kernel safety checker, the verifier, enforces strict safety constraints (e.g., a limited program size) on eBPF programs loaded into the kernel. These constraints, combined with eBPF’s performance-critical use cases, make effective optimization essential. However, existing compilers (e.g., Clang) offer limited optimization support, and many semantics-preserving transformations are rejected by the verifier, which makes handcrafted optimization rule design both challenging and limited in effectiveness.Superoptimization overcomes the limitations of rule-based methods by automatically discovering optimal transformations, but its high computational cost limits scalability. To address this, we propose EPSO, a caching-based superoptimizer that discovers rewrite rules via offline superoptimization, and reuses them to achieve high-quality optimizations with minimal runtime overhead. We evaluate EPSO on benchmarks from the Linux kernel and several eBPF-based projects, including Cilium, Katran, hXDP, Sysdig, Tetragon, and Tracee. EPSO discovers 795 rewrite rules and achieves up to 68.87% (avg. 24.37%) reduction in program size compared to Clang’s output, outperforming the state-of-the-art BPF optimizer K2 on all benchmarks and Merlin on 92.68% of them. Additionally, EPSO reduces program runtime by an average of 6.60%, improving throughput and lowering latency in network applications.",
+      "paperUrl": "https://doi.org/10.1109/ase63991.2025.00242",
+      "openalexId": "https://openalex.org/W7125901025",
+      "doi": "10.1109/ase63991.2025.00242",
+      "tags": [
+        "Clang",
+        "Optimizations",
+        "Performance"
+      ],
+      "keywords": [
+        "Clang",
+        "Optimizations",
+        "Performance",
+        "Linux Kernel",
+        "Superoptimization",
+        "Safety",
+        "Program Size",
+        "Rewrite Rules",
+        "Bpf Bytecode"
+      ],
+      "matchedAuthors": [
+        "Ziyuan Zhu"
+      ],
+      "matchedSubprojects": [
+        "clang"
+      ],
+      "id": "openalex-w7125901025",
+      "citationCount": 0
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "ENOLA: Efficient Control-Flow Attestation for Embedded Systems",
       "authors": [
         {
@@ -16919,6 +17031,7 @@
       "doi": "10.1016/j.hcc.2025.100377"
     },
     {
+      "id": "openalex-w4413804064",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Enhancing Compiler Design for Machine Learning Workflows with MLIR",
@@ -16934,6 +17047,7 @@
       "type": "research-paper",
       "abstract": "The rapidly changing world of machine learning (ML) workloads has added a tremendous burden on our conventional compiler infrastructures, and these systems frequently lack the flexibility, scalability, and optimization options needed to address the emerging, heterogeneous computing landscape. As ML frameworks continue to expand their support to a wide variety of hardware platforms (such as GPUs, TPUs, or FPGAs), it is critical that the corresponding compiler infrastructures accommodate the now-requisite levels of both high-level algorithmic abstractions and low-level hardware-specific optimizations. Google has developed the Multi-Level Intermediate Representation, the Multi-Level, which solves these problems by delivering a modular, extensible compiler infrastructure, optimized to the modern ML development workflow. MLIR facilitates the specification of domain-specific intermediate representations (IRs) and thus allows optimizations at many abstraction levels, including tensor algebra to hardware-specific instruction sets. This architecture enables control of code transformation at the finest grain, enables custom dialects, and has encouraged interoperability among popular ML frameworks (TensorFlow, PyTorch, JAX, and ONNX). Using MLIR as a compiler design aspect, developers gain both better portable compilation and higher optimization granularity, as well as time-reducing development. In addition, MLIR progresses in the realization of AI-specific compiler optimizations, including quantization, operator fusion, and parallel execution scheduling. Finally, MLIR is an important step in compiler design that will not only deliver more performance on ML applications, but also a more maintainable and extensible ecosystem for future AI-driven computing systems. This paper discusses the new paradigm offered by MLIR, its ability to redefine compiler infrastructure to satisfy the sophisticated needs of present ML workloads, and the avenue to more intelligent, flexible, and resource-efficient software-hardware integration.",
       "paperUrl": "https://doi.org/10.30574/ijsra.2025.16.2.2463",
+      "sourceUrl": "https://openalex.org/W4413804064",
       "openalexId": "https://openalex.org/W4413804064",
       "doi": "10.30574/ijsra.2025.16.2.2463",
       "tags": [
@@ -16968,7 +17082,6 @@
       "matchedSubprojects": [
         "mlir"
       ],
-      "id": "openalex-w4413804064",
       "citationCount": 0
     },
     {
@@ -33416,6 +33529,72 @@
       "openalexId": "https://openalex.org/W4405432110",
       "citationCount": 0,
       "doi": "10.1109/qce60285.2024.10295"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Full-stack evaluation of Machine Learning inference workloads for RISC-V systems",
+      "authors": [
+        {
+          "name": "Debjyoti Bhattacharjee",
+          "affiliation": ""
+        },
+        {
+          "name": "Anmol",
+          "affiliation": ""
+        },
+        {
+          "name": "Tommaso Marinelli",
+          "affiliation": ""
+        },
+        {
+          "name": "Karan Pathak",
+          "affiliation": ""
+        },
+        {
+          "name": "Peter Kourzanov",
+          "affiliation": ""
+        }
+      ],
+      "year": "2024",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Architectural simulators hold a vital role in RISC-V research, providing a crucial platform for workload evaluation without the need for costly physical prototypes. They serve as a dynamic environment for exploring innovative architectural concepts, enabling swift iteration and thorough analysis of performance metrics. As deep learning algorithms become increasingly pervasive, it is essential to benchmark new architectures with machine learning workloads. The diverse computational kernels used in deep learning algorithms highlight the necessity for a comprehensive compilation toolchain to map to target hardware platforms. This study evaluates the performance of a wide array of machine learning workloads on RISC-V architectures using gem5, an open-source architectural simulator. Leveraging an open-source compilation toolchain based on Multi-Level Intermediate Representation (MLIR), the research presents benchmarking results specifically focused on deep learning inference workloads. Additionally, the study sheds light on current limitations of gem5 when simulating RISC-V architectures, offering insights for future development and refinement.",
+      "paperUrl": "https://arxiv.org/pdf/2405.15380",
+      "sourceUrl": "https://doi.org/10.48550/arxiv.2405.15380",
+      "openalexId": "https://openalex.org/W4399062316",
+      "doi": "10.48550/arxiv.2405.15380",
+      "tags": [
+        "MLIR",
+        "IR",
+        "Performance",
+        "Infrastructure",
+        "ML",
+        "Swift"
+      ],
+      "keywords": [
+        "MLIR",
+        "Performance",
+        "Infrastructure",
+        "Swift",
+        "Intermediate Representation",
+        "Machine Learning Workloads",
+        "Learning Inference Workloads",
+        "Deep Learning",
+        "Architectural",
+        "Compilation Toolchain",
+        "Gem5",
+        "Machine Learning Inference"
+      ],
+      "matchedAuthors": [
+        "Debjyoti Bhattacharjee"
+      ],
+      "matchedSubprojects": [
+        "mlir"
+      ],
+      "id": "openalex-w4399062316",
+      "citationCount": 0
     },
     {
       "id": "openalex-w4392357388",
@@ -93625,7 +93804,7 @@
         "Quantum Computing"
       ],
       "openalexId": "https://openalex.org/W2913992572",
-      "citationCount": 363,
+      "citationCount": 364,
       "doi": "10.1145/3297858.3304075"
     },
     {
@@ -112448,7 +112627,7 @@
       "openalexId": "https://openalex.org/W2599829375",
       "sourceUrl": "https://doi.org/10.1145/3052973.3053007",
       "doi": "10.1145/3052973.3053007",
-      "citationCount": 162
+      "citationCount": 163
     },
     {
       "id": "openalex-w2773455416",
@@ -114193,7 +114372,7 @@
         "Performance"
       ],
       "openalexId": "https://openalex.org/W2766204894",
-      "citationCount": 16,
+      "citationCount": 17,
       "doi": "10.1145/3129676.3129708"
     },
     {
