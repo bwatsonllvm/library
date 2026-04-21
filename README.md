@@ -182,7 +182,12 @@ Shared ranking helpers in `js/shared/library-utils.js` power core search behavio
 ### 1) Talks dataset (`devmtg/events/*.json`)
 
 Talk records are synchronized from public LLVM Developers' Meeting pages under `llvm-www/devmtg`.
-The sync process preserves the current JSON schema and fills/updates structured fields such as:
+The sync process preserves the current JSON schema and is intentionally conservative:
+- existing matched talk records are left as-is so manual curation is not overwritten
+- newly discovered talks are appended to existing meeting bundles
+- brand-new or upstream-changed meeting folders are the only ones reprocessed automatically
+
+When a meeting is synchronized, structured fields such as the following are populated for newly created records:
 - talk id, meeting id, title, abstract
 - speaker list
 - slides URL and video URL/ID

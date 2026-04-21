@@ -56,7 +56,7 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
             [("Justin Holewinski", "Ohio State University")],
         )
 
-    def test_merge_meeting_talks_refreshes_broken_existing_speakers(self):
+    def test_merge_meeting_talks_preserves_existing_manual_talk_edits(self):
         meeting, talks = self.module.parse_meeting_page(self.fixture_html, "2011-11")
         existing_payload = {
             "meeting": {
@@ -134,19 +134,19 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
             existing_payload,
         )
 
-        self.assertTrue(changed)
+        self.assertFalse(changed)
         by_title = {talk["title"]: talk for talk in merged["talks"]}
         self.assertEqual(
             [(speaker["name"], speaker["affiliation"]) for speaker in by_title["LLVM MC In Practice"]["speakers"]],
-            [("Jim Grosbach", "Apple"), ("Owen Anderson", "Apple")],
+            [("Jim Grosbach", "")],
         )
         self.assertEqual(
             [(speaker["name"], speaker["affiliation"]) for speaker in by_title["Integrating LLVM into FreeBSD"]["speakers"]],
-            [("Brooks Davis", "The FreeBSD Project")],
+            [("Brooks Davis", ""), ("The FreeBSD Project", "")],
         )
         self.assertEqual(
             [(speaker["name"], speaker["affiliation"]) for speaker in by_title["PTX Back-End: GPU Programming With LLVM"]["speakers"]],
-            [("Justin Holewinski", "Ohio State University")],
+            [("Just in Holewinski", ""), ("Ohio State", "")],
         )
 
     def test_legacy_table_parser_handles_author_title_media_rows(self):
@@ -250,6 +250,29 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
         self.assertEqual(new_count, 1)
         by_title = {talk["title"]: talk for talk in merged["talks"]}
         self.assertEqual(by_title["MCJIT"]["id"], "2012-04-12-002")
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in by_title["Improving Performance of OpenCL on CPUs"]["speakers"]],
+            [("Ralf Karrenberg & Sebastian Hack", "")],
+        )
+
+    def test_select_remote_slugs_for_sync_only_includes_new_or_changed_meetings(self):
+        selected = self.module.select_remote_slugs_for_sync(
+            ["2026-04", "2025-04", "2025-03", "2024-10"],
+            {"2025-04", "2025-03", "2024-10"},
+            {"2025-03"},
+        )
+        self.assertEqual(selected, ["2026-04", "2025-03"])
+
+    def test_derive_changed_devmtg_slugs_ignores_non_meeting_paths(self):
+        changed = self.module.derive_changed_devmtg_slugs(
+            [
+                "devmtg/2026-04/index.html",
+                "devmtg/2025-03/slides/foo.pdf",
+                "devmtg/index.html",
+                "docs/readme.md",
+            ]
+        )
+        self.assertEqual(changed, {"2026-04", "2025-03"})
 
     def test_legacy_agenda_parser_handles_section_markers_and_malformed_video_hrefs(self):
         meeting, talks = self.module.parse_meeting_page(self.usdevmtg_2013_fixture_html, "2013-11")

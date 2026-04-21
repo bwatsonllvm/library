@@ -3,8 +3,9 @@
 
 The sync is intentionally conservative:
   - existing talk IDs are preserved
-  - matching talks are updated in place
+  - existing matched talks are left as-is
   - newly discovered talks are appended with the next sequential ID
+  - only upstream-changed meeting folders are revisited automatically
   - meeting bundles are created only when a source page has parseable talks
 """
 
@@ -76,7 +77,7 @@ def sanitize_http_url(value: str) -> str:
         return ""
     path = urllib.parse.quote(
         urllib.parse.unquote(parsed.path or ""),
-        safe="/:@!$&'()*+,;=-._~",
+        safe="/:@!$&'()*,;=-._~",
     )
     query = urllib.parse.quote(
         urllib.parse.unquote(parsed.query or ""),
@@ -1261,6 +1262,77 @@ def fetch_latest_path_revision(
     return ""
 
 
+def fetch_changed_paths_between_revisions(
+    github_api_base: str,
+    repo: str,
+    base: str,
+    head: str,
+    github_token: str = "",
+) -> list[str]:
+    base_sha = collapse_ws(base)
+    head_sha = collapse_ws(head)
+    if not base_sha or not head_sha or base_sha == head_sha:
+        return []
+
+    url = (
+        f"{github_api_base.rstrip('/')}/repos/{repo}/compare/"
+        f"{urllib.parse.quote(base_sha)}...{urllib.parse.quote(head_sha)}"
+    )
+    payload = json.loads(_http_get(url, github_token=github_token))
+    files = payload.get("files", []) if isinstance(payload, dict) else []
+
+    out: list[str] = []
+    for entry in files:
+        if not isinstance(entry, dict):
+            continue
+        filename = collapse_ws(str(entry.get("filename", "")))
+        if filename:
+            out.append(filename)
+    return out
+
+
+def extract_devmtg_slug_from_path(path: str) -> str | None:
+    match = re.match(r"^devmtg/(\d{4}-\d{2}(?:-\d{2})?)(?:/|$)", collapse_ws(path).lstrip("/"))
+    if not match:
+        return None
+    return match.group(1)
+
+
+def derive_changed_devmtg_slugs(paths: list[str]) -> set[str]:
+    out: set[str] = set()
+    for path in paths:
+        slug = extract_devmtg_slug_from_path(path)
+        if slug:
+            out.add(slug)
+    return out
+
+
+def list_existing_event_slugs(events_dir: Path) -> set[str]:
+    out: set[str] = set()
+    for path in events_dir.glob("*.json"):
+        if path.stem == "index":
+            continue
+        if re.fullmatch(r"\d{4}-\d{2}(?:-\d{2})?", path.stem):
+            out.add(path.stem)
+    return out
+
+
+def select_remote_slugs_for_sync(
+    remote_slugs: list[str],
+    existing_event_slugs: set[str],
+    changed_upstream_slugs: set[str],
+    *,
+    force: bool = False,
+) -> list[str]:
+    if force:
+        return list(remote_slugs)
+    return [
+        slug
+        for slug in remote_slugs
+        if slug not in existing_event_slugs or slug in changed_upstream_slugs
+    ]
+
+
 def extract_meeting_name(page_html: str, slug: str) -> str:
     h1_match = re.search(r"<h1[^>]*>(.*?)</h1>", page_html, flags=re.IGNORECASE | re.DOTALL)
     if h1_match:
@@ -1623,116 +1695,6 @@ def merge_meeting_talks(
             by_title.setdefault(title_key, []).append(talk)
             by_composite.setdefault((title_key, speaker_key), []).append(talk)
 
-    def apply_common_fields(target: dict, source: dict):
-        nonlocal changed
-
-        for key, default in [
-            ("meeting", slug),
-            ("meetingName", preferred_meeting_name),
-            ("meetingLocation", preferred_meeting_location),
-            ("meetingDate", preferred_meeting_date),
-            ("projectGithub", ""),
-            ("tags", []),
-        ]:
-            if key not in target:
-                target[key] = default
-                changed = True
-
-        if target.get("meeting") != slug:
-            target["meeting"] = slug
-            changed = True
-        if not has_meaningful_meta_value(str(target.get("meetingName", ""))) and preferred_meeting_name:
-            target["meetingName"] = preferred_meeting_name
-            changed = True
-        target_location = str(target.get("meetingLocation", ""))
-        target_location_norm = normalize_meta_value(target_location)
-        raw_location_norm = normalize_meta_value(str(meeting_meta.get("location", "")))
-        preferred_location_norm = normalize_meta_value(preferred_meeting_location)
-        should_update_location = (
-            not has_meaningful_meta_value(target_location)
-            or (
-                target_location_norm
-                and raw_location_norm
-                and preferred_location_norm
-                and target_location_norm == raw_location_norm
-                and target_location_norm != preferred_location_norm
-            )
-        )
-        if should_update_location and has_meaningful_meta_value(preferred_meeting_location):
-            target["meetingLocation"] = preferred_meeting_location
-            changed = True
-        target_date = str(target.get("meetingDate", ""))
-        target_date_norm = normalize_meta_value(target_date)
-        raw_date_norm = normalize_meta_value(str(meeting_meta.get("date", "")))
-        preferred_date_norm = normalize_meta_value(preferred_meeting_date)
-        should_update_date = (
-            not has_meaningful_meta_value(target_date)
-            or (
-                target_date_norm
-                and raw_date_norm
-                and preferred_date_norm
-                and target_date_norm == raw_date_norm
-                and target_date_norm != preferred_date_norm
-            )
-        )
-        if should_update_date and has_meaningful_meta_value(preferred_meeting_date):
-            target["meetingDate"] = preferred_meeting_date
-            changed = True
-
-        # Preserve curated talk metadata; only backfill missing fields.
-        for field in ["title", "abstract"]:
-            src_value = source.get(field)
-            src_text = collapse_ws(str(src_value or ""))
-            if field == "abstract":
-                src_text = clean_abstract_text(
-                    src_text,
-                    title=str(source.get("title", "")),
-                    speakers=source.get("speakers") or [],
-                )
-                if not has_meaningful_abstract(src_text):
-                    continue
-                target_value = collapse_ws(str(target.get(field, "")))
-                target_clean = clean_abstract_text(
-                    target_value,
-                    title=pick_preferred_meta_value(
-                        str(target.get("title", "")),
-                        str(source.get("title", "")),
-                    ),
-                    speakers=(target.get("speakers") or source.get("speakers") or []),
-                )
-                target_has_noise = target_clean != target_value
-                if has_meaningful_abstract(target_value) and not target_has_noise:
-                    continue
-                src_value = src_text
-            else:
-                if not src_text:
-                    continue
-                if collapse_ws(str(target.get(field, ""))):
-                    continue
-            target[field] = src_value
-            changed = True
-
-        src_category = collapse_ws(str(source.get("category", "")))
-        if src_category and collapse_ws(str(target.get("category", ""))) != src_category:
-            target["category"] = src_category
-            changed = True
-
-        src_speakers = source.get("speakers")
-        if isinstance(src_speakers, list) and src_speakers:
-            existing_speakers = target.get("speakers")
-            if should_refresh_speakers(existing_speakers, src_speakers):
-                target["speakers"] = merge_speaker_records(existing_speakers, src_speakers)
-                changed = True
-
-        # Resource links are safe to refresh from upstream when present.
-        for field in ["videoUrl", "videoId", "slidesUrl", "posterUrl"]:
-            src_value = source.get(field)
-            if src_value in ("", None):
-                continue
-            if target.get(field) != src_value:
-                target[field] = src_value
-                changed = True
-
     for remote in remote_talks:
         title_key, speaker_key = extract_talk_match_key(remote)
         match: dict | None = None
@@ -1774,55 +1736,20 @@ def merge_meeting_talks(
             new_count += 1
             continue
 
-        apply_common_fields(match, remote)
-
-    meeting_payload = existing_meeting
-    if meeting_payload.get("slug") != slug:
-        meeting_payload["slug"] = slug
+    if existing_meeting:
+        meeting_payload = existing_meeting
+    else:
+        meeting_payload = {
+            "slug": slug,
+            "name": preferred_meeting_name,
+            "date": preferred_meeting_date,
+            "location": preferred_meeting_location,
+            "canceled": bool(meeting_meta.get("canceled", False)),
+            "talkCount": len(existing_talks),
+        }
         changed = True
 
-    if not has_meaningful_meta_value(str(meeting_payload.get("name", ""))) and preferred_meeting_name:
-        meeting_payload["name"] = preferred_meeting_name
-        changed = True
-    meeting_date = str(meeting_payload.get("date", ""))
-    meeting_date_norm = normalize_meta_value(meeting_date)
-    raw_date_norm = normalize_meta_value(str(meeting_meta.get("date", "")))
-    preferred_date_norm = normalize_meta_value(preferred_meeting_date)
-    should_update_meeting_date = (
-        not has_meaningful_meta_value(meeting_date)
-        or (
-            meeting_date_norm
-            and raw_date_norm
-            and preferred_date_norm
-            and meeting_date_norm == raw_date_norm
-            and meeting_date_norm != preferred_date_norm
-        )
-    )
-    if should_update_meeting_date and has_meaningful_meta_value(preferred_meeting_date):
-        meeting_payload["date"] = preferred_meeting_date
-        changed = True
-    meeting_location = str(meeting_payload.get("location", ""))
-    meeting_location_norm = normalize_meta_value(meeting_location)
-    raw_location_norm = normalize_meta_value(str(meeting_meta.get("location", "")))
-    preferred_location_norm = normalize_meta_value(preferred_meeting_location)
-    should_update_meeting_location = (
-        not has_meaningful_meta_value(meeting_location)
-        or (
-            meeting_location_norm
-            and raw_location_norm
-            and preferred_location_norm
-            and meeting_location_norm == raw_location_norm
-            and meeting_location_norm != preferred_location_norm
-        )
-    )
-    if should_update_meeting_location and has_meaningful_meta_value(preferred_meeting_location):
-        meeting_payload["location"] = preferred_meeting_location
-        changed = True
-    if "canceled" not in meeting_payload:
-        meeting_payload["canceled"] = bool(meeting_meta.get("canceled", False))
-        changed = True
-
-    if meeting_payload.get("talkCount") != len(existing_talks):
+    if meeting_payload.get("talkCount") != len(existing_talks) and (new_count > 0 or not existing_meeting):
         meeting_payload["talkCount"] = len(existing_talks)
         changed = True
 
@@ -1891,9 +1818,6 @@ def main() -> int:
     if existing_source_ref != args.ref:
         manifest["sourceRef"] = args.ref
         source_meta_changed = True
-    if latest_source_revision and existing_source_revision != latest_source_revision:
-        manifest["sourceRevision"] = latest_source_revision
-        source_meta_changed = True
 
     if (
         not args.only_slug
@@ -1937,6 +1861,42 @@ def main() -> int:
     if args.only_slug:
         allowed = {collapse_ws(slug) for slug in args.only_slug if collapse_ws(slug)}
         remote_slugs = [slug for slug in remote_slugs if slug in allowed]
+
+    existing_event_slugs = list_existing_event_slugs(events_dir)
+    changed_upstream_slugs: set[str] = set()
+    compared_revisions = False
+    if not args.only_slug and latest_source_revision and existing_source_revision and latest_source_revision != existing_source_revision:
+        try:
+            changed_paths = fetch_changed_paths_between_revisions(
+                github_api_base=args.github_api_base,
+                repo=args.repo,
+                base=existing_source_revision,
+                head=latest_source_revision,
+                github_token=args.github_token,
+            )
+            changed_upstream_slugs = derive_changed_devmtg_slugs(changed_paths)
+            compared_revisions = True
+        except urllib.error.HTTPError as exc:
+            if args.verbose:
+                print(
+                    f"[warn] Could not compare devmtg revisions (HTTP {exc.code}); "
+                    "syncing only brand-new meeting files and keeping sourceRevision unchanged.",
+                    flush=True,
+                )
+        except urllib.error.URLError as exc:
+            if args.verbose:
+                print(
+                    f"[warn] Could not compare devmtg revisions ({exc}); "
+                    "syncing only brand-new meeting files and keeping sourceRevision unchanged.",
+                    flush=True,
+                )
+
+    remote_slugs = select_remote_slugs_for_sync(
+        remote_slugs,
+        existing_event_slugs,
+        changed_upstream_slugs,
+        force=bool(args.only_slug),
+    )
 
     changed_slugs: list[str] = []
     created_slugs: list[str] = []
@@ -1997,6 +1957,18 @@ def main() -> int:
             )
 
     if not changed_slugs:
+        if (
+            not args.only_slug
+            and latest_source_revision
+            and (
+                latest_source_revision == existing_source_revision
+                or compared_revisions
+                or not existing_source_revision
+            )
+            and existing_source_revision != latest_source_revision
+        ):
+            manifest["sourceRevision"] = latest_source_revision
+            source_meta_changed = True
         if source_meta_changed and not args.dry_run:
             manifest_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             print(f"No devmtg content updates detected; refreshed source metadata ({manifest_path}).")
@@ -2006,6 +1978,18 @@ def main() -> int:
 
     next_event_files = sorted(manifest_set, reverse=True)
     next_data_version = _dt.date.today().isoformat() + "-auto-sync-devmtg"
+    if (
+        not args.only_slug
+        and latest_source_revision
+        and (
+            latest_source_revision == existing_source_revision
+            or compared_revisions
+            or not existing_source_revision
+        )
+        and existing_source_revision != latest_source_revision
+    ):
+        manifest["sourceRevision"] = latest_source_revision
+        source_meta_changed = True
     manifest_changed = (
         manifest.get("eventFiles", []) != next_event_files
         or collapse_ws(str(manifest.get("dataVersion", ""))) != next_data_version
