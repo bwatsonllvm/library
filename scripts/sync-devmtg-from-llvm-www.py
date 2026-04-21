@@ -258,6 +258,33 @@ def strip_leading_speaker_block(text: str, speakers: list[dict]) -> str:
     return remainder
 
 
+def strip_leading_speaker_context_block(text: str, speakers: list[dict]) -> str:
+    value = collapse_ws(text)
+    if not value:
+        return value
+
+    speaker_names = [
+        collapse_ws(str(item.get("name", "")))
+        for item in (speakers or [])
+        if isinstance(item, dict) and collapse_ws(str(item.get("name", "")))
+    ]
+    speaker_names = sorted(set(speaker_names), key=len, reverse=True)
+    if not speaker_names:
+        return value
+
+    speaker_alt = "|".join(re.escape(name) for name in speaker_names)
+    speaker_list = rf"(?:{speaker_alt})(?:\s*(?:,|and|&)\s*(?:{speaker_alt}))*"
+    context_prefix = "|".join(SPEAKER_CONTEXT_PREFIXES)
+    pattern = re.compile(
+        rf"^\s*(?:(?:{context_prefix})\b[\s:;\-–—,]*{speaker_list}\s*,?\s*)+",
+        flags=re.IGNORECASE,
+    )
+    match = pattern.match(value)
+    if not match:
+        return value
+    return value[match.end() :]
+
+
 def clean_abstract_text(raw: str, title: str = "", speakers: list[dict] | None = None) -> str:
     text = collapse_ws(raw)
     if not text:
@@ -273,6 +300,7 @@ def clean_abstract_text(raw: str, title: str = "", speakers: list[dict] | None =
             flags=re.IGNORECASE,
         )
         text = strip_leading_speaker_block(text, speakers or [])
+        text = strip_leading_speaker_context_block(text, speakers or [])
         text = re.sub(r"^\s*[-:;,.]+\s*", "", text)
         text = collapse_ws(text)
         if text == before:
@@ -289,6 +317,55 @@ def build_speaker_record(name: str, affiliation: str = "") -> dict:
         "linkedin": "",
         "twitter": "",
     }
+
+
+SPEAKER_CONTEXT_PREFIXES = [
+    r"(?:presented\s+(?:virtually\s+)?by)",
+    r"(?:virtual\s+presenter)",
+    r"(?:virtual\s+presentation\s+by)",
+    r"(?:(?:virtual\s+)?q\s*(?:&|and)\s*a(?:\s+(?:with|featuring))?)",
+    r"(?:(?:virtual\s+)?questions?\s*(?:&|and)\s*answers?\s+(?:with|featuring))",
+]
+
+
+def strip_speaker_context_prefix(value: str) -> str:
+    text = collapse_ws(value)
+    if not text:
+        return ""
+
+    changed = True
+    while changed:
+        changed = False
+        next_text = re.sub(
+            rf"^\s*(?:{'|'.join(SPEAKER_CONTEXT_PREFIXES)})\b[\s:;\-–—,]*",
+            "",
+            text,
+            flags=re.IGNORECASE,
+        )
+        next_text = collapse_ws(next_text)
+        if next_text != text:
+            text = next_text
+            changed = True
+    return text
+
+
+def dedupe_speaker_records(speakers: list[dict] | None) -> list[dict]:
+    out: list[dict] = []
+    by_name: dict[str, dict] = {}
+    for speaker in normalize_speaker_records(speakers):
+        key = normalize_speaker_name(str(speaker.get("name", "")))
+        if not key:
+            continue
+        existing = by_name.get(key)
+        if existing is None:
+            existing = dict(speaker)
+            by_name[key] = existing
+            out.append(existing)
+            continue
+        for field in ["affiliation", "github", "linkedin", "twitter"]:
+            if not existing.get(field) and speaker.get(field):
+                existing[field] = speaker[field]
+    return out
 
 
 def split_speaker_names(raw: str) -> list[str]:
@@ -344,6 +421,7 @@ def split_speaker_names(raw: str) -> list[str]:
     out: list[str] = []
     for part in parts:
         text = collapse_ws(re.sub(r"^(?:and|&)\s+", "", part, flags=re.IGNORECASE))
+        text = strip_speaker_context_prefix(text)
         if text:
             out.append(text)
     return out
@@ -397,7 +475,7 @@ def parse_speakers(raw: str, default_affiliation: str = "") -> list[dict]:
         speaker = parse_speaker_token(part, default_affiliation=shared_affiliation)
         if speaker:
             out.append(speaker)
-    return out
+    return dedupe_speaker_records(out)
 
 
 def extract_anchor_links(fragment: str) -> list[tuple[str, str]]:
@@ -759,7 +837,7 @@ def parse_programme_speaker_cell(fragment: str) -> list[dict]:
         pending_names = split_speaker_names(chunk)
 
     flush_pending()
-    return out
+    return dedupe_speaker_records(out)
 
 
 def parse_programme_tables(page_html: str, meeting_slug: str) -> list[dict]:

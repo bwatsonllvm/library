@@ -1,30 +1,29 @@
-name: Auto Sync - devmtg, Blogs, and Paper Discovery
+name: Auto Sync - devmtg Talks
 
-run-name: Sync llvm-www/devmtg, blogs, and paper collation
+run-name: Sync llvm-www/devmtg talks
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *"
+  repository_dispatch:
+    types:
+      - llvm-www-pr-approved
 
 permissions:
   contents: write
   pull-requests: write
 
 concurrency:
-  group: library-umbrella-sync-bot
+  group: library-talks-sync-bot
   cancel-in-progress: true
 
 jobs:
-  sync-upstream:
-    name: Sync llvm-www/devmtg + llvm-blog
+  sync-talks:
+    name: Sync llvm-www/devmtg talks and open PR
+    if: github.event_name != 'repository_dispatch' || github.event.client_payload.repo == 'llvm/llvm-www'
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       PYTHONDONTWRITEBYTECODE: "1"
-    outputs:
-      has_changes: ${{ steps.collect.outputs.has_changes }}
-      files_count: ${{ steps.collect.outputs.files_count }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -45,199 +44,12 @@ jobs:
             --manifest devmtg/events/index.json \
             --github-token "${GITHUB_TOKEN}"
 
-      - name: Sync LLVM blog posts from llvm-blog-www
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python3 scripts/sync-blog-from-llvm-www-blog.py \
-            --repo llvm/llvm-blog-www \
-            --ref main \
-            --output papers/llvm-blog-posts.json \
-            --cache-dir papers/.cache/llvm-blog \
-            --blog-base-url "https://blog.llvm.org/" \
-            --preserve-existing-metadata \
-            --github-token "${GITHUB_TOKEN}"
-
       - name: Sanitize URL-bearing fields
         run: |
           python3 scripts/sanitize-library-urls.py --repo-root .
 
-      - name: Build patch artifact
-        id: collect
-        run: |
-          set -euo pipefail
-          git add -A
-          if git diff --cached --quiet; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            echo "files_count=0" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          files_count="$(git diff --cached --name-only | wc -l | tr -d ' ')"
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          echo "files_count=${files_count}" >> "$GITHUB_OUTPUT"
-          git diff --cached --binary > "${RUNNER_TEMP}/patch-upstream.diff"
-
-      - name: Upload patch artifact
-        if: steps.collect.outputs.has_changes == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: patch-upstream
-          path: ${{ runner.temp }}/patch-upstream.diff
-          retention-days: 3
-
-  sync-papers:
-    name: Run paper search + collation
-    needs:
-      - sync-upstream
-    runs-on: ubuntu-latest
-    timeout-minutes: 70
-    env:
-      PYTHONDONTWRITEBYTECODE: "1"
-    outputs:
-      has_changes: ${{ steps.collect.outputs.has_changes }}
-      files_count: ${{ steps.collect.outputs.files_count }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          ref: main
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: Download upstream patch
-        if: needs.sync-upstream.outputs.has_changes == 'true'
-        uses: actions/download-artifact@v7
-        with:
-          name: patch-upstream
-          path: ${{ runner.temp }}/patch-upstream
-
-      - name: Apply upstream patch baseline
-        if: needs.sync-upstream.outputs.has_changes == 'true'
-        run: |
-          set -euo pipefail
-          git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-upstream/patch-upstream.diff"
-
-      - name: Refresh discovered papers from OpenAlex search
-        run: |
-          python3 scripts/build-openalex-discovery.py \
-            --events-dir devmtg/events \
-            --papers-dir papers \
-            --index-json papers/index.json \
-            --app-js js/app.js \
-            --subprojects-file papers/subproject-seeds.txt \
-            --skip-author-queries \
-            --max-pages-per-keyword 5 \
-            --per-page 200 \
-            --preserve-existing-metadata \
-            --mailto "llvm-library-bot@users.noreply.github.com"
-
-      - name: Build OpenAlex update summary (Markdown)
-        run: |
-          python3 scripts/generate-openalex-update-summary.py \
-            --repo-root . \
-            --bundle papers/openalex-llvm-query.json \
-            --output updates/openalex-update-summary.md \
-            --skip-when-unchanged
-
-      - name: Build canonical papers collation
-        run: |
-          python3 scripts/build-single-papers-db.py \
-            --output papers/combined-all-papers-deduped.json \
-            --manifest papers/index.json \
-            --cache-dir papers/.cache/openalex \
-            --landing-cache papers/.cache/openalex-landing-enrichment.json \
-            --batch-size 40 \
-            --landing-timeout 5 \
-            --landing-max-probes 120 \
-            --landing-miss-recheck-days 30 \
-            --mailto "llvm-library-bot@users.noreply.github.com"
-
-      - name: Backfill direct PDF links via OpenAlex + Unpaywall
-        run: |
-          python3 scripts/backfill-openalex-unpaywall-pdfs.py \
-            --bundle papers/combined-all-papers-deduped.json \
-            --manifest papers/index.json \
-            --cache papers/.cache/unpaywall-pdf-links.json \
-            --mailto "llvm-library-bot@users.noreply.github.com"
-
-      - name: Sanitize URL-bearing fields
-        run: |
-          python3 scripts/sanitize-library-urls.py --repo-root .
-
-      - name: Build patch artifact
-        id: collect
-        run: |
-          set -euo pipefail
-          git add -A
-          if git diff --cached --quiet; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            echo "files_count=0" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          files_count="$(git diff --cached --name-only | wc -l | tr -d ' ')"
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          echo "files_count=${files_count}" >> "$GITHUB_OUTPUT"
-          git diff --cached --binary > "${RUNNER_TEMP}/patch-papers.diff"
-
-      - name: Upload patch artifact
-        if: steps.collect.outputs.has_changes == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: patch-papers
-          path: ${{ runner.temp }}/patch-papers.diff
-          retention-days: 3
-
-  assemble-and-pr:
-    name: Assemble sync output + validate + create one PR
-    runs-on: ubuntu-latest
-    timeout-minutes: 90
-    needs:
-      - sync-upstream
-      - sync-papers
-    env:
-      PYTHONDONTWRITEBYTECODE: "1"
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-        with:
-          ref: main
-
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-
-      - name: Download upstream patch
-        if: needs.sync-upstream.outputs.has_changes == 'true'
-        uses: actions/download-artifact@v7
-        with:
-          name: patch-upstream
-          path: ${{ runner.temp }}/patch-upstream
-
-      - name: Download papers patch
-        if: needs.sync-papers.outputs.has_changes == 'true'
-        uses: actions/download-artifact@v7
-        with:
-          name: patch-papers
-          path: ${{ runner.temp }}/patch-papers
-
-      - name: Apply silo patches
-        run: |
-          set -euo pipefail
-
-          if [[ "${{ needs.sync-papers.outputs.has_changes }}" == "true" ]]; then
-            git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-papers/patch-papers.diff"
-          elif [[ "${{ needs.sync-upstream.outputs.has_changes }}" == "true" ]]; then
-            git apply --index --whitespace=nowarn "${RUNNER_TEMP}/patch-upstream/patch-upstream.diff"
-          fi
-
-      - name: Detect assembled changes
-        id: assembled
+      - name: Detect content changes
+        id: content
         run: |
           set -euo pipefail
           if [[ -z "$(git status --porcelain)" ]]; then
@@ -246,47 +58,44 @@ jobs:
           fi
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
-      - name: Sanitize URL-bearing fields
-        if: steps.assembled.outputs.has_changes == 'true'
-        run: |
-          python3 scripts/sanitize-library-urls.py --repo-root .
-
       - name: Build updates log
-        if: steps.assembled.outputs.has_changes == 'true'
+        if: steps.content.outputs.has_changes == 'true'
         run: |
           python3 scripts/build-update-log.py \
             --repo-root . \
             --log-json updates/index.json
 
       - name: Build viewer artifacts
-        if: steps.assembled.outputs.has_changes == 'true'
+        if: steps.content.outputs.has_changes == 'true'
         run: |
           scripts/build-viewer-artifacts.sh
 
       - name: Validate bundle
-        if: steps.assembled.outputs.has_changes == 'true'
-        run: scripts/validate-library-bundle.sh
+        if: steps.content.outputs.has_changes == 'true'
+        run: |
+          scripts/validate-library-bundle.sh
 
       - name: Create Pull Request
-        if: steps.assembled.outputs.has_changes == 'true'
+        if: steps.content.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: main
-          branch: library/automated-sync-library-update
+          branch: library/automated-sync-talks-update
           delete-branch: true
-          commit-message: "Library update sync (devmtg, blogs, papers)"
-          title: "Library update sync (devmtg, blogs, papers)"
+          commit-message: "Library talks sync (devmtg)"
+          title: "Library talks sync (devmtg)"
           body: |
-            Automated library update sync:
+            Automated `llvm-www/devmtg` talk sync.
 
-            Source stages:
-            - llvm-www/devmtg talks/slides/videos: `${{ needs.sync-upstream.outputs.has_changes }}`
-            - llvm-blog-www posts: included in the upstream sync stage above
-            - paper discovery + canonical collation: `${{ needs.sync-papers.outputs.has_changes }}` (built on top of the upstream stage)
+            Trigger:
+            - event: `${{ github.event_name }}`
+            - source repo: `${{ github.event.client_payload.repo }}`
+            - llvm-www PR: `${{ github.event.client_payload.pr_number }}`
+            - review state: `${{ github.event.client_payload.review_state }}`
 
-            Finalization:
-            - sanitizes URL-bearing fields
+            This PR:
+            - syncs talks, slides, and video metadata from `llvm-www/devmtg`
             - rebuilds `updates/index.json`
-            - regenerates viewer artifacts (canonical header, lightweight autocomplete index, asset versions)
+            - regenerates viewer artifacts
             - validates the library bundle

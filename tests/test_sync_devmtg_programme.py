@@ -56,6 +56,37 @@ class SyncDevMtgProgrammeTests(unittest.TestCase):
             ],
         )
 
+        virtual_roles = self.module.parse_speakers(
+            "Owen Anderson, presented by Edoardo Marangoni, Q&A featuring Owen Anderson and David Chisnall"
+        )
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in virtual_roles],
+            [
+                ("Owen Anderson", ""),
+                ("Edoardo Marangoni", ""),
+                ("David Chisnall", ""),
+            ],
+        )
+
+        presented_by = self.module.parse_speakers("Bingyu Gao, presented by Wei Wei")
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in presented_by],
+            [
+                ("Bingyu Gao", ""),
+                ("Wei Wei", ""),
+            ],
+        )
+
+        virtual_qa = self.module.parse_speakers("Alice Example, virtual Q&A with Bob Example and Carol Example")
+        self.assertEqual(
+            [(speaker["name"], speaker["affiliation"]) for speaker in virtual_qa],
+            [
+                ("Alice Example", ""),
+                ("Bob Example", ""),
+                ("Carol Example", ""),
+            ],
+        )
+
     def test_programme_table_parser_handles_mixed_lightning_and_posters(self):
         meeting, talks = self.module.parse_meeting_page(self.fixture_html, "2014-04")
         self.assertEqual(meeting["talkCount"], 6)
@@ -97,6 +128,34 @@ class SyncDevMtgProgrammeTests(unittest.TestCase):
         self.assertEqual(
             [(speaker["name"], speaker["affiliation"]) for speaker in dbill["speakers"]],
             [("Yi-Hong Lyu", "Institute of Information Science, Academia Sinica")],
+        )
+
+    def test_clean_abstract_text_strips_virtual_presenter_metadata(self):
+        abstract = self.module.clean_abstract_text(
+            "presented by Wei Wei LLVM pass ordering auto-tuning can outperform standard -O3.",
+            title="Accelerating Pass Order Auto-tuning via Profile-Guided Cost Modeling",
+            speakers=[
+                {"name": "Bingyu Gao", "affiliation": ""},
+                {"name": "Wei Wei", "affiliation": ""},
+            ],
+        )
+        self.assertEqual(
+            abstract,
+            "LLVM pass ordering auto-tuning can outperform standard -O3.",
+        )
+
+        abstract = self.module.clean_abstract_text(
+            "presented by Hugo Trachino, Q&A with Vladislav Tarasov and Andrey Bokhanko Huawei Ascend NPUs combine DaVinci AI cores.",
+            title="HIVM: MLIR Dialect Stack for Ascend NPU Compilation",
+            speakers=[
+                {"name": "Vladislav Tarasov", "affiliation": ""},
+                {"name": "Hugo Trachino", "affiliation": ""},
+                {"name": "Andrey Bokhanko", "affiliation": ""},
+            ],
+        )
+        self.assertEqual(
+            abstract,
+            "Huawei Ascend NPUs combine DaVinci AI cores.",
         )
 
 

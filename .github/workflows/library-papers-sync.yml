@@ -1,0 +1,143 @@
+name: Auto Sync - Papers and Blogs
+
+run-name: Sync blogs, papers, and canonical collation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 3 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: library-papers-sync-bot
+  cancel-in-progress: true
+
+jobs:
+  sync-papers:
+    name: Sync papers/blogs and open PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Sync LLVM blog posts from llvm-blog-www
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/sync-blog-from-llvm-www-blog.py \
+            --repo llvm/llvm-blog-www \
+            --ref main \
+            --output papers/llvm-blog-posts.json \
+            --cache-dir papers/.cache/llvm-blog \
+            --blog-base-url "https://blog.llvm.org/" \
+            --preserve-existing-metadata \
+            --github-token "${GITHUB_TOKEN}"
+
+      - name: Refresh discovered papers from OpenAlex search
+        run: |
+          python3 scripts/build-openalex-discovery.py \
+            --events-dir devmtg/events \
+            --papers-dir papers \
+            --index-json papers/index.json \
+            --app-js js/app.js \
+            --subprojects-file papers/subproject-seeds.txt \
+            --skip-author-queries \
+            --max-pages-per-keyword 5 \
+            --per-page 200 \
+            --preserve-existing-metadata \
+            --mailto "llvm-library-bot@users.noreply.github.com"
+
+      - name: Build OpenAlex update summary (Markdown)
+        run: |
+          python3 scripts/generate-openalex-update-summary.py \
+            --repo-root . \
+            --bundle papers/openalex-llvm-query.json \
+            --output updates/openalex-update-summary.md \
+            --skip-when-unchanged
+
+      - name: Build canonical papers collation
+        run: |
+          python3 scripts/build-single-papers-db.py \
+            --output papers/combined-all-papers-deduped.json \
+            --manifest papers/index.json \
+            --cache-dir papers/.cache/openalex \
+            --landing-cache papers/.cache/openalex-landing-enrichment.json \
+            --batch-size 40 \
+            --landing-timeout 5 \
+            --landing-max-probes 120 \
+            --landing-miss-recheck-days 30 \
+            --mailto "llvm-library-bot@users.noreply.github.com"
+
+      - name: Backfill direct PDF links via OpenAlex + Unpaywall
+        run: |
+          python3 scripts/backfill-openalex-unpaywall-pdfs.py \
+            --bundle papers/combined-all-papers-deduped.json \
+            --manifest papers/index.json \
+            --cache papers/.cache/unpaywall-pdf-links.json \
+            --mailto "llvm-library-bot@users.noreply.github.com"
+
+      - name: Sanitize URL-bearing fields
+        run: |
+          python3 scripts/sanitize-library-urls.py --repo-root .
+
+      - name: Detect content changes
+        id: content
+        run: |
+          set -euo pipefail
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Build updates log
+        if: steps.content.outputs.has_changes == 'true'
+        run: |
+          python3 scripts/build-update-log.py \
+            --repo-root . \
+            --log-json updates/index.json
+
+      - name: Build viewer artifacts
+        if: steps.content.outputs.has_changes == 'true'
+        run: |
+          scripts/build-viewer-artifacts.sh
+
+      - name: Validate bundle
+        if: steps.content.outputs.has_changes == 'true'
+        run: |
+          scripts/validate-library-bundle.sh
+
+      - name: Create Pull Request
+        if: steps.content.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: library/automated-sync-papers-update
+          delete-branch: true
+          commit-message: "Library papers sync (blogs, papers)"
+          title: "Library papers sync (blogs, papers)"
+          body: |
+            Automated papers and blogs sync.
+
+            This PR:
+            - syncs LLVM blog posts from `llvm-blog-www`
+            - refreshes OpenAlex-discovered papers
+            - rebuilds the canonical papers collation
+            - backfills direct paper PDF links via OpenAlex + Unpaywall
+            - rebuilds `updates/index.json`
+            - regenerates viewer artifacts
+            - validates the library bundle

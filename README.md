@@ -237,10 +237,17 @@ For canonical meeting schedules and announcements, use the official archive: htt
 
 ## Automation
 
-Automation is centered on one scheduled PR workflow:
+Automation is split across two automated PR workflows:
 
-1. Library update sync (`.github/workflows/library-umbrella-sync.yml`)
+1. Talks sync (`.github/workflows/library-umbrella-sync.yml`)
+   - runs on demand or via cross-repo `repository_dispatch`
+   - expected dispatch type: `llvm-www-pr-approved`
+   - intended source repo: `llvm/llvm-www`
    - syncs talks/slides/videos from `llvm-www/devmtg`
+   - rebuilds the updates log and viewer artifacts
+
+2. Papers sync (`.github/workflows/library-papers-sync.yml`)
+   - runs nightly
    - syncs LLVM blog posts from `llvm-blog-www`
    - refreshes OpenAlex-discovered papers
    - rebuilds the canonical papers collation
@@ -271,8 +278,11 @@ Search relevance behavior is covered by deterministic regression tests in:
 These checks run in:
 - `.github/workflows/library-validate.yml` (PR validation)
 - `.github/workflows/pages.yml` (deploy gate)
-- `.github/workflows/library-umbrella-sync.yml` (automated library update PRs)
+- `.github/workflows/library-umbrella-sync.yml` (automated talks-sync PRs)
+- `.github/workflows/library-papers-sync.yml` (automated papers-sync PRs)
 - `.github/workflows/manual-paper-pr.yml` (manual paper-intake PRs)
+
+The talks sync workflow is a receiver only. To trigger it automatically from `llvm/llvm-www`, that repository must send a `repository_dispatch` event with type `llvm-www-pr-approved` to this repository.
 
 ## Repository Layout
 
