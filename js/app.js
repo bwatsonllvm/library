@@ -27,6 +27,10 @@ const ALL_WORK_PAGE_PATH = 'work.html';
 const MAX_TOPIC_FILTERS = 220;
 const MIN_TOPIC_FILTER_COUNT = 2;
 const TALK_SORT_MODES = new Set(['relevance', 'newest', 'oldest', 'title']);
+const PAGE_REQUIRED_TAGS = String(document.body && document.body.dataset ? document.body.dataset.requiredTags || '' : '')
+  .split(',')
+  .map((value) => String(value || '').trim())
+  .filter(Boolean);
 
 const state = {
   query: '',
@@ -137,6 +141,16 @@ function normalizeTalks(rawTalks) {
   return normalizeTalksFromHub(rawTalks);
 }
 
+function talkHasRequiredTags(talk) {
+  if (!PAGE_REQUIRED_TAGS.length) return true;
+  const topicKeys = new Set(
+    getTalkKeyTopics(talk, Infinity)
+      .map((topic) => normalizeFilterValue(topic))
+      .filter(Boolean)
+  );
+  return PAGE_REQUIRED_TAGS.every((tag) => topicKeys.has(normalizeFilterValue(tag)));
+}
+
 function normalizePersonKey(value) {
   return normalizePersonKeyFromHub(value);
 }
@@ -157,7 +171,7 @@ async function loadData() {
 
   try {
     const { talks } = await window.loadEventData();
-    allTalks = normalizeTalks(talks);
+    allTalks = normalizeTalks(talks).filter(talkHasRequiredTags);
   } catch (err) {
     showError(`Could not load event JSON data: <code>${escapeHtml(String(err.message || err))}</code>`);
     return false;
