@@ -1,0 +1,1617 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2022-05-008": {
+      "talk": {
+        "id": "2022-05-008",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "How to write a new compiler driver? The LLVM Flang perspective.",
+        "speakers": [
+          {
+            "name": "Andrzej Warzynski",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Flang (then \"F18\") was merged into LLVM as a sub-project in 2020, it had no compiler driver. Two years later, Flang enjoys a driver that integrates all components of the Flang sub-project, can generate executables and that shares the driver logic with Clang. In this presentation I will walk you through our journey.",
+        "videoUrl": "https://youtu.be/OvTiKWfhaho",
+        "videoId": "OvTiKWfhaho",
+        "tags": [
+          "Clang",
+          "Flang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "how to write a new compiler driver? the llvm flang perspective.",
+        "_speakerLower": "andrzej warzynski",
+        "_abstractLower": "flang (then \"f18\") was merged into llvm as a sub-project in 2020, it had no compiler driver. two years later, flang enjoys a driver that integrates all components of the flang sub-project, can generate executables and that shares the driver logic with clang. in this presentation i will walk you through our journey.",
+        "_tagsLower": "clang flang llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "how to write a new compiler driver the llvm flang perspective.",
+              "words": [
+                "how",
+                "to",
+                "write",
+                "new",
+                "compiler",
+                "driver",
+                "the",
+                "llvm",
+                "flang",
+                "perspective."
+              ]
+            },
+            "speakers": {
+              "text": "andrzej warzynski",
+              "words": [
+                "andrzej",
+                "warzynski"
+              ]
+            },
+            "tags": {
+              "text": "clang flang llvm",
+              "words": [
+                "clang",
+                "flang",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "flang then f18 was merged into llvm as a sub-project in 2020 it had no compiler driver. two years later flang enjoys a driver that integrates all components of the flang sub-project can generate executables and that shares the driver logic with clang. in this presentation i will walk you through our journey.",
+              "words": [
+                "flang",
+                "then",
+                "f18",
+                "was",
+                "merged",
+                "into",
+                "llvm",
+                "as",
+                "sub-project",
+                "in",
+                "2020",
+                "it",
+                "had",
+                "no",
+                "compiler",
+                "driver.",
+                "two",
+                "years",
+                "later",
+                "flang",
+                "enjoys",
+                "driver",
+                "that",
+                "integrates",
+                "all",
+                "components",
+                "of",
+                "the",
+                "flang",
+                "sub-project",
+                "can",
+                "generate",
+                "executables",
+                "and",
+                "that",
+                "shares",
+                "the",
+                "driver",
+                "logic",
+                "with",
+                "clang.",
+                "in",
+                "this",
+                "presentation",
+                "will",
+                "walk",
+                "you",
+                "through",
+                "our",
+                "journey."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "how to write a new compiler driver the llvm flang perspective. flang then f18 was merged into llvm as a sub-project in 2020 it had no compiler driver. two years later flang enjoys a driver that integrates all components of the flang sub-project can generate executables and that shares the driver logic with clang. in this presentation i will walk you through our journey. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk andrzej warzynski clang flang llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2022-04-03-010": {
+      "talk": {
+        "id": "2022-04-03-010",
+        "meeting": "2022-04-03",
+        "meetingName": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "April 3, 2022",
+        "category": "technical-talk",
+        "title": "Prototyping a compiler for homomorphic encryption using MLIR",
+        "speakers": [
+          {
+            "name": "Juneyoung Lee Woosung Song",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. Among homomorphic encryption schemes, CKKS provides efficient but approximate operations on real numbers. CKKS encrypts a plaintext as a pair of large integer polynomials, and its homomorphic operations are defined as a series of polynomial operations on them. Thus, the implementations of CKKS operations typically contain many loops on large arrays representing polynomials. Successfully applying loop optimizations can significantly boost the performance of the operations.\n\nIn this talk, we introduce a prototype of a compiler for homomorphic encryption using MLIR.\n\nIt takes a program that describes polynomial operations and compiles it into LLVM IR.\n\nOur prototype can compile decryption/encryption, and the generated code is at most 40% faster when run in 32 threads than the C++ implementation written using Intel HEXL.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2022-04-03/slides/Prototyping.a.compiler.for.homomorphic.encryption.in.MLIR.pdf",
+        "tags": [
+          "IR",
+          "Loop transformations",
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/aqjune/mlir",
+        "githubReferences": [
+          "https://github.com/aqjune/mlir"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/aqjune/mlir",
+            "source": "slides",
+            "label": "MLIR -TV*: another on -going (personal) project *",
+            "context": "MLIR -TV*: another on -going (personal) project *",
+            "library": "mlir",
+            "repository": "aqjune/mlir",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/aqjune/mlir"
+          }
+        ],
+        "keywords": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "prototyping a compiler for homomorphic encryption using mlir",
+        "_speakerLower": "juneyoung lee woosung song",
+        "_abstractLower": "homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. among homomorphic encryption schemes, ckks provides efficient but approximate operations on real numbers. ckks encrypts a plaintext as a pair of large integer polynomials, and its homomorphic operations are defined as a series of polynomial operations on them. thus, the implementations of ckks operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations.\n\nin this talk, we introduce a prototype of a compiler for homomorphic encryption using mlir.\n\nit takes a program that describes polynomial operations and compiles it into llvm ir.\n\nour prototype can compile decryption/encryption, and the generated code is at most 40% faster when run in 32 threads than the c++ implementation written using intel hexl.",
+        "_tagsLower": "ir loop transformations mlir optimizations performance llvm",
+        "_meetingLower": "2022 sixth llvm performance workshop @ cgo sixth llvm performance workshop @ cgo, virtual april 3, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "prototyping a compiler for homomorphic encryption using mlir",
+              "words": [
+                "prototyping",
+                "compiler",
+                "for",
+                "homomorphic",
+                "encryption",
+                "using",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "juneyoung lee woosung song",
+              "words": [
+                "juneyoung",
+                "lee",
+                "woosung",
+                "song"
+              ]
+            },
+            "tags": {
+              "text": "ir loop transformations mlir optimizations performance llvm",
+              "words": [
+                "ir",
+                "loop",
+                "transformations",
+                "mlir",
+                "optimizations",
+                "performance",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022",
+              "words": [
+                "2022",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "april",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. among homomorphic encryption schemes ckks provides efficient but approximate operations on real numbers. ckks encrypts a plaintext as a pair of large integer polynomials and its homomorphic operations are defined as a series of polynomial operations on them. thus the implementations of ckks operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations. in this talk we introduce a prototype of a compiler for homomorphic encryption using mlir. it takes a program that describes polynomial operations and compiles it into llvm ir. our prototype can compile decryption encryption and the generated code is at most 40 faster when run in 32 threads than the c++ implementation written using intel hexl.",
+              "words": [
+                "homomorphic",
+                "encryption",
+                "is",
+                "an",
+                "encryption",
+                "scheme",
+                "in",
+                "cryptography",
+                "that",
+                "provides",
+                "set",
+                "of",
+                "operations",
+                "on",
+                "encrypted",
+                "data.",
+                "among",
+                "homomorphic",
+                "encryption",
+                "schemes",
+                "ckks",
+                "provides",
+                "efficient",
+                "but",
+                "approximate",
+                "operations",
+                "on",
+                "real",
+                "numbers.",
+                "ckks",
+                "encrypts",
+                "plaintext",
+                "as",
+                "pair",
+                "of",
+                "large",
+                "integer",
+                "polynomials",
+                "and",
+                "its",
+                "homomorphic",
+                "operations",
+                "are",
+                "defined",
+                "as",
+                "series",
+                "of",
+                "polynomial",
+                "operations",
+                "on",
+                "them.",
+                "thus",
+                "the",
+                "implementations",
+                "of",
+                "ckks",
+                "operations",
+                "typically",
+                "contain",
+                "many",
+                "loops",
+                "on",
+                "large",
+                "arrays",
+                "representing",
+                "polynomials.",
+                "successfully",
+                "applying",
+                "loop",
+                "optimizations",
+                "can",
+                "significantly",
+                "boost",
+                "the",
+                "performance",
+                "of",
+                "the",
+                "operations.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "introduce",
+                "prototype",
+                "of",
+                "compiler",
+                "for",
+                "homomorphic",
+                "encryption",
+                "using",
+                "mlir.",
+                "it",
+                "takes",
+                "program",
+                "that",
+                "describes",
+                "polynomial",
+                "operations",
+                "and",
+                "compiles",
+                "it",
+                "into",
+                "llvm",
+                "ir.",
+                "our",
+                "prototype",
+                "can",
+                "compile",
+                "decryption",
+                "encryption",
+                "and",
+                "the",
+                "generated",
+                "code",
+                "is",
+                "at",
+                "most",
+                "40",
+                "faster",
+                "when",
+                "run",
+                "in",
+                "32",
+                "threads",
+                "than",
+                "the",
+                "c++",
+                "implementation",
+                "written",
+                "using",
+                "intel",
+                "hexl."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "prototyping a compiler for homomorphic encryption using mlir homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. among homomorphic encryption schemes ckks provides efficient but approximate operations on real numbers. ckks encrypts a plaintext as a pair of large integer polynomials and its homomorphic operations are defined as a series of polynomial operations on them. thus the implementations of ckks operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations. in this talk we introduce a prototype of a compiler for homomorphic encryption using mlir. it takes a program that describes polynomial operations and compiles it into llvm ir. our prototype can compile decryption encryption and the generated code is at most 40 faster when run in 32 threads than the c++ implementation written using intel hexl. 2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022 2022-04-03 technical-talk juneyoung lee woosung song ir loop transformations mlir optimizations performance llvm"
+      },
+      "meeting": {
+        "slug": "2022-04-03",
+        "name": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "date": "April 3, 2022",
+        "location": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2020-09-002": {
+      "talk": {
+        "id": "2020-09-002",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Clang & Linux: Asm Goto with Outputs",
+        "speakers": [
+          {
+            "name": "Bill Wendling",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Nick Desaulniers",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/vcPD490s-hE",
+        "videoId": "vcPD490s-hE",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Wendling_Desaulniers_asm_goto_w_outputs.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "clang & linux: asm goto with outputs",
+        "_speakerLower": "bill wendling nick desaulniers",
+        "_abstractLower": "",
+        "_tagsLower": "clang",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "clang and linux asm goto with outputs",
+              "words": [
+                "clang",
+                "and",
+                "linux",
+                "asm",
+                "goto",
+                "with",
+                "outputs"
+              ]
+            },
+            "speakers": {
+              "text": "bill wendling nick desaulniers",
+              "words": [
+                "bill",
+                "wendling",
+                "nick",
+                "desaulniers"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "clang and linux asm goto with outputs 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk bill wendling nick desaulniers clang"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-024": {
+      "talk": {
+        "id": "2020-09-024",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Checked C: Adding memory safety support to LLVM",
+        "speakers": [
+          {
+            "name": "M. Grang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "K. Kjeer",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/EuxAzvtX9CI",
+        "videoId": "EuxAzvtX9CI",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Checked_C_Adding_Memory_Safety_to_LLVM.pdf",
+        "tags": [
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "checked c: adding memory safety support to llvm",
+        "_speakerLower": "m. grang k. kjeer",
+        "_abstractLower": "",
+        "_tagsLower": "security llvm",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "checked c adding memory safety support to llvm",
+              "words": [
+                "checked",
+                "adding",
+                "memory",
+                "safety",
+                "support",
+                "to",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "m. grang k. kjeer",
+              "words": [
+                "m.",
+                "grang",
+                "k.",
+                "kjeer"
+              ]
+            },
+            "tags": {
+              "text": "security llvm",
+              "words": [
+                "security",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "checked c adding memory safety support to llvm 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk m. grang k. kjeer security llvm"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-046": {
+      "talk": {
+        "id": "2020-09-046",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "Outer-Loop Vectorization Legality Analysis for RV: One Step Closer to a Powerful Vectorizer for LLVM",
+        "speakers": [
+          {
+            "name": "S. Baziotis",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/u3AYUZXpa0w",
+        "videoId": "u3AYUZXpa0w",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Baziotis-Outer-Loop_Vectorization_Legality_Analysis_for_LLVM.pdf",
+        "tags": [
+          "Autovectorization"
+        ],
+        "projectGithub": "https://github.com/baziotis/llvm-project/tree/feature/lda",
+        "githubReferences": [
+          "https://github.com/baziotis/llvm-project/tree/feature/lda"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/baziotis/llvm-project/tree/feature/lda",
+            "source": "slides",
+            "label": "Still in Early Development ● You can follow it on",
+            "context": "Still in Early Development ● You can follow it on",
+            "library": "llvm-project",
+            "repository": "baziotis/llvm-project",
+            "fileName": "lda",
+            "filePath": "lda",
+            "referencePath": "lda"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/baziotis/llvm-project/tree/feature/lda"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "outer-loop vectorization legality analysis for rv: one step closer to a powerful vectorizer for llvm",
+        "_speakerLower": "s. baziotis",
+        "_abstractLower": "",
+        "_tagsLower": "autovectorization llvm",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "outer-loop vectorization legality analysis for rv one step closer to a powerful vectorizer for llvm",
+              "words": [
+                "outer-loop",
+                "vectorization",
+                "legality",
+                "analysis",
+                "for",
+                "rv",
+                "one",
+                "step",
+                "closer",
+                "to",
+                "powerful",
+                "vectorizer",
+                "for",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "s. baziotis",
+              "words": [
+                "s.",
+                "baziotis"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization llvm",
+              "words": [
+                "autovectorization",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "outer-loop vectorization legality analysis for rv one step closer to a powerful vectorizer for llvm 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk s. baziotis autovectorization llvm"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-007": {
+      "talk": {
+        "id": "2020-04-007",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang's AST, and Quantum Computing",
+        "speakers": [
+          {
+            "name": "Hal Finkel",
+            "affiliation": "Argonne National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Alex Mccaskey",
+            "affiliation": "Oak Ridge National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Did you know that Clang has a powerful plugin API? Plugins can currently observe Clang's AST during compilation, register new pragmas, and more. In this talk, I'll review Clang's current plugin infrastructure, explaining how to write and use Clang plugins, and then talk about how we're working to enhance Clang's plugin capabilities by allowing plugins to provide custom parsing within function bodies. This new capability has many potential use cases, from parser generators to database-query handling, and we'll discuss how this new capability can potentially enhance a wide spectrum of tools. Finally, we'll discuss one such use case in more detail: embedding a quantum programming language in C++ to create a state-of-the-art hybrid programming model for quantum computing.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_18",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_18.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "changing everything with clang plugins: a story about syntax extensions, clang's ast, and quantum computing",
+        "_speakerLower": "hal finkel alex mccaskey",
+        "_abstractLower": "did you know that clang has a powerful plugin api? plugins can currently observe clang's ast during compilation, register new pragmas, and more. in this talk, i'll review clang's current plugin infrastructure, explaining how to write and use clang plugins, and then talk about how we're working to enhance clang's plugin capabilities by allowing plugins to provide custom parsing within function bodies. this new capability has many potential use cases, from parser generators to database-query handling, and we'll discuss how this new capability can potentially enhance a wide spectrum of tools. finally, we'll discuss one such use case in more detail: embedding a quantum programming language in c++ to create a state-of-the-art hybrid programming model for quantum computing.",
+        "_tagsLower": "clang infrastructure quantum computing",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "changing everything with clang plugins a story about syntax extensions clangs ast and quantum computing",
+              "words": [
+                "changing",
+                "everything",
+                "with",
+                "clang",
+                "plugins",
+                "story",
+                "about",
+                "syntax",
+                "extensions",
+                "clangs",
+                "ast",
+                "and",
+                "quantum",
+                "computing"
+              ]
+            },
+            "speakers": {
+              "text": "hal finkel alex mccaskey",
+              "words": [
+                "hal",
+                "finkel",
+                "alex",
+                "mccaskey"
+              ]
+            },
+            "tags": {
+              "text": "clang infrastructure quantum computing",
+              "words": [
+                "clang",
+                "infrastructure",
+                "quantum",
+                "computing"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "did you know that clang has a powerful plugin api plugins can currently observe clangs ast during compilation register new pragmas and more. in this talk ill review clangs current plugin infrastructure explaining how to write and use clang plugins and then talk about how were working to enhance clangs plugin capabilities by allowing plugins to provide custom parsing within function bodies. this new capability has many potential use cases from parser generators to database-query handling and well discuss how this new capability can potentially enhance a wide spectrum of tools. finally well discuss one such use case in more detail embedding a quantum programming language in c++ to create a state-of-the-art hybrid programming model for quantum computing.",
+              "words": [
+                "did",
+                "you",
+                "know",
+                "that",
+                "clang",
+                "has",
+                "powerful",
+                "plugin",
+                "api",
+                "plugins",
+                "can",
+                "currently",
+                "observe",
+                "clangs",
+                "ast",
+                "during",
+                "compilation",
+                "register",
+                "new",
+                "pragmas",
+                "and",
+                "more.",
+                "in",
+                "this",
+                "talk",
+                "ill",
+                "review",
+                "clangs",
+                "current",
+                "plugin",
+                "infrastructure",
+                "explaining",
+                "how",
+                "to",
+                "write",
+                "and",
+                "use",
+                "clang",
+                "plugins",
+                "and",
+                "then",
+                "talk",
+                "about",
+                "how",
+                "were",
+                "working",
+                "to",
+                "enhance",
+                "clangs",
+                "plugin",
+                "capabilities",
+                "by",
+                "allowing",
+                "plugins",
+                "to",
+                "provide",
+                "custom",
+                "parsing",
+                "within",
+                "function",
+                "bodies.",
+                "this",
+                "new",
+                "capability",
+                "has",
+                "many",
+                "potential",
+                "use",
+                "cases",
+                "from",
+                "parser",
+                "generators",
+                "to",
+                "database-query",
+                "handling",
+                "and",
+                "well",
+                "discuss",
+                "how",
+                "this",
+                "new",
+                "capability",
+                "can",
+                "potentially",
+                "enhance",
+                "wide",
+                "spectrum",
+                "of",
+                "tools.",
+                "finally",
+                "well",
+                "discuss",
+                "one",
+                "such",
+                "use",
+                "case",
+                "in",
+                "more",
+                "detail",
+                "embedding",
+                "quantum",
+                "programming",
+                "language",
+                "in",
+                "c++",
+                "to",
+                "create",
+                "state-of-the-art",
+                "hybrid",
+                "programming",
+                "model",
+                "for",
+                "quantum",
+                "computing."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "changing everything with clang plugins a story about syntax extensions clangs ast and quantum computing did you know that clang has a powerful plugin api plugins can currently observe clangs ast during compilation register new pragmas and more. in this talk ill review clangs current plugin infrastructure explaining how to write and use clang plugins and then talk about how were working to enhance clangs plugin capabilities by allowing plugins to provide custom parsing within function bodies. this new capability has many potential use cases from parser generators to database-query handling and well discuss how this new capability can potentially enhance a wide spectrum of tools. finally well discuss one such use case in more detail embedding a quantum programming language in c++ to create a state-of-the-art hybrid programming model for quantum computing. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk hal finkel alex mccaskey clang infrastructure quantum computing"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-029": {
+      "talk": {
+        "id": "2020-04-029",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "tutorial",
+        "title": "From C to assembly: adding a custom intrinsic to Clang and LLVM",
+        "speakers": [
+          {
+            "name": "Mateusz Belicki",
+            "affiliation": "Intel",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This tutorial will introduce you to all necessary steps to create a Clang intrinsic (builtin function) and extend LLVM to generate code for it. This tutorial aims to provide a complete manual for adding a custom target-specific intrinsic including exposition to the source language. After completing this tutorial you should be able to extend clang with custom intrinsic and know how to handle it in LLVM, including steps to test and debug your changes at different stages of development. Fluency in C++ and general programming concepts is expected. The tutorial will try to accommodate for listeners with no prior knowledge of LLVM or compiler-specific topics, but it's recommended to complete general introduction tutorial to LLVM first.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_73",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_73.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "from c to assembly: adding a custom intrinsic to clang and llvm",
+        "_speakerLower": "mateusz belicki",
+        "_abstractLower": "this tutorial will introduce you to all necessary steps to create a clang intrinsic (builtin function) and extend llvm to generate code for it. this tutorial aims to provide a complete manual for adding a custom target-specific intrinsic including exposition to the source language. after completing this tutorial you should be able to extend clang with custom intrinsic and know how to handle it in llvm, including steps to test and debug your changes at different stages of development. fluency in c++ and general programming concepts is expected. the tutorial will try to accommodate for listeners with no prior knowledge of llvm or compiler-specific topics, but it's recommended to complete general introduction tutorial to llvm first.",
+        "_tagsLower": "llvm clang",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "from c to assembly adding a custom intrinsic to clang and llvm",
+              "words": [
+                "from",
+                "to",
+                "assembly",
+                "adding",
+                "custom",
+                "intrinsic",
+                "to",
+                "clang",
+                "and",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "mateusz belicki",
+              "words": [
+                "mateusz",
+                "belicki"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang",
+              "words": [
+                "llvm",
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "this tutorial will introduce you to all necessary steps to create a clang intrinsic builtin function and extend llvm to generate code for it. this tutorial aims to provide a complete manual for adding a custom target-specific intrinsic including exposition to the source language. after completing this tutorial you should be able to extend clang with custom intrinsic and know how to handle it in llvm including steps to test and debug your changes at different stages of development. fluency in c++ and general programming concepts is expected. the tutorial will try to accommodate for listeners with no prior knowledge of llvm or compiler-specific topics but its recommended to complete general introduction tutorial to llvm first.",
+              "words": [
+                "this",
+                "tutorial",
+                "will",
+                "introduce",
+                "you",
+                "to",
+                "all",
+                "necessary",
+                "steps",
+                "to",
+                "create",
+                "clang",
+                "intrinsic",
+                "builtin",
+                "function",
+                "and",
+                "extend",
+                "llvm",
+                "to",
+                "generate",
+                "code",
+                "for",
+                "it.",
+                "this",
+                "tutorial",
+                "aims",
+                "to",
+                "provide",
+                "complete",
+                "manual",
+                "for",
+                "adding",
+                "custom",
+                "target-specific",
+                "intrinsic",
+                "including",
+                "exposition",
+                "to",
+                "the",
+                "source",
+                "language.",
+                "after",
+                "completing",
+                "this",
+                "tutorial",
+                "you",
+                "should",
+                "be",
+                "able",
+                "to",
+                "extend",
+                "clang",
+                "with",
+                "custom",
+                "intrinsic",
+                "and",
+                "know",
+                "how",
+                "to",
+                "handle",
+                "it",
+                "in",
+                "llvm",
+                "including",
+                "steps",
+                "to",
+                "test",
+                "and",
+                "debug",
+                "your",
+                "changes",
+                "at",
+                "different",
+                "stages",
+                "of",
+                "development.",
+                "fluency",
+                "in",
+                "c++",
+                "and",
+                "general",
+                "programming",
+                "concepts",
+                "is",
+                "expected.",
+                "the",
+                "tutorial",
+                "will",
+                "try",
+                "to",
+                "accommodate",
+                "for",
+                "listeners",
+                "with",
+                "no",
+                "prior",
+                "knowledge",
+                "of",
+                "llvm",
+                "or",
+                "compiler-specific",
+                "topics",
+                "but",
+                "its",
+                "recommended",
+                "to",
+                "complete",
+                "general",
+                "introduction",
+                "tutorial",
+                "to",
+                "llvm",
+                "first."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "from c to assembly adding a custom intrinsic to clang and llvm this tutorial will introduce you to all necessary steps to create a clang intrinsic builtin function and extend llvm to generate code for it. this tutorial aims to provide a complete manual for adding a custom target-specific intrinsic including exposition to the source language. after completing this tutorial you should be able to extend clang with custom intrinsic and know how to handle it in llvm including steps to test and debug your changes at different stages of development. fluency in c++ and general programming concepts is expected. the tutorial will try to accommodate for listeners with no prior knowledge of llvm or compiler-specific topics but its recommended to complete general introduction tutorial to llvm first. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial mateusz belicki llvm clang"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2016-09-009": {
+      "talk": {
+        "id": "2016-09-009",
+        "meeting": "2016-09",
+        "meetingName": "2016 LLVM Cauldron",
+        "meetingLocation": "LLVM Cauldron, Hebden Bridge, UK",
+        "meetingDate": "September 8, 2016",
+        "category": "lightning-talk",
+        "title": "Speeding up query execution in PostgreSQL using LLVM JIT",
+        "speakers": [
+          {
+            "name": "Dmitry Melnik",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/NzOpNh_msng",
+        "videoId": "NzOpNh_msng",
+        "slidesUrl": "https://llvm.org/devmtg/2016-09/slides/Melnik-PostgreSQLLLVM.pdf",
+        "tags": [
+          "JIT"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "speeding up query execution in postgresql using llvm jit",
+        "_speakerLower": "dmitry melnik",
+        "_abstractLower": "",
+        "_tagsLower": "jit llvm",
+        "_meetingLower": "2016 llvm cauldron llvm cauldron, hebden bridge, uk september 8, 2016",
+        "_year": "2016",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "speeding up query execution in postgresql using llvm jit",
+              "words": [
+                "speeding",
+                "up",
+                "query",
+                "execution",
+                "in",
+                "postgresql",
+                "using",
+                "llvm",
+                "jit"
+              ]
+            },
+            "speakers": {
+              "text": "dmitry melnik",
+              "words": [
+                "dmitry",
+                "melnik"
+              ]
+            },
+            "tags": {
+              "text": "jit llvm",
+              "words": [
+                "jit",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016",
+              "words": [
+                "2016",
+                "llvm",
+                "cauldron",
+                "llvm",
+                "cauldron",
+                "hebden",
+                "bridge",
+                "uk",
+                "september",
+                "2016"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2016",
+              "words": [
+                "2016"
+              ]
+            }
+          },
+          "year": 2016
+        },
+        "_searchBlob": "speeding up query execution in postgresql using llvm jit 2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016 2016-09 lightning-talk dmitry melnik jit llvm"
+      },
+      "meeting": {
+        "slug": "2016-09",
+        "name": "2016 LLVM Cauldron",
+        "date": "September 8, 2016",
+        "location": "LLVM Cauldron, Hebden Bridge, UK",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2012-04-12-011": {
+      "talk": {
+        "id": "2012-04-12-011",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Tablegen Deep Dive",
+        "speakers": [
+          {
+            "name": "Reed Kotler",
+            "affiliation": "MIPS",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/yZpASqb-zOU",
+        "videoId": "yZpASqb-zOU",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Reed_Kotler.ppt",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "tablegen deep dive",
+        "_speakerLower": "reed kotler",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tablegen deep dive",
+              "words": [
+                "tablegen",
+                "deep",
+                "dive"
+              ]
+            },
+            "speakers": {
+              "text": "reed kotler",
+              "words": [
+                "reed",
+                "kotler"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "tablegen deep dive 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk reed kotler"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2011-09-16-002": {
+      "talk": {
+        "id": "2011-09-16-002",
+        "meeting": "2011-09-16",
+        "meetingName": "2011 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "September 16, 2011",
+        "category": "technical-talk",
+        "title": "More Target Independent LLVM Bitcode",
+        "speakers": [
+          {
+            "name": "Jin-Gu Kang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/O_fSf43StyY",
+        "videoId": "O_fSf43StyY",
+        "slidesUrl": "https://llvm.org/devmtg/2011-09-16/EuroLLVM2011-MoreTargetIndependentLLVMBitcode.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "more target independent llvm bitcode",
+        "_speakerLower": "jin-gu kang",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2011 european llvm developers' meeting london, uk september 16, 2011",
+        "_year": "2011",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "more target independent llvm bitcode",
+              "words": [
+                "more",
+                "target",
+                "independent",
+                "llvm",
+                "bitcode"
+              ]
+            },
+            "speakers": {
+              "text": "jin-gu kang",
+              "words": [
+                "jin-gu",
+                "kang"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2011 european llvm developers meeting london uk september 16 2011",
+              "words": [
+                "2011",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "september",
+                "16",
+                "2011"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2011",
+              "words": [
+                "2011"
+              ]
+            }
+          },
+          "year": 2011
+        },
+        "_searchBlob": "more target independent llvm bitcode 2011 european llvm developers meeting london uk september 16 2011 2011-09-16 technical-talk jin-gu kang llvm"
+      },
+      "meeting": {
+        "slug": "2011-09-16",
+        "name": "2011 European LLVM Developers' Meeting",
+        "date": "September 16, 2011",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 7
+      }
+    }
+  }
+}

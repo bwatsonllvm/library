@@ -4167,6 +4167,10 @@
     if (TALK_SEARCH_DOC_CACHE && TALK_SEARCH_DOC_CACHE.has(indexedTalk)) {
       return TALK_SEARCH_DOC_CACHE.get(indexedTalk);
     }
+    if (indexedTalk._searchDoc && typeof indexedTalk._searchDoc === 'object') {
+      if (TALK_SEARCH_DOC_CACHE) TALK_SEARCH_DOC_CACHE.set(indexedTalk, indexedTalk._searchDoc);
+      return indexedTalk._searchDoc;
+    }
 
     const doc = {
       fields: {
@@ -4835,6 +4839,10 @@
     if (!rawPaper || typeof rawPaper !== 'object') return null;
     if (PAPER_SEARCH_DOC_CACHE && PAPER_SEARCH_DOC_CACHE.has(rawPaper)) {
       return PAPER_SEARCH_DOC_CACHE.get(rawPaper);
+    }
+    if (rawPaper._searchDoc && typeof rawPaper._searchDoc === 'object') {
+      if (PAPER_SEARCH_DOC_CACHE) PAPER_SEARCH_DOC_CACHE.set(rawPaper, rawPaper._searchDoc);
+      return rawPaper._searchDoc;
     }
 
     const paper = rawPaper;

@@ -1,0 +1,2126 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-06-019": {
+      "talk": {
+        "id": "2025-06-019",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "lightning-talk",
+        "title": "Toward a Practical Double-Fetch Checker for Clang Static Analyzer: Early Results and Future Directions for OS Security",
+        "speakers": [
+          {
+            "name": "Fumiya Shigemitsu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Double-fetch vulnerabilities - a form of TOCTOU (Time-of-Check to Time-of-Use) bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. In this talk, we present our newly developed double-fetch checker for the Clang Static Analyzer, which builds on research prototypes (e.g., DFTracker) and uses memory-access provenance, alias relationships, and control-flow analysis to detect repeated reads from user memory. We’ll share how we reduce false positives through tailored heuristics, explore extensions for RTOS-specific environments, and outline future directions aimed at improving kernel and embedded security.",
+        "videoUrl": "https://youtu.be/LcYdysH5CQs",
+        "videoId": "LcYdysH5CQs",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/lightning-talk/shigemitsu-tiling.pdf",
+        "tags": [
+          "Clang",
+          "Embedded",
+          "Security",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "toward a practical double-fetch checker for clang static analyzer: early results and future directions for os security",
+        "_speakerLower": "fumiya shigemitsu",
+        "_abstractLower": "double-fetch vulnerabilities - a form of toctou (time-of-check to time-of-use) bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. in this talk, we present our newly developed double-fetch checker for the clang static analyzer, which builds on research prototypes (e.g., dftracker) and uses memory-access provenance, alias relationships, and control-flow analysis to detect repeated reads from user memory. we’ll share how we reduce false positives through tailored heuristics, explore extensions for rtos-specific environments, and outline future directions aimed at improving kernel and embedded security.",
+        "_tagsLower": "clang embedded security static analysis",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "toward a practical double-fetch checker for clang static analyzer early results and future directions for os security",
+              "words": [
+                "toward",
+                "practical",
+                "double-fetch",
+                "checker",
+                "for",
+                "clang",
+                "static",
+                "analyzer",
+                "early",
+                "results",
+                "and",
+                "future",
+                "directions",
+                "for",
+                "os",
+                "security"
+              ]
+            },
+            "speakers": {
+              "text": "fumiya shigemitsu",
+              "words": [
+                "fumiya",
+                "shigemitsu"
+              ]
+            },
+            "tags": {
+              "text": "clang embedded security static analysis",
+              "words": [
+                "clang",
+                "embedded",
+                "security",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "double-fetch vulnerabilities - a form of toctou time-of-check to time-of-use bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. in this talk we present our newly developed double-fetch checker for the clang static analyzer which builds on research prototypes e.g. dftracker and uses memory-access provenance alias relationships and control-flow analysis to detect repeated reads from user memory. well share how we reduce false positives through tailored heuristics explore extensions for rtos-specific environments and outline future directions aimed at improving kernel and embedded security.",
+              "words": [
+                "double-fetch",
+                "vulnerabilities",
+                "form",
+                "of",
+                "toctou",
+                "time-of-check",
+                "to",
+                "time-of-use",
+                "bugs",
+                "pose",
+                "significant",
+                "risk",
+                "in",
+                "kernels",
+                "and",
+                "embedded",
+                "systems",
+                "when",
+                "user-space",
+                "memory",
+                "is",
+                "accessed",
+                "multiple",
+                "times",
+                "without",
+                "proper",
+                "copy",
+                "semantics.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "present",
+                "our",
+                "newly",
+                "developed",
+                "double-fetch",
+                "checker",
+                "for",
+                "the",
+                "clang",
+                "static",
+                "analyzer",
+                "which",
+                "builds",
+                "on",
+                "research",
+                "prototypes",
+                "e.g.",
+                "dftracker",
+                "and",
+                "uses",
+                "memory-access",
+                "provenance",
+                "alias",
+                "relationships",
+                "and",
+                "control-flow",
+                "analysis",
+                "to",
+                "detect",
+                "repeated",
+                "reads",
+                "from",
+                "user",
+                "memory.",
+                "well",
+                "share",
+                "how",
+                "we",
+                "reduce",
+                "false",
+                "positives",
+                "through",
+                "tailored",
+                "heuristics",
+                "explore",
+                "extensions",
+                "for",
+                "rtos-specific",
+                "environments",
+                "and",
+                "outline",
+                "future",
+                "directions",
+                "aimed",
+                "at",
+                "improving",
+                "kernel",
+                "and",
+                "embedded",
+                "security."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "toward a practical double-fetch checker for clang static analyzer early results and future directions for os security double-fetch vulnerabilities - a form of toctou time-of-check to time-of-use bugs - pose a significant risk in kernels and embedded systems when user-space memory is accessed multiple times without proper copy semantics. in this talk we present our newly developed double-fetch checker for the clang static analyzer which builds on research prototypes e.g. dftracker and uses memory-access provenance alias relationships and control-flow analysis to detect repeated reads from user memory. well share how we reduce false positives through tailored heuristics explore extensions for rtos-specific environments and outline future directions aimed at improving kernel and embedded security. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 lightning-talk fumiya shigemitsu clang embedded security static analysis"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2024-04-009": {
+      "talk": {
+        "id": "2024-04-009",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Leveraging LLVM Optimizations to Speed up Constraint Solving",
+        "speakers": [
+          {
+            "name": "Benjamin Mikek",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "SLOT is a new tool which uses existing LLVM optimization passes to speed up SMT constraint solvers like Z3. While existing work has used SMT solving to verify LLVM’s peephole optimizations or in symbolic execution engines like KLEE, we flip the script and use LLVM optimizations to improve constraint solving. Our strategy is to translate SMT constraints into LLVM IR, apply the optimizer, and then translate back, alleviating manual developer effort in understanding both solver and LLVM internals. We find that SLOT speeds up average solving times by up to 2x for floating-point and bitvector constraints, and increases the number of constraints solved at fixed timeouts by up to 80%.",
+        "videoUrl": "https://youtu.be/MHnScvWl67U",
+        "videoId": "MHnScvWl67U",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Mikek-LeveragingLLVMOptimizations-toSpeedUp-ConstraintSolving.pdf",
+        "tags": [
+          "IR",
+          "JIT",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "leveraging llvm optimizations to speed up constraint solving",
+        "_speakerLower": "benjamin mikek",
+        "_abstractLower": "slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvm’s peephole optimizations or in symbolic execution engines like klee, we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir, apply the optimizer, and then translate back, alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints, and increases the number of constraints solved at fixed timeouts by up to 80%.",
+        "_tagsLower": "ir jit optimizations llvm",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "leveraging llvm optimizations to speed up constraint solving",
+              "words": [
+                "leveraging",
+                "llvm",
+                "optimizations",
+                "to",
+                "speed",
+                "up",
+                "constraint",
+                "solving"
+              ]
+            },
+            "speakers": {
+              "text": "benjamin mikek",
+              "words": [
+                "benjamin",
+                "mikek"
+              ]
+            },
+            "tags": {
+              "text": "ir jit optimizations llvm",
+              "words": [
+                "ir",
+                "jit",
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvms peephole optimizations or in symbolic execution engines like klee we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir apply the optimizer and then translate back alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints and increases the number of constraints solved at fixed timeouts by up to 80 .",
+              "words": [
+                "slot",
+                "is",
+                "new",
+                "tool",
+                "which",
+                "uses",
+                "existing",
+                "llvm",
+                "optimization",
+                "passes",
+                "to",
+                "speed",
+                "up",
+                "smt",
+                "constraint",
+                "solvers",
+                "like",
+                "z3.",
+                "while",
+                "existing",
+                "work",
+                "has",
+                "used",
+                "smt",
+                "solving",
+                "to",
+                "verify",
+                "llvms",
+                "peephole",
+                "optimizations",
+                "or",
+                "in",
+                "symbolic",
+                "execution",
+                "engines",
+                "like",
+                "klee",
+                "we",
+                "flip",
+                "the",
+                "script",
+                "and",
+                "use",
+                "llvm",
+                "optimizations",
+                "to",
+                "improve",
+                "constraint",
+                "solving.",
+                "our",
+                "strategy",
+                "is",
+                "to",
+                "translate",
+                "smt",
+                "constraints",
+                "into",
+                "llvm",
+                "ir",
+                "apply",
+                "the",
+                "optimizer",
+                "and",
+                "then",
+                "translate",
+                "back",
+                "alleviating",
+                "manual",
+                "developer",
+                "effort",
+                "in",
+                "understanding",
+                "both",
+                "solver",
+                "and",
+                "llvm",
+                "internals.",
+                "we",
+                "find",
+                "that",
+                "slot",
+                "speeds",
+                "up",
+                "average",
+                "solving",
+                "times",
+                "by",
+                "up",
+                "to",
+                "2x",
+                "for",
+                "floating-point",
+                "and",
+                "bitvector",
+                "constraints",
+                "and",
+                "increases",
+                "the",
+                "number",
+                "of",
+                "constraints",
+                "solved",
+                "at",
+                "fixed",
+                "timeouts",
+                "by",
+                "up",
+                "to",
+                "80"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "leveraging llvm optimizations to speed up constraint solving slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvms peephole optimizations or in symbolic execution engines like klee we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir apply the optimizer and then translate back alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints and increases the number of constraints solved at fixed timeouts by up to 80 . 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk benjamin mikek ir jit optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2023-05-018": {
+      "talk": {
+        "id": "2023-05-018",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "MLIR Dialect Design and Composition for Front-End Compilers",
+        "speakers": [
+          {
+            "name": "Jeff Niu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "MLIR dialect design is often more an art than a science. MLIR provides powerful infrastructure for building IR and a vast ecosystem of dialects to use, but lacks guidelines on how to actually do so. This talk is a deep dive on principles for MLIR dialect design and composition. We will focus on criteria for dialect design, such as concise and powerful representation and transparent composability, dialect design principles and techniques, such as preserving high-level information and distinguishing between “structural” and “computation” dialects, and challenges with integrating with upstream dialects. We will study how good dialect design allows us efficiently and easily write powerful optimizations on our IR and how to write generic IR transformations with MLIR interfaces. We will present our findings through the lens of building a general-purpose programming language with MLIR.",
+        "videoUrl": "https://youtu.be/hIt6J1_E21c",
+        "videoId": "hIt6J1_E21c",
+        "tags": [
+          "Frontend",
+          "IR",
+          "MLIR",
+          "Optimizations",
+          "Programming Languages"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir dialect design and composition for front-end compilers",
+        "_speakerLower": "jeff niu",
+        "_abstractLower": "mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use, but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design, such as concise and powerful representation and transparent composability, dialect design principles and techniques, such as preserving high-level information and distinguishing between “structural” and “computation” dialects, and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir.",
+        "_tagsLower": "frontend ir mlir optimizations programming languages infrastructure",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir dialect design and composition for front-end compilers",
+              "words": [
+                "mlir",
+                "dialect",
+                "design",
+                "and",
+                "composition",
+                "for",
+                "front-end",
+                "compilers"
+              ]
+            },
+            "speakers": {
+              "text": "jeff niu",
+              "words": [
+                "jeff",
+                "niu"
+              ]
+            },
+            "tags": {
+              "text": "frontend ir mlir optimizations programming languages infrastructure",
+              "words": [
+                "frontend",
+                "ir",
+                "mlir",
+                "optimizations",
+                "programming",
+                "languages",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design such as concise and powerful representation and transparent composability dialect design principles and techniques such as preserving high-level information and distinguishing between structural and computation dialects and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir.",
+              "words": [
+                "mlir",
+                "dialect",
+                "design",
+                "is",
+                "often",
+                "more",
+                "an",
+                "art",
+                "than",
+                "science.",
+                "mlir",
+                "provides",
+                "powerful",
+                "infrastructure",
+                "for",
+                "building",
+                "ir",
+                "and",
+                "vast",
+                "ecosystem",
+                "of",
+                "dialects",
+                "to",
+                "use",
+                "but",
+                "lacks",
+                "guidelines",
+                "on",
+                "how",
+                "to",
+                "actually",
+                "do",
+                "so.",
+                "this",
+                "talk",
+                "is",
+                "deep",
+                "dive",
+                "on",
+                "principles",
+                "for",
+                "mlir",
+                "dialect",
+                "design",
+                "and",
+                "composition.",
+                "we",
+                "will",
+                "focus",
+                "on",
+                "criteria",
+                "for",
+                "dialect",
+                "design",
+                "such",
+                "as",
+                "concise",
+                "and",
+                "powerful",
+                "representation",
+                "and",
+                "transparent",
+                "composability",
+                "dialect",
+                "design",
+                "principles",
+                "and",
+                "techniques",
+                "such",
+                "as",
+                "preserving",
+                "high-level",
+                "information",
+                "and",
+                "distinguishing",
+                "between",
+                "structural",
+                "and",
+                "computation",
+                "dialects",
+                "and",
+                "challenges",
+                "with",
+                "integrating",
+                "with",
+                "upstream",
+                "dialects.",
+                "we",
+                "will",
+                "study",
+                "how",
+                "good",
+                "dialect",
+                "design",
+                "allows",
+                "us",
+                "efficiently",
+                "and",
+                "easily",
+                "write",
+                "powerful",
+                "optimizations",
+                "on",
+                "our",
+                "ir",
+                "and",
+                "how",
+                "to",
+                "write",
+                "generic",
+                "ir",
+                "transformations",
+                "with",
+                "mlir",
+                "interfaces.",
+                "we",
+                "will",
+                "present",
+                "our",
+                "findings",
+                "through",
+                "the",
+                "lens",
+                "of",
+                "building",
+                "general-purpose",
+                "programming",
+                "language",
+                "with",
+                "mlir."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "mlir dialect design and composition for front-end compilers mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design such as concise and powerful representation and transparent composability dialect design principles and techniques such as preserving high-level information and distinguishing between structural and computation dialects and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk jeff niu frontend ir mlir optimizations programming languages infrastructure"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-006": {
+      "talk": {
+        "id": "2022-05-006",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "Custom benefit-driven inliner in Falcon JIT",
+        "speakers": [
+          {
+            "name": "Artur Pilipenko",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Azul",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk continues a series of technical talks about the internals of Azul's Falcon compiler. Inlining is a critically important compiler optimization. It is especially important in Java because of the extensive use of object-oriented abstractions. Introducing a custom downstream inliner in Falcon enabled great performance and compile-time improvements. In this session, we will give an overview of the inliner we implemented. We will talk about benefit-driven inlining heuristics, prioritization, a combination of top-down and bottom-up traversal orders, and clustering.",
+        "videoUrl": "https://youtu.be/UfA3VlByloU",
+        "videoId": "UfA3VlByloU",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-CustomBenefitDrivenInliner-in-FalconJIT.pdf",
+        "tags": [
+          "JIT",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "custom benefit-driven inliner in falcon jit",
+        "_speakerLower": "artur pilipenko azul",
+        "_abstractLower": "this talk continues a series of technical talks about the internals of azul's falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session, we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics, prioritization, a combination of top-down and bottom-up traversal orders, and clustering.",
+        "_tagsLower": "jit optimizations performance",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "custom benefit-driven inliner in falcon jit",
+              "words": [
+                "custom",
+                "benefit-driven",
+                "inliner",
+                "in",
+                "falcon",
+                "jit"
+              ]
+            },
+            "speakers": {
+              "text": "artur pilipenko azul",
+              "words": [
+                "artur",
+                "pilipenko",
+                "azul"
+              ]
+            },
+            "tags": {
+              "text": "jit optimizations performance",
+              "words": [
+                "jit",
+                "optimizations",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "this talk continues a series of technical talks about the internals of azuls falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics prioritization a combination of top-down and bottom-up traversal orders and clustering.",
+              "words": [
+                "this",
+                "talk",
+                "continues",
+                "series",
+                "of",
+                "technical",
+                "talks",
+                "about",
+                "the",
+                "internals",
+                "of",
+                "azuls",
+                "falcon",
+                "compiler.",
+                "inlining",
+                "is",
+                "critically",
+                "important",
+                "compiler",
+                "optimization.",
+                "it",
+                "is",
+                "especially",
+                "important",
+                "in",
+                "java",
+                "because",
+                "of",
+                "the",
+                "extensive",
+                "use",
+                "of",
+                "object-oriented",
+                "abstractions.",
+                "introducing",
+                "custom",
+                "downstream",
+                "inliner",
+                "in",
+                "falcon",
+                "enabled",
+                "great",
+                "performance",
+                "and",
+                "compile-time",
+                "improvements.",
+                "in",
+                "this",
+                "session",
+                "we",
+                "will",
+                "give",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "inliner",
+                "we",
+                "implemented.",
+                "we",
+                "will",
+                "talk",
+                "about",
+                "benefit-driven",
+                "inlining",
+                "heuristics",
+                "prioritization",
+                "combination",
+                "of",
+                "top-down",
+                "and",
+                "bottom-up",
+                "traversal",
+                "orders",
+                "and",
+                "clustering."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "custom benefit-driven inliner in falcon jit this talk continues a series of technical talks about the internals of azuls falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics prioritization a combination of top-down and bottom-up traversal orders and clustering. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk artur pilipenko azul jit optimizations performance"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2020-09-022": {
+      "talk": {
+        "id": "2020-09-022",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Changing Everything With Clang Plugins: A Story About Syntax Extensions, Clang’s AST, and Quantum Computing",
+        "speakers": [
+          {
+            "name": "H. Finkel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "A. Mccaskey",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/A9COzFs-gEg",
+        "videoId": "A9COzFs-gEg",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Finkel-Changing_Everything_With_Clang_Plugins.pdf",
+        "tags": [
+          "Clang",
+          "Quantum Computing"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "changing everything with clang plugins: a story about syntax extensions, clang’s ast, and quantum computing",
+        "_speakerLower": "h. finkel a. mccaskey",
+        "_abstractLower": "",
+        "_tagsLower": "clang quantum computing",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "changing everything with clang plugins a story about syntax extensions clangs ast and quantum computing",
+              "words": [
+                "changing",
+                "everything",
+                "with",
+                "clang",
+                "plugins",
+                "story",
+                "about",
+                "syntax",
+                "extensions",
+                "clangs",
+                "ast",
+                "and",
+                "quantum",
+                "computing"
+              ]
+            },
+            "speakers": {
+              "text": "h. finkel a. mccaskey",
+              "words": [
+                "h.",
+                "finkel",
+                "a.",
+                "mccaskey"
+              ]
+            },
+            "tags": {
+              "text": "clang quantum computing",
+              "words": [
+                "clang",
+                "quantum",
+                "computing"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "changing everything with clang plugins a story about syntax extensions clangs ast and quantum computing 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk h. finkel a. mccaskey clang quantum computing"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-044": {
+      "talk": {
+        "id": "2020-09-044",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "GWP-TSan: Zero-Cost Detection of Data Races in Production",
+        "speakers": [
+          {
+            "name": "M. Morehouse",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "K. Serebryany",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/2KvaKEyMVEU",
+        "videoId": "2KvaKEyMVEU",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Morehouse-GWP-Tsan.pdf",
+        "tags": [
+          "Dynamic Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "gwp-tsan: zero-cost detection of data races in production",
+        "_speakerLower": "m. morehouse k. serebryany",
+        "_abstractLower": "",
+        "_tagsLower": "dynamic analysis sanitizers",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "gwp-tsan zero-cost detection of data races in production",
+              "words": [
+                "gwp-tsan",
+                "zero-cost",
+                "detection",
+                "of",
+                "data",
+                "races",
+                "in",
+                "production"
+              ]
+            },
+            "speakers": {
+              "text": "m. morehouse k. serebryany",
+              "words": [
+                "m.",
+                "morehouse",
+                "k.",
+                "serebryany"
+              ]
+            },
+            "tags": {
+              "text": "dynamic analysis sanitizers",
+              "words": [
+                "dynamic",
+                "analysis",
+                "sanitizers"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "gwp-tsan zero-cost detection of data races in production 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk m. morehouse k. serebryany dynamic analysis sanitizers"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-005": {
+      "talk": {
+        "id": "2020-04-005",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Exhaustive Software Pipelining using an SMT-Solver",
+        "speakers": [
+          {
+            "name": "Jan-Willem Roorda",
+            "affiliation": "Intel",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Software pipelining (SWP) is a classic and important loop- optimization technique for VLIW-processors. It improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. Typically, SWP is implemented using heuristics. But, also exhaustive approaches based on Integer Programming (IP) have been proposed. In this talk, we present an alternative approach implemented in LLVM: an exhaustive software pipeliner based on a Satisfiability Modulo Theories (SMT) Solver. We give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. Furthermore, we show how the \"unsatisfiable core\" generation feature of modern SMT- solvers can be used by the compiler to give feedback to programmers and processor-designers. Finally, we compare our approach to LLVM's implementation of Swing-Modulo-Scheduling (SMS).",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_12",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_12.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "exhaustive software pipelining using an smt-solver",
+        "_speakerLower": "jan-willem roorda",
+        "_abstractLower": "software pipelining (swp) is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically, swp is implemented using heuristics. but, also exhaustive approaches based on integer programming (ip) have been proposed. in this talk, we present an alternative approach implemented in llvm: an exhaustive software pipeliner based on a satisfiability modulo theories (smt) solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore, we show how the \"unsatisfiable core\" generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally, we compare our approach to llvm's implementation of swing-modulo-scheduling (sms).",
+        "_tagsLower": "llvm optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "exhaustive software pipelining using an smt-solver",
+              "words": [
+                "exhaustive",
+                "software",
+                "pipelining",
+                "using",
+                "an",
+                "smt-solver"
+              ]
+            },
+            "speakers": {
+              "text": "jan-willem roorda",
+              "words": [
+                "jan-willem",
+                "roorda"
+              ]
+            },
+            "tags": {
+              "text": "llvm optimizations",
+              "words": [
+                "llvm",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "software pipelining swp is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically swp is implemented using heuristics. but also exhaustive approaches based on integer programming ip have been proposed. in this talk we present an alternative approach implemented in llvm an exhaustive software pipeliner based on a satisfiability modulo theories smt solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore we show how the unsatisfiable core generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally we compare our approach to llvms implementation of swing-modulo-scheduling sms .",
+              "words": [
+                "software",
+                "pipelining",
+                "swp",
+                "is",
+                "classic",
+                "and",
+                "important",
+                "loop-",
+                "optimization",
+                "technique",
+                "for",
+                "vliw-processors.",
+                "it",
+                "improves",
+                "instruction-",
+                "level",
+                "parallelism",
+                "by",
+                "overlapping",
+                "multiple",
+                "iterations",
+                "of",
+                "loop",
+                "and",
+                "executing",
+                "them",
+                "in",
+                "parallel.",
+                "typically",
+                "swp",
+                "is",
+                "implemented",
+                "using",
+                "heuristics.",
+                "but",
+                "also",
+                "exhaustive",
+                "approaches",
+                "based",
+                "on",
+                "integer",
+                "programming",
+                "ip",
+                "have",
+                "been",
+                "proposed.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "present",
+                "an",
+                "alternative",
+                "approach",
+                "implemented",
+                "in",
+                "llvm",
+                "an",
+                "exhaustive",
+                "software",
+                "pipeliner",
+                "based",
+                "on",
+                "satisfiability",
+                "modulo",
+                "theories",
+                "smt",
+                "solver.",
+                "we",
+                "give",
+                "experimental",
+                "results",
+                "in",
+                "which",
+                "we",
+                "compare",
+                "our",
+                "approach",
+                "with",
+                "heuristic",
+                "algorithms",
+                "and",
+                "hand-optimization.",
+                "furthermore",
+                "we",
+                "show",
+                "how",
+                "the",
+                "unsatisfiable",
+                "core",
+                "generation",
+                "feature",
+                "of",
+                "modern",
+                "smt-",
+                "solvers",
+                "can",
+                "be",
+                "used",
+                "by",
+                "the",
+                "compiler",
+                "to",
+                "give",
+                "feedback",
+                "to",
+                "programmers",
+                "and",
+                "processor-designers.",
+                "finally",
+                "we",
+                "compare",
+                "our",
+                "approach",
+                "to",
+                "llvms",
+                "implementation",
+                "of",
+                "swing-modulo-scheduling",
+                "sms"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "exhaustive software pipelining using an smt-solver software pipelining swp is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically swp is implemented using heuristics. but also exhaustive approaches based on integer programming ip have been proposed. in this talk we present an alternative approach implemented in llvm an exhaustive software pipeliner based on a satisfiability modulo theories smt solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore we show how the unsatisfiable core generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally we compare our approach to llvms implementation of swing-modulo-scheduling sms . 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk jan-willem roorda llvm optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-027": {
+      "talk": {
+        "id": "2020-04-027",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "tutorial",
+        "title": "MLIR tutorial",
+        "speakers": [
+          {
+            "name": "Alex Zinenko",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Mehdi Amini",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "MLIR is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to LLVM. It aims at generalizing the success of LLVM’s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning. In this tutorial, we will explain how the few core concepts present in MLIR can be combined to represent and transform various IRs, including LLVM IR itself, by demonstrating the development of an optimizing compiler for a custom DSL step by step. The tutorial should be sufficient for the developers of compilers, IRs and similar tools to start using MLIR to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. We will provide an overview of MLIR ecosystem and related efforts, building the analogy with existing LLVM subsystems and frequently discussed LLVM extension proposals, e.g. loop optimizations or GPU-specific abstractions.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_34",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_34.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir tutorial",
+        "_speakerLower": "alex zinenko mehdi amini",
+        "_abstractLower": "mlir is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to llvm. it aims at generalizing the success of llvm’s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning. in this tutorial, we will explain how the few core concepts present in mlir can be combined to represent and transform various irs, including llvm ir itself, by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers, irs and similar tools to start using mlir to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts, building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals, e.g. loop optimizations or gpu-specific abstractions.",
+        "_tagsLower": "llvm mlir ir optimizations infrastructure gpu ml",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir tutorial",
+              "words": [
+                "mlir",
+                "tutorial"
+              ]
+            },
+            "speakers": {
+              "text": "alex zinenko mehdi amini",
+              "words": [
+                "alex",
+                "zinenko",
+                "mehdi",
+                "amini"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir ir optimizations infrastructure gpu ml",
+              "words": [
+                "llvm",
+                "mlir",
+                "ir",
+                "optimizations",
+                "infrastructure",
+                "gpu",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions.",
+              "words": [
+                "mlir",
+                "is",
+                "flexible",
+                "infrastructure",
+                "for",
+                "defining",
+                "custom",
+                "compiler",
+                "abstractions",
+                "and",
+                "transformations",
+                "recently",
+                "introduced",
+                "to",
+                "llvm.",
+                "it",
+                "aims",
+                "at",
+                "generalizing",
+                "the",
+                "success",
+                "of",
+                "llvms",
+                "intermediate",
+                "representation",
+                "to",
+                "new",
+                "domains",
+                "ranging",
+                "from",
+                "device",
+                "instruction",
+                "sets",
+                "to",
+                "loop",
+                "abstractions",
+                "to",
+                "graphs",
+                "of",
+                "operators",
+                "used",
+                "in",
+                "machine",
+                "learning.",
+                "in",
+                "this",
+                "tutorial",
+                "we",
+                "will",
+                "explain",
+                "how",
+                "the",
+                "few",
+                "core",
+                "concepts",
+                "present",
+                "in",
+                "mlir",
+                "can",
+                "be",
+                "combined",
+                "to",
+                "represent",
+                "and",
+                "transform",
+                "various",
+                "irs",
+                "including",
+                "llvm",
+                "ir",
+                "itself",
+                "by",
+                "demonstrating",
+                "the",
+                "development",
+                "of",
+                "an",
+                "optimizing",
+                "compiler",
+                "for",
+                "custom",
+                "dsl",
+                "step",
+                "by",
+                "step.",
+                "the",
+                "tutorial",
+                "should",
+                "be",
+                "sufficient",
+                "for",
+                "the",
+                "developers",
+                "of",
+                "compilers",
+                "irs",
+                "and",
+                "similar",
+                "tools",
+                "to",
+                "start",
+                "using",
+                "mlir",
+                "to",
+                "implement",
+                "custom",
+                "operations",
+                "with",
+                "parsing",
+                "and",
+                "printing",
+                "define",
+                "custom",
+                "type",
+                "systems",
+                "and",
+                "implement",
+                "generic",
+                "passes",
+                "over",
+                "the",
+                "combination",
+                "of",
+                "those.",
+                "we",
+                "will",
+                "provide",
+                "an",
+                "overview",
+                "of",
+                "mlir",
+                "ecosystem",
+                "and",
+                "related",
+                "efforts",
+                "building",
+                "the",
+                "analogy",
+                "with",
+                "existing",
+                "llvm",
+                "subsystems",
+                "and",
+                "frequently",
+                "discussed",
+                "llvm",
+                "extension",
+                "proposals",
+                "e.g.",
+                "loop",
+                "optimizations",
+                "or",
+                "gpu-specific",
+                "abstractions."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "mlir tutorial mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial alex zinenko mehdi amini llvm mlir ir optimizations infrastructure gpu ml"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-049": {
+      "talk": {
+        "id": "2020-04-049",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "Data Parallel C++ compiler for accelerator programming",
+        "speakers": [
+          {
+            "name": "Alexey Bader",
+            "affiliation": "Intel",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Oleg Maslov",
+            "affiliation": "Intel",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk introduces the clang-based SYCL compiler with focus on the front-end and the driver enhancements enabling offloading of C++ code to wide range of accelerators. We will cover \"SYCL device compiler\" design and demonstrate how we leverage existing LLVM project infrastructure for offload code outlining, separate diagnostics for offload code and driver offload mode. We also review how third-party open source tools from the Khronos working group used to make our solution portable across different types of accelerators supporting OpenCL. We discuss ABI between host and device parts of the application and how to integrate SYCL offloading compiler with arbitrary C++11 compiler in addition to clang. We will update on the current status of SYCL support in Clang and plans for future development.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_41",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_41.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "data parallel c++ compiler for accelerator programming",
+        "_speakerLower": "alexey bader oleg maslov",
+        "_abstractLower": "this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover \"sycl device compiler\" design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining, separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development.",
+        "_tagsLower": "llvm clang offload libsycl infrastructure opencl",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "data parallel c++ compiler for accelerator programming",
+              "words": [
+                "data",
+                "parallel",
+                "c++",
+                "compiler",
+                "for",
+                "accelerator",
+                "programming"
+              ]
+            },
+            "speakers": {
+              "text": "alexey bader oleg maslov",
+              "words": [
+                "alexey",
+                "bader",
+                "oleg",
+                "maslov"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang offload libsycl infrastructure opencl",
+              "words": [
+                "llvm",
+                "clang",
+                "offload",
+                "libsycl",
+                "infrastructure",
+                "opencl"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover sycl device compiler design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development.",
+              "words": [
+                "this",
+                "talk",
+                "introduces",
+                "the",
+                "clang-based",
+                "sycl",
+                "compiler",
+                "with",
+                "focus",
+                "on",
+                "the",
+                "front-end",
+                "and",
+                "the",
+                "driver",
+                "enhancements",
+                "enabling",
+                "offloading",
+                "of",
+                "c++",
+                "code",
+                "to",
+                "wide",
+                "range",
+                "of",
+                "accelerators.",
+                "we",
+                "will",
+                "cover",
+                "sycl",
+                "device",
+                "compiler",
+                "design",
+                "and",
+                "demonstrate",
+                "how",
+                "we",
+                "leverage",
+                "existing",
+                "llvm",
+                "project",
+                "infrastructure",
+                "for",
+                "offload",
+                "code",
+                "outlining",
+                "separate",
+                "diagnostics",
+                "for",
+                "offload",
+                "code",
+                "and",
+                "driver",
+                "offload",
+                "mode.",
+                "we",
+                "also",
+                "review",
+                "how",
+                "third-party",
+                "open",
+                "source",
+                "tools",
+                "from",
+                "the",
+                "khronos",
+                "working",
+                "group",
+                "used",
+                "to",
+                "make",
+                "our",
+                "solution",
+                "portable",
+                "across",
+                "different",
+                "types",
+                "of",
+                "accelerators",
+                "supporting",
+                "opencl.",
+                "we",
+                "discuss",
+                "abi",
+                "between",
+                "host",
+                "and",
+                "device",
+                "parts",
+                "of",
+                "the",
+                "application",
+                "and",
+                "how",
+                "to",
+                "integrate",
+                "sycl",
+                "offloading",
+                "compiler",
+                "with",
+                "arbitrary",
+                "c++11",
+                "compiler",
+                "in",
+                "addition",
+                "to",
+                "clang.",
+                "we",
+                "will",
+                "update",
+                "on",
+                "the",
+                "current",
+                "status",
+                "of",
+                "sycl",
+                "support",
+                "in",
+                "clang",
+                "and",
+                "plans",
+                "for",
+                "future",
+                "development."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "data parallel c++ compiler for accelerator programming this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover sycl device compiler design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk alexey bader oleg maslov llvm clang offload libsycl infrastructure opencl"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-02-23-010": {
+      "talk": {
+        "id": "2020-02-23-010",
+        "meeting": "2020-02-23",
+        "meetingName": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "meetingLocation": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "meetingDate": "February 23, 2020",
+        "category": "technical-talk",
+        "title": "Interactive introduction: The Attributor: A Versatile Inter-procedural Fixpoint Iteration Framework",
+        "speakers": [
+          {
+            "name": "Johannes Doerfert",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "interactive introduction: the attributor: a versatile inter-procedural fixpoint iteration framework",
+        "_speakerLower": "johannes doerfert",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 fourth llvm performance workshop @ cgo20 fourth llvm performance workshop at cgo20, san diego, ca, usa february 23, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "interactive introduction the attributor a versatile inter-procedural fixpoint iteration framework",
+              "words": [
+                "interactive",
+                "introduction",
+                "the",
+                "attributor",
+                "versatile",
+                "inter-procedural",
+                "fixpoint",
+                "iteration",
+                "framework"
+              ]
+            },
+            "speakers": {
+              "text": "johannes doerfert",
+              "words": [
+                "johannes",
+                "doerfert"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020",
+              "words": [
+                "2020",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo20",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo20",
+                "san",
+                "diego",
+                "ca",
+                "usa",
+                "february",
+                "23",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "interactive introduction the attributor a versatile inter-procedural fixpoint iteration framework 2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020 2020-02-23 technical-talk johannes doerfert"
+      },
+      "meeting": {
+        "slug": "2020-02-23",
+        "name": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "date": "February 23, 2020",
+        "location": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "canceled": false,
+        "talkCount": 10
+      }
+    },
+    "2016-09-007": {
+      "talk": {
+        "id": "2016-09-007",
+        "meeting": "2016-09",
+        "meetingName": "2016 LLVM Cauldron",
+        "meetingLocation": "LLVM Cauldron, Hebden Bridge, UK",
+        "meetingDate": "September 8, 2016",
+        "category": "technical-talk",
+        "title": "Accelerating Python code with Numba and LLVM",
+        "speakers": [
+          {
+            "name": "Graham Markall",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/d8LnP4vU2CA",
+        "videoId": "d8LnP4vU2CA",
+        "slidesUrl": "http://gmarkall.github.io/tutorials/llvm-cauldron-2016/",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "accelerating python code with numba and llvm",
+        "_speakerLower": "graham markall",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2016 llvm cauldron llvm cauldron, hebden bridge, uk september 8, 2016",
+        "_year": "2016",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "accelerating python code with numba and llvm",
+              "words": [
+                "accelerating",
+                "python",
+                "code",
+                "with",
+                "numba",
+                "and",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "graham markall",
+              "words": [
+                "graham",
+                "markall"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016",
+              "words": [
+                "2016",
+                "llvm",
+                "cauldron",
+                "llvm",
+                "cauldron",
+                "hebden",
+                "bridge",
+                "uk",
+                "september",
+                "2016"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2016",
+              "words": [
+                "2016"
+              ]
+            }
+          },
+          "year": 2016
+        },
+        "_searchBlob": "accelerating python code with numba and llvm 2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016 2016-09 technical-talk graham markall llvm"
+      },
+      "meeting": {
+        "slug": "2016-09",
+        "name": "2016 LLVM Cauldron",
+        "date": "September 8, 2016",
+        "location": "LLVM Cauldron, Hebden Bridge, UK",
+        "canceled": false,
+        "talkCount": 13
+      }
+    }
+  }
+}

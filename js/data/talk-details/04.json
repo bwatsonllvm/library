@@ -1,0 +1,2081 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2023-08-07-003": {
+      "talk": {
+        "id": "2023-08-07-003",
+        "meeting": "2023-08-07",
+        "meetingName": "2023 Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "meetingLocation": "Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP; Salt Lake City, Utah, USA",
+        "meetingDate": "August 7, 2023",
+        "category": "technical-talk",
+        "title": "Scalable Tuning of OpenMP GPU Applications via Kernel Record and Replay",
+        "speakers": [
+          {
+            "name": "Konstantinos Parasyris",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [
+          "GPU"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "scalable tuning of openmp gpu applications via kernel record and replay",
+        "_speakerLower": "konstantinos parasyris",
+        "_abstractLower": "",
+        "_tagsLower": "gpu openmp",
+        "_meetingLower": "2023 third workshop on llvm in parallel processing (llpp) @ icpp third workshop on llvm in parallel processing (llpp) @ icpp; salt lake city, utah, usa august 7, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "scalable tuning of openmp gpu applications via kernel record and replay",
+              "words": [
+                "scalable",
+                "tuning",
+                "of",
+                "openmp",
+                "gpu",
+                "applications",
+                "via",
+                "kernel",
+                "record",
+                "and",
+                "replay"
+              ]
+            },
+            "speakers": {
+              "text": "konstantinos parasyris",
+              "words": [
+                "konstantinos",
+                "parasyris"
+              ]
+            },
+            "tags": {
+              "text": "gpu openmp",
+              "words": [
+                "gpu",
+                "openmp"
+              ]
+            },
+            "meeting": {
+              "text": "2023 third workshop on llvm in parallel processing llpp icpp third workshop on llvm in parallel processing llpp icpp salt lake city utah usa august 7 2023",
+              "words": [
+                "2023",
+                "third",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "third",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "salt",
+                "lake",
+                "city",
+                "utah",
+                "usa",
+                "august",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "scalable tuning of openmp gpu applications via kernel record and replay 2023 third workshop on llvm in parallel processing llpp icpp third workshop on llvm in parallel processing llpp icpp salt lake city utah usa august 7 2023 2023-08-07 technical-talk konstantinos parasyris gpu openmp"
+      },
+      "meeting": {
+        "slug": "2023-08-07",
+        "name": "2023 Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "date": "August 7, 2023",
+        "location": "Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP; Salt Lake City, Utah, USA",
+        "canceled": false,
+        "talkCount": 5
+      }
+    },
+    "2023-02-25-001": {
+      "talk": {
+        "id": "2023-02-25-001",
+        "meeting": "2023-02-25",
+        "meetingName": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "meetingDate": "February 25, 2023",
+        "category": "technical-talk",
+        "title": "RL4ReAl: Reinforcement Learning for Register Allocation",
+        "speakers": [],
+        "abstract": "We aim to automate decades of research and experience in register allocation, leveraging machine learning. We tackle this problem by embedding a multi-agent reinforcement learning algorithm within LLVM, training it with state of the art techniques. We formalize the constraints that precisely define the problem for a given instruction-set architecture, while ensuring that the generated code preserves semantic correctness. We also develop a gRPC based framework providing a modular and efficient compiler interface for training and inference. Our approach is architecture independent: we show experimental results targeting Intel x86 and ARM AArch64. Our results match or out-perform the heavily tuned, production-grade register allocators of LLVM.\n\nWe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:)\n\nWhile the primary focus of the workshop is on these topics, we welcome any submission related to the LLVM-project, its sub-projects (clang, mlir, lldb, Polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nProposals should provide sufficient information for the review committee to be able to judge the quality of the submission. Proposals can be submitted under the form of an extended abstract, full paper, or slides. Accepted presentations will be presented online. The presentations will be publicly available on https://llvm.org/devmtg/, and recordings will be available on LLVM's youtube channel\n\nIn case of any queries please reach out to the workshop organizers: Johannes Doerfert (jdoerfert at llnl.gov), Aditya (hiraditya at msn.com), Jose M Monsalve Diaz (jmonsalvediaz at anl.gov), Shilei Tian (i at tianshilei.me),\n\nThe LLVM Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.\n\nWe also adhere to the Code of Conduct use by CGO",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2023-02-25/slides/RL4ReAl.pdf",
+        "tags": [
+          "Backend",
+          "Clang",
+          "Community Building",
+          "LLD",
+          "LLDB",
+          "Libraries",
+          "ML",
+          "MLIR",
+          "Polly"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "rl4real: reinforcement learning for register allocation",
+        "_speakerLower": "",
+        "_abstractLower": "we aim to automate decades of research and experience in register allocation, leveraging machine learning. we tackle this problem by embedding a multi-agent reinforcement learning algorithm within llvm, training it with state of the art techniques. we formalize the constraints that precisely define the problem for a given instruction-set architecture, while ensuring that the generated code preserves semantic correctness. we also develop a grpc based framework providing a modular and efficient compiler interface for training and inference. our approach is architecture independent: we show experimental results targeting intel x86 and arm aarch64. our results match or out-perform the heavily tuned, production-grade register allocators of llvm.\n\nwe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:)\n\nwhile the primary focus of the workshop is on these topics, we welcome any submission related to the llvm-project, its sub-projects (clang, mlir, lldb, polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nproposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract, full paper, or slides. accepted presentations will be presented online. the presentations will be publicly available on https://llvm.org/devmtg/, and recordings will be available on llvm's youtube channel\n\nin case of any queries please reach out to the workshop organizers: johannes doerfert (jdoerfert at llnl.gov), aditya (hiraditya at msn.com), jose m monsalve diaz (jmonsalvediaz at anl.gov), shilei tian (i at tianshilei.me),\n\nthe llvm foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event, we expect you to have read and agree to the llvm code of conduct.\n\nwe also adhere to the code of conduct use by cgo",
+        "_tagsLower": "backend clang community building lld lldb libraries ml mlir polly llvm openmp compiler-rt register allocation aarch64 llvm foundation",
+        "_meetingLower": "2023 seventh llvm performance workshop @ cgo seventh llvm performance workshop @ cgo, in person - hybrid february 25, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "rl4real reinforcement learning for register allocation",
+              "words": [
+                "rl4real",
+                "reinforcement",
+                "learning",
+                "for",
+                "register",
+                "allocation"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "backend clang community building lld lldb libraries ml mlir polly llvm openmp compiler-rt register allocation aarch64 llvm foundation",
+              "words": [
+                "backend",
+                "clang",
+                "community",
+                "building",
+                "lld",
+                "lldb",
+                "libraries",
+                "ml",
+                "mlir",
+                "polly",
+                "llvm",
+                "openmp",
+                "compiler-rt",
+                "register",
+                "allocation",
+                "aarch64",
+                "llvm",
+                "foundation"
+              ]
+            },
+            "meeting": {
+              "text": "2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023",
+              "words": [
+                "2023",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "in",
+                "person",
+                "hybrid",
+                "february",
+                "25",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "we aim to automate decades of research and experience in register allocation leveraging machine learning. we tackle this problem by embedding a multi-agent reinforcement learning algorithm within llvm training it with state of the art techniques. we formalize the constraints that precisely define the problem for a given instruction-set architecture while ensuring that the generated code preserves semantic correctness. we also develop a grpc based framework providing a modular and efficient compiler interface for training and inference. our approach is architecture independent we show experimental results targeting intel x86 and arm aarch64. our results match or out-perform the heavily tuned production-grade register allocators of llvm. we invite speakers from academia and industry to present their work on the following list of topics including and not limited to while the primary focus of the workshop is on these topics we welcome any submission related to the llvm-project its sub-projects clang mlir lldb polly lld openmp pstl compiler-rt etc. as well as their use in industry and academia. proposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract full paper or slides. accepted presentations will be presented online. the presentations will be publicly available on https llvm.org devmtg and recordings will be available on llvms youtube channel in case of any queries please reach out to the workshop organizers johannes doerfert jdoerfert at llnl.gov aditya hiraditya at msn.com jose m monsalve diaz jmonsalvediaz at anl.gov shilei tian i at tianshilei.me the llvm foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event we expect you to have read and agree to the llvm code of conduct. we also adhere to the code of conduct use by cgo",
+              "words": [
+                "we",
+                "aim",
+                "to",
+                "automate",
+                "decades",
+                "of",
+                "research",
+                "and",
+                "experience",
+                "in",
+                "register",
+                "allocation",
+                "leveraging",
+                "machine",
+                "learning.",
+                "we",
+                "tackle",
+                "this",
+                "problem",
+                "by",
+                "embedding",
+                "multi-agent",
+                "reinforcement",
+                "learning",
+                "algorithm",
+                "within",
+                "llvm",
+                "training",
+                "it",
+                "with",
+                "state",
+                "of",
+                "the",
+                "art",
+                "techniques.",
+                "we",
+                "formalize",
+                "the",
+                "constraints",
+                "that",
+                "precisely",
+                "define",
+                "the",
+                "problem",
+                "for",
+                "given",
+                "instruction-set",
+                "architecture",
+                "while",
+                "ensuring",
+                "that",
+                "the",
+                "generated",
+                "code",
+                "preserves",
+                "semantic",
+                "correctness.",
+                "we",
+                "also",
+                "develop",
+                "grpc",
+                "based",
+                "framework",
+                "providing",
+                "modular",
+                "and",
+                "efficient",
+                "compiler",
+                "interface",
+                "for",
+                "training",
+                "and",
+                "inference.",
+                "our",
+                "approach",
+                "is",
+                "architecture",
+                "independent",
+                "we",
+                "show",
+                "experimental",
+                "results",
+                "targeting",
+                "intel",
+                "x86",
+                "and",
+                "arm",
+                "aarch64.",
+                "our",
+                "results",
+                "match",
+                "or",
+                "out-perform",
+                "the",
+                "heavily",
+                "tuned",
+                "production-grade",
+                "register",
+                "allocators",
+                "of",
+                "llvm.",
+                "we",
+                "invite",
+                "speakers",
+                "from",
+                "academia",
+                "and",
+                "industry",
+                "to",
+                "present",
+                "their",
+                "work",
+                "on",
+                "the",
+                "following",
+                "list",
+                "of",
+                "topics",
+                "including",
+                "and",
+                "not",
+                "limited",
+                "to",
+                "while",
+                "the",
+                "primary",
+                "focus",
+                "of",
+                "the",
+                "workshop",
+                "is",
+                "on",
+                "these",
+                "topics",
+                "we",
+                "welcome",
+                "any",
+                "submission",
+                "related",
+                "to",
+                "the",
+                "llvm-project",
+                "its",
+                "sub-projects",
+                "clang",
+                "mlir",
+                "lldb",
+                "polly",
+                "lld",
+                "openmp",
+                "pstl",
+                "compiler-rt",
+                "etc.",
+                "as",
+                "well",
+                "as",
+                "their",
+                "use",
+                "in",
+                "industry",
+                "and",
+                "academia.",
+                "proposals",
+                "should",
+                "provide",
+                "sufficient",
+                "information",
+                "for",
+                "the",
+                "review",
+                "committee",
+                "to",
+                "be",
+                "able",
+                "to",
+                "judge",
+                "the",
+                "quality",
+                "of",
+                "the",
+                "submission.",
+                "proposals",
+                "can",
+                "be",
+                "submitted",
+                "under",
+                "the",
+                "form",
+                "of",
+                "an",
+                "extended",
+                "abstract",
+                "full",
+                "paper",
+                "or",
+                "slides.",
+                "accepted",
+                "presentations",
+                "will",
+                "be",
+                "presented",
+                "online.",
+                "the",
+                "presentations",
+                "will",
+                "be",
+                "publicly",
+                "available",
+                "on",
+                "https",
+                "llvm.org",
+                "devmtg",
+                "and",
+                "recordings",
+                "will",
+                "be",
+                "available",
+                "on",
+                "llvms",
+                "youtube",
+                "channel",
+                "in",
+                "case",
+                "of",
+                "any",
+                "queries",
+                "please",
+                "reach",
+                "out",
+                "to",
+                "the",
+                "workshop",
+                "organizers",
+                "johannes",
+                "doerfert",
+                "jdoerfert",
+                "at",
+                "llnl.gov",
+                "aditya",
+                "hiraditya",
+                "at",
+                "msn.com",
+                "jose",
+                "monsalve",
+                "diaz",
+                "jmonsalvediaz",
+                "at",
+                "anl.gov",
+                "shilei",
+                "tian",
+                "at",
+                "tianshilei.me",
+                "the",
+                "llvm",
+                "foundation",
+                "is",
+                "dedicated",
+                "to",
+                "providing",
+                "an",
+                "inclusive",
+                "and",
+                "safe",
+                "experience",
+                "for",
+                "everyone.",
+                "we",
+                "do",
+                "not",
+                "tolerate",
+                "harassment",
+                "of",
+                "participants",
+                "in",
+                "any",
+                "form.",
+                "by",
+                "registering",
+                "for",
+                "this",
+                "event",
+                "we",
+                "expect",
+                "you",
+                "to",
+                "have",
+                "read",
+                "and",
+                "agree",
+                "to",
+                "the",
+                "llvm",
+                "code",
+                "of",
+                "conduct.",
+                "we",
+                "also",
+                "adhere",
+                "to",
+                "the",
+                "code",
+                "of",
+                "conduct",
+                "use",
+                "by",
+                "cgo"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "rl4real reinforcement learning for register allocation we aim to automate decades of research and experience in register allocation leveraging machine learning. we tackle this problem by embedding a multi-agent reinforcement learning algorithm within llvm training it with state of the art techniques. we formalize the constraints that precisely define the problem for a given instruction-set architecture while ensuring that the generated code preserves semantic correctness. we also develop a grpc based framework providing a modular and efficient compiler interface for training and inference. our approach is architecture independent we show experimental results targeting intel x86 and arm aarch64. our results match or out-perform the heavily tuned production-grade register allocators of llvm. we invite speakers from academia and industry to present their work on the following list of topics including and not limited to while the primary focus of the workshop is on these topics we welcome any submission related to the llvm-project its sub-projects clang mlir lldb polly lld openmp pstl compiler-rt etc. as well as their use in industry and academia. proposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract full paper or slides. accepted presentations will be presented online. the presentations will be publicly available on https llvm.org devmtg and recordings will be available on llvms youtube channel in case of any queries please reach out to the workshop organizers johannes doerfert jdoerfert at llnl.gov aditya hiraditya at msn.com jose m monsalve diaz jmonsalvediaz at anl.gov shilei tian i at tianshilei.me the llvm foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event we expect you to have read and agree to the llvm code of conduct. we also adhere to the code of conduct use by cgo 2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023 2023-02-25 technical-talk backend clang community building lld lldb libraries ml mlir polly llvm openmp compiler-rt register allocation aarch64 llvm foundation"
+      },
+      "meeting": {
+        "slug": "2023-02-25",
+        "name": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "date": "February 25, 2023",
+        "location": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "canceled": false,
+        "talkCount": 5
+      }
+    },
+    "2022-08-29-004": {
+      "talk": {
+        "id": "2022-08-29-004",
+        "meeting": "2022-08-29",
+        "meetingName": "2022 Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "meetingLocation": "Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP - Bordeaux, France",
+        "meetingDate": "August 29, 2022",
+        "category": "technical-talk",
+        "title": "Automatic Asynchronous Execution of Synchronously Offloaded OpenMP Target Regions",
+        "speakers": [
+          {
+            "name": "Rafael Herrera",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "automatic asynchronous execution of synchronously offloaded openmp target regions",
+        "_speakerLower": "rafael herrera",
+        "_abstractLower": "",
+        "_tagsLower": "openmp offload",
+        "_meetingLower": "2022 second workshop on llvm in parallel processing (llpp) @ icpp second workshop on llvm in parallel processing (llpp) @ icpp - bordeaux, france august 29, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "automatic asynchronous execution of synchronously offloaded openmp target regions",
+              "words": [
+                "automatic",
+                "asynchronous",
+                "execution",
+                "of",
+                "synchronously",
+                "offloaded",
+                "openmp",
+                "target",
+                "regions"
+              ]
+            },
+            "speakers": {
+              "text": "rafael herrera",
+              "words": [
+                "rafael",
+                "herrera"
+              ]
+            },
+            "tags": {
+              "text": "openmp offload",
+              "words": [
+                "openmp",
+                "offload"
+              ]
+            },
+            "meeting": {
+              "text": "2022 second workshop on llvm in parallel processing llpp icpp second workshop on llvm in parallel processing llpp icpp - bordeaux france august 29 2022",
+              "words": [
+                "2022",
+                "second",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "second",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "bordeaux",
+                "france",
+                "august",
+                "29",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "automatic asynchronous execution of synchronously offloaded openmp target regions 2022 second workshop on llvm in parallel processing llpp icpp second workshop on llvm in parallel processing llpp icpp - bordeaux france august 29 2022 2022-08-29 technical-talk rafael herrera openmp offload"
+      },
+      "meeting": {
+        "slug": "2022-08-29",
+        "name": "2022 Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "date": "August 29, 2022",
+        "location": "Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP - Bordeaux, France",
+        "canceled": false,
+        "talkCount": 6
+      }
+    },
+    "2022-04-03-004": {
+      "talk": {
+        "id": "2022-04-03-004",
+        "meeting": "2022-04-03",
+        "meetingName": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "April 3, 2022",
+        "category": "technical-talk",
+        "title": "Learning to combine Instructions in LLVM Compiler",
+        "speakers": [
+          {
+            "name": "Sandya Mannarswamy Dibyendu Das",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Instruction combiner (IC) is a critical compiler optimization pass, which replaces a sequence of instructions with an equivalent and optimized instruction sequence at basic block level. There can be thousands of instruction-combining patterns which need to be frequently updated as new coding idioms/applications and novel hardware evolve over time. This results in frequent updates to the IC optimization pass thereby incurring considerable human effort and high software maintenance costs. To mitigate these challenges associated with the traditional IC, we design and implement a Neural Instruction Combiner (NIC) and demonstrate its feasibility by integrating it into the standard LLVM compiler optimization pipeline.\n\nNIC leverages neural sequence-to-sequence (Seq2Seq) models for generating optimized encoded IR sequence from the unoptimized encoded IR sequence. To the best of our knowledge, ours is the first work demonstrating the feasibility of a neural instruction combiner built into a full-fledged compiler pipeline. Given the novelty of this task, we built a new dataset for training our NIC neural model. We show that NIC achieves exact match results percentage of 72\\% for optimized sequences as compared to traditional IC and neural machine translation metric Bleu precision score of 0.94, demonstrating its feasibility in a production compiler pipeline.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2022-04-03/slides/Learning.to.Combine.Instructions.in.LLVM.Compiler.pdf",
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "learning to combine instructions in llvm compiler",
+        "_speakerLower": "sandya mannarswamy dibyendu das",
+        "_abstractLower": "instruction combiner (ic) is a critical compiler optimization pass, which replaces a sequence of instructions with an equivalent and optimized instruction sequence at basic block level. there can be thousands of instruction-combining patterns which need to be frequently updated as new coding idioms/applications and novel hardware evolve over time. this results in frequent updates to the ic optimization pass thereby incurring considerable human effort and high software maintenance costs. to mitigate these challenges associated with the traditional ic, we design and implement a neural instruction combiner (nic) and demonstrate its feasibility by integrating it into the standard llvm compiler optimization pipeline.\n\nnic leverages neural sequence-to-sequence (seq2seq) models for generating optimized encoded ir sequence from the unoptimized encoded ir sequence. to the best of our knowledge, ours is the first work demonstrating the feasibility of a neural instruction combiner built into a full-fledged compiler pipeline. given the novelty of this task, we built a new dataset for training our nic neural model. we show that nic achieves exact match results percentage of 72\\% for optimized sequences as compared to traditional ic and neural machine translation metric bleu precision score of 0.94, demonstrating its feasibility in a production compiler pipeline.",
+        "_tagsLower": "optimizations llvm",
+        "_meetingLower": "2022 sixth llvm performance workshop @ cgo sixth llvm performance workshop @ cgo, virtual april 3, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "learning to combine instructions in llvm compiler",
+              "words": [
+                "learning",
+                "to",
+                "combine",
+                "instructions",
+                "in",
+                "llvm",
+                "compiler"
+              ]
+            },
+            "speakers": {
+              "text": "sandya mannarswamy dibyendu das",
+              "words": [
+                "sandya",
+                "mannarswamy",
+                "dibyendu",
+                "das"
+              ]
+            },
+            "tags": {
+              "text": "optimizations llvm",
+              "words": [
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022",
+              "words": [
+                "2022",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "april",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "instruction combiner ic is a critical compiler optimization pass which replaces a sequence of instructions with an equivalent and optimized instruction sequence at basic block level. there can be thousands of instruction-combining patterns which need to be frequently updated as new coding idioms applications and novel hardware evolve over time. this results in frequent updates to the ic optimization pass thereby incurring considerable human effort and high software maintenance costs. to mitigate these challenges associated with the traditional ic we design and implement a neural instruction combiner nic and demonstrate its feasibility by integrating it into the standard llvm compiler optimization pipeline. nic leverages neural sequence-to-sequence seq2seq models for generating optimized encoded ir sequence from the unoptimized encoded ir sequence. to the best of our knowledge ours is the first work demonstrating the feasibility of a neural instruction combiner built into a full-fledged compiler pipeline. given the novelty of this task we built a new dataset for training our nic neural model. we show that nic achieves exact match results percentage of 72 for optimized sequences as compared to traditional ic and neural machine translation metric bleu precision score of 0.94 demonstrating its feasibility in a production compiler pipeline.",
+              "words": [
+                "instruction",
+                "combiner",
+                "ic",
+                "is",
+                "critical",
+                "compiler",
+                "optimization",
+                "pass",
+                "which",
+                "replaces",
+                "sequence",
+                "of",
+                "instructions",
+                "with",
+                "an",
+                "equivalent",
+                "and",
+                "optimized",
+                "instruction",
+                "sequence",
+                "at",
+                "basic",
+                "block",
+                "level.",
+                "there",
+                "can",
+                "be",
+                "thousands",
+                "of",
+                "instruction-combining",
+                "patterns",
+                "which",
+                "need",
+                "to",
+                "be",
+                "frequently",
+                "updated",
+                "as",
+                "new",
+                "coding",
+                "idioms",
+                "applications",
+                "and",
+                "novel",
+                "hardware",
+                "evolve",
+                "over",
+                "time.",
+                "this",
+                "results",
+                "in",
+                "frequent",
+                "updates",
+                "to",
+                "the",
+                "ic",
+                "optimization",
+                "pass",
+                "thereby",
+                "incurring",
+                "considerable",
+                "human",
+                "effort",
+                "and",
+                "high",
+                "software",
+                "maintenance",
+                "costs.",
+                "to",
+                "mitigate",
+                "these",
+                "challenges",
+                "associated",
+                "with",
+                "the",
+                "traditional",
+                "ic",
+                "we",
+                "design",
+                "and",
+                "implement",
+                "neural",
+                "instruction",
+                "combiner",
+                "nic",
+                "and",
+                "demonstrate",
+                "its",
+                "feasibility",
+                "by",
+                "integrating",
+                "it",
+                "into",
+                "the",
+                "standard",
+                "llvm",
+                "compiler",
+                "optimization",
+                "pipeline.",
+                "nic",
+                "leverages",
+                "neural",
+                "sequence-to-sequence",
+                "seq2seq",
+                "models",
+                "for",
+                "generating",
+                "optimized",
+                "encoded",
+                "ir",
+                "sequence",
+                "from",
+                "the",
+                "unoptimized",
+                "encoded",
+                "ir",
+                "sequence.",
+                "to",
+                "the",
+                "best",
+                "of",
+                "our",
+                "knowledge",
+                "ours",
+                "is",
+                "the",
+                "first",
+                "work",
+                "demonstrating",
+                "the",
+                "feasibility",
+                "of",
+                "neural",
+                "instruction",
+                "combiner",
+                "built",
+                "into",
+                "full-fledged",
+                "compiler",
+                "pipeline.",
+                "given",
+                "the",
+                "novelty",
+                "of",
+                "this",
+                "task",
+                "we",
+                "built",
+                "new",
+                "dataset",
+                "for",
+                "training",
+                "our",
+                "nic",
+                "neural",
+                "model.",
+                "we",
+                "show",
+                "that",
+                "nic",
+                "achieves",
+                "exact",
+                "match",
+                "results",
+                "percentage",
+                "of",
+                "72",
+                "for",
+                "optimized",
+                "sequences",
+                "as",
+                "compared",
+                "to",
+                "traditional",
+                "ic",
+                "and",
+                "neural",
+                "machine",
+                "translation",
+                "metric",
+                "bleu",
+                "precision",
+                "score",
+                "of",
+                "0.94",
+                "demonstrating",
+                "its",
+                "feasibility",
+                "in",
+                "production",
+                "compiler",
+                "pipeline."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "learning to combine instructions in llvm compiler instruction combiner ic is a critical compiler optimization pass which replaces a sequence of instructions with an equivalent and optimized instruction sequence at basic block level. there can be thousands of instruction-combining patterns which need to be frequently updated as new coding idioms applications and novel hardware evolve over time. this results in frequent updates to the ic optimization pass thereby incurring considerable human effort and high software maintenance costs. to mitigate these challenges associated with the traditional ic we design and implement a neural instruction combiner nic and demonstrate its feasibility by integrating it into the standard llvm compiler optimization pipeline. nic leverages neural sequence-to-sequence seq2seq models for generating optimized encoded ir sequence from the unoptimized encoded ir sequence. to the best of our knowledge ours is the first work demonstrating the feasibility of a neural instruction combiner built into a full-fledged compiler pipeline. given the novelty of this task we built a new dataset for training our nic neural model. we show that nic achieves exact match results percentage of 72 for optimized sequences as compared to traditional ic and neural machine translation metric bleu precision score of 0.94 demonstrating its feasibility in a production compiler pipeline. 2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022 2022-04-03 technical-talk sandya mannarswamy dibyendu das optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2022-04-03",
+        "name": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "date": "April 3, 2022",
+        "location": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2020-09-018": {
+      "talk": {
+        "id": "2020-09-018",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Pushing Back Lit’s Boundaries to Test Libc++",
+        "speakers": [
+          {
+            "name": "L. Dionne",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/z5-wo0TW26M",
+        "videoId": "z5-wo0TW26M",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Dionne-Pushing_Lits_Boundaries_to_testLibCPlusPlus.pdf",
+        "tags": [
+          "C Libs",
+          "C++",
+          "C++ Libs"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "pushing back lit’s boundaries to test libc++",
+        "_speakerLower": "l. dionne",
+        "_abstractLower": "",
+        "_tagsLower": "c libs c++ c++ libs libc",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "pushing back lits boundaries to test libc++",
+              "words": [
+                "pushing",
+                "back",
+                "lits",
+                "boundaries",
+                "to",
+                "test",
+                "libc++"
+              ]
+            },
+            "speakers": {
+              "text": "l. dionne",
+              "words": [
+                "l.",
+                "dionne"
+              ]
+            },
+            "tags": {
+              "text": "c libs c++ c++ libs libc",
+              "words": [
+                "libs",
+                "c++",
+                "c++",
+                "libs",
+                "libc"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "pushing back lits boundaries to test libc++ 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk l. dionne c libs c++ c++ libs libc"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-02-23-006": {
+      "talk": {
+        "id": "2020-02-23-006",
+        "meeting": "2020-02-23",
+        "meetingName": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "meetingLocation": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "meetingDate": "February 23, 2020",
+        "category": "keynote",
+        "title": "Keynote: \"Header Time Optimization\": Cross-Translation Unit Optimization via Annotated Headers",
+        "speakers": [
+          {
+            "name": "William Moses",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Johannes Doerfert",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM automatically derives facts that are only used while the respective translation unit, or LLVM module, is processed (i.e. constant function, error-throwing, etc). This is true both in standard compilation but also link-time-optimization (LTO) in which the module is (partially) merged with others in the same project at link time. LTO is able to take advantage of this to optimize functions calls to outside the translation unit. However, LTO doesn't solve the problem for two reasons of practicality: LTO comes with a nontrivial compile-time investment; and many libraries upon which a program could depend, do not ship with LTO information, simply headers and binaries. In this extended abstract, we solve the problem by generating annotated versions of the source code that also include this derived information. Such an approach has the benefits of both worlds: allowing optimizations previously limited to LTO without running LTO and only requiring C/C++-compatible headers. Our modified Clang understands three custom attributes that encode arbitrary LLVM-IR attributes and it can emit C/C++-compatible headers with the aforementioned attribute embedded based on the information available in the LLVM-IR. We test the approach experimentally on the LLVM multisource application test suite and find that annotated headers find up to a 30\\% speedup, and represent half of the speedups found by full LTO.",
+        "videoId": null,
+        "tags": [
+          "Clang",
+          "Embedded",
+          "LLD",
+          "LTO",
+          "Optimizations",
+          "Performance",
+          "Testing"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "keynote: \"header time optimization\": cross-translation unit optimization via annotated headers",
+        "_speakerLower": "william moses johannes doerfert",
+        "_abstractLower": "llvm automatically derives facts that are only used while the respective translation unit, or llvm module, is processed (i.e. constant function, error-throwing, etc). this is true both in standard compilation but also link-time-optimization (lto) in which the module is (partially) merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however, lto doesn't solve the problem for two reasons of practicality: lto comes with a nontrivial compile-time investment; and many libraries upon which a program could depend, do not ship with lto information, simply headers and binaries. in this extended abstract, we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds: allowing optimizations previously limited to lto without running lto and only requiring c/c++-compatible headers. our modified clang understands three custom attributes that encode arbitrary llvm-ir attributes and it can emit c/c++-compatible headers with the aforementioned attribute embedded based on the information available in the llvm-ir. we test the approach experimentally on the llvm multisource application test suite and find that annotated headers find up to a 30\\% speedup, and represent half of the speedups found by full lto.",
+        "_tagsLower": "clang embedded lld lto optimizations performance testing llvm",
+        "_meetingLower": "2020 fourth llvm performance workshop @ cgo20 fourth llvm performance workshop at cgo20, san diego, ca, usa february 23, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "keynote header time optimization cross-translation unit optimization via annotated headers",
+              "words": [
+                "keynote",
+                "header",
+                "time",
+                "optimization",
+                "cross-translation",
+                "unit",
+                "optimization",
+                "via",
+                "annotated",
+                "headers"
+              ]
+            },
+            "speakers": {
+              "text": "william moses johannes doerfert",
+              "words": [
+                "william",
+                "moses",
+                "johannes",
+                "doerfert"
+              ]
+            },
+            "tags": {
+              "text": "clang embedded lld lto optimizations performance testing llvm",
+              "words": [
+                "clang",
+                "embedded",
+                "lld",
+                "lto",
+                "optimizations",
+                "performance",
+                "testing",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020",
+              "words": [
+                "2020",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo20",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo20",
+                "san",
+                "diego",
+                "ca",
+                "usa",
+                "february",
+                "23",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "llvm automatically derives facts that are only used while the respective translation unit or llvm module is processed i.e. constant function error-throwing etc . this is true both in standard compilation but also link-time-optimization lto in which the module is partially merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however lto doesnt solve the problem for two reasons of practicality lto comes with a nontrivial compile-time investment and many libraries upon which a program could depend do not ship with lto information simply headers and binaries. in this extended abstract we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds allowing optimizations previously limited to lto without running lto and only requiring c c++-compatible headers. our modified clang understands three custom attributes that encode arbitrary llvm-ir attributes and it can emit c c++-compatible headers with the aforementioned attribute embedded based on the information available in the llvm-ir. we test the approach experimentally on the llvm multisource application test suite and find that annotated headers find up to a 30 speedup and represent half of the speedups found by full lto.",
+              "words": [
+                "llvm",
+                "automatically",
+                "derives",
+                "facts",
+                "that",
+                "are",
+                "only",
+                "used",
+                "while",
+                "the",
+                "respective",
+                "translation",
+                "unit",
+                "or",
+                "llvm",
+                "module",
+                "is",
+                "processed",
+                "i.e.",
+                "constant",
+                "function",
+                "error-throwing",
+                "etc",
+                "this",
+                "is",
+                "true",
+                "both",
+                "in",
+                "standard",
+                "compilation",
+                "but",
+                "also",
+                "link-time-optimization",
+                "lto",
+                "in",
+                "which",
+                "the",
+                "module",
+                "is",
+                "partially",
+                "merged",
+                "with",
+                "others",
+                "in",
+                "the",
+                "same",
+                "project",
+                "at",
+                "link",
+                "time.",
+                "lto",
+                "is",
+                "able",
+                "to",
+                "take",
+                "advantage",
+                "of",
+                "this",
+                "to",
+                "optimize",
+                "functions",
+                "calls",
+                "to",
+                "outside",
+                "the",
+                "translation",
+                "unit.",
+                "however",
+                "lto",
+                "doesnt",
+                "solve",
+                "the",
+                "problem",
+                "for",
+                "two",
+                "reasons",
+                "of",
+                "practicality",
+                "lto",
+                "comes",
+                "with",
+                "nontrivial",
+                "compile-time",
+                "investment",
+                "and",
+                "many",
+                "libraries",
+                "upon",
+                "which",
+                "program",
+                "could",
+                "depend",
+                "do",
+                "not",
+                "ship",
+                "with",
+                "lto",
+                "information",
+                "simply",
+                "headers",
+                "and",
+                "binaries.",
+                "in",
+                "this",
+                "extended",
+                "abstract",
+                "we",
+                "solve",
+                "the",
+                "problem",
+                "by",
+                "generating",
+                "annotated",
+                "versions",
+                "of",
+                "the",
+                "source",
+                "code",
+                "that",
+                "also",
+                "include",
+                "this",
+                "derived",
+                "information.",
+                "such",
+                "an",
+                "approach",
+                "has",
+                "the",
+                "benefits",
+                "of",
+                "both",
+                "worlds",
+                "allowing",
+                "optimizations",
+                "previously",
+                "limited",
+                "to",
+                "lto",
+                "without",
+                "running",
+                "lto",
+                "and",
+                "only",
+                "requiring",
+                "c++-compatible",
+                "headers.",
+                "our",
+                "modified",
+                "clang",
+                "understands",
+                "three",
+                "custom",
+                "attributes",
+                "that",
+                "encode",
+                "arbitrary",
+                "llvm-ir",
+                "attributes",
+                "and",
+                "it",
+                "can",
+                "emit",
+                "c++-compatible",
+                "headers",
+                "with",
+                "the",
+                "aforementioned",
+                "attribute",
+                "embedded",
+                "based",
+                "on",
+                "the",
+                "information",
+                "available",
+                "in",
+                "the",
+                "llvm-ir.",
+                "we",
+                "test",
+                "the",
+                "approach",
+                "experimentally",
+                "on",
+                "the",
+                "llvm",
+                "multisource",
+                "application",
+                "test",
+                "suite",
+                "and",
+                "find",
+                "that",
+                "annotated",
+                "headers",
+                "find",
+                "up",
+                "to",
+                "30",
+                "speedup",
+                "and",
+                "represent",
+                "half",
+                "of",
+                "the",
+                "speedups",
+                "found",
+                "by",
+                "full",
+                "lto."
+              ]
+            },
+            "category": {
+              "text": "keynote",
+              "words": [
+                "keynote"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "keynote header time optimization cross-translation unit optimization via annotated headers llvm automatically derives facts that are only used while the respective translation unit or llvm module is processed i.e. constant function error-throwing etc . this is true both in standard compilation but also link-time-optimization lto in which the module is partially merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however lto doesnt solve the problem for two reasons of practicality lto comes with a nontrivial compile-time investment and many libraries upon which a program could depend do not ship with lto information simply headers and binaries. in this extended abstract we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds allowing optimizations previously limited to lto without running lto and only requiring c c++-compatible headers. our modified clang understands three custom attributes that encode arbitrary llvm-ir attributes and it can emit c c++-compatible headers with the aforementioned attribute embedded based on the information available in the llvm-ir. we test the approach experimentally on the llvm multisource application test suite and find that annotated headers find up to a 30 speedup and represent half of the speedups found by full lto. 2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020 2020-02-23 keynote william moses johannes doerfert clang embedded lld lto optimizations performance testing llvm"
+      },
+      "meeting": {
+        "slug": "2020-02-23",
+        "name": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "date": "February 23, 2020",
+        "location": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "canceled": false,
+        "talkCount": 10
+      }
+    },
+    "2019-10-061": {
+      "talk": {
+        "id": "2019-10-061",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "Speculative Compilation in ORC JIT",
+        "speakers": [
+          {
+            "name": "Praveen Velliengiri",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Using the ORC JIT APIs we have developed support for speculative compilation. This feature aims to use early compilation on dedicated additional threads to hide compilation latency in the JIT'd program without interfering with execution. Speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and IR instrumentation based profiling of JIT'd code. We have seen a consistent reduction in compilation overhead experienced by the execution thread. Finally, we will show our results for selected applications.",
+        "videoUrl": "https://youtu.be/MUyf2466PbI",
+        "videoId": "MUyf2466PbI",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Velliengiri-SpeculativeCompilationinORC.pdf",
+        "tags": [
+          "JIT",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "speculative compilation in orc jit",
+        "_speakerLower": "praveen velliengiri",
+        "_abstractLower": "using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jit'd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jit'd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally, we will show our results for selected applications.",
+        "_tagsLower": "jit performance orc jit",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "speculative compilation in orc jit",
+              "words": [
+                "speculative",
+                "compilation",
+                "in",
+                "orc",
+                "jit"
+              ]
+            },
+            "speakers": {
+              "text": "praveen velliengiri",
+              "words": [
+                "praveen",
+                "velliengiri"
+              ]
+            },
+            "tags": {
+              "text": "jit performance orc jit",
+              "words": [
+                "jit",
+                "performance",
+                "orc",
+                "jit"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jitd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jitd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally we will show our results for selected applications.",
+              "words": [
+                "using",
+                "the",
+                "orc",
+                "jit",
+                "apis",
+                "we",
+                "have",
+                "developed",
+                "support",
+                "for",
+                "speculative",
+                "compilation.",
+                "this",
+                "feature",
+                "aims",
+                "to",
+                "use",
+                "early",
+                "compilation",
+                "on",
+                "dedicated",
+                "additional",
+                "threads",
+                "to",
+                "hide",
+                "compilation",
+                "latency",
+                "in",
+                "the",
+                "jitd",
+                "program",
+                "without",
+                "interfering",
+                "with",
+                "execution.",
+                "speculative",
+                "decisions",
+                "are",
+                "made",
+                "based",
+                "on",
+                "the",
+                "branch",
+                "probability",
+                "of",
+                "control",
+                "flow",
+                "graphs",
+                "which",
+                "is",
+                "derived",
+                "from",
+                "static",
+                "heuristics",
+                "and",
+                "ir",
+                "instrumentation",
+                "based",
+                "profiling",
+                "of",
+                "jitd",
+                "code.",
+                "we",
+                "have",
+                "seen",
+                "consistent",
+                "reduction",
+                "in",
+                "compilation",
+                "overhead",
+                "experienced",
+                "by",
+                "the",
+                "execution",
+                "thread.",
+                "finally",
+                "we",
+                "will",
+                "show",
+                "our",
+                "results",
+                "for",
+                "selected",
+                "applications."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "speculative compilation in orc jit using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jitd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jitd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally we will show our results for selected applications. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk praveen velliengiri jit performance orc jit"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-083": {
+      "talk": {
+        "id": "2019-10-083",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "poster",
+        "title": "Speculative Compilation in ORC JIT",
+        "speakers": [
+          {
+            "name": "Praveen Velliengiri",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Using the ORC JIT APIs we have developed support for speculative compilation. This feature aims to use early compilation on dedicated additional threads to hide compilation latency in the JIT'd program without interfering with execution. Speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and IR instrumentation based profiling of JIT'd code. We have seen a consistent reduction in compilation overhead experienced by the execution thread. Finally, we will show our results for selected applications.",
+        "videoId": null,
+        "tags": [
+          "JIT",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "speculative compilation in orc jit",
+        "_speakerLower": "praveen velliengiri",
+        "_abstractLower": "using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jit'd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jit'd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally, we will show our results for selected applications.",
+        "_tagsLower": "jit performance orc jit",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "speculative compilation in orc jit",
+              "words": [
+                "speculative",
+                "compilation",
+                "in",
+                "orc",
+                "jit"
+              ]
+            },
+            "speakers": {
+              "text": "praveen velliengiri",
+              "words": [
+                "praveen",
+                "velliengiri"
+              ]
+            },
+            "tags": {
+              "text": "jit performance orc jit",
+              "words": [
+                "jit",
+                "performance",
+                "orc",
+                "jit"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jitd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jitd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally we will show our results for selected applications.",
+              "words": [
+                "using",
+                "the",
+                "orc",
+                "jit",
+                "apis",
+                "we",
+                "have",
+                "developed",
+                "support",
+                "for",
+                "speculative",
+                "compilation.",
+                "this",
+                "feature",
+                "aims",
+                "to",
+                "use",
+                "early",
+                "compilation",
+                "on",
+                "dedicated",
+                "additional",
+                "threads",
+                "to",
+                "hide",
+                "compilation",
+                "latency",
+                "in",
+                "the",
+                "jitd",
+                "program",
+                "without",
+                "interfering",
+                "with",
+                "execution.",
+                "speculative",
+                "decisions",
+                "are",
+                "made",
+                "based",
+                "on",
+                "the",
+                "branch",
+                "probability",
+                "of",
+                "control",
+                "flow",
+                "graphs",
+                "which",
+                "is",
+                "derived",
+                "from",
+                "static",
+                "heuristics",
+                "and",
+                "ir",
+                "instrumentation",
+                "based",
+                "profiling",
+                "of",
+                "jitd",
+                "code.",
+                "we",
+                "have",
+                "seen",
+                "consistent",
+                "reduction",
+                "in",
+                "compilation",
+                "overhead",
+                "experienced",
+                "by",
+                "the",
+                "execution",
+                "thread.",
+                "finally",
+                "we",
+                "will",
+                "show",
+                "our",
+                "results",
+                "for",
+                "selected",
+                "applications."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "speculative compilation in orc jit using the orc jit apis we have developed support for speculative compilation. this feature aims to use early compilation on dedicated additional threads to hide compilation latency in the jitd program without interfering with execution. speculative decisions are made based on the branch probability of control flow graphs which is derived from static heuristics and ir instrumentation based profiling of jitd code. we have seen a consistent reduction in compilation overhead experienced by the execution thread. finally we will show our results for selected applications. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 poster praveen velliengiri jit performance orc jit"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2012-04-12-005": {
+      "talk": {
+        "id": "2012-04-12-005",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Generating Serialisation Code with Clang",
+        "speakers": [
+          {
+            "name": "Wayne Palmer",
+            "affiliation": "Barclays Capital",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/3A-QM8hWmAc",
+        "videoId": "3A-QM8hWmAc",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Wayne_Palmer.ppt",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "generating serialisation code with clang",
+        "_speakerLower": "wayne palmer",
+        "_abstractLower": "",
+        "_tagsLower": "clang",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "generating serialisation code with clang",
+              "words": [
+                "generating",
+                "serialisation",
+                "code",
+                "with",
+                "clang"
+              ]
+            },
+            "speakers": {
+              "text": "wayne palmer",
+              "words": [
+                "wayne",
+                "palmer"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "generating serialisation code with clang 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk wayne palmer clang"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2008-08-23-002": {
+      "talk": {
+        "id": "2008-08-23-002",
+        "meeting": "2008-08-23",
+        "meetingName": "2008 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "August 23, 2008",
+        "category": "technical-talk",
+        "title": "Using LLVM's JIT infastructure",
+        "speakers": [],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2008-08-23/llvmjittut.pdf",
+        "tags": [
+          "JIT"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "using llvm's jit infastructure",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "jit llvm",
+        "_meetingLower": "2008 asiallvm developers' meeting tokyo, japan august 23, 2008",
+        "_year": "2008",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "using llvms jit infastructure",
+              "words": [
+                "using",
+                "llvms",
+                "jit",
+                "infastructure"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "jit llvm",
+              "words": [
+                "jit",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2008 asiallvm developers meeting tokyo japan august 23 2008",
+              "words": [
+                "2008",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "august",
+                "23",
+                "2008"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2008",
+              "words": [
+                "2008"
+              ]
+            }
+          },
+          "year": 2008
+        },
+        "_searchBlob": "using llvms jit infastructure 2008 asiallvm developers meeting tokyo japan august 23 2008 2008-08-23 technical-talk jit llvm"
+      },
+      "meeting": {
+        "slug": "2008-08-23",
+        "name": "2008 AsiaLLVM Developers' Meeting",
+        "date": "August 23, 2008",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 8
+      }
+    }
+  }
+}

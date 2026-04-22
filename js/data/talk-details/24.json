@@ -1,0 +1,1514 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2021-02-28-011": {
+      "talk": {
+        "id": "2021-02-28-011",
+        "meeting": "2021-02-28",
+        "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "February 28, 2021",
+        "category": "technical-talk",
+        "title": "Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation",
+        "speakers": [],
+        "abstract": "Dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. Binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research. State-of-the-art tools, like Valgrind, DynamoRIO or PIN for binary instrumentation or QEMU for binary translation, however, typically either have a high performance overhead or allow only minor low-level modifications. To address these performance and functionality limitations, the latter --- QEMU --- has been extended to make use of the LLVM framework (HQEMU, DBILL) in order to take advantage of its optimization potential. However, this approach still uses the existing QEMU intermediate format in the translation process and hence inherits many of the imitations of QEMU. Additionally, it relies on a modified LLVM library, reducing portability and maintainability. In the Instrew project we, therefore, go a step further and solely rely on an unmodified LLVM for code instrumentation and translation, shortcutting the translation process, avoiding the limitations of an additional intermediate language with its own limitations (as in QEMU with its TCG representation) and taking full advantage of code generation features of LLVM. In this talk, we describe the general architecture of Instrew and show results comparing the performance to state-of-the-art tools. Additionally, we identify key problems of LLVM in the context of representing machine code in the high-level LLVM-IR.",
+        "videoId": null,
+        "tags": [
+          "Backend",
+          "Dynamic Analysis",
+          "Libraries",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "instrew: fast llvm-based dynamic binary instrumentation and translation",
+        "_speakerLower": "",
+        "_abstractLower": "dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research. state-of-the-art tools, like valgrind, dynamorio or pin for binary instrumentation or qemu for binary translation, however, typically either have a high performance overhead or allow only minor low-level modifications. to address these performance and functionality limitations, the latter --- qemu --- has been extended to make use of the llvm framework (hqemu, dbill) in order to take advantage of its optimization potential. however, this approach still uses the existing qemu intermediate format in the translation process and hence inherits many of the imitations of qemu. additionally, it relies on a modified llvm library, reducing portability and maintainability. in the instrew project we, therefore, go a step further and solely rely on an unmodified llvm for code instrumentation and translation, shortcutting the translation process, avoiding the limitations of an additional intermediate language with its own limitations (as in qemu with its tcg representation) and taking full advantage of code generation features of llvm. in this talk, we describe the general architecture of instrew and show results comparing the performance to state-of-the-art tools. additionally, we identify key problems of llvm in the context of representing machine code in the high-level llvm-ir.",
+        "_tagsLower": "backend dynamic analysis libraries optimizations performance llvm code generation",
+        "_meetingLower": "2021 fifth llvm performance workshop @ cgo fifth llvm performance workshop @ cgo, virtual february 28, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "instrew fast llvm-based dynamic binary instrumentation and translation",
+              "words": [
+                "instrew",
+                "fast",
+                "llvm-based",
+                "dynamic",
+                "binary",
+                "instrumentation",
+                "and",
+                "translation"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "backend dynamic analysis libraries optimizations performance llvm code generation",
+              "words": [
+                "backend",
+                "dynamic",
+                "analysis",
+                "libraries",
+                "optimizations",
+                "performance",
+                "llvm",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021",
+              "words": [
+                "2021",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "february",
+                "28",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze modify and optimize existing binary code. binary instrumentation is key to many debugging and performance analysis approaches allowing for the transparent insertion of debugging or performance probes without requiring recompilation while binary translation is essential to enable transparent porting of code to new architectures with new and or modified instruction sets and is also heavily used in computer architecture research. state-of-the-art tools like valgrind dynamorio or pin for binary instrumentation or qemu for binary translation however typically either have a high performance overhead or allow only minor low-level modifications. to address these performance and functionality limitations the latter --- qemu --- has been extended to make use of the llvm framework hqemu dbill in order to take advantage of its optimization potential. however this approach still uses the existing qemu intermediate format in the translation process and hence inherits many of the imitations of qemu. additionally it relies on a modified llvm library reducing portability and maintainability. in the instrew project we therefore go a step further and solely rely on an unmodified llvm for code instrumentation and translation shortcutting the translation process avoiding the limitations of an additional intermediate language with its own limitations as in qemu with its tcg representation and taking full advantage of code generation features of llvm. in this talk we describe the general architecture of instrew and show results comparing the performance to state-of-the-art tools. additionally we identify key problems of llvm in the context of representing machine code in the high-level llvm-ir.",
+              "words": [
+                "dynamic",
+                "binary",
+                "instrumentation",
+                "and",
+                "dynamic",
+                "binary",
+                "translation",
+                "are",
+                "two",
+                "closely",
+                "related",
+                "techniques",
+                "that",
+                "can",
+                "be",
+                "used",
+                "to",
+                "analyze",
+                "modify",
+                "and",
+                "optimize",
+                "existing",
+                "binary",
+                "code.",
+                "binary",
+                "instrumentation",
+                "is",
+                "key",
+                "to",
+                "many",
+                "debugging",
+                "and",
+                "performance",
+                "analysis",
+                "approaches",
+                "allowing",
+                "for",
+                "the",
+                "transparent",
+                "insertion",
+                "of",
+                "debugging",
+                "or",
+                "performance",
+                "probes",
+                "without",
+                "requiring",
+                "recompilation",
+                "while",
+                "binary",
+                "translation",
+                "is",
+                "essential",
+                "to",
+                "enable",
+                "transparent",
+                "porting",
+                "of",
+                "code",
+                "to",
+                "new",
+                "architectures",
+                "with",
+                "new",
+                "and",
+                "or",
+                "modified",
+                "instruction",
+                "sets",
+                "and",
+                "is",
+                "also",
+                "heavily",
+                "used",
+                "in",
+                "computer",
+                "architecture",
+                "research.",
+                "state-of-the-art",
+                "tools",
+                "like",
+                "valgrind",
+                "dynamorio",
+                "or",
+                "pin",
+                "for",
+                "binary",
+                "instrumentation",
+                "or",
+                "qemu",
+                "for",
+                "binary",
+                "translation",
+                "however",
+                "typically",
+                "either",
+                "have",
+                "high",
+                "performance",
+                "overhead",
+                "or",
+                "allow",
+                "only",
+                "minor",
+                "low-level",
+                "modifications.",
+                "to",
+                "address",
+                "these",
+                "performance",
+                "and",
+                "functionality",
+                "limitations",
+                "the",
+                "latter",
+                "---",
+                "qemu",
+                "---",
+                "has",
+                "been",
+                "extended",
+                "to",
+                "make",
+                "use",
+                "of",
+                "the",
+                "llvm",
+                "framework",
+                "hqemu",
+                "dbill",
+                "in",
+                "order",
+                "to",
+                "take",
+                "advantage",
+                "of",
+                "its",
+                "optimization",
+                "potential.",
+                "however",
+                "this",
+                "approach",
+                "still",
+                "uses",
+                "the",
+                "existing",
+                "qemu",
+                "intermediate",
+                "format",
+                "in",
+                "the",
+                "translation",
+                "process",
+                "and",
+                "hence",
+                "inherits",
+                "many",
+                "of",
+                "the",
+                "imitations",
+                "of",
+                "qemu.",
+                "additionally",
+                "it",
+                "relies",
+                "on",
+                "modified",
+                "llvm",
+                "library",
+                "reducing",
+                "portability",
+                "and",
+                "maintainability.",
+                "in",
+                "the",
+                "instrew",
+                "project",
+                "we",
+                "therefore",
+                "go",
+                "step",
+                "further",
+                "and",
+                "solely",
+                "rely",
+                "on",
+                "an",
+                "unmodified",
+                "llvm",
+                "for",
+                "code",
+                "instrumentation",
+                "and",
+                "translation",
+                "shortcutting",
+                "the",
+                "translation",
+                "process",
+                "avoiding",
+                "the",
+                "limitations",
+                "of",
+                "an",
+                "additional",
+                "intermediate",
+                "language",
+                "with",
+                "its",
+                "own",
+                "limitations",
+                "as",
+                "in",
+                "qemu",
+                "with",
+                "its",
+                "tcg",
+                "representation",
+                "and",
+                "taking",
+                "full",
+                "advantage",
+                "of",
+                "code",
+                "generation",
+                "features",
+                "of",
+                "llvm.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "describe",
+                "the",
+                "general",
+                "architecture",
+                "of",
+                "instrew",
+                "and",
+                "show",
+                "results",
+                "comparing",
+                "the",
+                "performance",
+                "to",
+                "state-of-the-art",
+                "tools.",
+                "additionally",
+                "we",
+                "identify",
+                "key",
+                "problems",
+                "of",
+                "llvm",
+                "in",
+                "the",
+                "context",
+                "of",
+                "representing",
+                "machine",
+                "code",
+                "in",
+                "the",
+                "high-level",
+                "llvm-ir."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "instrew fast llvm-based dynamic binary instrumentation and translation dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze modify and optimize existing binary code. binary instrumentation is key to many debugging and performance analysis approaches allowing for the transparent insertion of debugging or performance probes without requiring recompilation while binary translation is essential to enable transparent porting of code to new architectures with new and or modified instruction sets and is also heavily used in computer architecture research. state-of-the-art tools like valgrind dynamorio or pin for binary instrumentation or qemu for binary translation however typically either have a high performance overhead or allow only minor low-level modifications. to address these performance and functionality limitations the latter --- qemu --- has been extended to make use of the llvm framework hqemu dbill in order to take advantage of its optimization potential. however this approach still uses the existing qemu intermediate format in the translation process and hence inherits many of the imitations of qemu. additionally it relies on a modified llvm library reducing portability and maintainability. in the instrew project we therefore go a step further and solely rely on an unmodified llvm for code instrumentation and translation shortcutting the translation process avoiding the limitations of an additional intermediate language with its own limitations as in qemu with its tcg representation and taking full advantage of code generation features of llvm. in this talk we describe the general architecture of instrew and show results comparing the performance to state-of-the-art tools. additionally we identify key problems of llvm in the context of representing machine code in the high-level llvm-ir. 2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021 2021-02-28 technical-talk backend dynamic analysis libraries optimizations performance llvm code generation"
+      },
+      "meeting": {
+        "slug": "2021-02-28",
+        "name": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "date": "February 28, 2021",
+        "location": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2020-09-007": {
+      "talk": {
+        "id": "2020-09-007",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Control-flow sensitive escape analysis in Falcon JIT",
+        "speakers": [
+          {
+            "name": "Artur Pilipenko",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/WHiU2-h_kRM",
+        "videoId": "WHiU2-h_kRM",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Pilipenko-Falcon-EA-LLVM-Dev-Mtg.pdf",
+        "tags": [
+          "JIT"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "control-flow sensitive escape analysis in falcon jit",
+        "_speakerLower": "artur pilipenko",
+        "_abstractLower": "",
+        "_tagsLower": "jit",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "control-flow sensitive escape analysis in falcon jit",
+              "words": [
+                "control-flow",
+                "sensitive",
+                "escape",
+                "analysis",
+                "in",
+                "falcon",
+                "jit"
+              ]
+            },
+            "speakers": {
+              "text": "artur pilipenko",
+              "words": [
+                "artur",
+                "pilipenko"
+              ]
+            },
+            "tags": {
+              "text": "jit",
+              "words": [
+                "jit"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "control-flow sensitive escape analysis in falcon jit 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk artur pilipenko jit"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-029": {
+      "talk": {
+        "id": "2020-09-029",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "tutorial",
+        "title": "Using clang-tidy for customized checkers and large scale source tree refactoring",
+        "speakers": [
+          {
+            "name": "V. Bridgers",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/UfLH7dORav8",
+        "videoId": "UfLH7dORav8",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Clang-tidy_for_Customized_Checkers_and_Large_Scale.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "projectGithub": "https://github.com/vabridgers/LLVM",
+        "githubReferences": [
+          "https://github.com/vabridgers/LLVM",
+          "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/vabridgers/LLVM",
+            "source": "slides",
+            "label": "Tutorial source",
+            "context": "Tutorial source",
+            "library": "LLVM",
+            "repository": "vabridgers/LLVM",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020",
+            "source": "slides",
+            "label": "ductionToTheClangAST.html",
+            "context": "ductionToTheClangAST.html",
+            "library": "LLVM-Virtual-Tutorial-2020",
+            "repository": "vabridgers/LLVM-Virtual-Tutorial-2020",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/vabridgers/LLVM"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "using clang-tidy for customized checkers and large scale source tree refactoring",
+        "_speakerLower": "v. bridgers",
+        "_abstractLower": "",
+        "_tagsLower": "clang clang-tools-extra",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "using clang-tidy for customized checkers and large scale source tree refactoring",
+              "words": [
+                "using",
+                "clang-tidy",
+                "for",
+                "customized",
+                "checkers",
+                "and",
+                "large",
+                "scale",
+                "source",
+                "tree",
+                "refactoring"
+              ]
+            },
+            "speakers": {
+              "text": "v. bridgers",
+              "words": [
+                "v.",
+                "bridgers"
+              ]
+            },
+            "tags": {
+              "text": "clang clang-tools-extra",
+              "words": [
+                "clang",
+                "clang-tools-extra"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "using clang-tidy for customized checkers and large scale source tree refactoring 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 tutorial v. bridgers clang clang-tools-extra"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2019-10-050": {
+      "talk": {
+        "id": "2019-10-050",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "FileCheck: learning arithmetic",
+        "speakers": [
+          {
+            "name": "Thomas Preud'homme",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk introduces the numeric expression matching in FileCheck, feature recently upstreamed by the speaker, which allows to check that two numeric values in the input are linked by a numeric relation. This is useful for testing memory layout or register allocation among other things. The feature also allows the values to be expressed in different radix, thus allowing to relate an address expressed in hex number to an offset expressed in decimal notation.",
+        "videoUrl": "https://youtu.be/mcrQ5f-mASw",
+        "videoId": "mcrQ5f-mASw",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Preudhomme-FileCheck.pdf",
+        "tags": [
+          "Backend",
+          "Testing"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "filecheck: learning arithmetic",
+        "_speakerLower": "thomas preud'homme",
+        "_abstractLower": "this talk introduces the numeric expression matching in filecheck, feature recently upstreamed by the speaker, which allows to check that two numeric values in the input are linked by a numeric relation. this is useful for testing memory layout or register allocation among other things. the feature also allows the values to be expressed in different radix, thus allowing to relate an address expressed in hex number to an offset expressed in decimal notation.",
+        "_tagsLower": "backend testing register allocation",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "filecheck learning arithmetic",
+              "words": [
+                "filecheck",
+                "learning",
+                "arithmetic"
+              ]
+            },
+            "speakers": {
+              "text": "thomas preudhomme",
+              "words": [
+                "thomas",
+                "preudhomme"
+              ]
+            },
+            "tags": {
+              "text": "backend testing register allocation",
+              "words": [
+                "backend",
+                "testing",
+                "register",
+                "allocation"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "this talk introduces the numeric expression matching in filecheck feature recently upstreamed by the speaker which allows to check that two numeric values in the input are linked by a numeric relation. this is useful for testing memory layout or register allocation among other things. the feature also allows the values to be expressed in different radix thus allowing to relate an address expressed in hex number to an offset expressed in decimal notation.",
+              "words": [
+                "this",
+                "talk",
+                "introduces",
+                "the",
+                "numeric",
+                "expression",
+                "matching",
+                "in",
+                "filecheck",
+                "feature",
+                "recently",
+                "upstreamed",
+                "by",
+                "the",
+                "speaker",
+                "which",
+                "allows",
+                "to",
+                "check",
+                "that",
+                "two",
+                "numeric",
+                "values",
+                "in",
+                "the",
+                "input",
+                "are",
+                "linked",
+                "by",
+                "numeric",
+                "relation.",
+                "this",
+                "is",
+                "useful",
+                "for",
+                "testing",
+                "memory",
+                "layout",
+                "or",
+                "register",
+                "allocation",
+                "among",
+                "other",
+                "things.",
+                "the",
+                "feature",
+                "also",
+                "allows",
+                "the",
+                "values",
+                "to",
+                "be",
+                "expressed",
+                "in",
+                "different",
+                "radix",
+                "thus",
+                "allowing",
+                "to",
+                "relate",
+                "an",
+                "address",
+                "expressed",
+                "in",
+                "hex",
+                "number",
+                "to",
+                "an",
+                "offset",
+                "expressed",
+                "in",
+                "decimal",
+                "notation."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "filecheck learning arithmetic this talk introduces the numeric expression matching in filecheck feature recently upstreamed by the speaker which allows to check that two numeric values in the input are linked by a numeric relation. this is useful for testing memory layout or register allocation among other things. the feature also allows the values to be expressed in different radix thus allowing to relate an address expressed in hex number to an offset expressed in decimal notation. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk thomas preudhomme backend testing register allocation"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-072": {
+      "talk": {
+        "id": "2019-10-072",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "poster",
+        "title": "TON Labs Backend for TON Blockchain",
+        "speakers": [
+          {
+            "name": "Dmitry Borisenkov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Dmitry Shtukenberg",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Leonid Kholodov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "TON Labs initiative to deliver a comprehensive ecosystem for the TON blockchain was announced in July 2019. Ultimately, it will be offered as an open-source solution. The compiler toolchain is an essential part of it designed to enable developers using general-purpose languages they know to develop smart contracts and to run them on a virtual machine that is not bound to WebAssembly.",
+        "videoId": null,
+        "tags": [
+          "Backend"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "ton labs backend for ton blockchain",
+        "_speakerLower": "dmitry borisenkov dmitry shtukenberg leonid kholodov",
+        "_abstractLower": "ton labs initiative to deliver a comprehensive ecosystem for the ton blockchain was announced in july 2019. ultimately, it will be offered as an open-source solution. the compiler toolchain is an essential part of it designed to enable developers using general-purpose languages they know to develop smart contracts and to run them on a virtual machine that is not bound to webassembly.",
+        "_tagsLower": "backend infrastructure wasm",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "ton labs backend for ton blockchain",
+              "words": [
+                "ton",
+                "labs",
+                "backend",
+                "for",
+                "ton",
+                "blockchain"
+              ]
+            },
+            "speakers": {
+              "text": "dmitry borisenkov dmitry shtukenberg leonid kholodov",
+              "words": [
+                "dmitry",
+                "borisenkov",
+                "dmitry",
+                "shtukenberg",
+                "leonid",
+                "kholodov"
+              ]
+            },
+            "tags": {
+              "text": "backend infrastructure wasm",
+              "words": [
+                "backend",
+                "infrastructure",
+                "wasm"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "ton labs initiative to deliver a comprehensive ecosystem for the ton blockchain was announced in july 2019. ultimately it will be offered as an open-source solution. the compiler toolchain is an essential part of it designed to enable developers using general-purpose languages they know to develop smart contracts and to run them on a virtual machine that is not bound to webassembly.",
+              "words": [
+                "ton",
+                "labs",
+                "initiative",
+                "to",
+                "deliver",
+                "comprehensive",
+                "ecosystem",
+                "for",
+                "the",
+                "ton",
+                "blockchain",
+                "was",
+                "announced",
+                "in",
+                "july",
+                "2019.",
+                "ultimately",
+                "it",
+                "will",
+                "be",
+                "offered",
+                "as",
+                "an",
+                "open-source",
+                "solution.",
+                "the",
+                "compiler",
+                "toolchain",
+                "is",
+                "an",
+                "essential",
+                "part",
+                "of",
+                "it",
+                "designed",
+                "to",
+                "enable",
+                "developers",
+                "using",
+                "general-purpose",
+                "languages",
+                "they",
+                "know",
+                "to",
+                "develop",
+                "smart",
+                "contracts",
+                "and",
+                "to",
+                "run",
+                "them",
+                "on",
+                "virtual",
+                "machine",
+                "that",
+                "is",
+                "not",
+                "bound",
+                "to",
+                "webassembly."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "ton labs backend for ton blockchain ton labs initiative to deliver a comprehensive ecosystem for the ton blockchain was announced in july 2019. ultimately it will be offered as an open-source solution. the compiler toolchain is an essential part of it designed to enable developers using general-purpose languages they know to develop smart contracts and to run them on a virtual machine that is not bound to webassembly. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 poster dmitry borisenkov dmitry shtukenberg leonid kholodov backend infrastructure wasm"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2018-10-060": {
+      "talk": {
+        "id": "2018-10-060",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "poster",
+        "title": "Gaining fine-grain control over pass management",
+        "speakers": [],
+        "abstract": "Gaining fine-grain control over pass management\n\n``opt`` is a great tool to schedule passes, test new combinations and prototype new interactions. However one quickly finds limitations: it is impossible to apply a function pass to a single function, to change the pass options on a per case usage, etc. There is nothing in the pass manager infrastructure preventing these enhancements, so we implemented a first interactive shell, ``optsh``, to provide these features.\n\nStill, the abstraction provided by the pass manager is not enough. In the context of code obfuscation, we reached limitations with this mechanism to perform fine grain transformations combinations when the choice of security vs. performance tradeoff must be delegated to the end-user.\n\nConsidering the Control Flow Graph Flattening transformation [0] which basically encodes the control flow of a function into a dispatcher, no extra obfuscation layer is performed on the newly generated Flow Dispatcher, as the user can't target this code with a pragma, function name etc (because it wasn't there at first).\n\nTo answer these needs, we abstracted the passes with a set of inputs and outputs, to describe their effects more precisely, and gain control over their interdependencies in order to chain them. For instance:\n\nDispatcher, Others = ControlFlowGraphFlattening(F) DuplicateBasicBlock(F) OpaqueConstants(Dispatcher)\n\nHowever, it raises issues about the component validity as the Flow Dispatcher returned by the Control Flow Graph Flattening transformation may not exist anymore after another transformation that could for instance split it.\n\nThis talk is about the new abstractions we are developping, some based on the new LLVM pass manager. Although we use code obfuscation as an illustration, we believe the ideas can be applied to a larger set of problems and appeal to a wider audience.\n\n[0] https://www.inf.u-szeged.hu/~akiss/pub/pdf/laszlo_obfuscating.pdf",
+        "videoId": null,
+        "tags": [
+          "Performance",
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "gaining fine-grain control over pass management",
+        "_speakerLower": "",
+        "_abstractLower": "gaining fine-grain control over pass management\n\n``opt`` is a great tool to schedule passes, test new combinations and prototype new interactions. however one quickly finds limitations: it is impossible to apply a function pass to a single function, to change the pass options on a per case usage, etc. there is nothing in the pass manager infrastructure preventing these enhancements, so we implemented a first interactive shell, ``optsh``, to provide these features.\n\nstill, the abstraction provided by the pass manager is not enough. in the context of code obfuscation, we reached limitations with this mechanism to perform fine grain transformations combinations when the choice of security vs. performance tradeoff must be delegated to the end-user.\n\nconsidering the control flow graph flattening transformation [0] which basically encodes the control flow of a function into a dispatcher, no extra obfuscation layer is performed on the newly generated flow dispatcher, as the user can't target this code with a pragma, function name etc (because it wasn't there at first).\n\nto answer these needs, we abstracted the passes with a set of inputs and outputs, to describe their effects more precisely, and gain control over their interdependencies in order to chain them. for instance:\n\ndispatcher, others = controlflowgraphflattening(f) duplicatebasicblock(f) opaqueconstants(dispatcher)\n\nhowever, it raises issues about the component validity as the flow dispatcher returned by the control flow graph flattening transformation may not exist anymore after another transformation that could for instance split it.\n\nthis talk is about the new abstractions we are developping, some based on the new llvm pass manager. although we use code obfuscation as an illustration, we believe the ideas can be applied to a larger set of problems and appeal to a wider audience.\n\n[0] https://www.inf.u-szeged.hu/~akiss/pub/pdf/laszlo_obfuscating.pdf",
+        "_tagsLower": "performance security llvm infrastructure",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "gaining fine-grain control over pass management",
+              "words": [
+                "gaining",
+                "fine-grain",
+                "control",
+                "over",
+                "pass",
+                "management"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "performance security llvm infrastructure",
+              "words": [
+                "performance",
+                "security",
+                "llvm",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "gaining fine-grain control over pass management opt is a great tool to schedule passes test new combinations and prototype new interactions. however one quickly finds limitations it is impossible to apply a function pass to a single function to change the pass options on a per case usage etc. there is nothing in the pass manager infrastructure preventing these enhancements so we implemented a first interactive shell optsh to provide these features. still the abstraction provided by the pass manager is not enough. in the context of code obfuscation we reached limitations with this mechanism to perform fine grain transformations combinations when the choice of security vs. performance tradeoff must be delegated to the end-user. considering the control flow graph flattening transformation 0 which basically encodes the control flow of a function into a dispatcher no extra obfuscation layer is performed on the newly generated flow dispatcher as the user cant target this code with a pragma function name etc because it wasnt there at first . to answer these needs we abstracted the passes with a set of inputs and outputs to describe their effects more precisely and gain control over their interdependencies in order to chain them. for instance dispatcher others controlflowgraphflattening f duplicatebasicblock f opaqueconstants dispatcher however it raises issues about the component validity as the flow dispatcher returned by the control flow graph flattening transformation may not exist anymore after another transformation that could for instance split it. this talk is about the new abstractions we are developping some based on the new llvm pass manager. although we use code obfuscation as an illustration we believe the ideas can be applied to a larger set of problems and appeal to a wider audience. 0 https www.inf.u-szeged.hu akiss pub pdf laszlo obfuscating.pdf",
+              "words": [
+                "gaining",
+                "fine-grain",
+                "control",
+                "over",
+                "pass",
+                "management",
+                "opt",
+                "is",
+                "great",
+                "tool",
+                "to",
+                "schedule",
+                "passes",
+                "test",
+                "new",
+                "combinations",
+                "and",
+                "prototype",
+                "new",
+                "interactions.",
+                "however",
+                "one",
+                "quickly",
+                "finds",
+                "limitations",
+                "it",
+                "is",
+                "impossible",
+                "to",
+                "apply",
+                "function",
+                "pass",
+                "to",
+                "single",
+                "function",
+                "to",
+                "change",
+                "the",
+                "pass",
+                "options",
+                "on",
+                "per",
+                "case",
+                "usage",
+                "etc.",
+                "there",
+                "is",
+                "nothing",
+                "in",
+                "the",
+                "pass",
+                "manager",
+                "infrastructure",
+                "preventing",
+                "these",
+                "enhancements",
+                "so",
+                "we",
+                "implemented",
+                "first",
+                "interactive",
+                "shell",
+                "optsh",
+                "to",
+                "provide",
+                "these",
+                "features.",
+                "still",
+                "the",
+                "abstraction",
+                "provided",
+                "by",
+                "the",
+                "pass",
+                "manager",
+                "is",
+                "not",
+                "enough.",
+                "in",
+                "the",
+                "context",
+                "of",
+                "code",
+                "obfuscation",
+                "we",
+                "reached",
+                "limitations",
+                "with",
+                "this",
+                "mechanism",
+                "to",
+                "perform",
+                "fine",
+                "grain",
+                "transformations",
+                "combinations",
+                "when",
+                "the",
+                "choice",
+                "of",
+                "security",
+                "vs.",
+                "performance",
+                "tradeoff",
+                "must",
+                "be",
+                "delegated",
+                "to",
+                "the",
+                "end-user.",
+                "considering",
+                "the",
+                "control",
+                "flow",
+                "graph",
+                "flattening",
+                "transformation",
+                "which",
+                "basically",
+                "encodes",
+                "the",
+                "control",
+                "flow",
+                "of",
+                "function",
+                "into",
+                "dispatcher",
+                "no",
+                "extra",
+                "obfuscation",
+                "layer",
+                "is",
+                "performed",
+                "on",
+                "the",
+                "newly",
+                "generated",
+                "flow",
+                "dispatcher",
+                "as",
+                "the",
+                "user",
+                "cant",
+                "target",
+                "this",
+                "code",
+                "with",
+                "pragma",
+                "function",
+                "name",
+                "etc",
+                "because",
+                "it",
+                "wasnt",
+                "there",
+                "at",
+                "first",
+                "to",
+                "answer",
+                "these",
+                "needs",
+                "we",
+                "abstracted",
+                "the",
+                "passes",
+                "with",
+                "set",
+                "of",
+                "inputs",
+                "and",
+                "outputs",
+                "to",
+                "describe",
+                "their",
+                "effects",
+                "more",
+                "precisely",
+                "and",
+                "gain",
+                "control",
+                "over",
+                "their",
+                "interdependencies",
+                "in",
+                "order",
+                "to",
+                "chain",
+                "them.",
+                "for",
+                "instance",
+                "dispatcher",
+                "others",
+                "controlflowgraphflattening",
+                "duplicatebasicblock",
+                "opaqueconstants",
+                "dispatcher",
+                "however",
+                "it",
+                "raises",
+                "issues",
+                "about",
+                "the",
+                "component",
+                "validity",
+                "as",
+                "the",
+                "flow",
+                "dispatcher",
+                "returned",
+                "by",
+                "the",
+                "control",
+                "flow",
+                "graph",
+                "flattening",
+                "transformation",
+                "may",
+                "not",
+                "exist",
+                "anymore",
+                "after",
+                "another",
+                "transformation",
+                "that",
+                "could",
+                "for",
+                "instance",
+                "split",
+                "it.",
+                "this",
+                "talk",
+                "is",
+                "about",
+                "the",
+                "new",
+                "abstractions",
+                "we",
+                "are",
+                "developping",
+                "some",
+                "based",
+                "on",
+                "the",
+                "new",
+                "llvm",
+                "pass",
+                "manager.",
+                "although",
+                "we",
+                "use",
+                "code",
+                "obfuscation",
+                "as",
+                "an",
+                "illustration",
+                "we",
+                "believe",
+                "the",
+                "ideas",
+                "can",
+                "be",
+                "applied",
+                "to",
+                "larger",
+                "set",
+                "of",
+                "problems",
+                "and",
+                "appeal",
+                "to",
+                "wider",
+                "audience.",
+                "https",
+                "www.inf.u-szeged.hu",
+                "akiss",
+                "pub",
+                "pdf",
+                "laszlo",
+                "obfuscating.pdf"
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "gaining fine-grain control over pass management gaining fine-grain control over pass management opt is a great tool to schedule passes test new combinations and prototype new interactions. however one quickly finds limitations it is impossible to apply a function pass to a single function to change the pass options on a per case usage etc. there is nothing in the pass manager infrastructure preventing these enhancements so we implemented a first interactive shell optsh to provide these features. still the abstraction provided by the pass manager is not enough. in the context of code obfuscation we reached limitations with this mechanism to perform fine grain transformations combinations when the choice of security vs. performance tradeoff must be delegated to the end-user. considering the control flow graph flattening transformation 0 which basically encodes the control flow of a function into a dispatcher no extra obfuscation layer is performed on the newly generated flow dispatcher as the user cant target this code with a pragma function name etc because it wasnt there at first . to answer these needs we abstracted the passes with a set of inputs and outputs to describe their effects more precisely and gain control over their interdependencies in order to chain them. for instance dispatcher others controlflowgraphflattening f duplicatebasicblock f opaqueconstants dispatcher however it raises issues about the component validity as the flow dispatcher returned by the control flow graph flattening transformation may not exist anymore after another transformation that could for instance split it. this talk is about the new abstractions we are developping some based on the new llvm pass manager. although we use code obfuscation as an illustration we believe the ideas can be applied to a larger set of problems and appeal to a wider audience. 0 https www.inf.u-szeged.hu akiss pub pdf laszlo obfuscating.pdf 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 poster performance security llvm infrastructure"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2011-09-16-007": {
+      "talk": {
+        "id": "2011-09-16-007",
+        "meeting": "2011-09-16",
+        "meetingName": "2011 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "September 16, 2011",
+        "category": "lightning-talk",
+        "title": "Indigo Shader Language and Winter",
+        "speakers": [
+          {
+            "name": "Nicholas Chapman",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2011-09-16/EuroLLVM2011-Winter.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "indigo shader language and winter",
+        "_speakerLower": "nicholas chapman",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2011 european llvm developers' meeting london, uk september 16, 2011",
+        "_year": "2011",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "indigo shader language and winter",
+              "words": [
+                "indigo",
+                "shader",
+                "language",
+                "and",
+                "winter"
+              ]
+            },
+            "speakers": {
+              "text": "nicholas chapman",
+              "words": [
+                "nicholas",
+                "chapman"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2011 european llvm developers meeting london uk september 16 2011",
+              "words": [
+                "2011",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "september",
+                "16",
+                "2011"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2011",
+              "words": [
+                "2011"
+              ]
+            }
+          },
+          "year": 2011
+        },
+        "_searchBlob": "indigo shader language and winter 2011 european llvm developers meeting london uk september 16 2011 2011-09-16 lightning-talk nicholas chapman"
+      },
+      "meeting": {
+        "slug": "2011-09-16",
+        "name": "2011 European LLVM Developers' Meeting",
+        "date": "September 16, 2011",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 7
+      }
+    }
+  }
+}

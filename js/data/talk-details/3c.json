@@ -1,0 +1,2446 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-06-007": {
+      "talk": {
+        "id": "2025-06-007",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "technical-talk",
+        "title": "Breaking std::vector's ABI for performance gains: A Horror Story",
+        "speakers": [
+          {
+            "name": "Christopher Di Bella",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk chronicles the story of modifying std::vector to directly track its size instead of its allocated buffer, and the associated performance improvements we gained as a result. We’ll also tell the story of applying these changes to libc++ so that it can be upstreamed, and the far more terrifying story of addressing any and all downstream reliance on the previous implementation quirks of vector to see this optimisation deployed internally.",
+        "videoUrl": "https://youtu.be/RKdkHwbgXfY",
+        "videoId": "RKdkHwbgXfY",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/technical-talk/di-bella-vector.pdf",
+        "tags": [
+          "C Libs",
+          "C++",
+          "C++ Libs",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "breaking std::vector's abi for performance gains: a horror story",
+        "_speakerLower": "christopher di bella",
+        "_abstractLower": "this talk chronicles the story of modifying std::vector to directly track its size instead of its allocated buffer, and the associated performance improvements we gained as a result. we’ll also tell the story of applying these changes to libc++ so that it can be upstreamed, and the far more terrifying story of addressing any and all downstream reliance on the previous implementation quirks of vector to see this optimisation deployed internally.",
+        "_tagsLower": "c libs c++ c++ libs performance libc optimizations",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "breaking std vectors abi for performance gains a horror story",
+              "words": [
+                "breaking",
+                "std",
+                "vectors",
+                "abi",
+                "for",
+                "performance",
+                "gains",
+                "horror",
+                "story"
+              ]
+            },
+            "speakers": {
+              "text": "christopher di bella",
+              "words": [
+                "christopher",
+                "di",
+                "bella"
+              ]
+            },
+            "tags": {
+              "text": "c libs c++ c++ libs performance libc optimizations",
+              "words": [
+                "libs",
+                "c++",
+                "c++",
+                "libs",
+                "performance",
+                "libc",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "this talk chronicles the story of modifying std vector to directly track its size instead of its allocated buffer and the associated performance improvements we gained as a result. well also tell the story of applying these changes to libc++ so that it can be upstreamed and the far more terrifying story of addressing any and all downstream reliance on the previous implementation quirks of vector to see this optimisation deployed internally.",
+              "words": [
+                "this",
+                "talk",
+                "chronicles",
+                "the",
+                "story",
+                "of",
+                "modifying",
+                "std",
+                "vector",
+                "to",
+                "directly",
+                "track",
+                "its",
+                "size",
+                "instead",
+                "of",
+                "its",
+                "allocated",
+                "buffer",
+                "and",
+                "the",
+                "associated",
+                "performance",
+                "improvements",
+                "we",
+                "gained",
+                "as",
+                "result.",
+                "well",
+                "also",
+                "tell",
+                "the",
+                "story",
+                "of",
+                "applying",
+                "these",
+                "changes",
+                "to",
+                "libc++",
+                "so",
+                "that",
+                "it",
+                "can",
+                "be",
+                "upstreamed",
+                "and",
+                "the",
+                "far",
+                "more",
+                "terrifying",
+                "story",
+                "of",
+                "addressing",
+                "any",
+                "and",
+                "all",
+                "downstream",
+                "reliance",
+                "on",
+                "the",
+                "previous",
+                "implementation",
+                "quirks",
+                "of",
+                "vector",
+                "to",
+                "see",
+                "this",
+                "optimisation",
+                "deployed",
+                "internally."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "breaking std vectors abi for performance gains a horror story this talk chronicles the story of modifying std vector to directly track its size instead of its allocated buffer and the associated performance improvements we gained as a result. well also tell the story of applying these changes to libc++ so that it can be upstreamed and the far more terrifying story of addressing any and all downstream reliance on the previous implementation quirks of vector to see this optimisation deployed internally. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 technical-talk christopher di bella c libs c++ c++ libs performance libc optimizations"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2025-04-009": {
+      "talk": {
+        "id": "2025-04-009",
+        "meeting": "2025-04",
+        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingLocation": "Berlin, Germany",
+        "meetingDate": "April 14-16, 2025",
+        "category": "technical-talk",
+        "title": "Making LoopAccessAnalysis more precise",
+        "speakers": [
+          {
+            "name": "Ramkumar Ramachandra",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We talk about recent and ongoing work to make LoopAccessAnalysis more precise, leading to better vectorization results.",
+        "videoUrl": "https://youtu.be/2Gs-eAKuoXQ",
+        "videoId": "2Gs-eAKuoXQ",
+        "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/technical_talk/ramachandra_loopaccessanalysis.pdf",
+        "tags": [
+          "Autovectorization"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "making loopaccessanalysis more precise",
+        "_speakerLower": "ramkumar ramachandra",
+        "_abstractLower": "we talk about recent and ongoing work to make loopaccessanalysis more precise, leading to better vectorization results.",
+        "_tagsLower": "autovectorization",
+        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "making loopaccessanalysis more precise",
+              "words": [
+                "making",
+                "loopaccessanalysis",
+                "more",
+                "precise"
+              ]
+            },
+            "speakers": {
+              "text": "ramkumar ramachandra",
+              "words": [
+                "ramkumar",
+                "ramachandra"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization",
+              "words": [
+                "autovectorization"
+              ]
+            },
+            "meeting": {
+              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "words": [
+                "2025",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "berlin",
+                "germany",
+                "april",
+                "14-16",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "we talk about recent and ongoing work to make loopaccessanalysis more precise leading to better vectorization results.",
+              "words": [
+                "we",
+                "talk",
+                "about",
+                "recent",
+                "and",
+                "ongoing",
+                "work",
+                "to",
+                "make",
+                "loopaccessanalysis",
+                "more",
+                "precise",
+                "leading",
+                "to",
+                "better",
+                "vectorization",
+                "results."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "making loopaccessanalysis more precise we talk about recent and ongoing work to make loopaccessanalysis more precise leading to better vectorization results. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk ramkumar ramachandra autovectorization"
+      },
+      "meeting": {
+        "slug": "2025-04",
+        "name": "2025 European LLVM Developers' Meeting",
+        "date": "April 14-16, 2025",
+        "location": "Berlin, Germany",
+        "canceled": false,
+        "talkCount": 64
+      }
+    },
+    "2024-04-019": {
+      "talk": {
+        "id": "2024-04-019",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Accurate Coverage Metrics for Compiler-Generated Debugging Information",
+        "speakers": [
+          {
+            "name": "J. Ryan Stinnett",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Many debugging tools rely on compiler-produced metadata to present a source-language view of program states, such as variable values and source line numbers. While this tends to work for unoptimised programs, current compilers often generate only partial debugging information in optimised programs. Current approaches for measuring the extent of coverage of local variables are based on crude assumptions (for example, assuming variables could cover their whole parent scope) and are not comparable from one compilation to another. In this talk, we propose some new metrics, computable by our tools, which could serve as motivation for language implementations to improve debugging quality.",
+        "videoUrl": "https://youtu.be/LePAdLTRa4Q",
+        "videoId": "LePAdLTRa4Q",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Stinnett-Kell-AccurateCoverageMetrics.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "accurate coverage metrics for compiler-generated debugging information",
+        "_speakerLower": "j. ryan stinnett",
+        "_abstractLower": "many debugging tools rely on compiler-produced metadata to present a source-language view of program states, such as variable values and source line numbers. while this tends to work for unoptimised programs, current compilers often generate only partial debugging information in optimised programs. current approaches for measuring the extent of coverage of local variables are based on crude assumptions (for example, assuming variables could cover their whole parent scope) and are not comparable from one compilation to another. in this talk, we propose some new metrics, computable by our tools, which could serve as motivation for language implementations to improve debugging quality.",
+        "_tagsLower": "",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "accurate coverage metrics for compiler-generated debugging information",
+              "words": [
+                "accurate",
+                "coverage",
+                "metrics",
+                "for",
+                "compiler-generated",
+                "debugging",
+                "information"
+              ]
+            },
+            "speakers": {
+              "text": "j. ryan stinnett",
+              "words": [
+                "j.",
+                "ryan",
+                "stinnett"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "many debugging tools rely on compiler-produced metadata to present a source-language view of program states such as variable values and source line numbers. while this tends to work for unoptimised programs current compilers often generate only partial debugging information in optimised programs. current approaches for measuring the extent of coverage of local variables are based on crude assumptions for example assuming variables could cover their whole parent scope and are not comparable from one compilation to another. in this talk we propose some new metrics computable by our tools which could serve as motivation for language implementations to improve debugging quality.",
+              "words": [
+                "many",
+                "debugging",
+                "tools",
+                "rely",
+                "on",
+                "compiler-produced",
+                "metadata",
+                "to",
+                "present",
+                "source-language",
+                "view",
+                "of",
+                "program",
+                "states",
+                "such",
+                "as",
+                "variable",
+                "values",
+                "and",
+                "source",
+                "line",
+                "numbers.",
+                "while",
+                "this",
+                "tends",
+                "to",
+                "work",
+                "for",
+                "unoptimised",
+                "programs",
+                "current",
+                "compilers",
+                "often",
+                "generate",
+                "only",
+                "partial",
+                "debugging",
+                "information",
+                "in",
+                "optimised",
+                "programs.",
+                "current",
+                "approaches",
+                "for",
+                "measuring",
+                "the",
+                "extent",
+                "of",
+                "coverage",
+                "of",
+                "local",
+                "variables",
+                "are",
+                "based",
+                "on",
+                "crude",
+                "assumptions",
+                "for",
+                "example",
+                "assuming",
+                "variables",
+                "could",
+                "cover",
+                "their",
+                "whole",
+                "parent",
+                "scope",
+                "and",
+                "are",
+                "not",
+                "comparable",
+                "from",
+                "one",
+                "compilation",
+                "to",
+                "another.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "propose",
+                "some",
+                "new",
+                "metrics",
+                "computable",
+                "by",
+                "our",
+                "tools",
+                "which",
+                "could",
+                "serve",
+                "as",
+                "motivation",
+                "for",
+                "language",
+                "implementations",
+                "to",
+                "improve",
+                "debugging",
+                "quality."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "accurate coverage metrics for compiler-generated debugging information many debugging tools rely on compiler-produced metadata to present a source-language view of program states such as variable values and source line numbers. while this tends to work for unoptimised programs current compilers often generate only partial debugging information in optimised programs. current approaches for measuring the extent of coverage of local variables are based on crude assumptions for example assuming variables could cover their whole parent scope and are not comparable from one compilation to another. in this talk we propose some new metrics computable by our tools which could serve as motivation for language implementations to improve debugging quality. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk j. ryan stinnett"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2023-05-006": {
+      "talk": {
+        "id": "2023-05-006",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "Extending the AArch32 JITLink backend",
+        "speakers": [
+          {
+            "name": "Stefan Gränitz",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Stefan Gränitz, echtzeit.dev Practical advice on llvm-jitlink-executor, JITLink development and debugging of JITed ARM/Thumb code",
+        "videoUrl": "https://youtu.be/9jFXNRzDSf0",
+        "videoId": "9jFXNRzDSf0",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May10/04-Granitz-ExtendingtheAArch32%20-JITLinkBackend.pdf",
+        "tags": [
+          "Backend"
+        ],
+        "projectGithub": "https://github.com/llvm/llvm-project",
+        "githubReferences": [
+          "https://github.com/llvm/llvm-project",
+          "https://github.com/echtzeit-dev/llvm-jitlink-executor"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/llvm-project",
+            "source": "slides",
+            "label": "Embedded systems are no suitable development machines → git clone",
+            "context": "Embedded systems are no suitable development machines → git clone",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/echtzeit-dev/llvm-jitlink-executor",
+            "source": "slides",
+            "label": "via TCP Simple option: Build llvm-jitlink-executor from a stripped fork on-device → git clone",
+            "context": "via TCP Simple option: Build llvm-jitlink-executor from a stripped fork on-device → git clone",
+            "library": "llvm-jitlink-executor",
+            "repository": "echtzeit-dev/llvm-jitlink-executor",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/llvm-project"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/echtzeit-dev/llvm-jitlink-executor"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "extending the aarch32 jitlink backend",
+        "_speakerLower": "stefan gränitz",
+        "_abstractLower": "stefan gränitz, echtzeit.dev practical advice on llvm-jitlink-executor, jitlink development and debugging of jited arm/thumb code",
+        "_tagsLower": "backend llvm",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "extending the aarch32 jitlink backend",
+              "words": [
+                "extending",
+                "the",
+                "aarch32",
+                "jitlink",
+                "backend"
+              ]
+            },
+            "speakers": {
+              "text": "stefan granitz",
+              "words": [
+                "stefan",
+                "granitz"
+              ]
+            },
+            "tags": {
+              "text": "backend llvm",
+              "words": [
+                "backend",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "stefan granitz echtzeit.dev practical advice on llvm-jitlink-executor jitlink development and debugging of jited arm thumb code",
+              "words": [
+                "stefan",
+                "granitz",
+                "echtzeit.dev",
+                "practical",
+                "advice",
+                "on",
+                "llvm-jitlink-executor",
+                "jitlink",
+                "development",
+                "and",
+                "debugging",
+                "of",
+                "jited",
+                "arm",
+                "thumb",
+                "code"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "extending the aarch32 jitlink backend stefan granitz echtzeit.dev practical advice on llvm-jitlink-executor jitlink development and debugging of jited arm thumb code 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk stefan granitz backend llvm"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2023-05-028": {
+      "talk": {
+        "id": "2023-05-028",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "quick-talk",
+        "title": "Switch per function in LLVM",
+        "speakers": [
+          {
+            "name": "Tomer Nissim Schneider",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "At CEVA, we have found that more optimizations and compiler hints are extremely essential for optimizing code of our customers.​ We added support for clang switches as function attributes.",
+        "videoUrl": "https://youtu.be/-cPmbtw9dlQ",
+        "videoId": "-cPmbtw9dlQ",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/05-Schneider-SwitchPerFunction_FINAL.pdf",
+        "tags": [
+          "Clang",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "switch per function in llvm",
+        "_speakerLower": "tomer nissim schneider",
+        "_abstractLower": "at ceva, we have found that more optimizations and compiler hints are extremely essential for optimizing code of our customers.​ we added support for clang switches as function attributes.",
+        "_tagsLower": "clang optimizations llvm",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "switch per function in llvm",
+              "words": [
+                "switch",
+                "per",
+                "function",
+                "in",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "tomer nissim schneider",
+              "words": [
+                "tomer",
+                "nissim",
+                "schneider"
+              ]
+            },
+            "tags": {
+              "text": "clang optimizations llvm",
+              "words": [
+                "clang",
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "at ceva we have found that more optimizations and compiler hints are extremely essential for optimizing code of our customers. we added support for clang switches as function attributes.",
+              "words": [
+                "at",
+                "ceva",
+                "we",
+                "have",
+                "found",
+                "that",
+                "more",
+                "optimizations",
+                "and",
+                "compiler",
+                "hints",
+                "are",
+                "extremely",
+                "essential",
+                "for",
+                "optimizing",
+                "code",
+                "of",
+                "our",
+                "customers.",
+                "we",
+                "added",
+                "support",
+                "for",
+                "clang",
+                "switches",
+                "as",
+                "function",
+                "attributes."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "switch per function in llvm at ceva we have found that more optimizations and compiler hints are extremely essential for optimizing code of our customers. we added support for clang switches as function attributes. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 quick-talk tomer nissim schneider clang optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-016": {
+      "talk": {
+        "id": "2022-05-016",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "SCEV-Based debuginfo salvaging in Loop Strength Reduction",
+        "speakers": [
+          {
+            "name": "Chris Jackson",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "A discussion of how Scalar Evolution has been used to improve debuginfo retention in the Loop trength Reduction pass by translating SCEVs for optimised-out locations and induction variables into DWARF expressions. This work was enabled by the addition of variadic dbg.value, or dbg.value that allow references to multiple locations. This means that a DWARF program can combine results from multiple SCEVs that refer to multiple locations.",
+        "videoUrl": "https://youtu.be/aok7taVFUWQ",
+        "videoId": "aok7taVFUWQ",
+        "tags": [
+          "Debug Information",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "scev-based debuginfo salvaging in loop strength reduction",
+        "_speakerLower": "chris jackson",
+        "_abstractLower": "a discussion of how scalar evolution has been used to improve debuginfo retention in the loop trength reduction pass by translating scevs for optimised-out locations and induction variables into dwarf expressions. this work was enabled by the addition of variadic dbg.value, or dbg.value that allow references to multiple locations. this means that a dwarf program can combine results from multiple scevs that refer to multiple locations.",
+        "_tagsLower": "debug information optimizations",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "scev-based debuginfo salvaging in loop strength reduction",
+              "words": [
+                "scev-based",
+                "debuginfo",
+                "salvaging",
+                "in",
+                "loop",
+                "strength",
+                "reduction"
+              ]
+            },
+            "speakers": {
+              "text": "chris jackson",
+              "words": [
+                "chris",
+                "jackson"
+              ]
+            },
+            "tags": {
+              "text": "debug information optimizations",
+              "words": [
+                "debug",
+                "information",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "a discussion of how scalar evolution has been used to improve debuginfo retention in the loop trength reduction pass by translating scevs for optimised-out locations and induction variables into dwarf expressions. this work was enabled by the addition of variadic dbg.value or dbg.value that allow references to multiple locations. this means that a dwarf program can combine results from multiple scevs that refer to multiple locations.",
+              "words": [
+                "discussion",
+                "of",
+                "how",
+                "scalar",
+                "evolution",
+                "has",
+                "been",
+                "used",
+                "to",
+                "improve",
+                "debuginfo",
+                "retention",
+                "in",
+                "the",
+                "loop",
+                "trength",
+                "reduction",
+                "pass",
+                "by",
+                "translating",
+                "scevs",
+                "for",
+                "optimised-out",
+                "locations",
+                "and",
+                "induction",
+                "variables",
+                "into",
+                "dwarf",
+                "expressions.",
+                "this",
+                "work",
+                "was",
+                "enabled",
+                "by",
+                "the",
+                "addition",
+                "of",
+                "variadic",
+                "dbg.value",
+                "or",
+                "dbg.value",
+                "that",
+                "allow",
+                "references",
+                "to",
+                "multiple",
+                "locations.",
+                "this",
+                "means",
+                "that",
+                "dwarf",
+                "program",
+                "can",
+                "combine",
+                "results",
+                "from",
+                "multiple",
+                "scevs",
+                "that",
+                "refer",
+                "to",
+                "multiple",
+                "locations."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "scev-based debuginfo salvaging in loop strength reduction a discussion of how scalar evolution has been used to improve debuginfo retention in the loop trength reduction pass by translating scevs for optimised-out locations and induction variables into dwarf expressions. this work was enabled by the addition of variadic dbg.value or dbg.value that allow references to multiple locations. this means that a dwarf program can combine results from multiple scevs that refer to multiple locations. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk chris jackson debug information optimizations"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2020-09-010": {
+      "talk": {
+        "id": "2020-09-010",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Code Size Compiler Optimizations and Techniques",
+        "speakers": [
+          {
+            "name": "Aditya Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/puZ2B408VsM",
+        "videoId": "puZ2B408VsM",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Kumar-LLVMDevCodeSizePdf.pdf",
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "code size compiler optimizations and techniques",
+        "_speakerLower": "aditya kumar",
+        "_abstractLower": "",
+        "_tagsLower": "optimizations",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "code size compiler optimizations and techniques",
+              "words": [
+                "code",
+                "size",
+                "compiler",
+                "optimizations",
+                "and",
+                "techniques"
+              ]
+            },
+            "speakers": {
+              "text": "aditya kumar",
+              "words": [
+                "aditya",
+                "kumar"
+              ]
+            },
+            "tags": {
+              "text": "optimizations",
+              "words": [
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "code size compiler optimizations and techniques 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk aditya kumar optimizations"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-032": {
+      "talk": {
+        "id": "2020-09-032",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "tutorial",
+        "title": "A Deep Dive into the Interprocedural Optimization Infrastructure",
+        "speakers": [],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/I4Iv-HefknA",
+        "videoId": "I4Iv-HefknA",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/A_Deep_Dive_into_Interprocedural_Optimization.pdf",
+        "tags": [
+          "LTO",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "a deep dive into the interprocedural optimization infrastructure",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "lto optimizations infrastructure",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a deep dive into the interprocedural optimization infrastructure",
+              "words": [
+                "deep",
+                "dive",
+                "into",
+                "the",
+                "interprocedural",
+                "optimization",
+                "infrastructure"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "lto optimizations infrastructure",
+              "words": [
+                "lto",
+                "optimizations",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "a deep dive into the interprocedural optimization infrastructure 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 tutorial lto optimizations infrastructure"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-015": {
+      "talk": {
+        "id": "2020-04-015",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "ThinLtoJIT: Compiling ahead of time with ThinLTO summaries",
+        "speakers": [
+          {
+            "name": "Stefan Gränitz",
+            "affiliation": "Independent",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Freelance Developer)",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "ThinLtoJIT is a new LLVM example project, which makes use of global call-graph information from ThinLTO summaries for speculative compilation with ORCv2. It is an implementation of the concept I presented in my \"ThinLTO Summaries in JIT Compilation\" talk at the 2018 Developers' Meeting: https://llvm.org/devmtg/2018-10/talk- abstracts.html#lt8 Upfront the JIT only populates the global ThinLTO module index and compiles the main module. All functions are emitted with extra prologue instructions that fire a discovery flag once execution reaches them. In parallel, a discovery thread is busy- watching all these flags. Once it detects some fired, it queries the ThinLTO module index for functions reachable within a number of calls. The set of modules that define these functions is then loaded from disk and submitted to the compilation pipeline asynchronously while execution continues. Ideally the JIT can be tuned in a way, so that the code on the actual path of execution can always be compiled ahead of time. In case a missing function is reached, the JIT has a definition generator in place that loads modules synchronously. We will go through the lifetime of an example program running in ThinLtoJIT and discuss various aspects of the implementation: Generate and inspect bitcode with ThinLTO summaries Populate and query the global module index Build compile pipelines with ORCv2 Compiler interception stubs in ORCv2 Binary instrumentation for JITed functions Look-free discovery flags Multithreaded dispatch for bitcode parsing and compilation Benchmarks against lli and static compilation Most topics are beginner friendly in their domain. During the session participants will gain: an advanced understanding of the ORCv2 libraries a basic and practical understanding of ThinLTO summaries, binary instrumentation, multi-threading and lock-free data structures Bonus: So, should we build Clang stage-1 in memory?",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_54",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_54.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "thinltojit: compiling ahead of time with thinlto summaries",
+        "_speakerLower": "stefan gränitz freelance developer)",
+        "_abstractLower": "thinltojit is a new llvm example project, which makes use of global call-graph information from thinlto summaries for speculative compilation with orcv2. it is an implementation of the concept i presented in my \"thinlto summaries in jit compilation\" talk at the 2018 developers' meeting: https://llvm.org/devmtg/2018-10/talk- abstracts.html#lt8 upfront the jit only populates the global thinlto module index and compiles the main module. all functions are emitted with extra prologue instructions that fire a discovery flag once execution reaches them. in parallel, a discovery thread is busy- watching all these flags. once it detects some fired, it queries the thinlto module index for functions reachable within a number of calls. the set of modules that define these functions is then loaded from disk and submitted to the compilation pipeline asynchronously while execution continues. ideally the jit can be tuned in a way, so that the code on the actual path of execution can always be compiled ahead of time. in case a missing function is reached, the jit has a definition generator in place that loads modules synchronously. we will go through the lifetime of an example program running in thinltojit and discuss various aspects of the implementation: generate and inspect bitcode with thinlto summaries populate and query the global module index build compile pipelines with orcv2 compiler interception stubs in orcv2 binary instrumentation for jited functions look-free discovery flags multithreaded dispatch for bitcode parsing and compilation benchmarks against lli and static compilation most topics are beginner friendly in their domain. during the session participants will gain: an advanced understanding of the orcv2 libraries a basic and practical understanding of thinlto summaries, binary instrumentation, multi-threading and lock-free data structures bonus: so, should we build clang stage-1 in memory?",
+        "_tagsLower": "llvm clang jit",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "thinltojit compiling ahead of time with thinlto summaries",
+              "words": [
+                "thinltojit",
+                "compiling",
+                "ahead",
+                "of",
+                "time",
+                "with",
+                "thinlto",
+                "summaries"
+              ]
+            },
+            "speakers": {
+              "text": "stefan granitz freelance developer",
+              "words": [
+                "stefan",
+                "granitz",
+                "freelance",
+                "developer"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang jit",
+              "words": [
+                "llvm",
+                "clang",
+                "jit"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "thinltojit is a new llvm example project which makes use of global call-graph information from thinlto summaries for speculative compilation with orcv2. it is an implementation of the concept i presented in my thinlto summaries in jit compilation talk at the 2018 developers meeting https llvm.org devmtg 2018-10 talk- abstracts.html#lt8 upfront the jit only populates the global thinlto module index and compiles the main module. all functions are emitted with extra prologue instructions that fire a discovery flag once execution reaches them. in parallel a discovery thread is busy- watching all these flags. once it detects some fired it queries the thinlto module index for functions reachable within a number of calls. the set of modules that define these functions is then loaded from disk and submitted to the compilation pipeline asynchronously while execution continues. ideally the jit can be tuned in a way so that the code on the actual path of execution can always be compiled ahead of time. in case a missing function is reached the jit has a definition generator in place that loads modules synchronously. we will go through the lifetime of an example program running in thinltojit and discuss various aspects of the implementation generate and inspect bitcode with thinlto summaries populate and query the global module index build compile pipelines with orcv2 compiler interception stubs in orcv2 binary instrumentation for jited functions look-free discovery flags multithreaded dispatch for bitcode parsing and compilation benchmarks against lli and static compilation most topics are beginner friendly in their domain. during the session participants will gain an advanced understanding of the orcv2 libraries a basic and practical understanding of thinlto summaries binary instrumentation multi-threading and lock-free data structures bonus so should we build clang stage-1 in memory",
+              "words": [
+                "thinltojit",
+                "is",
+                "new",
+                "llvm",
+                "example",
+                "project",
+                "which",
+                "makes",
+                "use",
+                "of",
+                "global",
+                "call-graph",
+                "information",
+                "from",
+                "thinlto",
+                "summaries",
+                "for",
+                "speculative",
+                "compilation",
+                "with",
+                "orcv2.",
+                "it",
+                "is",
+                "an",
+                "implementation",
+                "of",
+                "the",
+                "concept",
+                "presented",
+                "in",
+                "my",
+                "thinlto",
+                "summaries",
+                "in",
+                "jit",
+                "compilation",
+                "talk",
+                "at",
+                "the",
+                "2018",
+                "developers",
+                "meeting",
+                "https",
+                "llvm.org",
+                "devmtg",
+                "2018-10",
+                "talk-",
+                "abstracts.html#lt8",
+                "upfront",
+                "the",
+                "jit",
+                "only",
+                "populates",
+                "the",
+                "global",
+                "thinlto",
+                "module",
+                "index",
+                "and",
+                "compiles",
+                "the",
+                "main",
+                "module.",
+                "all",
+                "functions",
+                "are",
+                "emitted",
+                "with",
+                "extra",
+                "prologue",
+                "instructions",
+                "that",
+                "fire",
+                "discovery",
+                "flag",
+                "once",
+                "execution",
+                "reaches",
+                "them.",
+                "in",
+                "parallel",
+                "discovery",
+                "thread",
+                "is",
+                "busy-",
+                "watching",
+                "all",
+                "these",
+                "flags.",
+                "once",
+                "it",
+                "detects",
+                "some",
+                "fired",
+                "it",
+                "queries",
+                "the",
+                "thinlto",
+                "module",
+                "index",
+                "for",
+                "functions",
+                "reachable",
+                "within",
+                "number",
+                "of",
+                "calls.",
+                "the",
+                "set",
+                "of",
+                "modules",
+                "that",
+                "define",
+                "these",
+                "functions",
+                "is",
+                "then",
+                "loaded",
+                "from",
+                "disk",
+                "and",
+                "submitted",
+                "to",
+                "the",
+                "compilation",
+                "pipeline",
+                "asynchronously",
+                "while",
+                "execution",
+                "continues.",
+                "ideally",
+                "the",
+                "jit",
+                "can",
+                "be",
+                "tuned",
+                "in",
+                "way",
+                "so",
+                "that",
+                "the",
+                "code",
+                "on",
+                "the",
+                "actual",
+                "path",
+                "of",
+                "execution",
+                "can",
+                "always",
+                "be",
+                "compiled",
+                "ahead",
+                "of",
+                "time.",
+                "in",
+                "case",
+                "missing",
+                "function",
+                "is",
+                "reached",
+                "the",
+                "jit",
+                "has",
+                "definition",
+                "generator",
+                "in",
+                "place",
+                "that",
+                "loads",
+                "modules",
+                "synchronously.",
+                "we",
+                "will",
+                "go",
+                "through",
+                "the",
+                "lifetime",
+                "of",
+                "an",
+                "example",
+                "program",
+                "running",
+                "in",
+                "thinltojit",
+                "and",
+                "discuss",
+                "various",
+                "aspects",
+                "of",
+                "the",
+                "implementation",
+                "generate",
+                "and",
+                "inspect",
+                "bitcode",
+                "with",
+                "thinlto",
+                "summaries",
+                "populate",
+                "and",
+                "query",
+                "the",
+                "global",
+                "module",
+                "index",
+                "build",
+                "compile",
+                "pipelines",
+                "with",
+                "orcv2",
+                "compiler",
+                "interception",
+                "stubs",
+                "in",
+                "orcv2",
+                "binary",
+                "instrumentation",
+                "for",
+                "jited",
+                "functions",
+                "look-free",
+                "discovery",
+                "flags",
+                "multithreaded",
+                "dispatch",
+                "for",
+                "bitcode",
+                "parsing",
+                "and",
+                "compilation",
+                "benchmarks",
+                "against",
+                "lli",
+                "and",
+                "static",
+                "compilation",
+                "most",
+                "topics",
+                "are",
+                "beginner",
+                "friendly",
+                "in",
+                "their",
+                "domain.",
+                "during",
+                "the",
+                "session",
+                "participants",
+                "will",
+                "gain",
+                "an",
+                "advanced",
+                "understanding",
+                "of",
+                "the",
+                "orcv2",
+                "libraries",
+                "basic",
+                "and",
+                "practical",
+                "understanding",
+                "of",
+                "thinlto",
+                "summaries",
+                "binary",
+                "instrumentation",
+                "multi-threading",
+                "and",
+                "lock-free",
+                "data",
+                "structures",
+                "bonus",
+                "so",
+                "should",
+                "we",
+                "build",
+                "clang",
+                "stage-1",
+                "in",
+                "memory"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "thinltojit compiling ahead of time with thinlto summaries thinltojit is a new llvm example project which makes use of global call-graph information from thinlto summaries for speculative compilation with orcv2. it is an implementation of the concept i presented in my thinlto summaries in jit compilation talk at the 2018 developers meeting https llvm.org devmtg 2018-10 talk- abstracts.html#lt8 upfront the jit only populates the global thinlto module index and compiles the main module. all functions are emitted with extra prologue instructions that fire a discovery flag once execution reaches them. in parallel a discovery thread is busy- watching all these flags. once it detects some fired it queries the thinlto module index for functions reachable within a number of calls. the set of modules that define these functions is then loaded from disk and submitted to the compilation pipeline asynchronously while execution continues. ideally the jit can be tuned in a way so that the code on the actual path of execution can always be compiled ahead of time. in case a missing function is reached the jit has a definition generator in place that loads modules synchronously. we will go through the lifetime of an example program running in thinltojit and discuss various aspects of the implementation generate and inspect bitcode with thinlto summaries populate and query the global module index build compile pipelines with orcv2 compiler interception stubs in orcv2 binary instrumentation for jited functions look-free discovery flags multithreaded dispatch for bitcode parsing and compilation benchmarks against lli and static compilation most topics are beginner friendly in their domain. during the session participants will gain an advanced understanding of the orcv2 libraries a basic and practical understanding of thinlto summaries binary instrumentation multi-threading and lock-free data structures bonus so should we build clang stage-1 in memory 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk stefan granitz freelance developer llvm clang jit"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-037": {
+      "talk": {
+        "id": "2020-04-037",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "panel",
+        "title": "OpenMP (Target Offloading) in LLVM [Panel/BoF]",
+        "speakers": [
+          {
+            "name": "Johannes Doerfert",
+            "affiliation": "ANL",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Offloading, thus moving computation to accelerators, has (to) become reality in various fields, including but not exclusively HPC. OpenMP is a promising language for many people as it integrates well into existing code bases written in C/C++ or Fortran. In this Panel (or BoF) we want to give people an overview of the current support, what is being worked on, and how researchers can impact this important topic. While we hope for questions from the audience, we will present various topics to start the conversation, including: the redesign of the OpenMP device runtime library to support more targets the OpenMP optimization pass and scalar optimizations OpenMP 5.0 and 5.1 support OpenMP in Flang The panelists are from companies and institutions involved in these efforts. We are in contact with: Jon Chesterfield (AMD) Simon Moll (NEC) Xinmin Tian (Intel) Alexey Bataev (IBM) as well as representatives from national labs and other hardware vendors. Note that depending on the format we will need to list more people as authors.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Panel_82",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Panel_82.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "openmp (target offloading) in llvm [panel/bof]",
+        "_speakerLower": "johannes doerfert",
+        "_abstractLower": "offloading, thus moving computation to accelerators, has (to) become reality in various fields, including but not exclusively hpc. openmp is a promising language for many people as it integrates well into existing code bases written in c/c++ or fortran. in this panel (or bof) we want to give people an overview of the current support, what is being worked on, and how researchers can impact this important topic. while we hope for questions from the audience, we will present various topics to start the conversation, including: the redesign of the openmp device runtime library to support more targets the openmp optimization pass and scalar optimizations openmp 5.0 and 5.1 support openmp in flang the panelists are from companies and institutions involved in these efforts. we are in contact with: jon chesterfield (amd) simon moll (nec) xinmin tian (intel) alexey bataev (ibm) as well as representatives from national labs and other hardware vendors. note that depending on the format we will need to list more people as authors.",
+        "_tagsLower": "llvm flang openmp offload runtimes optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "openmp target offloading in llvm panel bof",
+              "words": [
+                "openmp",
+                "target",
+                "offloading",
+                "in",
+                "llvm",
+                "panel",
+                "bof"
+              ]
+            },
+            "speakers": {
+              "text": "johannes doerfert",
+              "words": [
+                "johannes",
+                "doerfert"
+              ]
+            },
+            "tags": {
+              "text": "llvm flang openmp offload runtimes optimizations",
+              "words": [
+                "llvm",
+                "flang",
+                "openmp",
+                "offload",
+                "runtimes",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "offloading thus moving computation to accelerators has to become reality in various fields including but not exclusively hpc. openmp is a promising language for many people as it integrates well into existing code bases written in c c++ or fortran. in this panel or bof we want to give people an overview of the current support what is being worked on and how researchers can impact this important topic. while we hope for questions from the audience we will present various topics to start the conversation including the redesign of the openmp device runtime library to support more targets the openmp optimization pass and scalar optimizations openmp 5.0 and 5.1 support openmp in flang the panelists are from companies and institutions involved in these efforts. we are in contact with jon chesterfield amd simon moll nec xinmin tian intel alexey bataev ibm as well as representatives from national labs and other hardware vendors. note that depending on the format we will need to list more people as authors.",
+              "words": [
+                "offloading",
+                "thus",
+                "moving",
+                "computation",
+                "to",
+                "accelerators",
+                "has",
+                "to",
+                "become",
+                "reality",
+                "in",
+                "various",
+                "fields",
+                "including",
+                "but",
+                "not",
+                "exclusively",
+                "hpc.",
+                "openmp",
+                "is",
+                "promising",
+                "language",
+                "for",
+                "many",
+                "people",
+                "as",
+                "it",
+                "integrates",
+                "well",
+                "into",
+                "existing",
+                "code",
+                "bases",
+                "written",
+                "in",
+                "c++",
+                "or",
+                "fortran.",
+                "in",
+                "this",
+                "panel",
+                "or",
+                "bof",
+                "we",
+                "want",
+                "to",
+                "give",
+                "people",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "current",
+                "support",
+                "what",
+                "is",
+                "being",
+                "worked",
+                "on",
+                "and",
+                "how",
+                "researchers",
+                "can",
+                "impact",
+                "this",
+                "important",
+                "topic.",
+                "while",
+                "we",
+                "hope",
+                "for",
+                "questions",
+                "from",
+                "the",
+                "audience",
+                "we",
+                "will",
+                "present",
+                "various",
+                "topics",
+                "to",
+                "start",
+                "the",
+                "conversation",
+                "including",
+                "the",
+                "redesign",
+                "of",
+                "the",
+                "openmp",
+                "device",
+                "runtime",
+                "library",
+                "to",
+                "support",
+                "more",
+                "targets",
+                "the",
+                "openmp",
+                "optimization",
+                "pass",
+                "and",
+                "scalar",
+                "optimizations",
+                "openmp",
+                "5.0",
+                "and",
+                "5.1",
+                "support",
+                "openmp",
+                "in",
+                "flang",
+                "the",
+                "panelists",
+                "are",
+                "from",
+                "companies",
+                "and",
+                "institutions",
+                "involved",
+                "in",
+                "these",
+                "efforts.",
+                "we",
+                "are",
+                "in",
+                "contact",
+                "with",
+                "jon",
+                "chesterfield",
+                "amd",
+                "simon",
+                "moll",
+                "nec",
+                "xinmin",
+                "tian",
+                "intel",
+                "alexey",
+                "bataev",
+                "ibm",
+                "as",
+                "well",
+                "as",
+                "representatives",
+                "from",
+                "national",
+                "labs",
+                "and",
+                "other",
+                "hardware",
+                "vendors.",
+                "note",
+                "that",
+                "depending",
+                "on",
+                "the",
+                "format",
+                "we",
+                "will",
+                "need",
+                "to",
+                "list",
+                "more",
+                "people",
+                "as",
+                "authors."
+              ]
+            },
+            "category": {
+              "text": "panel",
+              "words": [
+                "panel"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "openmp target offloading in llvm panel bof offloading thus moving computation to accelerators has to become reality in various fields including but not exclusively hpc. openmp is a promising language for many people as it integrates well into existing code bases written in c c++ or fortran. in this panel or bof we want to give people an overview of the current support what is being worked on and how researchers can impact this important topic. while we hope for questions from the audience we will present various topics to start the conversation including the redesign of the openmp device runtime library to support more targets the openmp optimization pass and scalar optimizations openmp 5.0 and 5.1 support openmp in flang the panelists are from companies and institutions involved in these efforts. we are in contact with jon chesterfield amd simon moll nec xinmin tian intel alexey bataev ibm as well as representatives from national labs and other hardware vendors. note that depending on the format we will need to list more people as authors. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 panel johannes doerfert llvm flang openmp offload runtimes optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-059": {
+      "talk": {
+        "id": "2020-04-059",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "Improving Code Density for RISC-V Target",
+        "speakers": [
+          {
+            "name": "Wei Wei",
+            "affiliation": "Huawei",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Chao Yu",
+            "affiliation": "Huawei",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "RISC-V ISA is an open-source instruction set architecture designed to be useful in a wide range of embeded applications and devices. For many resource-constrained micro-controllers, code density will be a very important metric. Compression extension(named RVC) in RISC-V, is designed to reduce instruction bandwidth for common instructions, resulted in a 25%–30% code-size reduction. In this talk I'll present some code size results by llvm and gcc compilers with RVC, and find out why the GCC-generated code is more compact. Finally, I will describe some implementation we are doing on the LLVM side to close these code size gaps.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_95",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_95.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "improving code density for risc-v target",
+        "_speakerLower": "wei wei chao yu",
+        "_abstractLower": "risc-v isa is an open-source instruction set architecture designed to be useful in a wide range of embeded applications and devices. for many resource-constrained micro-controllers, code density will be a very important metric. compression extension(named rvc) in risc-v, is designed to reduce instruction bandwidth for common instructions, resulted in a 25%–30% code-size reduction. in this talk i'll present some code size results by llvm and gcc compilers with rvc, and find out why the gcc-generated code is more compact. finally, i will describe some implementation we are doing on the llvm side to close these code size gaps.",
+        "_tagsLower": "llvm risc-v",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "improving code density for risc-v target",
+              "words": [
+                "improving",
+                "code",
+                "density",
+                "for",
+                "risc-v",
+                "target"
+              ]
+            },
+            "speakers": {
+              "text": "wei wei chao yu",
+              "words": [
+                "wei",
+                "wei",
+                "chao",
+                "yu"
+              ]
+            },
+            "tags": {
+              "text": "llvm risc-v",
+              "words": [
+                "llvm",
+                "risc-v"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "risc-v isa is an open-source instruction set architecture designed to be useful in a wide range of embeded applications and devices. for many resource-constrained micro-controllers code density will be a very important metric. compression extension named rvc in risc-v is designed to reduce instruction bandwidth for common instructions resulted in a 25 30 code-size reduction. in this talk ill present some code size results by llvm and gcc compilers with rvc and find out why the gcc-generated code is more compact. finally i will describe some implementation we are doing on the llvm side to close these code size gaps.",
+              "words": [
+                "risc-v",
+                "isa",
+                "is",
+                "an",
+                "open-source",
+                "instruction",
+                "set",
+                "architecture",
+                "designed",
+                "to",
+                "be",
+                "useful",
+                "in",
+                "wide",
+                "range",
+                "of",
+                "embeded",
+                "applications",
+                "and",
+                "devices.",
+                "for",
+                "many",
+                "resource-constrained",
+                "micro-controllers",
+                "code",
+                "density",
+                "will",
+                "be",
+                "very",
+                "important",
+                "metric.",
+                "compression",
+                "extension",
+                "named",
+                "rvc",
+                "in",
+                "risc-v",
+                "is",
+                "designed",
+                "to",
+                "reduce",
+                "instruction",
+                "bandwidth",
+                "for",
+                "common",
+                "instructions",
+                "resulted",
+                "in",
+                "25",
+                "30",
+                "code-size",
+                "reduction.",
+                "in",
+                "this",
+                "talk",
+                "ill",
+                "present",
+                "some",
+                "code",
+                "size",
+                "results",
+                "by",
+                "llvm",
+                "and",
+                "gcc",
+                "compilers",
+                "with",
+                "rvc",
+                "and",
+                "find",
+                "out",
+                "why",
+                "the",
+                "gcc-generated",
+                "code",
+                "is",
+                "more",
+                "compact.",
+                "finally",
+                "will",
+                "describe",
+                "some",
+                "implementation",
+                "we",
+                "are",
+                "doing",
+                "on",
+                "the",
+                "llvm",
+                "side",
+                "to",
+                "close",
+                "these",
+                "code",
+                "size",
+                "gaps."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "improving code density for risc-v target risc-v isa is an open-source instruction set architecture designed to be useful in a wide range of embeded applications and devices. for many resource-constrained micro-controllers code density will be a very important metric. compression extension named rvc in risc-v is designed to reduce instruction bandwidth for common instructions resulted in a 25 30 code-size reduction. in this talk ill present some code size results by llvm and gcc compilers with rvc and find out why the gcc-generated code is more compact. finally i will describe some implementation we are doing on the llvm side to close these code size gaps. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk wei wei chao yu llvm risc-v"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2013-04-008": {
+      "talk": {
+        "id": "2013-04-008",
+        "meeting": "2013-04",
+        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France",
+        "meetingDate": "April 29-30, 2013",
+        "category": "technical-talk",
+        "title": "LLVM Interpreter, a key component in validation of OpenCL compilers",
+        "speakers": [
+          {
+            "name": "Oleg Maslov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this presentation we show how we use LLVM interpreter to create a validation tool chain for OpenCL compilers which is isolated from the OpenCL runtime. LLVM interpreter produces bitwise accurate results and is used as a reference OpenCL engine. This infrastructure is used in pre silicon enablement of MIC and X86 OpenCL compilers. It is also used to validate correctness of the workloads during ongoing development of the compilers. As part of the work we extended existing interpreter to support the missing vector and aggregate data types and plan to upstream the changes to llvm.org.",
+        "videoUrl": "https://youtu.be/XPi-74rHo9U",
+        "videoId": "XPi-74rHo9U",
+        "slidesUrl": "https://llvm.org/devmtg/2013-04/maslov-slides.pdf",
+        "tags": [
+          "GPU",
+          "OpenCL"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm interpreter, a key component in validation of opencl compilers",
+        "_speakerLower": "oleg maslov",
+        "_abstractLower": "in this presentation we show how we use llvm interpreter to create a validation tool chain for opencl compilers which is isolated from the opencl runtime. llvm interpreter produces bitwise accurate results and is used as a reference opencl engine. this infrastructure is used in pre silicon enablement of mic and x86 opencl compilers. it is also used to validate correctness of the workloads during ongoing development of the compilers. as part of the work we extended existing interpreter to support the missing vector and aggregate data types and plan to upstream the changes to llvm.org.",
+        "_tagsLower": "gpu opencl llvm infrastructure",
+        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_year": "2013",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm interpreter a key component in validation of opencl compilers",
+              "words": [
+                "llvm",
+                "interpreter",
+                "key",
+                "component",
+                "in",
+                "validation",
+                "of",
+                "opencl",
+                "compilers"
+              ]
+            },
+            "speakers": {
+              "text": "oleg maslov",
+              "words": [
+                "oleg",
+                "maslov"
+              ]
+            },
+            "tags": {
+              "text": "gpu opencl llvm infrastructure",
+              "words": [
+                "gpu",
+                "opencl",
+                "llvm",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "words": [
+                "2013",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "april",
+                "29-30",
+                "2013"
+              ]
+            },
+            "abstract": {
+              "text": "in this presentation we show how we use llvm interpreter to create a validation tool chain for opencl compilers which is isolated from the opencl runtime. llvm interpreter produces bitwise accurate results and is used as a reference opencl engine. this infrastructure is used in pre silicon enablement of mic and x86 opencl compilers. it is also used to validate correctness of the workloads during ongoing development of the compilers. as part of the work we extended existing interpreter to support the missing vector and aggregate data types and plan to upstream the changes to llvm.org.",
+              "words": [
+                "in",
+                "this",
+                "presentation",
+                "we",
+                "show",
+                "how",
+                "we",
+                "use",
+                "llvm",
+                "interpreter",
+                "to",
+                "create",
+                "validation",
+                "tool",
+                "chain",
+                "for",
+                "opencl",
+                "compilers",
+                "which",
+                "is",
+                "isolated",
+                "from",
+                "the",
+                "opencl",
+                "runtime.",
+                "llvm",
+                "interpreter",
+                "produces",
+                "bitwise",
+                "accurate",
+                "results",
+                "and",
+                "is",
+                "used",
+                "as",
+                "reference",
+                "opencl",
+                "engine.",
+                "this",
+                "infrastructure",
+                "is",
+                "used",
+                "in",
+                "pre",
+                "silicon",
+                "enablement",
+                "of",
+                "mic",
+                "and",
+                "x86",
+                "opencl",
+                "compilers.",
+                "it",
+                "is",
+                "also",
+                "used",
+                "to",
+                "validate",
+                "correctness",
+                "of",
+                "the",
+                "workloads",
+                "during",
+                "ongoing",
+                "development",
+                "of",
+                "the",
+                "compilers.",
+                "as",
+                "part",
+                "of",
+                "the",
+                "work",
+                "we",
+                "extended",
+                "existing",
+                "interpreter",
+                "to",
+                "support",
+                "the",
+                "missing",
+                "vector",
+                "and",
+                "aggregate",
+                "data",
+                "types",
+                "and",
+                "plan",
+                "to",
+                "upstream",
+                "the",
+                "changes",
+                "to",
+                "llvm.org."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2013",
+              "words": [
+                "2013"
+              ]
+            }
+          },
+          "year": 2013
+        },
+        "_searchBlob": "llvm interpreter a key component in validation of opencl compilers in this presentation we show how we use llvm interpreter to create a validation tool chain for opencl compilers which is isolated from the opencl runtime. llvm interpreter produces bitwise accurate results and is used as a reference opencl engine. this infrastructure is used in pre silicon enablement of mic and x86 opencl compilers. it is also used to validate correctness of the workloads during ongoing development of the compilers. as part of the work we extended existing interpreter to support the missing vector and aggregate data types and plan to upstream the changes to llvm.org. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 technical-talk oleg maslov gpu opencl llvm infrastructure"
+      },
+      "meeting": {
+        "slug": "2013-04",
+        "name": "2013 European LLVM Developers' Meeting",
+        "date": "April 29-30, 2013",
+        "location": "Paris, France",
+        "canceled": false,
+        "talkCount": 30
+      }
+    },
+    "2010-11-009": {
+      "talk": {
+        "id": "2010-11-009",
+        "meeting": "2010-11",
+        "meetingName": "2010 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "November 4, 2010",
+        "category": "technical-talk",
+        "title": "Creating cling, an interactive interpreter interface for clang",
+        "speakers": [
+          {
+            "name": "Axel Naumann",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/BjmGOMJWeAo",
+        "videoId": "BjmGOMJWeAo",
+        "slidesUrl": "https://llvm.org/devmtg/2010-11/Naumann-Cling.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "creating cling, an interactive interpreter interface for clang",
+        "_speakerLower": "axel naumann",
+        "_abstractLower": "",
+        "_tagsLower": "clang",
+        "_meetingLower": "2010 us llvm developers' meeting san jose, ca, usa november 4, 2010",
+        "_year": "2010",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "creating cling an interactive interpreter interface for clang",
+              "words": [
+                "creating",
+                "cling",
+                "an",
+                "interactive",
+                "interpreter",
+                "interface",
+                "for",
+                "clang"
+              ]
+            },
+            "speakers": {
+              "text": "axel naumann",
+              "words": [
+                "axel",
+                "naumann"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2010 us llvm developers meeting san jose ca usa november 4 2010",
+              "words": [
+                "2010",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "november",
+                "2010"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2010",
+              "words": [
+                "2010"
+              ]
+            }
+          },
+          "year": 2010
+        },
+        "_searchBlob": "creating cling an interactive interpreter interface for clang 2010 us llvm developers meeting san jose ca usa november 4 2010 2010-11 technical-talk axel naumann clang"
+      },
+      "meeting": {
+        "slug": "2010-11",
+        "name": "2010 US LLVM Developers' Meeting",
+        "date": "November 4, 2010",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 17
+      }
+    }
+  }
+}

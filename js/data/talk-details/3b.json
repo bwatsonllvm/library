@@ -1,0 +1,3962 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-06-006": {
+      "talk": {
+        "id": "2025-06-006",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "technical-talk",
+        "title": "LLVM vs. GCC on RISC-V Using SPEC CPU Benchmarks: Methods, Gaps, and Optimizations",
+        "speakers": [
+          {
+            "name": "Yongtai Li",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This work details a systematic approach for comparing LLVM and GCC compilers on RISC-V using SPEC CPU 2006 and 2017 benchmarks, with full results disclosed for the 2017 suite. We expose critical performance gaps through code size, dynamic instruction counts (DIC), and vectorization efficiency, while proposing actionable fixes for compiler-specific inefficiencies.",
+        "videoUrl": "https://youtu.be/T30hxDUqfVY",
+        "videoId": "T30hxDUqfVY",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/technical-talk/li-risc.pdf",
+        "tags": [
+          "Autovectorization",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm vs. gcc on risc-v using spec cpu benchmarks: methods, gaps, and optimizations",
+        "_speakerLower": "yongtai li",
+        "_abstractLower": "this work details a systematic approach for comparing llvm and gcc compilers on risc-v using spec cpu 2006 and 2017 benchmarks, with full results disclosed for the 2017 suite. we expose critical performance gaps through code size, dynamic instruction counts (dic), and vectorization efficiency, while proposing actionable fixes for compiler-specific inefficiencies.",
+        "_tagsLower": "autovectorization optimizations performance llvm risc-v",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm vs. gcc on risc-v using spec cpu benchmarks methods gaps and optimizations",
+              "words": [
+                "llvm",
+                "vs.",
+                "gcc",
+                "on",
+                "risc-v",
+                "using",
+                "spec",
+                "cpu",
+                "benchmarks",
+                "methods",
+                "gaps",
+                "and",
+                "optimizations"
+              ]
+            },
+            "speakers": {
+              "text": "yongtai li",
+              "words": [
+                "yongtai",
+                "li"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization optimizations performance llvm risc-v",
+              "words": [
+                "autovectorization",
+                "optimizations",
+                "performance",
+                "llvm",
+                "risc-v"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "this work details a systematic approach for comparing llvm and gcc compilers on risc-v using spec cpu 2006 and 2017 benchmarks with full results disclosed for the 2017 suite. we expose critical performance gaps through code size dynamic instruction counts dic and vectorization efficiency while proposing actionable fixes for compiler-specific inefficiencies.",
+              "words": [
+                "this",
+                "work",
+                "details",
+                "systematic",
+                "approach",
+                "for",
+                "comparing",
+                "llvm",
+                "and",
+                "gcc",
+                "compilers",
+                "on",
+                "risc-v",
+                "using",
+                "spec",
+                "cpu",
+                "2006",
+                "and",
+                "2017",
+                "benchmarks",
+                "with",
+                "full",
+                "results",
+                "disclosed",
+                "for",
+                "the",
+                "2017",
+                "suite.",
+                "we",
+                "expose",
+                "critical",
+                "performance",
+                "gaps",
+                "through",
+                "code",
+                "size",
+                "dynamic",
+                "instruction",
+                "counts",
+                "dic",
+                "and",
+                "vectorization",
+                "efficiency",
+                "while",
+                "proposing",
+                "actionable",
+                "fixes",
+                "for",
+                "compiler-specific",
+                "inefficiencies."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "llvm vs. gcc on risc-v using spec cpu benchmarks methods gaps and optimizations this work details a systematic approach for comparing llvm and gcc compilers on risc-v using spec cpu 2006 and 2017 benchmarks with full results disclosed for the 2017 suite. we expose critical performance gaps through code size dynamic instruction counts dic and vectorization efficiency while proposing actionable fixes for compiler-specific inefficiencies. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 technical-talk yongtai li autovectorization optimizations performance llvm risc-v"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2025-04-008": {
+      "talk": {
+        "id": "2025-04-008",
+        "meeting": "2025-04",
+        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingLocation": "Berlin, Germany",
+        "meetingDate": "April 14-16, 2025",
+        "category": "technical-talk",
+        "title": "llvmlite: A python gym for LLVM",
+        "speakers": [
+          {
+            "name": "Yashwant Singh",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM has been used in countless innovative ways, and llvmlite is no exception. While it describes itself as \"a lightweight LLVM Python binding for writing JIT compilers,\" its potential extends far beyond JIT compilation. This talk will explore how llvmlite empowers developers to i) Build an LLVM- based compiler frontend in Python, ii) Experiment with LLVM optimizations and pipelines, and iii) Dynamically execute IR code using LLVM's JIT engine. Whether you're an LLVM expert or just getting started with compiler tooling, this session will demonstrate how Python can simplify LLVM development, making rapid prototyping and experimentation more accessible than ever.",
+        "videoUrl": "https://youtu.be/IkFun9QzrsE",
+        "videoId": "IkFun9QzrsE",
+        "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/technical_talk/singh_llvmlite.pdf",
+        "tags": [
+          "Beginner",
+          "Frontend",
+          "JIT",
+          "Optimizations"
+        ],
+        "projectGithub": "https://github.com/numba/llvmlite/pull/1182",
+        "githubReferences": [
+          "https://github.com/numba/llvmlite/pull/1182",
+          "https://github.com/numba/llvmlite/pull/1192"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/numba/llvmlite/pull/1182",
+            "source": "slides",
+            "label": "Shift llvmlite to LLVM 19",
+            "context": "Shift llvmlite to LLVM 19",
+            "library": "llvmlite",
+            "repository": "numba/llvmlite",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/1182"
+          },
+          {
+            "url": "https://github.com/numba/llvmlite/pull/1192",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvmlite",
+            "repository": "numba/llvmlite",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/1192"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/numba/llvmlite/pull/1182"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/numba/llvmlite/pull/1192"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvmlite: a python gym for llvm",
+        "_speakerLower": "yashwant singh",
+        "_abstractLower": "llvm has been used in countless innovative ways, and llvmlite is no exception. while it describes itself as \"a lightweight llvm python binding for writing jit compilers,\" its potential extends far beyond jit compilation. this talk will explore how llvmlite empowers developers to i) build an llvm- based compiler frontend in python, ii) experiment with llvm optimizations and pipelines, and iii) dynamically execute ir code using llvm's jit engine. whether you're an llvm expert or just getting started with compiler tooling, this session will demonstrate how python can simplify llvm development, making rapid prototyping and experimentation more accessible than ever.",
+        "_tagsLower": "beginner frontend jit optimizations llvm",
+        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvmlite a python gym for llvm",
+              "words": [
+                "llvmlite",
+                "python",
+                "gym",
+                "for",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "yashwant singh",
+              "words": [
+                "yashwant",
+                "singh"
+              ]
+            },
+            "tags": {
+              "text": "beginner frontend jit optimizations llvm",
+              "words": [
+                "beginner",
+                "frontend",
+                "jit",
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "words": [
+                "2025",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "berlin",
+                "germany",
+                "april",
+                "14-16",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "llvm has been used in countless innovative ways and llvmlite is no exception. while it describes itself as a lightweight llvm python binding for writing jit compilers its potential extends far beyond jit compilation. this talk will explore how llvmlite empowers developers to i build an llvm- based compiler frontend in python ii experiment with llvm optimizations and pipelines and iii dynamically execute ir code using llvms jit engine. whether youre an llvm expert or just getting started with compiler tooling this session will demonstrate how python can simplify llvm development making rapid prototyping and experimentation more accessible than ever.",
+              "words": [
+                "llvm",
+                "has",
+                "been",
+                "used",
+                "in",
+                "countless",
+                "innovative",
+                "ways",
+                "and",
+                "llvmlite",
+                "is",
+                "no",
+                "exception.",
+                "while",
+                "it",
+                "describes",
+                "itself",
+                "as",
+                "lightweight",
+                "llvm",
+                "python",
+                "binding",
+                "for",
+                "writing",
+                "jit",
+                "compilers",
+                "its",
+                "potential",
+                "extends",
+                "far",
+                "beyond",
+                "jit",
+                "compilation.",
+                "this",
+                "talk",
+                "will",
+                "explore",
+                "how",
+                "llvmlite",
+                "empowers",
+                "developers",
+                "to",
+                "build",
+                "an",
+                "llvm-",
+                "based",
+                "compiler",
+                "frontend",
+                "in",
+                "python",
+                "ii",
+                "experiment",
+                "with",
+                "llvm",
+                "optimizations",
+                "and",
+                "pipelines",
+                "and",
+                "iii",
+                "dynamically",
+                "execute",
+                "ir",
+                "code",
+                "using",
+                "llvms",
+                "jit",
+                "engine.",
+                "whether",
+                "youre",
+                "an",
+                "llvm",
+                "expert",
+                "or",
+                "just",
+                "getting",
+                "started",
+                "with",
+                "compiler",
+                "tooling",
+                "this",
+                "session",
+                "will",
+                "demonstrate",
+                "how",
+                "python",
+                "can",
+                "simplify",
+                "llvm",
+                "development",
+                "making",
+                "rapid",
+                "prototyping",
+                "and",
+                "experimentation",
+                "more",
+                "accessible",
+                "than",
+                "ever."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "llvmlite a python gym for llvm llvm has been used in countless innovative ways and llvmlite is no exception. while it describes itself as a lightweight llvm python binding for writing jit compilers its potential extends far beyond jit compilation. this talk will explore how llvmlite empowers developers to i build an llvm- based compiler frontend in python ii experiment with llvm optimizations and pipelines and iii dynamically execute ir code using llvms jit engine. whether youre an llvm expert or just getting started with compiler tooling this session will demonstrate how python can simplify llvm development making rapid prototyping and experimentation more accessible than ever. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk yashwant singh beginner frontend jit optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2025-04",
+        "name": "2025 European LLVM Developers' Meeting",
+        "date": "April 14-16, 2025",
+        "location": "Berlin, Germany",
+        "canceled": false,
+        "talkCount": 64
+      }
+    },
+    "2025-03-009": {
+      "talk": {
+        "id": "2025-03-009",
+        "meeting": "2025-03",
+        "meetingName": "Ninth LLVM Performance Workshop at CGO",
+        "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
+        "meetingDate": "March 1-5, 2025",
+        "category": "technical-talk",
+        "title": "IREE: Compiling ML Programs Using MLIR",
+        "speakers": [
+          {
+            "name": "Mahesh Ravishankar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "IREE is an open-source compiler stack that is designed to compile programs from ML (and similar) domains. It is built from the ground up to target multiple architectures. Built in-conjunction with developments in MLIR, it is also a driver or primary user of many dialects/transformations that have been developed in MLIR. In this talk we will discuss the design of the IREE compiler, and the reasons for it. We will also highlight how dialects and transformations built in MLIR are used in IREE, what is the current state of support for ML compilation using IREE, and the challenges faced by a compiler stack like IREE in todays ML landscape.",
+        "videoId": null,
+        "tags": [
+          "IR",
+          "ML",
+          "MLIR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "iree: compiling ml programs using mlir",
+        "_speakerLower": "mahesh ravishankar",
+        "_abstractLower": "iree is an open-source compiler stack that is designed to compile programs from ml (and similar) domains. it is built from the ground up to target multiple architectures. built in-conjunction with developments in mlir, it is also a driver or primary user of many dialects/transformations that have been developed in mlir. in this talk we will discuss the design of the iree compiler, and the reasons for it. we will also highlight how dialects and transformations built in mlir are used in iree, what is the current state of support for ml compilation using iree, and the challenges faced by a compiler stack like iree in todays ml landscape.",
+        "_tagsLower": "ir ml mlir",
+        "_meetingLower": "ninth llvm performance workshop at cgo ninth llvm performance workshop @ cgo2025, las vegas, usa march 1-5, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "iree compiling ml programs using mlir",
+              "words": [
+                "iree",
+                "compiling",
+                "ml",
+                "programs",
+                "using",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "mahesh ravishankar",
+              "words": [
+                "mahesh",
+                "ravishankar"
+              ]
+            },
+            "tags": {
+              "text": "ir ml mlir",
+              "words": [
+                "ir",
+                "ml",
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "ninth llvm performance workshop at cgo ninth llvm performance workshop cgo2025 las vegas usa march 1-5 2025",
+              "words": [
+                "ninth",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo",
+                "ninth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo2025",
+                "las",
+                "vegas",
+                "usa",
+                "march",
+                "1-5",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "iree is an open-source compiler stack that is designed to compile programs from ml and similar domains. it is built from the ground up to target multiple architectures. built in-conjunction with developments in mlir it is also a driver or primary user of many dialects transformations that have been developed in mlir. in this talk we will discuss the design of the iree compiler and the reasons for it. we will also highlight how dialects and transformations built in mlir are used in iree what is the current state of support for ml compilation using iree and the challenges faced by a compiler stack like iree in todays ml landscape.",
+              "words": [
+                "iree",
+                "is",
+                "an",
+                "open-source",
+                "compiler",
+                "stack",
+                "that",
+                "is",
+                "designed",
+                "to",
+                "compile",
+                "programs",
+                "from",
+                "ml",
+                "and",
+                "similar",
+                "domains.",
+                "it",
+                "is",
+                "built",
+                "from",
+                "the",
+                "ground",
+                "up",
+                "to",
+                "target",
+                "multiple",
+                "architectures.",
+                "built",
+                "in-conjunction",
+                "with",
+                "developments",
+                "in",
+                "mlir",
+                "it",
+                "is",
+                "also",
+                "driver",
+                "or",
+                "primary",
+                "user",
+                "of",
+                "many",
+                "dialects",
+                "transformations",
+                "that",
+                "have",
+                "been",
+                "developed",
+                "in",
+                "mlir.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "discuss",
+                "the",
+                "design",
+                "of",
+                "the",
+                "iree",
+                "compiler",
+                "and",
+                "the",
+                "reasons",
+                "for",
+                "it.",
+                "we",
+                "will",
+                "also",
+                "highlight",
+                "how",
+                "dialects",
+                "and",
+                "transformations",
+                "built",
+                "in",
+                "mlir",
+                "are",
+                "used",
+                "in",
+                "iree",
+                "what",
+                "is",
+                "the",
+                "current",
+                "state",
+                "of",
+                "support",
+                "for",
+                "ml",
+                "compilation",
+                "using",
+                "iree",
+                "and",
+                "the",
+                "challenges",
+                "faced",
+                "by",
+                "compiler",
+                "stack",
+                "like",
+                "iree",
+                "in",
+                "todays",
+                "ml",
+                "landscape."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "iree compiling ml programs using mlir iree is an open-source compiler stack that is designed to compile programs from ml and similar domains. it is built from the ground up to target multiple architectures. built in-conjunction with developments in mlir it is also a driver or primary user of many dialects transformations that have been developed in mlir. in this talk we will discuss the design of the iree compiler and the reasons for it. we will also highlight how dialects and transformations built in mlir are used in iree what is the current state of support for ml compilation using iree and the challenges faced by a compiler stack like iree in todays ml landscape. ninth llvm performance workshop at cgo ninth llvm performance workshop cgo2025 las vegas usa march 1-5 2025 2025-03 technical-talk mahesh ravishankar ir ml mlir"
+      },
+      "meeting": {
+        "slug": "2025-03",
+        "name": "Ninth LLVM Performance Workshop at CGO",
+        "date": "March 1-5, 2025",
+        "location": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2024-04-018": {
+      "talk": {
+        "id": "2024-04-018",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Incremental Symbolic Execution for the Clang Static Analyzer",
+        "speakers": [
+          {
+            "name": "Balázs Benics",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "I will present a technique to speed up subsequent Clang Static Analyzer (CSA) runs on mostly unchanged code. CSA takes a lot more time to complete than simply compiling the source code. This imposes challenges for quick developer feedback, for pull requests, or even within your IDE. For incremental and localized changes, we could reuse the bulk of the previous analysis and only re-analyze the changed parts that actually matter. In this talk, besides presenting this novel technique for incremental analysis, I will summarize how CSA currently selects and analyzes functions and elaborate on how this technique could fit into the current architecture.",
+        "videoUrl": "https://youtu.be/bCr2Rw7UpBI",
+        "videoId": "bCr2Rw7UpBI",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Benics-IncrementalCSA.pdf",
+        "tags": [
+          "Clang",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "incremental symbolic execution for the clang static analyzer",
+        "_speakerLower": "balázs benics",
+        "_abstractLower": "i will present a technique to speed up subsequent clang static analyzer (csa) runs on mostly unchanged code. csa takes a lot more time to complete than simply compiling the source code. this imposes challenges for quick developer feedback, for pull requests, or even within your ide. for incremental and localized changes, we could reuse the bulk of the previous analysis and only re-analyze the changed parts that actually matter. in this talk, besides presenting this novel technique for incremental analysis, i will summarize how csa currently selects and analyzes functions and elaborate on how this technique could fit into the current architecture.",
+        "_tagsLower": "clang static analysis",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "incremental symbolic execution for the clang static analyzer",
+              "words": [
+                "incremental",
+                "symbolic",
+                "execution",
+                "for",
+                "the",
+                "clang",
+                "static",
+                "analyzer"
+              ]
+            },
+            "speakers": {
+              "text": "balazs benics",
+              "words": [
+                "balazs",
+                "benics"
+              ]
+            },
+            "tags": {
+              "text": "clang static analysis",
+              "words": [
+                "clang",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "i will present a technique to speed up subsequent clang static analyzer csa runs on mostly unchanged code. csa takes a lot more time to complete than simply compiling the source code. this imposes challenges for quick developer feedback for pull requests or even within your ide. for incremental and localized changes we could reuse the bulk of the previous analysis and only re-analyze the changed parts that actually matter. in this talk besides presenting this novel technique for incremental analysis i will summarize how csa currently selects and analyzes functions and elaborate on how this technique could fit into the current architecture.",
+              "words": [
+                "will",
+                "present",
+                "technique",
+                "to",
+                "speed",
+                "up",
+                "subsequent",
+                "clang",
+                "static",
+                "analyzer",
+                "csa",
+                "runs",
+                "on",
+                "mostly",
+                "unchanged",
+                "code.",
+                "csa",
+                "takes",
+                "lot",
+                "more",
+                "time",
+                "to",
+                "complete",
+                "than",
+                "simply",
+                "compiling",
+                "the",
+                "source",
+                "code.",
+                "this",
+                "imposes",
+                "challenges",
+                "for",
+                "quick",
+                "developer",
+                "feedback",
+                "for",
+                "pull",
+                "requests",
+                "or",
+                "even",
+                "within",
+                "your",
+                "ide.",
+                "for",
+                "incremental",
+                "and",
+                "localized",
+                "changes",
+                "we",
+                "could",
+                "reuse",
+                "the",
+                "bulk",
+                "of",
+                "the",
+                "previous",
+                "analysis",
+                "and",
+                "only",
+                "re-analyze",
+                "the",
+                "changed",
+                "parts",
+                "that",
+                "actually",
+                "matter.",
+                "in",
+                "this",
+                "talk",
+                "besides",
+                "presenting",
+                "this",
+                "novel",
+                "technique",
+                "for",
+                "incremental",
+                "analysis",
+                "will",
+                "summarize",
+                "how",
+                "csa",
+                "currently",
+                "selects",
+                "and",
+                "analyzes",
+                "functions",
+                "and",
+                "elaborate",
+                "on",
+                "how",
+                "this",
+                "technique",
+                "could",
+                "fit",
+                "into",
+                "the",
+                "current",
+                "architecture."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "incremental symbolic execution for the clang static analyzer i will present a technique to speed up subsequent clang static analyzer csa runs on mostly unchanged code. csa takes a lot more time to complete than simply compiling the source code. this imposes challenges for quick developer feedback for pull requests or even within your ide. for incremental and localized changes we could reuse the bulk of the previous analysis and only re-analyze the changed parts that actually matter. in this talk besides presenting this novel technique for incremental analysis i will summarize how csa currently selects and analyzes functions and elaborate on how this technique could fit into the current architecture. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk balazs benics clang static analysis"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2023-05-005": {
+      "talk": {
+        "id": "2023-05-005",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "A Rusty CHERI: The path to hardware capabilities in Rust",
+        "speakers": [
+          {
+            "name": "Lewis Revill",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Can we make unsafe Rust code safer with hardware capabilities? This talk presents the motivation behind our effort to support CHERI (Capability Hardware Enhanced RISC Instructions) in Rust, the challenges involved in modifying the Rust compiler to achieve this, and the current state of Rust/CHERI (hopefully",
+        "videoUrl": "https://youtu.be/6vCh3WSLMvo",
+        "videoId": "6vCh3WSLMvo",
+        "tags": [
+          "Rust"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "a rusty cheri: the path to hardware capabilities in rust",
+        "_speakerLower": "lewis revill",
+        "_abstractLower": "can we make unsafe rust code safer with hardware capabilities? this talk presents the motivation behind our effort to support cheri (capability hardware enhanced risc instructions) in rust, the challenges involved in modifying the rust compiler to achieve this, and the current state of rust/cheri (hopefully",
+        "_tagsLower": "rust",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a rusty cheri the path to hardware capabilities in rust",
+              "words": [
+                "rusty",
+                "cheri",
+                "the",
+                "path",
+                "to",
+                "hardware",
+                "capabilities",
+                "in",
+                "rust"
+              ]
+            },
+            "speakers": {
+              "text": "lewis revill",
+              "words": [
+                "lewis",
+                "revill"
+              ]
+            },
+            "tags": {
+              "text": "rust",
+              "words": [
+                "rust"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "can we make unsafe rust code safer with hardware capabilities this talk presents the motivation behind our effort to support cheri capability hardware enhanced risc instructions in rust the challenges involved in modifying the rust compiler to achieve this and the current state of rust cheri hopefully",
+              "words": [
+                "can",
+                "we",
+                "make",
+                "unsafe",
+                "rust",
+                "code",
+                "safer",
+                "with",
+                "hardware",
+                "capabilities",
+                "this",
+                "talk",
+                "presents",
+                "the",
+                "motivation",
+                "behind",
+                "our",
+                "effort",
+                "to",
+                "support",
+                "cheri",
+                "capability",
+                "hardware",
+                "enhanced",
+                "risc",
+                "instructions",
+                "in",
+                "rust",
+                "the",
+                "challenges",
+                "involved",
+                "in",
+                "modifying",
+                "the",
+                "rust",
+                "compiler",
+                "to",
+                "achieve",
+                "this",
+                "and",
+                "the",
+                "current",
+                "state",
+                "of",
+                "rust",
+                "cheri",
+                "hopefully"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "a rusty cheri the path to hardware capabilities in rust can we make unsafe rust code safer with hardware capabilities this talk presents the motivation behind our effort to support cheri capability hardware enhanced risc instructions in rust the challenges involved in modifying the rust compiler to achieve this and the current state of rust cheri hopefully 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk lewis revill rust"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2023-05-027": {
+      "talk": {
+        "id": "2023-05-027",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "quick-talk",
+        "title": "Another level of indirection - Compiler Fallback of load/store into gather/scatter enhance compiler robustness by overcoming analysis and hardware limitations",
+        "speakers": [
+          {
+            "name": "Omer Aviram",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "I'll introduce a recently developed LLVM-IR utility that can improve compilers robustness, by converting (\"fallback\") memory accesses (load/store) with a constant stride, into indirect accesses (scatter/gather); Discuss interesting cost decisions raised by such transformations; as well as the technical challenges faced in transforming load/store instructions with a single pointer into gather/scatter instructions with a vector of pointers.",
+        "videoUrl": "https://youtu.be/85VX3CQTFt8",
+        "videoId": "85VX3CQTFt8",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/QuickTalks-May11/06%20-Aviram-PDF%20EuroLLVM%20presentation%20-%20Fallback.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "another level of indirection - compiler fallback of load/store into gather/scatter enhance compiler robustness by overcoming analysis and hardware limitations",
+        "_speakerLower": "omer aviram",
+        "_abstractLower": "i'll introduce a recently developed llvm-ir utility that can improve compilers robustness, by converting (\"fallback\") memory accesses (load/store) with a constant stride, into indirect accesses (scatter/gather); discuss interesting cost decisions raised by such transformations; as well as the technical challenges faced in transforming load/store instructions with a single pointer into gather/scatter instructions with a vector of pointers.",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "another level of indirection - compiler fallback of load store into gather scatter enhance compiler robustness by overcoming analysis and hardware limitations",
+              "words": [
+                "another",
+                "level",
+                "of",
+                "indirection",
+                "compiler",
+                "fallback",
+                "of",
+                "load",
+                "store",
+                "into",
+                "gather",
+                "scatter",
+                "enhance",
+                "compiler",
+                "robustness",
+                "by",
+                "overcoming",
+                "analysis",
+                "and",
+                "hardware",
+                "limitations"
+              ]
+            },
+            "speakers": {
+              "text": "omer aviram",
+              "words": [
+                "omer",
+                "aviram"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "ill introduce a recently developed llvm-ir utility that can improve compilers robustness by converting fallback memory accesses load store with a constant stride into indirect accesses scatter gather discuss interesting cost decisions raised by such transformations as well as the technical challenges faced in transforming load store instructions with a single pointer into gather scatter instructions with a vector of pointers.",
+              "words": [
+                "ill",
+                "introduce",
+                "recently",
+                "developed",
+                "llvm-ir",
+                "utility",
+                "that",
+                "can",
+                "improve",
+                "compilers",
+                "robustness",
+                "by",
+                "converting",
+                "fallback",
+                "memory",
+                "accesses",
+                "load",
+                "store",
+                "with",
+                "constant",
+                "stride",
+                "into",
+                "indirect",
+                "accesses",
+                "scatter",
+                "gather",
+                "discuss",
+                "interesting",
+                "cost",
+                "decisions",
+                "raised",
+                "by",
+                "such",
+                "transformations",
+                "as",
+                "well",
+                "as",
+                "the",
+                "technical",
+                "challenges",
+                "faced",
+                "in",
+                "transforming",
+                "load",
+                "store",
+                "instructions",
+                "with",
+                "single",
+                "pointer",
+                "into",
+                "gather",
+                "scatter",
+                "instructions",
+                "with",
+                "vector",
+                "of",
+                "pointers."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "another level of indirection - compiler fallback of load store into gather scatter enhance compiler robustness by overcoming analysis and hardware limitations ill introduce a recently developed llvm-ir utility that can improve compilers robustness by converting fallback memory accesses load store with a constant stride into indirect accesses scatter gather discuss interesting cost decisions raised by such transformations as well as the technical challenges faced in transforming load store instructions with a single pointer into gather scatter instructions with a vector of pointers. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 quick-talk omer aviram llvm"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2023-05-049": {
+      "talk": {
+        "id": "2023-05-049",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "MLIR Query Tool for easier exploration of the IR",
+        "speakers": [
+          {
+            "name": "Devajith Valaparambil Sreeramaswamy",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk will introduce mlir-query, a query language tool designed to simplify the exploration of the Intermediate Representation (IR) of code in MLIR. mlir-query aims to provide a more efficient means of understanding and debugging the IR, which can be challenging without a query language. The presentation will showcase the tool's basic queries, such as operation, hasName, resultOf, and constant queries, along with a demo of its usefulness.",
+        "videoUrl": "https://youtu.be/3ELHZARBmYs",
+        "videoId": "3ELHZARBmYs",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf",
+        "tags": [
+          "IR",
+          "MLIR"
+        ],
+        "projectGithub": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
+        "githubReferences": [
+          "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
+            "source": "slides",
+            "label": "R&D UK 🧑‍🎓 MSc Computing Student @ Cardiff University 🌐 📧 devajithvs@gmail.com 2 mailto:devajithvs@gmail.com",
+            "context": "R&D UK 🧑‍🎓 MSc Computing Student @ Cardiff University 🌐 📧 devajithvs@gmail.com 2 mailto:devajithvs@gmail.com",
+            "library": "llvm-project",
+            "repository": "devajithvs/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "devajith.mlir-query"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir query tool for easier exploration of the ir",
+        "_speakerLower": "devajith valaparambil sreeramaswamy",
+        "_abstractLower": "this talk will introduce mlir-query, a query language tool designed to simplify the exploration of the intermediate representation (ir) of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir, which can be challenging without a query language. the presentation will showcase the tool's basic queries, such as operation, hasname, resultof, and constant queries, along with a demo of its usefulness.",
+        "_tagsLower": "ir mlir",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir query tool for easier exploration of the ir",
+              "words": [
+                "mlir",
+                "query",
+                "tool",
+                "for",
+                "easier",
+                "exploration",
+                "of",
+                "the",
+                "ir"
+              ]
+            },
+            "speakers": {
+              "text": "devajith valaparambil sreeramaswamy",
+              "words": [
+                "devajith",
+                "valaparambil",
+                "sreeramaswamy"
+              ]
+            },
+            "tags": {
+              "text": "ir mlir",
+              "words": [
+                "ir",
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness.",
+              "words": [
+                "this",
+                "talk",
+                "will",
+                "introduce",
+                "mlir-query",
+                "query",
+                "language",
+                "tool",
+                "designed",
+                "to",
+                "simplify",
+                "the",
+                "exploration",
+                "of",
+                "the",
+                "intermediate",
+                "representation",
+                "ir",
+                "of",
+                "code",
+                "in",
+                "mlir.",
+                "mlir-query",
+                "aims",
+                "to",
+                "provide",
+                "more",
+                "efficient",
+                "means",
+                "of",
+                "understanding",
+                "and",
+                "debugging",
+                "the",
+                "ir",
+                "which",
+                "can",
+                "be",
+                "challenging",
+                "without",
+                "query",
+                "language.",
+                "the",
+                "presentation",
+                "will",
+                "showcase",
+                "the",
+                "tools",
+                "basic",
+                "queries",
+                "such",
+                "as",
+                "operation",
+                "hasname",
+                "resultof",
+                "and",
+                "constant",
+                "queries",
+                "along",
+                "with",
+                "demo",
+                "of",
+                "its",
+                "usefulness."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "mlir query tool for easier exploration of the ir this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk devajith valaparambil sreeramaswamy ir mlir"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-11-009": {
+      "talk": {
+        "id": "2022-11-009",
+        "meeting": "2022-11",
+        "meetingName": "2022 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "November 8-9, 2022",
+        "category": "technical-talk",
+        "title": "CuPBoP: CUDA for Parallelized and Broad-range Processors",
+        "speakers": [
+          {
+            "name": "Ruobing Han",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We propose and build a framework that executes CUDA programs on non-NVIDIA devices without relying on any other programming languages. In particularly, compared with existing CUDA on CPU frameworks, our framework achieves the highest coverage and performance on X86, AArch64, and RISC-V.",
+        "videoUrl": "https://youtu.be/jlo5NM62MnI",
+        "videoId": "jlo5NM62MnI",
+        "slidesUrl": "https://llvm.org/devmtg/2022-11/slides/TechTalk7-CuPBoP-CUDAForParallelizedBroadRangeProcessors.pdf",
+        "tags": [
+          "CUDA",
+          "Performance",
+          "Programming Languages"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "cupbop: cuda for parallelized and broad-range processors",
+        "_speakerLower": "ruobing han",
+        "_abstractLower": "we propose and build a framework that executes cuda programs on non-nvidia devices without relying on any other programming languages. in particularly, compared with existing cuda on cpu frameworks, our framework achieves the highest coverage and performance on x86, aarch64, and risc-v.",
+        "_tagsLower": "cuda performance programming languages risc-v aarch64",
+        "_meetingLower": "2022 us llvm developers' meeting san jose, ca, usa november 8-9, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "cupbop cuda for parallelized and broad-range processors",
+              "words": [
+                "cupbop",
+                "cuda",
+                "for",
+                "parallelized",
+                "and",
+                "broad-range",
+                "processors"
+              ]
+            },
+            "speakers": {
+              "text": "ruobing han",
+              "words": [
+                "ruobing",
+                "han"
+              ]
+            },
+            "tags": {
+              "text": "cuda performance programming languages risc-v aarch64",
+              "words": [
+                "cuda",
+                "performance",
+                "programming",
+                "languages",
+                "risc-v",
+                "aarch64"
+              ]
+            },
+            "meeting": {
+              "text": "2022 us llvm developers meeting san jose ca usa november 8-9 2022",
+              "words": [
+                "2022",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "november",
+                "8-9",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "we propose and build a framework that executes cuda programs on non-nvidia devices without relying on any other programming languages. in particularly compared with existing cuda on cpu frameworks our framework achieves the highest coverage and performance on x86 aarch64 and risc-v.",
+              "words": [
+                "we",
+                "propose",
+                "and",
+                "build",
+                "framework",
+                "that",
+                "executes",
+                "cuda",
+                "programs",
+                "on",
+                "non-nvidia",
+                "devices",
+                "without",
+                "relying",
+                "on",
+                "any",
+                "other",
+                "programming",
+                "languages.",
+                "in",
+                "particularly",
+                "compared",
+                "with",
+                "existing",
+                "cuda",
+                "on",
+                "cpu",
+                "frameworks",
+                "our",
+                "framework",
+                "achieves",
+                "the",
+                "highest",
+                "coverage",
+                "and",
+                "performance",
+                "on",
+                "x86",
+                "aarch64",
+                "and",
+                "risc-v."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "cupbop cuda for parallelized and broad-range processors we propose and build a framework that executes cuda programs on non-nvidia devices without relying on any other programming languages. in particularly compared with existing cuda on cpu frameworks our framework achieves the highest coverage and performance on x86 aarch64 and risc-v. 2022 us llvm developers meeting san jose ca usa november 8-9 2022 2022-11 technical-talk ruobing han cuda performance programming languages risc-v aarch64"
+      },
+      "meeting": {
+        "slug": "2022-11",
+        "name": "2022 US LLVM Developers' Meeting",
+        "date": "November 8-9, 2022",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 65
+      }
+    },
+    "2022-05-015": {
+      "talk": {
+        "id": "2022-05-015",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "ez-clang C++ REPL for bare metal embedded devices",
+        "speakers": [
+          {
+            "name": "Stefan Gränitz",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "\"ez-clang is an experimental Clang-based cross-compiler with a remote-JIT backend targeting very low-resource embedded devices. Compilation, linking and memory management all run on the host machine. Thus, the RPC endpoint on the device is very simple and only takes few kilobytes of flash memory. Right now, ez-clang supports 32-bit ARMv7-m Cortex devices (i.e. Arduino Due and QEMU LM3S811). Please find public previews on https://echtzeit.dev/ez-clang I want to give a live demo of the current development state, an overview of the compiler pipeline based on an example and present the firmware ABI. A binary distribution of ez-clang, sources for two reference firmwares and the RPC interface documentation will be published on https://github.com/echtzeit-dev/ez-clang Give it a try and hack with it on your own hardware! I am looking forward to discuss details from all technical layers and hear your opinions about upcoming development goals!\"",
+        "videoUrl": "https://youtu.be/_qYqEYh1nHE",
+        "videoId": "_qYqEYh1nHE",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ezClang.pdf",
+        "tags": [
+          "Backend",
+          "Clang",
+          "Embedded",
+          "JIT"
+        ],
+        "projectGithub": "https://github.com/echtzeit-dev/ez-clang",
+        "githubReferences": [
+          "https://github.com/echtzeit-dev/ez-clang",
+          "https://github.com/echtzeit-dev/ez-clang-arduino",
+          "https://github.com/echtzeit-dev/ez-clang-qemu"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/echtzeit-dev/ez-clang",
+            "source": "abstract",
+            "label": "sources for two reference firmwares and the RPC interface documentation will be published on",
+            "context": "sources for two reference firmwares and the RPC interface documentation will be published on",
+            "library": "ez-clang",
+            "repository": "echtzeit-dev/ez-clang",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/echtzeit-dev/ez-clang-arduino",
+            "source": "slides",
+            "label": "and meta commands ‣Docker with QEMU and Arduino Due support v0.0.5: ‣Firmware reference implementations",
+            "context": "and meta commands ‣Docker with QEMU and Arduino Due support v0.0.5: ‣Firmware reference implementations",
+            "library": "ez-clang-arduino",
+            "repository": "echtzeit-dev/ez-clang-arduino",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/echtzeit-dev/ez-clang-qemu",
+            "source": "slides",
+            "label": "and meta commands ‣Docker with QEMU and Arduino Due support v0.0.5: ‣Firmware reference implementations",
+            "context": "and meta commands ‣Docker with QEMU and Arduino Due support v0.0.5: ‣Firmware reference implementations",
+            "library": "ez-clang-qemu",
+            "repository": "echtzeit-dev/ez-clang-qemu",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/echtzeit-dev/ez-clang"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/echtzeit-dev/ez-clang-arduino"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 3",
+            "url": "https://github.com/echtzeit-dev/ez-clang-qemu"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "ez-clang c++ repl for bare metal embedded devices",
+        "_speakerLower": "stefan gränitz",
+        "_abstractLower": "\"ez-clang is an experimental clang-based cross-compiler with a remote-jit backend targeting very low-resource embedded devices. compilation, linking and memory management all run on the host machine. thus, the rpc endpoint on the device is very simple and only takes few kilobytes of flash memory. right now, ez-clang supports 32-bit armv7-m cortex devices (i.e. arduino due and qemu lm3s811). please find public previews on https://echtzeit.dev/ez-clang i want to give a live demo of the current development state, an overview of the compiler pipeline based on an example and present the firmware abi. a binary distribution of ez-clang, sources for two reference firmwares and the rpc interface documentation will be published on https://github.com/echtzeit-dev/ez-clang give it a try and hack with it on your own hardware! i am looking forward to discuss details from all technical layers and hear your opinions about upcoming development goals!\"",
+        "_tagsLower": "backend clang embedded jit",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "ez-clang c++ repl for bare metal embedded devices",
+              "words": [
+                "ez-clang",
+                "c++",
+                "repl",
+                "for",
+                "bare",
+                "metal",
+                "embedded",
+                "devices"
+              ]
+            },
+            "speakers": {
+              "text": "stefan granitz",
+              "words": [
+                "stefan",
+                "granitz"
+              ]
+            },
+            "tags": {
+              "text": "backend clang embedded jit",
+              "words": [
+                "backend",
+                "clang",
+                "embedded",
+                "jit"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "ez-clang is an experimental clang-based cross-compiler with a remote-jit backend targeting very low-resource embedded devices. compilation linking and memory management all run on the host machine. thus the rpc endpoint on the device is very simple and only takes few kilobytes of flash memory. right now ez-clang supports 32-bit armv7-m cortex devices i.e. arduino due and qemu lm3s811 . please find public previews on https echtzeit.dev ez-clang i want to give a live demo of the current development state an overview of the compiler pipeline based on an example and present the firmware abi. a binary distribution of ez-clang sources for two reference firmwares and the rpc interface documentation will be published on https github.com echtzeit-dev ez-clang give it a try and hack with it on your own hardware i am looking forward to discuss details from all technical layers and hear your opinions about upcoming development goals",
+              "words": [
+                "ez-clang",
+                "is",
+                "an",
+                "experimental",
+                "clang-based",
+                "cross-compiler",
+                "with",
+                "remote-jit",
+                "backend",
+                "targeting",
+                "very",
+                "low-resource",
+                "embedded",
+                "devices.",
+                "compilation",
+                "linking",
+                "and",
+                "memory",
+                "management",
+                "all",
+                "run",
+                "on",
+                "the",
+                "host",
+                "machine.",
+                "thus",
+                "the",
+                "rpc",
+                "endpoint",
+                "on",
+                "the",
+                "device",
+                "is",
+                "very",
+                "simple",
+                "and",
+                "only",
+                "takes",
+                "few",
+                "kilobytes",
+                "of",
+                "flash",
+                "memory.",
+                "right",
+                "now",
+                "ez-clang",
+                "supports",
+                "32-bit",
+                "armv7-m",
+                "cortex",
+                "devices",
+                "i.e.",
+                "arduino",
+                "due",
+                "and",
+                "qemu",
+                "lm3s811",
+                "please",
+                "find",
+                "public",
+                "previews",
+                "on",
+                "https",
+                "echtzeit.dev",
+                "ez-clang",
+                "want",
+                "to",
+                "give",
+                "live",
+                "demo",
+                "of",
+                "the",
+                "current",
+                "development",
+                "state",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "compiler",
+                "pipeline",
+                "based",
+                "on",
+                "an",
+                "example",
+                "and",
+                "present",
+                "the",
+                "firmware",
+                "abi.",
+                "binary",
+                "distribution",
+                "of",
+                "ez-clang",
+                "sources",
+                "for",
+                "two",
+                "reference",
+                "firmwares",
+                "and",
+                "the",
+                "rpc",
+                "interface",
+                "documentation",
+                "will",
+                "be",
+                "published",
+                "on",
+                "https",
+                "github.com",
+                "echtzeit-dev",
+                "ez-clang",
+                "give",
+                "it",
+                "try",
+                "and",
+                "hack",
+                "with",
+                "it",
+                "on",
+                "your",
+                "own",
+                "hardware",
+                "am",
+                "looking",
+                "forward",
+                "to",
+                "discuss",
+                "details",
+                "from",
+                "all",
+                "technical",
+                "layers",
+                "and",
+                "hear",
+                "your",
+                "opinions",
+                "about",
+                "upcoming",
+                "development",
+                "goals"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "ez-clang c++ repl for bare metal embedded devices ez-clang is an experimental clang-based cross-compiler with a remote-jit backend targeting very low-resource embedded devices. compilation linking and memory management all run on the host machine. thus the rpc endpoint on the device is very simple and only takes few kilobytes of flash memory. right now ez-clang supports 32-bit armv7-m cortex devices i.e. arduino due and qemu lm3s811 . please find public previews on https echtzeit.dev ez-clang i want to give a live demo of the current development state an overview of the compiler pipeline based on an example and present the firmware abi. a binary distribution of ez-clang sources for two reference firmwares and the rpc interface documentation will be published on https github.com echtzeit-dev ez-clang give it a try and hack with it on your own hardware i am looking forward to discuss details from all technical layers and hear your opinions about upcoming development goals 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk stefan granitz backend clang embedded jit"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2021-11-019": {
+      "talk": {
+        "id": "2021-11-019",
+        "meeting": "2021-11",
+        "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "November 16-19, 2021",
+        "category": "technical-talk",
+        "title": "Handling inline assembly in Clang and LLVM",
+        "speakers": [
+          {
+            "name": "Min-Yih Hsu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/MeB7Dp3G2UE",
+        "videoId": "MeB7Dp3G2UE",
+        "slidesUrl": "https://llvm.org/devmtg/2021-11/slides/2021-handling-inline-assembly-in-clang-and-llvm.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "handling inline assembly in clang and llvm",
+        "_speakerLower": "min-yih hsu",
+        "_abstractLower": "",
+        "_tagsLower": "clang llvm",
+        "_meetingLower": "2021 llvm developers' meeting (virtual) virtual november 16-19, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "handling inline assembly in clang and llvm",
+              "words": [
+                "handling",
+                "inline",
+                "assembly",
+                "in",
+                "clang",
+                "and",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "min-yih hsu",
+              "words": [
+                "min-yih",
+                "hsu"
+              ]
+            },
+            "tags": {
+              "text": "clang llvm",
+              "words": [
+                "clang",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2021 llvm developers meeting virtual virtual november 16-19 2021",
+              "words": [
+                "2021",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "november",
+                "16-19",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "handling inline assembly in clang and llvm 2021 llvm developers meeting virtual virtual november 16-19 2021 2021-11 technical-talk min-yih hsu clang llvm"
+      },
+      "meeting": {
+        "slug": "2021-11",
+        "name": "2021 LLVM Developers' Meeting (Virtual)",
+        "date": "November 16-19, 2021",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 67
+      }
+    },
+    "2020-09-031": {
+      "talk": {
+        "id": "2020-09-031",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "tutorial",
+        "title": "Using the clang static analyzer to find bugs",
+        "speakers": [
+          {
+            "name": "V. Bridgers",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/nTslG8HtKeA",
+        "videoId": "nTslG8HtKeA",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Using_the_clang_static_ananalyzer_to_find_bugs.pdf",
+        "tags": [
+          "Clang",
+          "Static Analysis"
+        ],
+        "projectGithub": "https://github.com/Z3Prover/z3",
+        "githubReferences": [
+          "https://github.com/Z3Prover/z3",
+          "https://github.com/bitcoin-core/secp256k1",
+          "https://github.com/Ericsson/codechecker",
+          "https://github.com/vabridgers/LLVM",
+          "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020",
+          "https://github.com/Ericsson/CodeChecker"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/Z3Prover/z3",
+            "source": "slides",
+            "label": "git clone",
+            "context": "git clone",
+            "library": "z3",
+            "repository": "Z3Prover/z3",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/bitcoin-core/secp256k1",
+            "source": "slides",
+            "label": "CodeChecker parse – e html – o html - output - dir outputdir",
+            "context": "CodeChecker parse – e html – o html - output - dir outputdir",
+            "library": "secp256k1",
+            "repository": "bitcoin-core/secp256k1",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/Ericsson/codechecker",
+            "source": "slides",
+            "label": "CodeChecker",
+            "context": "CodeChecker",
+            "library": "codechecker",
+            "repository": "Ericsson/codechecker",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/vabridgers/LLVM",
+            "source": "slides",
+            "label": "Tutorial Source",
+            "context": "Tutorial Source",
+            "library": "LLVM",
+            "repository": "vabridgers/LLVM",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020",
+            "source": "slides",
+            "label": "nit_analysis_in_clang_static_analyzer.pdf",
+            "context": "nit_analysis_in_clang_static_analyzer.pdf",
+            "library": "LLVM-Virtual-Tutorial-2020",
+            "repository": "vabridgers/LLVM-Virtual-Tutorial-2020",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/Ericsson/CodeChecker",
+            "source": "slides",
+            "label": "CodeChecker parse – e html – o html - output - dir outputdir",
+            "context": "CodeChecker parse – e html – o html - output - dir outputdir",
+            "library": "CodeChecker",
+            "repository": "Ericsson/CodeChecker",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/Z3Prover/z3"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/bitcoin-core/secp256k1"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 3",
+            "url": "https://github.com/Ericsson/codechecker"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 4",
+            "url": "https://github.com/vabridgers/LLVM"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 5",
+            "url": "https://github.com/vabridgers/LLVM-Virtual-Tutorial-2020"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 6",
+            "url": "https://github.com/Ericsson/CodeChecker"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "using the clang static analyzer to find bugs",
+        "_speakerLower": "v. bridgers",
+        "_abstractLower": "",
+        "_tagsLower": "clang static analysis",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "using the clang static analyzer to find bugs",
+              "words": [
+                "using",
+                "the",
+                "clang",
+                "static",
+                "analyzer",
+                "to",
+                "find",
+                "bugs"
+              ]
+            },
+            "speakers": {
+              "text": "v. bridgers",
+              "words": [
+                "v.",
+                "bridgers"
+              ]
+            },
+            "tags": {
+              "text": "clang static analysis",
+              "words": [
+                "clang",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "using the clang static analyzer to find bugs 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 tutorial v. bridgers clang static analysis"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-014": {
+      "talk": {
+        "id": "2020-04-014",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Preserving And Improving The Optimized Debugging Experience",
+        "speakers": [
+          {
+            "name": "Tom Weaver",
+            "affiliation": "Sony",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "SN Systems)",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The current optimized debugging experience is poor but recently there has been a concerted effort within the LLVM community to rectify this. The ongoing effort has been huge but there's still lots of work to do in the optimized debugging space. A typical optimized debugging experience can be frustrating with variables going missing, holding incorrect values or appearing out of order. The LLVM optimization pipeline presents a large surface area for optimized debugging experience bugs to be introduced. But this doesn't mean that fixing this issue has to be hard. The vast majority of the issues that arise within the optimized debugging experience problem space can be fixed using existing tools and utilities built into the LLVM codebase. This talk aims to inform the audience about the current optimized debugging experience, what we mean by 'debugging experience', why it's bad and what we can do about it. The talk will explain in some detail how debugging information is represented within the LLVM IR, how it represents it and how these debugging information building blocks interact with one another. Finally, it will cover some entry level coding patterns that LLVM contributors can use to improve the debugging experience themselves when working within the LLVM codebase.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_50",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_50.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "preserving and improving the optimized debugging experience",
+        "_speakerLower": "tom weaver sn systems)",
+        "_abstractLower": "the current optimized debugging experience is poor but recently there has been a concerted effort within the llvm community to rectify this. the ongoing effort has been huge but there's still lots of work to do in the optimized debugging space. a typical optimized debugging experience can be frustrating with variables going missing, holding incorrect values or appearing out of order. the llvm optimization pipeline presents a large surface area for optimized debugging experience bugs to be introduced. but this doesn't mean that fixing this issue has to be hard. the vast majority of the issues that arise within the optimized debugging experience problem space can be fixed using existing tools and utilities built into the llvm codebase. this talk aims to inform the audience about the current optimized debugging experience, what we mean by 'debugging experience', why it's bad and what we can do about it. the talk will explain in some detail how debugging information is represented within the llvm ir, how it represents it and how these debugging information building blocks interact with one another. finally, it will cover some entry level coding patterns that llvm contributors can use to improve the debugging experience themselves when working within the llvm codebase.",
+        "_tagsLower": "llvm ir optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "preserving and improving the optimized debugging experience",
+              "words": [
+                "preserving",
+                "and",
+                "improving",
+                "the",
+                "optimized",
+                "debugging",
+                "experience"
+              ]
+            },
+            "speakers": {
+              "text": "tom weaver sn systems",
+              "words": [
+                "tom",
+                "weaver",
+                "sn",
+                "systems"
+              ]
+            },
+            "tags": {
+              "text": "llvm ir optimizations",
+              "words": [
+                "llvm",
+                "ir",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "the current optimized debugging experience is poor but recently there has been a concerted effort within the llvm community to rectify this. the ongoing effort has been huge but theres still lots of work to do in the optimized debugging space. a typical optimized debugging experience can be frustrating with variables going missing holding incorrect values or appearing out of order. the llvm optimization pipeline presents a large surface area for optimized debugging experience bugs to be introduced. but this doesnt mean that fixing this issue has to be hard. the vast majority of the issues that arise within the optimized debugging experience problem space can be fixed using existing tools and utilities built into the llvm codebase. this talk aims to inform the audience about the current optimized debugging experience what we mean by debugging experience why its bad and what we can do about it. the talk will explain in some detail how debugging information is represented within the llvm ir how it represents it and how these debugging information building blocks interact with one another. finally it will cover some entry level coding patterns that llvm contributors can use to improve the debugging experience themselves when working within the llvm codebase.",
+              "words": [
+                "the",
+                "current",
+                "optimized",
+                "debugging",
+                "experience",
+                "is",
+                "poor",
+                "but",
+                "recently",
+                "there",
+                "has",
+                "been",
+                "concerted",
+                "effort",
+                "within",
+                "the",
+                "llvm",
+                "community",
+                "to",
+                "rectify",
+                "this.",
+                "the",
+                "ongoing",
+                "effort",
+                "has",
+                "been",
+                "huge",
+                "but",
+                "theres",
+                "still",
+                "lots",
+                "of",
+                "work",
+                "to",
+                "do",
+                "in",
+                "the",
+                "optimized",
+                "debugging",
+                "space.",
+                "typical",
+                "optimized",
+                "debugging",
+                "experience",
+                "can",
+                "be",
+                "frustrating",
+                "with",
+                "variables",
+                "going",
+                "missing",
+                "holding",
+                "incorrect",
+                "values",
+                "or",
+                "appearing",
+                "out",
+                "of",
+                "order.",
+                "the",
+                "llvm",
+                "optimization",
+                "pipeline",
+                "presents",
+                "large",
+                "surface",
+                "area",
+                "for",
+                "optimized",
+                "debugging",
+                "experience",
+                "bugs",
+                "to",
+                "be",
+                "introduced.",
+                "but",
+                "this",
+                "doesnt",
+                "mean",
+                "that",
+                "fixing",
+                "this",
+                "issue",
+                "has",
+                "to",
+                "be",
+                "hard.",
+                "the",
+                "vast",
+                "majority",
+                "of",
+                "the",
+                "issues",
+                "that",
+                "arise",
+                "within",
+                "the",
+                "optimized",
+                "debugging",
+                "experience",
+                "problem",
+                "space",
+                "can",
+                "be",
+                "fixed",
+                "using",
+                "existing",
+                "tools",
+                "and",
+                "utilities",
+                "built",
+                "into",
+                "the",
+                "llvm",
+                "codebase.",
+                "this",
+                "talk",
+                "aims",
+                "to",
+                "inform",
+                "the",
+                "audience",
+                "about",
+                "the",
+                "current",
+                "optimized",
+                "debugging",
+                "experience",
+                "what",
+                "we",
+                "mean",
+                "by",
+                "debugging",
+                "experience",
+                "why",
+                "its",
+                "bad",
+                "and",
+                "what",
+                "we",
+                "can",
+                "do",
+                "about",
+                "it.",
+                "the",
+                "talk",
+                "will",
+                "explain",
+                "in",
+                "some",
+                "detail",
+                "how",
+                "debugging",
+                "information",
+                "is",
+                "represented",
+                "within",
+                "the",
+                "llvm",
+                "ir",
+                "how",
+                "it",
+                "represents",
+                "it",
+                "and",
+                "how",
+                "these",
+                "debugging",
+                "information",
+                "building",
+                "blocks",
+                "interact",
+                "with",
+                "one",
+                "another.",
+                "finally",
+                "it",
+                "will",
+                "cover",
+                "some",
+                "entry",
+                "level",
+                "coding",
+                "patterns",
+                "that",
+                "llvm",
+                "contributors",
+                "can",
+                "use",
+                "to",
+                "improve",
+                "the",
+                "debugging",
+                "experience",
+                "themselves",
+                "when",
+                "working",
+                "within",
+                "the",
+                "llvm",
+                "codebase."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "preserving and improving the optimized debugging experience the current optimized debugging experience is poor but recently there has been a concerted effort within the llvm community to rectify this. the ongoing effort has been huge but theres still lots of work to do in the optimized debugging space. a typical optimized debugging experience can be frustrating with variables going missing holding incorrect values or appearing out of order. the llvm optimization pipeline presents a large surface area for optimized debugging experience bugs to be introduced. but this doesnt mean that fixing this issue has to be hard. the vast majority of the issues that arise within the optimized debugging experience problem space can be fixed using existing tools and utilities built into the llvm codebase. this talk aims to inform the audience about the current optimized debugging experience what we mean by debugging experience why its bad and what we can do about it. the talk will explain in some detail how debugging information is represented within the llvm ir how it represents it and how these debugging information building blocks interact with one another. finally it will cover some entry level coding patterns that llvm contributors can use to improve the debugging experience themselves when working within the llvm codebase. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk tom weaver sn systems llvm ir optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-036": {
+      "talk": {
+        "id": "2020-04-036",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "panel",
+        "title": "Vector Predication",
+        "speakers": [
+          {
+            "name": "Andrew Kaylor",
+            "affiliation": "Intel",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Florian Hahn",
+            "affiliation": "Apple",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Roger Ferrer Ibáñez",
+            "affiliation": "Barcelona Supercomputing Center",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Simon Moll",
+            "affiliation": "NEC Deutschland",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM lacks support for predicated vector instructions. Predicated vector operations in LLVM IR are required to properly target SIMD/Vector ISAs such as Intel AVX512, ARM MVE/SVE, RISC V V-Extension and NEC SX-Aurora TSUBASA. This panel discusses various design ideas and requirements to bring native vector predication to LLVM with the goal of opening up on-going efforts to the scrutiny of the wider LLVM community. This panel follows up on various round tables and the BoF at EuroLLVM 2019. We are planning to address the following aspects: Design alternatives & choices - limits of the instruction+select pattern. Generating vector-predicated code (ie making predicated ops available for VPlan/LV/RV). Making existing optimizations work for vector-predicated code. The LLVM-VP (D57504) prototype and roadmap. The panelists have a diverse background in X86, RISC-V V extension and NEC SX-Aurora code generation as well as experience with SLP/LV/VPlan vectorizers and the out-of-tree Region Vectorizer, constrained fp and the current RFCs to bring predicated vector operations to LLVM.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Panel_44",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Panel_44.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "vector predication",
+        "_speakerLower": "andrew kaylor florian hahn roger ferrer ibáñez simon moll",
+        "_abstractLower": "llvm lacks support for predicated vector instructions. predicated vector operations in llvm ir are required to properly target simd/vector isas such as intel avx512, arm mve/sve, risc v v-extension and nec sx-aurora tsubasa. this panel discusses various design ideas and requirements to bring native vector predication to llvm with the goal of opening up on-going efforts to the scrutiny of the wider llvm community. this panel follows up on various round tables and the bof at eurollvm 2019. we are planning to address the following aspects: design alternatives & choices - limits of the instruction+select pattern. generating vector-predicated code (ie making predicated ops available for vplan/lv/rv). making existing optimizations work for vector-predicated code. the llvm-vp (d57504) prototype and roadmap. the panelists have a diverse background in x86, risc-v v extension and nec sx-aurora code generation as well as experience with slp/lv/vplan vectorizers and the out-of-tree region vectorizer, constrained fp and the current rfcs to bring predicated vector operations to llvm.",
+        "_tagsLower": "llvm ir code generation optimizations risc-v vplan",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "vector predication",
+              "words": [
+                "vector",
+                "predication"
+              ]
+            },
+            "speakers": {
+              "text": "andrew kaylor florian hahn roger ferrer ibanez simon moll",
+              "words": [
+                "andrew",
+                "kaylor",
+                "florian",
+                "hahn",
+                "roger",
+                "ferrer",
+                "ibanez",
+                "simon",
+                "moll"
+              ]
+            },
+            "tags": {
+              "text": "llvm ir code generation optimizations risc-v vplan",
+              "words": [
+                "llvm",
+                "ir",
+                "code",
+                "generation",
+                "optimizations",
+                "risc-v",
+                "vplan"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "llvm lacks support for predicated vector instructions. predicated vector operations in llvm ir are required to properly target simd vector isas such as intel avx512 arm mve sve risc v v-extension and nec sx-aurora tsubasa. this panel discusses various design ideas and requirements to bring native vector predication to llvm with the goal of opening up on-going efforts to the scrutiny of the wider llvm community. this panel follows up on various round tables and the bof at eurollvm 2019. we are planning to address the following aspects design alternatives and choices - limits of the instruction+select pattern. generating vector-predicated code ie making predicated ops available for vplan lv rv . making existing optimizations work for vector-predicated code. the llvm-vp d57504 prototype and roadmap. the panelists have a diverse background in x86 risc-v v extension and nec sx-aurora code generation as well as experience with slp lv vplan vectorizers and the out-of-tree region vectorizer constrained fp and the current rfcs to bring predicated vector operations to llvm.",
+              "words": [
+                "llvm",
+                "lacks",
+                "support",
+                "for",
+                "predicated",
+                "vector",
+                "instructions.",
+                "predicated",
+                "vector",
+                "operations",
+                "in",
+                "llvm",
+                "ir",
+                "are",
+                "required",
+                "to",
+                "properly",
+                "target",
+                "simd",
+                "vector",
+                "isas",
+                "such",
+                "as",
+                "intel",
+                "avx512",
+                "arm",
+                "mve",
+                "sve",
+                "risc",
+                "v-extension",
+                "and",
+                "nec",
+                "sx-aurora",
+                "tsubasa.",
+                "this",
+                "panel",
+                "discusses",
+                "various",
+                "design",
+                "ideas",
+                "and",
+                "requirements",
+                "to",
+                "bring",
+                "native",
+                "vector",
+                "predication",
+                "to",
+                "llvm",
+                "with",
+                "the",
+                "goal",
+                "of",
+                "opening",
+                "up",
+                "on-going",
+                "efforts",
+                "to",
+                "the",
+                "scrutiny",
+                "of",
+                "the",
+                "wider",
+                "llvm",
+                "community.",
+                "this",
+                "panel",
+                "follows",
+                "up",
+                "on",
+                "various",
+                "round",
+                "tables",
+                "and",
+                "the",
+                "bof",
+                "at",
+                "eurollvm",
+                "2019.",
+                "we",
+                "are",
+                "planning",
+                "to",
+                "address",
+                "the",
+                "following",
+                "aspects",
+                "design",
+                "alternatives",
+                "and",
+                "choices",
+                "limits",
+                "of",
+                "the",
+                "instruction+select",
+                "pattern.",
+                "generating",
+                "vector-predicated",
+                "code",
+                "ie",
+                "making",
+                "predicated",
+                "ops",
+                "available",
+                "for",
+                "vplan",
+                "lv",
+                "rv",
+                "making",
+                "existing",
+                "optimizations",
+                "work",
+                "for",
+                "vector-predicated",
+                "code.",
+                "the",
+                "llvm-vp",
+                "d57504",
+                "prototype",
+                "and",
+                "roadmap.",
+                "the",
+                "panelists",
+                "have",
+                "diverse",
+                "background",
+                "in",
+                "x86",
+                "risc-v",
+                "extension",
+                "and",
+                "nec",
+                "sx-aurora",
+                "code",
+                "generation",
+                "as",
+                "well",
+                "as",
+                "experience",
+                "with",
+                "slp",
+                "lv",
+                "vplan",
+                "vectorizers",
+                "and",
+                "the",
+                "out-of-tree",
+                "region",
+                "vectorizer",
+                "constrained",
+                "fp",
+                "and",
+                "the",
+                "current",
+                "rfcs",
+                "to",
+                "bring",
+                "predicated",
+                "vector",
+                "operations",
+                "to",
+                "llvm."
+              ]
+            },
+            "category": {
+              "text": "panel",
+              "words": [
+                "panel"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "vector predication llvm lacks support for predicated vector instructions. predicated vector operations in llvm ir are required to properly target simd vector isas such as intel avx512 arm mve sve risc v v-extension and nec sx-aurora tsubasa. this panel discusses various design ideas and requirements to bring native vector predication to llvm with the goal of opening up on-going efforts to the scrutiny of the wider llvm community. this panel follows up on various round tables and the bof at eurollvm 2019. we are planning to address the following aspects design alternatives and choices - limits of the instruction+select pattern. generating vector-predicated code ie making predicated ops available for vplan lv rv . making existing optimizations work for vector-predicated code. the llvm-vp d57504 prototype and roadmap. the panelists have a diverse background in x86 risc-v v extension and nec sx-aurora code generation as well as experience with slp lv vplan vectorizers and the out-of-tree region vectorizer constrained fp and the current rfcs to bring predicated vector operations to llvm. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 panel andrew kaylor florian hahn roger ferrer ibanez simon moll llvm ir code generation optimizations risc-v vplan"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-058": {
+      "talk": {
+        "id": "2020-04-058",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "A Multidimensional Array Indexing Intrinsics",
+        "speakers": [
+          {
+            "name": "Prashanth NR",
+            "affiliation": "Compiler Tree Technologies",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Vinay Madhusudan",
+            "affiliation": "Compiler Tree Technologies",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ranjith Kumar",
+            "affiliation": "Compiler Tree Technologies",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM linearizes the multidimensional array indices. This hinders the memory dependency analysis for loop nest optimization. Techniques like delinearization are adhoc and pattern based. Newer front ends like FC, F18 plan to alleviate the issue by using a new high level IR called MLIR. For the traditional front ends like flang, where MLIR lowering is not planned, a new technique is proposed to circumvent the issue. We use intrinsics in the front end to communicate the dimensions of array indices. We have implemented the same in flang/clang frameworks and have successfully experimented with moderately big input programs.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_88",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_88.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "a multidimensional array indexing intrinsics",
+        "_speakerLower": "prashanth nr vinay madhusudan ranjith kumar",
+        "_abstractLower": "llvm linearizes the multidimensional array indices. this hinders the memory dependency analysis for loop nest optimization. techniques like delinearization are adhoc and pattern based. newer front ends like fc, f18 plan to alleviate the issue by using a new high level ir called mlir. for the traditional front ends like flang, where mlir lowering is not planned, a new technique is proposed to circumvent the issue. we use intrinsics in the front end to communicate the dimensions of array indices. we have implemented the same in flang/clang frameworks and have successfully experimented with moderately big input programs.",
+        "_tagsLower": "llvm clang mlir flang optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a multidimensional array indexing intrinsics",
+              "words": [
+                "multidimensional",
+                "array",
+                "indexing",
+                "intrinsics"
+              ]
+            },
+            "speakers": {
+              "text": "prashanth nr vinay madhusudan ranjith kumar",
+              "words": [
+                "prashanth",
+                "nr",
+                "vinay",
+                "madhusudan",
+                "ranjith",
+                "kumar"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang mlir flang optimizations",
+              "words": [
+                "llvm",
+                "clang",
+                "mlir",
+                "flang",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "llvm linearizes the multidimensional array indices. this hinders the memory dependency analysis for loop nest optimization. techniques like delinearization are adhoc and pattern based. newer front ends like fc f18 plan to alleviate the issue by using a new high level ir called mlir. for the traditional front ends like flang where mlir lowering is not planned a new technique is proposed to circumvent the issue. we use intrinsics in the front end to communicate the dimensions of array indices. we have implemented the same in flang clang frameworks and have successfully experimented with moderately big input programs.",
+              "words": [
+                "llvm",
+                "linearizes",
+                "the",
+                "multidimensional",
+                "array",
+                "indices.",
+                "this",
+                "hinders",
+                "the",
+                "memory",
+                "dependency",
+                "analysis",
+                "for",
+                "loop",
+                "nest",
+                "optimization.",
+                "techniques",
+                "like",
+                "delinearization",
+                "are",
+                "adhoc",
+                "and",
+                "pattern",
+                "based.",
+                "newer",
+                "front",
+                "ends",
+                "like",
+                "fc",
+                "f18",
+                "plan",
+                "to",
+                "alleviate",
+                "the",
+                "issue",
+                "by",
+                "using",
+                "new",
+                "high",
+                "level",
+                "ir",
+                "called",
+                "mlir.",
+                "for",
+                "the",
+                "traditional",
+                "front",
+                "ends",
+                "like",
+                "flang",
+                "where",
+                "mlir",
+                "lowering",
+                "is",
+                "not",
+                "planned",
+                "new",
+                "technique",
+                "is",
+                "proposed",
+                "to",
+                "circumvent",
+                "the",
+                "issue.",
+                "we",
+                "use",
+                "intrinsics",
+                "in",
+                "the",
+                "front",
+                "end",
+                "to",
+                "communicate",
+                "the",
+                "dimensions",
+                "of",
+                "array",
+                "indices.",
+                "we",
+                "have",
+                "implemented",
+                "the",
+                "same",
+                "in",
+                "flang",
+                "clang",
+                "frameworks",
+                "and",
+                "have",
+                "successfully",
+                "experimented",
+                "with",
+                "moderately",
+                "big",
+                "input",
+                "programs."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "a multidimensional array indexing intrinsics llvm linearizes the multidimensional array indices. this hinders the memory dependency analysis for loop nest optimization. techniques like delinearization are adhoc and pattern based. newer front ends like fc f18 plan to alleviate the issue by using a new high level ir called mlir. for the traditional front ends like flang where mlir lowering is not planned a new technique is proposed to circumvent the issue. we use intrinsics in the front end to communicate the dimensions of array indices. we have implemented the same in flang clang frameworks and have successfully experimented with moderately big input programs. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk prashanth nr vinay madhusudan ranjith kumar llvm clang mlir flang optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2015-04-009": {
+      "talk": {
+        "id": "2015-04-009",
+        "meeting": "2015-04",
+        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 13-14, 2015",
+        "category": "lightning-talk",
+        "title": "How to vectorize interleaved memory access",
+        "speakers": [
+          {
+            "name": "Hao Liu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "James Molloy",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jiangning Liu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": "tqkK9HRiVIc",
+        "tags": [
+          "Autovectorization"
+        ],
+        "videoUrl": "https://youtu.be/tqkK9HRiVIc",
+        "slidesUrl": "https://llvm.org/devmtg/2015-04/slides/LoopVectorizer-v3.pdf",
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "how to vectorize interleaved memory access",
+        "_speakerLower": "hao liu james molloy jiangning liu",
+        "_abstractLower": "",
+        "_tagsLower": "autovectorization",
+        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_year": "2015",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "how to vectorize interleaved memory access",
+              "words": [
+                "how",
+                "to",
+                "vectorize",
+                "interleaved",
+                "memory",
+                "access"
+              ]
+            },
+            "speakers": {
+              "text": "hao liu james molloy jiangning liu",
+              "words": [
+                "hao",
+                "liu",
+                "james",
+                "molloy",
+                "jiangning",
+                "liu"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization",
+              "words": [
+                "autovectorization"
+              ]
+            },
+            "meeting": {
+              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "words": [
+                "2015",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "13-14",
+                "2015"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2015",
+              "words": [
+                "2015"
+              ]
+            }
+          },
+          "year": 2015
+        },
+        "_searchBlob": "how to vectorize interleaved memory access 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 lightning-talk hao liu james molloy jiangning liu autovectorization"
+      },
+      "meeting": {
+        "slug": "2015-04",
+        "name": "2015 European LLVM Developers' Meeting",
+        "date": "April 13-14, 2015",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 48
+      }
+    },
+    "2014-04-019": {
+      "talk": {
+        "id": "2014-04-019",
+        "meeting": "2014-04",
+        "meetingName": "2014 European LLVM Developers' Meeting",
+        "meetingLocation": "Edinburgh, Scotland",
+        "meetingDate": "April 7-8, 2014",
+        "category": "lightning-talk",
+        "title": "3-bit Waymarking",
+        "speakers": [
+          {
+            "name": "Gabor Greif",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": "5EfcRTHsy2g",
+        "slidesUrl": "https://llvm.org/devmtg/2014-04/PDFs/LightningTalks/waymark.pdf",
+        "tags": [],
+        "videoUrl": "https://www.youtube.com/watch?v=5EfcRTHsy2g",
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "3-bit waymarking",
+        "_speakerLower": "gabor greif",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2014 european llvm developers' meeting edinburgh, scotland april 7-8, 2014",
+        "_year": "2014",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "3-bit waymarking",
+              "words": [
+                "3-bit",
+                "waymarking"
+              ]
+            },
+            "speakers": {
+              "text": "gabor greif",
+              "words": [
+                "gabor",
+                "greif"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2014 european llvm developers meeting edinburgh scotland april 7-8 2014",
+              "words": [
+                "2014",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "edinburgh",
+                "scotland",
+                "april",
+                "7-8",
+                "2014"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2014",
+              "words": [
+                "2014"
+              ]
+            }
+          },
+          "year": 2014
+        },
+        "_searchBlob": "3-bit waymarking 2014 european llvm developers meeting edinburgh scotland april 7-8 2014 2014-04 lightning-talk gabor greif"
+      },
+      "meeting": {
+        "slug": "2014-04",
+        "name": "2014 European LLVM Developers' Meeting",
+        "date": "April 7-8, 2014",
+        "location": "Edinburgh, Scotland",
+        "canceled": false,
+        "talkCount": 31
+      }
+    },
+    "2013-04-007": {
+      "talk": {
+        "id": "2013-04-007",
+        "meeting": "2013-04",
+        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France",
+        "meetingDate": "April 29-30, 2013",
+        "category": "technical-talk",
+        "title": "Performing Source-to-Source Transformations with Clang",
+        "speakers": [
+          {
+            "name": "Olaf Krzikalla",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Back in 2009 we started to develop a configurable source-to-source transformation tool designed to automatically vectorize C/C++ source code using SIMD instructions. Meanwhile the tool, called Scout, is an industrial-strength vectorizing preprocessor, which is used on a day-to-day basis in the software production process of the German Aerospace Center. The code is published as Open Source and can be downloaded from http://scout.zih.tu-dresden.de . The source-to-source transformation framework of Scout is based on the AST and the accompanying infrastructure of Clang. Beside the actual vectorization the framework provides function inlining, loop-unrolling and loop-unswitching at AST level. For this a C/C++ file is parsed, the generated AST is transformed and then written back to a target file. However this approach is critical, since the AST of Clang is actually immutable by design. On the other hand there is a lot of interest in source-to-source transformation tools based on Clang, as can be seen on cfe-dev and in other talks. In our talk we will present our experiences, the technologies used and possible future directions of the development of source-to-source transformation tools.",
+        "videoUrl": "https://youtu.be/IKDROD29Sz4",
+        "videoId": "IKDROD29Sz4",
+        "slidesUrl": "https://llvm.org/devmtg/2013-04/krzikalla-slides.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "performing source-to-source transformations with clang",
+        "_speakerLower": "olaf krzikalla",
+        "_abstractLower": "back in 2009 we started to develop a configurable source-to-source transformation tool designed to automatically vectorize c/c++ source code using simd instructions. meanwhile the tool, called scout, is an industrial-strength vectorizing preprocessor, which is used on a day-to-day basis in the software production process of the german aerospace center. the code is published as open source and can be downloaded from http://scout.zih.tu-dresden.de . the source-to-source transformation framework of scout is based on the ast and the accompanying infrastructure of clang. beside the actual vectorization the framework provides function inlining, loop-unrolling and loop-unswitching at ast level. for this a c/c++ file is parsed, the generated ast is transformed and then written back to a target file. however this approach is critical, since the ast of clang is actually immutable by design. on the other hand there is a lot of interest in source-to-source transformation tools based on clang, as can be seen on cfe-dev and in other talks. in our talk we will present our experiences, the technologies used and possible future directions of the development of source-to-source transformation tools.",
+        "_tagsLower": "clang autovectorization infrastructure",
+        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_year": "2013",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "performing source-to-source transformations with clang",
+              "words": [
+                "performing",
+                "source-to-source",
+                "transformations",
+                "with",
+                "clang"
+              ]
+            },
+            "speakers": {
+              "text": "olaf krzikalla",
+              "words": [
+                "olaf",
+                "krzikalla"
+              ]
+            },
+            "tags": {
+              "text": "clang autovectorization infrastructure",
+              "words": [
+                "clang",
+                "autovectorization",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "words": [
+                "2013",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "april",
+                "29-30",
+                "2013"
+              ]
+            },
+            "abstract": {
+              "text": "back in 2009 we started to develop a configurable source-to-source transformation tool designed to automatically vectorize c c++ source code using simd instructions. meanwhile the tool called scout is an industrial-strength vectorizing preprocessor which is used on a day-to-day basis in the software production process of the german aerospace center. the code is published as open source and can be downloaded from http scout.zih.tu-dresden.de . the source-to-source transformation framework of scout is based on the ast and the accompanying infrastructure of clang. beside the actual vectorization the framework provides function inlining loop-unrolling and loop-unswitching at ast level. for this a c c++ file is parsed the generated ast is transformed and then written back to a target file. however this approach is critical since the ast of clang is actually immutable by design. on the other hand there is a lot of interest in source-to-source transformation tools based on clang as can be seen on cfe-dev and in other talks. in our talk we will present our experiences the technologies used and possible future directions of the development of source-to-source transformation tools.",
+              "words": [
+                "back",
+                "in",
+                "2009",
+                "we",
+                "started",
+                "to",
+                "develop",
+                "configurable",
+                "source-to-source",
+                "transformation",
+                "tool",
+                "designed",
+                "to",
+                "automatically",
+                "vectorize",
+                "c++",
+                "source",
+                "code",
+                "using",
+                "simd",
+                "instructions.",
+                "meanwhile",
+                "the",
+                "tool",
+                "called",
+                "scout",
+                "is",
+                "an",
+                "industrial-strength",
+                "vectorizing",
+                "preprocessor",
+                "which",
+                "is",
+                "used",
+                "on",
+                "day-to-day",
+                "basis",
+                "in",
+                "the",
+                "software",
+                "production",
+                "process",
+                "of",
+                "the",
+                "german",
+                "aerospace",
+                "center.",
+                "the",
+                "code",
+                "is",
+                "published",
+                "as",
+                "open",
+                "source",
+                "and",
+                "can",
+                "be",
+                "downloaded",
+                "from",
+                "http",
+                "scout.zih.tu-dresden.de",
+                "the",
+                "source-to-source",
+                "transformation",
+                "framework",
+                "of",
+                "scout",
+                "is",
+                "based",
+                "on",
+                "the",
+                "ast",
+                "and",
+                "the",
+                "accompanying",
+                "infrastructure",
+                "of",
+                "clang.",
+                "beside",
+                "the",
+                "actual",
+                "vectorization",
+                "the",
+                "framework",
+                "provides",
+                "function",
+                "inlining",
+                "loop-unrolling",
+                "and",
+                "loop-unswitching",
+                "at",
+                "ast",
+                "level.",
+                "for",
+                "this",
+                "c++",
+                "file",
+                "is",
+                "parsed",
+                "the",
+                "generated",
+                "ast",
+                "is",
+                "transformed",
+                "and",
+                "then",
+                "written",
+                "back",
+                "to",
+                "target",
+                "file.",
+                "however",
+                "this",
+                "approach",
+                "is",
+                "critical",
+                "since",
+                "the",
+                "ast",
+                "of",
+                "clang",
+                "is",
+                "actually",
+                "immutable",
+                "by",
+                "design.",
+                "on",
+                "the",
+                "other",
+                "hand",
+                "there",
+                "is",
+                "lot",
+                "of",
+                "interest",
+                "in",
+                "source-to-source",
+                "transformation",
+                "tools",
+                "based",
+                "on",
+                "clang",
+                "as",
+                "can",
+                "be",
+                "seen",
+                "on",
+                "cfe-dev",
+                "and",
+                "in",
+                "other",
+                "talks.",
+                "in",
+                "our",
+                "talk",
+                "we",
+                "will",
+                "present",
+                "our",
+                "experiences",
+                "the",
+                "technologies",
+                "used",
+                "and",
+                "possible",
+                "future",
+                "directions",
+                "of",
+                "the",
+                "development",
+                "of",
+                "source-to-source",
+                "transformation",
+                "tools."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2013",
+              "words": [
+                "2013"
+              ]
+            }
+          },
+          "year": 2013
+        },
+        "_searchBlob": "performing source-to-source transformations with clang back in 2009 we started to develop a configurable source-to-source transformation tool designed to automatically vectorize c c++ source code using simd instructions. meanwhile the tool called scout is an industrial-strength vectorizing preprocessor which is used on a day-to-day basis in the software production process of the german aerospace center. the code is published as open source and can be downloaded from http scout.zih.tu-dresden.de . the source-to-source transformation framework of scout is based on the ast and the accompanying infrastructure of clang. beside the actual vectorization the framework provides function inlining loop-unrolling and loop-unswitching at ast level. for this a c c++ file is parsed the generated ast is transformed and then written back to a target file. however this approach is critical since the ast of clang is actually immutable by design. on the other hand there is a lot of interest in source-to-source transformation tools based on clang as can be seen on cfe-dev and in other talks. in our talk we will present our experiences the technologies used and possible future directions of the development of source-to-source transformation tools. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 technical-talk olaf krzikalla clang autovectorization infrastructure"
+      },
+      "meeting": {
+        "slug": "2013-04",
+        "name": "2013 European LLVM Developers' Meeting",
+        "date": "April 29-30, 2013",
+        "location": "Paris, France",
+        "canceled": false,
+        "talkCount": 30
+      }
+    },
+    "2013-04-029": {
+      "talk": {
+        "id": "2013-04-029",
+        "meeting": "2013-04",
+        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France",
+        "meetingDate": "April 29-30, 2013",
+        "category": "poster",
+        "title": "Noise: A Clang Extension for User-Defined Optimization Strategies",
+        "speakers": [
+          {
+            "name": "Ralf Karrenberg",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk, we present \"Noise\", a language extension to Clang that enables a programmer to control the optimization process on a code region. Noise is a language extension that allows a programmer to create custom optimization strategies and apply them to specific code segments. This enables fine-grained control over the optimizations applied by the compiler to conveniently tune code without actually rewriting it. With Noise, the programmer can easily choose optimizations and their order without interfering with the standard optimizations being applied to the remaining program. This is especially important for legacy code in the High-Performance Computing (HPC) environment, but is also relevant in other performance-sensitive fields such as computer graphics. We present our implementation for C/C++ within the Clang frontend using attributes. In addition to exposing LLVM's internal optimization phases, Noise also has special transformations built-in, for example data-parallel loop vectorization on the basis of \"Whole-Function Vectorization\". We show first results demonstrating the effectiveness of Noise on HPC code in production.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2013-04/karrenberg-poster.pdf",
+        "tags": [
+          "Clang",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "noise: a clang extension for user-defined optimization strategies",
+        "_speakerLower": "ralf karrenberg",
+        "_abstractLower": "in this talk, we present \"noise\", a language extension to clang that enables a programmer to control the optimization process on a code region. noise is a language extension that allows a programmer to create custom optimization strategies and apply them to specific code segments. this enables fine-grained control over the optimizations applied by the compiler to conveniently tune code without actually rewriting it. with noise, the programmer can easily choose optimizations and their order without interfering with the standard optimizations being applied to the remaining program. this is especially important for legacy code in the high-performance computing (hpc) environment, but is also relevant in other performance-sensitive fields such as computer graphics. we present our implementation for c/c++ within the clang frontend using attributes. in addition to exposing llvm's internal optimization phases, noise also has special transformations built-in, for example data-parallel loop vectorization on the basis of \"whole-function vectorization\". we show first results demonstrating the effectiveness of noise on hpc code in production.",
+        "_tagsLower": "clang optimizations llvm autovectorization performance",
+        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_year": "2013",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "noise a clang extension for user-defined optimization strategies",
+              "words": [
+                "noise",
+                "clang",
+                "extension",
+                "for",
+                "user-defined",
+                "optimization",
+                "strategies"
+              ]
+            },
+            "speakers": {
+              "text": "ralf karrenberg",
+              "words": [
+                "ralf",
+                "karrenberg"
+              ]
+            },
+            "tags": {
+              "text": "clang optimizations llvm autovectorization performance",
+              "words": [
+                "clang",
+                "optimizations",
+                "llvm",
+                "autovectorization",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "words": [
+                "2013",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "april",
+                "29-30",
+                "2013"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we present noise a language extension to clang that enables a programmer to control the optimization process on a code region. noise is a language extension that allows a programmer to create custom optimization strategies and apply them to specific code segments. this enables fine-grained control over the optimizations applied by the compiler to conveniently tune code without actually rewriting it. with noise the programmer can easily choose optimizations and their order without interfering with the standard optimizations being applied to the remaining program. this is especially important for legacy code in the high-performance computing hpc environment but is also relevant in other performance-sensitive fields such as computer graphics. we present our implementation for c c++ within the clang frontend using attributes. in addition to exposing llvms internal optimization phases noise also has special transformations built-in for example data-parallel loop vectorization on the basis of whole-function vectorization . we show first results demonstrating the effectiveness of noise on hpc code in production.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "present",
+                "noise",
+                "language",
+                "extension",
+                "to",
+                "clang",
+                "that",
+                "enables",
+                "programmer",
+                "to",
+                "control",
+                "the",
+                "optimization",
+                "process",
+                "on",
+                "code",
+                "region.",
+                "noise",
+                "is",
+                "language",
+                "extension",
+                "that",
+                "allows",
+                "programmer",
+                "to",
+                "create",
+                "custom",
+                "optimization",
+                "strategies",
+                "and",
+                "apply",
+                "them",
+                "to",
+                "specific",
+                "code",
+                "segments.",
+                "this",
+                "enables",
+                "fine-grained",
+                "control",
+                "over",
+                "the",
+                "optimizations",
+                "applied",
+                "by",
+                "the",
+                "compiler",
+                "to",
+                "conveniently",
+                "tune",
+                "code",
+                "without",
+                "actually",
+                "rewriting",
+                "it.",
+                "with",
+                "noise",
+                "the",
+                "programmer",
+                "can",
+                "easily",
+                "choose",
+                "optimizations",
+                "and",
+                "their",
+                "order",
+                "without",
+                "interfering",
+                "with",
+                "the",
+                "standard",
+                "optimizations",
+                "being",
+                "applied",
+                "to",
+                "the",
+                "remaining",
+                "program.",
+                "this",
+                "is",
+                "especially",
+                "important",
+                "for",
+                "legacy",
+                "code",
+                "in",
+                "the",
+                "high-performance",
+                "computing",
+                "hpc",
+                "environment",
+                "but",
+                "is",
+                "also",
+                "relevant",
+                "in",
+                "other",
+                "performance-sensitive",
+                "fields",
+                "such",
+                "as",
+                "computer",
+                "graphics.",
+                "we",
+                "present",
+                "our",
+                "implementation",
+                "for",
+                "c++",
+                "within",
+                "the",
+                "clang",
+                "frontend",
+                "using",
+                "attributes.",
+                "in",
+                "addition",
+                "to",
+                "exposing",
+                "llvms",
+                "internal",
+                "optimization",
+                "phases",
+                "noise",
+                "also",
+                "has",
+                "special",
+                "transformations",
+                "built-in",
+                "for",
+                "example",
+                "data-parallel",
+                "loop",
+                "vectorization",
+                "on",
+                "the",
+                "basis",
+                "of",
+                "whole-function",
+                "vectorization",
+                "we",
+                "show",
+                "first",
+                "results",
+                "demonstrating",
+                "the",
+                "effectiveness",
+                "of",
+                "noise",
+                "on",
+                "hpc",
+                "code",
+                "in",
+                "production."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2013",
+              "words": [
+                "2013"
+              ]
+            }
+          },
+          "year": 2013
+        },
+        "_searchBlob": "noise a clang extension for user-defined optimization strategies in this talk we present noise a language extension to clang that enables a programmer to control the optimization process on a code region. noise is a language extension that allows a programmer to create custom optimization strategies and apply them to specific code segments. this enables fine-grained control over the optimizations applied by the compiler to conveniently tune code without actually rewriting it. with noise the programmer can easily choose optimizations and their order without interfering with the standard optimizations being applied to the remaining program. this is especially important for legacy code in the high-performance computing hpc environment but is also relevant in other performance-sensitive fields such as computer graphics. we present our implementation for c c++ within the clang frontend using attributes. in addition to exposing llvms internal optimization phases noise also has special transformations built-in for example data-parallel loop vectorization on the basis of whole-function vectorization . we show first results demonstrating the effectiveness of noise on hpc code in production. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 poster ralf karrenberg clang optimizations llvm autovectorization performance"
+      },
+      "meeting": {
+        "slug": "2013-04",
+        "name": "2013 European LLVM Developers' Meeting",
+        "date": "April 29-30, 2013",
+        "location": "Paris, France",
+        "canceled": false,
+        "talkCount": 30
+      }
+    },
+    "2010-11-008": {
+      "talk": {
+        "id": "2010-11-008",
+        "meeting": "2010-11",
+        "meetingName": "2010 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "November 4, 2010",
+        "category": "technical-talk",
+        "title": "The LLVM Assembler & Machine Code Infrastructure",
+        "speakers": [
+          {
+            "name": "Daniel Dunbar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "http://devimages.apple.com/llvm/videos/LLVM_Assembler_Infrastructure.mov",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2010-11/Dunbar-MC.pdf",
+        "tags": [
+          "Backend"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "the llvm assembler & machine code infrastructure",
+        "_speakerLower": "daniel dunbar",
+        "_abstractLower": "",
+        "_tagsLower": "backend llvm infrastructure",
+        "_meetingLower": "2010 us llvm developers' meeting san jose, ca, usa november 4, 2010",
+        "_year": "2010",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "the llvm assembler and machine code infrastructure",
+              "words": [
+                "the",
+                "llvm",
+                "assembler",
+                "and",
+                "machine",
+                "code",
+                "infrastructure"
+              ]
+            },
+            "speakers": {
+              "text": "daniel dunbar",
+              "words": [
+                "daniel",
+                "dunbar"
+              ]
+            },
+            "tags": {
+              "text": "backend llvm infrastructure",
+              "words": [
+                "backend",
+                "llvm",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2010 us llvm developers meeting san jose ca usa november 4 2010",
+              "words": [
+                "2010",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "november",
+                "2010"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2010",
+              "words": [
+                "2010"
+              ]
+            }
+          },
+          "year": 2010
+        },
+        "_searchBlob": "the llvm assembler and machine code infrastructure 2010 us llvm developers meeting san jose ca usa november 4 2010 2010-11 technical-talk daniel dunbar backend llvm infrastructure"
+      },
+      "meeting": {
+        "slug": "2010-11",
+        "name": "2010 US LLVM Developers' Meeting",
+        "date": "November 4, 2010",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 17
+      }
+    }
+  }
+}

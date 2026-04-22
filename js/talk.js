@@ -674,6 +674,29 @@
     const section = document.getElementById('talk-related-papers-section');
     if (!section) return;
 
+    const relatedContext = arguments[1] && typeof arguments[1] === 'object' ? arguments[1] : null;
+    if (relatedContext) {
+      const relatedPapers = Array.isArray(relatedContext.referencedPapers) ? relatedContext.referencedPapers : [];
+      if (relatedPapers.length) {
+        const entries = relatedPapers.map((paper) => ({
+          paper,
+          reasons: ['Referenced in slides'],
+        }));
+        section.hidden = false;
+        section.removeAttribute('aria-busy');
+        section.innerHTML = `
+          <div class="section-label" aria-hidden="true">Referenced Papers</div>
+          <ul class="talk-paper-list">
+            ${entries.map((entry) => renderRelatedPaperEntry(entry)).join('')}
+          </ul>`;
+        return;
+      }
+      if (Array.isArray(relatedContext.slidePaperIds) && !relatedContext.slidePaperIds.length) {
+        section.remove();
+        return;
+      }
+    }
+
     if (typeof window.loadPaperData !== 'function') {
       section.remove();
       return;
@@ -707,6 +730,25 @@
   async function populateReferencedTalks(talk) {
     const section = document.getElementById('talk-referenced-talks-section');
     if (!section) return;
+    const relatedContext = arguments[1] && typeof arguments[1] === 'object' ? arguments[1] : null;
+    if (relatedContext) {
+      const referencedTalks = Array.isArray(relatedContext.referencedTalks) ? relatedContext.referencedTalks : [];
+      if (referencedTalks.length) {
+        section.hidden = false;
+        section.removeAttribute('aria-busy');
+        section.innerHTML = `
+          <div class="section-label" aria-hidden="true">Referenced Talks</div>
+          <ul class="talk-paper-list">
+            ${referencedTalks.map((entry) => renderReferencedTalkEntry(entry)).join('')}
+          </ul>`;
+        return;
+      }
+      if (Array.isArray(relatedContext.slideTalkIds) && !relatedContext.slideTalkIds.length) {
+        section.remove();
+        return;
+      }
+    }
+
     if (typeof window.loadEventData !== 'function') {
       section.remove();
       return;
@@ -803,21 +845,24 @@
 
   async function loadTalkDetailContextById(talkId) {
     const targetId = String(talkId || '').trim();
-    if (!targetId) return { loaded: true, talk: null, relatedPool: [] };
+    if (!targetId) return { loaded: true, talk: null, relatedPool: [], related: null };
 
     if (typeof window.loadTalkRecordById === 'function') {
       try {
         const payload = await window.loadTalkRecordById(targetId);
         if (!payload || typeof payload !== 'object') {
-          return { loaded: true, talk: null, relatedPool: [] };
+          return { loaded: true, talk: null, relatedPool: [], related: null };
         }
         const normalizedTalk = normalizeTalks([payload.talk]);
         const talk = normalizedTalk.length ? normalizedTalk[0] : null;
-        const relatedPool = normalizeTalks(payload.talks);
+        const relatedPool = Array.isArray(payload && payload.related && payload.related.relatedTalks)
+          ? normalizeTalks(payload.related.relatedTalks)
+          : normalizeTalks(payload.talks);
         return {
           loaded: true,
           talk,
           relatedPool: Array.isArray(relatedPool) ? relatedPool : [],
+          related: payload.related && typeof payload.related === 'object' ? payload.related : null,
         };
       } catch {
         // Fallback below.
@@ -825,16 +870,16 @@
     }
 
     if (typeof window.loadEventData !== 'function') {
-      return { loaded: false, talk: null, relatedPool: [] };
+      return { loaded: false, talk: null, relatedPool: [], related: null };
     }
 
     try {
       const payload = await window.loadEventData();
       const talks = normalizeTalks(payload && payload.talks);
       const talk = talks.find((candidate) => String(candidate && candidate.id || '') === targetId) || null;
-      return { loaded: true, talk, relatedPool: talks };
+      return { loaded: true, talk, relatedPool: talks, related: null };
     } catch {
-      return { loaded: false, talk: null, relatedPool: [] };
+      return { loaded: false, talk: null, relatedPool: [], related: null };
     }
   }
 
@@ -981,6 +1026,7 @@
   function renderTalkDetail(talk, relatedPool) {
     const root = document.getElementById('talk-detail-root');
     if (!root) return;
+    const relatedContext = arguments[2] && typeof arguments[2] === 'object' ? arguments[2] : null;
 
     const title = String(talk.title || '').trim();
     const meetingDate = formatMeetingDate(talk.meetingDate);
@@ -1004,7 +1050,9 @@
         </section>`
       : '';
 
-    const related = getRelatedTalks(talk, relatedPool);
+    const related = Array.isArray(relatedContext && relatedContext.relatedTalks) && relatedContext.relatedTalks.length
+      ? relatedContext.relatedTalks
+      : getRelatedTalks(talk, relatedPool);
 
     root.innerHTML = `
       <div class="talk-detail">
@@ -1120,9 +1168,9 @@
 
     document.title = `${String(talk.title || '').trim()} — LLVM Research Library`;
     updateSeo(talk);
-    renderTalkDetail(talk, context.relatedPool);
-    void populateRelatedPapers(talk);
-    void populateReferencedTalks(talk);
+    renderTalkDetail(talk, context.relatedPool, context.related);
+    void populateRelatedPapers(talk, context.related);
+    void populateReferencedTalks(talk, context.related);
     setIssueContextForTalk(talk);
     initShareMenu();
   }

@@ -1,0 +1,2561 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2023-08-07-004": {
+      "talk": {
+        "id": "2023-08-07-004",
+        "meeting": "2023-08-07",
+        "meetingName": "2023 Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "meetingLocation": "Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP; Salt Lake City, Utah, USA",
+        "meetingDate": "August 7, 2023",
+        "category": "technical-talk",
+        "title": "PEAK: High-performance Transform Dialect",
+        "speakers": [
+          {
+            "name": "Amir Mohammad Tavakkoli",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "peak: high-performance transform dialect",
+        "_speakerLower": "amir mohammad tavakkoli",
+        "_abstractLower": "",
+        "_tagsLower": "performance",
+        "_meetingLower": "2023 third workshop on llvm in parallel processing (llpp) @ icpp third workshop on llvm in parallel processing (llpp) @ icpp; salt lake city, utah, usa august 7, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "peak high-performance transform dialect",
+              "words": [
+                "peak",
+                "high-performance",
+                "transform",
+                "dialect"
+              ]
+            },
+            "speakers": {
+              "text": "amir mohammad tavakkoli",
+              "words": [
+                "amir",
+                "mohammad",
+                "tavakkoli"
+              ]
+            },
+            "tags": {
+              "text": "performance",
+              "words": [
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2023 third workshop on llvm in parallel processing llpp icpp third workshop on llvm in parallel processing llpp icpp salt lake city utah usa august 7 2023",
+              "words": [
+                "2023",
+                "third",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "third",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "salt",
+                "lake",
+                "city",
+                "utah",
+                "usa",
+                "august",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "peak high-performance transform dialect 2023 third workshop on llvm in parallel processing llpp icpp third workshop on llvm in parallel processing llpp icpp salt lake city utah usa august 7 2023 2023-08-07 technical-talk amir mohammad tavakkoli performance"
+      },
+      "meeting": {
+        "slug": "2023-08-07",
+        "name": "2023 Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "date": "August 7, 2023",
+        "location": "Third Workshop on LLVM in Parallel Processing (LLPP) @ ICPP; Salt Lake City, Utah, USA",
+        "canceled": false,
+        "talkCount": 5
+      }
+    },
+    "2023-02-25-002": {
+      "talk": {
+        "id": "2023-02-25-002",
+        "meeting": "2023-02-25",
+        "meetingName": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "meetingDate": "February 25, 2023",
+        "category": "technical-talk",
+        "title": "Automatic Code Generation for High-performance Graph Algorithms",
+        "speakers": [
+          {
+            "name": "Rizwan A. Ashraf Zhen Peng Luanzheng Guo Gokcen Kestor",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Graph algorithms have broad applicability in many domains, such as scientific computing, social sciences, and many more. A well-performing implementation of these algorithms on computing systems however requires significant programmer effort, and portability across various heterogeneous computing devices does not come for free. In this paper, we describe the support of optimizations in the MLIR-based COMET compiler of graph algorithms for portable and faster implementation as compared to a library-based approach. We discuss the needed extensions to our compiler front-end, intermediate representation, and the workspace and masking optimizations. Our experimental results demonstrate speedup of up to 3.7X for the sparse matrix - sparse matrix operation over various semirings, as compared to a library-based implementation of the GraphBLAS standard.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2023-02-25/slides/codegen-graph-algo.pdf",
+        "tags": [
+          "Backend",
+          "Frontend",
+          "IR",
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/llvm/llvm",
+        "githubReferences": [
+          "https://github.com/llvm/llvm"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/llvm",
+            "source": "slides",
+            "label": "common way Multi -Level Intermediate Representation (MLIR) New compiler infrastructure Part of LLVM project",
+            "context": "common way Multi -Level Intermediate Representation (MLIR) New compiler infrastructure Part of LLVM project",
+            "library": "llvm",
+            "repository": "llvm/llvm",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/llvm"
+          }
+        ],
+        "keywords": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "automatic code generation for high-performance graph algorithms",
+        "_speakerLower": "rizwan a. ashraf zhen peng luanzheng guo gokcen kestor",
+        "_abstractLower": "graph algorithms have broad applicability in many domains, such as scientific computing, social sciences, and many more. a well-performing implementation of these algorithms on computing systems however requires significant programmer effort, and portability across various heterogeneous computing devices does not come for free. in this paper, we describe the support of optimizations in the mlir-based comet compiler of graph algorithms for portable and faster implementation as compared to a library-based approach. we discuss the needed extensions to our compiler front-end, intermediate representation, and the workspace and masking optimizations. our experimental results demonstrate speedup of up to 3.7x for the sparse matrix - sparse matrix operation over various semirings, as compared to a library-based implementation of the graphblas standard.",
+        "_tagsLower": "backend frontend ir mlir optimizations performance code generation",
+        "_meetingLower": "2023 seventh llvm performance workshop @ cgo seventh llvm performance workshop @ cgo, in person - hybrid february 25, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "automatic code generation for high-performance graph algorithms",
+              "words": [
+                "automatic",
+                "code",
+                "generation",
+                "for",
+                "high-performance",
+                "graph",
+                "algorithms"
+              ]
+            },
+            "speakers": {
+              "text": "rizwan a. ashraf zhen peng luanzheng guo gokcen kestor",
+              "words": [
+                "rizwan",
+                "a.",
+                "ashraf",
+                "zhen",
+                "peng",
+                "luanzheng",
+                "guo",
+                "gokcen",
+                "kestor"
+              ]
+            },
+            "tags": {
+              "text": "backend frontend ir mlir optimizations performance code generation",
+              "words": [
+                "backend",
+                "frontend",
+                "ir",
+                "mlir",
+                "optimizations",
+                "performance",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023",
+              "words": [
+                "2023",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "in",
+                "person",
+                "hybrid",
+                "february",
+                "25",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "graph algorithms have broad applicability in many domains such as scientific computing social sciences and many more. a well-performing implementation of these algorithms on computing systems however requires significant programmer effort and portability across various heterogeneous computing devices does not come for free. in this paper we describe the support of optimizations in the mlir-based comet compiler of graph algorithms for portable and faster implementation as compared to a library-based approach. we discuss the needed extensions to our compiler front-end intermediate representation and the workspace and masking optimizations. our experimental results demonstrate speedup of up to 3.7x for the sparse matrix - sparse matrix operation over various semirings as compared to a library-based implementation of the graphblas standard.",
+              "words": [
+                "graph",
+                "algorithms",
+                "have",
+                "broad",
+                "applicability",
+                "in",
+                "many",
+                "domains",
+                "such",
+                "as",
+                "scientific",
+                "computing",
+                "social",
+                "sciences",
+                "and",
+                "many",
+                "more.",
+                "well-performing",
+                "implementation",
+                "of",
+                "these",
+                "algorithms",
+                "on",
+                "computing",
+                "systems",
+                "however",
+                "requires",
+                "significant",
+                "programmer",
+                "effort",
+                "and",
+                "portability",
+                "across",
+                "various",
+                "heterogeneous",
+                "computing",
+                "devices",
+                "does",
+                "not",
+                "come",
+                "for",
+                "free.",
+                "in",
+                "this",
+                "paper",
+                "we",
+                "describe",
+                "the",
+                "support",
+                "of",
+                "optimizations",
+                "in",
+                "the",
+                "mlir-based",
+                "comet",
+                "compiler",
+                "of",
+                "graph",
+                "algorithms",
+                "for",
+                "portable",
+                "and",
+                "faster",
+                "implementation",
+                "as",
+                "compared",
+                "to",
+                "library-based",
+                "approach.",
+                "we",
+                "discuss",
+                "the",
+                "needed",
+                "extensions",
+                "to",
+                "our",
+                "compiler",
+                "front-end",
+                "intermediate",
+                "representation",
+                "and",
+                "the",
+                "workspace",
+                "and",
+                "masking",
+                "optimizations.",
+                "our",
+                "experimental",
+                "results",
+                "demonstrate",
+                "speedup",
+                "of",
+                "up",
+                "to",
+                "3.7x",
+                "for",
+                "the",
+                "sparse",
+                "matrix",
+                "sparse",
+                "matrix",
+                "operation",
+                "over",
+                "various",
+                "semirings",
+                "as",
+                "compared",
+                "to",
+                "library-based",
+                "implementation",
+                "of",
+                "the",
+                "graphblas",
+                "standard."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "automatic code generation for high-performance graph algorithms graph algorithms have broad applicability in many domains such as scientific computing social sciences and many more. a well-performing implementation of these algorithms on computing systems however requires significant programmer effort and portability across various heterogeneous computing devices does not come for free. in this paper we describe the support of optimizations in the mlir-based comet compiler of graph algorithms for portable and faster implementation as compared to a library-based approach. we discuss the needed extensions to our compiler front-end intermediate representation and the workspace and masking optimizations. our experimental results demonstrate speedup of up to 3.7x for the sparse matrix - sparse matrix operation over various semirings as compared to a library-based implementation of the graphblas standard. 2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023 2023-02-25 technical-talk rizwan a. ashraf zhen peng luanzheng guo gokcen kestor backend frontend ir mlir optimizations performance code generation"
+      },
+      "meeting": {
+        "slug": "2023-02-25",
+        "name": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "date": "February 25, 2023",
+        "location": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "canceled": false,
+        "talkCount": 5
+      }
+    },
+    "2022-08-29-005": {
+      "talk": {
+        "id": "2022-08-29-005",
+        "meeting": "2022-08-29",
+        "meetingName": "2022 Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "meetingLocation": "Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP - Bordeaux, France",
+        "meetingDate": "August 29, 2022",
+        "category": "technical-talk",
+        "title": "ORAQL: Optimistic Responses to Alias Queries in LLVM",
+        "speakers": [
+          {
+            "name": "Jan Hueckelheim",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "oraql: optimistic responses to alias queries in llvm",
+        "_speakerLower": "jan hueckelheim",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2022 second workshop on llvm in parallel processing (llpp) @ icpp second workshop on llvm in parallel processing (llpp) @ icpp - bordeaux, france august 29, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "oraql optimistic responses to alias queries in llvm",
+              "words": [
+                "oraql",
+                "optimistic",
+                "responses",
+                "to",
+                "alias",
+                "queries",
+                "in",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "jan hueckelheim",
+              "words": [
+                "jan",
+                "hueckelheim"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 second workshop on llvm in parallel processing llpp icpp second workshop on llvm in parallel processing llpp icpp - bordeaux france august 29 2022",
+              "words": [
+                "2022",
+                "second",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "second",
+                "workshop",
+                "on",
+                "llvm",
+                "in",
+                "parallel",
+                "processing",
+                "llpp",
+                "icpp",
+                "bordeaux",
+                "france",
+                "august",
+                "29",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "oraql optimistic responses to alias queries in llvm 2022 second workshop on llvm in parallel processing llpp icpp second workshop on llvm in parallel processing llpp icpp - bordeaux france august 29 2022 2022-08-29 technical-talk jan hueckelheim llvm"
+      },
+      "meeting": {
+        "slug": "2022-08-29",
+        "name": "2022 Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP",
+        "date": "August 29, 2022",
+        "location": "Second Workshop on LLVM in Parallel Processing (LLPP) @ ICPP - Bordeaux, France",
+        "canceled": false,
+        "talkCount": 6
+      }
+    },
+    "2022-04-03-005": {
+      "talk": {
+        "id": "2022-04-03-005",
+        "meeting": "2022-04-03",
+        "meetingName": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "April 3, 2022",
+        "category": "tutorial",
+        "title": "[Tutorial] An Guide to Performance Debugging LLVM-based Programs",
+        "speakers": [
+          {
+            "name": "William Moses Johannes Doerfert",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM is a compiler infrastructure that has become the foundation of a variety of compilers and languages including C/C++, Fortran, Rust, Swift, Julia, and more. When a user of an LLVM-based compiler is writing a program, it is unfortunately and surprisingly easy to shoot one self in the foot and inadvertently write code that prevents optimization.\n\nThis talk will provide viewers with an introduction to performance debugging in LLVM, covering a variety of common tools and techniques such as profilers and optimization remarks. This talk will also provide users with the the necessary tools to solve advanced performance engineering mysteries including LLVM optimizations inadvertently not applying to programs. The talk will conclude by discussing two recent performance engineering mysteries that arose on LLVM main: a change to phase ordering that accidentally resulted in LICM needless removing alias and range information (https://github.com/llvm/llvm-project/issues/53794), and the increasing importance and ubiquity of hardcoded compiler flags.",
+        "videoId": null,
+        "tags": [
+          "Beginner",
+          "Flang",
+          "Optimizations",
+          "Performance",
+          "Programming Languages"
+        ],
+        "projectGithub": "https://github.com/llvm/llvm-project/issues/53794",
+        "githubReferences": [
+          "https://github.com/llvm/llvm-project/issues/53794"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/llvm-project/issues/53794",
+            "source": "abstract",
+            "label": "phase ordering that accidentally resulted in LICM needless removing alias and range information (",
+            "context": "phase ordering that accidentally resulted in LICM needless removing alias and range information (",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "issues/53794"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/llvm-project/issues/53794"
+          }
+        ],
+        "keywords": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "[tutorial] an guide to performance debugging llvm-based programs",
+        "_speakerLower": "william moses johannes doerfert",
+        "_abstractLower": "llvm is a compiler infrastructure that has become the foundation of a variety of compilers and languages including c/c++, fortran, rust, swift, julia, and more. when a user of an llvm-based compiler is writing a program, it is unfortunately and surprisingly easy to shoot one self in the foot and inadvertently write code that prevents optimization.\n\nthis talk will provide viewers with an introduction to performance debugging in llvm, covering a variety of common tools and techniques such as profilers and optimization remarks. this talk will also provide users with the the necessary tools to solve advanced performance engineering mysteries including llvm optimizations inadvertently not applying to programs. the talk will conclude by discussing two recent performance engineering mysteries that arose on llvm main: a change to phase ordering that accidentally resulted in licm needless removing alias and range information (https://github.com/llvm/llvm-project/issues/53794), and the increasing importance and ubiquity of hardcoded compiler flags.",
+        "_tagsLower": "beginner flang optimizations performance programming languages llvm infrastructure rust swift",
+        "_meetingLower": "2022 sixth llvm performance workshop @ cgo sixth llvm performance workshop @ cgo, virtual april 3, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tutorial an guide to performance debugging llvm-based programs",
+              "words": [
+                "tutorial",
+                "an",
+                "guide",
+                "to",
+                "performance",
+                "debugging",
+                "llvm-based",
+                "programs"
+              ]
+            },
+            "speakers": {
+              "text": "william moses johannes doerfert",
+              "words": [
+                "william",
+                "moses",
+                "johannes",
+                "doerfert"
+              ]
+            },
+            "tags": {
+              "text": "beginner flang optimizations performance programming languages llvm infrastructure rust swift",
+              "words": [
+                "beginner",
+                "flang",
+                "optimizations",
+                "performance",
+                "programming",
+                "languages",
+                "llvm",
+                "infrastructure",
+                "rust",
+                "swift"
+              ]
+            },
+            "meeting": {
+              "text": "2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022",
+              "words": [
+                "2022",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "april",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "llvm is a compiler infrastructure that has become the foundation of a variety of compilers and languages including c c++ fortran rust swift julia and more. when a user of an llvm-based compiler is writing a program it is unfortunately and surprisingly easy to shoot one self in the foot and inadvertently write code that prevents optimization. this talk will provide viewers with an introduction to performance debugging in llvm covering a variety of common tools and techniques such as profilers and optimization remarks. this talk will also provide users with the the necessary tools to solve advanced performance engineering mysteries including llvm optimizations inadvertently not applying to programs. the talk will conclude by discussing two recent performance engineering mysteries that arose on llvm main a change to phase ordering that accidentally resulted in licm needless removing alias and range information https github.com llvm llvm-project issues 53794 and the increasing importance and ubiquity of hardcoded compiler flags.",
+              "words": [
+                "llvm",
+                "is",
+                "compiler",
+                "infrastructure",
+                "that",
+                "has",
+                "become",
+                "the",
+                "foundation",
+                "of",
+                "variety",
+                "of",
+                "compilers",
+                "and",
+                "languages",
+                "including",
+                "c++",
+                "fortran",
+                "rust",
+                "swift",
+                "julia",
+                "and",
+                "more.",
+                "when",
+                "user",
+                "of",
+                "an",
+                "llvm-based",
+                "compiler",
+                "is",
+                "writing",
+                "program",
+                "it",
+                "is",
+                "unfortunately",
+                "and",
+                "surprisingly",
+                "easy",
+                "to",
+                "shoot",
+                "one",
+                "self",
+                "in",
+                "the",
+                "foot",
+                "and",
+                "inadvertently",
+                "write",
+                "code",
+                "that",
+                "prevents",
+                "optimization.",
+                "this",
+                "talk",
+                "will",
+                "provide",
+                "viewers",
+                "with",
+                "an",
+                "introduction",
+                "to",
+                "performance",
+                "debugging",
+                "in",
+                "llvm",
+                "covering",
+                "variety",
+                "of",
+                "common",
+                "tools",
+                "and",
+                "techniques",
+                "such",
+                "as",
+                "profilers",
+                "and",
+                "optimization",
+                "remarks.",
+                "this",
+                "talk",
+                "will",
+                "also",
+                "provide",
+                "users",
+                "with",
+                "the",
+                "the",
+                "necessary",
+                "tools",
+                "to",
+                "solve",
+                "advanced",
+                "performance",
+                "engineering",
+                "mysteries",
+                "including",
+                "llvm",
+                "optimizations",
+                "inadvertently",
+                "not",
+                "applying",
+                "to",
+                "programs.",
+                "the",
+                "talk",
+                "will",
+                "conclude",
+                "by",
+                "discussing",
+                "two",
+                "recent",
+                "performance",
+                "engineering",
+                "mysteries",
+                "that",
+                "arose",
+                "on",
+                "llvm",
+                "main",
+                "change",
+                "to",
+                "phase",
+                "ordering",
+                "that",
+                "accidentally",
+                "resulted",
+                "in",
+                "licm",
+                "needless",
+                "removing",
+                "alias",
+                "and",
+                "range",
+                "information",
+                "https",
+                "github.com",
+                "llvm",
+                "llvm-project",
+                "issues",
+                "53794",
+                "and",
+                "the",
+                "increasing",
+                "importance",
+                "and",
+                "ubiquity",
+                "of",
+                "hardcoded",
+                "compiler",
+                "flags."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "tutorial an guide to performance debugging llvm-based programs llvm is a compiler infrastructure that has become the foundation of a variety of compilers and languages including c c++ fortran rust swift julia and more. when a user of an llvm-based compiler is writing a program it is unfortunately and surprisingly easy to shoot one self in the foot and inadvertently write code that prevents optimization. this talk will provide viewers with an introduction to performance debugging in llvm covering a variety of common tools and techniques such as profilers and optimization remarks. this talk will also provide users with the the necessary tools to solve advanced performance engineering mysteries including llvm optimizations inadvertently not applying to programs. the talk will conclude by discussing two recent performance engineering mysteries that arose on llvm main a change to phase ordering that accidentally resulted in licm needless removing alias and range information https github.com llvm llvm-project issues 53794 and the increasing importance and ubiquity of hardcoded compiler flags. 2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022 2022-04-03 tutorial william moses johannes doerfert beginner flang optimizations performance programming languages llvm infrastructure rust swift"
+      },
+      "meeting": {
+        "slug": "2022-04-03",
+        "name": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "date": "April 3, 2022",
+        "location": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2021-02-28-001": {
+      "talk": {
+        "id": "2021-02-28-001",
+        "meeting": "2021-02-28",
+        "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "February 28, 2021",
+        "category": "technical-talk",
+        "title": "Rust code generation framework.",
+        "speakers": [
+          {
+            "name": "Patrick Walton",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The Rust project keeps on top of new developments in LLVM. In this talk I'll go into our new code generation framework, as well as our use of new features like ThinLTO.",
+        "videoId": null,
+        "tags": [
+          "Backend",
+          "LTO"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "rust code generation framework.",
+        "_speakerLower": "patrick walton",
+        "_abstractLower": "the rust project keeps on top of new developments in llvm. in this talk i'll go into our new code generation framework, as well as our use of new features like thinlto.",
+        "_tagsLower": "backend lto llvm code generation rust",
+        "_meetingLower": "2021 fifth llvm performance workshop @ cgo fifth llvm performance workshop @ cgo, virtual february 28, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "rust code generation framework.",
+              "words": [
+                "rust",
+                "code",
+                "generation",
+                "framework."
+              ]
+            },
+            "speakers": {
+              "text": "patrick walton",
+              "words": [
+                "patrick",
+                "walton"
+              ]
+            },
+            "tags": {
+              "text": "backend lto llvm code generation rust",
+              "words": [
+                "backend",
+                "lto",
+                "llvm",
+                "code",
+                "generation",
+                "rust"
+              ]
+            },
+            "meeting": {
+              "text": "2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021",
+              "words": [
+                "2021",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "february",
+                "28",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "the rust project keeps on top of new developments in llvm. in this talk ill go into our new code generation framework as well as our use of new features like thinlto.",
+              "words": [
+                "the",
+                "rust",
+                "project",
+                "keeps",
+                "on",
+                "top",
+                "of",
+                "new",
+                "developments",
+                "in",
+                "llvm.",
+                "in",
+                "this",
+                "talk",
+                "ill",
+                "go",
+                "into",
+                "our",
+                "new",
+                "code",
+                "generation",
+                "framework",
+                "as",
+                "well",
+                "as",
+                "our",
+                "use",
+                "of",
+                "new",
+                "features",
+                "like",
+                "thinlto."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "rust code generation framework. the rust project keeps on top of new developments in llvm. in this talk ill go into our new code generation framework as well as our use of new features like thinlto. 2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021 2021-02-28 technical-talk patrick walton backend lto llvm code generation rust"
+      },
+      "meeting": {
+        "slug": "2021-02-28",
+        "name": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "date": "February 28, 2021",
+        "location": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2020-09-019": {
+      "talk": {
+        "id": "2020-09-019",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Evolving “convergent”: Lessons from Control Flow in AMDGPU",
+        "speakers": [
+          {
+            "name": "N. Hähnle",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/_Z5DuiVCFAw",
+        "videoId": "_Z5DuiVCFAw",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Hahnle-Evolving_convergent_Lessons_from_Control_Flow_in_AMDGPU.pdf",
+        "tags": [
+          "GPU"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "evolving “convergent”: lessons from control flow in amdgpu",
+        "_speakerLower": "n. hähnle",
+        "_abstractLower": "",
+        "_tagsLower": "gpu",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "evolving convergent lessons from control flow in amdgpu",
+              "words": [
+                "evolving",
+                "convergent",
+                "lessons",
+                "from",
+                "control",
+                "flow",
+                "in",
+                "amdgpu"
+              ]
+            },
+            "speakers": {
+              "text": "n. hahnle",
+              "words": [
+                "n.",
+                "hahnle"
+              ]
+            },
+            "tags": {
+              "text": "gpu",
+              "words": [
+                "gpu"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "evolving convergent lessons from control flow in amdgpu 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk n. hahnle gpu"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-02-23-007": {
+      "talk": {
+        "id": "2020-02-23-007",
+        "meeting": "2020-02-23",
+        "meetingName": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "meetingLocation": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "meetingDate": "February 23, 2020",
+        "category": "technical-talk",
+        "title": "Asynchronous OpenMP Offloading on NVIDIA GPUs",
+        "speakers": [
+          {
+            "name": "Shilei Tian",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Johannes Doerfert",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Barbara Chapman",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In the current implementation of LLVM OpenMP offloading, the runtime submits all kernels to the default stream and blocks the issuing thread until device execution is done. Since the default stream serializes all submitted kernel and lunches them sequentially, even in parallel issued kernels are not executed on a device concurrently. This is problematic especially if single kernels do not utilize the entire device consistently, a situation not uncommon on modern GPUs. In this work, we present a design and prototype to use multiple streams to offload OpenMP target regions in order for concurrent execution on the device. Our prototype infrastructure shows speedups of up to 1.33x on micro benchmarks and we expect further improvements from hardware-based dependence resolution.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-02-23/slides/Shilei-multistreams.pdf",
+        "tags": [
+          "CUDA",
+          "GPU",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "asynchronous openmp offloading on nvidia gpus",
+        "_speakerLower": "shilei tian johannes doerfert barbara chapman",
+        "_abstractLower": "in the current implementation of llvm openmp offloading, the runtime submits all kernels to the default stream and blocks the issuing thread until device execution is done. since the default stream serializes all submitted kernel and lunches them sequentially, even in parallel issued kernels are not executed on a device concurrently. this is problematic especially if single kernels do not utilize the entire device consistently, a situation not uncommon on modern gpus. in this work, we present a design and prototype to use multiple streams to offload openmp target regions in order for concurrent execution on the device. our prototype infrastructure shows speedups of up to 1.33x on micro benchmarks and we expect further improvements from hardware-based dependence resolution.",
+        "_tagsLower": "cuda gpu performance llvm openmp offload infrastructure",
+        "_meetingLower": "2020 fourth llvm performance workshop @ cgo20 fourth llvm performance workshop at cgo20, san diego, ca, usa february 23, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "asynchronous openmp offloading on nvidia gpus",
+              "words": [
+                "asynchronous",
+                "openmp",
+                "offloading",
+                "on",
+                "nvidia",
+                "gpus"
+              ]
+            },
+            "speakers": {
+              "text": "shilei tian johannes doerfert barbara chapman",
+              "words": [
+                "shilei",
+                "tian",
+                "johannes",
+                "doerfert",
+                "barbara",
+                "chapman"
+              ]
+            },
+            "tags": {
+              "text": "cuda gpu performance llvm openmp offload infrastructure",
+              "words": [
+                "cuda",
+                "gpu",
+                "performance",
+                "llvm",
+                "openmp",
+                "offload",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020",
+              "words": [
+                "2020",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo20",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo20",
+                "san",
+                "diego",
+                "ca",
+                "usa",
+                "february",
+                "23",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "in the current implementation of llvm openmp offloading the runtime submits all kernels to the default stream and blocks the issuing thread until device execution is done. since the default stream serializes all submitted kernel and lunches them sequentially even in parallel issued kernels are not executed on a device concurrently. this is problematic especially if single kernels do not utilize the entire device consistently a situation not uncommon on modern gpus. in this work we present a design and prototype to use multiple streams to offload openmp target regions in order for concurrent execution on the device. our prototype infrastructure shows speedups of up to 1.33x on micro benchmarks and we expect further improvements from hardware-based dependence resolution.",
+              "words": [
+                "in",
+                "the",
+                "current",
+                "implementation",
+                "of",
+                "llvm",
+                "openmp",
+                "offloading",
+                "the",
+                "runtime",
+                "submits",
+                "all",
+                "kernels",
+                "to",
+                "the",
+                "default",
+                "stream",
+                "and",
+                "blocks",
+                "the",
+                "issuing",
+                "thread",
+                "until",
+                "device",
+                "execution",
+                "is",
+                "done.",
+                "since",
+                "the",
+                "default",
+                "stream",
+                "serializes",
+                "all",
+                "submitted",
+                "kernel",
+                "and",
+                "lunches",
+                "them",
+                "sequentially",
+                "even",
+                "in",
+                "parallel",
+                "issued",
+                "kernels",
+                "are",
+                "not",
+                "executed",
+                "on",
+                "device",
+                "concurrently.",
+                "this",
+                "is",
+                "problematic",
+                "especially",
+                "if",
+                "single",
+                "kernels",
+                "do",
+                "not",
+                "utilize",
+                "the",
+                "entire",
+                "device",
+                "consistently",
+                "situation",
+                "not",
+                "uncommon",
+                "on",
+                "modern",
+                "gpus.",
+                "in",
+                "this",
+                "work",
+                "we",
+                "present",
+                "design",
+                "and",
+                "prototype",
+                "to",
+                "use",
+                "multiple",
+                "streams",
+                "to",
+                "offload",
+                "openmp",
+                "target",
+                "regions",
+                "in",
+                "order",
+                "for",
+                "concurrent",
+                "execution",
+                "on",
+                "the",
+                "device.",
+                "our",
+                "prototype",
+                "infrastructure",
+                "shows",
+                "speedups",
+                "of",
+                "up",
+                "to",
+                "1.33x",
+                "on",
+                "micro",
+                "benchmarks",
+                "and",
+                "we",
+                "expect",
+                "further",
+                "improvements",
+                "from",
+                "hardware-based",
+                "dependence",
+                "resolution."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "asynchronous openmp offloading on nvidia gpus in the current implementation of llvm openmp offloading the runtime submits all kernels to the default stream and blocks the issuing thread until device execution is done. since the default stream serializes all submitted kernel and lunches them sequentially even in parallel issued kernels are not executed on a device concurrently. this is problematic especially if single kernels do not utilize the entire device consistently a situation not uncommon on modern gpus. in this work we present a design and prototype to use multiple streams to offload openmp target regions in order for concurrent execution on the device. our prototype infrastructure shows speedups of up to 1.33x on micro benchmarks and we expect further improvements from hardware-based dependence resolution. 2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020 2020-02-23 technical-talk shilei tian johannes doerfert barbara chapman cuda gpu performance llvm openmp offload infrastructure"
+      },
+      "meeting": {
+        "slug": "2020-02-23",
+        "name": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "date": "February 23, 2020",
+        "location": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "canceled": false,
+        "talkCount": 10
+      }
+    },
+    "2019-10-040": {
+      "talk": {
+        "id": "2019-10-040",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "student-talk",
+        "title": "Cross-Translation Unit Optimization via Annotated Headers",
+        "speakers": [
+          {
+            "name": "William S. Moses",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM automatically derives facts that are only used while the respective translation unit, or LLVM module, is processed (i.e. constant function, error-throwing, etc). This is true both in standard compilation but also link-time-optimization (LTO) in which the module is (partially) merged with others in the same project at link time. LTO is able to take advantage of this to optimize functions calls to outside the translation unit. However, LTO doesn't solve the problem for two reasons of practicality: LTO comes with a nontrivial compile-time investment; and many libraries upon which a program could depend, do not ship with LTO information, simply headers and binaries. In this extended abstract, we solve the problem by generating annotated versions of the source code that also include this derived information. Such an approach has the benefits of both worlds: allowing optimizations previously limited to LTO without running LTO and only providing headers. Such headers are created by modifying Clang to understand three custom attributes to represent arbitrary LLVM function attributes and modifying LLVM to emit C-compatible headers with the aforementioned attribute. Finally, we test the approach experimentally on the DOE RSBench proxy application and verify that it provides the expected speedups.",
+        "videoUrl": "https://youtu.be/elmio6AoyK0",
+        "videoId": "elmio6AoyK0",
+        "tags": [
+          "Clang",
+          "LLD",
+          "LTO",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "cross-translation unit optimization via annotated headers",
+        "_speakerLower": "william s. moses",
+        "_abstractLower": "llvm automatically derives facts that are only used while the respective translation unit, or llvm module, is processed (i.e. constant function, error-throwing, etc). this is true both in standard compilation but also link-time-optimization (lto) in which the module is (partially) merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however, lto doesn't solve the problem for two reasons of practicality: lto comes with a nontrivial compile-time investment; and many libraries upon which a program could depend, do not ship with lto information, simply headers and binaries. in this extended abstract, we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds: allowing optimizations previously limited to lto without running lto and only providing headers. such headers are created by modifying clang to understand three custom attributes to represent arbitrary llvm function attributes and modifying llvm to emit c-compatible headers with the aforementioned attribute. finally, we test the approach experimentally on the doe rsbench proxy application and verify that it provides the expected speedups.",
+        "_tagsLower": "clang lld lto optimizations performance llvm",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "cross-translation unit optimization via annotated headers",
+              "words": [
+                "cross-translation",
+                "unit",
+                "optimization",
+                "via",
+                "annotated",
+                "headers"
+              ]
+            },
+            "speakers": {
+              "text": "william s. moses",
+              "words": [
+                "william",
+                "s.",
+                "moses"
+              ]
+            },
+            "tags": {
+              "text": "clang lld lto optimizations performance llvm",
+              "words": [
+                "clang",
+                "lld",
+                "lto",
+                "optimizations",
+                "performance",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "llvm automatically derives facts that are only used while the respective translation unit or llvm module is processed i.e. constant function error-throwing etc . this is true both in standard compilation but also link-time-optimization lto in which the module is partially merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however lto doesnt solve the problem for two reasons of practicality lto comes with a nontrivial compile-time investment and many libraries upon which a program could depend do not ship with lto information simply headers and binaries. in this extended abstract we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds allowing optimizations previously limited to lto without running lto and only providing headers. such headers are created by modifying clang to understand three custom attributes to represent arbitrary llvm function attributes and modifying llvm to emit c-compatible headers with the aforementioned attribute. finally we test the approach experimentally on the doe rsbench proxy application and verify that it provides the expected speedups.",
+              "words": [
+                "llvm",
+                "automatically",
+                "derives",
+                "facts",
+                "that",
+                "are",
+                "only",
+                "used",
+                "while",
+                "the",
+                "respective",
+                "translation",
+                "unit",
+                "or",
+                "llvm",
+                "module",
+                "is",
+                "processed",
+                "i.e.",
+                "constant",
+                "function",
+                "error-throwing",
+                "etc",
+                "this",
+                "is",
+                "true",
+                "both",
+                "in",
+                "standard",
+                "compilation",
+                "but",
+                "also",
+                "link-time-optimization",
+                "lto",
+                "in",
+                "which",
+                "the",
+                "module",
+                "is",
+                "partially",
+                "merged",
+                "with",
+                "others",
+                "in",
+                "the",
+                "same",
+                "project",
+                "at",
+                "link",
+                "time.",
+                "lto",
+                "is",
+                "able",
+                "to",
+                "take",
+                "advantage",
+                "of",
+                "this",
+                "to",
+                "optimize",
+                "functions",
+                "calls",
+                "to",
+                "outside",
+                "the",
+                "translation",
+                "unit.",
+                "however",
+                "lto",
+                "doesnt",
+                "solve",
+                "the",
+                "problem",
+                "for",
+                "two",
+                "reasons",
+                "of",
+                "practicality",
+                "lto",
+                "comes",
+                "with",
+                "nontrivial",
+                "compile-time",
+                "investment",
+                "and",
+                "many",
+                "libraries",
+                "upon",
+                "which",
+                "program",
+                "could",
+                "depend",
+                "do",
+                "not",
+                "ship",
+                "with",
+                "lto",
+                "information",
+                "simply",
+                "headers",
+                "and",
+                "binaries.",
+                "in",
+                "this",
+                "extended",
+                "abstract",
+                "we",
+                "solve",
+                "the",
+                "problem",
+                "by",
+                "generating",
+                "annotated",
+                "versions",
+                "of",
+                "the",
+                "source",
+                "code",
+                "that",
+                "also",
+                "include",
+                "this",
+                "derived",
+                "information.",
+                "such",
+                "an",
+                "approach",
+                "has",
+                "the",
+                "benefits",
+                "of",
+                "both",
+                "worlds",
+                "allowing",
+                "optimizations",
+                "previously",
+                "limited",
+                "to",
+                "lto",
+                "without",
+                "running",
+                "lto",
+                "and",
+                "only",
+                "providing",
+                "headers.",
+                "such",
+                "headers",
+                "are",
+                "created",
+                "by",
+                "modifying",
+                "clang",
+                "to",
+                "understand",
+                "three",
+                "custom",
+                "attributes",
+                "to",
+                "represent",
+                "arbitrary",
+                "llvm",
+                "function",
+                "attributes",
+                "and",
+                "modifying",
+                "llvm",
+                "to",
+                "emit",
+                "c-compatible",
+                "headers",
+                "with",
+                "the",
+                "aforementioned",
+                "attribute.",
+                "finally",
+                "we",
+                "test",
+                "the",
+                "approach",
+                "experimentally",
+                "on",
+                "the",
+                "doe",
+                "rsbench",
+                "proxy",
+                "application",
+                "and",
+                "verify",
+                "that",
+                "it",
+                "provides",
+                "the",
+                "expected",
+                "speedups."
+              ]
+            },
+            "category": {
+              "text": "student-talk",
+              "words": [
+                "student-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "cross-translation unit optimization via annotated headers llvm automatically derives facts that are only used while the respective translation unit or llvm module is processed i.e. constant function error-throwing etc . this is true both in standard compilation but also link-time-optimization lto in which the module is partially merged with others in the same project at link time. lto is able to take advantage of this to optimize functions calls to outside the translation unit. however lto doesnt solve the problem for two reasons of practicality lto comes with a nontrivial compile-time investment and many libraries upon which a program could depend do not ship with lto information simply headers and binaries. in this extended abstract we solve the problem by generating annotated versions of the source code that also include this derived information. such an approach has the benefits of both worlds allowing optimizations previously limited to lto without running lto and only providing headers. such headers are created by modifying clang to understand three custom attributes to represent arbitrary llvm function attributes and modifying llvm to emit c-compatible headers with the aforementioned attribute. finally we test the approach experimentally on the doe rsbench proxy application and verify that it provides the expected speedups. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 student-talk william s. moses clang lld lto optimizations performance llvm"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-062": {
+      "talk": {
+        "id": "2019-10-062",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "Optimization Remarks for Human Beings",
+        "speakers": [
+          {
+            "name": "William Bundy",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk dives into the development of a Visual Studio extension for displaying optimization remarks at Sony PlayStation, discussing both the possibilities for remarks as a teaching and code analysis tool if they're seamlessly integrated into everyday programming, and some of the issues faced in making that possible for massive projects.",
+        "videoId": null,
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "optimization remarks for human beings",
+        "_speakerLower": "william bundy",
+        "_abstractLower": "this talk dives into the development of a visual studio extension for displaying optimization remarks at sony playstation, discussing both the possibilities for remarks as a teaching and code analysis tool if they're seamlessly integrated into everyday programming, and some of the issues faced in making that possible for massive projects.",
+        "_tagsLower": "optimizations",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "optimization remarks for human beings",
+              "words": [
+                "optimization",
+                "remarks",
+                "for",
+                "human",
+                "beings"
+              ]
+            },
+            "speakers": {
+              "text": "william bundy",
+              "words": [
+                "william",
+                "bundy"
+              ]
+            },
+            "tags": {
+              "text": "optimizations",
+              "words": [
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "this talk dives into the development of a visual studio extension for displaying optimization remarks at sony playstation discussing both the possibilities for remarks as a teaching and code analysis tool if theyre seamlessly integrated into everyday programming and some of the issues faced in making that possible for massive projects.",
+              "words": [
+                "this",
+                "talk",
+                "dives",
+                "into",
+                "the",
+                "development",
+                "of",
+                "visual",
+                "studio",
+                "extension",
+                "for",
+                "displaying",
+                "optimization",
+                "remarks",
+                "at",
+                "sony",
+                "playstation",
+                "discussing",
+                "both",
+                "the",
+                "possibilities",
+                "for",
+                "remarks",
+                "as",
+                "teaching",
+                "and",
+                "code",
+                "analysis",
+                "tool",
+                "if",
+                "theyre",
+                "seamlessly",
+                "integrated",
+                "into",
+                "everyday",
+                "programming",
+                "and",
+                "some",
+                "of",
+                "the",
+                "issues",
+                "faced",
+                "in",
+                "making",
+                "that",
+                "possible",
+                "for",
+                "massive",
+                "projects."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "optimization remarks for human beings this talk dives into the development of a visual studio extension for displaying optimization remarks at sony playstation discussing both the possibilities for remarks as a teaching and code analysis tool if theyre seamlessly integrated into everyday programming and some of the issues faced in making that possible for massive projects. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk william bundy optimizations"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-084": {
+      "talk": {
+        "id": "2019-10-084",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "poster",
+        "title": "Loom: Weaving Instrumentation for Program Analysis",
+        "speakers": [
+          {
+            "name": "Brian Kidney",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Instrumentation tools often focus on single tasks, such as gathering performance numbers or detecting race conditions. While gathering important information for the user, these tools are not often designed to allow the end-user a more general code exploration as executed. Loom is a framework for general-purpose instrumentation and transformation of software in the LLVM intermediate representation. Loom provides both a standalone tool and a library with an API designed to allow for the implementation of custom instrumentation passes. Loom's current functionality is presented, including real-world applications for Loom in a recent research project. We present comparisons of both performance and functionality of Loom to existing instrumentation tools, including X-Ray, CSI, D-Trace and Intel Pin. Finally, we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new Loom developments.",
+        "videoId": null,
+        "tags": [
+          "IR",
+          "Performance",
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "loom: weaving instrumentation for program analysis",
+        "_speakerLower": "brian kidney",
+        "_abstractLower": "instrumentation tools often focus on single tasks, such as gathering performance numbers or detecting race conditions. while gathering important information for the user, these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. loom's current functionality is presented, including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools, including x-ray, csi, d-trace and intel pin. finally, we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments.",
+        "_tagsLower": "ir performance security llvm",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "loom weaving instrumentation for program analysis",
+              "words": [
+                "loom",
+                "weaving",
+                "instrumentation",
+                "for",
+                "program",
+                "analysis"
+              ]
+            },
+            "speakers": {
+              "text": "brian kidney",
+              "words": [
+                "brian",
+                "kidney"
+              ]
+            },
+            "tags": {
+              "text": "ir performance security llvm",
+              "words": [
+                "ir",
+                "performance",
+                "security",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "instrumentation tools often focus on single tasks such as gathering performance numbers or detecting race conditions. while gathering important information for the user these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. looms current functionality is presented including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools including x-ray csi d-trace and intel pin. finally we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments.",
+              "words": [
+                "instrumentation",
+                "tools",
+                "often",
+                "focus",
+                "on",
+                "single",
+                "tasks",
+                "such",
+                "as",
+                "gathering",
+                "performance",
+                "numbers",
+                "or",
+                "detecting",
+                "race",
+                "conditions.",
+                "while",
+                "gathering",
+                "important",
+                "information",
+                "for",
+                "the",
+                "user",
+                "these",
+                "tools",
+                "are",
+                "not",
+                "often",
+                "designed",
+                "to",
+                "allow",
+                "the",
+                "end-user",
+                "more",
+                "general",
+                "code",
+                "exploration",
+                "as",
+                "executed.",
+                "loom",
+                "is",
+                "framework",
+                "for",
+                "general-purpose",
+                "instrumentation",
+                "and",
+                "transformation",
+                "of",
+                "software",
+                "in",
+                "the",
+                "llvm",
+                "intermediate",
+                "representation.",
+                "loom",
+                "provides",
+                "both",
+                "standalone",
+                "tool",
+                "and",
+                "library",
+                "with",
+                "an",
+                "api",
+                "designed",
+                "to",
+                "allow",
+                "for",
+                "the",
+                "implementation",
+                "of",
+                "custom",
+                "instrumentation",
+                "passes.",
+                "looms",
+                "current",
+                "functionality",
+                "is",
+                "presented",
+                "including",
+                "real-world",
+                "applications",
+                "for",
+                "loom",
+                "in",
+                "recent",
+                "research",
+                "project.",
+                "we",
+                "present",
+                "comparisons",
+                "of",
+                "both",
+                "performance",
+                "and",
+                "functionality",
+                "of",
+                "loom",
+                "to",
+                "existing",
+                "instrumentation",
+                "tools",
+                "including",
+                "x-ray",
+                "csi",
+                "d-trace",
+                "and",
+                "intel",
+                "pin.",
+                "finally",
+                "we",
+                "will",
+                "present",
+                "security",
+                "use",
+                "cases",
+                "that",
+                "are",
+                "not",
+                "addressed",
+                "by",
+                "any",
+                "of",
+                "these",
+                "instrumentation",
+                "tools",
+                "and",
+                "are",
+                "the",
+                "motivation",
+                "for",
+                "new",
+                "loom",
+                "developments."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "loom weaving instrumentation for program analysis instrumentation tools often focus on single tasks such as gathering performance numbers or detecting race conditions. while gathering important information for the user these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. looms current functionality is presented including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools including x-ray csi d-trace and intel pin. finally we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 poster brian kidney ir performance security llvm"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2018-10-050": {
+      "talk": {
+        "id": "2018-10-050",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "lightning-talk",
+        "title": "Hardware Interference Size",
+        "speakers": [
+          {
+            "name": "JF Bastien",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "C++17 adds support for hardware destructive / constructive interference size constexpr values. We’ll discuss how we expect developers to use this new feature, and how we should therefore implement it. Of particular interest to the LLVM community are the ABI issues inherent in a maximally useful implementation. We’ll dive into ABI details and discuss what the C++ Standards Committee’s stance is.",
+        "videoId": null,
+        "tags": [
+          "C++",
+          "Community Building"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "hardware interference size",
+        "_speakerLower": "jf bastien",
+        "_abstractLower": "c++17 adds support for hardware destructive / constructive interference size constexpr values. we’ll discuss how we expect developers to use this new feature, and how we should therefore implement it. of particular interest to the llvm community are the abi issues inherent in a maximally useful implementation. we’ll dive into abi details and discuss what the c++ standards committee’s stance is.",
+        "_tagsLower": "c++ community building llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "hardware interference size",
+              "words": [
+                "hardware",
+                "interference",
+                "size"
+              ]
+            },
+            "speakers": {
+              "text": "jf bastien",
+              "words": [
+                "jf",
+                "bastien"
+              ]
+            },
+            "tags": {
+              "text": "c++ community building llvm",
+              "words": [
+                "c++",
+                "community",
+                "building",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "c++17 adds support for hardware destructive constructive interference size constexpr values. well discuss how we expect developers to use this new feature and how we should therefore implement it. of particular interest to the llvm community are the abi issues inherent in a maximally useful implementation. well dive into abi details and discuss what the c++ standards committees stance is.",
+              "words": [
+                "c++17",
+                "adds",
+                "support",
+                "for",
+                "hardware",
+                "destructive",
+                "constructive",
+                "interference",
+                "size",
+                "constexpr",
+                "values.",
+                "well",
+                "discuss",
+                "how",
+                "we",
+                "expect",
+                "developers",
+                "to",
+                "use",
+                "this",
+                "new",
+                "feature",
+                "and",
+                "how",
+                "we",
+                "should",
+                "therefore",
+                "implement",
+                "it.",
+                "of",
+                "particular",
+                "interest",
+                "to",
+                "the",
+                "llvm",
+                "community",
+                "are",
+                "the",
+                "abi",
+                "issues",
+                "inherent",
+                "in",
+                "maximally",
+                "useful",
+                "implementation.",
+                "well",
+                "dive",
+                "into",
+                "abi",
+                "details",
+                "and",
+                "discuss",
+                "what",
+                "the",
+                "c++",
+                "standards",
+                "committees",
+                "stance",
+                "is."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "hardware interference size c++17 adds support for hardware destructive constructive interference size constexpr values. well discuss how we expect developers to use this new feature and how we should therefore implement it. of particular interest to the llvm community are the abi issues inherent in a maximally useful implementation. well dive into abi details and discuss what the c++ standards committees stance is. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 lightning-talk jf bastien c++ community building llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2017-10-060": {
+      "talk": {
+        "id": "2017-10-060",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "poster",
+        "title": "Adding Debug Information and Merge Attribute to Merge-Functions LLVM passes",
+        "speakers": [
+          {
+            "name": "Anmol Paralkar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "adding debug information and merge attribute to merge-functions llvm passes",
+        "_speakerLower": "anmol paralkar",
+        "_abstractLower": "",
+        "_tagsLower": "llvm debug information",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "adding debug information and merge attribute to merge-functions llvm passes",
+              "words": [
+                "adding",
+                "debug",
+                "information",
+                "and",
+                "merge",
+                "attribute",
+                "to",
+                "merge-functions",
+                "llvm",
+                "passes"
+              ]
+            },
+            "speakers": {
+              "text": "anmol paralkar",
+              "words": [
+                "anmol",
+                "paralkar"
+              ]
+            },
+            "tags": {
+              "text": "llvm debug information",
+              "words": [
+                "llvm",
+                "debug",
+                "information"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "adding debug information and merge attribute to merge-functions llvm passes 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 poster anmol paralkar llvm debug information"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    },
+    "2012-04-12-006": {
+      "talk": {
+        "id": "2012-04-12-006",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Guaranteeing the correctness of MC for ARM",
+        "speakers": [
+          {
+            "name": "Richard Barton",
+            "affiliation": "ARM",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/3A-QM8hWmAc",
+        "videoId": "3A-QM8hWmAc",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Richard_Barton.ppt",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "guaranteeing the correctness of mc for arm",
+        "_speakerLower": "richard barton",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "guaranteeing the correctness of mc for arm",
+              "words": [
+                "guaranteeing",
+                "the",
+                "correctness",
+                "of",
+                "mc",
+                "for",
+                "arm"
+              ]
+            },
+            "speakers": {
+              "text": "richard barton",
+              "words": [
+                "richard",
+                "barton"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "guaranteeing the correctness of mc for arm 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk richard barton"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2008-08-23-003": {
+      "talk": {
+        "id": "2008-08-23-003",
+        "meeting": "2008-08-23",
+        "meetingName": "2008 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "August 23, 2008",
+        "category": "technical-talk",
+        "title": "Partial evaluation with LLVM",
+        "speakers": [],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2008-08-23/llvm_partial.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "partial evaluation with llvm",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2008 asiallvm developers' meeting tokyo, japan august 23, 2008",
+        "_year": "2008",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "partial evaluation with llvm",
+              "words": [
+                "partial",
+                "evaluation",
+                "with",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2008 asiallvm developers meeting tokyo japan august 23 2008",
+              "words": [
+                "2008",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "august",
+                "23",
+                "2008"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2008",
+              "words": [
+                "2008"
+              ]
+            }
+          },
+          "year": 2008
+        },
+        "_searchBlob": "partial evaluation with llvm 2008 asiallvm developers meeting tokyo japan august 23 2008 2008-08-23 technical-talk llvm"
+      },
+      "meeting": {
+        "slug": "2008-08-23",
+        "name": "2008 AsiaLLVM Developers' Meeting",
+        "date": "August 23, 2008",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 8
+      }
+    }
+  }
+}

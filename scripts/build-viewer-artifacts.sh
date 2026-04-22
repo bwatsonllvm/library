@@ -11,10 +11,10 @@ fi
 
 if [[ "$MODE" == "check" ]]; then
   python3 scripts/sync-site-header.py --repo-root "$ROOT" --check
-  python3 scripts/generate-autocomplete-index.py --repo-root "$ROOT" --check
+  node scripts/build-viewer-artifacts.js --repo-root "$ROOT" --check
   python3 scripts/apply-asset-versions.py --repo-root "$ROOT" --check
 else
   python3 scripts/sync-site-header.py --repo-root "$ROOT"
-  python3 scripts/generate-autocomplete-index.py --repo-root "$ROOT"
+  node scripts/build-viewer-artifacts.js --repo-root "$ROOT"
   python3 scripts/apply-asset-versions.py --repo-root "$ROOT"
 fi

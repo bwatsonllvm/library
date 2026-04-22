@@ -3,7 +3,9 @@
  */
 
 (function () {
+  const root = typeof window !== 'undefined' ? window : globalThis;
   const MANIFEST_JSON_CANDIDATES = ['../papers/index.json', 'papers/index.json', './papers/index.json'];
+  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=bb934b2ac776';
 
   let manifestCache = null;
   let manifestLoadPromise = null;
@@ -12,6 +14,10 @@
 
   const bundleCache = new Map();
   const bundleLoadPromises = new Map();
+  let viewerCatalogCache = null;
+  let viewerCatalogLoadPromise = null;
+  let viewerRelatedCache = null;
+  let viewerRelatedLoadPromise = null;
 
   function uniquePaths(paths) {
     return [...new Set((Array.isArray(paths) ? paths : []).map((p) => String(p || '').trim()).filter(Boolean))];
@@ -90,6 +96,98 @@
     }
   }
 
+  function computeShardKey(id, shardCount) {
+    const text = String(id || '').trim();
+    const count = Number.parseInt(String(shardCount || ''), 10);
+    if (!text || !Number.isFinite(count) || count <= 0) return '';
+    let hash = 0;
+    for (let index = 0; index < text.length; index += 1) {
+      hash = ((hash * 31) + text.charCodeAt(index)) >>> 0;
+    }
+    return (hash % count).toString(16).padStart(2, '0');
+  }
+
+  function ensureViewerArtifactHelpers() {
+    if (
+      typeof root.loadViewerArtifactsManifest === 'function'
+      && typeof root.loadViewerArtifactJson === 'function'
+      && typeof root.resolveViewerArtifactShardUrl === 'function'
+    ) {
+      return;
+    }
+
+    const state = root.__LLVMViewerArtifactsState || (root.__LLVMViewerArtifactsState = {
+      manifestCache: null,
+      manifestPromise: null,
+      jsonCache: new Map(),
+      jsonPromises: new Map(),
+    });
+
+    root.loadViewerArtifactsManifest = async function loadViewerArtifactsManifest() {
+      if (state.manifestCache) return state.manifestCache;
+      if (state.manifestPromise) return state.manifestPromise;
+      state.manifestPromise = (async () => {
+        const payload = await fetchJson(VIEWER_ARTIFACTS_MANIFEST_PATH);
+        if (!payload || typeof payload !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: expected JSON object`);
+        }
+        if (!payload.files || typeof payload.files !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: missing "files" object`);
+        }
+        if (!payload.shards || typeof payload.shards !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: missing "shards" object`);
+        }
+        state.manifestCache = payload;
+        return payload;
+      })();
+
+      try {
+        return await state.manifestPromise;
+      } finally {
+        state.manifestPromise = null;
+      }
+    };
+
+    root.loadViewerArtifactJson = async function loadViewerArtifactJson(key) {
+      const artifactKey = String(key || '').trim();
+      if (!artifactKey) throw new Error('Artifact key is required');
+      if (state.jsonCache.has(artifactKey)) return state.jsonCache.get(artifactKey);
+      if (state.jsonPromises.has(artifactKey)) return state.jsonPromises.get(artifactKey);
+
+      const promise = (async () => {
+        const manifest = await root.loadViewerArtifactsManifest();
+        const ref = manifest && manifest.files ? manifest.files[artifactKey] : '';
+        if (!ref) throw new Error(`viewer-artifacts.json: missing file entry "${artifactKey}"`);
+        const payload = await fetchJson(ref);
+        state.jsonCache.set(artifactKey, payload);
+        return payload;
+      })();
+
+      state.jsonPromises.set(artifactKey, promise);
+      try {
+        return await promise;
+      } finally {
+        state.jsonPromises.delete(artifactKey);
+      }
+    };
+
+    root.resolveViewerArtifactShardUrl = async function resolveViewerArtifactShardUrl(group, id) {
+      const shardGroup = String(group || '').trim();
+      const recordId = String(id || '').trim();
+      if (!shardGroup || !recordId) return '';
+      const manifest = await root.loadViewerArtifactsManifest();
+      const shardConfig = manifest && manifest.shards ? manifest.shards[shardGroup] : null;
+      if (!shardConfig || typeof shardConfig !== 'object') {
+        throw new Error(`viewer-artifacts.json: missing shard entry "${shardGroup}"`);
+      }
+      const shardKey = computeShardKey(recordId, shardConfig.shardCount);
+      if (!shardKey) return '';
+      return String(shardConfig.template || '').replace('{shard}', shardKey);
+    };
+  }
+
+  ensureViewerArtifactHelpers();
+
   async function fetchJsonWithMeta(path) {
     const resp = await fetch(path, { cache: 'default' });
     if (!resp.ok) {
@@ -107,6 +205,50 @@
     fullDataVersion = '';
     bundleCache.clear();
     bundleLoadPromises.clear();
+  }
+
+  async function loadViewerPaperCatalog() {
+    if (viewerCatalogCache) return viewerCatalogCache;
+    if (viewerCatalogLoadPromise) return viewerCatalogLoadPromise;
+
+    viewerCatalogLoadPromise = (async () => {
+      const payload = await root.loadViewerArtifactJson('papersCatalog');
+      if (!payload || typeof payload !== 'object') return null;
+      viewerCatalogCache = {
+        papers: Array.isArray(payload.papers) ? payload.papers : [],
+        sources: Array.isArray(payload.sources) ? payload.sources : [],
+        filters: payload.filters && typeof payload.filters === 'object' ? payload.filters : {},
+        autocomplete: payload.autocomplete && typeof payload.autocomplete === 'object' ? payload.autocomplete : {},
+        dataVersion: String(payload.dataVersion || '').trim(),
+      };
+      return viewerCatalogCache;
+    })();
+
+    try {
+      return await viewerCatalogLoadPromise;
+    } finally {
+      viewerCatalogLoadPromise = null;
+    }
+  }
+
+  async function loadViewerPaperRelatedIndex() {
+    if (viewerRelatedCache) return viewerRelatedCache;
+    if (viewerRelatedLoadPromise) return viewerRelatedLoadPromise;
+
+    viewerRelatedLoadPromise = (async () => {
+      const payload = await root.loadViewerArtifactJson('paperRelated');
+      const byPaperId = payload && typeof payload === 'object' && payload.byPaperId && typeof payload.byPaperId === 'object'
+        ? payload.byPaperId
+        : {};
+      viewerRelatedCache = byPaperId;
+      return byPaperId;
+    })();
+
+    try {
+      return await viewerRelatedLoadPromise;
+    } finally {
+      viewerRelatedLoadPromise = null;
+    }
   }
 
   async function loadManifest() {
@@ -198,6 +340,25 @@
   }
 
   async function loadPaperData() {
+    try {
+      const catalog = await loadViewerPaperCatalog();
+      if (catalog && fullDataCache && fullDataVersion === catalog.dataVersion) {
+        return fullDataCache;
+      }
+      if (catalog) {
+        fullDataCache = {
+          papers: catalog.papers,
+          sources: catalog.sources,
+          filters: catalog.filters,
+          autocomplete: catalog.autocomplete,
+        };
+        fullDataVersion = catalog.dataVersion;
+        return fullDataCache;
+      }
+    } catch {
+      // Fall back to canonical raw manifests below.
+    }
+
     const manifest = await loadManifest();
     if (fullDataCache && fullDataVersion === manifest.dataVersion) {
       return fullDataCache;
@@ -225,6 +386,35 @@
   async function loadPaperRecordById(paperId) {
     const target = String(paperId || '').trim();
     if (!target) return null;
+
+    try {
+      const detailRef = await root.resolveViewerArtifactShardUrl('paperDetails', target);
+      if (detailRef) {
+        const payload = await fetchJson(detailRef);
+        const papers = payload && payload.papers && typeof payload.papers === 'object' ? payload.papers : {};
+        const entry = papers[target];
+        if (entry && typeof entry === 'object' && entry.paper && typeof entry.paper === 'object') {
+          let related = null;
+          try {
+            const relatedIndex = await loadViewerPaperRelatedIndex();
+            related = relatedIndex && relatedIndex[target] && typeof relatedIndex[target] === 'object'
+              ? relatedIndex[target]
+              : null;
+          } catch {
+            related = null;
+          }
+          return {
+            paper: entry.paper,
+            papers: [entry.paper],
+            source: entry.paper.source || null,
+            dataVersion: String(payload && payload.dataVersion || '').trim(),
+            related,
+          };
+        }
+      }
+    } catch {
+      // Fall back to canonical raw manifests below.
+    }
 
     const manifest = await loadManifest();
 
@@ -258,6 +448,6 @@
     return null;
   }
 
-  window.loadPaperData = loadPaperData;
-  window.loadPaperRecordById = loadPaperRecordById;
+  root.loadPaperData = loadPaperData;
+  root.loadPaperRecordById = loadPaperRecordById;
 })();

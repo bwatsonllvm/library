@@ -175,6 +175,8 @@ function highlightText(text, tokens) {
 }
 
 function getPersonSearchBlob(person) {
+  const precomputed = String(person && person._searchBlob || '').trim().toLowerCase();
+  if (precomputed) return precomputed;
   return [
     person.name,
     ...(person.variantNames || []),
@@ -226,6 +228,8 @@ function buildSpeakerWorkUrl(name) {
 }
 
 function getTalkSearchBlob(talk) {
+  const precomputed = String(talk && talk._searchBlob || '').trim().toLowerCase();
+  if (precomputed) return precomputed;
   return [
     String(talk.title || ''),
     (talk.speakers || []).map((speaker) => String((speaker && speaker.name) || '')).join(' '),
@@ -239,6 +243,8 @@ function getTalkSearchBlob(talk) {
 }
 
 function getPaperSearchBlob(paper) {
+  const precomputed = String(paper && paper._searchBlob || '').trim().toLowerCase();
+  if (precomputed) return precomputed;
   return [
     String(paper.title || ''),
     (paper.authors || []).map((author) => String((author && author.name) || '')).join(' '),
@@ -1461,42 +1467,76 @@ async function init() {
   initSortControl();
   initViewControls();
 
-  let talks = [];
-  let papers = [];
+  let artifactLoaded = false;
 
-  if (typeof window.loadEventData === 'function') {
+  if (typeof window.loadViewerArtifactJson === 'function') {
     try {
-      const payload = await window.loadEventData();
-      talks = normalizeTalks(payload.talks || []);
+      const [peoplePayload, workPayload] = await Promise.all([
+        window.loadViewerArtifactJson('peopleIndex'),
+        window.loadViewerArtifactJson('workSearchCorpus'),
+      ]);
+      allTalks = normalizeTalks(workPayload && workPayload.talks || []);
+      allPapers = [
+        ...(Array.isArray(workPayload && workPayload.papers) ? workPayload.papers : []),
+        ...(Array.isArray(workPayload && workPayload.blogs) ? workPayload.blogs : []),
+      ];
+      allPeople = Array.isArray(peoplePayload && peoplePayload.people) ? peoplePayload.people : [];
+      allTopics = Array.isArray(peoplePayload && peoplePayload.topics) ? peoplePayload.topics : [];
+      allAffiliations = Array.isArray(peoplePayload && peoplePayload.affiliations) ? peoplePayload.affiliations : [];
+      allPublications = Array.isArray(peoplePayload && peoplePayload.publications) ? peoplePayload.publications : [];
+      autocompleteIndex = peoplePayload && peoplePayload.autocomplete && typeof peoplePayload.autocomplete === 'object'
+        ? {
+          topics: Array.isArray(peoplePayload.autocomplete.topics) ? peoplePayload.autocomplete.topics : [],
+          people: Array.isArray(peoplePayload.autocomplete.people) ? peoplePayload.autocomplete.people : [],
+          talks: Array.isArray(peoplePayload.autocomplete.talks) ? peoplePayload.autocomplete.talks : [],
+          papers: Array.isArray(peoplePayload.autocomplete.papers) ? peoplePayload.autocomplete.papers : [],
+        }
+        : autocompleteIndex;
+      artifactLoaded = true;
     } catch {
-      // Keep talk list empty and continue.
+      artifactLoaded = false;
     }
   }
 
-  if (typeof window.loadPaperData === 'function') {
-    try {
-      const payload = await window.loadPaperData();
-      papers = normalizePapers(payload.papers || []);
-    } catch {
-      // Keep paper list empty and continue.
+  if (!artifactLoaded) {
+    let talks = [];
+    let papers = [];
+
+    if (typeof window.loadEventData === 'function') {
+      try {
+        const payload = await window.loadEventData();
+        talks = normalizeTalks(payload.talks || []);
+      } catch {
+        // Keep talk list empty and continue.
+      }
     }
+
+    if (typeof window.loadPaperData === 'function') {
+      try {
+        const payload = await window.loadPaperData();
+        papers = normalizePapers(payload.papers || []);
+      } catch {
+        // Keep paper list empty and continue.
+      }
+    }
+
+    allTalks = talks;
+    allPapers = papers;
+
+    if (typeof HubUtils.buildPeopleIndex === 'function') {
+      allPeople = HubUtils.buildPeopleIndex(talks, papers);
+    } else {
+      allPeople = [];
+    }
+
+    buildAutocompleteIndex();
+    buildTopicIndex();
+    buildAffiliationIndex();
+    buildPublicationIndex();
   }
 
-  allTalks = talks;
-  allPapers = papers;
-
-  if (typeof HubUtils.buildPeopleIndex === 'function') {
-    allPeople = HubUtils.buildPeopleIndex(talks, papers);
-  } else {
-    allPeople = [];
-  }
-
-  buildAutocompleteIndex();
-  buildTopicIndex();
   initTopicFilter();
-  buildAffiliationIndex();
   initAffiliationFilter();
-  buildPublicationIndex();
   initPublicationFilter();
   initSearch();
   render();

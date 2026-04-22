@@ -1,0 +1,3681 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-10-060": {
+      "talk": {
+        "id": "2025-10-060",
+        "meeting": "2025-10",
+        "meetingName": "2025 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 27-29, 2025",
+        "category": "quick-talk",
+        "title": "New & Improved LLVM Premerge Testing: Status Update",
+        "speakers": [
+          {
+            "name": "Aiden Grossman",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Caroline Tice",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk we will give an update on the new premerge testing system, including all the improvements that we have made (and are continuing to make): We have eliminated a major pain point for libc++ developers, by migrating libc++ premerge testing to a set of more powerful, dedicated (non-preemptible) machines; we have made testing both faster and more reliable, by improving start up and build performance and reducing the flakiness of test results; we have made it easier to see and track the performance improvements over time, by overhauling our new dashboard(s) that show the performance and build latencies for the premerge tests. If there is time we will also present our plans for future improvements to the premerge testing system.",
+        "videoUrl": "https://youtu.be/A_IY7qgyM6s",
+        "videoId": "A_IY7qgyM6s",
+        "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/quick_talks/grossman_tice.pdf",
+        "tags": [
+          "C Libs",
+          "C++",
+          "C++ Libs",
+          "Infrastructure",
+          "Performance",
+          "Testing"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "new & improved llvm premerge testing: status update",
+        "_speakerLower": "aiden grossman caroline tice",
+        "_abstractLower": "in this talk we will give an update on the new premerge testing system, including all the improvements that we have made (and are continuing to make): we have eliminated a major pain point for libc++ developers, by migrating libc++ premerge testing to a set of more powerful, dedicated (non-preemptible) machines; we have made testing both faster and more reliable, by improving start up and build performance and reducing the flakiness of test results; we have made it easier to see and track the performance improvements over time, by overhauling our new dashboard(s) that show the performance and build latencies for the premerge tests. if there is time we will also present our plans for future improvements to the premerge testing system.",
+        "_tagsLower": "c libs c++ c++ libs infrastructure performance testing llvm libc",
+        "_meetingLower": "2025 us llvm developers' meeting santa clara, ca, usa october 27-29, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "new and improved llvm premerge testing status update",
+              "words": [
+                "new",
+                "and",
+                "improved",
+                "llvm",
+                "premerge",
+                "testing",
+                "status",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "aiden grossman caroline tice",
+              "words": [
+                "aiden",
+                "grossman",
+                "caroline",
+                "tice"
+              ]
+            },
+            "tags": {
+              "text": "c libs c++ c++ libs infrastructure performance testing llvm libc",
+              "words": [
+                "libs",
+                "c++",
+                "c++",
+                "libs",
+                "infrastructure",
+                "performance",
+                "testing",
+                "llvm",
+                "libc"
+              ]
+            },
+            "meeting": {
+              "text": "2025 us llvm developers meeting santa clara ca usa october 27-29 2025",
+              "words": [
+                "2025",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "27-29",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we will give an update on the new premerge testing system including all the improvements that we have made and are continuing to make we have eliminated a major pain point for libc++ developers by migrating libc++ premerge testing to a set of more powerful dedicated non-preemptible machines we have made testing both faster and more reliable by improving start up and build performance and reducing the flakiness of test results we have made it easier to see and track the performance improvements over time by overhauling our new dashboard s that show the performance and build latencies for the premerge tests. if there is time we will also present our plans for future improvements to the premerge testing system.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "give",
+                "an",
+                "update",
+                "on",
+                "the",
+                "new",
+                "premerge",
+                "testing",
+                "system",
+                "including",
+                "all",
+                "the",
+                "improvements",
+                "that",
+                "we",
+                "have",
+                "made",
+                "and",
+                "are",
+                "continuing",
+                "to",
+                "make",
+                "we",
+                "have",
+                "eliminated",
+                "major",
+                "pain",
+                "point",
+                "for",
+                "libc++",
+                "developers",
+                "by",
+                "migrating",
+                "libc++",
+                "premerge",
+                "testing",
+                "to",
+                "set",
+                "of",
+                "more",
+                "powerful",
+                "dedicated",
+                "non-preemptible",
+                "machines",
+                "we",
+                "have",
+                "made",
+                "testing",
+                "both",
+                "faster",
+                "and",
+                "more",
+                "reliable",
+                "by",
+                "improving",
+                "start",
+                "up",
+                "and",
+                "build",
+                "performance",
+                "and",
+                "reducing",
+                "the",
+                "flakiness",
+                "of",
+                "test",
+                "results",
+                "we",
+                "have",
+                "made",
+                "it",
+                "easier",
+                "to",
+                "see",
+                "and",
+                "track",
+                "the",
+                "performance",
+                "improvements",
+                "over",
+                "time",
+                "by",
+                "overhauling",
+                "our",
+                "new",
+                "dashboard",
+                "that",
+                "show",
+                "the",
+                "performance",
+                "and",
+                "build",
+                "latencies",
+                "for",
+                "the",
+                "premerge",
+                "tests.",
+                "if",
+                "there",
+                "is",
+                "time",
+                "we",
+                "will",
+                "also",
+                "present",
+                "our",
+                "plans",
+                "for",
+                "future",
+                "improvements",
+                "to",
+                "the",
+                "premerge",
+                "testing",
+                "system."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "new and improved llvm premerge testing status update in this talk we will give an update on the new premerge testing system including all the improvements that we have made and are continuing to make we have eliminated a major pain point for libc++ developers by migrating libc++ premerge testing to a set of more powerful dedicated non-preemptible machines we have made testing both faster and more reliable by improving start up and build performance and reducing the flakiness of test results we have made it easier to see and track the performance improvements over time by overhauling our new dashboard s that show the performance and build latencies for the premerge tests. if there is time we will also present our plans for future improvements to the premerge testing system. 2025 us llvm developers meeting santa clara ca usa october 27-29 2025 2025-10 quick-talk aiden grossman caroline tice c libs c++ c++ libs infrastructure performance testing llvm libc"
+      },
+      "meeting": {
+        "slug": "2025-10",
+        "name": "2025 US LLVM Developers' Meeting",
+        "date": "October 27-29, 2025",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 84
+      }
+    },
+    "2025-10-082": {
+      "talk": {
+        "id": "2025-10-082",
+        "meeting": "2025-10",
+        "meetingName": "2025 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 27-29, 2025",
+        "category": "poster",
+        "title": "Mojo GPU Compilation",
+        "speakers": [
+          {
+            "name": "Weiwei Chen",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Abdul Dakkak",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Mojo is a heterogeneous programming language in the python family which unifies CPU+GPU programming. It's the cornerstone of the Modular MAX inference engine — and is used extensively to unlock high performance on heterogenous platforms while ensuring maintainability. This talk is aimed at people who are interested in the GPU kernel programming in Mojo along with how Mojo's unique compilation flow enables it to offload work to the accelerator from the library.",
+        "videoId": null,
+        "tags": [
+          "GPU",
+          "Mojo",
+          "Performance",
+          "Programming Languages"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mojo gpu compilation",
+        "_speakerLower": "weiwei chen abdul dakkak",
+        "_abstractLower": "mojo is a heterogeneous programming language in the python family which unifies cpu+gpu programming. it's the cornerstone of the modular max inference engine — and is used extensively to unlock high performance on heterogenous platforms while ensuring maintainability. this talk is aimed at people who are interested in the gpu kernel programming in mojo along with how mojo's unique compilation flow enables it to offload work to the accelerator from the library.",
+        "_tagsLower": "gpu mojo performance programming languages offload",
+        "_meetingLower": "2025 us llvm developers' meeting santa clara, ca, usa october 27-29, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mojo gpu compilation",
+              "words": [
+                "mojo",
+                "gpu",
+                "compilation"
+              ]
+            },
+            "speakers": {
+              "text": "weiwei chen abdul dakkak",
+              "words": [
+                "weiwei",
+                "chen",
+                "abdul",
+                "dakkak"
+              ]
+            },
+            "tags": {
+              "text": "gpu mojo performance programming languages offload",
+              "words": [
+                "gpu",
+                "mojo",
+                "performance",
+                "programming",
+                "languages",
+                "offload"
+              ]
+            },
+            "meeting": {
+              "text": "2025 us llvm developers meeting santa clara ca usa october 27-29 2025",
+              "words": [
+                "2025",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "27-29",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "mojo is a heterogeneous programming language in the python family which unifies cpu+gpu programming. its the cornerstone of the modular max inference engine and is used extensively to unlock high performance on heterogenous platforms while ensuring maintainability. this talk is aimed at people who are interested in the gpu kernel programming in mojo along with how mojos unique compilation flow enables it to offload work to the accelerator from the library.",
+              "words": [
+                "mojo",
+                "is",
+                "heterogeneous",
+                "programming",
+                "language",
+                "in",
+                "the",
+                "python",
+                "family",
+                "which",
+                "unifies",
+                "cpu+gpu",
+                "programming.",
+                "its",
+                "the",
+                "cornerstone",
+                "of",
+                "the",
+                "modular",
+                "max",
+                "inference",
+                "engine",
+                "and",
+                "is",
+                "used",
+                "extensively",
+                "to",
+                "unlock",
+                "high",
+                "performance",
+                "on",
+                "heterogenous",
+                "platforms",
+                "while",
+                "ensuring",
+                "maintainability.",
+                "this",
+                "talk",
+                "is",
+                "aimed",
+                "at",
+                "people",
+                "who",
+                "are",
+                "interested",
+                "in",
+                "the",
+                "gpu",
+                "kernel",
+                "programming",
+                "in",
+                "mojo",
+                "along",
+                "with",
+                "how",
+                "mojos",
+                "unique",
+                "compilation",
+                "flow",
+                "enables",
+                "it",
+                "to",
+                "offload",
+                "work",
+                "to",
+                "the",
+                "accelerator",
+                "from",
+                "the",
+                "library."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "mojo gpu compilation mojo is a heterogeneous programming language in the python family which unifies cpu+gpu programming. its the cornerstone of the modular max inference engine and is used extensively to unlock high performance on heterogenous platforms while ensuring maintainability. this talk is aimed at people who are interested in the gpu kernel programming in mojo along with how mojos unique compilation flow enables it to offload work to the accelerator from the library. 2025 us llvm developers meeting santa clara ca usa october 27-29 2025 2025-10 poster weiwei chen abdul dakkak gpu mojo performance programming languages offload"
+      },
+      "meeting": {
+        "slug": "2025-10",
+        "name": "2025 US LLVM Developers' Meeting",
+        "date": "October 27-29, 2025",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 84
+      }
+    },
+    "2024-10-070": {
+      "talk": {
+        "id": "2024-10-070",
+        "meeting": "2024-10",
+        "meetingName": "2024 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 22-24, 2024",
+        "category": "lightning-talk",
+        "title": "Flang Update",
+        "speakers": [
+          {
+            "name": "Steve Scalpone",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Flang is an LLVM subproject which is a ground-up implementation of a Fortran front end written in modern C++. Flang uses MLIR as in intermediate language and implements OpenMP for CPUs and GPUs. This lightning talk touches on current development efforts, testing coverage, feature status, and performance.",
+        "videoUrl": "https://youtu.be/xfBANFcMhCo",
+        "videoId": "xfBANFcMhCo",
+        "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/lightning/Scalpone-FlangUpdate.pdf",
+        "tags": [
+          "Flang",
+          "GPU",
+          "MLIR",
+          "Performance",
+          "Testing"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "flang update",
+        "_speakerLower": "steve scalpone",
+        "_abstractLower": "flang is an llvm subproject which is a ground-up implementation of a fortran front end written in modern c++. flang uses mlir as in intermediate language and implements openmp for cpus and gpus. this lightning talk touches on current development efforts, testing coverage, feature status, and performance.",
+        "_tagsLower": "flang gpu mlir performance testing llvm openmp",
+        "_meetingLower": "2024 us llvm developers' meeting santa clara, ca, usa october 22-24, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "flang update",
+              "words": [
+                "flang",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "steve scalpone",
+              "words": [
+                "steve",
+                "scalpone"
+              ]
+            },
+            "tags": {
+              "text": "flang gpu mlir performance testing llvm openmp",
+              "words": [
+                "flang",
+                "gpu",
+                "mlir",
+                "performance",
+                "testing",
+                "llvm",
+                "openmp"
+              ]
+            },
+            "meeting": {
+              "text": "2024 us llvm developers meeting santa clara ca usa october 22-24 2024",
+              "words": [
+                "2024",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "22-24",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "flang is an llvm subproject which is a ground-up implementation of a fortran front end written in modern c++. flang uses mlir as in intermediate language and implements openmp for cpus and gpus. this lightning talk touches on current development efforts testing coverage feature status and performance.",
+              "words": [
+                "flang",
+                "is",
+                "an",
+                "llvm",
+                "subproject",
+                "which",
+                "is",
+                "ground-up",
+                "implementation",
+                "of",
+                "fortran",
+                "front",
+                "end",
+                "written",
+                "in",
+                "modern",
+                "c++.",
+                "flang",
+                "uses",
+                "mlir",
+                "as",
+                "in",
+                "intermediate",
+                "language",
+                "and",
+                "implements",
+                "openmp",
+                "for",
+                "cpus",
+                "and",
+                "gpus.",
+                "this",
+                "lightning",
+                "talk",
+                "touches",
+                "on",
+                "current",
+                "development",
+                "efforts",
+                "testing",
+                "coverage",
+                "feature",
+                "status",
+                "and",
+                "performance."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "flang update flang is an llvm subproject which is a ground-up implementation of a fortran front end written in modern c++. flang uses mlir as in intermediate language and implements openmp for cpus and gpus. this lightning talk touches on current development efforts testing coverage feature status and performance. 2024 us llvm developers meeting santa clara ca usa october 22-24 2024 2024-10 lightning-talk steve scalpone flang gpu mlir performance testing llvm openmp"
+      },
+      "meeting": {
+        "slug": "2024-10",
+        "name": "2024 US LLVM Developers' Meeting",
+        "date": "October 22-24, 2024",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2023-02-25-005": {
+      "talk": {
+        "id": "2023-02-25-005",
+        "meeting": "2023-02-25",
+        "meetingName": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "meetingDate": "February 25, 2023",
+        "category": "technical-talk",
+        "title": "Solid Work-Group Synchronization on CPUs",
+        "speakers": [],
+        "abstract": "More and more frameworks and simulations are developed using heterogeneous programming models such as CUDA, HIP, SYCL, or OpenCL. Their hierarchical kernel models are easily mapped to the GPU's resource hierarchy, their massive number of threads, and lightweight synchronization. For compatibility with CPU-only high-performance computing facilities (e.g. Fugaku) or for splitting work across GPUs and CPUs, it is beneficial if the kernels written for those programming models can also be executed on CPUs. A significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on CPUs requires providing forward-progress guarantees. These guarantees can only be provided by using sufficient concurrency (by means of threads or fibers) or compiler transformations that split the kernels at the barriers. While new variants and improvements are still being proposed, the compiler transformations are similar in spirit. This means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models. We propose to have one of these implementations upstream in LLVM, to allow for reusing a mature and optimized implementation.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2023-02-25/slides/work-group-sync-on-cpu-LLVM.pdf",
+        "tags": [
+          "CUDA",
+          "GPU",
+          "OpenCL",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/UoB-HPC/BabelStream7.2",
+        "githubReferences": [
+          "https://github.com/UoB-HPC/BabelStream7.2",
+          "https://github.com/UoB-HPC/BabelStream",
+          "https://github.com/OpenSYCL/OpenSYCL"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/UoB-HPC/BabelStream7.2",
+            "source": "slides",
+            "label": "1 \u0000berLightweight threads + synchronizationCan optimize barrier-free kernels! qContext-switch overhead qLimited vectorization across work-items",
+            "context": "1 \u0000berLightweight threads + synchronizationCan optimize barrier-free kernels! qContext-switch overhead qLimited vectorization across work-items",
+            "library": "BabelStream7.2",
+            "repository": "UoB-HPC/BabelStream7.2",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/UoB-HPC/BabelStream",
+            "source": "slides",
+            "label": "1 \u0000berLightweight threads + synchronizationCan optimize barrier-free kernels! qContext-switch overhead qLimited vectorization across work-items",
+            "context": "1 \u0000berLightweight threads + synchronizationCan optimize barrier-free kernels! qContext-switch overhead qLimited vectorization across work-items",
+            "library": "BabelStream",
+            "repository": "UoB-HPC/BabelStream",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/OpenSYCL/OpenSYCL",
+            "source": "slides",
+            "label": "THANK YOU FOR LISTENING! LOOKING FORWARD TO QUESTIONS AND DISCUSSIONS Contact: Joachim Meyer jmeyer@cs.uni-saarland.de",
+            "context": "THANK YOU FOR LISTENING! LOOKING FORWARD TO QUESTIONS AND DISCUSSIONS Contact: Joachim Meyer jmeyer@cs.uni-saarland.de",
+            "library": "OpenSYCL",
+            "repository": "OpenSYCL/OpenSYCL",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/UoB-HPC/BabelStream7.2"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/UoB-HPC/BabelStream"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 3",
+            "url": "https://github.com/OpenSYCL/OpenSYCL"
+          }
+        ],
+        "keywords": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "solid work-group synchronization on cpus",
+        "_speakerLower": "",
+        "_abstractLower": "more and more frameworks and simulations are developed using heterogeneous programming models such as cuda, hip, sycl, or opencl. their hierarchical kernel models are easily mapped to the gpu's resource hierarchy, their massive number of threads, and lightweight synchronization. for compatibility with cpu-only high-performance computing facilities (e.g. fugaku) or for splitting work across gpus and cpus, it is beneficial if the kernels written for those programming models can also be executed on cpus. a significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on cpus requires providing forward-progress guarantees. these guarantees can only be provided by using sufficient concurrency (by means of threads or fibers) or compiler transformations that split the kernels at the barriers. while new variants and improvements are still being proposed, the compiler transformations are similar in spirit. this means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models. we propose to have one of these implementations upstream in llvm, to allow for reusing a mature and optimized implementation.",
+        "_tagsLower": "cuda gpu opencl performance llvm libsycl hip",
+        "_meetingLower": "2023 seventh llvm performance workshop @ cgo seventh llvm performance workshop @ cgo, in person - hybrid february 25, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "solid work-group synchronization on cpus",
+              "words": [
+                "solid",
+                "work-group",
+                "synchronization",
+                "on",
+                "cpus"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "cuda gpu opencl performance llvm libsycl hip",
+              "words": [
+                "cuda",
+                "gpu",
+                "opencl",
+                "performance",
+                "llvm",
+                "libsycl",
+                "hip"
+              ]
+            },
+            "meeting": {
+              "text": "2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023",
+              "words": [
+                "2023",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "seventh",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "in",
+                "person",
+                "hybrid",
+                "february",
+                "25",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "more and more frameworks and simulations are developed using heterogeneous programming models such as cuda hip sycl or opencl. their hierarchical kernel models are easily mapped to the gpus resource hierarchy their massive number of threads and lightweight synchronization. for compatibility with cpu-only high-performance computing facilities e.g. fugaku or for splitting work across gpus and cpus it is beneficial if the kernels written for those programming models can also be executed on cpus. a significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on cpus requires providing forward-progress guarantees. these guarantees can only be provided by using sufficient concurrency by means of threads or fibers or compiler transformations that split the kernels at the barriers. while new variants and improvements are still being proposed the compiler transformations are similar in spirit. this means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models. we propose to have one of these implementations upstream in llvm to allow for reusing a mature and optimized implementation.",
+              "words": [
+                "more",
+                "and",
+                "more",
+                "frameworks",
+                "and",
+                "simulations",
+                "are",
+                "developed",
+                "using",
+                "heterogeneous",
+                "programming",
+                "models",
+                "such",
+                "as",
+                "cuda",
+                "hip",
+                "sycl",
+                "or",
+                "opencl.",
+                "their",
+                "hierarchical",
+                "kernel",
+                "models",
+                "are",
+                "easily",
+                "mapped",
+                "to",
+                "the",
+                "gpus",
+                "resource",
+                "hierarchy",
+                "their",
+                "massive",
+                "number",
+                "of",
+                "threads",
+                "and",
+                "lightweight",
+                "synchronization.",
+                "for",
+                "compatibility",
+                "with",
+                "cpu-only",
+                "high-performance",
+                "computing",
+                "facilities",
+                "e.g.",
+                "fugaku",
+                "or",
+                "for",
+                "splitting",
+                "work",
+                "across",
+                "gpus",
+                "and",
+                "cpus",
+                "it",
+                "is",
+                "beneficial",
+                "if",
+                "the",
+                "kernels",
+                "written",
+                "for",
+                "those",
+                "programming",
+                "models",
+                "can",
+                "also",
+                "be",
+                "executed",
+                "on",
+                "cpus.",
+                "significant",
+                "hurdle",
+                "to",
+                "achieving",
+                "this",
+                "in",
+                "performance-portable",
+                "manner",
+                "is",
+                "that",
+                "implementing",
+                "barriers",
+                "for",
+                "such",
+                "kernels",
+                "on",
+                "cpus",
+                "requires",
+                "providing",
+                "forward-progress",
+                "guarantees.",
+                "these",
+                "guarantees",
+                "can",
+                "only",
+                "be",
+                "provided",
+                "by",
+                "using",
+                "sufficient",
+                "concurrency",
+                "by",
+                "means",
+                "of",
+                "threads",
+                "or",
+                "fibers",
+                "or",
+                "compiler",
+                "transformations",
+                "that",
+                "split",
+                "the",
+                "kernels",
+                "at",
+                "the",
+                "barriers.",
+                "while",
+                "new",
+                "variants",
+                "and",
+                "improvements",
+                "are",
+                "still",
+                "being",
+                "proposed",
+                "the",
+                "compiler",
+                "transformations",
+                "are",
+                "similar",
+                "in",
+                "spirit.",
+                "this",
+                "means",
+                "that",
+                "the",
+                "base",
+                "transformations",
+                "are",
+                "regularly",
+                "re-implemented",
+                "in",
+                "research",
+                "and",
+                "production",
+                "runtimes",
+                "of",
+                "the",
+                "heterogeneous",
+                "programming",
+                "models.",
+                "we",
+                "propose",
+                "to",
+                "have",
+                "one",
+                "of",
+                "these",
+                "implementations",
+                "upstream",
+                "in",
+                "llvm",
+                "to",
+                "allow",
+                "for",
+                "reusing",
+                "mature",
+                "and",
+                "optimized",
+                "implementation."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "solid work-group synchronization on cpus more and more frameworks and simulations are developed using heterogeneous programming models such as cuda hip sycl or opencl. their hierarchical kernel models are easily mapped to the gpus resource hierarchy their massive number of threads and lightweight synchronization. for compatibility with cpu-only high-performance computing facilities e.g. fugaku or for splitting work across gpus and cpus it is beneficial if the kernels written for those programming models can also be executed on cpus. a significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on cpus requires providing forward-progress guarantees. these guarantees can only be provided by using sufficient concurrency by means of threads or fibers or compiler transformations that split the kernels at the barriers. while new variants and improvements are still being proposed the compiler transformations are similar in spirit. this means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models. we propose to have one of these implementations upstream in llvm to allow for reusing a mature and optimized implementation. 2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023 2023-02-25 technical-talk cuda gpu opencl performance llvm libsycl hip"
+      },
+      "meeting": {
+        "slug": "2023-02-25",
+        "name": "2023 Seventh LLVM Performance Workshop @ CGO",
+        "date": "February 25, 2023",
+        "location": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+        "canceled": false,
+        "talkCount": 5
+      }
+    },
+    "2022-04-03-008": {
+      "talk": {
+        "id": "2022-04-03-008",
+        "meeting": "2022-04-03",
+        "meetingName": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "April 3, 2022",
+        "category": "technical-talk",
+        "title": "Improving the OpenMP Offloading Driver: LTO, libraries, and toolchains",
+        "speakers": [
+          {
+            "name": "Joseph Huber",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This technical talk will describe the work done to improve the clang driver for generating OpenMP offloading applications. The talk will detail the motivations behind this change, the implementation and function of the new driver, and the features and performance this new approach provides. Features such as device link time optimization, static libraries, and tool-chain unification greatly improve both the performance and usability of LLVM's OpenMP offloading support. I will mention the performance improvements found for some applications that make heavy use of split compilation, something that is notoriously slow for regular CUDA codes.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2022-04-03/slides/Improving.the.OpenMP.Offloading.Driver.LTO.libraries.and.toolchains.pdf",
+        "tags": [
+          "CUDA",
+          "Clang",
+          "LLD",
+          "LTO",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "improving the openmp offloading driver: lto, libraries, and toolchains",
+        "_speakerLower": "joseph huber",
+        "_abstractLower": "this technical talk will describe the work done to improve the clang driver for generating openmp offloading applications. the talk will detail the motivations behind this change, the implementation and function of the new driver, and the features and performance this new approach provides. features such as device link time optimization, static libraries, and tool-chain unification greatly improve both the performance and usability of llvm's openmp offloading support. i will mention the performance improvements found for some applications that make heavy use of split compilation, something that is notoriously slow for regular cuda codes.",
+        "_tagsLower": "cuda clang lld lto optimizations performance llvm openmp offload",
+        "_meetingLower": "2022 sixth llvm performance workshop @ cgo sixth llvm performance workshop @ cgo, virtual april 3, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "improving the openmp offloading driver lto libraries and toolchains",
+              "words": [
+                "improving",
+                "the",
+                "openmp",
+                "offloading",
+                "driver",
+                "lto",
+                "libraries",
+                "and",
+                "toolchains"
+              ]
+            },
+            "speakers": {
+              "text": "joseph huber",
+              "words": [
+                "joseph",
+                "huber"
+              ]
+            },
+            "tags": {
+              "text": "cuda clang lld lto optimizations performance llvm openmp offload",
+              "words": [
+                "cuda",
+                "clang",
+                "lld",
+                "lto",
+                "optimizations",
+                "performance",
+                "llvm",
+                "openmp",
+                "offload"
+              ]
+            },
+            "meeting": {
+              "text": "2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022",
+              "words": [
+                "2022",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "april",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "this technical talk will describe the work done to improve the clang driver for generating openmp offloading applications. the talk will detail the motivations behind this change the implementation and function of the new driver and the features and performance this new approach provides. features such as device link time optimization static libraries and tool-chain unification greatly improve both the performance and usability of llvms openmp offloading support. i will mention the performance improvements found for some applications that make heavy use of split compilation something that is notoriously slow for regular cuda codes.",
+              "words": [
+                "this",
+                "technical",
+                "talk",
+                "will",
+                "describe",
+                "the",
+                "work",
+                "done",
+                "to",
+                "improve",
+                "the",
+                "clang",
+                "driver",
+                "for",
+                "generating",
+                "openmp",
+                "offloading",
+                "applications.",
+                "the",
+                "talk",
+                "will",
+                "detail",
+                "the",
+                "motivations",
+                "behind",
+                "this",
+                "change",
+                "the",
+                "implementation",
+                "and",
+                "function",
+                "of",
+                "the",
+                "new",
+                "driver",
+                "and",
+                "the",
+                "features",
+                "and",
+                "performance",
+                "this",
+                "new",
+                "approach",
+                "provides.",
+                "features",
+                "such",
+                "as",
+                "device",
+                "link",
+                "time",
+                "optimization",
+                "static",
+                "libraries",
+                "and",
+                "tool-chain",
+                "unification",
+                "greatly",
+                "improve",
+                "both",
+                "the",
+                "performance",
+                "and",
+                "usability",
+                "of",
+                "llvms",
+                "openmp",
+                "offloading",
+                "support.",
+                "will",
+                "mention",
+                "the",
+                "performance",
+                "improvements",
+                "found",
+                "for",
+                "some",
+                "applications",
+                "that",
+                "make",
+                "heavy",
+                "use",
+                "of",
+                "split",
+                "compilation",
+                "something",
+                "that",
+                "is",
+                "notoriously",
+                "slow",
+                "for",
+                "regular",
+                "cuda",
+                "codes."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "improving the openmp offloading driver lto libraries and toolchains this technical talk will describe the work done to improve the clang driver for generating openmp offloading applications. the talk will detail the motivations behind this change the implementation and function of the new driver and the features and performance this new approach provides. features such as device link time optimization static libraries and tool-chain unification greatly improve both the performance and usability of llvms openmp offloading support. i will mention the performance improvements found for some applications that make heavy use of split compilation something that is notoriously slow for regular cuda codes. 2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022 2022-04-03 technical-talk joseph huber cuda clang lld lto optimizations performance llvm openmp offload"
+      },
+      "meeting": {
+        "slug": "2022-04-03",
+        "name": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "date": "April 3, 2022",
+        "location": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2021-02-28-004": {
+      "talk": {
+        "id": "2021-02-28-004",
+        "meeting": "2021-02-28",
+        "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "February 28, 2021",
+        "category": "technical-talk",
+        "title": "Instrumentation to Prevent Programs Buffer-Overflow Attacks",
+        "speakers": [
+          {
+            "name": "Vishal Chebrolu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Memory corruption errors are a serious problem in languages like C and C++. Errors like out-of-bound access to the buffers when explored critically by attackers can lead to security vulnerabilities like buffer-overflow attacks. AddressSanitizer(ASAN) is a fast memory error detector which detects a number of memory bugs. We provide a mechanism for improvising the AddressSanitizer tool to prevent C/C++ programs from halting due to memory corruption errors like out-of-bound accesses to heap memory, use-after-free, invalid free, and double free. The changes are made in the instrumentation module to instrument recovery blocks instead of the error-reporting blocks for each type of accesses and also provide a method for dealing with pointer aliasing within functions. The instrumentation ensures the addressable memory is increased dynamically at runtime according to the execution of the program based on a scale of reallocation, which is used to decide whether to increase the addressable memory or not to consider the specific access. These changes can be employed in cases where system availability is of vital concern or when there is a need to reuse legacy code with increased memory demands, in which case the bounds are expanded safely during runtime.",
+        "videoId": null,
+        "tags": [
+          "Dynamic Analysis",
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "instrumentation to prevent programs buffer-overflow attacks",
+        "_speakerLower": "vishal chebrolu",
+        "_abstractLower": "memory corruption errors are a serious problem in languages like c and c++. errors like out-of-bound access to the buffers when explored critically by attackers can lead to security vulnerabilities like buffer-overflow attacks. addresssanitizer(asan) is a fast memory error detector which detects a number of memory bugs. we provide a mechanism for improvising the addresssanitizer tool to prevent c/c++ programs from halting due to memory corruption errors like out-of-bound accesses to heap memory, use-after-free, invalid free, and double free. the changes are made in the instrumentation module to instrument recovery blocks instead of the error-reporting blocks for each type of accesses and also provide a method for dealing with pointer aliasing within functions. the instrumentation ensures the addressable memory is increased dynamically at runtime according to the execution of the program based on a scale of reallocation, which is used to decide whether to increase the addressable memory or not to consider the specific access. these changes can be employed in cases where system availability is of vital concern or when there is a need to reuse legacy code with increased memory demands, in which case the bounds are expanded safely during runtime.",
+        "_tagsLower": "dynamic analysis security sanitizers",
+        "_meetingLower": "2021 fifth llvm performance workshop @ cgo fifth llvm performance workshop @ cgo, virtual february 28, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "instrumentation to prevent programs buffer-overflow attacks",
+              "words": [
+                "instrumentation",
+                "to",
+                "prevent",
+                "programs",
+                "buffer-overflow",
+                "attacks"
+              ]
+            },
+            "speakers": {
+              "text": "vishal chebrolu",
+              "words": [
+                "vishal",
+                "chebrolu"
+              ]
+            },
+            "tags": {
+              "text": "dynamic analysis security sanitizers",
+              "words": [
+                "dynamic",
+                "analysis",
+                "security",
+                "sanitizers"
+              ]
+            },
+            "meeting": {
+              "text": "2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021",
+              "words": [
+                "2021",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "february",
+                "28",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "memory corruption errors are a serious problem in languages like c and c++. errors like out-of-bound access to the buffers when explored critically by attackers can lead to security vulnerabilities like buffer-overflow attacks. addresssanitizer asan is a fast memory error detector which detects a number of memory bugs. we provide a mechanism for improvising the addresssanitizer tool to prevent c c++ programs from halting due to memory corruption errors like out-of-bound accesses to heap memory use-after-free invalid free and double free. the changes are made in the instrumentation module to instrument recovery blocks instead of the error-reporting blocks for each type of accesses and also provide a method for dealing with pointer aliasing within functions. the instrumentation ensures the addressable memory is increased dynamically at runtime according to the execution of the program based on a scale of reallocation which is used to decide whether to increase the addressable memory or not to consider the specific access. these changes can be employed in cases where system availability is of vital concern or when there is a need to reuse legacy code with increased memory demands in which case the bounds are expanded safely during runtime.",
+              "words": [
+                "memory",
+                "corruption",
+                "errors",
+                "are",
+                "serious",
+                "problem",
+                "in",
+                "languages",
+                "like",
+                "and",
+                "c++.",
+                "errors",
+                "like",
+                "out-of-bound",
+                "access",
+                "to",
+                "the",
+                "buffers",
+                "when",
+                "explored",
+                "critically",
+                "by",
+                "attackers",
+                "can",
+                "lead",
+                "to",
+                "security",
+                "vulnerabilities",
+                "like",
+                "buffer-overflow",
+                "attacks.",
+                "addresssanitizer",
+                "asan",
+                "is",
+                "fast",
+                "memory",
+                "error",
+                "detector",
+                "which",
+                "detects",
+                "number",
+                "of",
+                "memory",
+                "bugs.",
+                "we",
+                "provide",
+                "mechanism",
+                "for",
+                "improvising",
+                "the",
+                "addresssanitizer",
+                "tool",
+                "to",
+                "prevent",
+                "c++",
+                "programs",
+                "from",
+                "halting",
+                "due",
+                "to",
+                "memory",
+                "corruption",
+                "errors",
+                "like",
+                "out-of-bound",
+                "accesses",
+                "to",
+                "heap",
+                "memory",
+                "use-after-free",
+                "invalid",
+                "free",
+                "and",
+                "double",
+                "free.",
+                "the",
+                "changes",
+                "are",
+                "made",
+                "in",
+                "the",
+                "instrumentation",
+                "module",
+                "to",
+                "instrument",
+                "recovery",
+                "blocks",
+                "instead",
+                "of",
+                "the",
+                "error-reporting",
+                "blocks",
+                "for",
+                "each",
+                "type",
+                "of",
+                "accesses",
+                "and",
+                "also",
+                "provide",
+                "method",
+                "for",
+                "dealing",
+                "with",
+                "pointer",
+                "aliasing",
+                "within",
+                "functions.",
+                "the",
+                "instrumentation",
+                "ensures",
+                "the",
+                "addressable",
+                "memory",
+                "is",
+                "increased",
+                "dynamically",
+                "at",
+                "runtime",
+                "according",
+                "to",
+                "the",
+                "execution",
+                "of",
+                "the",
+                "program",
+                "based",
+                "on",
+                "scale",
+                "of",
+                "reallocation",
+                "which",
+                "is",
+                "used",
+                "to",
+                "decide",
+                "whether",
+                "to",
+                "increase",
+                "the",
+                "addressable",
+                "memory",
+                "or",
+                "not",
+                "to",
+                "consider",
+                "the",
+                "specific",
+                "access.",
+                "these",
+                "changes",
+                "can",
+                "be",
+                "employed",
+                "in",
+                "cases",
+                "where",
+                "system",
+                "availability",
+                "is",
+                "of",
+                "vital",
+                "concern",
+                "or",
+                "when",
+                "there",
+                "is",
+                "need",
+                "to",
+                "reuse",
+                "legacy",
+                "code",
+                "with",
+                "increased",
+                "memory",
+                "demands",
+                "in",
+                "which",
+                "case",
+                "the",
+                "bounds",
+                "are",
+                "expanded",
+                "safely",
+                "during",
+                "runtime."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "instrumentation to prevent programs buffer-overflow attacks memory corruption errors are a serious problem in languages like c and c++. errors like out-of-bound access to the buffers when explored critically by attackers can lead to security vulnerabilities like buffer-overflow attacks. addresssanitizer asan is a fast memory error detector which detects a number of memory bugs. we provide a mechanism for improvising the addresssanitizer tool to prevent c c++ programs from halting due to memory corruption errors like out-of-bound accesses to heap memory use-after-free invalid free and double free. the changes are made in the instrumentation module to instrument recovery blocks instead of the error-reporting blocks for each type of accesses and also provide a method for dealing with pointer aliasing within functions. the instrumentation ensures the addressable memory is increased dynamically at runtime according to the execution of the program based on a scale of reallocation which is used to decide whether to increase the addressable memory or not to consider the specific access. these changes can be employed in cases where system availability is of vital concern or when there is a need to reuse legacy code with increased memory demands in which case the bounds are expanded safely during runtime. 2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021 2021-02-28 technical-talk vishal chebrolu dynamic analysis security sanitizers"
+      },
+      "meeting": {
+        "slug": "2021-02-28",
+        "name": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "date": "February 28, 2021",
+        "location": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2019-10-021": {
+      "talk": {
+        "id": "2019-10-021",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "technical-talk",
+        "title": "An MLIR Dialect for High-Level Optimization of Fortran",
+        "speakers": [
+          {
+            "name": "Eric Schweitz",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Flang project is actively developing a standards-compliant compiler for Fortran—the world’s first high-level programming language and still an important language for science and engineering today. While Fortran’s core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. The Flang project has been exploring the use of MLIR, specifically the definition of Flang’s Fortran IR (FIR) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of Flang. This talk will explore what the FIR dialect is, how it is built upon and uses other aspects of MLIR, as well as some of the high-level optimizations achieved.",
+        "videoUrl": "https://youtu.be/ff3ngdvUang",
+        "videoId": "ff3ngdvUang",
+        "tags": [
+          "Flang",
+          "IR",
+          "MLIR",
+          "Optimizations",
+          "Performance",
+          "Programming Languages"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "an mlir dialect for high-level optimization of fortran",
+        "_speakerLower": "eric schweitz",
+        "_abstractLower": "flang project is actively developing a standards-compliant compiler for fortran—the world’s first high-level programming language and still an important language for science and engineering today. while fortran’s core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir, specifically the definition of flang’s fortran ir (fir) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is, how it is built upon and uses other aspects of mlir, as well as some of the high-level optimizations achieved.",
+        "_tagsLower": "flang ir mlir optimizations performance programming languages",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an mlir dialect for high-level optimization of fortran",
+              "words": [
+                "an",
+                "mlir",
+                "dialect",
+                "for",
+                "high-level",
+                "optimization",
+                "of",
+                "fortran"
+              ]
+            },
+            "speakers": {
+              "text": "eric schweitz",
+              "words": [
+                "eric",
+                "schweitz"
+              ]
+            },
+            "tags": {
+              "text": "flang ir mlir optimizations performance programming languages",
+              "words": [
+                "flang",
+                "ir",
+                "mlir",
+                "optimizations",
+                "performance",
+                "programming",
+                "languages"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "flang project is actively developing a standards-compliant compiler for fortran the worlds first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved.",
+              "words": [
+                "flang",
+                "project",
+                "is",
+                "actively",
+                "developing",
+                "standards-compliant",
+                "compiler",
+                "for",
+                "fortran",
+                "the",
+                "worlds",
+                "first",
+                "high-level",
+                "programming",
+                "language",
+                "and",
+                "still",
+                "an",
+                "important",
+                "language",
+                "for",
+                "science",
+                "and",
+                "engineering",
+                "today.",
+                "while",
+                "fortrans",
+                "core",
+                "strength",
+                "of",
+                "writing",
+                "computations",
+                "on",
+                "arrays",
+                "remains",
+                "the",
+                "standard",
+                "language",
+                "continues",
+                "to",
+                "add",
+                "new",
+                "facilities",
+                "such",
+                "as",
+                "object-oriented",
+                "programming.",
+                "the",
+                "flang",
+                "project",
+                "has",
+                "been",
+                "exploring",
+                "the",
+                "use",
+                "of",
+                "mlir",
+                "specifically",
+                "the",
+                "definition",
+                "of",
+                "flangs",
+                "fortran",
+                "ir",
+                "fir",
+                "as",
+                "framework",
+                "upon",
+                "which",
+                "to",
+                "build",
+                "more",
+                "comprehensive",
+                "and",
+                "regular",
+                "set",
+                "of",
+                "optimizations",
+                "for",
+                "both",
+                "better",
+                "performance",
+                "and",
+                "overall",
+                "reliability",
+                "of",
+                "flang.",
+                "this",
+                "talk",
+                "will",
+                "explore",
+                "what",
+                "the",
+                "fir",
+                "dialect",
+                "is",
+                "how",
+                "it",
+                "is",
+                "built",
+                "upon",
+                "and",
+                "uses",
+                "other",
+                "aspects",
+                "of",
+                "mlir",
+                "as",
+                "well",
+                "as",
+                "some",
+                "of",
+                "the",
+                "high-level",
+                "optimizations",
+                "achieved."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "an mlir dialect for high-level optimization of fortran flang project is actively developing a standards-compliant compiler for fortran the worlds first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 technical-talk eric schweitz flang ir mlir optimizations performance programming languages"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-043": {
+      "talk": {
+        "id": "2019-10-043",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "student-talk",
+        "title": "Static Analysis of OpenMP Data Mapping for Target Offloading",
+        "speakers": [
+          {
+            "name": "Prithayan Barua",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/9ZPQpo8QuyI",
+        "videoId": "9ZPQpo8QuyI",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Barua-StaticAnalysisofOpenMPPrograms.pdf",
+        "tags": [
+          "Clang",
+          "LLD",
+          "LTO",
+          "Optimizations",
+          "Performance",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "static analysis of openmp data mapping for target offloading",
+        "_speakerLower": "prithayan barua",
+        "_abstractLower": "",
+        "_tagsLower": "clang lld lto optimizations performance static analysis openmp offload",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "static analysis of openmp data mapping for target offloading",
+              "words": [
+                "static",
+                "analysis",
+                "of",
+                "openmp",
+                "data",
+                "mapping",
+                "for",
+                "target",
+                "offloading"
+              ]
+            },
+            "speakers": {
+              "text": "prithayan barua",
+              "words": [
+                "prithayan",
+                "barua"
+              ]
+            },
+            "tags": {
+              "text": "clang lld lto optimizations performance static analysis openmp offload",
+              "words": [
+                "clang",
+                "lld",
+                "lto",
+                "optimizations",
+                "performance",
+                "static",
+                "analysis",
+                "openmp",
+                "offload"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "student-talk",
+              "words": [
+                "student-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "static analysis of openmp data mapping for target offloading 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 student-talk prithayan barua clang lld lto optimizations performance static analysis openmp offload"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-065": {
+      "talk": {
+        "id": "2019-10-065",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "Loom: Weaving Instrumentation for Program Analysis",
+        "speakers": [
+          {
+            "name": "Brian Kidney",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Instrumentation tools often focus on single tasks, such as gathering performance numbers or detecting race conditions. While gathering important information for the user, these tools are not often designed to allow the end-user a more general code exploration as executed. Loom is a framework for general-purpose instrumentation and transformation of software in the LLVM intermediate representation. Loom provides both a standalone tool and a library with an API designed to allow for the implementation of custom instrumentation passes. Loom's current functionality is presented, including real-world applications for Loom in a recent research project. We present comparisons of both performance and functionality of Loom to existing instrumentation tools, including X-Ray, CSI, D-Trace and Intel Pin. Finally, we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new Loom developments.",
+        "videoUrl": "https://youtu.be/T8qGbze3apo",
+        "videoId": "T8qGbze3apo",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Kidney-Loom.pdf",
+        "tags": [
+          "IR",
+          "Performance",
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "loom: weaving instrumentation for program analysis",
+        "_speakerLower": "brian kidney",
+        "_abstractLower": "instrumentation tools often focus on single tasks, such as gathering performance numbers or detecting race conditions. while gathering important information for the user, these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. loom's current functionality is presented, including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools, including x-ray, csi, d-trace and intel pin. finally, we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments.",
+        "_tagsLower": "ir performance security llvm",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "loom weaving instrumentation for program analysis",
+              "words": [
+                "loom",
+                "weaving",
+                "instrumentation",
+                "for",
+                "program",
+                "analysis"
+              ]
+            },
+            "speakers": {
+              "text": "brian kidney",
+              "words": [
+                "brian",
+                "kidney"
+              ]
+            },
+            "tags": {
+              "text": "ir performance security llvm",
+              "words": [
+                "ir",
+                "performance",
+                "security",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "instrumentation tools often focus on single tasks such as gathering performance numbers or detecting race conditions. while gathering important information for the user these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. looms current functionality is presented including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools including x-ray csi d-trace and intel pin. finally we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments.",
+              "words": [
+                "instrumentation",
+                "tools",
+                "often",
+                "focus",
+                "on",
+                "single",
+                "tasks",
+                "such",
+                "as",
+                "gathering",
+                "performance",
+                "numbers",
+                "or",
+                "detecting",
+                "race",
+                "conditions.",
+                "while",
+                "gathering",
+                "important",
+                "information",
+                "for",
+                "the",
+                "user",
+                "these",
+                "tools",
+                "are",
+                "not",
+                "often",
+                "designed",
+                "to",
+                "allow",
+                "the",
+                "end-user",
+                "more",
+                "general",
+                "code",
+                "exploration",
+                "as",
+                "executed.",
+                "loom",
+                "is",
+                "framework",
+                "for",
+                "general-purpose",
+                "instrumentation",
+                "and",
+                "transformation",
+                "of",
+                "software",
+                "in",
+                "the",
+                "llvm",
+                "intermediate",
+                "representation.",
+                "loom",
+                "provides",
+                "both",
+                "standalone",
+                "tool",
+                "and",
+                "library",
+                "with",
+                "an",
+                "api",
+                "designed",
+                "to",
+                "allow",
+                "for",
+                "the",
+                "implementation",
+                "of",
+                "custom",
+                "instrumentation",
+                "passes.",
+                "looms",
+                "current",
+                "functionality",
+                "is",
+                "presented",
+                "including",
+                "real-world",
+                "applications",
+                "for",
+                "loom",
+                "in",
+                "recent",
+                "research",
+                "project.",
+                "we",
+                "present",
+                "comparisons",
+                "of",
+                "both",
+                "performance",
+                "and",
+                "functionality",
+                "of",
+                "loom",
+                "to",
+                "existing",
+                "instrumentation",
+                "tools",
+                "including",
+                "x-ray",
+                "csi",
+                "d-trace",
+                "and",
+                "intel",
+                "pin.",
+                "finally",
+                "we",
+                "will",
+                "present",
+                "security",
+                "use",
+                "cases",
+                "that",
+                "are",
+                "not",
+                "addressed",
+                "by",
+                "any",
+                "of",
+                "these",
+                "instrumentation",
+                "tools",
+                "and",
+                "are",
+                "the",
+                "motivation",
+                "for",
+                "new",
+                "loom",
+                "developments."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "loom weaving instrumentation for program analysis instrumentation tools often focus on single tasks such as gathering performance numbers or detecting race conditions. while gathering important information for the user these tools are not often designed to allow the end-user a more general code exploration as executed. loom is a framework for general-purpose instrumentation and transformation of software in the llvm intermediate representation. loom provides both a standalone tool and a library with an api designed to allow for the implementation of custom instrumentation passes. looms current functionality is presented including real-world applications for loom in a recent research project. we present comparisons of both performance and functionality of loom to existing instrumentation tools including x-ray csi d-trace and intel pin. finally we will present security use cases that are not addressed by any of these instrumentation tools and are the motivation for new loom developments. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk brian kidney ir performance security llvm"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-04-071": {
+      "talk": {
+        "id": "2019-04-071",
+        "meeting": "2019-04",
+        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingLocation": "Brussels, Belgium",
+        "meetingDate": "April 8-9, 2019",
+        "category": "poster",
+        "title": "Leveraging Polyhedral Compilation in Chapel Compiler",
+        "speakers": [
+          {
+            "name": "Sahil Yerawar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Siddharth Bhat",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Philip Pfaffe",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ramakrishna Upadrasta",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Chapel is an emerging parallel programming language developed with the aim of providing better performance in High-Performance Computing as well as accessibility to the newcomer programmers. It relies on LLVM as one of its backends. This talk shows how the polyhedral compilation techniques available in Polly are utilized by the Chapel Compiler. We will share our experience of using Polly's Loop Optimizer in a new setting with Polly & LLVM Developers.In particular, the talk will discuss how the Chapel compiler can benefit from the optimizations available in Polly including GPGPU code generation.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2019-04/slides/Poster-Yerawar-ChapelPolly.pdf",
+        "tags": [
+          "Loop transformations",
+          "Polly"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "leveraging polyhedral compilation in chapel compiler",
+        "_speakerLower": "sahil yerawar siddharth bhat philip pfaffe ramakrishna upadrasta",
+        "_abstractLower": "chapel is an emerging parallel programming language developed with the aim of providing better performance in high-performance computing as well as accessibility to the newcomer programmers. it relies on llvm as one of its backends. this talk shows how the polyhedral compilation techniques available in polly are utilized by the chapel compiler. we will share our experience of using polly's loop optimizer in a new setting with polly & llvm developers.in particular, the talk will discuss how the chapel compiler can benefit from the optimizations available in polly including gpgpu code generation.",
+        "_tagsLower": "loop transformations polly llvm code generation performance optimizations",
+        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "leveraging polyhedral compilation in chapel compiler",
+              "words": [
+                "leveraging",
+                "polyhedral",
+                "compilation",
+                "in",
+                "chapel",
+                "compiler"
+              ]
+            },
+            "speakers": {
+              "text": "sahil yerawar siddharth bhat philip pfaffe ramakrishna upadrasta",
+              "words": [
+                "sahil",
+                "yerawar",
+                "siddharth",
+                "bhat",
+                "philip",
+                "pfaffe",
+                "ramakrishna",
+                "upadrasta"
+              ]
+            },
+            "tags": {
+              "text": "loop transformations polly llvm code generation performance optimizations",
+              "words": [
+                "loop",
+                "transformations",
+                "polly",
+                "llvm",
+                "code",
+                "generation",
+                "performance",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "words": [
+                "2019",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "brussels",
+                "belgium",
+                "april",
+                "8-9",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "chapel is an emerging parallel programming language developed with the aim of providing better performance in high-performance computing as well as accessibility to the newcomer programmers. it relies on llvm as one of its backends. this talk shows how the polyhedral compilation techniques available in polly are utilized by the chapel compiler. we will share our experience of using pollys loop optimizer in a new setting with polly and llvm developers.in particular the talk will discuss how the chapel compiler can benefit from the optimizations available in polly including gpgpu code generation.",
+              "words": [
+                "chapel",
+                "is",
+                "an",
+                "emerging",
+                "parallel",
+                "programming",
+                "language",
+                "developed",
+                "with",
+                "the",
+                "aim",
+                "of",
+                "providing",
+                "better",
+                "performance",
+                "in",
+                "high-performance",
+                "computing",
+                "as",
+                "well",
+                "as",
+                "accessibility",
+                "to",
+                "the",
+                "newcomer",
+                "programmers.",
+                "it",
+                "relies",
+                "on",
+                "llvm",
+                "as",
+                "one",
+                "of",
+                "its",
+                "backends.",
+                "this",
+                "talk",
+                "shows",
+                "how",
+                "the",
+                "polyhedral",
+                "compilation",
+                "techniques",
+                "available",
+                "in",
+                "polly",
+                "are",
+                "utilized",
+                "by",
+                "the",
+                "chapel",
+                "compiler.",
+                "we",
+                "will",
+                "share",
+                "our",
+                "experience",
+                "of",
+                "using",
+                "pollys",
+                "loop",
+                "optimizer",
+                "in",
+                "new",
+                "setting",
+                "with",
+                "polly",
+                "and",
+                "llvm",
+                "developers.in",
+                "particular",
+                "the",
+                "talk",
+                "will",
+                "discuss",
+                "how",
+                "the",
+                "chapel",
+                "compiler",
+                "can",
+                "benefit",
+                "from",
+                "the",
+                "optimizations",
+                "available",
+                "in",
+                "polly",
+                "including",
+                "gpgpu",
+                "code",
+                "generation."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "leveraging polyhedral compilation in chapel compiler chapel is an emerging parallel programming language developed with the aim of providing better performance in high-performance computing as well as accessibility to the newcomer programmers. it relies on llvm as one of its backends. this talk shows how the polyhedral compilation techniques available in polly are utilized by the chapel compiler. we will share our experience of using pollys loop optimizer in a new setting with polly and llvm developers.in particular the talk will discuss how the chapel compiler can benefit from the optimizations available in polly including gpgpu code generation. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster sahil yerawar siddharth bhat philip pfaffe ramakrishna upadrasta loop transformations polly llvm code generation performance optimizations"
+      },
+      "meeting": {
+        "slug": "2019-04",
+        "name": "2019 European LLVM Developers' Meeting",
+        "date": "April 8-9, 2019",
+        "location": "Brussels, Belgium",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2018-10-031": {
+      "talk": {
+        "id": "2018-10-031",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "bof",
+        "title": "Lifecycle of LLVM bug reports",
+        "speakers": [
+          {
+            "name": "Kristof Beyls",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Paul Robinson",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The goal of the BoF is to improve the (currently non-existing) definition and documentation of the lifecycle of LLVM bug tickets. Not having a documented lifecycle results in a number of issues, of which few have come up recently on the mailing list, including: -- When bugs get closed, what is the right amount of info that should be required so that the bug report is as meaningful as possible without putting unreasonable demands on the person closing the bug? -- When bugs get reported, what level of triaging, and to what timeline, should we aim for to keep bug reporters engaged? -- What should we aim to achieve during triaging?",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "lifecycle of llvm bug reports",
+        "_speakerLower": "kristof beyls paul robinson",
+        "_abstractLower": "the goal of the bof is to improve the (currently non-existing) definition and documentation of the lifecycle of llvm bug tickets. not having a documented lifecycle results in a number of issues, of which few have come up recently on the mailing list, including: -- when bugs get closed, what is the right amount of info that should be required so that the bug report is as meaningful as possible without putting unreasonable demands on the person closing the bug? -- when bugs get reported, what level of triaging, and to what timeline, should we aim for to keep bug reporters engaged? -- what should we aim to achieve during triaging?",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "lifecycle of llvm bug reports",
+              "words": [
+                "lifecycle",
+                "of",
+                "llvm",
+                "bug",
+                "reports"
+              ]
+            },
+            "speakers": {
+              "text": "kristof beyls paul robinson",
+              "words": [
+                "kristof",
+                "beyls",
+                "paul",
+                "robinson"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "the goal of the bof is to improve the currently non-existing definition and documentation of the lifecycle of llvm bug tickets. not having a documented lifecycle results in a number of issues of which few have come up recently on the mailing list including -- when bugs get closed what is the right amount of info that should be required so that the bug report is as meaningful as possible without putting unreasonable demands on the person closing the bug -- when bugs get reported what level of triaging and to what timeline should we aim for to keep bug reporters engaged -- what should we aim to achieve during triaging",
+              "words": [
+                "the",
+                "goal",
+                "of",
+                "the",
+                "bof",
+                "is",
+                "to",
+                "improve",
+                "the",
+                "currently",
+                "non-existing",
+                "definition",
+                "and",
+                "documentation",
+                "of",
+                "the",
+                "lifecycle",
+                "of",
+                "llvm",
+                "bug",
+                "tickets.",
+                "not",
+                "having",
+                "documented",
+                "lifecycle",
+                "results",
+                "in",
+                "number",
+                "of",
+                "issues",
+                "of",
+                "which",
+                "few",
+                "have",
+                "come",
+                "up",
+                "recently",
+                "on",
+                "the",
+                "mailing",
+                "list",
+                "including",
+                "--",
+                "when",
+                "bugs",
+                "get",
+                "closed",
+                "what",
+                "is",
+                "the",
+                "right",
+                "amount",
+                "of",
+                "info",
+                "that",
+                "should",
+                "be",
+                "required",
+                "so",
+                "that",
+                "the",
+                "bug",
+                "report",
+                "is",
+                "as",
+                "meaningful",
+                "as",
+                "possible",
+                "without",
+                "putting",
+                "unreasonable",
+                "demands",
+                "on",
+                "the",
+                "person",
+                "closing",
+                "the",
+                "bug",
+                "--",
+                "when",
+                "bugs",
+                "get",
+                "reported",
+                "what",
+                "level",
+                "of",
+                "triaging",
+                "and",
+                "to",
+                "what",
+                "timeline",
+                "should",
+                "we",
+                "aim",
+                "for",
+                "to",
+                "keep",
+                "bug",
+                "reporters",
+                "engaged",
+                "--",
+                "what",
+                "should",
+                "we",
+                "aim",
+                "to",
+                "achieve",
+                "during",
+                "triaging"
+              ]
+            },
+            "category": {
+              "text": "bof",
+              "words": [
+                "bof"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "lifecycle of llvm bug reports the goal of the bof is to improve the currently non-existing definition and documentation of the lifecycle of llvm bug tickets. not having a documented lifecycle results in a number of issues of which few have come up recently on the mailing list including -- when bugs get closed what is the right amount of info that should be required so that the bug report is as meaningful as possible without putting unreasonable demands on the person closing the bug -- when bugs get reported what level of triaging and to what timeline should we aim for to keep bug reporters engaged -- what should we aim to achieve during triaging 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 bof kristof beyls paul robinson llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2018-10-053": {
+      "talk": {
+        "id": "2018-10-053",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "lightning-talk",
+        "title": "clang-doc: an elegant generator for more civilized documentation",
+        "speakers": [
+          {
+            "name": "Julie Hockett",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "clang-doc is a new Clang tool for generating C/C++ documentation, designed to be modular and extensible while maintaining backwards-compatibility with existing Doxygen-style markup. The tool aims to simplify the overhead of generating and maintaining documentation, particularly in larger projects. This talk will discuss the motivations for creating clang-doc, briefly outline its framework, describe a simple use case, and examine the resulting output. It will touch on how the tool's map-and-reduce approach allows for producing documentation for large projects. Finally, we'll explore possible future additions and extensions to the tool.",
+        "videoUrl": "https://youtu.be/bTzvPhKN0YI",
+        "videoId": "bTzvPhKN0YI",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "clang-doc: an elegant generator for more civilized documentation",
+        "_speakerLower": "julie hockett",
+        "_abstractLower": "clang-doc is a new clang tool for generating c/c++ documentation, designed to be modular and extensible while maintaining backwards-compatibility with existing doxygen-style markup. the tool aims to simplify the overhead of generating and maintaining documentation, particularly in larger projects. this talk will discuss the motivations for creating clang-doc, briefly outline its framework, describe a simple use case, and examine the resulting output. it will touch on how the tool's map-and-reduce approach allows for producing documentation for large projects. finally, we'll explore possible future additions and extensions to the tool.",
+        "_tagsLower": "clang",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "clang-doc an elegant generator for more civilized documentation",
+              "words": [
+                "clang-doc",
+                "an",
+                "elegant",
+                "generator",
+                "for",
+                "more",
+                "civilized",
+                "documentation"
+              ]
+            },
+            "speakers": {
+              "text": "julie hockett",
+              "words": [
+                "julie",
+                "hockett"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "clang-doc is a new clang tool for generating c c++ documentation designed to be modular and extensible while maintaining backwards-compatibility with existing doxygen-style markup. the tool aims to simplify the overhead of generating and maintaining documentation particularly in larger projects. this talk will discuss the motivations for creating clang-doc briefly outline its framework describe a simple use case and examine the resulting output. it will touch on how the tools map-and-reduce approach allows for producing documentation for large projects. finally well explore possible future additions and extensions to the tool.",
+              "words": [
+                "clang-doc",
+                "is",
+                "new",
+                "clang",
+                "tool",
+                "for",
+                "generating",
+                "c++",
+                "documentation",
+                "designed",
+                "to",
+                "be",
+                "modular",
+                "and",
+                "extensible",
+                "while",
+                "maintaining",
+                "backwards-compatibility",
+                "with",
+                "existing",
+                "doxygen-style",
+                "markup.",
+                "the",
+                "tool",
+                "aims",
+                "to",
+                "simplify",
+                "the",
+                "overhead",
+                "of",
+                "generating",
+                "and",
+                "maintaining",
+                "documentation",
+                "particularly",
+                "in",
+                "larger",
+                "projects.",
+                "this",
+                "talk",
+                "will",
+                "discuss",
+                "the",
+                "motivations",
+                "for",
+                "creating",
+                "clang-doc",
+                "briefly",
+                "outline",
+                "its",
+                "framework",
+                "describe",
+                "simple",
+                "use",
+                "case",
+                "and",
+                "examine",
+                "the",
+                "resulting",
+                "output.",
+                "it",
+                "will",
+                "touch",
+                "on",
+                "how",
+                "the",
+                "tools",
+                "map-and-reduce",
+                "approach",
+                "allows",
+                "for",
+                "producing",
+                "documentation",
+                "for",
+                "large",
+                "projects.",
+                "finally",
+                "well",
+                "explore",
+                "possible",
+                "future",
+                "additions",
+                "and",
+                "extensions",
+                "to",
+                "the",
+                "tool."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "clang-doc an elegant generator for more civilized documentation clang-doc is a new clang tool for generating c c++ documentation designed to be modular and extensible while maintaining backwards-compatibility with existing doxygen-style markup. the tool aims to simplify the overhead of generating and maintaining documentation particularly in larger projects. this talk will discuss the motivations for creating clang-doc briefly outline its framework describe a simple use case and examine the resulting output. it will touch on how the tools map-and-reduce approach allows for producing documentation for large projects. finally well explore possible future additions and extensions to the tool. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 lightning-talk julie hockett clang"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2017-10-041": {
+      "talk": {
+        "id": "2017-10-041",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "technical-talk",
+        "title": "Introsort based sorting function for libc++",
+        "speakers": [
+          {
+            "name": "Divya Shanmughan",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Aditya Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The sorting algorithm currently employed in libc++ library uses quicksort with tail recursion elimination, as a result of which the worst case complexity turns out to be O(N^2), and the recursion stack space to be O(LogN). This talk will present the work done to reduce the worst case time complexity, by employing Introsort, and by replacing the memory intensive recursion calls in the quicksort with stacks . Introsort is a sorting technique, which begins with quicksort and when the recursion depth (or depth limit) goes beyond a threshold value, then it switches to Heapsort .",
+        "videoUrl": "https://youtu.be/Lcz0ZHewkHs",
+        "videoId": "Lcz0ZHewkHs",
+        "slidesUrl": "http://llvm.org/devmtg/2017-10/slides/Kumar-libc++-performance.pdf",
+        "tags": [
+          "C Libs",
+          "C++",
+          "C++ Libs"
+        ],
+        "projectGithub": "https://github.com/hiraditya/std",
+        "githubReferences": [
+          "https://github.com/hiraditya/std"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/hiraditya/std",
+            "source": "slides",
+            "label": "Sorting Results Plot (With std - benchmark) *",
+            "context": "Sorting Results Plot (With std - benchmark) *",
+            "library": "std",
+            "repository": "hiraditya/std",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/hiraditya/std"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "introsort based sorting function for libc++",
+        "_speakerLower": "divya shanmughan aditya kumar",
+        "_abstractLower": "the sorting algorithm currently employed in libc++ library uses quicksort with tail recursion elimination, as a result of which the worst case complexity turns out to be o(n^2), and the recursion stack space to be o(logn). this talk will present the work done to reduce the worst case time complexity, by employing introsort, and by replacing the memory intensive recursion calls in the quicksort with stacks . introsort is a sorting technique, which begins with quicksort and when the recursion depth (or depth limit) goes beyond a threshold value, then it switches to heapsort .",
+        "_tagsLower": "c libs c++ c++ libs libc",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "introsort based sorting function for libc++",
+              "words": [
+                "introsort",
+                "based",
+                "sorting",
+                "function",
+                "for",
+                "libc++"
+              ]
+            },
+            "speakers": {
+              "text": "divya shanmughan aditya kumar",
+              "words": [
+                "divya",
+                "shanmughan",
+                "aditya",
+                "kumar"
+              ]
+            },
+            "tags": {
+              "text": "c libs c++ c++ libs libc",
+              "words": [
+                "libs",
+                "c++",
+                "c++",
+                "libs",
+                "libc"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "the sorting algorithm currently employed in libc++ library uses quicksort with tail recursion elimination as a result of which the worst case complexity turns out to be o n 2 and the recursion stack space to be o logn . this talk will present the work done to reduce the worst case time complexity by employing introsort and by replacing the memory intensive recursion calls in the quicksort with stacks . introsort is a sorting technique which begins with quicksort and when the recursion depth or depth limit goes beyond a threshold value then it switches to heapsort .",
+              "words": [
+                "the",
+                "sorting",
+                "algorithm",
+                "currently",
+                "employed",
+                "in",
+                "libc++",
+                "library",
+                "uses",
+                "quicksort",
+                "with",
+                "tail",
+                "recursion",
+                "elimination",
+                "as",
+                "result",
+                "of",
+                "which",
+                "the",
+                "worst",
+                "case",
+                "complexity",
+                "turns",
+                "out",
+                "to",
+                "be",
+                "and",
+                "the",
+                "recursion",
+                "stack",
+                "space",
+                "to",
+                "be",
+                "logn",
+                "this",
+                "talk",
+                "will",
+                "present",
+                "the",
+                "work",
+                "done",
+                "to",
+                "reduce",
+                "the",
+                "worst",
+                "case",
+                "time",
+                "complexity",
+                "by",
+                "employing",
+                "introsort",
+                "and",
+                "by",
+                "replacing",
+                "the",
+                "memory",
+                "intensive",
+                "recursion",
+                "calls",
+                "in",
+                "the",
+                "quicksort",
+                "with",
+                "stacks",
+                "introsort",
+                "is",
+                "sorting",
+                "technique",
+                "which",
+                "begins",
+                "with",
+                "quicksort",
+                "and",
+                "when",
+                "the",
+                "recursion",
+                "depth",
+                "or",
+                "depth",
+                "limit",
+                "goes",
+                "beyond",
+                "threshold",
+                "value",
+                "then",
+                "it",
+                "switches",
+                "to",
+                "heapsort"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "introsort based sorting function for libc++ the sorting algorithm currently employed in libc++ library uses quicksort with tail recursion elimination as a result of which the worst case complexity turns out to be o n 2 and the recursion stack space to be o logn . this talk will present the work done to reduce the worst case time complexity by employing introsort and by replacing the memory intensive recursion calls in the quicksort with stacks . introsort is a sorting technique which begins with quicksort and when the recursion depth or depth limit goes beyond a threshold value then it switches to heapsort . 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 technical-talk divya shanmughan aditya kumar c libs c++ c++ libs libc"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    },
+    "2017-10-063": {
+      "talk": {
+        "id": "2017-10-063",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "poster",
+        "title": "JIT Fuzzing Solver: A LibFuzzer based constraint solver",
+        "speakers": [
+          {
+            "name": "Daniel Liew",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Cristian Cadar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Alastair Donaldson",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "jit fuzzing solver: a libfuzzer based constraint solver",
+        "_speakerLower": "daniel liew cristian cadar alastair donaldson",
+        "_abstractLower": "",
+        "_tagsLower": "compiler-rt jit testing",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "jit fuzzing solver a libfuzzer based constraint solver",
+              "words": [
+                "jit",
+                "fuzzing",
+                "solver",
+                "libfuzzer",
+                "based",
+                "constraint",
+                "solver"
+              ]
+            },
+            "speakers": {
+              "text": "daniel liew cristian cadar alastair donaldson",
+              "words": [
+                "daniel",
+                "liew",
+                "cristian",
+                "cadar",
+                "alastair",
+                "donaldson"
+              ]
+            },
+            "tags": {
+              "text": "compiler-rt jit testing",
+              "words": [
+                "compiler-rt",
+                "jit",
+                "testing"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "jit fuzzing solver a libfuzzer based constraint solver 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 poster daniel liew cristian cadar alastair donaldson compiler-rt jit testing"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    },
+    "2017-02-04-010": {
+      "talk": {
+        "id": "2017-02-04-010",
+        "meeting": "2017-02-04",
+        "meetingName": "2017 LLVM Performance Workshop @ CGO",
+        "meetingLocation": "LLVM Performance Workshop at CGO, Austin, Texas, USA",
+        "meetingDate": "February 4, 2017",
+        "category": "technical-talk",
+        "title": "Register Data Flow framework",
+        "speakers": [
+          {
+            "name": "Krzysztof Parzyszek",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Register Data Flow is a framework implemented in LLVM that enables data-flow optimizations on machine IR after register allocation. While most of the data-flow optimizations on machine IR take place during the SSA phase, when virtual registers obey the static single assignment form, passes like pseudo-instruction expansion or frame index replacement may expose opportunities for further optimizations. At the same time, data-flow analysis is much more complicated after register allocation, and implementing compiler passes that require it may not seem like a worthwhile investment. The intent of RDF is to abstract this analysis and provide access to it through a familiar and convenient interface.\n\nThe central concept in RDF is a data-flow graph, which emulates SSA. In contrast to the SSA-based optimization phase where SSA is a part of the program representation, the RDF data-flow graph is a separate, auxiliary structure. It can be built on demand and it does not require any modifications to the program. Traversal of the graph can provide information about reaching definitions of any given register access, as well as reached definitions and reached uses for register definitions. The graph provides connections for easily locating the corresponding elements of the machine IR. A utility class that recalculates basic block live-in information is implemented to make writing whole-function optimizations easier. In this talk, I will give an overview of RDF and its use in the Hexagon backend.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2017-02-04/Register-Data-Flow-Framework.pptx",
+        "tags": [
+          "Backend",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "register data flow framework",
+        "_speakerLower": "krzysztof parzyszek",
+        "_abstractLower": "register data flow is a framework implemented in llvm that enables data-flow optimizations on machine ir after register allocation. while most of the data-flow optimizations on machine ir take place during the ssa phase, when virtual registers obey the static single assignment form, passes like pseudo-instruction expansion or frame index replacement may expose opportunities for further optimizations. at the same time, data-flow analysis is much more complicated after register allocation, and implementing compiler passes that require it may not seem like a worthwhile investment. the intent of rdf is to abstract this analysis and provide access to it through a familiar and convenient interface.\n\nthe central concept in rdf is a data-flow graph, which emulates ssa. in contrast to the ssa-based optimization phase where ssa is a part of the program representation, the rdf data-flow graph is a separate, auxiliary structure. it can be built on demand and it does not require any modifications to the program. traversal of the graph can provide information about reaching definitions of any given register access, as well as reached definitions and reached uses for register definitions. the graph provides connections for easily locating the corresponding elements of the machine ir. a utility class that recalculates basic block live-in information is implemented to make writing whole-function optimizations easier. in this talk, i will give an overview of rdf and its use in the hexagon backend.",
+        "_tagsLower": "backend optimizations llvm ir register allocation",
+        "_meetingLower": "2017 llvm performance workshop @ cgo llvm performance workshop at cgo, austin, texas, usa february 4, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "register data flow framework",
+              "words": [
+                "register",
+                "data",
+                "flow",
+                "framework"
+              ]
+            },
+            "speakers": {
+              "text": "krzysztof parzyszek",
+              "words": [
+                "krzysztof",
+                "parzyszek"
+              ]
+            },
+            "tags": {
+              "text": "backend optimizations llvm ir register allocation",
+              "words": [
+                "backend",
+                "optimizations",
+                "llvm",
+                "ir",
+                "register",
+                "allocation"
+              ]
+            },
+            "meeting": {
+              "text": "2017 llvm performance workshop cgo llvm performance workshop at cgo austin texas usa february 4 2017",
+              "words": [
+                "2017",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo",
+                "austin",
+                "texas",
+                "usa",
+                "february",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "register data flow is a framework implemented in llvm that enables data-flow optimizations on machine ir after register allocation. while most of the data-flow optimizations on machine ir take place during the ssa phase when virtual registers obey the static single assignment form passes like pseudo-instruction expansion or frame index replacement may expose opportunities for further optimizations. at the same time data-flow analysis is much more complicated after register allocation and implementing compiler passes that require it may not seem like a worthwhile investment. the intent of rdf is to abstract this analysis and provide access to it through a familiar and convenient interface. the central concept in rdf is a data-flow graph which emulates ssa. in contrast to the ssa-based optimization phase where ssa is a part of the program representation the rdf data-flow graph is a separate auxiliary structure. it can be built on demand and it does not require any modifications to the program. traversal of the graph can provide information about reaching definitions of any given register access as well as reached definitions and reached uses for register definitions. the graph provides connections for easily locating the corresponding elements of the machine ir. a utility class that recalculates basic block live-in information is implemented to make writing whole-function optimizations easier. in this talk i will give an overview of rdf and its use in the hexagon backend.",
+              "words": [
+                "register",
+                "data",
+                "flow",
+                "is",
+                "framework",
+                "implemented",
+                "in",
+                "llvm",
+                "that",
+                "enables",
+                "data-flow",
+                "optimizations",
+                "on",
+                "machine",
+                "ir",
+                "after",
+                "register",
+                "allocation.",
+                "while",
+                "most",
+                "of",
+                "the",
+                "data-flow",
+                "optimizations",
+                "on",
+                "machine",
+                "ir",
+                "take",
+                "place",
+                "during",
+                "the",
+                "ssa",
+                "phase",
+                "when",
+                "virtual",
+                "registers",
+                "obey",
+                "the",
+                "static",
+                "single",
+                "assignment",
+                "form",
+                "passes",
+                "like",
+                "pseudo-instruction",
+                "expansion",
+                "or",
+                "frame",
+                "index",
+                "replacement",
+                "may",
+                "expose",
+                "opportunities",
+                "for",
+                "further",
+                "optimizations.",
+                "at",
+                "the",
+                "same",
+                "time",
+                "data-flow",
+                "analysis",
+                "is",
+                "much",
+                "more",
+                "complicated",
+                "after",
+                "register",
+                "allocation",
+                "and",
+                "implementing",
+                "compiler",
+                "passes",
+                "that",
+                "require",
+                "it",
+                "may",
+                "not",
+                "seem",
+                "like",
+                "worthwhile",
+                "investment.",
+                "the",
+                "intent",
+                "of",
+                "rdf",
+                "is",
+                "to",
+                "abstract",
+                "this",
+                "analysis",
+                "and",
+                "provide",
+                "access",
+                "to",
+                "it",
+                "through",
+                "familiar",
+                "and",
+                "convenient",
+                "interface.",
+                "the",
+                "central",
+                "concept",
+                "in",
+                "rdf",
+                "is",
+                "data-flow",
+                "graph",
+                "which",
+                "emulates",
+                "ssa.",
+                "in",
+                "contrast",
+                "to",
+                "the",
+                "ssa-based",
+                "optimization",
+                "phase",
+                "where",
+                "ssa",
+                "is",
+                "part",
+                "of",
+                "the",
+                "program",
+                "representation",
+                "the",
+                "rdf",
+                "data-flow",
+                "graph",
+                "is",
+                "separate",
+                "auxiliary",
+                "structure.",
+                "it",
+                "can",
+                "be",
+                "built",
+                "on",
+                "demand",
+                "and",
+                "it",
+                "does",
+                "not",
+                "require",
+                "any",
+                "modifications",
+                "to",
+                "the",
+                "program.",
+                "traversal",
+                "of",
+                "the",
+                "graph",
+                "can",
+                "provide",
+                "information",
+                "about",
+                "reaching",
+                "definitions",
+                "of",
+                "any",
+                "given",
+                "register",
+                "access",
+                "as",
+                "well",
+                "as",
+                "reached",
+                "definitions",
+                "and",
+                "reached",
+                "uses",
+                "for",
+                "register",
+                "definitions.",
+                "the",
+                "graph",
+                "provides",
+                "connections",
+                "for",
+                "easily",
+                "locating",
+                "the",
+                "corresponding",
+                "elements",
+                "of",
+                "the",
+                "machine",
+                "ir.",
+                "utility",
+                "class",
+                "that",
+                "recalculates",
+                "basic",
+                "block",
+                "live-in",
+                "information",
+                "is",
+                "implemented",
+                "to",
+                "make",
+                "writing",
+                "whole-function",
+                "optimizations",
+                "easier.",
+                "in",
+                "this",
+                "talk",
+                "will",
+                "give",
+                "an",
+                "overview",
+                "of",
+                "rdf",
+                "and",
+                "its",
+                "use",
+                "in",
+                "the",
+                "hexagon",
+                "backend."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "register data flow framework register data flow is a framework implemented in llvm that enables data-flow optimizations on machine ir after register allocation. while most of the data-flow optimizations on machine ir take place during the ssa phase when virtual registers obey the static single assignment form passes like pseudo-instruction expansion or frame index replacement may expose opportunities for further optimizations. at the same time data-flow analysis is much more complicated after register allocation and implementing compiler passes that require it may not seem like a worthwhile investment. the intent of rdf is to abstract this analysis and provide access to it through a familiar and convenient interface. the central concept in rdf is a data-flow graph which emulates ssa. in contrast to the ssa-based optimization phase where ssa is a part of the program representation the rdf data-flow graph is a separate auxiliary structure. it can be built on demand and it does not require any modifications to the program. traversal of the graph can provide information about reaching definitions of any given register access as well as reached definitions and reached uses for register definitions. the graph provides connections for easily locating the corresponding elements of the machine ir. a utility class that recalculates basic block live-in information is implemented to make writing whole-function optimizations easier. in this talk i will give an overview of rdf and its use in the hexagon backend. 2017 llvm performance workshop cgo llvm performance workshop at cgo austin texas usa february 4 2017 2017-02-04 technical-talk krzysztof parzyszek backend optimizations llvm ir register allocation"
+      },
+      "meeting": {
+        "slug": "2017-02-04",
+        "name": "2017 LLVM Performance Workshop @ CGO",
+        "date": "February 4, 2017",
+        "location": "LLVM Performance Workshop at CGO, Austin, Texas, USA",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2012-04-12-009": {
+      "talk": {
+        "id": "2012-04-12-009",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Building Linux with LLVM",
+        "speakers": [
+          {
+            "name": "Mark Charlebois",
+            "affiliation": "QuIC",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/agO40kLhPbw",
+        "videoId": "agO40kLhPbw",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Mark_Charlebois.pptx",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "building linux with llvm",
+        "_speakerLower": "mark charlebois",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "building linux with llvm",
+              "words": [
+                "building",
+                "linux",
+                "with",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "mark charlebois",
+              "words": [
+                "mark",
+                "charlebois"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "building linux with llvm 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk mark charlebois llvm"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2008-08-23-006": {
+      "talk": {
+        "id": "2008-08-23-006",
+        "meeting": "2008-08-23",
+        "meetingName": "2008 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "August 23, 2008",
+        "category": "technical-talk",
+        "title": "py2llvm: Python to LLVM translator",
+        "speakers": [],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2008-08-23/py2llvm.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "py2llvm: python to llvm translator",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2008 asiallvm developers' meeting tokyo, japan august 23, 2008",
+        "_year": "2008",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "py2llvm python to llvm translator",
+              "words": [
+                "py2llvm",
+                "python",
+                "to",
+                "llvm",
+                "translator"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2008 asiallvm developers meeting tokyo japan august 23 2008",
+              "words": [
+                "2008",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "august",
+                "23",
+                "2008"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2008",
+              "words": [
+                "2008"
+              ]
+            }
+          },
+          "year": 2008
+        },
+        "_searchBlob": "py2llvm python to llvm translator 2008 asiallvm developers meeting tokyo japan august 23 2008 2008-08-23 technical-talk llvm"
+      },
+      "meeting": {
+        "slug": "2008-08-23",
+        "name": "2008 AsiaLLVM Developers' Meeting",
+        "date": "August 23, 2008",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 8
+      }
+    }
+  }
+}

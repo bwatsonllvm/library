@@ -1,0 +1,1428 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-06-009": {
+      "talk": {
+        "id": "2025-06-009",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "technical-talk",
+        "title": "Reducing Code Size with Speculative Inlining",
+        "speakers": [
+          {
+            "name": "Vincent Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Inlining has generally been seen as a critical optimization for performance at the cost of size. But, it can also be used for size optimizations in the mobile space. In this talk, we discuss a new inlining technique that explores the full set of inlining candidates to uncover cases where inlining will generate size improvements due to downstream simplifications. It uncovers beneficial inlining that the traditional cost modeling overlooks resulting in non-trivial app size and performance improvements.",
+        "videoUrl": "https://youtu.be/lmpBcKu7teo",
+        "videoId": "lmpBcKu7teo",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/technical-talk/lee-inlining.pdf",
+        "tags": [
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "reducing code size with speculative inlining",
+        "_speakerLower": "vincent lee",
+        "_abstractLower": "inlining has generally been seen as a critical optimization for performance at the cost of size. but, it can also be used for size optimizations in the mobile space. in this talk, we discuss a new inlining technique that explores the full set of inlining candidates to uncover cases where inlining will generate size improvements due to downstream simplifications. it uncovers beneficial inlining that the traditional cost modeling overlooks resulting in non-trivial app size and performance improvements.",
+        "_tagsLower": "optimizations performance",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "reducing code size with speculative inlining",
+              "words": [
+                "reducing",
+                "code",
+                "size",
+                "with",
+                "speculative",
+                "inlining"
+              ]
+            },
+            "speakers": {
+              "text": "vincent lee",
+              "words": [
+                "vincent",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "optimizations performance",
+              "words": [
+                "optimizations",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "inlining has generally been seen as a critical optimization for performance at the cost of size. but it can also be used for size optimizations in the mobile space. in this talk we discuss a new inlining technique that explores the full set of inlining candidates to uncover cases where inlining will generate size improvements due to downstream simplifications. it uncovers beneficial inlining that the traditional cost modeling overlooks resulting in non-trivial app size and performance improvements.",
+              "words": [
+                "inlining",
+                "has",
+                "generally",
+                "been",
+                "seen",
+                "as",
+                "critical",
+                "optimization",
+                "for",
+                "performance",
+                "at",
+                "the",
+                "cost",
+                "of",
+                "size.",
+                "but",
+                "it",
+                "can",
+                "also",
+                "be",
+                "used",
+                "for",
+                "size",
+                "optimizations",
+                "in",
+                "the",
+                "mobile",
+                "space.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "discuss",
+                "new",
+                "inlining",
+                "technique",
+                "that",
+                "explores",
+                "the",
+                "full",
+                "set",
+                "of",
+                "inlining",
+                "candidates",
+                "to",
+                "uncover",
+                "cases",
+                "where",
+                "inlining",
+                "will",
+                "generate",
+                "size",
+                "improvements",
+                "due",
+                "to",
+                "downstream",
+                "simplifications.",
+                "it",
+                "uncovers",
+                "beneficial",
+                "inlining",
+                "that",
+                "the",
+                "traditional",
+                "cost",
+                "modeling",
+                "overlooks",
+                "resulting",
+                "in",
+                "non-trivial",
+                "app",
+                "size",
+                "and",
+                "performance",
+                "improvements."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "reducing code size with speculative inlining inlining has generally been seen as a critical optimization for performance at the cost of size. but it can also be used for size optimizations in the mobile space. in this talk we discuss a new inlining technique that explores the full set of inlining candidates to uncover cases where inlining will generate size improvements due to downstream simplifications. it uncovers beneficial inlining that the traditional cost modeling overlooks resulting in non-trivial app size and performance improvements. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 technical-talk vincent lee optimizations performance"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2023-05-008": {
+      "talk": {
+        "id": "2023-05-008",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "Buddy Compiler: An MLIR-based Compilation Framework for Deep Learning Co-design",
+        "speakers": [
+          {
+            "name": "Hongbin Zhang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Hongbin Zhang, Institute of Software Chinese Academy of Sciences Buddy Compiler is a compiler framework for software and hardware co-design. We are committed to building an extensible co-design ecosystem based on MLIR and RISC-V. This talk will share our co-design process in deep learning inference, including preprocessing, optimization, and backend support. Furthermore, we will also present our plans and current progress on DSL (Domain-Specific Language) to DSA (Domain-Specific Architecture) co-design.",
+        "videoUrl": "https://youtu.be/EELBpBA-XCE",
+        "videoId": "EELBpBA-XCE",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May10/09-Zhang-Buddy%20Compiler_An%20MLIR-BasedCompilationFramework-for-DeepLearningCo-Design.pdf",
+        "tags": [
+          "AI",
+          "Backend",
+          "MLIR",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "buddy compiler: an mlir-based compilation framework for deep learning co-design",
+        "_speakerLower": "hongbin zhang",
+        "_abstractLower": "hongbin zhang, institute of software chinese academy of sciences buddy compiler is a compiler framework for software and hardware co-design. we are committed to building an extensible co-design ecosystem based on mlir and risc-v. this talk will share our co-design process in deep learning inference, including preprocessing, optimization, and backend support. furthermore, we will also present our plans and current progress on dsl (domain-specific language) to dsa (domain-specific architecture) co-design.",
+        "_tagsLower": "ai backend mlir optimizations risc-v ml",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "buddy compiler an mlir-based compilation framework for deep learning co-design",
+              "words": [
+                "buddy",
+                "compiler",
+                "an",
+                "mlir-based",
+                "compilation",
+                "framework",
+                "for",
+                "deep",
+                "learning",
+                "co-design"
+              ]
+            },
+            "speakers": {
+              "text": "hongbin zhang",
+              "words": [
+                "hongbin",
+                "zhang"
+              ]
+            },
+            "tags": {
+              "text": "ai backend mlir optimizations risc-v ml",
+              "words": [
+                "ai",
+                "backend",
+                "mlir",
+                "optimizations",
+                "risc-v",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "hongbin zhang institute of software chinese academy of sciences buddy compiler is a compiler framework for software and hardware co-design. we are committed to building an extensible co-design ecosystem based on mlir and risc-v. this talk will share our co-design process in deep learning inference including preprocessing optimization and backend support. furthermore we will also present our plans and current progress on dsl domain-specific language to dsa domain-specific architecture co-design.",
+              "words": [
+                "hongbin",
+                "zhang",
+                "institute",
+                "of",
+                "software",
+                "chinese",
+                "academy",
+                "of",
+                "sciences",
+                "buddy",
+                "compiler",
+                "is",
+                "compiler",
+                "framework",
+                "for",
+                "software",
+                "and",
+                "hardware",
+                "co-design.",
+                "we",
+                "are",
+                "committed",
+                "to",
+                "building",
+                "an",
+                "extensible",
+                "co-design",
+                "ecosystem",
+                "based",
+                "on",
+                "mlir",
+                "and",
+                "risc-v.",
+                "this",
+                "talk",
+                "will",
+                "share",
+                "our",
+                "co-design",
+                "process",
+                "in",
+                "deep",
+                "learning",
+                "inference",
+                "including",
+                "preprocessing",
+                "optimization",
+                "and",
+                "backend",
+                "support.",
+                "furthermore",
+                "we",
+                "will",
+                "also",
+                "present",
+                "our",
+                "plans",
+                "and",
+                "current",
+                "progress",
+                "on",
+                "dsl",
+                "domain-specific",
+                "language",
+                "to",
+                "dsa",
+                "domain-specific",
+                "architecture",
+                "co-design."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "buddy compiler an mlir-based compilation framework for deep learning co-design hongbin zhang institute of software chinese academy of sciences buddy compiler is a compiler framework for software and hardware co-design. we are committed to building an extensible co-design ecosystem based on mlir and risc-v. this talk will share our co-design process in deep learning inference including preprocessing optimization and backend support. furthermore we will also present our plans and current progress on dsl domain-specific language to dsa domain-specific architecture co-design. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk hongbin zhang ai backend mlir optimizations risc-v ml"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-018": {
+      "talk": {
+        "id": "2022-05-018",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "quick-talk",
+        "title": "Improving debug locations for variables in memory",
+        "speakers": [
+          {
+            "name": "Orlando Cazalet-Hyams",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM generates suboptimal debug variable locations for variables in memory in optimised code. Due to a lack of information in the compiler, it uses a heuristic to decide whether to issue locations with low availability or locations that may be incorrect. We’ve been prototyping a new debug intrinsic which enables LLVM to make smarter decisions for these variables by connecting stores and source assignment markers. In this talk I will briefly outline the problem with the existing system, how the new system works - including how existing passes are affected - and discuss the accuracy and coverage improvements we've found so far.",
+        "videoUrl": "https://youtu.be/wSmveKsWSSY",
+        "videoId": "wSmveKsWSSY",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ImprovingDebugLocations-for-Variables-in-Memory.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "improving debug locations for variables in memory",
+        "_speakerLower": "orlando cazalet-hyams",
+        "_abstractLower": "llvm generates suboptimal debug variable locations for variables in memory in optimised code. due to a lack of information in the compiler, it uses a heuristic to decide whether to issue locations with low availability or locations that may be incorrect. we’ve been prototyping a new debug intrinsic which enables llvm to make smarter decisions for these variables by connecting stores and source assignment markers. in this talk i will briefly outline the problem with the existing system, how the new system works - including how existing passes are affected - and discuss the accuracy and coverage improvements we've found so far.",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "improving debug locations for variables in memory",
+              "words": [
+                "improving",
+                "debug",
+                "locations",
+                "for",
+                "variables",
+                "in",
+                "memory"
+              ]
+            },
+            "speakers": {
+              "text": "orlando cazalet-hyams",
+              "words": [
+                "orlando",
+                "cazalet-hyams"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "llvm generates suboptimal debug variable locations for variables in memory in optimised code. due to a lack of information in the compiler it uses a heuristic to decide whether to issue locations with low availability or locations that may be incorrect. weve been prototyping a new debug intrinsic which enables llvm to make smarter decisions for these variables by connecting stores and source assignment markers. in this talk i will briefly outline the problem with the existing system how the new system works - including how existing passes are affected - and discuss the accuracy and coverage improvements weve found so far.",
+              "words": [
+                "llvm",
+                "generates",
+                "suboptimal",
+                "debug",
+                "variable",
+                "locations",
+                "for",
+                "variables",
+                "in",
+                "memory",
+                "in",
+                "optimised",
+                "code.",
+                "due",
+                "to",
+                "lack",
+                "of",
+                "information",
+                "in",
+                "the",
+                "compiler",
+                "it",
+                "uses",
+                "heuristic",
+                "to",
+                "decide",
+                "whether",
+                "to",
+                "issue",
+                "locations",
+                "with",
+                "low",
+                "availability",
+                "or",
+                "locations",
+                "that",
+                "may",
+                "be",
+                "incorrect.",
+                "weve",
+                "been",
+                "prototyping",
+                "new",
+                "debug",
+                "intrinsic",
+                "which",
+                "enables",
+                "llvm",
+                "to",
+                "make",
+                "smarter",
+                "decisions",
+                "for",
+                "these",
+                "variables",
+                "by",
+                "connecting",
+                "stores",
+                "and",
+                "source",
+                "assignment",
+                "markers.",
+                "in",
+                "this",
+                "talk",
+                "will",
+                "briefly",
+                "outline",
+                "the",
+                "problem",
+                "with",
+                "the",
+                "existing",
+                "system",
+                "how",
+                "the",
+                "new",
+                "system",
+                "works",
+                "including",
+                "how",
+                "existing",
+                "passes",
+                "are",
+                "affected",
+                "and",
+                "discuss",
+                "the",
+                "accuracy",
+                "and",
+                "coverage",
+                "improvements",
+                "weve",
+                "found",
+                "so",
+                "far."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "improving debug locations for variables in memory llvm generates suboptimal debug variable locations for variables in memory in optimised code. due to a lack of information in the compiler it uses a heuristic to decide whether to issue locations with low availability or locations that may be incorrect. weve been prototyping a new debug intrinsic which enables llvm to make smarter decisions for these variables by connecting stores and source assignment markers. in this talk i will briefly outline the problem with the existing system how the new system works - including how existing passes are affected - and discuss the accuracy and coverage improvements weve found so far. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 quick-talk orlando cazalet-hyams llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2020-09-012": {
+      "talk": {
+        "id": "2020-09-012",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "CIL : Common MLIR Dialect for C/C++ and Fortran",
+        "speakers": [
+          {
+            "name": "Prashantha NR",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Vinay Madhusudan",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ranjith Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Srihari",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/3gcw-8C9UbA",
+        "videoId": "3gcw-8C9UbA",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/CIL_Common_MLIR_Abstraction.pdf",
+        "tags": [
+          "Flang",
+          "IR",
+          "MLIR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "cil : common mlir dialect for c/c++ and fortran",
+        "_speakerLower": "prashantha nr vinay madhusudan ranjith kumar srihari",
+        "_abstractLower": "",
+        "_tagsLower": "flang ir mlir",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "cil common mlir dialect for c c++ and fortran",
+              "words": [
+                "cil",
+                "common",
+                "mlir",
+                "dialect",
+                "for",
+                "c++",
+                "and",
+                "fortran"
+              ]
+            },
+            "speakers": {
+              "text": "prashantha nr vinay madhusudan ranjith kumar srihari",
+              "words": [
+                "prashantha",
+                "nr",
+                "vinay",
+                "madhusudan",
+                "ranjith",
+                "kumar",
+                "srihari"
+              ]
+            },
+            "tags": {
+              "text": "flang ir mlir",
+              "words": [
+                "flang",
+                "ir",
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "cil common mlir dialect for c c++ and fortran 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk prashantha nr vinay madhusudan ranjith kumar srihari flang ir mlir"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-034": {
+      "talk": {
+        "id": "2020-09-034",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "Finding and Outlining Similarities in LLVM IR",
+        "speakers": [
+          {
+            "name": "A. Litteken",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/HaN83qMyAhY",
+        "videoId": "HaN83qMyAhY",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Finding-outlining-ir-level-Andrew-Litteken.pdf",
+        "tags": [
+          "IR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "finding and outlining similarities in llvm ir",
+        "_speakerLower": "a. litteken",
+        "_abstractLower": "",
+        "_tagsLower": "ir llvm",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "finding and outlining similarities in llvm ir",
+              "words": [
+                "finding",
+                "and",
+                "outlining",
+                "similarities",
+                "in",
+                "llvm",
+                "ir"
+              ]
+            },
+            "speakers": {
+              "text": "a. litteken",
+              "words": [
+                "a.",
+                "litteken"
+              ]
+            },
+            "tags": {
+              "text": "ir llvm",
+              "words": [
+                "ir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "finding and outlining similarities in llvm ir 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk a. litteken ir llvm"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-017": {
+      "talk": {
+        "id": "2020-04-017",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Embracing SPIR-V in LLVM ecosystem via MLIR",
+        "speakers": [
+          {
+            "name": "Lei Zhang",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Mahesh Ravishankar",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "SPIR-V is a standard binary intermediate language for representing graphics shaders and compute kernels. It is adopted by multiple open APIs, notably Vulkan and OpenCL. There are consistent interests over proper SPIR-V support in LLVM ecosystem and multiple efforts driving towards that goal. However, none of them are landed thus far due to SPIR-V’s abstraction level, which raises significant challenges to existing LLVM CodeGen infrastructure. MLIR enables a different approach to achieve the goal: SPIR-V can be modeled as a dialect with the native abstraction. Dialect conversion framework facilitates interaction with other dialects, allowing converting to the SPIR-V dialect. This effectively embraces SPIR-V into the LLVM ecosystem. Along this line, this talk discusses how SPIR-V is modeled in MLIR and shows how it is leveraged to build an end-to-end ML compiler (IREE) to target Vulkan compute. Further integration paths are open as well for supporting OpenCL, Vulkan graphics, and interacting with the LLVM dialect. This talk is intended for folks interested in SPIR-V and Vulkan/OpenCL. For folks generally interested in MLIR, this talk gives examples of how to define dialects and conversions in MLIR, together with with useful practices and pitfalls to avoid we found along the way.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_62",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_62.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "embracing spir-v in llvm ecosystem via mlir",
+        "_speakerLower": "lei zhang mahesh ravishankar",
+        "_abstractLower": "spir-v is a standard binary intermediate language for representing graphics shaders and compute kernels. it is adopted by multiple open apis, notably vulkan and opencl. there are consistent interests over proper spir-v support in llvm ecosystem and multiple efforts driving towards that goal. however, none of them are landed thus far due to spir-v’s abstraction level, which raises significant challenges to existing llvm codegen infrastructure. mlir enables a different approach to achieve the goal: spir-v can be modeled as a dialect with the native abstraction. dialect conversion framework facilitates interaction with other dialects, allowing converting to the spir-v dialect. this effectively embraces spir-v into the llvm ecosystem. along this line, this talk discusses how spir-v is modeled in mlir and shows how it is leveraged to build an end-to-end ml compiler (iree) to target vulkan compute. further integration paths are open as well for supporting opencl, vulkan graphics, and interacting with the llvm dialect. this talk is intended for folks interested in spir-v and vulkan/opencl. for folks generally interested in mlir, this talk gives examples of how to define dialects and conversions in mlir, together with with useful practices and pitfalls to avoid we found along the way.",
+        "_tagsLower": "llvm mlir code generation infrastructure opencl ml",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "embracing spir-v in llvm ecosystem via mlir",
+              "words": [
+                "embracing",
+                "spir-v",
+                "in",
+                "llvm",
+                "ecosystem",
+                "via",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "lei zhang mahesh ravishankar",
+              "words": [
+                "lei",
+                "zhang",
+                "mahesh",
+                "ravishankar"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir code generation infrastructure opencl ml",
+              "words": [
+                "llvm",
+                "mlir",
+                "code",
+                "generation",
+                "infrastructure",
+                "opencl",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "spir-v is a standard binary intermediate language for representing graphics shaders and compute kernels. it is adopted by multiple open apis notably vulkan and opencl. there are consistent interests over proper spir-v support in llvm ecosystem and multiple efforts driving towards that goal. however none of them are landed thus far due to spir-vs abstraction level which raises significant challenges to existing llvm codegen infrastructure. mlir enables a different approach to achieve the goal spir-v can be modeled as a dialect with the native abstraction. dialect conversion framework facilitates interaction with other dialects allowing converting to the spir-v dialect. this effectively embraces spir-v into the llvm ecosystem. along this line this talk discusses how spir-v is modeled in mlir and shows how it is leveraged to build an end-to-end ml compiler iree to target vulkan compute. further integration paths are open as well for supporting opencl vulkan graphics and interacting with the llvm dialect. this talk is intended for folks interested in spir-v and vulkan opencl. for folks generally interested in mlir this talk gives examples of how to define dialects and conversions in mlir together with with useful practices and pitfalls to avoid we found along the way.",
+              "words": [
+                "spir-v",
+                "is",
+                "standard",
+                "binary",
+                "intermediate",
+                "language",
+                "for",
+                "representing",
+                "graphics",
+                "shaders",
+                "and",
+                "compute",
+                "kernels.",
+                "it",
+                "is",
+                "adopted",
+                "by",
+                "multiple",
+                "open",
+                "apis",
+                "notably",
+                "vulkan",
+                "and",
+                "opencl.",
+                "there",
+                "are",
+                "consistent",
+                "interests",
+                "over",
+                "proper",
+                "spir-v",
+                "support",
+                "in",
+                "llvm",
+                "ecosystem",
+                "and",
+                "multiple",
+                "efforts",
+                "driving",
+                "towards",
+                "that",
+                "goal.",
+                "however",
+                "none",
+                "of",
+                "them",
+                "are",
+                "landed",
+                "thus",
+                "far",
+                "due",
+                "to",
+                "spir-vs",
+                "abstraction",
+                "level",
+                "which",
+                "raises",
+                "significant",
+                "challenges",
+                "to",
+                "existing",
+                "llvm",
+                "codegen",
+                "infrastructure.",
+                "mlir",
+                "enables",
+                "different",
+                "approach",
+                "to",
+                "achieve",
+                "the",
+                "goal",
+                "spir-v",
+                "can",
+                "be",
+                "modeled",
+                "as",
+                "dialect",
+                "with",
+                "the",
+                "native",
+                "abstraction.",
+                "dialect",
+                "conversion",
+                "framework",
+                "facilitates",
+                "interaction",
+                "with",
+                "other",
+                "dialects",
+                "allowing",
+                "converting",
+                "to",
+                "the",
+                "spir-v",
+                "dialect.",
+                "this",
+                "effectively",
+                "embraces",
+                "spir-v",
+                "into",
+                "the",
+                "llvm",
+                "ecosystem.",
+                "along",
+                "this",
+                "line",
+                "this",
+                "talk",
+                "discusses",
+                "how",
+                "spir-v",
+                "is",
+                "modeled",
+                "in",
+                "mlir",
+                "and",
+                "shows",
+                "how",
+                "it",
+                "is",
+                "leveraged",
+                "to",
+                "build",
+                "an",
+                "end-to-end",
+                "ml",
+                "compiler",
+                "iree",
+                "to",
+                "target",
+                "vulkan",
+                "compute.",
+                "further",
+                "integration",
+                "paths",
+                "are",
+                "open",
+                "as",
+                "well",
+                "for",
+                "supporting",
+                "opencl",
+                "vulkan",
+                "graphics",
+                "and",
+                "interacting",
+                "with",
+                "the",
+                "llvm",
+                "dialect.",
+                "this",
+                "talk",
+                "is",
+                "intended",
+                "for",
+                "folks",
+                "interested",
+                "in",
+                "spir-v",
+                "and",
+                "vulkan",
+                "opencl.",
+                "for",
+                "folks",
+                "generally",
+                "interested",
+                "in",
+                "mlir",
+                "this",
+                "talk",
+                "gives",
+                "examples",
+                "of",
+                "how",
+                "to",
+                "define",
+                "dialects",
+                "and",
+                "conversions",
+                "in",
+                "mlir",
+                "together",
+                "with",
+                "with",
+                "useful",
+                "practices",
+                "and",
+                "pitfalls",
+                "to",
+                "avoid",
+                "we",
+                "found",
+                "along",
+                "the",
+                "way."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "embracing spir-v in llvm ecosystem via mlir spir-v is a standard binary intermediate language for representing graphics shaders and compute kernels. it is adopted by multiple open apis notably vulkan and opencl. there are consistent interests over proper spir-v support in llvm ecosystem and multiple efforts driving towards that goal. however none of them are landed thus far due to spir-vs abstraction level which raises significant challenges to existing llvm codegen infrastructure. mlir enables a different approach to achieve the goal spir-v can be modeled as a dialect with the native abstraction. dialect conversion framework facilitates interaction with other dialects allowing converting to the spir-v dialect. this effectively embraces spir-v into the llvm ecosystem. along this line this talk discusses how spir-v is modeled in mlir and shows how it is leveraged to build an end-to-end ml compiler iree to target vulkan compute. further integration paths are open as well for supporting opencl vulkan graphics and interacting with the llvm dialect. this talk is intended for folks interested in spir-v and vulkan opencl. for folks generally interested in mlir this talk gives examples of how to define dialects and conversions in mlir together with with useful practices and pitfalls to avoid we found along the way. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk lei zhang mahesh ravishankar llvm mlir code generation infrastructure opencl ml"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-039": {
+      "talk": {
+        "id": "2020-04-039",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "OpenACC MLIR dialect for Flang and maybe more",
+        "speakers": [
+          {
+            "name": "Valentin Clement",
+            "affiliation": "Oak Ridge National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jeffrey S. Vetter",
+            "affiliation": "Oak Ridge National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "OpenACC [1] is a directive-based programming model to target heterogenous architectures with minimized change in original code. The standard is available for Fortran, C and C++. It is used in variety of scientific applications to exploit the compute power of the biggest supercomputers in the world. While there is a wide range of approaches in C and C++ to target accelerators, Fortran is stuck with directive based programming models like OpenMP and OpenACC. In this lightning talk we are presenting our idea to introduce an OpenACC dialect in MLIR and implement the standard in Flang/LLVM. This project might benefit other efforts like the Clacc [2] project doing this in clang/LLVM. [1] OpenACC standard: https://www.openacc.org/ [2] Clacc: Translating OpenACC to OpenMP in Clang. Joel E. Denny, Seyong Lee, and Jeffrey S. Vetter. 2018 IEEE/ACM 5th Workshop on the LLVM Compiler Infrastructure in HPC (LLVM-HPC), Dallas, TX, USA, (2018).",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_9",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_9.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "openacc mlir dialect for flang and maybe more",
+        "_speakerLower": "valentin clement jeffrey s. vetter",
+        "_abstractLower": "openacc [1] is a directive-based programming model to target heterogenous architectures with minimized change in original code. the standard is available for fortran, c and c++. it is used in variety of scientific applications to exploit the compute power of the biggest supercomputers in the world. while there is a wide range of approaches in c and c++ to target accelerators, fortran is stuck with directive based programming models like openmp and openacc. in this lightning talk we are presenting our idea to introduce an openacc dialect in mlir and implement the standard in flang/llvm. this project might benefit other efforts like the clacc [2] project doing this in clang/llvm. [1] openacc standard: https://www.openacc.org/ [2] clacc: translating openacc to openmp in clang. joel e. denny, seyong lee, and jeffrey s. vetter. 2018 ieee/acm 5th workshop on the llvm compiler infrastructure in hpc (llvm-hpc), dallas, tx, usa, (2018).",
+        "_tagsLower": "llvm clang mlir flang openmp infrastructure",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "openacc mlir dialect for flang and maybe more",
+              "words": [
+                "openacc",
+                "mlir",
+                "dialect",
+                "for",
+                "flang",
+                "and",
+                "maybe",
+                "more"
+              ]
+            },
+            "speakers": {
+              "text": "valentin clement jeffrey s. vetter",
+              "words": [
+                "valentin",
+                "clement",
+                "jeffrey",
+                "s.",
+                "vetter"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang mlir flang openmp infrastructure",
+              "words": [
+                "llvm",
+                "clang",
+                "mlir",
+                "flang",
+                "openmp",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "openacc 1 is a directive-based programming model to target heterogenous architectures with minimized change in original code. the standard is available for fortran c and c++. it is used in variety of scientific applications to exploit the compute power of the biggest supercomputers in the world. while there is a wide range of approaches in c and c++ to target accelerators fortran is stuck with directive based programming models like openmp and openacc. in this lightning talk we are presenting our idea to introduce an openacc dialect in mlir and implement the standard in flang llvm. this project might benefit other efforts like the clacc 2 project doing this in clang llvm. 1 openacc standard https www.openacc.org 2 clacc translating openacc to openmp in clang. joel e. denny seyong lee and jeffrey s. vetter. 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc dallas tx usa 2018 .",
+              "words": [
+                "openacc",
+                "is",
+                "directive-based",
+                "programming",
+                "model",
+                "to",
+                "target",
+                "heterogenous",
+                "architectures",
+                "with",
+                "minimized",
+                "change",
+                "in",
+                "original",
+                "code.",
+                "the",
+                "standard",
+                "is",
+                "available",
+                "for",
+                "fortran",
+                "and",
+                "c++.",
+                "it",
+                "is",
+                "used",
+                "in",
+                "variety",
+                "of",
+                "scientific",
+                "applications",
+                "to",
+                "exploit",
+                "the",
+                "compute",
+                "power",
+                "of",
+                "the",
+                "biggest",
+                "supercomputers",
+                "in",
+                "the",
+                "world.",
+                "while",
+                "there",
+                "is",
+                "wide",
+                "range",
+                "of",
+                "approaches",
+                "in",
+                "and",
+                "c++",
+                "to",
+                "target",
+                "accelerators",
+                "fortran",
+                "is",
+                "stuck",
+                "with",
+                "directive",
+                "based",
+                "programming",
+                "models",
+                "like",
+                "openmp",
+                "and",
+                "openacc.",
+                "in",
+                "this",
+                "lightning",
+                "talk",
+                "we",
+                "are",
+                "presenting",
+                "our",
+                "idea",
+                "to",
+                "introduce",
+                "an",
+                "openacc",
+                "dialect",
+                "in",
+                "mlir",
+                "and",
+                "implement",
+                "the",
+                "standard",
+                "in",
+                "flang",
+                "llvm.",
+                "this",
+                "project",
+                "might",
+                "benefit",
+                "other",
+                "efforts",
+                "like",
+                "the",
+                "clacc",
+                "project",
+                "doing",
+                "this",
+                "in",
+                "clang",
+                "llvm.",
+                "openacc",
+                "standard",
+                "https",
+                "www.openacc.org",
+                "clacc",
+                "translating",
+                "openacc",
+                "to",
+                "openmp",
+                "in",
+                "clang.",
+                "joel",
+                "e.",
+                "denny",
+                "seyong",
+                "lee",
+                "and",
+                "jeffrey",
+                "s.",
+                "vetter.",
+                "2018",
+                "ieee",
+                "acm",
+                "5th",
+                "workshop",
+                "on",
+                "the",
+                "llvm",
+                "compiler",
+                "infrastructure",
+                "in",
+                "hpc",
+                "llvm-hpc",
+                "dallas",
+                "tx",
+                "usa",
+                "2018"
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "openacc mlir dialect for flang and maybe more openacc 1 is a directive-based programming model to target heterogenous architectures with minimized change in original code. the standard is available for fortran c and c++. it is used in variety of scientific applications to exploit the compute power of the biggest supercomputers in the world. while there is a wide range of approaches in c and c++ to target accelerators fortran is stuck with directive based programming models like openmp and openacc. in this lightning talk we are presenting our idea to introduce an openacc dialect in mlir and implement the standard in flang llvm. this project might benefit other efforts like the clacc 2 project doing this in clang llvm. 1 openacc standard https www.openacc.org 2 clacc translating openacc to openmp in clang. joel e. denny seyong lee and jeffrey s. vetter. 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc dallas tx usa 2018 . 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk valentin clement jeffrey s. vetter llvm clang mlir flang openmp infrastructure"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    }
+  }
+}

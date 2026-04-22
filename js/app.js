@@ -2075,6 +2075,7 @@ function normalizePaperAuthorName(rawAuthor) {
 function buildPaperSearchEntry(rawPaper) {
   const paper = rawPaper && typeof rawPaper === 'object' ? rawPaper : null;
   if (!paper) return null;
+  if (paper._searchDoc && typeof paper._searchDoc === 'object') return paper;
 
   const title = String(paper.title || '').trim();
   if (!title) return null;
@@ -2085,6 +2086,7 @@ function buildPaperSearchEntry(rawPaper) {
   const topics = getPaperKeyTopics(paper, 12);
   const abstractText = String(paper.abstract || '').trim();
   const contentText = [
+    paper.bodyText,
     paper.content,
     paper.body,
     paper.markdown,
@@ -2153,6 +2155,40 @@ async function hydrateUniversalAutocomplete() {
   if (universalAutocompletePromise) return universalAutocompletePromise;
 
   universalAutocompletePromise = (async () => {
+    if (typeof window.loadViewerArtifactJson === 'function') {
+      try {
+        const [autocompletePayload, workPayload] = await Promise.all([
+          window.loadViewerArtifactJson('autocompleteIndex'),
+          window.loadViewerArtifactJson('workSearchCorpus'),
+        ]);
+        autocompleteIndex.topics = Array.isArray(autocompletePayload && autocompletePayload.topics)
+          ? autocompletePayload.topics
+          : autocompleteIndex.topics;
+        autocompleteIndex.people = Array.isArray(autocompletePayload && autocompletePayload.people)
+          ? autocompletePayload.people
+          : autocompleteIndex.people;
+        autocompleteIndex.talks = Array.isArray(autocompletePayload && autocompletePayload.talks)
+          ? autocompletePayload.talks
+          : autocompleteIndex.talks;
+        autocompleteIndex.papers = Array.isArray(autocompletePayload && autocompletePayload.papers)
+          ? autocompletePayload.papers
+          : autocompleteIndex.papers;
+        paperSearchIndex = [
+          ...(Array.isArray(workPayload && workPayload.papers) ? workPayload.papers : []),
+          ...(Array.isArray(workPayload && workPayload.blogs) ? workPayload.blogs : []),
+        ];
+
+        const input = document.getElementById('search-input');
+        if (input) {
+          const query = String(input.value || '').trim();
+          if (query) renderDropdown(query);
+        }
+        return;
+      } catch {
+        // Fall back to loader-backed hydration below.
+      }
+    }
+
     const hasLoader = await ensurePaperDataLoader();
     if (!hasLoader || typeof window.loadPaperData !== 'function') return;
 

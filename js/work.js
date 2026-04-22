@@ -1145,6 +1145,7 @@ function normalizePaperRecord(rawPaper) {
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
   paper.source = String(paper.source || '').trim();
+  paper.bodyText = String(paper.bodyText || '').trim();
   paper.citationCount = parseCitationCount(rawPaper);
 
   paper.authors = Array.isArray(paper.authors)
@@ -1178,15 +1179,18 @@ function normalizePaperRecord(rawPaper) {
   paper._authorsLower = paper.authors.map((author) => `${author.name || ''}`).join(' ').toLowerCase();
   paper._topicsLower = `${paper.tags.join(' ')} ${paper.keywords.join(' ')}`.trim().toLowerCase();
   paper._abstractLower = paper.abstract.toLowerCase();
-  paper._contentLower = [
+  paper._contentLower = String(paper._contentLower || '').trim().toLowerCase() || [
+    paper.bodyText,
     paper.content,
     paper.body,
     paper.markdown,
     paper.html,
   ].map((value) => String(value || '').trim()).filter(Boolean).join(' ').toLowerCase();
-  paper._publicationLower = paper.publication.toLowerCase();
-  paper._venueLower = paper.venue.toLowerCase();
-  paper._yearLower = paper._year.toLowerCase();
+  paper._publicationLower = String(paper._publicationLower || paper.publication || '').toLowerCase();
+  paper._venueLower = String(paper._venueLower || paper.venue || '').toLowerCase();
+  paper._yearLower = String(paper._yearLower || paper._year || '').toLowerCase();
+  if (paper._searchDoc && typeof paper._searchDoc !== 'object') delete paper._searchDoc;
+  paper._searchBlob = String(paper._searchBlob || '').trim().toLowerCase();
   const normalizedSource = paper.source.toLowerCase();
   const normalizedType = paper.type.toLowerCase();
   paper._isBlog = BLOG_SOURCE_SLUGS.has(normalizedSource)
@@ -1543,6 +1547,8 @@ function rankPeopleWithContext(rankedPeople, scoreByKey, filterWindow) {
 }
 
 function getPersonSearchBlob(person) {
+  const precomputed = normalizeSearchText(person && person._searchBlob);
+  if (precomputed) return precomputed;
   const variants = getPersonVariantNames(person);
   const parts = [
     ...variants,
@@ -3233,28 +3239,47 @@ async function init() {
     return;
   }
 
-  if (typeof window.loadEventData !== 'function' || typeof window.loadPaperData !== 'function') {
-    renderError('Data loaders are unavailable on this page.');
-    return;
-  }
-
   try {
-    const [eventPayload, paperPayload] = await Promise.all([
-      window.loadEventData(),
-      window.loadPaperData(),
-    ]);
+    let artifactLoaded = false;
+    if (typeof window.loadViewerArtifactJson === 'function') {
+      try {
+        const [workPayload, peoplePayload] = await Promise.all([
+          window.loadViewerArtifactJson('workSearchCorpus'),
+          window.loadViewerArtifactJson('peopleIndex'),
+        ]);
+        allTalkRecords = Array.isArray(workPayload && workPayload.talks) ? workPayload.talks : [];
+        allPaperRecords = Array.isArray(workPayload && workPayload.papers) ? workPayload.papers : [];
+        allBlogRecords = Array.isArray(workPayload && workPayload.blogs) ? workPayload.blogs : [];
+        allPeopleRecords = Array.isArray(peoplePayload && peoplePayload.people) ? peoplePayload.people : [];
+        artifactLoaded = true;
+      } catch {
+        artifactLoaded = false;
+      }
+    }
 
-    const talks = normalizeTalksFromHub(eventPayload.talks || []);
+    if (!artifactLoaded) {
+      if (typeof window.loadEventData !== 'function' || typeof window.loadPaperData !== 'function') {
+        renderError('Data loaders are unavailable on this page.');
+        return;
+      }
 
-    const papers = Array.isArray(paperPayload.papers)
-      ? paperPayload.papers.map(normalizePaperRecord).filter(Boolean)
-      : [];
-    const paperOnly = papers.filter((paper) => !isBlogPaper(paper));
-    const blogsOnly = papers.filter((paper) => isBlogPaper(paper));
-    allTalkRecords = talks;
-    allPaperRecords = paperOnly;
-    allBlogRecords = blogsOnly;
-    allPeopleRecords = buildPeopleRecordsWithMetadata(talks, paperOnly, blogsOnly);
+      const [eventPayload, paperPayload] = await Promise.all([
+        window.loadEventData(),
+        window.loadPaperData(),
+      ]);
+
+      const talks = normalizeTalksFromHub(eventPayload.talks || []);
+      const papers = Array.isArray(paperPayload.papers)
+        ? paperPayload.papers.map(normalizePaperRecord).filter(Boolean)
+        : [];
+      const paperOnly = papers.filter((paper) => !isBlogPaper(paper));
+      const blogsOnly = papers.filter((paper) => isBlogPaper(paper));
+      allTalkRecords = talks;
+      allPaperRecords = paperOnly;
+      allBlogRecords = blogsOnly;
+      allPeopleRecords = buildPeopleRecordsWithMetadata(talks, paperOnly, blogsOnly);
+    }
+
     recomputeFilteredResults();
     rerenderWorkSections();
 

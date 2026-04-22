@@ -1,0 +1,1494 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2022-05-009": {
+      "talk": {
+        "id": "2022-05-009",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "Developing an LLVM backend for the KV3 Kalray VLIW core",
+        "speakers": [
+          {
+            "name": "Cyril Six",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Kalray is a semiconductor company. We design and produce a manycore architecture with 6-issue VLIW cores. We started writing a backend for our VLIW 3 years ago. This talk will describe our architecture and relate our experience in the development of its LLVM backend, including the challenges we faced, and a comparison between GCC and LLVM generated code on a few examples.",
+        "videoUrl": "https://youtu.be/4Xad8NDRYDI",
+        "videoId": "4Xad8NDRYDI",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-DevelopingAnLLVMBackend-for-the-KV3KalrayVLIWCore.pdf",
+        "tags": [
+          "Backend"
+        ],
+        "projectGithub": "https://github.com/kalray/llvm",
+        "githubReferences": [
+          "https://github.com/kalray/llvm",
+          "https://github.com/kalray/llvm-project"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/kalray/llvm",
+            "source": "slides",
+            "label": "project Email: csix@kalrayinc.com , dsampaio@kalrayinc.com mailto:csix@kalrayinc.com mailto:dsampa",
+            "context": "project Email: csix@kalrayinc.com , dsampaio@kalrayinc.com mailto:csix@kalrayinc.com mailto:dsampa",
+            "library": "llvm",
+            "repository": "kalray/llvm",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/kalray/llvm-project",
+            "source": "slides",
+            "label": "mailto:csix@kalrayinc.com mailto:dsampaio@kalrayinc.com",
+            "context": "mailto:csix@kalrayinc.com mailto:dsampaio@kalrayinc.com",
+            "library": "llvm-project",
+            "repository": "kalray/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/kalray/llvm"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/kalray/llvm-project"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "developing an llvm backend for the kv3 kalray vliw core",
+        "_speakerLower": "cyril six",
+        "_abstractLower": "kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend, including the challenges we faced, and a comparison between gcc and llvm generated code on a few examples.",
+        "_tagsLower": "backend llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "developing an llvm backend for the kv3 kalray vliw core",
+              "words": [
+                "developing",
+                "an",
+                "llvm",
+                "backend",
+                "for",
+                "the",
+                "kv3",
+                "kalray",
+                "vliw",
+                "core"
+              ]
+            },
+            "speakers": {
+              "text": "cyril six",
+              "words": [
+                "cyril",
+                "six"
+              ]
+            },
+            "tags": {
+              "text": "backend llvm",
+              "words": [
+                "backend",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend including the challenges we faced and a comparison between gcc and llvm generated code on a few examples.",
+              "words": [
+                "kalray",
+                "is",
+                "semiconductor",
+                "company.",
+                "we",
+                "design",
+                "and",
+                "produce",
+                "manycore",
+                "architecture",
+                "with",
+                "6-issue",
+                "vliw",
+                "cores.",
+                "we",
+                "started",
+                "writing",
+                "backend",
+                "for",
+                "our",
+                "vliw",
+                "years",
+                "ago.",
+                "this",
+                "talk",
+                "will",
+                "describe",
+                "our",
+                "architecture",
+                "and",
+                "relate",
+                "our",
+                "experience",
+                "in",
+                "the",
+                "development",
+                "of",
+                "its",
+                "llvm",
+                "backend",
+                "including",
+                "the",
+                "challenges",
+                "we",
+                "faced",
+                "and",
+                "comparison",
+                "between",
+                "gcc",
+                "and",
+                "llvm",
+                "generated",
+                "code",
+                "on",
+                "few",
+                "examples."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "developing an llvm backend for the kv3 kalray vliw core kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend including the challenges we faced and a comparison between gcc and llvm generated code on a few examples. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk cyril six backend llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2022-04-03-011": {
+      "talk": {
+        "id": "2022-04-03-011",
+        "meeting": "2022-04-03",
+        "meetingName": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "April 3, 2022",
+        "category": "tutorial",
+        "title": "[Tutorial] A walk through Flang OpenMP lowering: From FIR to LLVMIR",
+        "speakers": [
+          {
+            "name": "Arnamoy Bhattacharyya Peixin Qiao Bryan Chan",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk, we show the details of the lowering process from Source Fortran code to LLVMIR, through the Fortran Dialect of MLIR e.g FIR. We walk the listeners through an example OpenMP construct (SIMD) and showcase how to design the lowering pipeline. This talk will immensely be helpful to future contributors to the LLVM-Flang OpenMP project.\n\nWe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:)\n\nWhile the primary focus of the workshop is on these topics, we welcome any submission related to the LLVM-project, its sub-projects (clang, mlir, lldb, Polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nProposals should provide sufficient information for the review committee to be able to judge the quality of the submission. Proposals can be submitted under the form of an extended abstract, full paper, or slides. Accepted presentations will be presented online. The presentations will be publicly available on https://llvm.org/devmtg/, and recordings will be available on LLVM's youtube channel\n\nIn case of any queries please reach out to the workshop organizers: Johannes Doerfert (jdoerfert at anl.gov), Aditya Kumar (adityak at snap.com), Jose M Monsalve Diaz (jmonsalvediaz@anl.gov), Shilei Tian (i@tianshilei.me), Vaibhav Kurhe (vaibhav.kurhe@gmail.com)",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2022-04-03/slides/A.walk.through.Flang.OpenMP.lowering.From.FIR.to.LLVMIR.pdf",
+        "tags": [
+          "Autovectorization",
+          "Clang",
+          "Flang",
+          "LLD",
+          "LLDB",
+          "Libraries",
+          "MLIR",
+          "Polly"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "[tutorial] a walk through flang openmp lowering: from fir to llvmir",
+        "_speakerLower": "arnamoy bhattacharyya peixin qiao bryan chan",
+        "_abstractLower": "in this talk, we show the details of the lowering process from source fortran code to llvmir, through the fortran dialect of mlir e.g fir. we walk the listeners through an example openmp construct (simd) and showcase how to design the lowering pipeline. this talk will immensely be helpful to future contributors to the llvm-flang openmp project.\n\nwe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:)\n\nwhile the primary focus of the workshop is on these topics, we welcome any submission related to the llvm-project, its sub-projects (clang, mlir, lldb, polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nproposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract, full paper, or slides. accepted presentations will be presented online. the presentations will be publicly available on https://llvm.org/devmtg/, and recordings will be available on llvm's youtube channel\n\nin case of any queries please reach out to the workshop organizers: johannes doerfert (jdoerfert at anl.gov), aditya kumar (adityak at snap.com), jose m monsalve diaz (jmonsalvediaz@anl.gov), shilei tian (i@tianshilei.me), vaibhav kurhe (vaibhav.kurhe@gmail.com)",
+        "_tagsLower": "autovectorization clang flang lld lldb libraries mlir polly llvm openmp compiler-rt",
+        "_meetingLower": "2022 sixth llvm performance workshop @ cgo sixth llvm performance workshop @ cgo, virtual april 3, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tutorial a walk through flang openmp lowering from fir to llvmir",
+              "words": [
+                "tutorial",
+                "walk",
+                "through",
+                "flang",
+                "openmp",
+                "lowering",
+                "from",
+                "fir",
+                "to",
+                "llvmir"
+              ]
+            },
+            "speakers": {
+              "text": "arnamoy bhattacharyya peixin qiao bryan chan",
+              "words": [
+                "arnamoy",
+                "bhattacharyya",
+                "peixin",
+                "qiao",
+                "bryan",
+                "chan"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization clang flang lld lldb libraries mlir polly llvm openmp compiler-rt",
+              "words": [
+                "autovectorization",
+                "clang",
+                "flang",
+                "lld",
+                "lldb",
+                "libraries",
+                "mlir",
+                "polly",
+                "llvm",
+                "openmp",
+                "compiler-rt"
+              ]
+            },
+            "meeting": {
+              "text": "2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022",
+              "words": [
+                "2022",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "sixth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "april",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we show the details of the lowering process from source fortran code to llvmir through the fortran dialect of mlir e.g fir. we walk the listeners through an example openmp construct simd and showcase how to design the lowering pipeline. this talk will immensely be helpful to future contributors to the llvm-flang openmp project. we invite speakers from academia and industry to present their work on the following list of topics including and not limited to while the primary focus of the workshop is on these topics we welcome any submission related to the llvm-project its sub-projects clang mlir lldb polly lld openmp pstl compiler-rt etc. as well as their use in industry and academia. proposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract full paper or slides. accepted presentations will be presented online. the presentations will be publicly available on https llvm.org devmtg and recordings will be available on llvms youtube channel in case of any queries please reach out to the workshop organizers johannes doerfert jdoerfert at anl.gov aditya kumar adityak at snap.com jose m monsalve diaz jmonsalvediaz anl.gov shilei tian i tianshilei.me vaibhav kurhe vaibhav.kurhe gmail.com",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "show",
+                "the",
+                "details",
+                "of",
+                "the",
+                "lowering",
+                "process",
+                "from",
+                "source",
+                "fortran",
+                "code",
+                "to",
+                "llvmir",
+                "through",
+                "the",
+                "fortran",
+                "dialect",
+                "of",
+                "mlir",
+                "e.g",
+                "fir.",
+                "we",
+                "walk",
+                "the",
+                "listeners",
+                "through",
+                "an",
+                "example",
+                "openmp",
+                "construct",
+                "simd",
+                "and",
+                "showcase",
+                "how",
+                "to",
+                "design",
+                "the",
+                "lowering",
+                "pipeline.",
+                "this",
+                "talk",
+                "will",
+                "immensely",
+                "be",
+                "helpful",
+                "to",
+                "future",
+                "contributors",
+                "to",
+                "the",
+                "llvm-flang",
+                "openmp",
+                "project.",
+                "we",
+                "invite",
+                "speakers",
+                "from",
+                "academia",
+                "and",
+                "industry",
+                "to",
+                "present",
+                "their",
+                "work",
+                "on",
+                "the",
+                "following",
+                "list",
+                "of",
+                "topics",
+                "including",
+                "and",
+                "not",
+                "limited",
+                "to",
+                "while",
+                "the",
+                "primary",
+                "focus",
+                "of",
+                "the",
+                "workshop",
+                "is",
+                "on",
+                "these",
+                "topics",
+                "we",
+                "welcome",
+                "any",
+                "submission",
+                "related",
+                "to",
+                "the",
+                "llvm-project",
+                "its",
+                "sub-projects",
+                "clang",
+                "mlir",
+                "lldb",
+                "polly",
+                "lld",
+                "openmp",
+                "pstl",
+                "compiler-rt",
+                "etc.",
+                "as",
+                "well",
+                "as",
+                "their",
+                "use",
+                "in",
+                "industry",
+                "and",
+                "academia.",
+                "proposals",
+                "should",
+                "provide",
+                "sufficient",
+                "information",
+                "for",
+                "the",
+                "review",
+                "committee",
+                "to",
+                "be",
+                "able",
+                "to",
+                "judge",
+                "the",
+                "quality",
+                "of",
+                "the",
+                "submission.",
+                "proposals",
+                "can",
+                "be",
+                "submitted",
+                "under",
+                "the",
+                "form",
+                "of",
+                "an",
+                "extended",
+                "abstract",
+                "full",
+                "paper",
+                "or",
+                "slides.",
+                "accepted",
+                "presentations",
+                "will",
+                "be",
+                "presented",
+                "online.",
+                "the",
+                "presentations",
+                "will",
+                "be",
+                "publicly",
+                "available",
+                "on",
+                "https",
+                "llvm.org",
+                "devmtg",
+                "and",
+                "recordings",
+                "will",
+                "be",
+                "available",
+                "on",
+                "llvms",
+                "youtube",
+                "channel",
+                "in",
+                "case",
+                "of",
+                "any",
+                "queries",
+                "please",
+                "reach",
+                "out",
+                "to",
+                "the",
+                "workshop",
+                "organizers",
+                "johannes",
+                "doerfert",
+                "jdoerfert",
+                "at",
+                "anl.gov",
+                "aditya",
+                "kumar",
+                "adityak",
+                "at",
+                "snap.com",
+                "jose",
+                "monsalve",
+                "diaz",
+                "jmonsalvediaz",
+                "anl.gov",
+                "shilei",
+                "tian",
+                "tianshilei.me",
+                "vaibhav",
+                "kurhe",
+                "vaibhav.kurhe",
+                "gmail.com"
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "tutorial a walk through flang openmp lowering from fir to llvmir in this talk we show the details of the lowering process from source fortran code to llvmir through the fortran dialect of mlir e.g fir. we walk the listeners through an example openmp construct simd and showcase how to design the lowering pipeline. this talk will immensely be helpful to future contributors to the llvm-flang openmp project. we invite speakers from academia and industry to present their work on the following list of topics including and not limited to while the primary focus of the workshop is on these topics we welcome any submission related to the llvm-project its sub-projects clang mlir lldb polly lld openmp pstl compiler-rt etc. as well as their use in industry and academia. proposals should provide sufficient information for the review committee to be able to judge the quality of the submission. proposals can be submitted under the form of an extended abstract full paper or slides. accepted presentations will be presented online. the presentations will be publicly available on https llvm.org devmtg and recordings will be available on llvms youtube channel in case of any queries please reach out to the workshop organizers johannes doerfert jdoerfert at anl.gov aditya kumar adityak at snap.com jose m monsalve diaz jmonsalvediaz anl.gov shilei tian i tianshilei.me vaibhav kurhe vaibhav.kurhe gmail.com 2022 sixth llvm performance workshop cgo sixth llvm performance workshop cgo virtual april 3 2022 2022-04-03 tutorial arnamoy bhattacharyya peixin qiao bryan chan autovectorization clang flang lld lldb libraries mlir polly llvm openmp compiler-rt"
+      },
+      "meeting": {
+        "slug": "2022-04-03",
+        "name": "2022 Sixth LLVM Performance Workshop @ CGO",
+        "date": "April 3, 2022",
+        "location": "Sixth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2020-09-003": {
+      "talk": {
+        "id": "2020-09-003",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "LLVM Libc: Current Status, Challenges and Future Plans",
+        "speakers": [
+          {
+            "name": "Siva Chandra Reddy",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Guillaume Chatelet",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Paula Asker",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "David Finkelstein",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/Dm8-ug9L0Gc",
+        "videoId": "Dm8-ug9L0Gc",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Reddy-Libc_Status_Challenges_Future_Plans.pdf",
+        "tags": [
+          "C Libs"
+        ],
+        "projectGithub": "https://github.com/ARM-software/optimized-routines",
+        "githubReferences": [
+          "https://github.com/ARM-software/optimized-routines",
+          "https://github.com/google/oss-fuzz"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/ARM-software/optimized-routines",
+            "source": "slides",
+            "label": "The exponential and trigonometric functions are adaptations of Arm’s contribution from their AOR project",
+            "context": "The exponential and trigonometric functions are adaptations of Arm’s contribution from their AOR project",
+            "library": "optimized-routines",
+            "repository": "ARM-software/optimized-routines",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/google/oss-fuzz",
+            "source": "slides",
+            "label": "and performance of the math functions with similar functions from other popular libcs. 8",
+            "context": "and performance of the math functions with similar functions from other popular libcs. 8",
+            "library": "oss-fuzz",
+            "repository": "google/oss-fuzz",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/ARM-software/optimized-routines"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/google/oss-fuzz"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm libc: current status, challenges and future plans",
+        "_speakerLower": "siva chandra reddy guillaume chatelet paula asker david finkelstein",
+        "_abstractLower": "",
+        "_tagsLower": "c libs llvm libc",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm libc current status challenges and future plans",
+              "words": [
+                "llvm",
+                "libc",
+                "current",
+                "status",
+                "challenges",
+                "and",
+                "future",
+                "plans"
+              ]
+            },
+            "speakers": {
+              "text": "siva chandra reddy guillaume chatelet paula asker david finkelstein",
+              "words": [
+                "siva",
+                "chandra",
+                "reddy",
+                "guillaume",
+                "chatelet",
+                "paula",
+                "asker",
+                "david",
+                "finkelstein"
+              ]
+            },
+            "tags": {
+              "text": "c libs llvm libc",
+              "words": [
+                "libs",
+                "llvm",
+                "libc"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "llvm libc current status challenges and future plans 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk siva chandra reddy guillaume chatelet paula asker david finkelstein c libs llvm libc"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-025": {
+      "talk": {
+        "id": "2020-09-025",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "tutorial",
+        "title": "Everything I know about debugging LLVM",
+        "speakers": [
+          {
+            "name": "N. Desaulniers",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/y4b-sgp6VYA",
+        "videoId": "y4b-sgp6VYA",
+        "slidesUrl": "https://clangbuiltlinux.github.io/llvm-dev-conf-2020/nick/debugging_llvm.html#/",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "everything i know about debugging llvm",
+        "_speakerLower": "n. desaulniers",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "everything i know about debugging llvm",
+              "words": [
+                "everything",
+                "know",
+                "about",
+                "debugging",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "n. desaulniers",
+              "words": [
+                "n.",
+                "desaulniers"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "everything i know about debugging llvm 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 tutorial n. desaulniers llvm"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-047": {
+      "talk": {
+        "id": "2020-09-047",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "Flang Update",
+        "speakers": [
+          {
+            "name": "S. Scalpone",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/rO59gcuq0LU",
+        "videoId": "rO59gcuq0LU",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Scalpone-FlangUpdate.pdf",
+        "tags": [
+          "Flang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "flang update",
+        "_speakerLower": "s. scalpone",
+        "_abstractLower": "",
+        "_tagsLower": "flang",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "flang update",
+              "words": [
+                "flang",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "s. scalpone",
+              "words": [
+                "s.",
+                "scalpone"
+              ]
+            },
+            "tags": {
+              "text": "flang",
+              "words": [
+                "flang"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "flang update 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk s. scalpone flang"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-008": {
+      "talk": {
+        "id": "2020-04-008",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Loop Fission: Distributing loops based on conflicting heuristics",
+        "speakers": [
+          {
+            "name": "Ettore Tiotto",
+            "affiliation": "IBM Canada",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Wai Hung (Whitney) Tsang",
+            "affiliation": "IBM Canada",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Bardia Mahjour",
+            "affiliation": "IBM Canada",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kit Barton",
+            "affiliation": "IBM Canada",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk is about a new optimization pass implemented in LLVM opt - LoopFissionPass. Loop fission aims at distributing independent statements in a loop into separate loops. In our implementation we use an interference graph, induced from the Data Dependence Graph (DDG), to balance potentially conflicting heuristics and derive an optimal distribution plan. We consider data reuse between statements, memory streams, code size, etc., to decide how to distribute a loop nest. Additional heuristics can be easily incorporated into the model, making this approach a flexible alternative to the existing LoopDistributionPass in LLVM. We will share our experience on running Loop Fission on a real-world application, and we will provide results on industry benchmarks. This talk targets developers who have an interest in loop optimizations and want to learn about how to use the DDG infrastructure now available in LLVM to drive a transformation pass. The takeaways for this talk are: How to balance conflicting heuristics using an interference graph How to use the data dependence graph The key differences between the existing LoopDistribution pass and our new LoopFission pass",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_28",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_28.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "loop fission: distributing loops based on conflicting heuristics",
+        "_speakerLower": "ettore tiotto wai hung (whitney) tsang bardia mahjour kit barton",
+        "_abstractLower": "this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph, induced from the data dependence graph (ddg), to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements, memory streams, code size, etc., to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model, making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application, and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are: how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass",
+        "_tagsLower": "llvm optimizations infrastructure",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "loop fission distributing loops based on conflicting heuristics",
+              "words": [
+                "loop",
+                "fission",
+                "distributing",
+                "loops",
+                "based",
+                "on",
+                "conflicting",
+                "heuristics"
+              ]
+            },
+            "speakers": {
+              "text": "ettore tiotto wai hung whitney tsang bardia mahjour kit barton",
+              "words": [
+                "ettore",
+                "tiotto",
+                "wai",
+                "hung",
+                "whitney",
+                "tsang",
+                "bardia",
+                "mahjour",
+                "kit",
+                "barton"
+              ]
+            },
+            "tags": {
+              "text": "llvm optimizations infrastructure",
+              "words": [
+                "llvm",
+                "optimizations",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph induced from the data dependence graph ddg to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements memory streams code size etc. to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass",
+              "words": [
+                "this",
+                "talk",
+                "is",
+                "about",
+                "new",
+                "optimization",
+                "pass",
+                "implemented",
+                "in",
+                "llvm",
+                "opt",
+                "loopfissionpass.",
+                "loop",
+                "fission",
+                "aims",
+                "at",
+                "distributing",
+                "independent",
+                "statements",
+                "in",
+                "loop",
+                "into",
+                "separate",
+                "loops.",
+                "in",
+                "our",
+                "implementation",
+                "we",
+                "use",
+                "an",
+                "interference",
+                "graph",
+                "induced",
+                "from",
+                "the",
+                "data",
+                "dependence",
+                "graph",
+                "ddg",
+                "to",
+                "balance",
+                "potentially",
+                "conflicting",
+                "heuristics",
+                "and",
+                "derive",
+                "an",
+                "optimal",
+                "distribution",
+                "plan.",
+                "we",
+                "consider",
+                "data",
+                "reuse",
+                "between",
+                "statements",
+                "memory",
+                "streams",
+                "code",
+                "size",
+                "etc.",
+                "to",
+                "decide",
+                "how",
+                "to",
+                "distribute",
+                "loop",
+                "nest.",
+                "additional",
+                "heuristics",
+                "can",
+                "be",
+                "easily",
+                "incorporated",
+                "into",
+                "the",
+                "model",
+                "making",
+                "this",
+                "approach",
+                "flexible",
+                "alternative",
+                "to",
+                "the",
+                "existing",
+                "loopdistributionpass",
+                "in",
+                "llvm.",
+                "we",
+                "will",
+                "share",
+                "our",
+                "experience",
+                "on",
+                "running",
+                "loop",
+                "fission",
+                "on",
+                "real-world",
+                "application",
+                "and",
+                "we",
+                "will",
+                "provide",
+                "results",
+                "on",
+                "industry",
+                "benchmarks.",
+                "this",
+                "talk",
+                "targets",
+                "developers",
+                "who",
+                "have",
+                "an",
+                "interest",
+                "in",
+                "loop",
+                "optimizations",
+                "and",
+                "want",
+                "to",
+                "learn",
+                "about",
+                "how",
+                "to",
+                "use",
+                "the",
+                "ddg",
+                "infrastructure",
+                "now",
+                "available",
+                "in",
+                "llvm",
+                "to",
+                "drive",
+                "transformation",
+                "pass.",
+                "the",
+                "takeaways",
+                "for",
+                "this",
+                "talk",
+                "are",
+                "how",
+                "to",
+                "balance",
+                "conflicting",
+                "heuristics",
+                "using",
+                "an",
+                "interference",
+                "graph",
+                "how",
+                "to",
+                "use",
+                "the",
+                "data",
+                "dependence",
+                "graph",
+                "the",
+                "key",
+                "differences",
+                "between",
+                "the",
+                "existing",
+                "loopdistribution",
+                "pass",
+                "and",
+                "our",
+                "new",
+                "loopfission",
+                "pass"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "loop fission distributing loops based on conflicting heuristics this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph induced from the data dependence graph ddg to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements memory streams code size etc. to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk ettore tiotto wai hung whitney tsang bardia mahjour kit barton llvm optimizations infrastructure"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2012-04-12-012": {
+      "talk": {
+        "id": "2012-04-12-012",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Improving Performance of OpenCL on CPUs",
+        "speakers": [
+          {
+            "name": "Ralf Karrenberg",
+            "affiliation": "Saarland University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Sebastian Hack",
+            "affiliation": "Saarland University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/FKUgW7_xaiA",
+        "videoId": "FKUgW7_xaiA",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Ralf_Karrenberg.pdf",
+        "tags": [
+          "GPU",
+          "OpenCL",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "improving performance of opencl on cpus",
+        "_speakerLower": "ralf karrenberg sebastian hack",
+        "_abstractLower": "",
+        "_tagsLower": "gpu opencl performance",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "improving performance of opencl on cpus",
+              "words": [
+                "improving",
+                "performance",
+                "of",
+                "opencl",
+                "on",
+                "cpus"
+              ]
+            },
+            "speakers": {
+              "text": "ralf karrenberg sebastian hack",
+              "words": [
+                "ralf",
+                "karrenberg",
+                "sebastian",
+                "hack"
+              ]
+            },
+            "tags": {
+              "text": "gpu opencl performance",
+              "words": [
+                "gpu",
+                "opencl",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "improving performance of opencl on cpus 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk ralf karrenberg sebastian hack gpu opencl performance"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2011-09-16-003": {
+      "talk": {
+        "id": "2011-09-16-003",
+        "meeting": "2011-09-16",
+        "meetingName": "2011 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "September 16, 2011",
+        "category": "technical-talk",
+        "title": "Jet: A Language and Heterogeneous Compiler for Fluid Simulations",
+        "speakers": [
+          {
+            "name": "Dan Bailey",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/ASXx_iYBBqM",
+        "videoId": "ASXx_iYBBqM",
+        "slidesUrl": "https://llvm.org/devmtg/2011-09-16/EuroLLVM2011-JET.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "jet: a language and heterogeneous compiler for fluid simulations",
+        "_speakerLower": "dan bailey",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2011 european llvm developers' meeting london, uk september 16, 2011",
+        "_year": "2011",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "jet a language and heterogeneous compiler for fluid simulations",
+              "words": [
+                "jet",
+                "language",
+                "and",
+                "heterogeneous",
+                "compiler",
+                "for",
+                "fluid",
+                "simulations"
+              ]
+            },
+            "speakers": {
+              "text": "dan bailey",
+              "words": [
+                "dan",
+                "bailey"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2011 european llvm developers meeting london uk september 16 2011",
+              "words": [
+                "2011",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "september",
+                "16",
+                "2011"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2011",
+              "words": [
+                "2011"
+              ]
+            }
+          },
+          "year": 2011
+        },
+        "_searchBlob": "jet a language and heterogeneous compiler for fluid simulations 2011 european llvm developers meeting london uk september 16 2011 2011-09-16 technical-talk dan bailey"
+      },
+      "meeting": {
+        "slug": "2011-09-16",
+        "name": "2011 European LLVM Developers' Meeting",
+        "date": "September 16, 2011",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 7
+      }
+    }
+  }
+}

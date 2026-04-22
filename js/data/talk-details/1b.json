@@ -1,0 +1,4281 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2026-04-009": {
+      "talk": {
+        "id": "2026-04-009",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "meetingDate": "April 14-15, 2026",
+        "category": "technical-talk",
+        "title": "Tracking Warnings at Scale: Extending Clang Diagnostics to Support Issue Baselining and Backslide Prevention",
+        "speakers": [
+          {
+            "name": "Dave Bartolomeo",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Compiler warnings are an effective tool for developers to catch potential security, compatibility, and correctness problems — however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. This talk describes how we have extended Clang's diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining (i.e., reporting only newly introduced warnings) and backslide prevention (informing project maintainers when a warning has accidentally been turned off).",
+        "videoUrl": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_bartolomeo.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "sourceUrl": "",
+        "_titleLower": "tracking warnings at scale: extending clang diagnostics to support issue baselining and backslide prevention",
+        "_speakerLower": "dave bartolomeo",
+        "_abstractLower": "compiler warnings are an effective tool for developers to catch potential security, compatibility, and correctness problems — however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. this talk describes how we have extended clang's diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining (i.e., reporting only newly introduced warnings) and backslide prevention (informing project maintainers when a warning has accidentally been turned off).",
+        "_tagsLower": "clang security infrastructure",
+        "_meetingLower": "2026 eurollvm developers' meeting clayton hotel burlington road , dublin, ireland april 14-15, 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tracking warnings at scale extending clang diagnostics to support issue baselining and backslide prevention",
+              "words": [
+                "tracking",
+                "warnings",
+                "at",
+                "scale",
+                "extending",
+                "clang",
+                "diagnostics",
+                "to",
+                "support",
+                "issue",
+                "baselining",
+                "and",
+                "backslide",
+                "prevention"
+              ]
+            },
+            "speakers": {
+              "text": "dave bartolomeo",
+              "words": [
+                "dave",
+                "bartolomeo"
+              ]
+            },
+            "tags": {
+              "text": "clang security infrastructure",
+              "words": [
+                "clang",
+                "security",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting clayton hotel burlington road dublin ireland april 14-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "clayton",
+                "hotel",
+                "burlington",
+                "road",
+                "dublin",
+                "ireland",
+                "april",
+                "14-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "compiler warnings are an effective tool for developers to catch potential security compatibility and correctness problems however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. this talk describes how we have extended clangs diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining i.e. reporting only newly introduced warnings and backslide prevention informing project maintainers when a warning has accidentally been turned off .",
+              "words": [
+                "compiler",
+                "warnings",
+                "are",
+                "an",
+                "effective",
+                "tool",
+                "for",
+                "developers",
+                "to",
+                "catch",
+                "potential",
+                "security",
+                "compatibility",
+                "and",
+                "correctness",
+                "problems",
+                "however",
+                "challenging",
+                "problem",
+                "is",
+                "ensuring",
+                "that",
+                "specific",
+                "warnings",
+                "are",
+                "actually",
+                "enabled",
+                "across",
+                "codebases",
+                "and",
+                "that",
+                "diagnostics",
+                "are",
+                "addressed",
+                "over",
+                "time.",
+                "this",
+                "talk",
+                "describes",
+                "how",
+                "we",
+                "have",
+                "extended",
+                "clangs",
+                "diagnostic",
+                "infrastructure",
+                "to",
+                "enable",
+                "developers",
+                "to",
+                "build",
+                "policy",
+                "enforcement",
+                "system",
+                "that",
+                "supports",
+                "issue",
+                "baselining",
+                "i.e.",
+                "reporting",
+                "only",
+                "newly",
+                "introduced",
+                "warnings",
+                "and",
+                "backslide",
+                "prevention",
+                "informing",
+                "project",
+                "maintainers",
+                "when",
+                "warning",
+                "has",
+                "accidentally",
+                "been",
+                "turned",
+                "off"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "tracking warnings at scale extending clang diagnostics to support issue baselining and backslide prevention compiler warnings are an effective tool for developers to catch potential security compatibility and correctness problems however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. this talk describes how we have extended clangs diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining i.e. reporting only newly introduced warnings and backslide prevention informing project maintainers when a warning has accidentally been turned off . 2026 eurollvm developers meeting clayton hotel burlington road dublin ireland april 14-15 2026 2026-04 technical-talk dave bartolomeo clang security infrastructure"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 58
+      }
+    },
+    "2025-06-017": {
+      "talk": {
+        "id": "2025-06-017",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "lightning-talk",
+        "title": "Complex Number Division Calculation Methods and Our Work in MLIR",
+        "speakers": [
+          {
+            "name": "Shunsuke Watanabe",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Our investigation revealed that the optimization of loops involving complex number division in Flang performs worse than Gfortran. This performance difference was confirmed in SPEC CPU 2017’s cam4 benchmark. The reason for this is that the current Flang can only lower complex number division to scalar runtime functions (such as “__divdc3”), preventing vectorization and inlining. Therefore, we considered using the MLIR’s complex dialect to compute complex number division. This talk will explain the calculation methods for complex number division and our work in MLIR.",
+        "videoUrl": "https://youtu.be/0QR-EtoYIlI",
+        "videoId": "0QR-EtoYIlI",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/lightning-talk/watanabe-division.pdf",
+        "tags": [
+          "Autovectorization",
+          "Flang",
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/127010",
+        "githubReferences": [
+          "https://github.com/llvm/llvm-project/pull/127010"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/127010",
+            "source": "slides",
+            "label": "<4 x float> %15, %14 %17 = fmul fast <4 x float> %strided.vec36, %strided.vec34",
+            "context": "<4 x float> %15, %14 %17 = fmul fast <4 x float> %strided.vec36, %strided.vec34",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/127010"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/llvm-project/pull/127010"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "complex number division calculation methods and our work in mlir",
+        "_speakerLower": "shunsuke watanabe",
+        "_abstractLower": "our investigation revealed that the optimization of loops involving complex number division in flang performs worse than gfortran. this performance difference was confirmed in spec cpu 2017’s cam4 benchmark. the reason for this is that the current flang can only lower complex number division to scalar runtime functions (such as “__divdc3”), preventing vectorization and inlining. therefore, we considered using the mlir’s complex dialect to compute complex number division. this talk will explain the calculation methods for complex number division and our work in mlir.",
+        "_tagsLower": "autovectorization flang mlir optimizations performance",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "complex number division calculation methods and our work in mlir",
+              "words": [
+                "complex",
+                "number",
+                "division",
+                "calculation",
+                "methods",
+                "and",
+                "our",
+                "work",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "shunsuke watanabe",
+              "words": [
+                "shunsuke",
+                "watanabe"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization flang mlir optimizations performance",
+              "words": [
+                "autovectorization",
+                "flang",
+                "mlir",
+                "optimizations",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "our investigation revealed that the optimization of loops involving complex number division in flang performs worse than gfortran. this performance difference was confirmed in spec cpu 2017s cam4 benchmark. the reason for this is that the current flang can only lower complex number division to scalar runtime functions such as divdc3 preventing vectorization and inlining. therefore we considered using the mlirs complex dialect to compute complex number division. this talk will explain the calculation methods for complex number division and our work in mlir.",
+              "words": [
+                "our",
+                "investigation",
+                "revealed",
+                "that",
+                "the",
+                "optimization",
+                "of",
+                "loops",
+                "involving",
+                "complex",
+                "number",
+                "division",
+                "in",
+                "flang",
+                "performs",
+                "worse",
+                "than",
+                "gfortran.",
+                "this",
+                "performance",
+                "difference",
+                "was",
+                "confirmed",
+                "in",
+                "spec",
+                "cpu",
+                "2017s",
+                "cam4",
+                "benchmark.",
+                "the",
+                "reason",
+                "for",
+                "this",
+                "is",
+                "that",
+                "the",
+                "current",
+                "flang",
+                "can",
+                "only",
+                "lower",
+                "complex",
+                "number",
+                "division",
+                "to",
+                "scalar",
+                "runtime",
+                "functions",
+                "such",
+                "as",
+                "divdc3",
+                "preventing",
+                "vectorization",
+                "and",
+                "inlining.",
+                "therefore",
+                "we",
+                "considered",
+                "using",
+                "the",
+                "mlirs",
+                "complex",
+                "dialect",
+                "to",
+                "compute",
+                "complex",
+                "number",
+                "division.",
+                "this",
+                "talk",
+                "will",
+                "explain",
+                "the",
+                "calculation",
+                "methods",
+                "for",
+                "complex",
+                "number",
+                "division",
+                "and",
+                "our",
+                "work",
+                "in",
+                "mlir."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "complex number division calculation methods and our work in mlir our investigation revealed that the optimization of loops involving complex number division in flang performs worse than gfortran. this performance difference was confirmed in spec cpu 2017s cam4 benchmark. the reason for this is that the current flang can only lower complex number division to scalar runtime functions such as divdc3 preventing vectorization and inlining. therefore we considered using the mlirs complex dialect to compute complex number division. this talk will explain the calculation methods for complex number division and our work in mlir. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 lightning-talk shunsuke watanabe autovectorization flang mlir optimizations performance"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2025-04-019": {
+      "talk": {
+        "id": "2025-04-019",
+        "meeting": "2025-04",
+        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingLocation": "Berlin, Germany",
+        "meetingDate": "April 14-16, 2025",
+        "category": "technical-talk",
+        "title": "Accidental Dataflow Analysis: Extending the RISC-V VL Optimizer",
+        "speakers": [
+          {
+            "name": "Luke Lau",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "A tour of some recent work on the RISC-V backend, motivated by the ongoing effort to implement VL tail folding for the vector extension. We showcase an engineering-first approach to a classical compiler problem: Looking at how to identify areas of code generation to improve, how some incremental changes to the VL optimizer pass led to a form of dataflow analysis, and how we can guarantee some properties by looking at the underpinning mathematical theory.",
+        "videoUrl": "https://youtu.be/Mfb5fRSdJAc",
+        "videoId": "Mfb5fRSdJAc",
+        "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/technical_talk/lau_accidental_dataflow.pdf",
+        "tags": [
+          "Backend",
+          "Optimizations",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "accidental dataflow analysis: extending the risc-v vl optimizer",
+        "_speakerLower": "luke lau",
+        "_abstractLower": "a tour of some recent work on the risc-v backend, motivated by the ongoing effort to implement vl tail folding for the vector extension. we showcase an engineering-first approach to a classical compiler problem: looking at how to identify areas of code generation to improve, how some incremental changes to the vl optimizer pass led to a form of dataflow analysis, and how we can guarantee some properties by looking at the underpinning mathematical theory.",
+        "_tagsLower": "backend optimizations static analysis code generation risc-v",
+        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "accidental dataflow analysis extending the risc-v vl optimizer",
+              "words": [
+                "accidental",
+                "dataflow",
+                "analysis",
+                "extending",
+                "the",
+                "risc-v",
+                "vl",
+                "optimizer"
+              ]
+            },
+            "speakers": {
+              "text": "luke lau",
+              "words": [
+                "luke",
+                "lau"
+              ]
+            },
+            "tags": {
+              "text": "backend optimizations static analysis code generation risc-v",
+              "words": [
+                "backend",
+                "optimizations",
+                "static",
+                "analysis",
+                "code",
+                "generation",
+                "risc-v"
+              ]
+            },
+            "meeting": {
+              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "words": [
+                "2025",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "berlin",
+                "germany",
+                "april",
+                "14-16",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "a tour of some recent work on the risc-v backend motivated by the ongoing effort to implement vl tail folding for the vector extension. we showcase an engineering-first approach to a classical compiler problem looking at how to identify areas of code generation to improve how some incremental changes to the vl optimizer pass led to a form of dataflow analysis and how we can guarantee some properties by looking at the underpinning mathematical theory.",
+              "words": [
+                "tour",
+                "of",
+                "some",
+                "recent",
+                "work",
+                "on",
+                "the",
+                "risc-v",
+                "backend",
+                "motivated",
+                "by",
+                "the",
+                "ongoing",
+                "effort",
+                "to",
+                "implement",
+                "vl",
+                "tail",
+                "folding",
+                "for",
+                "the",
+                "vector",
+                "extension.",
+                "we",
+                "showcase",
+                "an",
+                "engineering-first",
+                "approach",
+                "to",
+                "classical",
+                "compiler",
+                "problem",
+                "looking",
+                "at",
+                "how",
+                "to",
+                "identify",
+                "areas",
+                "of",
+                "code",
+                "generation",
+                "to",
+                "improve",
+                "how",
+                "some",
+                "incremental",
+                "changes",
+                "to",
+                "the",
+                "vl",
+                "optimizer",
+                "pass",
+                "led",
+                "to",
+                "form",
+                "of",
+                "dataflow",
+                "analysis",
+                "and",
+                "how",
+                "we",
+                "can",
+                "guarantee",
+                "some",
+                "properties",
+                "by",
+                "looking",
+                "at",
+                "the",
+                "underpinning",
+                "mathematical",
+                "theory."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "accidental dataflow analysis extending the risc-v vl optimizer a tour of some recent work on the risc-v backend motivated by the ongoing effort to implement vl tail folding for the vector extension. we showcase an engineering-first approach to a classical compiler problem looking at how to identify areas of code generation to improve how some incremental changes to the vl optimizer pass led to a form of dataflow analysis and how we can guarantee some properties by looking at the underpinning mathematical theory. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk luke lau backend optimizations static analysis code generation risc-v"
+      },
+      "meeting": {
+        "slug": "2025-04",
+        "name": "2025 European LLVM Developers' Meeting",
+        "date": "April 14-16, 2025",
+        "location": "Berlin, Germany",
+        "canceled": false,
+        "talkCount": 64
+      }
+    },
+    "2024-04-007": {
+      "talk": {
+        "id": "2024-04-007",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Enable Hardware PGO for both Windows and Linux",
+        "speakers": [
+          {
+            "name": "Wei Xiao",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk, we will discuss how to enable hardware PGO by extending sampling-based PGO with enriched profiles. We will postmortem some real cases to demonstrate hardware PGO can expose more optimization opportunities than instrumentation-based PGO and thus provide better performance. Moreover, we will discuss how to enable hardware PGO on Windows based on the latest Intel VTune SEP.",
+        "videoUrl": "https://youtu.be/l-pauXcCz5k",
+        "videoId": "l-pauXcCz5k",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Xiao-EnablingHW-BasedPGO.pdf",
+        "tags": [
+          "Optimizations",
+          "PGO",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/tcreech-intel/hwpgo-mispredict-example",
+        "githubReferences": [
+          "https://github.com/tcreech-intel/hwpgo-mispredict-example",
+          "https://github.com/llvm/llvm",
+          "https://github.com/llvm/llvm-project/pull/71021",
+          "https://github.com/llvm/llvm-project/pull/86470",
+          "https://github.com/llvm/llvm-project/pull/83972",
+          "https://github.com/llvm/llvm-project/pull/85701",
+          "https://github.com/llvm/llvm-project/pull/84864",
+          "https://github.com/llvm/llvm-project/pull/86496",
+          "https://github.com/llvm/llvm-project/pull/71018",
+          "https://github.com/llvm/llvm-project/pull/72075",
+          "https://github.com/llvm/llvm-project/pull/72082",
+          "https://github.com/llvm/llvm-project/pull/72118",
+          "https://github.com/llvm/llvm-project/pull/72192",
+          "https://github.com/llvm/llvm-project/pull/66457",
+          "https://github.com/llvm/llvm-project/pull/68474",
+          "https://github.com/llvm/llvm-project/pull/68502",
+          "https://github.com/tcreech-intel/llvm-project/tree/ip_profiles",
+          "https://github.com/tcreech-intel/llvm-project/tree/unpredictable_loader",
+          "https://github.com/tcreech-intel/llvm-project/tree/aggressive_speculation"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/tcreech-intel/hwpgo-mispredict-example",
+            "source": "slides",
+            "label": "Add optimizations for new profile types",
+            "context": "Add optimizations for new profile types",
+            "library": "hwpgo-mispredict-example",
+            "repository": "tcreech-intel/hwpgo-mispredict-example",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/llvm/llvm",
+            "source": "slides",
+            "label": "Example below shows one of the bug - fixes made recently: Profile Maintenance InstCombine",
+            "context": "Example below shows one of the bug - fixes made recently: Profile Maintenance InstCombine",
+            "library": "llvm",
+            "repository": "llvm/llvm",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/71021",
+            "source": "slides",
+            "label": "Debug Info. ➢ Turn off aggressive optimizations. ➢ PSEUDO - INSTRUMENTATION. Debug Info Accuracy",
+            "context": "Debug Info. ➢ Turn off aggressive optimizations. ➢ PSEUDO - INSTRUMENTATION. Debug Info Accuracy",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/71021"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/86470",
+            "source": "slides",
+            "label": "Example below shows one of the bug - fixes made recently: Profile Maintenance InstCombine",
+            "context": "Example below shows one of the bug - fixes made recently: Profile Maintenance InstCombine",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/86470"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/83972",
+            "source": "slides",
+            "label": "Instrumentation - based PGO: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "context": "Instrumentation - based PGO: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/83972"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/85701",
+            "source": "slides",
+            "label": "Instrumentation - based PGO: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "context": "Instrumentation - based PGO: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/85701"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/84864",
+            "source": "slides",
+            "label": "O: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "context": "O: ➢ InlineCost : 66457 ➢ InstCombine : 68474 , 68502",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/84864"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/86496",
+            "source": "slides",
+            "label": "68502",
+            "context": "68502",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/86496"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/71018",
+            "source": "slides",
+            "label": "ml#using-sampling-profilers",
+            "context": "ml#using-sampling-profilers",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/71018"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/72075",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/72075"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/72082",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/72082"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/72118",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/72118"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/72192",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/72192"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/66457",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/66457"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/68474",
+            "source": "slides",
+            "label": "152340",
+            "context": "152340",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/68474"
+          },
+          {
+            "url": "https://github.com/llvm/llvm-project/pull/68502",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/68502"
+          },
+          {
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/ip_profiles",
+            "source": "slides",
+            "label": "hwpgo.html",
+            "context": "hwpgo.html",
+            "library": "llvm-project",
+            "repository": "tcreech-intel/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "ip_profiles"
+          },
+          {
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/unpredictable_loader",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "tcreech-intel/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "unpredictable_loader"
+          },
+          {
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/aggressive_speculation",
+            "source": "slides",
+            "label": "redict-example",
+            "context": "redict-example",
+            "library": "llvm-project",
+            "repository": "tcreech-intel/llvm-project",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "aggressive_speculation"
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/tcreech-intel/hwpgo-mispredict-example"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/llvm/llvm"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 3",
+            "url": "https://github.com/llvm/llvm-project/pull/71021"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 4",
+            "url": "https://github.com/llvm/llvm-project/pull/86470"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 5",
+            "url": "https://github.com/llvm/llvm-project/pull/83972"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 6",
+            "url": "https://github.com/llvm/llvm-project/pull/85701"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 7",
+            "url": "https://github.com/llvm/llvm-project/pull/84864"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 8",
+            "url": "https://github.com/llvm/llvm-project/pull/86496"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 9",
+            "url": "https://github.com/llvm/llvm-project/pull/71018"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 10",
+            "url": "https://github.com/llvm/llvm-project/pull/72075"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 11",
+            "url": "https://github.com/llvm/llvm-project/pull/72082"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 12",
+            "url": "https://github.com/llvm/llvm-project/pull/72118"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 13",
+            "url": "https://github.com/llvm/llvm-project/pull/72192"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 14",
+            "url": "https://github.com/llvm/llvm-project/pull/66457"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 15",
+            "url": "https://github.com/llvm/llvm-project/pull/68474"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 16",
+            "url": "https://github.com/llvm/llvm-project/pull/68502"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 17",
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/ip_profiles"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 18",
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/unpredictable_loader"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 19",
+            "url": "https://github.com/tcreech-intel/llvm-project/tree/aggressive_speculation"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "enable hardware pgo for both windows and linux",
+        "_speakerLower": "wei xiao",
+        "_abstractLower": "in this talk, we will discuss how to enable hardware pgo by extending sampling-based pgo with enriched profiles. we will postmortem some real cases to demonstrate hardware pgo can expose more optimization opportunities than instrumentation-based pgo and thus provide better performance. moreover, we will discuss how to enable hardware pgo on windows based on the latest intel vtune sep.",
+        "_tagsLower": "optimizations pgo performance",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "enable hardware pgo for both windows and linux",
+              "words": [
+                "enable",
+                "hardware",
+                "pgo",
+                "for",
+                "both",
+                "windows",
+                "and",
+                "linux"
+              ]
+            },
+            "speakers": {
+              "text": "wei xiao",
+              "words": [
+                "wei",
+                "xiao"
+              ]
+            },
+            "tags": {
+              "text": "optimizations pgo performance",
+              "words": [
+                "optimizations",
+                "pgo",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we will discuss how to enable hardware pgo by extending sampling-based pgo with enriched profiles. we will postmortem some real cases to demonstrate hardware pgo can expose more optimization opportunities than instrumentation-based pgo and thus provide better performance. moreover we will discuss how to enable hardware pgo on windows based on the latest intel vtune sep.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "discuss",
+                "how",
+                "to",
+                "enable",
+                "hardware",
+                "pgo",
+                "by",
+                "extending",
+                "sampling-based",
+                "pgo",
+                "with",
+                "enriched",
+                "profiles.",
+                "we",
+                "will",
+                "postmortem",
+                "some",
+                "real",
+                "cases",
+                "to",
+                "demonstrate",
+                "hardware",
+                "pgo",
+                "can",
+                "expose",
+                "more",
+                "optimization",
+                "opportunities",
+                "than",
+                "instrumentation-based",
+                "pgo",
+                "and",
+                "thus",
+                "provide",
+                "better",
+                "performance.",
+                "moreover",
+                "we",
+                "will",
+                "discuss",
+                "how",
+                "to",
+                "enable",
+                "hardware",
+                "pgo",
+                "on",
+                "windows",
+                "based",
+                "on",
+                "the",
+                "latest",
+                "intel",
+                "vtune",
+                "sep."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "enable hardware pgo for both windows and linux in this talk we will discuss how to enable hardware pgo by extending sampling-based pgo with enriched profiles. we will postmortem some real cases to demonstrate hardware pgo can expose more optimization opportunities than instrumentation-based pgo and thus provide better performance. moreover we will discuss how to enable hardware pgo on windows based on the latest intel vtune sep. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk wei xiao optimizations pgo performance"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2024-04-029": {
+      "talk": {
+        "id": "2024-04-029",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Transform-dialect schedules: writing MLIR-lowering pipelines in MLIR",
+        "speakers": [
+          {
+            "name": "Rolf Morel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The Transform dialect exposes transformations of MLIR as ops in MLIR. These fine-grained operations can be sequenced to express more involved transformations. When such a sequence expresses a coherent lowering step we refer to it as a schedule. By recent additions to the Transform dialect, we can name these schedules and call them from other sequences. Leveraging this feature, we show how Transform ops compose into reusable schedules and how schedules compose into larger schedules. We show that entire MLIR-lowering pipelines can be declaratively specified in MLIR with large parts being shared among pipelines.",
+        "videoUrl": "https://youtu.be/YOWAhrh_qxs",
+        "videoId": "YOWAhrh_qxs",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/StudentTechnicalTalks/Morel-Transform-DialectSchedules.pdf",
+        "tags": [
+          "MLIR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "transform-dialect schedules: writing mlir-lowering pipelines in mlir",
+        "_speakerLower": "rolf morel",
+        "_abstractLower": "the transform dialect exposes transformations of mlir as ops in mlir. these fine-grained operations can be sequenced to express more involved transformations. when such a sequence expresses a coherent lowering step we refer to it as a schedule. by recent additions to the transform dialect, we can name these schedules and call them from other sequences. leveraging this feature, we show how transform ops compose into reusable schedules and how schedules compose into larger schedules. we show that entire mlir-lowering pipelines can be declaratively specified in mlir with large parts being shared among pipelines.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "transform-dialect schedules writing mlir-lowering pipelines in mlir",
+              "words": [
+                "transform-dialect",
+                "schedules",
+                "writing",
+                "mlir-lowering",
+                "pipelines",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "rolf morel",
+              "words": [
+                "rolf",
+                "morel"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "the transform dialect exposes transformations of mlir as ops in mlir. these fine-grained operations can be sequenced to express more involved transformations. when such a sequence expresses a coherent lowering step we refer to it as a schedule. by recent additions to the transform dialect we can name these schedules and call them from other sequences. leveraging this feature we show how transform ops compose into reusable schedules and how schedules compose into larger schedules. we show that entire mlir-lowering pipelines can be declaratively specified in mlir with large parts being shared among pipelines.",
+              "words": [
+                "the",
+                "transform",
+                "dialect",
+                "exposes",
+                "transformations",
+                "of",
+                "mlir",
+                "as",
+                "ops",
+                "in",
+                "mlir.",
+                "these",
+                "fine-grained",
+                "operations",
+                "can",
+                "be",
+                "sequenced",
+                "to",
+                "express",
+                "more",
+                "involved",
+                "transformations.",
+                "when",
+                "such",
+                "sequence",
+                "expresses",
+                "coherent",
+                "lowering",
+                "step",
+                "we",
+                "refer",
+                "to",
+                "it",
+                "as",
+                "schedule.",
+                "by",
+                "recent",
+                "additions",
+                "to",
+                "the",
+                "transform",
+                "dialect",
+                "we",
+                "can",
+                "name",
+                "these",
+                "schedules",
+                "and",
+                "call",
+                "them",
+                "from",
+                "other",
+                "sequences.",
+                "leveraging",
+                "this",
+                "feature",
+                "we",
+                "show",
+                "how",
+                "transform",
+                "ops",
+                "compose",
+                "into",
+                "reusable",
+                "schedules",
+                "and",
+                "how",
+                "schedules",
+                "compose",
+                "into",
+                "larger",
+                "schedules.",
+                "we",
+                "show",
+                "that",
+                "entire",
+                "mlir-lowering",
+                "pipelines",
+                "can",
+                "be",
+                "declaratively",
+                "specified",
+                "in",
+                "mlir",
+                "with",
+                "large",
+                "parts",
+                "being",
+                "shared",
+                "among",
+                "pipelines."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "transform-dialect schedules writing mlir-lowering pipelines in mlir the transform dialect exposes transformations of mlir as ops in mlir. these fine-grained operations can be sequenced to express more involved transformations. when such a sequence expresses a coherent lowering step we refer to it as a schedule. by recent additions to the transform dialect we can name these schedules and call them from other sequences. leveraging this feature we show how transform ops compose into reusable schedules and how schedules compose into larger schedules. we show that entire mlir-lowering pipelines can be declaratively specified in mlir with large parts being shared among pipelines. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk rolf morel mlir"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2024-03-008": {
+      "talk": {
+        "id": "2024-03-008",
+        "meeting": "2024-03",
+        "meetingName": "2024 Eight LLVM Performance Workshop @ CGO2024",
+        "meetingLocation": "Eight LLVM Performance Workshop @ CGO2024, Edinburgh - In Person",
+        "meetingDate": "March 2-6, 2024",
+        "category": "technical-talk",
+        "title": "Dominance is not a Tree: Towards More Precise Dominance Relations",
+        "speakers": [
+          {
+            "name": "George Stelle",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tarun Prabhu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Pat McCormick",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In LLVM and other modern compilers, single static assignment (SSA) is a crucial theory for internal representations, enabling optimizations in the presence of imperative code. A fundamental function of SSA is calculating and using dominance relations to determine where immutable variables can be referenced. Dominator trees have historically been a good approximation of the dominator relation and efficiently computable. However, there are programs for which the dominator tree fails to capture precise dominance relations, preventing optimizations. In this work, we give examples of these kinds of programs, and show how removing the restriction to tree relations enables more precise dominance relations, therefore enabling more optimization. We discuss how one can use properties of SSA to implement a more general dominance relation using a small set of trees corresponding to shared branches, which we call a dominator grove. We present a work-in-progress implementation of a dominator grove in LLVM, along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. Using the implementation, we collect empirical data on the frequency of non-tree dominance relations in real code. We present some basic formal properties of the approach, and end with a discussion of future work, including concurrent extensions to SSA theory.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2024-03/slides/dominance-is-not-a-tree.pdf",
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "dominance is not a tree: towards more precise dominance relations",
+        "_speakerLower": "george stelle tarun prabhu pat mccormick",
+        "_abstractLower": "in llvm and other modern compilers, single static assignment (ssa) is a crucial theory for internal representations, enabling optimizations in the presence of imperative code. a fundamental function of ssa is calculating and using dominance relations to determine where immutable variables can be referenced. dominator trees have historically been a good approximation of the dominator relation and efficiently computable. however, there are programs for which the dominator tree fails to capture precise dominance relations, preventing optimizations. in this work, we give examples of these kinds of programs, and show how removing the restriction to tree relations enables more precise dominance relations, therefore enabling more optimization. we discuss how one can use properties of ssa to implement a more general dominance relation using a small set of trees corresponding to shared branches, which we call a dominator grove. we present a work-in-progress implementation of a dominator grove in llvm, along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. using the implementation, we collect empirical data on the frequency of non-tree dominance relations in real code. we present some basic formal properties of the approach, and end with a discussion of future work, including concurrent extensions to ssa theory.",
+        "_tagsLower": "optimizations llvm ir",
+        "_meetingLower": "2024 eight llvm performance workshop @ cgo2024 eight llvm performance workshop @ cgo2024, edinburgh - in person march 2-6, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "dominance is not a tree towards more precise dominance relations",
+              "words": [
+                "dominance",
+                "is",
+                "not",
+                "tree",
+                "towards",
+                "more",
+                "precise",
+                "dominance",
+                "relations"
+              ]
+            },
+            "speakers": {
+              "text": "george stelle tarun prabhu pat mccormick",
+              "words": [
+                "george",
+                "stelle",
+                "tarun",
+                "prabhu",
+                "pat",
+                "mccormick"
+              ]
+            },
+            "tags": {
+              "text": "optimizations llvm ir",
+              "words": [
+                "optimizations",
+                "llvm",
+                "ir"
+              ]
+            },
+            "meeting": {
+              "text": "2024 eight llvm performance workshop cgo2024 eight llvm performance workshop cgo2024 edinburgh - in person march 2-6 2024",
+              "words": [
+                "2024",
+                "eight",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo2024",
+                "eight",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo2024",
+                "edinburgh",
+                "in",
+                "person",
+                "march",
+                "2-6",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "in llvm and other modern compilers single static assignment ssa is a crucial theory for internal representations enabling optimizations in the presence of imperative code. a fundamental function of ssa is calculating and using dominance relations to determine where immutable variables can be referenced. dominator trees have historically been a good approximation of the dominator relation and efficiently computable. however there are programs for which the dominator tree fails to capture precise dominance relations preventing optimizations. in this work we give examples of these kinds of programs and show how removing the restriction to tree relations enables more precise dominance relations therefore enabling more optimization. we discuss how one can use properties of ssa to implement a more general dominance relation using a small set of trees corresponding to shared branches which we call a dominator grove. we present a work-in-progress implementation of a dominator grove in llvm along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. using the implementation we collect empirical data on the frequency of non-tree dominance relations in real code. we present some basic formal properties of the approach and end with a discussion of future work including concurrent extensions to ssa theory.",
+              "words": [
+                "in",
+                "llvm",
+                "and",
+                "other",
+                "modern",
+                "compilers",
+                "single",
+                "static",
+                "assignment",
+                "ssa",
+                "is",
+                "crucial",
+                "theory",
+                "for",
+                "internal",
+                "representations",
+                "enabling",
+                "optimizations",
+                "in",
+                "the",
+                "presence",
+                "of",
+                "imperative",
+                "code.",
+                "fundamental",
+                "function",
+                "of",
+                "ssa",
+                "is",
+                "calculating",
+                "and",
+                "using",
+                "dominance",
+                "relations",
+                "to",
+                "determine",
+                "where",
+                "immutable",
+                "variables",
+                "can",
+                "be",
+                "referenced.",
+                "dominator",
+                "trees",
+                "have",
+                "historically",
+                "been",
+                "good",
+                "approximation",
+                "of",
+                "the",
+                "dominator",
+                "relation",
+                "and",
+                "efficiently",
+                "computable.",
+                "however",
+                "there",
+                "are",
+                "programs",
+                "for",
+                "which",
+                "the",
+                "dominator",
+                "tree",
+                "fails",
+                "to",
+                "capture",
+                "precise",
+                "dominance",
+                "relations",
+                "preventing",
+                "optimizations.",
+                "in",
+                "this",
+                "work",
+                "we",
+                "give",
+                "examples",
+                "of",
+                "these",
+                "kinds",
+                "of",
+                "programs",
+                "and",
+                "show",
+                "how",
+                "removing",
+                "the",
+                "restriction",
+                "to",
+                "tree",
+                "relations",
+                "enables",
+                "more",
+                "precise",
+                "dominance",
+                "relations",
+                "therefore",
+                "enabling",
+                "more",
+                "optimization.",
+                "we",
+                "discuss",
+                "how",
+                "one",
+                "can",
+                "use",
+                "properties",
+                "of",
+                "ssa",
+                "to",
+                "implement",
+                "more",
+                "general",
+                "dominance",
+                "relation",
+                "using",
+                "small",
+                "set",
+                "of",
+                "trees",
+                "corresponding",
+                "to",
+                "shared",
+                "branches",
+                "which",
+                "we",
+                "call",
+                "dominator",
+                "grove.",
+                "we",
+                "present",
+                "work-in-progress",
+                "implementation",
+                "of",
+                "dominator",
+                "grove",
+                "in",
+                "llvm",
+                "along",
+                "with",
+                "some",
+                "of",
+                "the",
+                "current",
+                "hurdles",
+                "in",
+                "modifying",
+                "the",
+                "existing",
+                "analyses",
+                "and",
+                "transformations",
+                "to",
+                "be",
+                "sound",
+                "in",
+                "the",
+                "presence",
+                "of",
+                "non-tree",
+                "dominance",
+                "relations.",
+                "using",
+                "the",
+                "implementation",
+                "we",
+                "collect",
+                "empirical",
+                "data",
+                "on",
+                "the",
+                "frequency",
+                "of",
+                "non-tree",
+                "dominance",
+                "relations",
+                "in",
+                "real",
+                "code.",
+                "we",
+                "present",
+                "some",
+                "basic",
+                "formal",
+                "properties",
+                "of",
+                "the",
+                "approach",
+                "and",
+                "end",
+                "with",
+                "discussion",
+                "of",
+                "future",
+                "work",
+                "including",
+                "concurrent",
+                "extensions",
+                "to",
+                "ssa",
+                "theory."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "dominance is not a tree towards more precise dominance relations in llvm and other modern compilers single static assignment ssa is a crucial theory for internal representations enabling optimizations in the presence of imperative code. a fundamental function of ssa is calculating and using dominance relations to determine where immutable variables can be referenced. dominator trees have historically been a good approximation of the dominator relation and efficiently computable. however there are programs for which the dominator tree fails to capture precise dominance relations preventing optimizations. in this work we give examples of these kinds of programs and show how removing the restriction to tree relations enables more precise dominance relations therefore enabling more optimization. we discuss how one can use properties of ssa to implement a more general dominance relation using a small set of trees corresponding to shared branches which we call a dominator grove. we present a work-in-progress implementation of a dominator grove in llvm along with some of the current hurdles in modifying the existing analyses and transformations to be sound in the presence of non-tree dominance relations. using the implementation we collect empirical data on the frequency of non-tree dominance relations in real code. we present some basic formal properties of the approach and end with a discussion of future work including concurrent extensions to ssa theory. 2024 eight llvm performance workshop cgo2024 eight llvm performance workshop cgo2024 edinburgh - in person march 2-6 2024 2024-03 technical-talk george stelle tarun prabhu pat mccormick optimizations llvm ir"
+      },
+      "meeting": {
+        "slug": "2024-03",
+        "name": "2024 Eight LLVM Performance Workshop @ CGO2024",
+        "date": "March 2-6, 2024",
+        "location": "Eight LLVM Performance Workshop @ CGO2024, Edinburgh - In Person",
+        "canceled": false,
+        "talkCount": 10
+      }
+    },
+    "2023-05-016": {
+      "talk": {
+        "id": "2023-05-016",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "What’s new in MLIR?",
+        "speakers": [
+          {
+            "name": "Mehdi Amini",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "MLIR has evolved significantly since it was introduced at EuroLLVM 2019. The last tutorial was at the US Dev Mtg in 2020. In this talk, we'll survey new components and provide a quick intro into how to take advantage of the new MLIR features from the last two years.",
+        "videoUrl": "https://youtu.be/LPlRLt9w4b0",
+        "videoId": "LPlRLt9w4b0",
+        "tags": [
+          "MLIR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "what’s new in mlir?",
+        "_speakerLower": "mehdi amini",
+        "_abstractLower": "mlir has evolved significantly since it was introduced at eurollvm 2019. the last tutorial was at the us dev mtg in 2020. in this talk, we'll survey new components and provide a quick intro into how to take advantage of the new mlir features from the last two years.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "whats new in mlir",
+              "words": [
+                "whats",
+                "new",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "mehdi amini",
+              "words": [
+                "mehdi",
+                "amini"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "mlir has evolved significantly since it was introduced at eurollvm 2019. the last tutorial was at the us dev mtg in 2020. in this talk well survey new components and provide a quick intro into how to take advantage of the new mlir features from the last two years.",
+              "words": [
+                "mlir",
+                "has",
+                "evolved",
+                "significantly",
+                "since",
+                "it",
+                "was",
+                "introduced",
+                "at",
+                "eurollvm",
+                "2019.",
+                "the",
+                "last",
+                "tutorial",
+                "was",
+                "at",
+                "the",
+                "us",
+                "dev",
+                "mtg",
+                "in",
+                "2020.",
+                "in",
+                "this",
+                "talk",
+                "well",
+                "survey",
+                "new",
+                "components",
+                "and",
+                "provide",
+                "quick",
+                "intro",
+                "into",
+                "how",
+                "to",
+                "take",
+                "advantage",
+                "of",
+                "the",
+                "new",
+                "mlir",
+                "features",
+                "from",
+                "the",
+                "last",
+                "two",
+                "years."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "whats new in mlir mlir has evolved significantly since it was introduced at eurollvm 2019. the last tutorial was at the us dev mtg in 2020. in this talk well survey new components and provide a quick intro into how to take advantage of the new mlir features from the last two years. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk mehdi amini mlir"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2023-05-038": {
+      "talk": {
+        "id": "2023-05-038",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "lightning-talk",
+        "title": "LLVM IR as an Embedded Domain-Specific Language",
+        "speakers": [
+          {
+            "name": "Nikita Baksalyar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This lightning talk will demonstrate an alternative way of using the LLVM API. We will develop a simple domain-specific language using metaprogramming techniques and see how it simplifies code and reduces boilerplate.",
+        "videoId": null,
+        "tags": [
+          "Embedded",
+          "IR",
+          "Libraries"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm ir as an embedded domain-specific language",
+        "_speakerLower": "nikita baksalyar",
+        "_abstractLower": "this lightning talk will demonstrate an alternative way of using the llvm api. we will develop a simple domain-specific language using metaprogramming techniques and see how it simplifies code and reduces boilerplate.",
+        "_tagsLower": "embedded ir libraries llvm",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm ir as an embedded domain-specific language",
+              "words": [
+                "llvm",
+                "ir",
+                "as",
+                "an",
+                "embedded",
+                "domain-specific",
+                "language"
+              ]
+            },
+            "speakers": {
+              "text": "nikita baksalyar",
+              "words": [
+                "nikita",
+                "baksalyar"
+              ]
+            },
+            "tags": {
+              "text": "embedded ir libraries llvm",
+              "words": [
+                "embedded",
+                "ir",
+                "libraries",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "this lightning talk will demonstrate an alternative way of using the llvm api. we will develop a simple domain-specific language using metaprogramming techniques and see how it simplifies code and reduces boilerplate.",
+              "words": [
+                "this",
+                "lightning",
+                "talk",
+                "will",
+                "demonstrate",
+                "an",
+                "alternative",
+                "way",
+                "of",
+                "using",
+                "the",
+                "llvm",
+                "api.",
+                "we",
+                "will",
+                "develop",
+                "simple",
+                "domain-specific",
+                "language",
+                "using",
+                "metaprogramming",
+                "techniques",
+                "and",
+                "see",
+                "how",
+                "it",
+                "simplifies",
+                "code",
+                "and",
+                "reduces",
+                "boilerplate."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "llvm ir as an embedded domain-specific language this lightning talk will demonstrate an alternative way of using the llvm api. we will develop a simple domain-specific language using metaprogramming techniques and see how it simplifies code and reduces boilerplate. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk nikita baksalyar embedded ir libraries llvm"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-004": {
+      "talk": {
+        "id": "2022-05-004",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "Prototyping a Compiler for Homomorphic Encryption Using MLIR",
+        "speakers": [
+          {
+            "name": "Juneyoung Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk, we introduce a prototype of a compiler for homomorphic encryption using MLIR. Homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. Implementations of HE operations typically contain many loops on large arrays representing polynomials. Successfully applying loop optimizations can significantly boost the performance of the operations. Our prototype can compile decryption/encryption, and the generated code is at most 40% faster when run in multi threads than the C++ implementation written using Intel HEXL.",
+        "videoUrl": "https://youtu.be/QyxiqmO6_qQ",
+        "videoId": "QyxiqmO6_qQ",
+        "tags": [
+          "Loop transformations",
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "prototyping a compiler for homomorphic encryption using mlir",
+        "_speakerLower": "juneyoung lee",
+        "_abstractLower": "in this talk, we introduce a prototype of a compiler for homomorphic encryption using mlir. homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. implementations of he operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations. our prototype can compile decryption/encryption, and the generated code is at most 40% faster when run in multi threads than the c++ implementation written using intel hexl.",
+        "_tagsLower": "loop transformations mlir optimizations performance",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "prototyping a compiler for homomorphic encryption using mlir",
+              "words": [
+                "prototyping",
+                "compiler",
+                "for",
+                "homomorphic",
+                "encryption",
+                "using",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "juneyoung lee",
+              "words": [
+                "juneyoung",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "loop transformations mlir optimizations performance",
+              "words": [
+                "loop",
+                "transformations",
+                "mlir",
+                "optimizations",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we introduce a prototype of a compiler for homomorphic encryption using mlir. homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. implementations of he operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations. our prototype can compile decryption encryption and the generated code is at most 40 faster when run in multi threads than the c++ implementation written using intel hexl.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "introduce",
+                "prototype",
+                "of",
+                "compiler",
+                "for",
+                "homomorphic",
+                "encryption",
+                "using",
+                "mlir.",
+                "homomorphic",
+                "encryption",
+                "is",
+                "an",
+                "encryption",
+                "scheme",
+                "in",
+                "cryptography",
+                "that",
+                "provides",
+                "set",
+                "of",
+                "operations",
+                "on",
+                "encrypted",
+                "data.",
+                "implementations",
+                "of",
+                "he",
+                "operations",
+                "typically",
+                "contain",
+                "many",
+                "loops",
+                "on",
+                "large",
+                "arrays",
+                "representing",
+                "polynomials.",
+                "successfully",
+                "applying",
+                "loop",
+                "optimizations",
+                "can",
+                "significantly",
+                "boost",
+                "the",
+                "performance",
+                "of",
+                "the",
+                "operations.",
+                "our",
+                "prototype",
+                "can",
+                "compile",
+                "decryption",
+                "encryption",
+                "and",
+                "the",
+                "generated",
+                "code",
+                "is",
+                "at",
+                "most",
+                "40",
+                "faster",
+                "when",
+                "run",
+                "in",
+                "multi",
+                "threads",
+                "than",
+                "the",
+                "c++",
+                "implementation",
+                "written",
+                "using",
+                "intel",
+                "hexl."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "prototyping a compiler for homomorphic encryption using mlir in this talk we introduce a prototype of a compiler for homomorphic encryption using mlir. homomorphic encryption is an encryption scheme in cryptography that provides a set of operations on encrypted data. implementations of he operations typically contain many loops on large arrays representing polynomials. successfully applying loop optimizations can significantly boost the performance of the operations. our prototype can compile decryption encryption and the generated code is at most 40 faster when run in multi threads than the c++ implementation written using intel hexl. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk juneyoung lee loop transformations mlir optimizations performance"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2022-05-026": {
+      "talk": {
+        "id": "2022-05-026",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "student-talk",
+        "title": "Extending Sulong (an LLVM bitcode runtime) for cross-language interoperability between C++/Swift and Java, JavaScript or Python",
+        "speakers": [
+          {
+            "name": "Christoph Pichler",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Linz",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.",
+        "videoUrl": "https://youtu.be/Z0imCJmfMAk",
+        "videoId": "Z0imCJmfMAk",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ExtendingSulong.pdf",
+        "tags": [
+          "Community Building",
+          "IR",
+          "Programming Languages"
+        ],
+        "projectGithub": "https://github.com/pichristoph/eurollvm2022",
+        "githubReferences": [
+          "https://github.com/pichristoph/eurollvm2022"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/pichristoph/eurollvm2022",
+            "source": "slides",
+            "label": "Slides , live demo files , step - by - step instructions , …",
+            "context": "Slides , live demo files , step - by - step instructions , …",
+            "library": "eurollvm2022",
+            "repository": "pichristoph/eurollvm2022",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/pichristoph/eurollvm2022"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "extending sulong (an llvm bitcode runtime) for cross-language interoperability between c++/swift and java, javascript or python",
+        "_speakerLower": "christoph pichler linz",
+        "_abstractLower": "foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event, we expect you to have read and agree to the llvm code of conduct.",
+        "_tagsLower": "community building ir programming languages llvm swift",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "extending sulong an llvm bitcode runtime for cross-language interoperability between c++ swift and java javascript or python",
+              "words": [
+                "extending",
+                "sulong",
+                "an",
+                "llvm",
+                "bitcode",
+                "runtime",
+                "for",
+                "cross-language",
+                "interoperability",
+                "between",
+                "c++",
+                "swift",
+                "and",
+                "java",
+                "javascript",
+                "or",
+                "python"
+              ]
+            },
+            "speakers": {
+              "text": "christoph pichler linz",
+              "words": [
+                "christoph",
+                "pichler",
+                "linz"
+              ]
+            },
+            "tags": {
+              "text": "community building ir programming languages llvm swift",
+              "words": [
+                "community",
+                "building",
+                "ir",
+                "programming",
+                "languages",
+                "llvm",
+                "swift"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event we expect you to have read and agree to the llvm code of conduct.",
+              "words": [
+                "foundation",
+                "is",
+                "dedicated",
+                "to",
+                "providing",
+                "an",
+                "inclusive",
+                "and",
+                "safe",
+                "experience",
+                "for",
+                "everyone.",
+                "we",
+                "do",
+                "not",
+                "tolerate",
+                "harassment",
+                "of",
+                "participants",
+                "in",
+                "any",
+                "form.",
+                "by",
+                "registering",
+                "for",
+                "this",
+                "event",
+                "we",
+                "expect",
+                "you",
+                "to",
+                "have",
+                "read",
+                "and",
+                "agree",
+                "to",
+                "the",
+                "llvm",
+                "code",
+                "of",
+                "conduct."
+              ]
+            },
+            "category": {
+              "text": "student-talk",
+              "words": [
+                "student-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "extending sulong an llvm bitcode runtime for cross-language interoperability between c++ swift and java javascript or python foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event we expect you to have read and agree to the llvm code of conduct. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 student-talk christoph pichler linz community building ir programming languages llvm swift"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2021-11-008": {
+      "talk": {
+        "id": "2021-11-008",
+        "meeting": "2021-11",
+        "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "November 16-19, 2021",
+        "category": "technical-talk",
+        "title": "Building a faster expression evaluator for LLDB",
+        "speakers": [],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/9aThSRGjYdA",
+        "videoId": "9aThSRGjYdA",
+        "slidesUrl": "https://llvm.org/devmtg/2021-11/slides/2021-Buildingafaster-expression-evaluatorforLLDB.pdf",
+        "tags": [
+          "LLDB"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "building a faster expression evaluator for lldb",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "lldb",
+        "_meetingLower": "2021 llvm developers' meeting (virtual) virtual november 16-19, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "building a faster expression evaluator for lldb",
+              "words": [
+                "building",
+                "faster",
+                "expression",
+                "evaluator",
+                "for",
+                "lldb"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "lldb",
+              "words": [
+                "lldb"
+              ]
+            },
+            "meeting": {
+              "text": "2021 llvm developers meeting virtual virtual november 16-19 2021",
+              "words": [
+                "2021",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "november",
+                "16-19",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "building a faster expression evaluator for lldb 2021 llvm developers meeting virtual virtual november 16-19 2021 2021-11 technical-talk lldb"
+      },
+      "meeting": {
+        "slug": "2021-11",
+        "name": "2021 LLVM Developers' Meeting (Virtual)",
+        "date": "November 16-19, 2021",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 67
+      }
+    },
+    "2020-09-020": {
+      "talk": {
+        "id": "2020-09-020",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "How to update debug info in compiler transformations",
+        "speakers": [
+          {
+            "name": "A. Prantl",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "V. Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Prantl-Kumar-How_to_update_debug_info.pdf",
+        "tags": [
+          "Debug Information"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "how to update debug info in compiler transformations",
+        "_speakerLower": "a. prantl v. kumar",
+        "_abstractLower": "",
+        "_tagsLower": "debug information",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "how to update debug info in compiler transformations",
+              "words": [
+                "how",
+                "to",
+                "update",
+                "debug",
+                "info",
+                "in",
+                "compiler",
+                "transformations"
+              ]
+            },
+            "speakers": {
+              "text": "a. prantl v. kumar",
+              "words": [
+                "a.",
+                "prantl",
+                "v.",
+                "kumar"
+              ]
+            },
+            "tags": {
+              "text": "debug information",
+              "words": [
+                "debug",
+                "information"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "how to update debug info in compiler transformations 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk a. prantl v. kumar debug information"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-042": {
+      "talk": {
+        "id": "2020-09-042",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "Getting stack size just right on XCore",
+        "speakers": [
+          {
+            "name": "J. McCrea",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/I22VVp09sAY",
+        "videoId": "I22VVp09sAY",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/McCrea-Getting_Stack_Size_Just_Right_on_XCore.pdf",
+        "tags": [
+          "Embedded"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "getting stack size just right on xcore",
+        "_speakerLower": "j. mccrea",
+        "_abstractLower": "",
+        "_tagsLower": "embedded",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "getting stack size just right on xcore",
+              "words": [
+                "getting",
+                "stack",
+                "size",
+                "just",
+                "right",
+                "on",
+                "xcore"
+              ]
+            },
+            "speakers": {
+              "text": "j. mccrea",
+              "words": [
+                "j.",
+                "mccrea"
+              ]
+            },
+            "tags": {
+              "text": "embedded",
+              "words": [
+                "embedded"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "getting stack size just right on xcore 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk j. mccrea embedded"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-003": {
+      "talk": {
+        "id": "2020-04-003",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "TFRT: An MLIR Powered Low-Level Runtime for Heterogenous Accelerators",
+        "speakers": [
+          {
+            "name": "Chris Lattner",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Mingsheng Hong",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "TFRT is a new effort to provide a common low level runtime for accelerators - enabling multiple heterogenous accelerators (each with domain specific APIs and device specific drivers) in a single system. This approach provides efficient use of the multithreaded host CPUs, supports fully asynchronous programming models, and is focused on low- level efficiency. TFRT is a new runtime that powers TensorFlow, but while our work is focused on the machine learning use-cases, the core runtime is application independent. TFRT is novel in three ways: it directly builds on MLIR and LLVM infrastructure like the MLIR declarative graph lowering framework, FileCheck based unit tests, and common LLVM data types. it leverages MLIRs extensible type system to support arbitrary C++ types in the runtime, not being limited to just tensors. it uses a modular library-based design that is optimized for subset-ability and embedding into applications spanning from mobile to server deployments, integration into a high performance game engine, etc. This talk discusses the design points of TFRT - including a discussion about the use of MLIR dialects to represent accelerator runtimes, which is the key that enable efficient and highly integrated heterogenous computation in a common framework. Through the use of MLIR, TFRT is able to expose the full power of each accelerator, instead of providing a \"lowest common denominator\" approach.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_8",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_8.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "tfrt: an mlir powered low-level runtime for heterogenous accelerators",
+        "_speakerLower": "chris lattner mingsheng hong",
+        "_abstractLower": "tfrt is a new effort to provide a common low level runtime for accelerators - enabling multiple heterogenous accelerators (each with domain specific apis and device specific drivers) in a single system. this approach provides efficient use of the multithreaded host cpus, supports fully asynchronous programming models, and is focused on low- level efficiency. tfrt is a new runtime that powers tensorflow, but while our work is focused on the machine learning use-cases, the core runtime is application independent. tfrt is novel in three ways: it directly builds on mlir and llvm infrastructure like the mlir declarative graph lowering framework, filecheck based unit tests, and common llvm data types. it leverages mlirs extensible type system to support arbitrary c++ types in the runtime, not being limited to just tensors. it uses a modular library-based design that is optimized for subset-ability and embedding into applications spanning from mobile to server deployments, integration into a high performance game engine, etc. this talk discusses the design points of tfrt - including a discussion about the use of mlir dialects to represent accelerator runtimes, which is the key that enable efficient and highly integrated heterogenous computation in a common framework. through the use of mlir, tfrt is able to expose the full power of each accelerator, instead of providing a \"lowest common denominator\" approach.",
+        "_tagsLower": "llvm mlir performance infrastructure ml",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tfrt an mlir powered low-level runtime for heterogenous accelerators",
+              "words": [
+                "tfrt",
+                "an",
+                "mlir",
+                "powered",
+                "low-level",
+                "runtime",
+                "for",
+                "heterogenous",
+                "accelerators"
+              ]
+            },
+            "speakers": {
+              "text": "chris lattner mingsheng hong",
+              "words": [
+                "chris",
+                "lattner",
+                "mingsheng",
+                "hong"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir performance infrastructure ml",
+              "words": [
+                "llvm",
+                "mlir",
+                "performance",
+                "infrastructure",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "tfrt is a new effort to provide a common low level runtime for accelerators - enabling multiple heterogenous accelerators each with domain specific apis and device specific drivers in a single system. this approach provides efficient use of the multithreaded host cpus supports fully asynchronous programming models and is focused on low- level efficiency. tfrt is a new runtime that powers tensorflow but while our work is focused on the machine learning use-cases the core runtime is application independent. tfrt is novel in three ways it directly builds on mlir and llvm infrastructure like the mlir declarative graph lowering framework filecheck based unit tests and common llvm data types. it leverages mlirs extensible type system to support arbitrary c++ types in the runtime not being limited to just tensors. it uses a modular library-based design that is optimized for subset-ability and embedding into applications spanning from mobile to server deployments integration into a high performance game engine etc. this talk discusses the design points of tfrt - including a discussion about the use of mlir dialects to represent accelerator runtimes which is the key that enable efficient and highly integrated heterogenous computation in a common framework. through the use of mlir tfrt is able to expose the full power of each accelerator instead of providing a lowest common denominator approach.",
+              "words": [
+                "tfrt",
+                "is",
+                "new",
+                "effort",
+                "to",
+                "provide",
+                "common",
+                "low",
+                "level",
+                "runtime",
+                "for",
+                "accelerators",
+                "enabling",
+                "multiple",
+                "heterogenous",
+                "accelerators",
+                "each",
+                "with",
+                "domain",
+                "specific",
+                "apis",
+                "and",
+                "device",
+                "specific",
+                "drivers",
+                "in",
+                "single",
+                "system.",
+                "this",
+                "approach",
+                "provides",
+                "efficient",
+                "use",
+                "of",
+                "the",
+                "multithreaded",
+                "host",
+                "cpus",
+                "supports",
+                "fully",
+                "asynchronous",
+                "programming",
+                "models",
+                "and",
+                "is",
+                "focused",
+                "on",
+                "low-",
+                "level",
+                "efficiency.",
+                "tfrt",
+                "is",
+                "new",
+                "runtime",
+                "that",
+                "powers",
+                "tensorflow",
+                "but",
+                "while",
+                "our",
+                "work",
+                "is",
+                "focused",
+                "on",
+                "the",
+                "machine",
+                "learning",
+                "use-cases",
+                "the",
+                "core",
+                "runtime",
+                "is",
+                "application",
+                "independent.",
+                "tfrt",
+                "is",
+                "novel",
+                "in",
+                "three",
+                "ways",
+                "it",
+                "directly",
+                "builds",
+                "on",
+                "mlir",
+                "and",
+                "llvm",
+                "infrastructure",
+                "like",
+                "the",
+                "mlir",
+                "declarative",
+                "graph",
+                "lowering",
+                "framework",
+                "filecheck",
+                "based",
+                "unit",
+                "tests",
+                "and",
+                "common",
+                "llvm",
+                "data",
+                "types.",
+                "it",
+                "leverages",
+                "mlirs",
+                "extensible",
+                "type",
+                "system",
+                "to",
+                "support",
+                "arbitrary",
+                "c++",
+                "types",
+                "in",
+                "the",
+                "runtime",
+                "not",
+                "being",
+                "limited",
+                "to",
+                "just",
+                "tensors.",
+                "it",
+                "uses",
+                "modular",
+                "library-based",
+                "design",
+                "that",
+                "is",
+                "optimized",
+                "for",
+                "subset-ability",
+                "and",
+                "embedding",
+                "into",
+                "applications",
+                "spanning",
+                "from",
+                "mobile",
+                "to",
+                "server",
+                "deployments",
+                "integration",
+                "into",
+                "high",
+                "performance",
+                "game",
+                "engine",
+                "etc.",
+                "this",
+                "talk",
+                "discusses",
+                "the",
+                "design",
+                "points",
+                "of",
+                "tfrt",
+                "including",
+                "discussion",
+                "about",
+                "the",
+                "use",
+                "of",
+                "mlir",
+                "dialects",
+                "to",
+                "represent",
+                "accelerator",
+                "runtimes",
+                "which",
+                "is",
+                "the",
+                "key",
+                "that",
+                "enable",
+                "efficient",
+                "and",
+                "highly",
+                "integrated",
+                "heterogenous",
+                "computation",
+                "in",
+                "common",
+                "framework.",
+                "through",
+                "the",
+                "use",
+                "of",
+                "mlir",
+                "tfrt",
+                "is",
+                "able",
+                "to",
+                "expose",
+                "the",
+                "full",
+                "power",
+                "of",
+                "each",
+                "accelerator",
+                "instead",
+                "of",
+                "providing",
+                "lowest",
+                "common",
+                "denominator",
+                "approach."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "tfrt an mlir powered low-level runtime for heterogenous accelerators tfrt is a new effort to provide a common low level runtime for accelerators - enabling multiple heterogenous accelerators each with domain specific apis and device specific drivers in a single system. this approach provides efficient use of the multithreaded host cpus supports fully asynchronous programming models and is focused on low- level efficiency. tfrt is a new runtime that powers tensorflow but while our work is focused on the machine learning use-cases the core runtime is application independent. tfrt is novel in three ways it directly builds on mlir and llvm infrastructure like the mlir declarative graph lowering framework filecheck based unit tests and common llvm data types. it leverages mlirs extensible type system to support arbitrary c++ types in the runtime not being limited to just tensors. it uses a modular library-based design that is optimized for subset-ability and embedding into applications spanning from mobile to server deployments integration into a high performance game engine etc. this talk discusses the design points of tfrt - including a discussion about the use of mlir dialects to represent accelerator runtimes which is the key that enable efficient and highly integrated heterogenous computation in a common framework. through the use of mlir tfrt is able to expose the full power of each accelerator instead of providing a lowest common denominator approach. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk chris lattner mingsheng hong llvm mlir performance infrastructure ml"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-025": {
+      "talk": {
+        "id": "2020-04-025",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "tutorial",
+        "title": "Implementing Common Compiler Optimizations From Scratch",
+        "speakers": [
+          {
+            "name": "Mike Shah",
+            "affiliation": "Northeastern University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this tutorial I will present several common compiler optimizations performed in LLVM. Chances are you have learned them in your compilers course, but have you ever had the chance to implement them? The following optimizations will be explained and presented: dead code elimination, common subexpression elimination, code motion, and finally function inlining. Attendees will also learn how to generate a control flow graph and visualize it in this After leaving this tutorial, attendees should be able to implement more advanced program analysis using the LLVM framework. They will be given a set of exercises that they can then challenge themselves with given the knowledge they learn from this tutorial.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_5",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_5.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "implementing common compiler optimizations from scratch",
+        "_speakerLower": "mike shah",
+        "_abstractLower": "in this tutorial i will present several common compiler optimizations performed in llvm. chances are you have learned them in your compilers course, but have you ever had the chance to implement them? the following optimizations will be explained and presented: dead code elimination, common subexpression elimination, code motion, and finally function inlining. attendees will also learn how to generate a control flow graph and visualize it in this after leaving this tutorial, attendees should be able to implement more advanced program analysis using the llvm framework. they will be given a set of exercises that they can then challenge themselves with given the knowledge they learn from this tutorial.",
+        "_tagsLower": "llvm optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "implementing common compiler optimizations from scratch",
+              "words": [
+                "implementing",
+                "common",
+                "compiler",
+                "optimizations",
+                "from",
+                "scratch"
+              ]
+            },
+            "speakers": {
+              "text": "mike shah",
+              "words": [
+                "mike",
+                "shah"
+              ]
+            },
+            "tags": {
+              "text": "llvm optimizations",
+              "words": [
+                "llvm",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "in this tutorial i will present several common compiler optimizations performed in llvm. chances are you have learned them in your compilers course but have you ever had the chance to implement them the following optimizations will be explained and presented dead code elimination common subexpression elimination code motion and finally function inlining. attendees will also learn how to generate a control flow graph and visualize it in this after leaving this tutorial attendees should be able to implement more advanced program analysis using the llvm framework. they will be given a set of exercises that they can then challenge themselves with given the knowledge they learn from this tutorial.",
+              "words": [
+                "in",
+                "this",
+                "tutorial",
+                "will",
+                "present",
+                "several",
+                "common",
+                "compiler",
+                "optimizations",
+                "performed",
+                "in",
+                "llvm.",
+                "chances",
+                "are",
+                "you",
+                "have",
+                "learned",
+                "them",
+                "in",
+                "your",
+                "compilers",
+                "course",
+                "but",
+                "have",
+                "you",
+                "ever",
+                "had",
+                "the",
+                "chance",
+                "to",
+                "implement",
+                "them",
+                "the",
+                "following",
+                "optimizations",
+                "will",
+                "be",
+                "explained",
+                "and",
+                "presented",
+                "dead",
+                "code",
+                "elimination",
+                "common",
+                "subexpression",
+                "elimination",
+                "code",
+                "motion",
+                "and",
+                "finally",
+                "function",
+                "inlining.",
+                "attendees",
+                "will",
+                "also",
+                "learn",
+                "how",
+                "to",
+                "generate",
+                "control",
+                "flow",
+                "graph",
+                "and",
+                "visualize",
+                "it",
+                "in",
+                "this",
+                "after",
+                "leaving",
+                "this",
+                "tutorial",
+                "attendees",
+                "should",
+                "be",
+                "able",
+                "to",
+                "implement",
+                "more",
+                "advanced",
+                "program",
+                "analysis",
+                "using",
+                "the",
+                "llvm",
+                "framework.",
+                "they",
+                "will",
+                "be",
+                "given",
+                "set",
+                "of",
+                "exercises",
+                "that",
+                "they",
+                "can",
+                "then",
+                "challenge",
+                "themselves",
+                "with",
+                "given",
+                "the",
+                "knowledge",
+                "they",
+                "learn",
+                "from",
+                "this",
+                "tutorial."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "implementing common compiler optimizations from scratch in this tutorial i will present several common compiler optimizations performed in llvm. chances are you have learned them in your compilers course but have you ever had the chance to implement them the following optimizations will be explained and presented dead code elimination common subexpression elimination code motion and finally function inlining. attendees will also learn how to generate a control flow graph and visualize it in this after leaving this tutorial attendees should be able to implement more advanced program analysis using the llvm framework. they will be given a set of exercises that they can then challenge themselves with given the knowledge they learn from this tutorial. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial mike shah llvm optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-047": {
+      "talk": {
+        "id": "2020-04-047",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "Flang Update",
+        "speakers": [
+          {
+            "name": "Steve Scalpone",
+            "affiliation": "NVIDIA",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Flang)",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Provide an update about flang with an overview of changes since the last developer's meeting and the changes planned for the near future. Topics will cover migration to the monorepo, integration with MLIR, current in-flight projects, etc.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_35",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_35.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "flang update",
+        "_speakerLower": "steve scalpone flang)",
+        "_abstractLower": "provide an update about flang with an overview of changes since the last developer's meeting and the changes planned for the near future. topics will cover migration to the monorepo, integration with mlir, current in-flight projects, etc.",
+        "_tagsLower": "mlir flang",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "flang update",
+              "words": [
+                "flang",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "steve scalpone flang",
+              "words": [
+                "steve",
+                "scalpone",
+                "flang"
+              ]
+            },
+            "tags": {
+              "text": "mlir flang",
+              "words": [
+                "mlir",
+                "flang"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "provide an update about flang with an overview of changes since the last developers meeting and the changes planned for the near future. topics will cover migration to the monorepo integration with mlir current in-flight projects etc.",
+              "words": [
+                "provide",
+                "an",
+                "update",
+                "about",
+                "flang",
+                "with",
+                "an",
+                "overview",
+                "of",
+                "changes",
+                "since",
+                "the",
+                "last",
+                "developers",
+                "meeting",
+                "and",
+                "the",
+                "changes",
+                "planned",
+                "for",
+                "the",
+                "near",
+                "future.",
+                "topics",
+                "will",
+                "cover",
+                "migration",
+                "to",
+                "the",
+                "monorepo",
+                "integration",
+                "with",
+                "mlir",
+                "current",
+                "in-flight",
+                "projects",
+                "etc."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "flang update provide an update about flang with an overview of changes since the last developers meeting and the changes planned for the near future. topics will cover migration to the monorepo integration with mlir current in-flight projects etc. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk steve scalpone flang mlir flang"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2016-09-005": {
+      "talk": {
+        "id": "2016-09-005",
+        "meeting": "2016-09",
+        "meetingName": "2016 LLVM Cauldron",
+        "meetingLocation": "LLVM Cauldron, Hebden Bridge, UK",
+        "meetingDate": "September 8, 2016",
+        "category": "technical-talk",
+        "title": "An Altruistic Processor - AAP",
+        "speakers": [
+          {
+            "name": "Simon Cook",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ed Jones",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/Ad-zuxedEZQ",
+        "videoId": "Ad-zuxedEZQ",
+        "slidesUrl": "https://llvm.org/devmtg/2016-09/slides/Jones-AAP.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "an altruistic processor - aap",
+        "_speakerLower": "simon cook ed jones",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2016 llvm cauldron llvm cauldron, hebden bridge, uk september 8, 2016",
+        "_year": "2016",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an altruistic processor - aap",
+              "words": [
+                "an",
+                "altruistic",
+                "processor",
+                "aap"
+              ]
+            },
+            "speakers": {
+              "text": "simon cook ed jones",
+              "words": [
+                "simon",
+                "cook",
+                "ed",
+                "jones"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016",
+              "words": [
+                "2016",
+                "llvm",
+                "cauldron",
+                "llvm",
+                "cauldron",
+                "hebden",
+                "bridge",
+                "uk",
+                "september",
+                "2016"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2016",
+              "words": [
+                "2016"
+              ]
+            }
+          },
+          "year": 2016
+        },
+        "_searchBlob": "an altruistic processor - aap 2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016 2016-09 technical-talk simon cook ed jones"
+      },
+      "meeting": {
+        "slug": "2016-09",
+        "name": "2016 LLVM Cauldron",
+        "date": "September 8, 2016",
+        "location": "LLVM Cauldron, Hebden Bridge, UK",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2014-04-008": {
+      "talk": {
+        "id": "2014-04-008",
+        "meeting": "2014-04",
+        "meetingName": "2014 European LLVM Developers' Meeting",
+        "meetingLocation": "Edinburgh, Scotland",
+        "meetingDate": "April 7-8, 2014",
+        "category": "technical-talk",
+        "title": "Portable Native Client. Fast, Secure, Simple: Pick Three.",
+        "speakers": [
+          {
+            "name": "JF Bastien",
+            "affiliation": "Google",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://www.youtube.com/watch?v=iYBSgdvv0BY",
+        "videoId": "iYBSgdvv0BY",
+        "slidesUrl": "https://llvm.org/devmtg/2014-04/PDFs/Talks/PortableNativeClient.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "portable native client. fast, secure, simple: pick three.",
+        "_speakerLower": "jf bastien",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2014 european llvm developers' meeting edinburgh, scotland april 7-8, 2014",
+        "_year": "2014",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "portable native client. fast secure simple pick three.",
+              "words": [
+                "portable",
+                "native",
+                "client.",
+                "fast",
+                "secure",
+                "simple",
+                "pick",
+                "three."
+              ]
+            },
+            "speakers": {
+              "text": "jf bastien",
+              "words": [
+                "jf",
+                "bastien"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2014 european llvm developers meeting edinburgh scotland april 7-8 2014",
+              "words": [
+                "2014",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "edinburgh",
+                "scotland",
+                "april",
+                "7-8",
+                "2014"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2014",
+              "words": [
+                "2014"
+              ]
+            }
+          },
+          "year": 2014
+        },
+        "_searchBlob": "portable native client. fast secure simple pick three. 2014 european llvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk jf bastien"
+      },
+      "meeting": {
+        "slug": "2014-04",
+        "name": "2014 European LLVM Developers' Meeting",
+        "date": "April 7-8, 2014",
+        "location": "Edinburgh, Scotland",
+        "canceled": false,
+        "talkCount": 31
+      }
+    },
+    "2013-04-018": {
+      "talk": {
+        "id": "2013-04-018",
+        "meeting": "2013-04",
+        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France",
+        "meetingDate": "April 29-30, 2013",
+        "category": "lightning-talk",
+        "title": "Integrating fine-grained timing constraints into LLVM",
+        "speakers": [
+          {
+            "name": "David Lacey",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk covers a problem we are just beginning to tackle of integrating fine-grained timing constraints into LLVM. Code written for real-time tasks often comes with worst case timing constraints on paths within the program (usually between I/O operations). These paths can be quite short or can cross across basic blocks and function boundaries. Unfortunately, the optimizations within LLVM are not aware of these constraints and code motion or control flow optimizations can move calculations into a critical path quite easily. I'll cover the experiences we've had with the optimizations in the compiler and go over the initial ideas we have to tackle the problem.",
+        "videoUrl": "https://youtu.be/eA-tpkYpZR8",
+        "videoId": "eA-tpkYpZR8",
+        "slidesUrl": "https://llvm.org/devmtg/2013-04/lacey-slides.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "integrating fine-grained timing constraints into llvm",
+        "_speakerLower": "david lacey",
+        "_abstractLower": "this talk covers a problem we are just beginning to tackle of integrating fine-grained timing constraints into llvm. code written for real-time tasks often comes with worst case timing constraints on paths within the program (usually between i/o operations). these paths can be quite short or can cross across basic blocks and function boundaries. unfortunately, the optimizations within llvm are not aware of these constraints and code motion or control flow optimizations can move calculations into a critical path quite easily. i'll cover the experiences we've had with the optimizations in the compiler and go over the initial ideas we have to tackle the problem.",
+        "_tagsLower": "llvm optimizations",
+        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_year": "2013",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "integrating fine-grained timing constraints into llvm",
+              "words": [
+                "integrating",
+                "fine-grained",
+                "timing",
+                "constraints",
+                "into",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "david lacey",
+              "words": [
+                "david",
+                "lacey"
+              ]
+            },
+            "tags": {
+              "text": "llvm optimizations",
+              "words": [
+                "llvm",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "words": [
+                "2013",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "april",
+                "29-30",
+                "2013"
+              ]
+            },
+            "abstract": {
+              "text": "this talk covers a problem we are just beginning to tackle of integrating fine-grained timing constraints into llvm. code written for real-time tasks often comes with worst case timing constraints on paths within the program usually between i o operations . these paths can be quite short or can cross across basic blocks and function boundaries. unfortunately the optimizations within llvm are not aware of these constraints and code motion or control flow optimizations can move calculations into a critical path quite easily. ill cover the experiences weve had with the optimizations in the compiler and go over the initial ideas we have to tackle the problem.",
+              "words": [
+                "this",
+                "talk",
+                "covers",
+                "problem",
+                "we",
+                "are",
+                "just",
+                "beginning",
+                "to",
+                "tackle",
+                "of",
+                "integrating",
+                "fine-grained",
+                "timing",
+                "constraints",
+                "into",
+                "llvm.",
+                "code",
+                "written",
+                "for",
+                "real-time",
+                "tasks",
+                "often",
+                "comes",
+                "with",
+                "worst",
+                "case",
+                "timing",
+                "constraints",
+                "on",
+                "paths",
+                "within",
+                "the",
+                "program",
+                "usually",
+                "between",
+                "operations",
+                "these",
+                "paths",
+                "can",
+                "be",
+                "quite",
+                "short",
+                "or",
+                "can",
+                "cross",
+                "across",
+                "basic",
+                "blocks",
+                "and",
+                "function",
+                "boundaries.",
+                "unfortunately",
+                "the",
+                "optimizations",
+                "within",
+                "llvm",
+                "are",
+                "not",
+                "aware",
+                "of",
+                "these",
+                "constraints",
+                "and",
+                "code",
+                "motion",
+                "or",
+                "control",
+                "flow",
+                "optimizations",
+                "can",
+                "move",
+                "calculations",
+                "into",
+                "critical",
+                "path",
+                "quite",
+                "easily.",
+                "ill",
+                "cover",
+                "the",
+                "experiences",
+                "weve",
+                "had",
+                "with",
+                "the",
+                "optimizations",
+                "in",
+                "the",
+                "compiler",
+                "and",
+                "go",
+                "over",
+                "the",
+                "initial",
+                "ideas",
+                "we",
+                "have",
+                "to",
+                "tackle",
+                "the",
+                "problem."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2013",
+              "words": [
+                "2013"
+              ]
+            }
+          },
+          "year": 2013
+        },
+        "_searchBlob": "integrating fine-grained timing constraints into llvm this talk covers a problem we are just beginning to tackle of integrating fine-grained timing constraints into llvm. code written for real-time tasks often comes with worst case timing constraints on paths within the program usually between i o operations . these paths can be quite short or can cross across basic blocks and function boundaries. unfortunately the optimizations within llvm are not aware of these constraints and code motion or control flow optimizations can move calculations into a critical path quite easily. ill cover the experiences weve had with the optimizations in the compiler and go over the initial ideas we have to tackle the problem. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 lightning-talk david lacey llvm optimizations"
+      },
+      "meeting": {
+        "slug": "2013-04",
+        "name": "2013 European LLVM Developers' Meeting",
+        "date": "April 29-30, 2013",
+        "location": "Paris, France",
+        "canceled": false,
+        "talkCount": 30
+      }
+    },
+    "2011-11-009": {
+      "talk": {
+        "id": "2011-11-009",
+        "meeting": "2011-11",
+        "meetingName": "2011 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "November 18, 2011",
+        "category": "technical-talk",
+        "title": "Polly - First successful optimizations - How to proceed?",
+        "speakers": [
+          {
+            "name": "Tobias Grosser",
+            "affiliation": "ENS/INRIA",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The poster will describe our research on the subject of verification of OpenCL kernels using symbolic execution. We present an effective technique for crosschecking a C program against an accelerated OpenCL version, as well as a technique for detecting data races in OpenCL programs. Our techniques are implemented in KLEE-CL, a symbolic execution engine based on KLEE and KLEE-FP that supports symbolic reasoning on the equivalence between symbolic values. Our approach is to symbolically model the OpenCL environment using an OpenCL runtime library targeted to symbolic execution. Using this model we are able to run OpenCL programs symbolically, keeping track of memory accesses for the purpose of race detection. We then compare the symbolic result against the plain C program in order to detect mismatches between the two versions. We applied KLEE-CL to the Parboil benchmark suite, the Bullet physics library and the OP2 library, in which we were able to find a total of seven errors: three mismatches between the OpenCL and C implementations, two memory errors, one OpenCL compiler bug and one race condition.",
+        "videoUrl": "https://youtu.be/2NGYOTteN3A",
+        "videoId": "2NGYOTteN3A",
+        "slidesUrl": "https://llvm.org/devmtg/2011-11/Grosser_PollyOptimizations.pdf",
+        "tags": [
+          "GPU",
+          "JIT",
+          "OpenCL",
+          "Optimizations",
+          "Performance",
+          "Polly"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "polly - first successful optimizations - how to proceed?",
+        "_speakerLower": "tobias grosser",
+        "_abstractLower": "the poster will describe our research on the subject of verification of opencl kernels using symbolic execution. we present an effective technique for crosschecking a c program against an accelerated opencl version, as well as a technique for detecting data races in opencl programs. our techniques are implemented in klee-cl, a symbolic execution engine based on klee and klee-fp that supports symbolic reasoning on the equivalence between symbolic values. our approach is to symbolically model the opencl environment using an opencl runtime library targeted to symbolic execution. using this model we are able to run opencl programs symbolically, keeping track of memory accesses for the purpose of race detection. we then compare the symbolic result against the plain c program in order to detect mismatches between the two versions. we applied klee-cl to the parboil benchmark suite, the bullet physics library and the op2 library, in which we were able to find a total of seven errors: three mismatches between the opencl and c implementations, two memory errors, one opencl compiler bug and one race condition.",
+        "_tagsLower": "gpu jit opencl optimizations performance polly runtimes",
+        "_meetingLower": "2011 us llvm developers' meeting san jose, ca, usa november 18, 2011",
+        "_year": "2011",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "polly - first successful optimizations - how to proceed",
+              "words": [
+                "polly",
+                "first",
+                "successful",
+                "optimizations",
+                "how",
+                "to",
+                "proceed"
+              ]
+            },
+            "speakers": {
+              "text": "tobias grosser",
+              "words": [
+                "tobias",
+                "grosser"
+              ]
+            },
+            "tags": {
+              "text": "gpu jit opencl optimizations performance polly runtimes",
+              "words": [
+                "gpu",
+                "jit",
+                "opencl",
+                "optimizations",
+                "performance",
+                "polly",
+                "runtimes"
+              ]
+            },
+            "meeting": {
+              "text": "2011 us llvm developers meeting san jose ca usa november 18 2011",
+              "words": [
+                "2011",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "november",
+                "18",
+                "2011"
+              ]
+            },
+            "abstract": {
+              "text": "the poster will describe our research on the subject of verification of opencl kernels using symbolic execution. we present an effective technique for crosschecking a c program against an accelerated opencl version as well as a technique for detecting data races in opencl programs. our techniques are implemented in klee-cl a symbolic execution engine based on klee and klee-fp that supports symbolic reasoning on the equivalence between symbolic values. our approach is to symbolically model the opencl environment using an opencl runtime library targeted to symbolic execution. using this model we are able to run opencl programs symbolically keeping track of memory accesses for the purpose of race detection. we then compare the symbolic result against the plain c program in order to detect mismatches between the two versions. we applied klee-cl to the parboil benchmark suite the bullet physics library and the op2 library in which we were able to find a total of seven errors three mismatches between the opencl and c implementations two memory errors one opencl compiler bug and one race condition.",
+              "words": [
+                "the",
+                "poster",
+                "will",
+                "describe",
+                "our",
+                "research",
+                "on",
+                "the",
+                "subject",
+                "of",
+                "verification",
+                "of",
+                "opencl",
+                "kernels",
+                "using",
+                "symbolic",
+                "execution.",
+                "we",
+                "present",
+                "an",
+                "effective",
+                "technique",
+                "for",
+                "crosschecking",
+                "program",
+                "against",
+                "an",
+                "accelerated",
+                "opencl",
+                "version",
+                "as",
+                "well",
+                "as",
+                "technique",
+                "for",
+                "detecting",
+                "data",
+                "races",
+                "in",
+                "opencl",
+                "programs.",
+                "our",
+                "techniques",
+                "are",
+                "implemented",
+                "in",
+                "klee-cl",
+                "symbolic",
+                "execution",
+                "engine",
+                "based",
+                "on",
+                "klee",
+                "and",
+                "klee-fp",
+                "that",
+                "supports",
+                "symbolic",
+                "reasoning",
+                "on",
+                "the",
+                "equivalence",
+                "between",
+                "symbolic",
+                "values.",
+                "our",
+                "approach",
+                "is",
+                "to",
+                "symbolically",
+                "model",
+                "the",
+                "opencl",
+                "environment",
+                "using",
+                "an",
+                "opencl",
+                "runtime",
+                "library",
+                "targeted",
+                "to",
+                "symbolic",
+                "execution.",
+                "using",
+                "this",
+                "model",
+                "we",
+                "are",
+                "able",
+                "to",
+                "run",
+                "opencl",
+                "programs",
+                "symbolically",
+                "keeping",
+                "track",
+                "of",
+                "memory",
+                "accesses",
+                "for",
+                "the",
+                "purpose",
+                "of",
+                "race",
+                "detection.",
+                "we",
+                "then",
+                "compare",
+                "the",
+                "symbolic",
+                "result",
+                "against",
+                "the",
+                "plain",
+                "program",
+                "in",
+                "order",
+                "to",
+                "detect",
+                "mismatches",
+                "between",
+                "the",
+                "two",
+                "versions.",
+                "we",
+                "applied",
+                "klee-cl",
+                "to",
+                "the",
+                "parboil",
+                "benchmark",
+                "suite",
+                "the",
+                "bullet",
+                "physics",
+                "library",
+                "and",
+                "the",
+                "op2",
+                "library",
+                "in",
+                "which",
+                "we",
+                "were",
+                "able",
+                "to",
+                "find",
+                "total",
+                "of",
+                "seven",
+                "errors",
+                "three",
+                "mismatches",
+                "between",
+                "the",
+                "opencl",
+                "and",
+                "implementations",
+                "two",
+                "memory",
+                "errors",
+                "one",
+                "opencl",
+                "compiler",
+                "bug",
+                "and",
+                "one",
+                "race",
+                "condition."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2011",
+              "words": [
+                "2011"
+              ]
+            }
+          },
+          "year": 2011
+        },
+        "_searchBlob": "polly - first successful optimizations - how to proceed the poster will describe our research on the subject of verification of opencl kernels using symbolic execution. we present an effective technique for crosschecking a c program against an accelerated opencl version as well as a technique for detecting data races in opencl programs. our techniques are implemented in klee-cl a symbolic execution engine based on klee and klee-fp that supports symbolic reasoning on the equivalence between symbolic values. our approach is to symbolically model the opencl environment using an opencl runtime library targeted to symbolic execution. using this model we are able to run opencl programs symbolically keeping track of memory accesses for the purpose of race detection. we then compare the symbolic result against the plain c program in order to detect mismatches between the two versions. we applied klee-cl to the parboil benchmark suite the bullet physics library and the op2 library in which we were able to find a total of seven errors three mismatches between the opencl and c implementations two memory errors one opencl compiler bug and one race condition. 2011 us llvm developers meeting san jose ca usa november 18 2011 2011-11 technical-talk tobias grosser gpu jit opencl optimizations performance polly runtimes"
+      },
+      "meeting": {
+        "slug": "2011-11",
+        "name": "2011 US LLVM Developers' Meeting",
+        "date": "November 18, 2011",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 22
+      }
+    },
+    "2008-08-009": {
+      "talk": {
+        "id": "2008-08-009",
+        "meeting": "2008-08",
+        "meetingName": "2008 US LLVM Developers' Meeting",
+        "meetingLocation": "Cupertino, CA, USA",
+        "meetingDate": "August 1, 2008",
+        "category": "technical-talk",
+        "title": "llvmc2 Compiler Driver",
+        "speakers": [
+          {
+            "name": "Anton Korobeynikov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "'llvmc2' is the LLVM Compiler Driver, which is useful to people building new languages and tools from the LLVM toolchain. This talk describes the constraints and purpose of a compiler driver and discusses how llvmc2 fills the needs and works with those constraints. Finally, the talk describes some of the low-level architecture and future directions of llvmc2.",
+        "videoUrl": "https://youtu.be/f9MQI9IUy_M",
+        "videoId": "f9MQI9IUy_M",
+        "slidesUrl": "https://llvm.org/devmtg/2008-08/Korobeynikov_LLVMC2-CompilerDriver.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvmc2 compiler driver",
+        "_speakerLower": "anton korobeynikov",
+        "_abstractLower": "'llvmc2' is the llvm compiler driver, which is useful to people building new languages and tools from the llvm toolchain. this talk describes the constraints and purpose of a compiler driver and discusses how llvmc2 fills the needs and works with those constraints. finally, the talk describes some of the low-level architecture and future directions of llvmc2.",
+        "_tagsLower": "llvm infrastructure",
+        "_meetingLower": "2008 us llvm developers' meeting cupertino, ca, usa august 1, 2008",
+        "_year": "2008",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvmc2 compiler driver",
+              "words": [
+                "llvmc2",
+                "compiler",
+                "driver"
+              ]
+            },
+            "speakers": {
+              "text": "anton korobeynikov",
+              "words": [
+                "anton",
+                "korobeynikov"
+              ]
+            },
+            "tags": {
+              "text": "llvm infrastructure",
+              "words": [
+                "llvm",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2008 us llvm developers meeting cupertino ca usa august 1 2008",
+              "words": [
+                "2008",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "cupertino",
+                "ca",
+                "usa",
+                "august",
+                "2008"
+              ]
+            },
+            "abstract": {
+              "text": "llvmc2 is the llvm compiler driver which is useful to people building new languages and tools from the llvm toolchain. this talk describes the constraints and purpose of a compiler driver and discusses how llvmc2 fills the needs and works with those constraints. finally the talk describes some of the low-level architecture and future directions of llvmc2.",
+              "words": [
+                "llvmc2",
+                "is",
+                "the",
+                "llvm",
+                "compiler",
+                "driver",
+                "which",
+                "is",
+                "useful",
+                "to",
+                "people",
+                "building",
+                "new",
+                "languages",
+                "and",
+                "tools",
+                "from",
+                "the",
+                "llvm",
+                "toolchain.",
+                "this",
+                "talk",
+                "describes",
+                "the",
+                "constraints",
+                "and",
+                "purpose",
+                "of",
+                "compiler",
+                "driver",
+                "and",
+                "discusses",
+                "how",
+                "llvmc2",
+                "fills",
+                "the",
+                "needs",
+                "and",
+                "works",
+                "with",
+                "those",
+                "constraints.",
+                "finally",
+                "the",
+                "talk",
+                "describes",
+                "some",
+                "of",
+                "the",
+                "low-level",
+                "architecture",
+                "and",
+                "future",
+                "directions",
+                "of",
+                "llvmc2."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2008",
+              "words": [
+                "2008"
+              ]
+            }
+          },
+          "year": 2008
+        },
+        "_searchBlob": "llvmc2 compiler driver llvmc2 is the llvm compiler driver which is useful to people building new languages and tools from the llvm toolchain. this talk describes the constraints and purpose of a compiler driver and discusses how llvmc2 fills the needs and works with those constraints. finally the talk describes some of the low-level architecture and future directions of llvmc2. 2008 us llvm developers meeting cupertino ca usa august 1 2008 2008-08 technical-talk anton korobeynikov llvm infrastructure"
+      },
+      "meeting": {
+        "slug": "2008-08",
+        "name": "2008 US LLVM Developers' Meeting",
+        "date": "August 1, 2008",
+        "location": "Cupertino, CA, USA",
+        "canceled": false,
+        "talkCount": 13
+      }
+    }
+  }
+}

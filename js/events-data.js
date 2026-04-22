@@ -3,9 +3,11 @@
  */
 
 (function () {
+  const root = typeof window !== 'undefined' ? window : globalThis;
   const MANIFEST_JSON_PATH = 'devmtg/events/index.json';
   const EVENTS_PREFIX = 'devmtg/events/';
   const TALK_REFERENCE_JSON_PATH = 'js/data/talk-paper-links.json';
+  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=bb934b2ac776';
 
   let manifestCache = null;
   let manifestLoadPromise = null;
@@ -16,6 +18,10 @@
 
   const bundleCache = new Map();
   const bundleLoadPromises = new Map();
+  let viewerCatalogCache = null;
+  let viewerCatalogLoadPromise = null;
+  let viewerRelatedCache = null;
+  let viewerRelatedLoadPromise = null;
 
   function normalizeManifest(payload) {
     if (!payload || typeof payload !== 'object') {
@@ -77,6 +83,98 @@
       throw new Error(`${path}: invalid JSON (${err.message})`);
     }
   }
+
+  function computeShardKey(id, shardCount) {
+    const text = String(id || '').trim();
+    const count = Number.parseInt(String(shardCount || ''), 10);
+    if (!text || !Number.isFinite(count) || count <= 0) return '';
+    let hash = 0;
+    for (let index = 0; index < text.length; index += 1) {
+      hash = ((hash * 31) + text.charCodeAt(index)) >>> 0;
+    }
+    return (hash % count).toString(16).padStart(2, '0');
+  }
+
+  function ensureViewerArtifactHelpers() {
+    if (
+      typeof root.loadViewerArtifactsManifest === 'function'
+      && typeof root.loadViewerArtifactJson === 'function'
+      && typeof root.resolveViewerArtifactShardUrl === 'function'
+    ) {
+      return;
+    }
+
+    const state = root.__LLVMViewerArtifactsState || (root.__LLVMViewerArtifactsState = {
+      manifestCache: null,
+      manifestPromise: null,
+      jsonCache: new Map(),
+      jsonPromises: new Map(),
+    });
+
+    root.loadViewerArtifactsManifest = async function loadViewerArtifactsManifest() {
+      if (state.manifestCache) return state.manifestCache;
+      if (state.manifestPromise) return state.manifestPromise;
+      state.manifestPromise = (async () => {
+        const payload = await fetchJson(VIEWER_ARTIFACTS_MANIFEST_PATH);
+        if (!payload || typeof payload !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: expected JSON object`);
+        }
+        if (!payload.files || typeof payload.files !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: missing "files" object`);
+        }
+        if (!payload.shards || typeof payload.shards !== 'object') {
+          throw new Error(`${VIEWER_ARTIFACTS_MANIFEST_PATH}: missing "shards" object`);
+        }
+        state.manifestCache = payload;
+        return payload;
+      })();
+
+      try {
+        return await state.manifestPromise;
+      } finally {
+        state.manifestPromise = null;
+      }
+    };
+
+    root.loadViewerArtifactJson = async function loadViewerArtifactJson(key) {
+      const artifactKey = String(key || '').trim();
+      if (!artifactKey) throw new Error('Artifact key is required');
+      if (state.jsonCache.has(artifactKey)) return state.jsonCache.get(artifactKey);
+      if (state.jsonPromises.has(artifactKey)) return state.jsonPromises.get(artifactKey);
+
+      const promise = (async () => {
+        const manifest = await root.loadViewerArtifactsManifest();
+        const ref = manifest && manifest.files ? manifest.files[artifactKey] : '';
+        if (!ref) throw new Error(`viewer-artifacts.json: missing file entry "${artifactKey}"`);
+        const payload = await fetchJson(ref);
+        state.jsonCache.set(artifactKey, payload);
+        return payload;
+      })();
+
+      state.jsonPromises.set(artifactKey, promise);
+      try {
+        return await promise;
+      } finally {
+        state.jsonPromises.delete(artifactKey);
+      }
+    };
+
+    root.resolveViewerArtifactShardUrl = async function resolveViewerArtifactShardUrl(group, id) {
+      const shardGroup = String(group || '').trim();
+      const recordId = String(id || '').trim();
+      if (!shardGroup || !recordId) return '';
+      const manifest = await root.loadViewerArtifactsManifest();
+      const shardConfig = manifest && manifest.shards ? manifest.shards[shardGroup] : null;
+      if (!shardConfig || typeof shardConfig !== 'object') {
+        throw new Error(`viewer-artifacts.json: missing shard entry "${shardGroup}"`);
+      }
+      const shardKey = computeShardKey(recordId, shardConfig.shardCount);
+      if (!shardKey) return '';
+      return String(shardConfig.template || '').replace('{shard}', shardKey);
+    };
+  }
+
+  ensureViewerArtifactHelpers();
 
   function normalizeHttpUrl(value) {
     const raw = String(value || '').trim();
@@ -216,6 +314,49 @@
     bundleLoadPromises.clear();
   }
 
+  async function loadViewerTalkCatalog() {
+    if (viewerCatalogCache) return viewerCatalogCache;
+    if (viewerCatalogLoadPromise) return viewerCatalogLoadPromise;
+
+    viewerCatalogLoadPromise = (async () => {
+      const payload = await root.loadViewerArtifactJson('talksCatalog');
+      if (!payload || typeof payload !== 'object') return null;
+      viewerCatalogCache = {
+        talks: Array.isArray(payload.talks) ? payload.talks : [],
+        meetings: Array.isArray(payload.meetings) ? payload.meetings : [],
+        autocomplete: payload.autocomplete && typeof payload.autocomplete === 'object' ? payload.autocomplete : {},
+        dataVersion: String(payload.dataVersion || '').trim(),
+      };
+      return viewerCatalogCache;
+    })();
+
+    try {
+      return await viewerCatalogLoadPromise;
+    } finally {
+      viewerCatalogLoadPromise = null;
+    }
+  }
+
+  async function loadViewerTalkRelatedIndex() {
+    if (viewerRelatedCache) return viewerRelatedCache;
+    if (viewerRelatedLoadPromise) return viewerRelatedLoadPromise;
+
+    viewerRelatedLoadPromise = (async () => {
+      const payload = await root.loadViewerArtifactJson('talkRelated');
+      const byTalkId = payload && typeof payload === 'object' && payload.byTalkId && typeof payload.byTalkId === 'object'
+        ? payload.byTalkId
+        : {};
+      viewerRelatedCache = byTalkId;
+      return byTalkId;
+    })();
+
+    try {
+      return await viewerRelatedLoadPromise;
+    } finally {
+      viewerRelatedLoadPromise = null;
+    }
+  }
+
   async function loadManifest() {
     if (manifestCache) return manifestCache;
     if (manifestLoadPromise) return manifestLoadPromise;
@@ -282,6 +423,24 @@
   }
 
   async function loadEventData() {
+    try {
+      const catalog = await loadViewerTalkCatalog();
+      if (catalog && fullDataCache && fullDataVersion === catalog.dataVersion) {
+        return fullDataCache;
+      }
+      if (catalog) {
+        fullDataCache = {
+          talks: catalog.talks,
+          meetings: catalog.meetings,
+          autocomplete: catalog.autocomplete,
+        };
+        fullDataVersion = catalog.dataVersion;
+        return fullDataCache;
+      }
+    } catch {
+      // Fall back to canonical raw manifests below.
+    }
+
     const manifest = await loadManifest();
     if (fullDataCache && fullDataVersion === manifest.dataVersion) {
       return fullDataCache;
@@ -313,6 +472,35 @@
   async function loadTalkRecordById(talkId) {
     const target = normalizeTalkId(talkId);
     if (!target) return null;
+
+    try {
+      const detailRef = await root.resolveViewerArtifactShardUrl('talkDetails', target);
+      if (detailRef) {
+        const payload = await fetchJson(detailRef);
+        const talks = payload && payload.talks && typeof payload.talks === 'object' ? payload.talks : {};
+        const entry = talks[target];
+        if (entry && typeof entry === 'object' && entry.talk && typeof entry.talk === 'object') {
+          let related = null;
+          try {
+            const relatedIndex = await loadViewerTalkRelatedIndex();
+            related = relatedIndex && relatedIndex[target] && typeof relatedIndex[target] === 'object'
+              ? relatedIndex[target]
+              : null;
+          } catch {
+            related = null;
+          }
+          return {
+            talk: entry.talk,
+            talks: [entry.talk],
+            meeting: entry.meeting || null,
+            dataVersion: String(payload && payload.dataVersion || '').trim(),
+            related,
+          };
+        }
+      }
+    } catch {
+      // Fall back to canonical raw manifests below.
+    }
 
     const manifest = await loadManifest();
     const talkReferenceIndex = await loadTalkReferenceIndex();
@@ -353,6 +541,6 @@
     return null;
   }
 
-  window.loadEventData = loadEventData;
-  window.loadTalkRecordById = loadTalkRecordById;
+  root.loadEventData = loadEventData;
+  root.loadTalkRecordById = loadTalkRecordById;
 })();

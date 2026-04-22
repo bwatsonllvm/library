@@ -307,33 +307,40 @@
 
   async function loadPaperDetailContextById(paperId) {
     const targetId = String(paperId || '').trim();
-    if (!targetId) return { loaded: true, paper: null, relatedPool: [] };
+    if (!targetId) return { loaded: true, paper: null, relatedPool: [], related: null };
 
     if (typeof window.loadPaperRecordById === 'function') {
       try {
         const payload = await window.loadPaperRecordById(targetId);
         if (!payload || typeof payload !== 'object') {
-          return { loaded: true, paper: null, relatedPool: [] };
+          return { loaded: true, paper: null, relatedPool: [], related: null };
         }
         const paper = normalizePaperRecord(payload.paper);
-        const relatedPool = Array.isArray(payload.papers) ? payload.papers : [];
-        return { loaded: true, paper, relatedPool };
+        const relatedPool = Array.isArray(payload && payload.related && payload.related.relatedPapers)
+          ? payload.related.relatedPapers
+          : (Array.isArray(payload.papers) ? payload.papers : []);
+        return {
+          loaded: true,
+          paper,
+          relatedPool,
+          related: payload.related && typeof payload.related === 'object' ? payload.related : null,
+        };
       } catch {
         // Fallback below.
       }
     }
 
     if (typeof window.loadPaperData !== 'function') {
-      return { loaded: false, paper: null, relatedPool: [] };
+      return { loaded: false, paper: null, relatedPool: [], related: null };
     }
 
     try {
       const payload = await window.loadPaperData();
       const papers = normalizePapers(payload && payload.papers);
       const paper = papers.find((candidate) => candidate.id === targetId) || null;
-      return { loaded: true, paper, relatedPool: papers };
+      return { loaded: true, paper, relatedPool: papers, related: null };
     } catch {
-      return { loaded: false, paper: null, relatedPool: [] };
+      return { loaded: false, paper: null, relatedPool: [], related: null };
     }
   }
 
@@ -1020,6 +1027,7 @@
   async function populateFeaturedTalks(paper) {
     const section = document.getElementById('paper-featured-talks-section');
     if (!section) return;
+    const relatedContext = arguments[1] && typeof arguments[1] === 'object' ? arguments[1] : null;
 
     if (
       !paper
@@ -1028,6 +1036,23 @@
     ) {
       section.remove();
       return;
+    }
+
+    if (relatedContext) {
+      const talks = Array.isArray(relatedContext.featuredTalks) ? relatedContext.featuredTalks : [];
+      if (talks.length) {
+        section.innerHTML = `
+          <div class="section-label" aria-hidden="true">Featured Talks</div>
+          <ul class="paper-talk-list">
+            ${talks.map((talk) => renderFeaturedTalkEntry(talk, paper)).join('')}
+          </ul>`;
+        section.setAttribute('aria-busy', 'false');
+        return;
+      }
+      if (Array.isArray(relatedContext.featuredTalkIds) && !relatedContext.featuredTalkIds.length) {
+        section.remove();
+        return;
+      }
     }
 
     try {
@@ -1123,6 +1148,7 @@
   function renderPaperDetail(paper, relatedPool) {
     const root = document.getElementById('paper-detail-root');
     if (!root) return;
+    const relatedContext = arguments[2] && typeof arguments[2] === 'object' ? arguments[2] : null;
 
     const blogEntry = isBlogPaper(paper);
     const listingContext = getListingContextForPaper(paper);
@@ -1162,7 +1188,9 @@
         </section>`
       : '';
 
-    const related = getRelatedPapers(paper, relatedPool);
+    const related = Array.isArray(relatedContext && relatedContext.relatedPapers) && relatedContext.relatedPapers.length
+      ? relatedContext.relatedPapers
+      : getRelatedPapers(paper, relatedPool);
 
     root.innerHTML = `
       <div class="talk-detail">
@@ -1274,8 +1302,8 @@
 
     document.title = `${paper.title} — LLVM Research Library`;
     updateSeo(paper);
-    renderPaperDetail(paper, context.relatedPool);
-    void populateFeaturedTalks(paper);
+    renderPaperDetail(paper, context.relatedPool, context.related);
+    void populateFeaturedTalks(paper, context.related);
     setIssueContextForPaper(paper);
     initShareMenu();
   }

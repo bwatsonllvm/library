@@ -1,0 +1,1790 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2021-02-28-013": {
+      "talk": {
+        "id": "2021-02-28-013",
+        "meeting": "2021-02-28",
+        "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "February 28, 2021",
+        "category": "technical-talk",
+        "title": "Performance improvement opportunities in the open source C++ standard libraries",
+        "speakers": [
+          {
+            "name": "Aditya Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The C++ standard library (TC++SL) is a collection of classes and functions. These are written in C++ and are part of the C++ standard itself. All popular compiler toolchains come with a C++ standard library. The popular ones are libstdc++(GNU), libc++(LLVM) also popularly known as libcxx, msvc-stl. Needless to say, the standard library plays a very important role in the runtime performance of many systems. Over a period of time I have collected a list of performance opportunities in the standard C++ libraries. Some of them I found online from the mailing list and bugzilla. Others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. In this presentation I will share performance improvement opportunities in the open source C++ standard libraries.",
+        "videoId": null,
+        "tags": [
+          "C Libs",
+          "C++",
+          "C++ Libs",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "performance improvement opportunities in the open source c++ standard libraries",
+        "_speakerLower": "aditya kumar",
+        "_abstractLower": "the c++ standard library (tc++sl) is a collection of classes and functions. these are written in c++ and are part of the c++ standard itself. all popular compiler toolchains come with a c++ standard library. the popular ones are libstdc++(gnu), libc++(llvm) also popularly known as libcxx, msvc-stl. needless to say, the standard library plays a very important role in the runtime performance of many systems. over a period of time i have collected a list of performance opportunities in the standard c++ libraries. some of them i found online from the mailing list and bugzilla. others by reading source code, and previous experience with the performance analysis of libstdc++ and libc++. in this presentation i will share performance improvement opportunities in the open source c++ standard libraries.",
+        "_tagsLower": "c libs c++ c++ libs performance llvm libc",
+        "_meetingLower": "2021 fifth llvm performance workshop @ cgo fifth llvm performance workshop @ cgo, virtual february 28, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "performance improvement opportunities in the open source c++ standard libraries",
+              "words": [
+                "performance",
+                "improvement",
+                "opportunities",
+                "in",
+                "the",
+                "open",
+                "source",
+                "c++",
+                "standard",
+                "libraries"
+              ]
+            },
+            "speakers": {
+              "text": "aditya kumar",
+              "words": [
+                "aditya",
+                "kumar"
+              ]
+            },
+            "tags": {
+              "text": "c libs c++ c++ libs performance llvm libc",
+              "words": [
+                "libs",
+                "c++",
+                "c++",
+                "libs",
+                "performance",
+                "llvm",
+                "libc"
+              ]
+            },
+            "meeting": {
+              "text": "2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021",
+              "words": [
+                "2021",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "february",
+                "28",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "the c++ standard library tc++sl is a collection of classes and functions. these are written in c++ and are part of the c++ standard itself. all popular compiler toolchains come with a c++ standard library. the popular ones are libstdc++ gnu libc++ llvm also popularly known as libcxx msvc-stl. needless to say the standard library plays a very important role in the runtime performance of many systems. over a period of time i have collected a list of performance opportunities in the standard c++ libraries. some of them i found online from the mailing list and bugzilla. others by reading source code and previous experience with the performance analysis of libstdc++ and libc++. in this presentation i will share performance improvement opportunities in the open source c++ standard libraries.",
+              "words": [
+                "the",
+                "c++",
+                "standard",
+                "library",
+                "tc++sl",
+                "is",
+                "collection",
+                "of",
+                "classes",
+                "and",
+                "functions.",
+                "these",
+                "are",
+                "written",
+                "in",
+                "c++",
+                "and",
+                "are",
+                "part",
+                "of",
+                "the",
+                "c++",
+                "standard",
+                "itself.",
+                "all",
+                "popular",
+                "compiler",
+                "toolchains",
+                "come",
+                "with",
+                "c++",
+                "standard",
+                "library.",
+                "the",
+                "popular",
+                "ones",
+                "are",
+                "libstdc++",
+                "gnu",
+                "libc++",
+                "llvm",
+                "also",
+                "popularly",
+                "known",
+                "as",
+                "libcxx",
+                "msvc-stl.",
+                "needless",
+                "to",
+                "say",
+                "the",
+                "standard",
+                "library",
+                "plays",
+                "very",
+                "important",
+                "role",
+                "in",
+                "the",
+                "runtime",
+                "performance",
+                "of",
+                "many",
+                "systems.",
+                "over",
+                "period",
+                "of",
+                "time",
+                "have",
+                "collected",
+                "list",
+                "of",
+                "performance",
+                "opportunities",
+                "in",
+                "the",
+                "standard",
+                "c++",
+                "libraries.",
+                "some",
+                "of",
+                "them",
+                "found",
+                "online",
+                "from",
+                "the",
+                "mailing",
+                "list",
+                "and",
+                "bugzilla.",
+                "others",
+                "by",
+                "reading",
+                "source",
+                "code",
+                "and",
+                "previous",
+                "experience",
+                "with",
+                "the",
+                "performance",
+                "analysis",
+                "of",
+                "libstdc++",
+                "and",
+                "libc++.",
+                "in",
+                "this",
+                "presentation",
+                "will",
+                "share",
+                "performance",
+                "improvement",
+                "opportunities",
+                "in",
+                "the",
+                "open",
+                "source",
+                "c++",
+                "standard",
+                "libraries."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "performance improvement opportunities in the open source c++ standard libraries the c++ standard library tc++sl is a collection of classes and functions. these are written in c++ and are part of the c++ standard itself. all popular compiler toolchains come with a c++ standard library. the popular ones are libstdc++ gnu libc++ llvm also popularly known as libcxx msvc-stl. needless to say the standard library plays a very important role in the runtime performance of many systems. over a period of time i have collected a list of performance opportunities in the standard c++ libraries. some of them i found online from the mailing list and bugzilla. others by reading source code and previous experience with the performance analysis of libstdc++ and libc++. in this presentation i will share performance improvement opportunities in the open source c++ standard libraries. 2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021 2021-02-28 technical-talk aditya kumar c libs c++ c++ libs performance llvm libc"
+      },
+      "meeting": {
+        "slug": "2021-02-28",
+        "name": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "date": "February 28, 2021",
+        "location": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2020-09-009": {
+      "talk": {
+        "id": "2020-09-009",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "An Update on Optimizing Multiple Exit Loops",
+        "speakers": [
+          {
+            "name": "Philip Reames",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/gyiEb4860rM",
+        "videoId": "gyiEb4860rM",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Reames-Update_on_Optimizing_Multiple_Exit_Loops.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "an update on optimizing multiple exit loops",
+        "_speakerLower": "philip reames",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an update on optimizing multiple exit loops",
+              "words": [
+                "an",
+                "update",
+                "on",
+                "optimizing",
+                "multiple",
+                "exit",
+                "loops"
+              ]
+            },
+            "speakers": {
+              "text": "philip reames",
+              "words": [
+                "philip",
+                "reames"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "an update on optimizing multiple exit loops 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk philip reames"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2019-10-030": {
+      "talk": {
+        "id": "2019-10-030",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "tutorial",
+        "title": "ASTImporter: Merging Clang ASTs",
+        "speakers": [
+          {
+            "name": "Gábor Márton",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "ASTImporter is part of Clang's core library, the AST library. There are cases when we have to work with more than one AST contexts, but we would like to view the set of the ASTs as if they were one big AST resulting from the parsing of all files together. ASTImporter imports nodes of an AST context into another AST context. Existing clients of the ASTImporter library are Cross Translation Unit (CTU) static analysis and the LLDB expression parser. CTU static analysis imports a definition of a function if its definition is found in another translation unit (TU). This way the analysis can breach out from the single TU limitation. LLDB’s \"expr\" command parses a user-defined expression, creates an ASTContext for that and then imports the missing definitions from the AST what we got from the debug information (DWARF, etc).",
+        "videoUrl": "https://youtu.be/M9hSCNC4w2U",
+        "videoId": "M9hSCNC4w2U",
+        "tags": [
+          "Clang",
+          "Debug Information",
+          "Frontend",
+          "LLDB",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "astimporter: merging clang asts",
+        "_speakerLower": "gábor márton",
+        "_abstractLower": "astimporter is part of clang's core library, the ast library. there are cases when we have to work with more than one ast contexts, but we would like to view the set of the asts as if they were one big ast resulting from the parsing of all files together. astimporter imports nodes of an ast context into another ast context. existing clients of the astimporter library are cross translation unit (ctu) static analysis and the lldb expression parser. ctu static analysis imports a definition of a function if its definition is found in another translation unit (tu). this way the analysis can breach out from the single tu limitation. lldb’s \"expr\" command parses a user-defined expression, creates an astcontext for that and then imports the missing definitions from the ast what we got from the debug information (dwarf, etc).",
+        "_tagsLower": "clang debug information frontend lldb static analysis",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "astimporter merging clang asts",
+              "words": [
+                "astimporter",
+                "merging",
+                "clang",
+                "asts"
+              ]
+            },
+            "speakers": {
+              "text": "gabor marton",
+              "words": [
+                "gabor",
+                "marton"
+              ]
+            },
+            "tags": {
+              "text": "clang debug information frontend lldb static analysis",
+              "words": [
+                "clang",
+                "debug",
+                "information",
+                "frontend",
+                "lldb",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "astimporter is part of clangs core library the ast library. there are cases when we have to work with more than one ast contexts but we would like to view the set of the asts as if they were one big ast resulting from the parsing of all files together. astimporter imports nodes of an ast context into another ast context. existing clients of the astimporter library are cross translation unit ctu static analysis and the lldb expression parser. ctu static analysis imports a definition of a function if its definition is found in another translation unit tu . this way the analysis can breach out from the single tu limitation. lldbs expr command parses a user-defined expression creates an astcontext for that and then imports the missing definitions from the ast what we got from the debug information dwarf etc .",
+              "words": [
+                "astimporter",
+                "is",
+                "part",
+                "of",
+                "clangs",
+                "core",
+                "library",
+                "the",
+                "ast",
+                "library.",
+                "there",
+                "are",
+                "cases",
+                "when",
+                "we",
+                "have",
+                "to",
+                "work",
+                "with",
+                "more",
+                "than",
+                "one",
+                "ast",
+                "contexts",
+                "but",
+                "we",
+                "would",
+                "like",
+                "to",
+                "view",
+                "the",
+                "set",
+                "of",
+                "the",
+                "asts",
+                "as",
+                "if",
+                "they",
+                "were",
+                "one",
+                "big",
+                "ast",
+                "resulting",
+                "from",
+                "the",
+                "parsing",
+                "of",
+                "all",
+                "files",
+                "together.",
+                "astimporter",
+                "imports",
+                "nodes",
+                "of",
+                "an",
+                "ast",
+                "context",
+                "into",
+                "another",
+                "ast",
+                "context.",
+                "existing",
+                "clients",
+                "of",
+                "the",
+                "astimporter",
+                "library",
+                "are",
+                "cross",
+                "translation",
+                "unit",
+                "ctu",
+                "static",
+                "analysis",
+                "and",
+                "the",
+                "lldb",
+                "expression",
+                "parser.",
+                "ctu",
+                "static",
+                "analysis",
+                "imports",
+                "definition",
+                "of",
+                "function",
+                "if",
+                "its",
+                "definition",
+                "is",
+                "found",
+                "in",
+                "another",
+                "translation",
+                "unit",
+                "tu",
+                "this",
+                "way",
+                "the",
+                "analysis",
+                "can",
+                "breach",
+                "out",
+                "from",
+                "the",
+                "single",
+                "tu",
+                "limitation.",
+                "lldbs",
+                "expr",
+                "command",
+                "parses",
+                "user-defined",
+                "expression",
+                "creates",
+                "an",
+                "astcontext",
+                "for",
+                "that",
+                "and",
+                "then",
+                "imports",
+                "the",
+                "missing",
+                "definitions",
+                "from",
+                "the",
+                "ast",
+                "what",
+                "we",
+                "got",
+                "from",
+                "the",
+                "debug",
+                "information",
+                "dwarf",
+                "etc"
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "astimporter merging clang asts astimporter is part of clangs core library the ast library. there are cases when we have to work with more than one ast contexts but we would like to view the set of the asts as if they were one big ast resulting from the parsing of all files together. astimporter imports nodes of an ast context into another ast context. existing clients of the astimporter library are cross translation unit ctu static analysis and the lldb expression parser. ctu static analysis imports a definition of a function if its definition is found in another translation unit tu . this way the analysis can breach out from the single tu limitation. lldbs expr command parses a user-defined expression creates an astcontext for that and then imports the missing definitions from the ast what we got from the debug information dwarf etc . 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 tutorial gabor marton clang debug information frontend lldb static analysis"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-052": {
+      "talk": {
+        "id": "2019-10-052",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "Handling 1000s of OpenCL builtin functions in Clang",
+        "speakers": [
+          {
+            "name": "Sven van Haastregt",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "OpenCL provides about 13000 different function overloads that can be used by OpenCL code. Clang provides a header file containing all declarations, but unfortunately parsing this header file takes several seconds per OpenCL program. Ameliorating the parsing time by precompiling the header file has several drawbacks: the resulting PCH file is several megabytes large and requires special handling for macros and conditional compilation. We present a new TableGen driven approach to support all OpenCL builtins in a fast and compact manner. TableGen generates a trie and tables for recognising and constructing function declarations. From this, Clang constructs the necessary builtin function declarations when a regular name lookup fails and retries the lookup. This approach avoids the need to parse the opencl-c.h header or populate the symbol table with 1000s of declarations. The generated tables and functions together take less than 250 kilobytes which is significantly smaller than the PCH approach. The initial patches of this work have been committed (e.g. r362371) and the remainder of the implementation is currently being upstreamed and reviewed.",
+        "videoUrl": "https://youtu.be/LU_2aOn3Wpg",
+        "videoId": "LU_2aOn3Wpg",
+        "slidesUrl": "http://llvm.org/devmtg/2019-10/slides/Gondois-HandlingOpenCLBuiltinFuncInClang.pdf",
+        "tags": [
+          "Clang",
+          "GPU",
+          "IR",
+          "OpenCL"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "handling 1000s of opencl builtin functions in clang",
+        "_speakerLower": "sven van haastregt",
+        "_abstractLower": "opencl provides about 13000 different function overloads that can be used by opencl code. clang provides a header file containing all declarations, but unfortunately parsing this header file takes several seconds per opencl program. ameliorating the parsing time by precompiling the header file has several drawbacks: the resulting pch file is several megabytes large and requires special handling for macros and conditional compilation. we present a new tablegen driven approach to support all opencl builtins in a fast and compact manner. tablegen generates a trie and tables for recognising and constructing function declarations. from this, clang constructs the necessary builtin function declarations when a regular name lookup fails and retries the lookup. this approach avoids the need to parse the opencl-c.h header or populate the symbol table with 1000s of declarations. the generated tables and functions together take less than 250 kilobytes which is significantly smaller than the pch approach. the initial patches of this work have been committed (e.g. r362371) and the remainder of the implementation is currently being upstreamed and reviewed.",
+        "_tagsLower": "clang gpu ir opencl",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "handling 1000s of opencl builtin functions in clang",
+              "words": [
+                "handling",
+                "1000s",
+                "of",
+                "opencl",
+                "builtin",
+                "functions",
+                "in",
+                "clang"
+              ]
+            },
+            "speakers": {
+              "text": "sven van haastregt",
+              "words": [
+                "sven",
+                "van",
+                "haastregt"
+              ]
+            },
+            "tags": {
+              "text": "clang gpu ir opencl",
+              "words": [
+                "clang",
+                "gpu",
+                "ir",
+                "opencl"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "opencl provides about 13000 different function overloads that can be used by opencl code. clang provides a header file containing all declarations but unfortunately parsing this header file takes several seconds per opencl program. ameliorating the parsing time by precompiling the header file has several drawbacks the resulting pch file is several megabytes large and requires special handling for macros and conditional compilation. we present a new tablegen driven approach to support all opencl builtins in a fast and compact manner. tablegen generates a trie and tables for recognising and constructing function declarations. from this clang constructs the necessary builtin function declarations when a regular name lookup fails and retries the lookup. this approach avoids the need to parse the opencl-c.h header or populate the symbol table with 1000s of declarations. the generated tables and functions together take less than 250 kilobytes which is significantly smaller than the pch approach. the initial patches of this work have been committed e.g. r362371 and the remainder of the implementation is currently being upstreamed and reviewed.",
+              "words": [
+                "opencl",
+                "provides",
+                "about",
+                "13000",
+                "different",
+                "function",
+                "overloads",
+                "that",
+                "can",
+                "be",
+                "used",
+                "by",
+                "opencl",
+                "code.",
+                "clang",
+                "provides",
+                "header",
+                "file",
+                "containing",
+                "all",
+                "declarations",
+                "but",
+                "unfortunately",
+                "parsing",
+                "this",
+                "header",
+                "file",
+                "takes",
+                "several",
+                "seconds",
+                "per",
+                "opencl",
+                "program.",
+                "ameliorating",
+                "the",
+                "parsing",
+                "time",
+                "by",
+                "precompiling",
+                "the",
+                "header",
+                "file",
+                "has",
+                "several",
+                "drawbacks",
+                "the",
+                "resulting",
+                "pch",
+                "file",
+                "is",
+                "several",
+                "megabytes",
+                "large",
+                "and",
+                "requires",
+                "special",
+                "handling",
+                "for",
+                "macros",
+                "and",
+                "conditional",
+                "compilation.",
+                "we",
+                "present",
+                "new",
+                "tablegen",
+                "driven",
+                "approach",
+                "to",
+                "support",
+                "all",
+                "opencl",
+                "builtins",
+                "in",
+                "fast",
+                "and",
+                "compact",
+                "manner.",
+                "tablegen",
+                "generates",
+                "trie",
+                "and",
+                "tables",
+                "for",
+                "recognising",
+                "and",
+                "constructing",
+                "function",
+                "declarations.",
+                "from",
+                "this",
+                "clang",
+                "constructs",
+                "the",
+                "necessary",
+                "builtin",
+                "function",
+                "declarations",
+                "when",
+                "regular",
+                "name",
+                "lookup",
+                "fails",
+                "and",
+                "retries",
+                "the",
+                "lookup.",
+                "this",
+                "approach",
+                "avoids",
+                "the",
+                "need",
+                "to",
+                "parse",
+                "the",
+                "opencl-c.h",
+                "header",
+                "or",
+                "populate",
+                "the",
+                "symbol",
+                "table",
+                "with",
+                "1000s",
+                "of",
+                "declarations.",
+                "the",
+                "generated",
+                "tables",
+                "and",
+                "functions",
+                "together",
+                "take",
+                "less",
+                "than",
+                "250",
+                "kilobytes",
+                "which",
+                "is",
+                "significantly",
+                "smaller",
+                "than",
+                "the",
+                "pch",
+                "approach.",
+                "the",
+                "initial",
+                "patches",
+                "of",
+                "this",
+                "work",
+                "have",
+                "been",
+                "committed",
+                "e.g.",
+                "r362371",
+                "and",
+                "the",
+                "remainder",
+                "of",
+                "the",
+                "implementation",
+                "is",
+                "currently",
+                "being",
+                "upstreamed",
+                "and",
+                "reviewed."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "handling 1000s of opencl builtin functions in clang opencl provides about 13000 different function overloads that can be used by opencl code. clang provides a header file containing all declarations but unfortunately parsing this header file takes several seconds per opencl program. ameliorating the parsing time by precompiling the header file has several drawbacks the resulting pch file is several megabytes large and requires special handling for macros and conditional compilation. we present a new tablegen driven approach to support all opencl builtins in a fast and compact manner. tablegen generates a trie and tables for recognising and constructing function declarations. from this clang constructs the necessary builtin function declarations when a regular name lookup fails and retries the lookup. this approach avoids the need to parse the opencl-c.h header or populate the symbol table with 1000s of declarations. the generated tables and functions together take less than 250 kilobytes which is significantly smaller than the pch approach. the initial patches of this work have been committed e.g. r362371 and the remainder of the implementation is currently being upstreamed and reviewed. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk sven van haastregt clang gpu ir opencl"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-074": {
+      "talk": {
+        "id": "2019-10-074",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "poster",
+        "title": "RISC-V Bit Manipulation Support in the Clang/LLVM Toolchain",
+        "speakers": [
+          {
+            "name": "Scott Egerton",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Paolo Savini",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This poster presents details of the Clang/LLVM implementation to add support for the RISC-V bit manipulation instruction set extension.",
+        "videoId": null,
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "risc-v bit manipulation support in the clang/llvm toolchain",
+        "_speakerLower": "scott egerton paolo savini",
+        "_abstractLower": "this poster presents details of the clang/llvm implementation to add support for the risc-v bit manipulation instruction set extension.",
+        "_tagsLower": "clang llvm infrastructure risc-v",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "risc-v bit manipulation support in the clang llvm toolchain",
+              "words": [
+                "risc-v",
+                "bit",
+                "manipulation",
+                "support",
+                "in",
+                "the",
+                "clang",
+                "llvm",
+                "toolchain"
+              ]
+            },
+            "speakers": {
+              "text": "scott egerton paolo savini",
+              "words": [
+                "scott",
+                "egerton",
+                "paolo",
+                "savini"
+              ]
+            },
+            "tags": {
+              "text": "clang llvm infrastructure risc-v",
+              "words": [
+                "clang",
+                "llvm",
+                "infrastructure",
+                "risc-v"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "this poster presents details of the clang llvm implementation to add support for the risc-v bit manipulation instruction set extension.",
+              "words": [
+                "this",
+                "poster",
+                "presents",
+                "details",
+                "of",
+                "the",
+                "clang",
+                "llvm",
+                "implementation",
+                "to",
+                "add",
+                "support",
+                "for",
+                "the",
+                "risc-v",
+                "bit",
+                "manipulation",
+                "instruction",
+                "set",
+                "extension."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "risc-v bit manipulation support in the clang llvm toolchain this poster presents details of the clang llvm implementation to add support for the risc-v bit manipulation instruction set extension. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 poster scott egerton paolo savini clang llvm infrastructure risc-v"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2018-10-040": {
+      "talk": {
+        "id": "2018-10-040",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "lightning-talk",
+        "title": "Heap-to-Stack Conversion",
+        "speakers": [
+          {
+            "name": "Hal Finkel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk provides a brief update on work to enable heap-to-stack conversion within LLVM's optimizer. This optimization eliminates unnecessary calls to memory allocation routines (e.g., malloc), where suitable, by converting allocations to use stack memory instead of heap memory. For applications where hot code creates and destroys many short-lived objects, significant performance improvements can be observed.",
+        "videoUrl": "https://youtu.be/lTgERgPNTF8",
+        "videoId": "lTgERgPNTF8",
+        "tags": [
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "heap-to-stack conversion",
+        "_speakerLower": "hal finkel",
+        "_abstractLower": "this talk provides a brief update on work to enable heap-to-stack conversion within llvm's optimizer. this optimization eliminates unnecessary calls to memory allocation routines (e.g., malloc), where suitable, by converting allocations to use stack memory instead of heap memory. for applications where hot code creates and destroys many short-lived objects, significant performance improvements can be observed.",
+        "_tagsLower": "optimizations performance llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "heap-to-stack conversion",
+              "words": [
+                "heap-to-stack",
+                "conversion"
+              ]
+            },
+            "speakers": {
+              "text": "hal finkel",
+              "words": [
+                "hal",
+                "finkel"
+              ]
+            },
+            "tags": {
+              "text": "optimizations performance llvm",
+              "words": [
+                "optimizations",
+                "performance",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "this talk provides a brief update on work to enable heap-to-stack conversion within llvms optimizer. this optimization eliminates unnecessary calls to memory allocation routines e.g. malloc where suitable by converting allocations to use stack memory instead of heap memory. for applications where hot code creates and destroys many short-lived objects significant performance improvements can be observed.",
+              "words": [
+                "this",
+                "talk",
+                "provides",
+                "brief",
+                "update",
+                "on",
+                "work",
+                "to",
+                "enable",
+                "heap-to-stack",
+                "conversion",
+                "within",
+                "llvms",
+                "optimizer.",
+                "this",
+                "optimization",
+                "eliminates",
+                "unnecessary",
+                "calls",
+                "to",
+                "memory",
+                "allocation",
+                "routines",
+                "e.g.",
+                "malloc",
+                "where",
+                "suitable",
+                "by",
+                "converting",
+                "allocations",
+                "to",
+                "use",
+                "stack",
+                "memory",
+                "instead",
+                "of",
+                "heap",
+                "memory.",
+                "for",
+                "applications",
+                "where",
+                "hot",
+                "code",
+                "creates",
+                "and",
+                "destroys",
+                "many",
+                "short-lived",
+                "objects",
+                "significant",
+                "performance",
+                "improvements",
+                "can",
+                "be",
+                "observed."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "heap-to-stack conversion this talk provides a brief update on work to enable heap-to-stack conversion within llvms optimizer. this optimization eliminates unnecessary calls to memory allocation routines e.g. malloc where suitable by converting allocations to use stack memory instead of heap memory. for applications where hot code creates and destroys many short-lived objects significant performance improvements can be observed. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 lightning-talk hal finkel optimizations performance llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2018-10-062": {
+      "talk": {
+        "id": "2018-10-062",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "poster",
+        "title": "Improving Debug Information in LLVM to Recover Optimized-out Function Parameters",
+        "speakers": [
+          {
+            "name": "Ananthakrishna Sowda",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Djordje Todorovic",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Nikola Prica",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ivan Baev",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Software product releases are usually built with compiler optimization at level -O2 or –O3. Investigating customer reported issues often involves loading the core-file in a debugger and analyzing cause of crash or assert. Unfortunately, most of the parameters in call trace are reported as optimized-out, because parameter passing registers are reused and most parameters are not live in the current frame past the function call, hence optimized-out in debug jargon. An attempt to ease this problem comes from a key technique used by expert software developers: go one level up into caller frame and look at the source or disassembly to see if caller has the values of the same arguments. This additional manual step in debugger is time consuming and error prone for experienced developers. But it is impossible for novice users and developers unfamiliar with ISA and ABI calling conventions. With the additional call-site and callee DWARF debug information specified in DWARF 5, this process can be automated in debugger. We have a prototype working in LLVM compiler which is recovering and reporting some optimized-out parameters. Our approach is improving availability of location information for parameters significantly. We will share our results and our insights about implementing it in LLVM, in this poster submission.",
+        "videoId": null,
+        "tags": [
+          "Debug Information",
+          "LLDB",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "improving debug information in llvm to recover optimized-out function parameters",
+        "_speakerLower": "ananthakrishna sowda djordje todorovic nikola prica ivan baev",
+        "_abstractLower": "software product releases are usually built with compiler optimization at level -o2 or –o3. investigating customer reported issues often involves loading the core-file in a debugger and analyzing cause of crash or assert. unfortunately, most of the parameters in call trace are reported as optimized-out, because parameter passing registers are reused and most parameters are not live in the current frame past the function call, hence optimized-out in debug jargon. an attempt to ease this problem comes from a key technique used by expert software developers: go one level up into caller frame and look at the source or disassembly to see if caller has the values of the same arguments. this additional manual step in debugger is time consuming and error prone for experienced developers. but it is impossible for novice users and developers unfamiliar with isa and abi calling conventions. with the additional call-site and callee dwarf debug information specified in dwarf 5, this process can be automated in debugger. we have a prototype working in llvm compiler which is recovering and reporting some optimized-out parameters. our approach is improving availability of location information for parameters significantly. we will share our results and our insights about implementing it in llvm, in this poster submission.",
+        "_tagsLower": "debug information lldb optimizations llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "improving debug information in llvm to recover optimized-out function parameters",
+              "words": [
+                "improving",
+                "debug",
+                "information",
+                "in",
+                "llvm",
+                "to",
+                "recover",
+                "optimized-out",
+                "function",
+                "parameters"
+              ]
+            },
+            "speakers": {
+              "text": "ananthakrishna sowda djordje todorovic nikola prica ivan baev",
+              "words": [
+                "ananthakrishna",
+                "sowda",
+                "djordje",
+                "todorovic",
+                "nikola",
+                "prica",
+                "ivan",
+                "baev"
+              ]
+            },
+            "tags": {
+              "text": "debug information lldb optimizations llvm",
+              "words": [
+                "debug",
+                "information",
+                "lldb",
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "software product releases are usually built with compiler optimization at level -o2 or o3. investigating customer reported issues often involves loading the core-file in a debugger and analyzing cause of crash or assert. unfortunately most of the parameters in call trace are reported as optimized-out because parameter passing registers are reused and most parameters are not live in the current frame past the function call hence optimized-out in debug jargon. an attempt to ease this problem comes from a key technique used by expert software developers go one level up into caller frame and look at the source or disassembly to see if caller has the values of the same arguments. this additional manual step in debugger is time consuming and error prone for experienced developers. but it is impossible for novice users and developers unfamiliar with isa and abi calling conventions. with the additional call-site and callee dwarf debug information specified in dwarf 5 this process can be automated in debugger. we have a prototype working in llvm compiler which is recovering and reporting some optimized-out parameters. our approach is improving availability of location information for parameters significantly. we will share our results and our insights about implementing it in llvm in this poster submission.",
+              "words": [
+                "software",
+                "product",
+                "releases",
+                "are",
+                "usually",
+                "built",
+                "with",
+                "compiler",
+                "optimization",
+                "at",
+                "level",
+                "-o2",
+                "or",
+                "o3.",
+                "investigating",
+                "customer",
+                "reported",
+                "issues",
+                "often",
+                "involves",
+                "loading",
+                "the",
+                "core-file",
+                "in",
+                "debugger",
+                "and",
+                "analyzing",
+                "cause",
+                "of",
+                "crash",
+                "or",
+                "assert.",
+                "unfortunately",
+                "most",
+                "of",
+                "the",
+                "parameters",
+                "in",
+                "call",
+                "trace",
+                "are",
+                "reported",
+                "as",
+                "optimized-out",
+                "because",
+                "parameter",
+                "passing",
+                "registers",
+                "are",
+                "reused",
+                "and",
+                "most",
+                "parameters",
+                "are",
+                "not",
+                "live",
+                "in",
+                "the",
+                "current",
+                "frame",
+                "past",
+                "the",
+                "function",
+                "call",
+                "hence",
+                "optimized-out",
+                "in",
+                "debug",
+                "jargon.",
+                "an",
+                "attempt",
+                "to",
+                "ease",
+                "this",
+                "problem",
+                "comes",
+                "from",
+                "key",
+                "technique",
+                "used",
+                "by",
+                "expert",
+                "software",
+                "developers",
+                "go",
+                "one",
+                "level",
+                "up",
+                "into",
+                "caller",
+                "frame",
+                "and",
+                "look",
+                "at",
+                "the",
+                "source",
+                "or",
+                "disassembly",
+                "to",
+                "see",
+                "if",
+                "caller",
+                "has",
+                "the",
+                "values",
+                "of",
+                "the",
+                "same",
+                "arguments.",
+                "this",
+                "additional",
+                "manual",
+                "step",
+                "in",
+                "debugger",
+                "is",
+                "time",
+                "consuming",
+                "and",
+                "error",
+                "prone",
+                "for",
+                "experienced",
+                "developers.",
+                "but",
+                "it",
+                "is",
+                "impossible",
+                "for",
+                "novice",
+                "users",
+                "and",
+                "developers",
+                "unfamiliar",
+                "with",
+                "isa",
+                "and",
+                "abi",
+                "calling",
+                "conventions.",
+                "with",
+                "the",
+                "additional",
+                "call-site",
+                "and",
+                "callee",
+                "dwarf",
+                "debug",
+                "information",
+                "specified",
+                "in",
+                "dwarf",
+                "this",
+                "process",
+                "can",
+                "be",
+                "automated",
+                "in",
+                "debugger.",
+                "we",
+                "have",
+                "prototype",
+                "working",
+                "in",
+                "llvm",
+                "compiler",
+                "which",
+                "is",
+                "recovering",
+                "and",
+                "reporting",
+                "some",
+                "optimized-out",
+                "parameters.",
+                "our",
+                "approach",
+                "is",
+                "improving",
+                "availability",
+                "of",
+                "location",
+                "information",
+                "for",
+                "parameters",
+                "significantly.",
+                "we",
+                "will",
+                "share",
+                "our",
+                "results",
+                "and",
+                "our",
+                "insights",
+                "about",
+                "implementing",
+                "it",
+                "in",
+                "llvm",
+                "in",
+                "this",
+                "poster",
+                "submission."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "improving debug information in llvm to recover optimized-out function parameters software product releases are usually built with compiler optimization at level -o2 or o3. investigating customer reported issues often involves loading the core-file in a debugger and analyzing cause of crash or assert. unfortunately most of the parameters in call trace are reported as optimized-out because parameter passing registers are reused and most parameters are not live in the current frame past the function call hence optimized-out in debug jargon. an attempt to ease this problem comes from a key technique used by expert software developers go one level up into caller frame and look at the source or disassembly to see if caller has the values of the same arguments. this additional manual step in debugger is time consuming and error prone for experienced developers. but it is impossible for novice users and developers unfamiliar with isa and abi calling conventions. with the additional call-site and callee dwarf debug information specified in dwarf 5 this process can be automated in debugger. we have a prototype working in llvm compiler which is recovering and reporting some optimized-out parameters. our approach is improving availability of location information for parameters significantly. we will share our results and our insights about implementing it in llvm in this poster submission. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 poster ananthakrishna sowda djordje todorovic nikola prica ivan baev debug information lldb optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2017-10-050": {
+      "talk": {
+        "id": "2017-10-050",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "student-talk",
+        "title": "VPlan + RV: A Proposal",
+        "speakers": [
+          {
+            "name": "Simon Moll",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Sebastian Hack",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The future of automatic vectorization in LLVM lies in Intel's VPlan proposal. The current VPlan patches provide the basic scaffolding for outer loop vectorization. However, the advanced analyses and transformations to execute VPlans are yet missing. The Region Vectorizer (RV) is an automatic vectorization framework for LLVM. RV provides a unified interface to vectorize code regions, such as inner and outer loops, up to whole functions. RV's analysis and transformations are designed to create highly efficient SIMD code. These are the exact the analyses and transformations that are needed for VPlan. This talk presents a proposal for integrating RV with VPlan.",
+        "videoUrl": "https://youtu.be/svMEphbFukw",
+        "videoId": "svMEphbFukw",
+        "slidesUrl": "https://llvm.org/devmtg/2017-10/slides/Moll-Vplan.pdf",
+        "tags": [
+          "Autovectorization",
+          "VPlan"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "vplan + rv: a proposal",
+        "_speakerLower": "simon moll sebastian hack",
+        "_abstractLower": "the future of automatic vectorization in llvm lies in intel's vplan proposal. the current vplan patches provide the basic scaffolding for outer loop vectorization. however, the advanced analyses and transformations to execute vplans are yet missing. the region vectorizer (rv) is an automatic vectorization framework for llvm. rv provides a unified interface to vectorize code regions, such as inner and outer loops, up to whole functions. rv's analysis and transformations are designed to create highly efficient simd code. these are the exact the analyses and transformations that are needed for vplan. this talk presents a proposal for integrating rv with vplan.",
+        "_tagsLower": "autovectorization vplan llvm",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "vplan + rv a proposal",
+              "words": [
+                "vplan",
+                "rv",
+                "proposal"
+              ]
+            },
+            "speakers": {
+              "text": "simon moll sebastian hack",
+              "words": [
+                "simon",
+                "moll",
+                "sebastian",
+                "hack"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization vplan llvm",
+              "words": [
+                "autovectorization",
+                "vplan",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "the future of automatic vectorization in llvm lies in intels vplan proposal. the current vplan patches provide the basic scaffolding for outer loop vectorization. however the advanced analyses and transformations to execute vplans are yet missing. the region vectorizer rv is an automatic vectorization framework for llvm. rv provides a unified interface to vectorize code regions such as inner and outer loops up to whole functions. rvs analysis and transformations are designed to create highly efficient simd code. these are the exact the analyses and transformations that are needed for vplan. this talk presents a proposal for integrating rv with vplan.",
+              "words": [
+                "the",
+                "future",
+                "of",
+                "automatic",
+                "vectorization",
+                "in",
+                "llvm",
+                "lies",
+                "in",
+                "intels",
+                "vplan",
+                "proposal.",
+                "the",
+                "current",
+                "vplan",
+                "patches",
+                "provide",
+                "the",
+                "basic",
+                "scaffolding",
+                "for",
+                "outer",
+                "loop",
+                "vectorization.",
+                "however",
+                "the",
+                "advanced",
+                "analyses",
+                "and",
+                "transformations",
+                "to",
+                "execute",
+                "vplans",
+                "are",
+                "yet",
+                "missing.",
+                "the",
+                "region",
+                "vectorizer",
+                "rv",
+                "is",
+                "an",
+                "automatic",
+                "vectorization",
+                "framework",
+                "for",
+                "llvm.",
+                "rv",
+                "provides",
+                "unified",
+                "interface",
+                "to",
+                "vectorize",
+                "code",
+                "regions",
+                "such",
+                "as",
+                "inner",
+                "and",
+                "outer",
+                "loops",
+                "up",
+                "to",
+                "whole",
+                "functions.",
+                "rvs",
+                "analysis",
+                "and",
+                "transformations",
+                "are",
+                "designed",
+                "to",
+                "create",
+                "highly",
+                "efficient",
+                "simd",
+                "code.",
+                "these",
+                "are",
+                "the",
+                "exact",
+                "the",
+                "analyses",
+                "and",
+                "transformations",
+                "that",
+                "are",
+                "needed",
+                "for",
+                "vplan.",
+                "this",
+                "talk",
+                "presents",
+                "proposal",
+                "for",
+                "integrating",
+                "rv",
+                "with",
+                "vplan."
+              ]
+            },
+            "category": {
+              "text": "student-talk",
+              "words": [
+                "student-talk"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "vplan + rv a proposal the future of automatic vectorization in llvm lies in intels vplan proposal. the current vplan patches provide the basic scaffolding for outer loop vectorization. however the advanced analyses and transformations to execute vplans are yet missing. the region vectorizer rv is an automatic vectorization framework for llvm. rv provides a unified interface to vectorize code regions such as inner and outer loops up to whole functions. rvs analysis and transformations are designed to create highly efficient simd code. these are the exact the analyses and transformations that are needed for vplan. this talk presents a proposal for integrating rv with vplan. 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 student-talk simon moll sebastian hack autovectorization vplan llvm"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    }
+  }
+}

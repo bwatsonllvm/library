@@ -1,0 +1,4191 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-10-040": {
+      "talk": {
+        "id": "2025-10-040",
+        "meeting": "2025-10",
+        "meetingName": "2025 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 27-29, 2025",
+        "category": "technical-talk",
+        "title": "Area Team Updates",
+        "speakers": [],
+        "abstract": "Updates from the LLVM Area Teams.",
+        "videoUrl": "https://youtu.be/RVImySA_e6A",
+        "videoId": "RVImySA_e6A",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "area team updates",
+        "_speakerLower": "",
+        "_abstractLower": "updates from the llvm area teams.",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2025 us llvm developers' meeting santa clara, ca, usa october 27-29, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "area team updates",
+              "words": [
+                "area",
+                "team",
+                "updates"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2025 us llvm developers meeting santa clara ca usa october 27-29 2025",
+              "words": [
+                "2025",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "27-29",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "updates from the llvm area teams.",
+              "words": [
+                "updates",
+                "from",
+                "the",
+                "llvm",
+                "area",
+                "teams."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "area team updates updates from the llvm area teams. 2025 us llvm developers meeting santa clara ca usa october 27-29 2025 2025-10 technical-talk llvm"
+      },
+      "meeting": {
+        "slug": "2025-10",
+        "name": "2025 US LLVM Developers' Meeting",
+        "date": "October 27-29, 2025",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 84
+      }
+    },
+    "2025-10-062": {
+      "talk": {
+        "id": "2025-10-062",
+        "meeting": "2025-10",
+        "meetingName": "2025 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 27-29, 2025",
+        "category": "quick-talk",
+        "title": "Impossible Perspectives in Data Layout",
+        "speakers": [
+          {
+            "name": "Justin Bogner",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk, we'll discuss the challenges we faced representing constructs in HLSL that are somewhat odd compared to the usual rules of C and C++, and consider the tradeoffs of various approaches along the way. There are several contexts where HLSL doesn't match C++ in terms of layout. \"CBuffers\" have rules that grew out of the history of shading languages, DirectX APIs, and weird GPU hardware that result in odd alignment and padding requirements, especially for arrays. The packoffset feature of CBuffers and the vk::offset attribute which can inject arbitrary amounts of padding into a structure. Small vector types are aligned based on their element type instead of their total size. All of these need some care in how they're handled throughout the compiler. This talk will discuss the implementation, present lessons learned, and consider where these techniques are useful in other contexts.",
+        "videoUrl": "https://youtu.be/GkDhot6I8ec",
+        "videoId": "GkDhot6I8ec",
+        "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/quick_talks/bogner.pdf",
+        "tags": [
+          "GPU"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "impossible perspectives in data layout",
+        "_speakerLower": "justin bogner",
+        "_abstractLower": "in this talk, we'll discuss the challenges we faced representing constructs in hlsl that are somewhat odd compared to the usual rules of c and c++, and consider the tradeoffs of various approaches along the way. there are several contexts where hlsl doesn't match c++ in terms of layout. \"cbuffers\" have rules that grew out of the history of shading languages, directx apis, and weird gpu hardware that result in odd alignment and padding requirements, especially for arrays. the packoffset feature of cbuffers and the vk::offset attribute which can inject arbitrary amounts of padding into a structure. small vector types are aligned based on their element type instead of their total size. all of these need some care in how they're handled throughout the compiler. this talk will discuss the implementation, present lessons learned, and consider where these techniques are useful in other contexts.",
+        "_tagsLower": "gpu",
+        "_meetingLower": "2025 us llvm developers' meeting santa clara, ca, usa october 27-29, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "impossible perspectives in data layout",
+              "words": [
+                "impossible",
+                "perspectives",
+                "in",
+                "data",
+                "layout"
+              ]
+            },
+            "speakers": {
+              "text": "justin bogner",
+              "words": [
+                "justin",
+                "bogner"
+              ]
+            },
+            "tags": {
+              "text": "gpu",
+              "words": [
+                "gpu"
+              ]
+            },
+            "meeting": {
+              "text": "2025 us llvm developers meeting santa clara ca usa october 27-29 2025",
+              "words": [
+                "2025",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "27-29",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk well discuss the challenges we faced representing constructs in hlsl that are somewhat odd compared to the usual rules of c and c++ and consider the tradeoffs of various approaches along the way. there are several contexts where hlsl doesnt match c++ in terms of layout. cbuffers have rules that grew out of the history of shading languages directx apis and weird gpu hardware that result in odd alignment and padding requirements especially for arrays. the packoffset feature of cbuffers and the vk offset attribute which can inject arbitrary amounts of padding into a structure. small vector types are aligned based on their element type instead of their total size. all of these need some care in how theyre handled throughout the compiler. this talk will discuss the implementation present lessons learned and consider where these techniques are useful in other contexts.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "well",
+                "discuss",
+                "the",
+                "challenges",
+                "we",
+                "faced",
+                "representing",
+                "constructs",
+                "in",
+                "hlsl",
+                "that",
+                "are",
+                "somewhat",
+                "odd",
+                "compared",
+                "to",
+                "the",
+                "usual",
+                "rules",
+                "of",
+                "and",
+                "c++",
+                "and",
+                "consider",
+                "the",
+                "tradeoffs",
+                "of",
+                "various",
+                "approaches",
+                "along",
+                "the",
+                "way.",
+                "there",
+                "are",
+                "several",
+                "contexts",
+                "where",
+                "hlsl",
+                "doesnt",
+                "match",
+                "c++",
+                "in",
+                "terms",
+                "of",
+                "layout.",
+                "cbuffers",
+                "have",
+                "rules",
+                "that",
+                "grew",
+                "out",
+                "of",
+                "the",
+                "history",
+                "of",
+                "shading",
+                "languages",
+                "directx",
+                "apis",
+                "and",
+                "weird",
+                "gpu",
+                "hardware",
+                "that",
+                "result",
+                "in",
+                "odd",
+                "alignment",
+                "and",
+                "padding",
+                "requirements",
+                "especially",
+                "for",
+                "arrays.",
+                "the",
+                "packoffset",
+                "feature",
+                "of",
+                "cbuffers",
+                "and",
+                "the",
+                "vk",
+                "offset",
+                "attribute",
+                "which",
+                "can",
+                "inject",
+                "arbitrary",
+                "amounts",
+                "of",
+                "padding",
+                "into",
+                "structure.",
+                "small",
+                "vector",
+                "types",
+                "are",
+                "aligned",
+                "based",
+                "on",
+                "their",
+                "element",
+                "type",
+                "instead",
+                "of",
+                "their",
+                "total",
+                "size.",
+                "all",
+                "of",
+                "these",
+                "need",
+                "some",
+                "care",
+                "in",
+                "how",
+                "theyre",
+                "handled",
+                "throughout",
+                "the",
+                "compiler.",
+                "this",
+                "talk",
+                "will",
+                "discuss",
+                "the",
+                "implementation",
+                "present",
+                "lessons",
+                "learned",
+                "and",
+                "consider",
+                "where",
+                "these",
+                "techniques",
+                "are",
+                "useful",
+                "in",
+                "other",
+                "contexts."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "impossible perspectives in data layout in this talk well discuss the challenges we faced representing constructs in hlsl that are somewhat odd compared to the usual rules of c and c++ and consider the tradeoffs of various approaches along the way. there are several contexts where hlsl doesnt match c++ in terms of layout. cbuffers have rules that grew out of the history of shading languages directx apis and weird gpu hardware that result in odd alignment and padding requirements especially for arrays. the packoffset feature of cbuffers and the vk offset attribute which can inject arbitrary amounts of padding into a structure. small vector types are aligned based on their element type instead of their total size. all of these need some care in how theyre handled throughout the compiler. this talk will discuss the implementation present lessons learned and consider where these techniques are useful in other contexts. 2025 us llvm developers meeting santa clara ca usa october 27-29 2025 2025-10 quick-talk justin bogner gpu"
+      },
+      "meeting": {
+        "slug": "2025-10",
+        "name": "2025 US LLVM Developers' Meeting",
+        "date": "October 27-29, 2025",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 84
+      }
+    },
+    "2025-10-084": {
+      "talk": {
+        "id": "2025-10-084",
+        "meeting": "2025-10",
+        "meetingName": "2025 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 27-29, 2025",
+        "category": "poster",
+        "title": "LLVM Advisor",
+        "speakers": [
+          {
+            "name": "Kevin Sala",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM Advisor addresses the challenge of processing overwhelming compiler output by providing a unified visualization tool for LLVM remarks, profiling data, and other compilation artifacts. This talk demonstrates how developers can transform scattered compiler diagnostics into actionable insights through an intuitive local web-based interface, making offloading optimization information more accessible to both newcomers and experienced developers.",
+        "videoId": null,
+        "tags": [
+          "Beginner",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm advisor",
+        "_speakerLower": "kevin sala",
+        "_abstractLower": "llvm advisor addresses the challenge of processing overwhelming compiler output by providing a unified visualization tool for llvm remarks, profiling data, and other compilation artifacts. this talk demonstrates how developers can transform scattered compiler diagnostics into actionable insights through an intuitive local web-based interface, making offloading optimization information more accessible to both newcomers and experienced developers.",
+        "_tagsLower": "beginner optimizations performance llvm offload",
+        "_meetingLower": "2025 us llvm developers' meeting santa clara, ca, usa october 27-29, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm advisor",
+              "words": [
+                "llvm",
+                "advisor"
+              ]
+            },
+            "speakers": {
+              "text": "kevin sala",
+              "words": [
+                "kevin",
+                "sala"
+              ]
+            },
+            "tags": {
+              "text": "beginner optimizations performance llvm offload",
+              "words": [
+                "beginner",
+                "optimizations",
+                "performance",
+                "llvm",
+                "offload"
+              ]
+            },
+            "meeting": {
+              "text": "2025 us llvm developers meeting santa clara ca usa october 27-29 2025",
+              "words": [
+                "2025",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "27-29",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "llvm advisor addresses the challenge of processing overwhelming compiler output by providing a unified visualization tool for llvm remarks profiling data and other compilation artifacts. this talk demonstrates how developers can transform scattered compiler diagnostics into actionable insights through an intuitive local web-based interface making offloading optimization information more accessible to both newcomers and experienced developers.",
+              "words": [
+                "llvm",
+                "advisor",
+                "addresses",
+                "the",
+                "challenge",
+                "of",
+                "processing",
+                "overwhelming",
+                "compiler",
+                "output",
+                "by",
+                "providing",
+                "unified",
+                "visualization",
+                "tool",
+                "for",
+                "llvm",
+                "remarks",
+                "profiling",
+                "data",
+                "and",
+                "other",
+                "compilation",
+                "artifacts.",
+                "this",
+                "talk",
+                "demonstrates",
+                "how",
+                "developers",
+                "can",
+                "transform",
+                "scattered",
+                "compiler",
+                "diagnostics",
+                "into",
+                "actionable",
+                "insights",
+                "through",
+                "an",
+                "intuitive",
+                "local",
+                "web-based",
+                "interface",
+                "making",
+                "offloading",
+                "optimization",
+                "information",
+                "more",
+                "accessible",
+                "to",
+                "both",
+                "newcomers",
+                "and",
+                "experienced",
+                "developers."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "llvm advisor llvm advisor addresses the challenge of processing overwhelming compiler output by providing a unified visualization tool for llvm remarks profiling data and other compilation artifacts. this talk demonstrates how developers can transform scattered compiler diagnostics into actionable insights through an intuitive local web-based interface making offloading optimization information more accessible to both newcomers and experienced developers. 2025 us llvm developers meeting santa clara ca usa october 27-29 2025 2025-10 poster kevin sala beginner optimizations performance llvm offload"
+      },
+      "meeting": {
+        "slug": "2025-10",
+        "name": "2025 US LLVM Developers' Meeting",
+        "date": "October 27-29, 2025",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 84
+      }
+    },
+    "2024-10-050": {
+      "talk": {
+        "id": "2024-10-050",
+        "meeting": "2024-10",
+        "meetingName": "2024 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 22-24, 2024",
+        "category": "student-talk",
+        "title": "The syntax dialect: creating a parser generator with MLIR",
+        "speakers": [
+          {
+            "name": "Fabian Mora-Cordero",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk presents the syntax dialect, an MLIR dialect for formal language analysis and parser generation, and its associated tools. The syntax dialect is an MLIR dialect that can represent regular and context-free languages and parsing expression grammars (PEG). We found that using MLIR simplified the introduction of complex concepts like macros over formal languages, as we can reuse passes like function inlining to handle their intricacies. Finally, we discuss future work of creating lowerings to other MLIR dialects to be able to dynamically create and JIT lexers and parsers by using the MLIR execution engine.",
+        "videoUrl": "https://youtu.be/b9jprrQjmq4",
+        "videoId": "b9jprrQjmq4",
+        "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/studenttalks/Cordero-The-syntax-dialect.pdf",
+        "tags": [
+          "Frontend",
+          "IR",
+          "JIT",
+          "MLIR",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "the syntax dialect: creating a parser generator with mlir",
+        "_speakerLower": "fabian mora-cordero",
+        "_abstractLower": "this talk presents the syntax dialect, an mlir dialect for formal language analysis and parser generation, and its associated tools. the syntax dialect is an mlir dialect that can represent regular and context-free languages and parsing expression grammars (peg). we found that using mlir simplified the introduction of complex concepts like macros over formal languages, as we can reuse passes like function inlining to handle their intricacies. finally, we discuss future work of creating lowerings to other mlir dialects to be able to dynamically create and jit lexers and parsers by using the mlir execution engine.",
+        "_tagsLower": "frontend ir jit mlir optimizations",
+        "_meetingLower": "2024 us llvm developers' meeting santa clara, ca, usa october 22-24, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "the syntax dialect creating a parser generator with mlir",
+              "words": [
+                "the",
+                "syntax",
+                "dialect",
+                "creating",
+                "parser",
+                "generator",
+                "with",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "fabian mora-cordero",
+              "words": [
+                "fabian",
+                "mora-cordero"
+              ]
+            },
+            "tags": {
+              "text": "frontend ir jit mlir optimizations",
+              "words": [
+                "frontend",
+                "ir",
+                "jit",
+                "mlir",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2024 us llvm developers meeting santa clara ca usa october 22-24 2024",
+              "words": [
+                "2024",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "22-24",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "this talk presents the syntax dialect an mlir dialect for formal language analysis and parser generation and its associated tools. the syntax dialect is an mlir dialect that can represent regular and context-free languages and parsing expression grammars peg . we found that using mlir simplified the introduction of complex concepts like macros over formal languages as we can reuse passes like function inlining to handle their intricacies. finally we discuss future work of creating lowerings to other mlir dialects to be able to dynamically create and jit lexers and parsers by using the mlir execution engine.",
+              "words": [
+                "this",
+                "talk",
+                "presents",
+                "the",
+                "syntax",
+                "dialect",
+                "an",
+                "mlir",
+                "dialect",
+                "for",
+                "formal",
+                "language",
+                "analysis",
+                "and",
+                "parser",
+                "generation",
+                "and",
+                "its",
+                "associated",
+                "tools.",
+                "the",
+                "syntax",
+                "dialect",
+                "is",
+                "an",
+                "mlir",
+                "dialect",
+                "that",
+                "can",
+                "represent",
+                "regular",
+                "and",
+                "context-free",
+                "languages",
+                "and",
+                "parsing",
+                "expression",
+                "grammars",
+                "peg",
+                "we",
+                "found",
+                "that",
+                "using",
+                "mlir",
+                "simplified",
+                "the",
+                "introduction",
+                "of",
+                "complex",
+                "concepts",
+                "like",
+                "macros",
+                "over",
+                "formal",
+                "languages",
+                "as",
+                "we",
+                "can",
+                "reuse",
+                "passes",
+                "like",
+                "function",
+                "inlining",
+                "to",
+                "handle",
+                "their",
+                "intricacies.",
+                "finally",
+                "we",
+                "discuss",
+                "future",
+                "work",
+                "of",
+                "creating",
+                "lowerings",
+                "to",
+                "other",
+                "mlir",
+                "dialects",
+                "to",
+                "be",
+                "able",
+                "to",
+                "dynamically",
+                "create",
+                "and",
+                "jit",
+                "lexers",
+                "and",
+                "parsers",
+                "by",
+                "using",
+                "the",
+                "mlir",
+                "execution",
+                "engine."
+              ]
+            },
+            "category": {
+              "text": "student-talk",
+              "words": [
+                "student-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "the syntax dialect creating a parser generator with mlir this talk presents the syntax dialect an mlir dialect for formal language analysis and parser generation and its associated tools. the syntax dialect is an mlir dialect that can represent regular and context-free languages and parsing expression grammars peg . we found that using mlir simplified the introduction of complex concepts like macros over formal languages as we can reuse passes like function inlining to handle their intricacies. finally we discuss future work of creating lowerings to other mlir dialects to be able to dynamically create and jit lexers and parsers by using the mlir execution engine. 2024 us llvm developers meeting santa clara ca usa october 22-24 2024 2024-10 student-talk fabian mora-cordero frontend ir jit mlir optimizations"
+      },
+      "meeting": {
+        "slug": "2024-10",
+        "name": "2024 US LLVM Developers' Meeting",
+        "date": "October 22-24, 2024",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2024-10-072": {
+      "talk": {
+        "id": "2024-10-072",
+        "meeting": "2024-10",
+        "meetingName": "2024 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 22-24, 2024",
+        "category": "poster",
+        "title": "MLIR and Pytorch: A Compilation Pipeline targeting Huawei's Ascend Backend",
+        "speakers": [
+          {
+            "name": "Amy Wang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Developing an HLSL intrinsic for the SPIR-V and DirectX backends Farzon Lotfi [ Poster ] The tutorial will cover the basics of writing an HLSL intrinsic. From frontend to backend development to writing code gen, sema, and backend test cases. Examples included will cover how to handle cases where an intrinsic maps directly to a DXIL or SPIRV op and cases where an intrinsic needs to be replaced with an instruction expansion.",
+        "videoId": null,
+        "tags": [
+          "Backend",
+          "Frontend",
+          "GPU",
+          "ML",
+          "MLIR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir and pytorch: a compilation pipeline targeting huawei's ascend backend",
+        "_speakerLower": "amy wang",
+        "_abstractLower": "developing an hlsl intrinsic for the spir-v and directx backends farzon lotfi [ poster ] the tutorial will cover the basics of writing an hlsl intrinsic. from frontend to backend development to writing code gen, sema, and backend test cases. examples included will cover how to handle cases where an intrinsic maps directly to a dxil or spirv op and cases where an intrinsic needs to be replaced with an instruction expansion.",
+        "_tagsLower": "backend frontend gpu ml mlir",
+        "_meetingLower": "2024 us llvm developers' meeting santa clara, ca, usa october 22-24, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir and pytorch a compilation pipeline targeting huaweis ascend backend",
+              "words": [
+                "mlir",
+                "and",
+                "pytorch",
+                "compilation",
+                "pipeline",
+                "targeting",
+                "huaweis",
+                "ascend",
+                "backend"
+              ]
+            },
+            "speakers": {
+              "text": "amy wang",
+              "words": [
+                "amy",
+                "wang"
+              ]
+            },
+            "tags": {
+              "text": "backend frontend gpu ml mlir",
+              "words": [
+                "backend",
+                "frontend",
+                "gpu",
+                "ml",
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "2024 us llvm developers meeting santa clara ca usa october 22-24 2024",
+              "words": [
+                "2024",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "22-24",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "developing an hlsl intrinsic for the spir-v and directx backends farzon lotfi poster the tutorial will cover the basics of writing an hlsl intrinsic. from frontend to backend development to writing code gen sema and backend test cases. examples included will cover how to handle cases where an intrinsic maps directly to a dxil or spirv op and cases where an intrinsic needs to be replaced with an instruction expansion.",
+              "words": [
+                "developing",
+                "an",
+                "hlsl",
+                "intrinsic",
+                "for",
+                "the",
+                "spir-v",
+                "and",
+                "directx",
+                "backends",
+                "farzon",
+                "lotfi",
+                "poster",
+                "the",
+                "tutorial",
+                "will",
+                "cover",
+                "the",
+                "basics",
+                "of",
+                "writing",
+                "an",
+                "hlsl",
+                "intrinsic.",
+                "from",
+                "frontend",
+                "to",
+                "backend",
+                "development",
+                "to",
+                "writing",
+                "code",
+                "gen",
+                "sema",
+                "and",
+                "backend",
+                "test",
+                "cases.",
+                "examples",
+                "included",
+                "will",
+                "cover",
+                "how",
+                "to",
+                "handle",
+                "cases",
+                "where",
+                "an",
+                "intrinsic",
+                "maps",
+                "directly",
+                "to",
+                "dxil",
+                "or",
+                "spirv",
+                "op",
+                "and",
+                "cases",
+                "where",
+                "an",
+                "intrinsic",
+                "needs",
+                "to",
+                "be",
+                "replaced",
+                "with",
+                "an",
+                "instruction",
+                "expansion."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "mlir and pytorch a compilation pipeline targeting huaweis ascend backend developing an hlsl intrinsic for the spir-v and directx backends farzon lotfi poster the tutorial will cover the basics of writing an hlsl intrinsic. from frontend to backend development to writing code gen sema and backend test cases. examples included will cover how to handle cases where an intrinsic maps directly to a dxil or spirv op and cases where an intrinsic needs to be replaced with an instruction expansion. 2024 us llvm developers meeting santa clara ca usa october 22-24 2024 2024-10 poster amy wang backend frontend gpu ml mlir"
+      },
+      "meeting": {
+        "slug": "2024-10",
+        "name": "2024 US LLVM Developers' Meeting",
+        "date": "October 22-24, 2024",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2023-10-060": {
+      "talk": {
+        "id": "2023-10-060",
+        "meeting": "2023-10",
+        "meetingName": "2023 US LLVM Developers' Meeting",
+        "meetingLocation": "Santa Clara, CA, USA",
+        "meetingDate": "October 10-12, 2023",
+        "category": "quick-talk",
+        "title": "APX & AVX10: The next major evolution of Intel® architecture",
+        "speakers": [
+          {
+            "name": "Sergey Maslov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Intel disclosed two exciting extensions for future Intel architecture. Intel® Advanced Performance Extensions (Intel® APX) doubles the number of GPRs to 32, and introduces many other new features. Intel® Advanced Vector Extensions 10 (Intel® AVX10) introduces a modern vector ISA which can run across Intel future P-core and E-core. Compiler support is key to enable those ISA features and exploit the hardware capability. In this talk, we will introduce the new ISA extension and how we can utilize them to speed up the application with compatibility.",
+        "videoUrl": "https://youtu.be/pcjKPjenukc",
+        "videoId": "pcjKPjenukc",
+        "slidesUrl": "https://llvm.org/devmtg/2023-10/slides/quicktalks/Maslov-APXandAVX10.pdf",
+        "tags": [
+          "Performance",
+          "Security"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "apx & avx10: the next major evolution of intel® architecture",
+        "_speakerLower": "sergey maslov",
+        "_abstractLower": "intel disclosed two exciting extensions for future intel architecture. intel® advanced performance extensions (intel® apx) doubles the number of gprs to 32, and introduces many other new features. intel® advanced vector extensions 10 (intel® avx10) introduces a modern vector isa which can run across intel future p-core and e-core. compiler support is key to enable those isa features and exploit the hardware capability. in this talk, we will introduce the new isa extension and how we can utilize them to speed up the application with compatibility.",
+        "_tagsLower": "performance security",
+        "_meetingLower": "2023 us llvm developers' meeting santa clara, ca, usa october 10-12, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "apx and avx10 the next major evolution of intel architecture",
+              "words": [
+                "apx",
+                "and",
+                "avx10",
+                "the",
+                "next",
+                "major",
+                "evolution",
+                "of",
+                "intel",
+                "architecture"
+              ]
+            },
+            "speakers": {
+              "text": "sergey maslov",
+              "words": [
+                "sergey",
+                "maslov"
+              ]
+            },
+            "tags": {
+              "text": "performance security",
+              "words": [
+                "performance",
+                "security"
+              ]
+            },
+            "meeting": {
+              "text": "2023 us llvm developers meeting santa clara ca usa october 10-12 2023",
+              "words": [
+                "2023",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "santa",
+                "clara",
+                "ca",
+                "usa",
+                "october",
+                "10-12",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "intel disclosed two exciting extensions for future intel architecture. intel advanced performance extensions intel apx doubles the number of gprs to 32 and introduces many other new features. intel advanced vector extensions 10 intel avx10 introduces a modern vector isa which can run across intel future p-core and e-core. compiler support is key to enable those isa features and exploit the hardware capability. in this talk we will introduce the new isa extension and how we can utilize them to speed up the application with compatibility.",
+              "words": [
+                "intel",
+                "disclosed",
+                "two",
+                "exciting",
+                "extensions",
+                "for",
+                "future",
+                "intel",
+                "architecture.",
+                "intel",
+                "advanced",
+                "performance",
+                "extensions",
+                "intel",
+                "apx",
+                "doubles",
+                "the",
+                "number",
+                "of",
+                "gprs",
+                "to",
+                "32",
+                "and",
+                "introduces",
+                "many",
+                "other",
+                "new",
+                "features.",
+                "intel",
+                "advanced",
+                "vector",
+                "extensions",
+                "10",
+                "intel",
+                "avx10",
+                "introduces",
+                "modern",
+                "vector",
+                "isa",
+                "which",
+                "can",
+                "run",
+                "across",
+                "intel",
+                "future",
+                "p-core",
+                "and",
+                "e-core.",
+                "compiler",
+                "support",
+                "is",
+                "key",
+                "to",
+                "enable",
+                "those",
+                "isa",
+                "features",
+                "and",
+                "exploit",
+                "the",
+                "hardware",
+                "capability.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "introduce",
+                "the",
+                "new",
+                "isa",
+                "extension",
+                "and",
+                "how",
+                "we",
+                "can",
+                "utilize",
+                "them",
+                "to",
+                "speed",
+                "up",
+                "the",
+                "application",
+                "with",
+                "compatibility."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "apx and avx10 the next major evolution of intel architecture intel disclosed two exciting extensions for future intel architecture. intel advanced performance extensions intel apx doubles the number of gprs to 32 and introduces many other new features. intel advanced vector extensions 10 intel avx10 introduces a modern vector isa which can run across intel future p-core and e-core. compiler support is key to enable those isa features and exploit the hardware capability. in this talk we will introduce the new isa extension and how we can utilize them to speed up the application with compatibility. 2023 us llvm developers meeting santa clara ca usa october 10-12 2023 2023-10 quick-talk sergey maslov performance security"
+      },
+      "meeting": {
+        "slug": "2023-10",
+        "name": "2023 US LLVM Developers' Meeting",
+        "date": "October 10-12, 2023",
+        "location": "Santa Clara, CA, USA",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2021-02-28-006": {
+      "talk": {
+        "id": "2021-02-28-006",
+        "meeting": "2021-02-28",
+        "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "meetingDate": "February 28, 2021",
+        "category": "technical-talk",
+        "title": "Classical Loop Nest Transformation Framework on MLIR",
+        "speakers": [
+          {
+            "name": "Vinay M",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ranjith Kumar H",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Siddharth Tiwary",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "MLIR is fast emerging as a high level program representation for aggressive program transformations. With representations for high level source constructs like multidimensional arrays, it is emerging as a preferred representation for machine learning compiler infrastructure like Tensorflow. In this work, we demonstrate support for classical loop transformation framework in MLIR. Associated analysis like alias analysis, mem2reg have also been supported. We show gain in at least one SPEC 2017 fortran benchmark.",
+        "videoId": null,
+        "tags": [
+          "Flang",
+          "Loop transformations",
+          "ML",
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "classical loop nest transformation framework on mlir",
+        "_speakerLower": "vinay m ranjith kumar h siddharth tiwary",
+        "_abstractLower": "mlir is fast emerging as a high level program representation for aggressive program transformations. with representations for high level source constructs like multidimensional arrays, it is emerging as a preferred representation for machine learning compiler infrastructure like tensorflow. in this work, we demonstrate support for classical loop transformation framework in mlir. associated analysis like alias analysis, mem2reg have also been supported. we show gain in at least one spec 2017 fortran benchmark.",
+        "_tagsLower": "flang loop transformations ml mlir optimizations performance infrastructure",
+        "_meetingLower": "2021 fifth llvm performance workshop @ cgo fifth llvm performance workshop @ cgo, virtual february 28, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "classical loop nest transformation framework on mlir",
+              "words": [
+                "classical",
+                "loop",
+                "nest",
+                "transformation",
+                "framework",
+                "on",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "vinay m ranjith kumar h siddharth tiwary",
+              "words": [
+                "vinay",
+                "ranjith",
+                "kumar",
+                "siddharth",
+                "tiwary"
+              ]
+            },
+            "tags": {
+              "text": "flang loop transformations ml mlir optimizations performance infrastructure",
+              "words": [
+                "flang",
+                "loop",
+                "transformations",
+                "ml",
+                "mlir",
+                "optimizations",
+                "performance",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021",
+              "words": [
+                "2021",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "fifth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo",
+                "virtual",
+                "february",
+                "28",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "mlir is fast emerging as a high level program representation for aggressive program transformations. with representations for high level source constructs like multidimensional arrays it is emerging as a preferred representation for machine learning compiler infrastructure like tensorflow. in this work we demonstrate support for classical loop transformation framework in mlir. associated analysis like alias analysis mem2reg have also been supported. we show gain in at least one spec 2017 fortran benchmark.",
+              "words": [
+                "mlir",
+                "is",
+                "fast",
+                "emerging",
+                "as",
+                "high",
+                "level",
+                "program",
+                "representation",
+                "for",
+                "aggressive",
+                "program",
+                "transformations.",
+                "with",
+                "representations",
+                "for",
+                "high",
+                "level",
+                "source",
+                "constructs",
+                "like",
+                "multidimensional",
+                "arrays",
+                "it",
+                "is",
+                "emerging",
+                "as",
+                "preferred",
+                "representation",
+                "for",
+                "machine",
+                "learning",
+                "compiler",
+                "infrastructure",
+                "like",
+                "tensorflow.",
+                "in",
+                "this",
+                "work",
+                "we",
+                "demonstrate",
+                "support",
+                "for",
+                "classical",
+                "loop",
+                "transformation",
+                "framework",
+                "in",
+                "mlir.",
+                "associated",
+                "analysis",
+                "like",
+                "alias",
+                "analysis",
+                "mem2reg",
+                "have",
+                "also",
+                "been",
+                "supported.",
+                "we",
+                "show",
+                "gain",
+                "in",
+                "at",
+                "least",
+                "one",
+                "spec",
+                "2017",
+                "fortran",
+                "benchmark."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "classical loop nest transformation framework on mlir mlir is fast emerging as a high level program representation for aggressive program transformations. with representations for high level source constructs like multidimensional arrays it is emerging as a preferred representation for machine learning compiler infrastructure like tensorflow. in this work we demonstrate support for classical loop transformation framework in mlir. associated analysis like alias analysis mem2reg have also been supported. we show gain in at least one spec 2017 fortran benchmark. 2021 fifth llvm performance workshop cgo fifth llvm performance workshop cgo virtual february 28 2021 2021-02-28 technical-talk vinay m ranjith kumar h siddharth tiwary flang loop transformations ml mlir optimizations performance infrastructure"
+      },
+      "meeting": {
+        "slug": "2021-02-28",
+        "name": "2021 Fifth LLVM Performance Workshop @ CGO",
+        "date": "February 28, 2021",
+        "location": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2019-10-001": {
+      "talk": {
+        "id": "2019-10-001",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "keynote",
+        "title": "Generating Optimized Code with GlobalISel",
+        "speakers": [
+          {
+            "name": "Volkan Keles",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Daniel Sanders",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "So far, much of the focus of GlobalISel development has been on supporting targets with minimal optimization work. Recently, attention has turned towards optimization and bringing it to the point where it can take over from SelectionDAGISel. In this talk, we'll mainly focus on the combiner which is a key component of producing optimized code with GlobalISel. We'll talk about the overall design of the combiner, the components that support it, how it fits with the rest of GlobalISel, how to test it, and how to debug it. We'll also talk about the current and future work on the combiner to enhance it beyond SelectionDAGISel’s capabilities.",
+        "videoUrl": "https://youtu.be/8427bl_7k1g",
+        "videoId": "8427bl_7k1g",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/SandersKeles-GeneratingOptimizedCodewithGlobalISel.pdf",
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "generating optimized code with globalisel",
+        "_speakerLower": "volkan keles daniel sanders",
+        "_abstractLower": "so far, much of the focus of globalisel development has been on supporting targets with minimal optimization work. recently, attention has turned towards optimization and bringing it to the point where it can take over from selectiondagisel. in this talk, we'll mainly focus on the combiner which is a key component of producing optimized code with globalisel. we'll talk about the overall design of the combiner, the components that support it, how it fits with the rest of globalisel, how to test it, and how to debug it. we'll also talk about the current and future work on the combiner to enhance it beyond selectiondagisel’s capabilities.",
+        "_tagsLower": "optimizations",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "generating optimized code with globalisel",
+              "words": [
+                "generating",
+                "optimized",
+                "code",
+                "with",
+                "globalisel"
+              ]
+            },
+            "speakers": {
+              "text": "volkan keles daniel sanders",
+              "words": [
+                "volkan",
+                "keles",
+                "daniel",
+                "sanders"
+              ]
+            },
+            "tags": {
+              "text": "optimizations",
+              "words": [
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "so far much of the focus of globalisel development has been on supporting targets with minimal optimization work. recently attention has turned towards optimization and bringing it to the point where it can take over from selectiondagisel. in this talk well mainly focus on the combiner which is a key component of producing optimized code with globalisel. well talk about the overall design of the combiner the components that support it how it fits with the rest of globalisel how to test it and how to debug it. well also talk about the current and future work on the combiner to enhance it beyond selectiondagisels capabilities.",
+              "words": [
+                "so",
+                "far",
+                "much",
+                "of",
+                "the",
+                "focus",
+                "of",
+                "globalisel",
+                "development",
+                "has",
+                "been",
+                "on",
+                "supporting",
+                "targets",
+                "with",
+                "minimal",
+                "optimization",
+                "work.",
+                "recently",
+                "attention",
+                "has",
+                "turned",
+                "towards",
+                "optimization",
+                "and",
+                "bringing",
+                "it",
+                "to",
+                "the",
+                "point",
+                "where",
+                "it",
+                "can",
+                "take",
+                "over",
+                "from",
+                "selectiondagisel.",
+                "in",
+                "this",
+                "talk",
+                "well",
+                "mainly",
+                "focus",
+                "on",
+                "the",
+                "combiner",
+                "which",
+                "is",
+                "key",
+                "component",
+                "of",
+                "producing",
+                "optimized",
+                "code",
+                "with",
+                "globalisel.",
+                "well",
+                "talk",
+                "about",
+                "the",
+                "overall",
+                "design",
+                "of",
+                "the",
+                "combiner",
+                "the",
+                "components",
+                "that",
+                "support",
+                "it",
+                "how",
+                "it",
+                "fits",
+                "with",
+                "the",
+                "rest",
+                "of",
+                "globalisel",
+                "how",
+                "to",
+                "test",
+                "it",
+                "and",
+                "how",
+                "to",
+                "debug",
+                "it.",
+                "well",
+                "also",
+                "talk",
+                "about",
+                "the",
+                "current",
+                "and",
+                "future",
+                "work",
+                "on",
+                "the",
+                "combiner",
+                "to",
+                "enhance",
+                "it",
+                "beyond",
+                "selectiondagisels",
+                "capabilities."
+              ]
+            },
+            "category": {
+              "text": "keynote",
+              "words": [
+                "keynote"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "generating optimized code with globalisel so far much of the focus of globalisel development has been on supporting targets with minimal optimization work. recently attention has turned towards optimization and bringing it to the point where it can take over from selectiondagisel. in this talk well mainly focus on the combiner which is a key component of producing optimized code with globalisel. well talk about the overall design of the combiner the components that support it how it fits with the rest of globalisel how to test it and how to debug it. well also talk about the current and future work on the combiner to enhance it beyond selectiondagisels capabilities. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 keynote volkan keles daniel sanders optimizations"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-023": {
+      "talk": {
+        "id": "2019-10-023",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "technical-talk",
+        "title": "Optimizing builds on Windows: some practical considerations",
+        "speakers": [
+          {
+            "name": "Alexandre Ganea",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We will share our experience on using Clang & LLD on large (50M LoC) game codebases, and we will show some pitfalls and considerations for improving build times on Windows 10. Profile traces based on practical scenarios will be used to demonstrate our changes. Finally we intend to present new ways for compiling code with Clang to ultimately increase iteration times.",
+        "videoUrl": "https://youtu.be/usPL_DROn4k",
+        "videoId": "usPL_DROn4k",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Ganea-OptimizingBuildesOnWindows.pdf",
+        "tags": [
+          "Clang",
+          "LLD",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/mjansson/rpmalloc",
+        "githubReferences": [
+          "https://github.com/mjansson/rpmalloc"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/mjansson/rpmalloc",
+            "source": "slides",
+            "label": "void * p ) throw () { free ( p ); } # endif",
+            "context": "void * p ) throw () { free ( p ); } # endif",
+            "library": "rpmalloc",
+            "repository": "mjansson/rpmalloc",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/mjansson/rpmalloc"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "optimizing builds on windows: some practical considerations",
+        "_speakerLower": "alexandre ganea",
+        "_abstractLower": "we will share our experience on using clang & lld on large (50m loc) game codebases, and we will show some pitfalls and considerations for improving build times on windows 10. profile traces based on practical scenarios will be used to demonstrate our changes. finally we intend to present new ways for compiling code with clang to ultimately increase iteration times.",
+        "_tagsLower": "clang lld performance",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "optimizing builds on windows some practical considerations",
+              "words": [
+                "optimizing",
+                "builds",
+                "on",
+                "windows",
+                "some",
+                "practical",
+                "considerations"
+              ]
+            },
+            "speakers": {
+              "text": "alexandre ganea",
+              "words": [
+                "alexandre",
+                "ganea"
+              ]
+            },
+            "tags": {
+              "text": "clang lld performance",
+              "words": [
+                "clang",
+                "lld",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "we will share our experience on using clang and lld on large 50m loc game codebases and we will show some pitfalls and considerations for improving build times on windows 10. profile traces based on practical scenarios will be used to demonstrate our changes. finally we intend to present new ways for compiling code with clang to ultimately increase iteration times.",
+              "words": [
+                "we",
+                "will",
+                "share",
+                "our",
+                "experience",
+                "on",
+                "using",
+                "clang",
+                "and",
+                "lld",
+                "on",
+                "large",
+                "50m",
+                "loc",
+                "game",
+                "codebases",
+                "and",
+                "we",
+                "will",
+                "show",
+                "some",
+                "pitfalls",
+                "and",
+                "considerations",
+                "for",
+                "improving",
+                "build",
+                "times",
+                "on",
+                "windows",
+                "10.",
+                "profile",
+                "traces",
+                "based",
+                "on",
+                "practical",
+                "scenarios",
+                "will",
+                "be",
+                "used",
+                "to",
+                "demonstrate",
+                "our",
+                "changes.",
+                "finally",
+                "we",
+                "intend",
+                "to",
+                "present",
+                "new",
+                "ways",
+                "for",
+                "compiling",
+                "code",
+                "with",
+                "clang",
+                "to",
+                "ultimately",
+                "increase",
+                "iteration",
+                "times."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "optimizing builds on windows some practical considerations we will share our experience on using clang and lld on large 50m loc game codebases and we will show some pitfalls and considerations for improving build times on windows 10. profile traces based on practical scenarios will be used to demonstrate our changes. finally we intend to present new ways for compiling code with clang to ultimately increase iteration times. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 technical-talk alexandre ganea clang lld performance"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-045": {
+      "talk": {
+        "id": "2019-10-045",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "panel",
+        "title": "The Loop Optimization Working Group",
+        "speakers": [
+          {
+            "name": "Kit Barton",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Michael Kruse",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Group has been meeting bi-weekly since June 5, 2019. The primary focus of the group is to discuss loop optimizations within LLVM. This panel will contain several active members of the workgroup. It will begin with an overview of the working group and describe the topics that are currently being pursued by the workgroup, including status updates for loop optimizations that are currently under active development. It will then open up the discussion to more general topics of loop optimizations and the loop optimization pipeline. These discussions may include: Specific loop optimizations that are missing, or need improvement General infrastructure for loop optimizations Organization of loop optimizations in the loop optimization pipeline (e.g., the loop optimization strategy) The advantage/necessity of a LoopPass in the NewPassManager",
+        "videoUrl": "https://youtu.be/CEVznqrzVVI",
+        "videoId": "CEVznqrzVVI",
+        "tags": [
+          "Community Building",
+          "Loop transformations",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "the loop optimization working group",
+        "_speakerLower": "kit barton michael kruse",
+        "_abstractLower": "group has been meeting bi-weekly since june 5, 2019. the primary focus of the group is to discuss loop optimizations within llvm. this panel will contain several active members of the workgroup. it will begin with an overview of the working group and describe the topics that are currently being pursued by the workgroup, including status updates for loop optimizations that are currently under active development. it will then open up the discussion to more general topics of loop optimizations and the loop optimization pipeline. these discussions may include: specific loop optimizations that are missing, or need improvement general infrastructure for loop optimizations organization of loop optimizations in the loop optimization pipeline (e.g., the loop optimization strategy) the advantage/necessity of a looppass in the newpassmanager",
+        "_tagsLower": "community building loop transformations optimizations llvm infrastructure",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "the loop optimization working group",
+              "words": [
+                "the",
+                "loop",
+                "optimization",
+                "working",
+                "group"
+              ]
+            },
+            "speakers": {
+              "text": "kit barton michael kruse",
+              "words": [
+                "kit",
+                "barton",
+                "michael",
+                "kruse"
+              ]
+            },
+            "tags": {
+              "text": "community building loop transformations optimizations llvm infrastructure",
+              "words": [
+                "community",
+                "building",
+                "loop",
+                "transformations",
+                "optimizations",
+                "llvm",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "group has been meeting bi-weekly since june 5 2019. the primary focus of the group is to discuss loop optimizations within llvm. this panel will contain several active members of the workgroup. it will begin with an overview of the working group and describe the topics that are currently being pursued by the workgroup including status updates for loop optimizations that are currently under active development. it will then open up the discussion to more general topics of loop optimizations and the loop optimization pipeline. these discussions may include specific loop optimizations that are missing or need improvement general infrastructure for loop optimizations organization of loop optimizations in the loop optimization pipeline e.g. the loop optimization strategy the advantage necessity of a looppass in the newpassmanager",
+              "words": [
+                "group",
+                "has",
+                "been",
+                "meeting",
+                "bi-weekly",
+                "since",
+                "june",
+                "2019.",
+                "the",
+                "primary",
+                "focus",
+                "of",
+                "the",
+                "group",
+                "is",
+                "to",
+                "discuss",
+                "loop",
+                "optimizations",
+                "within",
+                "llvm.",
+                "this",
+                "panel",
+                "will",
+                "contain",
+                "several",
+                "active",
+                "members",
+                "of",
+                "the",
+                "workgroup.",
+                "it",
+                "will",
+                "begin",
+                "with",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "working",
+                "group",
+                "and",
+                "describe",
+                "the",
+                "topics",
+                "that",
+                "are",
+                "currently",
+                "being",
+                "pursued",
+                "by",
+                "the",
+                "workgroup",
+                "including",
+                "status",
+                "updates",
+                "for",
+                "loop",
+                "optimizations",
+                "that",
+                "are",
+                "currently",
+                "under",
+                "active",
+                "development.",
+                "it",
+                "will",
+                "then",
+                "open",
+                "up",
+                "the",
+                "discussion",
+                "to",
+                "more",
+                "general",
+                "topics",
+                "of",
+                "loop",
+                "optimizations",
+                "and",
+                "the",
+                "loop",
+                "optimization",
+                "pipeline.",
+                "these",
+                "discussions",
+                "may",
+                "include",
+                "specific",
+                "loop",
+                "optimizations",
+                "that",
+                "are",
+                "missing",
+                "or",
+                "need",
+                "improvement",
+                "general",
+                "infrastructure",
+                "for",
+                "loop",
+                "optimizations",
+                "organization",
+                "of",
+                "loop",
+                "optimizations",
+                "in",
+                "the",
+                "loop",
+                "optimization",
+                "pipeline",
+                "e.g.",
+                "the",
+                "loop",
+                "optimization",
+                "strategy",
+                "the",
+                "advantage",
+                "necessity",
+                "of",
+                "looppass",
+                "in",
+                "the",
+                "newpassmanager"
+              ]
+            },
+            "category": {
+              "text": "panel",
+              "words": [
+                "panel"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "the loop optimization working group group has been meeting bi-weekly since june 5 2019. the primary focus of the group is to discuss loop optimizations within llvm. this panel will contain several active members of the workgroup. it will begin with an overview of the working group and describe the topics that are currently being pursued by the workgroup including status updates for loop optimizations that are currently under active development. it will then open up the discussion to more general topics of loop optimizations and the loop optimization pipeline. these discussions may include specific loop optimizations that are missing or need improvement general infrastructure for loop optimizations organization of loop optimizations in the loop optimization pipeline e.g. the loop optimization strategy the advantage necessity of a looppass in the newpassmanager 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 panel kit barton michael kruse community building loop transformations optimizations llvm infrastructure"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-10-067": {
+      "talk": {
+        "id": "2019-10-067",
+        "meeting": "2019-10",
+        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 22-23, 2019",
+        "category": "lightning-talk",
+        "title": "Flang Update",
+        "speakers": [
+          {
+            "name": "Steve Scalpone",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Flang development update touching on current status, experience with MLIR, and an overview of compiler performance.",
+        "videoUrl": "https://youtu.be/MqQk5VsPar4",
+        "videoId": "MqQk5VsPar4",
+        "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Scalpone-FlangUpdate.pdf",
+        "tags": [
+          "Flang",
+          "MLIR",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "flang update",
+        "_speakerLower": "steve scalpone",
+        "_abstractLower": "flang development update touching on current status, experience with mlir, and an overview of compiler performance.",
+        "_tagsLower": "flang mlir performance",
+        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "flang update",
+              "words": [
+                "flang",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "steve scalpone",
+              "words": [
+                "steve",
+                "scalpone"
+              ]
+            },
+            "tags": {
+              "text": "flang mlir performance",
+              "words": [
+                "flang",
+                "mlir",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "words": [
+                "2019",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "22-23",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "flang development update touching on current status experience with mlir and an overview of compiler performance.",
+              "words": [
+                "flang",
+                "development",
+                "update",
+                "touching",
+                "on",
+                "current",
+                "status",
+                "experience",
+                "with",
+                "mlir",
+                "and",
+                "an",
+                "overview",
+                "of",
+                "compiler",
+                "performance."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "flang update flang development update touching on current status experience with mlir and an overview of compiler performance. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 lightning-talk steve scalpone flang mlir performance"
+      },
+      "meeting": {
+        "slug": "2019-10",
+        "name": "2019 US LLVM Developers' Meeting",
+        "date": "October 22-23, 2019",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 85
+      }
+    },
+    "2019-04-051": {
+      "talk": {
+        "id": "2019-04-051",
+        "meeting": "2019-04",
+        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingLocation": "Brussels, Belgium",
+        "meetingDate": "April 8-9, 2019",
+        "category": "bof",
+        "title": "LLVM binutils",
+        "speakers": [],
+        "abstract": "LLVM has a suite of binary utilities that broadly mirror the GNU binutils suite, with tools such as llvm-readelf, llvm-nm, and llvm-objcopy. These tools are already widely used in testing the rest of LLVM, and are now starting to be adopted as full replacements for the GNU tools in production environments. This discussion will focus on what more needs to be done to make this migration process easier, how far we need to go to make drop-in replacements for the GNU tools, and what features people want to prioritize. Finally, we will look at the broader future goals of these tools.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2019-04/slides/BoF-HendersonRupprecht-LLVM_binutils.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm binutils",
+        "_speakerLower": "",
+        "_abstractLower": "llvm has a suite of binary utilities that broadly mirror the gnu binutils suite, with tools such as llvm-readelf, llvm-nm, and llvm-objcopy. these tools are already widely used in testing the rest of llvm, and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier, how far we need to go to make drop-in replacements for the gnu tools, and what features people want to prioritize. finally, we will look at the broader future goals of these tools.",
+        "_tagsLower": "llvm testing",
+        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm binutils",
+              "words": [
+                "llvm",
+                "binutils"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "llvm testing",
+              "words": [
+                "llvm",
+                "testing"
+              ]
+            },
+            "meeting": {
+              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "words": [
+                "2019",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "brussels",
+                "belgium",
+                "april",
+                "8-9",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "llvm has a suite of binary utilities that broadly mirror the gnu binutils suite with tools such as llvm-readelf llvm-nm and llvm-objcopy. these tools are already widely used in testing the rest of llvm and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier how far we need to go to make drop-in replacements for the gnu tools and what features people want to prioritize. finally we will look at the broader future goals of these tools.",
+              "words": [
+                "llvm",
+                "has",
+                "suite",
+                "of",
+                "binary",
+                "utilities",
+                "that",
+                "broadly",
+                "mirror",
+                "the",
+                "gnu",
+                "binutils",
+                "suite",
+                "with",
+                "tools",
+                "such",
+                "as",
+                "llvm-readelf",
+                "llvm-nm",
+                "and",
+                "llvm-objcopy.",
+                "these",
+                "tools",
+                "are",
+                "already",
+                "widely",
+                "used",
+                "in",
+                "testing",
+                "the",
+                "rest",
+                "of",
+                "llvm",
+                "and",
+                "are",
+                "now",
+                "starting",
+                "to",
+                "be",
+                "adopted",
+                "as",
+                "full",
+                "replacements",
+                "for",
+                "the",
+                "gnu",
+                "tools",
+                "in",
+                "production",
+                "environments.",
+                "this",
+                "discussion",
+                "will",
+                "focus",
+                "on",
+                "what",
+                "more",
+                "needs",
+                "to",
+                "be",
+                "done",
+                "to",
+                "make",
+                "this",
+                "migration",
+                "process",
+                "easier",
+                "how",
+                "far",
+                "we",
+                "need",
+                "to",
+                "go",
+                "to",
+                "make",
+                "drop-in",
+                "replacements",
+                "for",
+                "the",
+                "gnu",
+                "tools",
+                "and",
+                "what",
+                "features",
+                "people",
+                "want",
+                "to",
+                "prioritize.",
+                "finally",
+                "we",
+                "will",
+                "look",
+                "at",
+                "the",
+                "broader",
+                "future",
+                "goals",
+                "of",
+                "these",
+                "tools."
+              ]
+            },
+            "category": {
+              "text": "bof",
+              "words": [
+                "bof"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "llvm binutils llvm has a suite of binary utilities that broadly mirror the gnu binutils suite with tools such as llvm-readelf llvm-nm and llvm-objcopy. these tools are already widely used in testing the rest of llvm and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier how far we need to go to make drop-in replacements for the gnu tools and what features people want to prioritize. finally we will look at the broader future goals of these tools. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 bof llvm testing"
+      },
+      "meeting": {
+        "slug": "2019-04",
+        "name": "2019 European LLVM Developers' Meeting",
+        "date": "April 8-9, 2019",
+        "location": "Brussels, Belgium",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2019-04-073": {
+      "talk": {
+        "id": "2019-04-073",
+        "meeting": "2019-04",
+        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingLocation": "Brussels, Belgium",
+        "meetingDate": "April 8-9, 2019",
+        "category": "poster",
+        "title": "Vectorizing Add/Sub Expressions with SLP",
+        "speakers": [
+          {
+            "name": "Vasileios Porpodas",
+            "affiliation": "Intel Corporation",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Luís F. W. Góes",
+            "affiliation": "PUC Minas",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The SLP Vectorizer is LLVM's second vectorizer (after the Loop Vectorizer). It performs auto-vectorization of straight-line code. It works by first exploring the scalar code for vectorizable patterns (groups), and then by replacing each group with its vectorized form. This talk presents the existing design of the SLP vectorizer and shows how it fails to vectorize simple IR inputs with Add/Sub (or Mul/Div) expression trees. We propose specific improvements to the current design that will let us effectively handle such code. We named this design SuperNode SLP (SN-SLP) because it extends the SLP graph to include new \"fat\" nodes that include multiple instructions. This talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2019-04/slides/Poster-Porpodas-Supernode_SLP.pdf",
+        "tags": [
+          "Autovectorization"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "vectorizing add/sub expressions with slp",
+        "_speakerLower": "vasileios porpodas luís f. w. góes",
+        "_abstractLower": "the slp vectorizer is llvm's second vectorizer (after the loop vectorizer). it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns (groups), and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add/sub (or mul/div) expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp (sn-slp) because it extends the slp graph to include new \"fat\" nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches.",
+        "_tagsLower": "autovectorization llvm",
+        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "vectorizing add sub expressions with slp",
+              "words": [
+                "vectorizing",
+                "add",
+                "sub",
+                "expressions",
+                "with",
+                "slp"
+              ]
+            },
+            "speakers": {
+              "text": "vasileios porpodas luis f. w. goes",
+              "words": [
+                "vasileios",
+                "porpodas",
+                "luis",
+                "f.",
+                "w.",
+                "goes"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization llvm",
+              "words": [
+                "autovectorization",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "words": [
+                "2019",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "brussels",
+                "belgium",
+                "april",
+                "8-9",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "the slp vectorizer is llvms second vectorizer after the loop vectorizer . it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns groups and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add sub or mul div expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp sn-slp because it extends the slp graph to include new fat nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches.",
+              "words": [
+                "the",
+                "slp",
+                "vectorizer",
+                "is",
+                "llvms",
+                "second",
+                "vectorizer",
+                "after",
+                "the",
+                "loop",
+                "vectorizer",
+                "it",
+                "performs",
+                "auto-vectorization",
+                "of",
+                "straight-line",
+                "code.",
+                "it",
+                "works",
+                "by",
+                "first",
+                "exploring",
+                "the",
+                "scalar",
+                "code",
+                "for",
+                "vectorizable",
+                "patterns",
+                "groups",
+                "and",
+                "then",
+                "by",
+                "replacing",
+                "each",
+                "group",
+                "with",
+                "its",
+                "vectorized",
+                "form.",
+                "this",
+                "talk",
+                "presents",
+                "the",
+                "existing",
+                "design",
+                "of",
+                "the",
+                "slp",
+                "vectorizer",
+                "and",
+                "shows",
+                "how",
+                "it",
+                "fails",
+                "to",
+                "vectorize",
+                "simple",
+                "ir",
+                "inputs",
+                "with",
+                "add",
+                "sub",
+                "or",
+                "mul",
+                "div",
+                "expression",
+                "trees.",
+                "we",
+                "propose",
+                "specific",
+                "improvements",
+                "to",
+                "the",
+                "current",
+                "design",
+                "that",
+                "will",
+                "let",
+                "us",
+                "effectively",
+                "handle",
+                "such",
+                "code.",
+                "we",
+                "named",
+                "this",
+                "design",
+                "supernode",
+                "slp",
+                "sn-slp",
+                "because",
+                "it",
+                "extends",
+                "the",
+                "slp",
+                "graph",
+                "to",
+                "include",
+                "new",
+                "fat",
+                "nodes",
+                "that",
+                "include",
+                "multiple",
+                "instructions.",
+                "this",
+                "talk",
+                "also",
+                "presents",
+                "our",
+                "detailed",
+                "plan",
+                "for",
+                "upstreaming",
+                "the",
+                "bulk",
+                "of",
+                "this",
+                "work",
+                "in",
+                "sequence",
+                "of",
+                "patches."
+              ]
+            },
+            "category": {
+              "text": "poster",
+              "words": [
+                "poster"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "vectorizing add sub expressions with slp the slp vectorizer is llvms second vectorizer after the loop vectorizer . it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns groups and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add sub or mul div expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp sn-slp because it extends the slp graph to include new fat nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster vasileios porpodas luis f. w. goes autovectorization llvm"
+      },
+      "meeting": {
+        "slug": "2019-04",
+        "name": "2019 European LLVM Developers' Meeting",
+        "date": "April 8-9, 2019",
+        "location": "Brussels, Belgium",
+        "canceled": false,
+        "talkCount": 75
+      }
+    },
+    "2018-10-011": {
+      "talk": {
+        "id": "2018-10-011",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "technical-talk",
+        "title": "Implementing an OpenCL compiler for CPU in LLVM",
+        "speakers": [
+          {
+            "name": "Evgeniy Tyurin",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Compiling a heterogeneous language for a CPU in an optimal way is a challenge, OpenCL C/SPIR-V specifics require additions and modifications of the old-fashioned driver approach and compilation flow. Coupled together with aggressive just-in-time code optimizations, interfacing with OpenCL runtime, standard OpenCL C functions library, etc. implementation of OpenCL for CPU comprises a complex structure. We’ll cover Intel’s approach in hope of revealing common patterns and design solutions, discover possible opportunities to share and collaborate with other OpenCL CPU vendors under LLVM umbrella! This talk will describe the compilation of OpenCL C source code down to machine instructions and interacting with OpenCL runtime, illustrate different paths that compilation may take for different modes (classic online/OpenCL 2.1 SPIR-V path vs. OpenCL 1.2/2.0 with device-side enqueue and generic address space), put particular emphasis on the resolution of CPU-unfriendly OpenCL aspects (barrier, address spaces, images) in the optimization flow, explain why OpenCL compiler frontend can easily handle various target devices (GPU/CPU/FGPA/DSP etc.) and how it all neatly revolves around LLVM/clang & tools.",
+        "videoUrl": "https://youtu.be/Mm5ATyqm7Rw",
+        "videoId": "Mm5ATyqm7Rw",
+        "slidesUrl": "https://llvm.org/devmtg/2018-10/slides/Tyurin-ImplementingOpenCLCompiler.pdf",
+        "tags": [
+          "Clang",
+          "Frontend",
+          "GPU",
+          "JIT",
+          "OpenCL",
+          "Optimizations"
+        ],
+        "projectGithub": "https://github.com/intel/opencl",
+        "githubReferences": [
+          "https://github.com/intel/opencl",
+          "https://github.com/intel/opencl-clang"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/intel/opencl",
+            "source": "slides",
+            "label": "claimed as the property of others. Optimization Notice 24 libopencl_clang Source is available @",
+            "context": "claimed as the property of others. Optimization Notice 24 libopencl_clang Source is available @",
+            "library": "opencl",
+            "repository": "intel/opencl",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/intel/opencl-clang",
+            "source": "slides",
+            "label": "the property of others. Optimization Notice 24 libopencl_clang Source is available @ - clang",
+            "context": "the property of others. Optimization Notice 24 libopencl_clang Source is available @ - clang",
+            "library": "opencl-clang",
+            "repository": "intel/opencl-clang",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/intel/opencl"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/intel/opencl-clang"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "implementing an opencl compiler for cpu in llvm",
+        "_speakerLower": "evgeniy tyurin",
+        "_abstractLower": "compiling a heterogeneous language for a cpu in an optimal way is a challenge, opencl c/spir-v specifics require additions and modifications of the old-fashioned driver approach and compilation flow. coupled together with aggressive just-in-time code optimizations, interfacing with opencl runtime, standard opencl c functions library, etc. implementation of opencl for cpu comprises a complex structure. we’ll cover intel’s approach in hope of revealing common patterns and design solutions, discover possible opportunities to share and collaborate with other opencl cpu vendors under llvm umbrella! this talk will describe the compilation of opencl c source code down to machine instructions and interacting with opencl runtime, illustrate different paths that compilation may take for different modes (classic online/opencl 2.1 spir-v path vs. opencl 1.2/2.0 with device-side enqueue and generic address space), put particular emphasis on the resolution of cpu-unfriendly opencl aspects (barrier, address spaces, images) in the optimization flow, explain why opencl compiler frontend can easily handle various target devices (gpu/cpu/fgpa/dsp etc.) and how it all neatly revolves around llvm/clang & tools.",
+        "_tagsLower": "clang frontend gpu jit opencl optimizations llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "implementing an opencl compiler for cpu in llvm",
+              "words": [
+                "implementing",
+                "an",
+                "opencl",
+                "compiler",
+                "for",
+                "cpu",
+                "in",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "evgeniy tyurin",
+              "words": [
+                "evgeniy",
+                "tyurin"
+              ]
+            },
+            "tags": {
+              "text": "clang frontend gpu jit opencl optimizations llvm",
+              "words": [
+                "clang",
+                "frontend",
+                "gpu",
+                "jit",
+                "opencl",
+                "optimizations",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "compiling a heterogeneous language for a cpu in an optimal way is a challenge opencl c spir-v specifics require additions and modifications of the old-fashioned driver approach and compilation flow. coupled together with aggressive just-in-time code optimizations interfacing with opencl runtime standard opencl c functions library etc. implementation of opencl for cpu comprises a complex structure. well cover intels approach in hope of revealing common patterns and design solutions discover possible opportunities to share and collaborate with other opencl cpu vendors under llvm umbrella this talk will describe the compilation of opencl c source code down to machine instructions and interacting with opencl runtime illustrate different paths that compilation may take for different modes classic online opencl 2.1 spir-v path vs. opencl 1.2 2.0 with device-side enqueue and generic address space put particular emphasis on the resolution of cpu-unfriendly opencl aspects barrier address spaces images in the optimization flow explain why opencl compiler frontend can easily handle various target devices gpu cpu fgpa dsp etc. and how it all neatly revolves around llvm clang and tools.",
+              "words": [
+                "compiling",
+                "heterogeneous",
+                "language",
+                "for",
+                "cpu",
+                "in",
+                "an",
+                "optimal",
+                "way",
+                "is",
+                "challenge",
+                "opencl",
+                "spir-v",
+                "specifics",
+                "require",
+                "additions",
+                "and",
+                "modifications",
+                "of",
+                "the",
+                "old-fashioned",
+                "driver",
+                "approach",
+                "and",
+                "compilation",
+                "flow.",
+                "coupled",
+                "together",
+                "with",
+                "aggressive",
+                "just-in-time",
+                "code",
+                "optimizations",
+                "interfacing",
+                "with",
+                "opencl",
+                "runtime",
+                "standard",
+                "opencl",
+                "functions",
+                "library",
+                "etc.",
+                "implementation",
+                "of",
+                "opencl",
+                "for",
+                "cpu",
+                "comprises",
+                "complex",
+                "structure.",
+                "well",
+                "cover",
+                "intels",
+                "approach",
+                "in",
+                "hope",
+                "of",
+                "revealing",
+                "common",
+                "patterns",
+                "and",
+                "design",
+                "solutions",
+                "discover",
+                "possible",
+                "opportunities",
+                "to",
+                "share",
+                "and",
+                "collaborate",
+                "with",
+                "other",
+                "opencl",
+                "cpu",
+                "vendors",
+                "under",
+                "llvm",
+                "umbrella",
+                "this",
+                "talk",
+                "will",
+                "describe",
+                "the",
+                "compilation",
+                "of",
+                "opencl",
+                "source",
+                "code",
+                "down",
+                "to",
+                "machine",
+                "instructions",
+                "and",
+                "interacting",
+                "with",
+                "opencl",
+                "runtime",
+                "illustrate",
+                "different",
+                "paths",
+                "that",
+                "compilation",
+                "may",
+                "take",
+                "for",
+                "different",
+                "modes",
+                "classic",
+                "online",
+                "opencl",
+                "2.1",
+                "spir-v",
+                "path",
+                "vs.",
+                "opencl",
+                "1.2",
+                "2.0",
+                "with",
+                "device-side",
+                "enqueue",
+                "and",
+                "generic",
+                "address",
+                "space",
+                "put",
+                "particular",
+                "emphasis",
+                "on",
+                "the",
+                "resolution",
+                "of",
+                "cpu-unfriendly",
+                "opencl",
+                "aspects",
+                "barrier",
+                "address",
+                "spaces",
+                "images",
+                "in",
+                "the",
+                "optimization",
+                "flow",
+                "explain",
+                "why",
+                "opencl",
+                "compiler",
+                "frontend",
+                "can",
+                "easily",
+                "handle",
+                "various",
+                "target",
+                "devices",
+                "gpu",
+                "cpu",
+                "fgpa",
+                "dsp",
+                "etc.",
+                "and",
+                "how",
+                "it",
+                "all",
+                "neatly",
+                "revolves",
+                "around",
+                "llvm",
+                "clang",
+                "and",
+                "tools."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "implementing an opencl compiler for cpu in llvm compiling a heterogeneous language for a cpu in an optimal way is a challenge opencl c spir-v specifics require additions and modifications of the old-fashioned driver approach and compilation flow. coupled together with aggressive just-in-time code optimizations interfacing with opencl runtime standard opencl c functions library etc. implementation of opencl for cpu comprises a complex structure. well cover intels approach in hope of revealing common patterns and design solutions discover possible opportunities to share and collaborate with other opencl cpu vendors under llvm umbrella this talk will describe the compilation of opencl c source code down to machine instructions and interacting with opencl runtime illustrate different paths that compilation may take for different modes classic online opencl 2.1 spir-v path vs. opencl 1.2 2.0 with device-side enqueue and generic address space put particular emphasis on the resolution of cpu-unfriendly opencl aspects barrier address spaces images in the optimization flow explain why opencl compiler frontend can easily handle various target devices gpu cpu fgpa dsp etc. and how it all neatly revolves around llvm clang and tools. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 technical-talk evgeniy tyurin clang frontend gpu jit opencl optimizations llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2018-10-033": {
+      "talk": {
+        "id": "2018-10-033",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "bof",
+        "title": "Migrating to C++14, and beyond!",
+        "speakers": [
+          {
+            "name": "JF Bastien",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "C++11 was a huge step forward for C++. C++14 is a much smaller step, yet still brings plenty of great features. C++17 will be equally small but nice. The LLVM community should discuss how we want to handle migration to newer versions of C++: how do we handle compiler requirements, notify developers early enough, manage ABI changes in toolchains, and do the actual migration itself. Let’s get together and hash this out!",
+        "videoId": null,
+        "tags": [
+          "C++",
+          "Community Building"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "migrating to c++14, and beyond!",
+        "_speakerLower": "jf bastien",
+        "_abstractLower": "c++11 was a huge step forward for c++. c++14 is a much smaller step, yet still brings plenty of great features. c++17 will be equally small but nice. the llvm community should discuss how we want to handle migration to newer versions of c++: how do we handle compiler requirements, notify developers early enough, manage abi changes in toolchains, and do the actual migration itself. let’s get together and hash this out!",
+        "_tagsLower": "c++ community building llvm",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "migrating to c++14 and beyond",
+              "words": [
+                "migrating",
+                "to",
+                "c++14",
+                "and",
+                "beyond"
+              ]
+            },
+            "speakers": {
+              "text": "jf bastien",
+              "words": [
+                "jf",
+                "bastien"
+              ]
+            },
+            "tags": {
+              "text": "c++ community building llvm",
+              "words": [
+                "c++",
+                "community",
+                "building",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "c++11 was a huge step forward for c++. c++14 is a much smaller step yet still brings plenty of great features. c++17 will be equally small but nice. the llvm community should discuss how we want to handle migration to newer versions of c++ how do we handle compiler requirements notify developers early enough manage abi changes in toolchains and do the actual migration itself. lets get together and hash this out",
+              "words": [
+                "c++11",
+                "was",
+                "huge",
+                "step",
+                "forward",
+                "for",
+                "c++.",
+                "c++14",
+                "is",
+                "much",
+                "smaller",
+                "step",
+                "yet",
+                "still",
+                "brings",
+                "plenty",
+                "of",
+                "great",
+                "features.",
+                "c++17",
+                "will",
+                "be",
+                "equally",
+                "small",
+                "but",
+                "nice.",
+                "the",
+                "llvm",
+                "community",
+                "should",
+                "discuss",
+                "how",
+                "we",
+                "want",
+                "to",
+                "handle",
+                "migration",
+                "to",
+                "newer",
+                "versions",
+                "of",
+                "c++",
+                "how",
+                "do",
+                "we",
+                "handle",
+                "compiler",
+                "requirements",
+                "notify",
+                "developers",
+                "early",
+                "enough",
+                "manage",
+                "abi",
+                "changes",
+                "in",
+                "toolchains",
+                "and",
+                "do",
+                "the",
+                "actual",
+                "migration",
+                "itself.",
+                "lets",
+                "get",
+                "together",
+                "and",
+                "hash",
+                "this",
+                "out"
+              ]
+            },
+            "category": {
+              "text": "bof",
+              "words": [
+                "bof"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "migrating to c++14 and beyond c++11 was a huge step forward for c++. c++14 is a much smaller step yet still brings plenty of great features. c++17 will be equally small but nice. the llvm community should discuss how we want to handle migration to newer versions of c++ how do we handle compiler requirements notify developers early enough manage abi changes in toolchains and do the actual migration itself. lets get together and hash this out 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 bof jf bastien c++ community building llvm"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2018-10-055": {
+      "talk": {
+        "id": "2018-10-055",
+        "meeting": "2018-10",
+        "meetingName": "2018 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 17-18, 2018",
+        "category": "lightning-talk",
+        "title": "VecClone Pass: Function Vectorization via LoopVectorizer",
+        "speakers": [
+          {
+            "name": "Matt Masten",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Evgeniy Tyurin",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Konstantina Mitropoulou",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We currently have three vectorizers in the LLVM trunk: LoopVectorizer, SLPVectorizer, and LoadStoreVectorizer. In this talk, we present how we are avoiding to add a fourth vectorizer for function vectorization. Vectorizing a function is necessary when a programmer writes a function that operates on a single element (or work item) and wants to execute it on multiple elements (or work items), through SIMD execution units. Compilation of OpenMP declare simd functions and OpenCL kernels, for SIMD targets, fits in this profile. A naïve approach is to write a purpose built vectorizer that is tuned to vectorize functions. However, since vectorizer is a complicated optimization pass which consists of many components including optimization, cost model and code generation, both the development and the maintenance are big headaches. Therefore, since there are great similarities between vectorizing a loop and vectorizing a function, we decided to use the LoopVectorizer to vectorize functions. In this talk, we present how OpenMP and OpenCL kernel functions are transformed in such a way that they can be vectorized through the standard LoopVectorizer. We call this optimization pass VecClone.",
+        "videoUrl": "https://youtu.be/BIptGq6DssE",
+        "videoId": "BIptGq6DssE",
+        "tags": [
+          "Autovectorization",
+          "Backend",
+          "GPU",
+          "OpenCL",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "vecclone pass: function vectorization via loopvectorizer",
+        "_speakerLower": "matt masten evgeniy tyurin konstantina mitropoulou",
+        "_abstractLower": "we currently have three vectorizers in the llvm trunk: loopvectorizer, slpvectorizer, and loadstorevectorizer. in this talk, we present how we are avoiding to add a fourth vectorizer for function vectorization. vectorizing a function is necessary when a programmer writes a function that operates on a single element (or work item) and wants to execute it on multiple elements (or work items), through simd execution units. compilation of openmp declare simd functions and opencl kernels, for simd targets, fits in this profile. a naïve approach is to write a purpose built vectorizer that is tuned to vectorize functions. however, since vectorizer is a complicated optimization pass which consists of many components including optimization, cost model and code generation, both the development and the maintenance are big headaches. therefore, since there are great similarities between vectorizing a loop and vectorizing a function, we decided to use the loopvectorizer to vectorize functions. in this talk, we present how openmp and opencl kernel functions are transformed in such a way that they can be vectorized through the standard loopvectorizer. we call this optimization pass vecclone.",
+        "_tagsLower": "autovectorization backend gpu opencl optimizations performance llvm openmp code generation",
+        "_meetingLower": "2018 us llvm developers' meeting san jose, ca, usa october 17-18, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "vecclone pass function vectorization via loopvectorizer",
+              "words": [
+                "vecclone",
+                "pass",
+                "function",
+                "vectorization",
+                "via",
+                "loopvectorizer"
+              ]
+            },
+            "speakers": {
+              "text": "matt masten evgeniy tyurin konstantina mitropoulou",
+              "words": [
+                "matt",
+                "masten",
+                "evgeniy",
+                "tyurin",
+                "konstantina",
+                "mitropoulou"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization backend gpu opencl optimizations performance llvm openmp code generation",
+              "words": [
+                "autovectorization",
+                "backend",
+                "gpu",
+                "opencl",
+                "optimizations",
+                "performance",
+                "llvm",
+                "openmp",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "2018 us llvm developers meeting san jose ca usa october 17-18 2018",
+              "words": [
+                "2018",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "17-18",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "we currently have three vectorizers in the llvm trunk loopvectorizer slpvectorizer and loadstorevectorizer. in this talk we present how we are avoiding to add a fourth vectorizer for function vectorization. vectorizing a function is necessary when a programmer writes a function that operates on a single element or work item and wants to execute it on multiple elements or work items through simd execution units. compilation of openmp declare simd functions and opencl kernels for simd targets fits in this profile. a naive approach is to write a purpose built vectorizer that is tuned to vectorize functions. however since vectorizer is a complicated optimization pass which consists of many components including optimization cost model and code generation both the development and the maintenance are big headaches. therefore since there are great similarities between vectorizing a loop and vectorizing a function we decided to use the loopvectorizer to vectorize functions. in this talk we present how openmp and opencl kernel functions are transformed in such a way that they can be vectorized through the standard loopvectorizer. we call this optimization pass vecclone.",
+              "words": [
+                "we",
+                "currently",
+                "have",
+                "three",
+                "vectorizers",
+                "in",
+                "the",
+                "llvm",
+                "trunk",
+                "loopvectorizer",
+                "slpvectorizer",
+                "and",
+                "loadstorevectorizer.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "present",
+                "how",
+                "we",
+                "are",
+                "avoiding",
+                "to",
+                "add",
+                "fourth",
+                "vectorizer",
+                "for",
+                "function",
+                "vectorization.",
+                "vectorizing",
+                "function",
+                "is",
+                "necessary",
+                "when",
+                "programmer",
+                "writes",
+                "function",
+                "that",
+                "operates",
+                "on",
+                "single",
+                "element",
+                "or",
+                "work",
+                "item",
+                "and",
+                "wants",
+                "to",
+                "execute",
+                "it",
+                "on",
+                "multiple",
+                "elements",
+                "or",
+                "work",
+                "items",
+                "through",
+                "simd",
+                "execution",
+                "units.",
+                "compilation",
+                "of",
+                "openmp",
+                "declare",
+                "simd",
+                "functions",
+                "and",
+                "opencl",
+                "kernels",
+                "for",
+                "simd",
+                "targets",
+                "fits",
+                "in",
+                "this",
+                "profile.",
+                "naive",
+                "approach",
+                "is",
+                "to",
+                "write",
+                "purpose",
+                "built",
+                "vectorizer",
+                "that",
+                "is",
+                "tuned",
+                "to",
+                "vectorize",
+                "functions.",
+                "however",
+                "since",
+                "vectorizer",
+                "is",
+                "complicated",
+                "optimization",
+                "pass",
+                "which",
+                "consists",
+                "of",
+                "many",
+                "components",
+                "including",
+                "optimization",
+                "cost",
+                "model",
+                "and",
+                "code",
+                "generation",
+                "both",
+                "the",
+                "development",
+                "and",
+                "the",
+                "maintenance",
+                "are",
+                "big",
+                "headaches.",
+                "therefore",
+                "since",
+                "there",
+                "are",
+                "great",
+                "similarities",
+                "between",
+                "vectorizing",
+                "loop",
+                "and",
+                "vectorizing",
+                "function",
+                "we",
+                "decided",
+                "to",
+                "use",
+                "the",
+                "loopvectorizer",
+                "to",
+                "vectorize",
+                "functions.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "present",
+                "how",
+                "openmp",
+                "and",
+                "opencl",
+                "kernel",
+                "functions",
+                "are",
+                "transformed",
+                "in",
+                "such",
+                "way",
+                "that",
+                "they",
+                "can",
+                "be",
+                "vectorized",
+                "through",
+                "the",
+                "standard",
+                "loopvectorizer.",
+                "we",
+                "call",
+                "this",
+                "optimization",
+                "pass",
+                "vecclone."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "vecclone pass function vectorization via loopvectorizer we currently have three vectorizers in the llvm trunk loopvectorizer slpvectorizer and loadstorevectorizer. in this talk we present how we are avoiding to add a fourth vectorizer for function vectorization. vectorizing a function is necessary when a programmer writes a function that operates on a single element or work item and wants to execute it on multiple elements or work items through simd execution units. compilation of openmp declare simd functions and opencl kernels for simd targets fits in this profile. a naive approach is to write a purpose built vectorizer that is tuned to vectorize functions. however since vectorizer is a complicated optimization pass which consists of many components including optimization cost model and code generation both the development and the maintenance are big headaches. therefore since there are great similarities between vectorizing a loop and vectorizing a function we decided to use the loopvectorizer to vectorize functions. in this talk we present how openmp and opencl kernel functions are transformed in such a way that they can be vectorized through the standard loopvectorizer. we call this optimization pass vecclone. 2018 us llvm developers meeting san jose ca usa october 17-18 2018 2018-10 lightning-talk matt masten evgeniy tyurin konstantina mitropoulou autovectorization backend gpu opencl optimizations performance llvm openmp code generation"
+      },
+      "meeting": {
+        "slug": "2018-10",
+        "name": "2018 US LLVM Developers' Meeting",
+        "date": "October 17-18, 2018",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 66
+      }
+    },
+    "2018-02-04-011": {
+      "talk": {
+        "id": "2018-02-04-011",
+        "meeting": "2018-02-04",
+        "meetingName": "2018 LLVM @ FOSDEM",
+        "meetingLocation": "FOSDEM, Brussels, Belgium",
+        "meetingDate": "February 4, 2018",
+        "category": "technical-talk",
+        "title": "A unique processor architecture meeting LLVM IR and the IoT",
+        "speakers": [
+          {
+            "name": "Dávid Juhász",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/8yMc9YsNeLk",
+        "videoId": "8yMc9YsNeLk",
+        "slidesUrl": "https://fosdem.org/2018/schedule/event/uniqueprocessor/attachments/slides/2387/export/events/attachments/uniqueprocessor/slides/2387/IMSYS_FOSDEM_2018_LLVM_submission.pdf",
+        "tags": [
+          "IR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "a unique processor architecture meeting llvm ir and the iot",
+        "_speakerLower": "dávid juhász",
+        "_abstractLower": "",
+        "_tagsLower": "ir llvm",
+        "_meetingLower": "2018 llvm @ fosdem fosdem, brussels, belgium february 4, 2018",
+        "_year": "2018",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a unique processor architecture meeting llvm ir and the iot",
+              "words": [
+                "unique",
+                "processor",
+                "architecture",
+                "meeting",
+                "llvm",
+                "ir",
+                "and",
+                "the",
+                "iot"
+              ]
+            },
+            "speakers": {
+              "text": "david juhasz",
+              "words": [
+                "david",
+                "juhasz"
+              ]
+            },
+            "tags": {
+              "text": "ir llvm",
+              "words": [
+                "ir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2018 llvm fosdem fosdem brussels belgium february 4 2018",
+              "words": [
+                "2018",
+                "llvm",
+                "fosdem",
+                "fosdem",
+                "brussels",
+                "belgium",
+                "february",
+                "2018"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018
+        },
+        "_searchBlob": "a unique processor architecture meeting llvm ir and the iot 2018 llvm fosdem fosdem brussels belgium february 4 2018 2018-02-04 technical-talk david juhasz ir llvm"
+      },
+      "meeting": {
+        "slug": "2018-02-04",
+        "name": "2018 LLVM @ FOSDEM",
+        "date": "February 4, 2018",
+        "location": "FOSDEM, Brussels, Belgium",
+        "canceled": false,
+        "talkCount": 11
+      }
+    },
+    "2017-10-021": {
+      "talk": {
+        "id": "2017-10-021",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "technical-talk",
+        "title": "Implementing Swift Generics",
+        "speakers": [
+          {
+            "name": "Douglas Gregor",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Slava Pestov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "John McCall",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Swift is a safe and efficient systems language with support for generic programming via its static type system. Various existing implementations of generic programming use either a uniform runtime representation for values (e.g., Java generics) or compile-time monomorphization (e.g., C++, Rust). Swift takes a “dictionary-passing” approach, similar to type-classes in Haskell, using reified type metadata to allow generic code to abstract over the memory layout of data types and avoid boxing. In this talk, we will describe the compilation of Swift’s generics from the type checker down to LLVM IR lowering and interaction with the Swift runtime, illustrating the how the core representation of generics flows through the system, from answering type-checking queries to the calling convention of generic functions and runtime representation of the “dictionaries”.",
+        "videoUrl": "https://youtu.be/ctS8FzqcRug",
+        "videoId": "ctS8FzqcRug",
+        "tags": [
+          "IR",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "implementing swift generics",
+        "_speakerLower": "douglas gregor slava pestov john mccall",
+        "_abstractLower": "swift is a safe and efficient systems language with support for generic programming via its static type system. various existing implementations of generic programming use either a uniform runtime representation for values (e.g., java generics) or compile-time monomorphization (e.g., c++, rust). swift takes a “dictionary-passing” approach, similar to type-classes in haskell, using reified type metadata to allow generic code to abstract over the memory layout of data types and avoid boxing. in this talk, we will describe the compilation of swift’s generics from the type checker down to llvm ir lowering and interaction with the swift runtime, illustrating the how the core representation of generics flows through the system, from answering type-checking queries to the calling convention of generic functions and runtime representation of the “dictionaries”.",
+        "_tagsLower": "ir performance llvm rust swift",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "implementing swift generics",
+              "words": [
+                "implementing",
+                "swift",
+                "generics"
+              ]
+            },
+            "speakers": {
+              "text": "douglas gregor slava pestov john mccall",
+              "words": [
+                "douglas",
+                "gregor",
+                "slava",
+                "pestov",
+                "john",
+                "mccall"
+              ]
+            },
+            "tags": {
+              "text": "ir performance llvm rust swift",
+              "words": [
+                "ir",
+                "performance",
+                "llvm",
+                "rust",
+                "swift"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "swift is a safe and efficient systems language with support for generic programming via its static type system. various existing implementations of generic programming use either a uniform runtime representation for values e.g. java generics or compile-time monomorphization e.g. c++ rust . swift takes a dictionary-passing approach similar to type-classes in haskell using reified type metadata to allow generic code to abstract over the memory layout of data types and avoid boxing. in this talk we will describe the compilation of swifts generics from the type checker down to llvm ir lowering and interaction with the swift runtime illustrating the how the core representation of generics flows through the system from answering type-checking queries to the calling convention of generic functions and runtime representation of the dictionaries .",
+              "words": [
+                "swift",
+                "is",
+                "safe",
+                "and",
+                "efficient",
+                "systems",
+                "language",
+                "with",
+                "support",
+                "for",
+                "generic",
+                "programming",
+                "via",
+                "its",
+                "static",
+                "type",
+                "system.",
+                "various",
+                "existing",
+                "implementations",
+                "of",
+                "generic",
+                "programming",
+                "use",
+                "either",
+                "uniform",
+                "runtime",
+                "representation",
+                "for",
+                "values",
+                "e.g.",
+                "java",
+                "generics",
+                "or",
+                "compile-time",
+                "monomorphization",
+                "e.g.",
+                "c++",
+                "rust",
+                "swift",
+                "takes",
+                "dictionary-passing",
+                "approach",
+                "similar",
+                "to",
+                "type-classes",
+                "in",
+                "haskell",
+                "using",
+                "reified",
+                "type",
+                "metadata",
+                "to",
+                "allow",
+                "generic",
+                "code",
+                "to",
+                "abstract",
+                "over",
+                "the",
+                "memory",
+                "layout",
+                "of",
+                "data",
+                "types",
+                "and",
+                "avoid",
+                "boxing.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "describe",
+                "the",
+                "compilation",
+                "of",
+                "swifts",
+                "generics",
+                "from",
+                "the",
+                "type",
+                "checker",
+                "down",
+                "to",
+                "llvm",
+                "ir",
+                "lowering",
+                "and",
+                "interaction",
+                "with",
+                "the",
+                "swift",
+                "runtime",
+                "illustrating",
+                "the",
+                "how",
+                "the",
+                "core",
+                "representation",
+                "of",
+                "generics",
+                "flows",
+                "through",
+                "the",
+                "system",
+                "from",
+                "answering",
+                "type-checking",
+                "queries",
+                "to",
+                "the",
+                "calling",
+                "convention",
+                "of",
+                "generic",
+                "functions",
+                "and",
+                "runtime",
+                "representation",
+                "of",
+                "the",
+                "dictionaries"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "implementing swift generics swift is a safe and efficient systems language with support for generic programming via its static type system. various existing implementations of generic programming use either a uniform runtime representation for values e.g. java generics or compile-time monomorphization e.g. c++ rust . swift takes a dictionary-passing approach similar to type-classes in haskell using reified type metadata to allow generic code to abstract over the memory layout of data types and avoid boxing. in this talk we will describe the compilation of swifts generics from the type checker down to llvm ir lowering and interaction with the swift runtime illustrating the how the core representation of generics flows through the system from answering type-checking queries to the calling convention of generic functions and runtime representation of the dictionaries . 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 technical-talk douglas gregor slava pestov john mccall ir performance llvm rust swift"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    },
+    "2017-10-043": {
+      "talk": {
+        "id": "2017-10-043",
+        "meeting": "2017-10",
+        "meetingName": "2017 US LLVM Developers' Meeting",
+        "meetingLocation": "San Jose, CA, USA",
+        "meetingDate": "October 18-19, 2017",
+        "category": "technical-talk",
+        "title": "ThreadSanitizer APIs for external libraries",
+        "speakers": [
+          {
+            "name": "Kuba Mracek",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Besides finding data races on direct memory accesses from instrumented code, ThreadSanitizer can now be used to find races on higher-level objects. In this lightning talk, we’ll show how libraries can adopt the new ThreadSanitizer APIs to detect when their users violate threading requirements. These APIs have been recently added to upstream LLVM and are already being used by Apple system frameworks to find races against collection objects, e.g. NSMutableArray and NSMutableDictionary.",
+        "videoUrl": "https://youtu.be/-J9bMpqfc7A",
+        "videoId": "-J9bMpqfc7A",
+        "slidesUrl": "http://llvm.org/devmtg/2017-10/slides/Mracek-TSan%20APIs%20for%20External%20Libraries.pdf",
+        "tags": [
+          "Dynamic Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "threadsanitizer apis for external libraries",
+        "_speakerLower": "kuba mracek",
+        "_abstractLower": "besides finding data races on direct memory accesses from instrumented code, threadsanitizer can now be used to find races on higher-level objects. in this lightning talk, we’ll show how libraries can adopt the new threadsanitizer apis to detect when their users violate threading requirements. these apis have been recently added to upstream llvm and are already being used by apple system frameworks to find races against collection objects, e.g. nsmutablearray and nsmutabledictionary.",
+        "_tagsLower": "dynamic analysis llvm sanitizers",
+        "_meetingLower": "2017 us llvm developers' meeting san jose, ca, usa october 18-19, 2017",
+        "_year": "2017",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "threadsanitizer apis for external libraries",
+              "words": [
+                "threadsanitizer",
+                "apis",
+                "for",
+                "external",
+                "libraries"
+              ]
+            },
+            "speakers": {
+              "text": "kuba mracek",
+              "words": [
+                "kuba",
+                "mracek"
+              ]
+            },
+            "tags": {
+              "text": "dynamic analysis llvm sanitizers",
+              "words": [
+                "dynamic",
+                "analysis",
+                "llvm",
+                "sanitizers"
+              ]
+            },
+            "meeting": {
+              "text": "2017 us llvm developers meeting san jose ca usa october 18-19 2017",
+              "words": [
+                "2017",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "san",
+                "jose",
+                "ca",
+                "usa",
+                "october",
+                "18-19",
+                "2017"
+              ]
+            },
+            "abstract": {
+              "text": "besides finding data races on direct memory accesses from instrumented code threadsanitizer can now be used to find races on higher-level objects. in this lightning talk well show how libraries can adopt the new threadsanitizer apis to detect when their users violate threading requirements. these apis have been recently added to upstream llvm and are already being used by apple system frameworks to find races against collection objects e.g. nsmutablearray and nsmutabledictionary.",
+              "words": [
+                "besides",
+                "finding",
+                "data",
+                "races",
+                "on",
+                "direct",
+                "memory",
+                "accesses",
+                "from",
+                "instrumented",
+                "code",
+                "threadsanitizer",
+                "can",
+                "now",
+                "be",
+                "used",
+                "to",
+                "find",
+                "races",
+                "on",
+                "higher-level",
+                "objects.",
+                "in",
+                "this",
+                "lightning",
+                "talk",
+                "well",
+                "show",
+                "how",
+                "libraries",
+                "can",
+                "adopt",
+                "the",
+                "new",
+                "threadsanitizer",
+                "apis",
+                "to",
+                "detect",
+                "when",
+                "their",
+                "users",
+                "violate",
+                "threading",
+                "requirements.",
+                "these",
+                "apis",
+                "have",
+                "been",
+                "recently",
+                "added",
+                "to",
+                "upstream",
+                "llvm",
+                "and",
+                "are",
+                "already",
+                "being",
+                "used",
+                "by",
+                "apple",
+                "system",
+                "frameworks",
+                "to",
+                "find",
+                "races",
+                "against",
+                "collection",
+                "objects",
+                "e.g.",
+                "nsmutablearray",
+                "and",
+                "nsmutabledictionary."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2017",
+              "words": [
+                "2017"
+              ]
+            }
+          },
+          "year": 2017
+        },
+        "_searchBlob": "threadsanitizer apis for external libraries besides finding data races on direct memory accesses from instrumented code threadsanitizer can now be used to find races on higher-level objects. in this lightning talk well show how libraries can adopt the new threadsanitizer apis to detect when their users violate threading requirements. these apis have been recently added to upstream llvm and are already being used by apple system frameworks to find races against collection objects e.g. nsmutablearray and nsmutabledictionary. 2017 us llvm developers meeting san jose ca usa october 18-19 2017 2017-10 technical-talk kuba mracek dynamic analysis llvm sanitizers"
+      },
+      "meeting": {
+        "slug": "2017-10",
+        "name": "2017 US LLVM Developers' Meeting",
+        "date": "October 18-19, 2017",
+        "location": "San Jose, CA, USA",
+        "canceled": false,
+        "talkCount": 59
+      }
+    },
+    "2009-10-002": {
+      "talk": {
+        "id": "2009-10-002",
+        "meeting": "2009-10",
+        "meetingName": "2009 US LLVM Developers' Meeting",
+        "meetingLocation": "Cupertino, CA, USA",
+        "meetingDate": "October 2, 2009",
+        "category": "tutorial",
+        "title": "Building backend in 24 hours",
+        "speakers": [
+          {
+            "name": "Anton Korobeynikov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "A step by step tutorial to build a backend.",
+        "videoUrl": "https://youtu.be/mjjbrBUH1KQ",
+        "videoId": "mjjbrBUH1KQ",
+        "slidesUrl": "https://llvm.org/devmtg/2009-10/Korobeynikov_BackendTutorial.pdf",
+        "tags": [
+          "Backend"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "building backend in 24 hours",
+        "_speakerLower": "anton korobeynikov",
+        "_abstractLower": "a step by step tutorial to build a backend.",
+        "_tagsLower": "backend",
+        "_meetingLower": "2009 us llvm developers' meeting cupertino, ca, usa october 2, 2009",
+        "_year": "2009",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "building backend in 24 hours",
+              "words": [
+                "building",
+                "backend",
+                "in",
+                "24",
+                "hours"
+              ]
+            },
+            "speakers": {
+              "text": "anton korobeynikov",
+              "words": [
+                "anton",
+                "korobeynikov"
+              ]
+            },
+            "tags": {
+              "text": "backend",
+              "words": [
+                "backend"
+              ]
+            },
+            "meeting": {
+              "text": "2009 us llvm developers meeting cupertino ca usa october 2 2009",
+              "words": [
+                "2009",
+                "us",
+                "llvm",
+                "developers",
+                "meeting",
+                "cupertino",
+                "ca",
+                "usa",
+                "october",
+                "2009"
+              ]
+            },
+            "abstract": {
+              "text": "a step by step tutorial to build a backend.",
+              "words": [
+                "step",
+                "by",
+                "step",
+                "tutorial",
+                "to",
+                "build",
+                "backend."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2009",
+              "words": [
+                "2009"
+              ]
+            }
+          },
+          "year": 2009
+        },
+        "_searchBlob": "building backend in 24 hours a step by step tutorial to build a backend. 2009 us llvm developers meeting cupertino ca usa october 2 2009 2009-10 tutorial anton korobeynikov backend"
+      },
+      "meeting": {
+        "slug": "2009-10",
+        "name": "2009 US LLVM Developers' Meeting",
+        "date": "October 2, 2009",
+        "location": "Cupertino, CA, USA",
+        "canceled": false,
+        "talkCount": 16
+      }
+    },
+    "2008-08-23-008": {
+      "talk": {
+        "id": "2008-08-23-008",
+        "meeting": "2008-08-23",
+        "meetingName": "2008 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "August 23, 2008",
+        "category": "technical-talk",
+        "title": "Binaries are not only output",
+        "speakers": [],
+        "abstract": "",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2008-08-23/binaries_are_not_only_output.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "binaries are not only output",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2008 asiallvm developers' meeting tokyo, japan august 23, 2008",
+        "_year": "2008",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "binaries are not only output",
+              "words": [
+                "binaries",
+                "are",
+                "not",
+                "only",
+                "output"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2008 asiallvm developers meeting tokyo japan august 23 2008",
+              "words": [
+                "2008",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "august",
+                "23",
+                "2008"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2008",
+              "words": [
+                "2008"
+              ]
+            }
+          },
+          "year": 2008
+        },
+        "_searchBlob": "binaries are not only output 2008 asiallvm developers meeting tokyo japan august 23 2008 2008-08-23 technical-talk"
+      },
+      "meeting": {
+        "slug": "2008-08-23",
+        "name": "2008 AsiaLLVM Developers' Meeting",
+        "date": "August 23, 2008",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 8
+      }
+    }
+  }
+}

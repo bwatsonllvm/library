@@ -1,0 +1,959 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2023-05-009": {
+      "talk": {
+        "id": "2023-05-009",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "MachineScheduler - fine grain resource allocation using resource intervals",
+        "speakers": [
+          {
+            "name": "Francesco Petrogalli",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk we will describe an optimisation introduced in the MachineScheduler that allows to allocate more resources in a smaller number of cycles. To achieve this, we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary.",
+        "videoUrl": "https://youtu.be/XWBVLcdzmFg",
+        "videoId": "XWBVLcdzmFg",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May11/03-Petrogalli-StartAtCycle.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "machinescheduler - fine grain resource allocation using resource intervals",
+        "_speakerLower": "francesco petrogalli",
+        "_abstractLower": "in this talk we will describe an optimisation introduced in the machinescheduler that allows to allocate more resources in a smaller number of cycles. to achieve this, we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary.",
+        "_tagsLower": "optimizations",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "machinescheduler - fine grain resource allocation using resource intervals",
+              "words": [
+                "machinescheduler",
+                "fine",
+                "grain",
+                "resource",
+                "allocation",
+                "using",
+                "resource",
+                "intervals"
+              ]
+            },
+            "speakers": {
+              "text": "francesco petrogalli",
+              "words": [
+                "francesco",
+                "petrogalli"
+              ]
+            },
+            "tags": {
+              "text": "optimizations",
+              "words": [
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we will describe an optimisation introduced in the machinescheduler that allows to allocate more resources in a smaller number of cycles. to achieve this we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "describe",
+                "an",
+                "optimisation",
+                "introduced",
+                "in",
+                "the",
+                "machinescheduler",
+                "that",
+                "allows",
+                "to",
+                "allocate",
+                "more",
+                "resources",
+                "in",
+                "smaller",
+                "number",
+                "of",
+                "cycles.",
+                "to",
+                "achieve",
+                "this",
+                "we",
+                "introduced",
+                "the",
+                "concept",
+                "of",
+                "resource",
+                "interval",
+                "and",
+                "look",
+                "for",
+                "empty",
+                "slots",
+                "when",
+                "tracking",
+                "resource",
+                "usage",
+                "at",
+                "schedule",
+                "boundary."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "machinescheduler - fine grain resource allocation using resource intervals in this talk we will describe an optimisation introduced in the machinescheduler that allows to allocate more resources in a smaller number of cycles. to achieve this we introduced the concept of resource interval and look for empty slots when tracking resource usage at a schedule boundary. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk francesco petrogalli optimizations"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-019": {
+      "talk": {
+        "id": "2022-05-019",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "quick-talk",
+        "title": "LLVM-MOS 6502 Backend: Having a Blast in the Past",
+        "speakers": [
+          {
+            "name": "Daniel Thornburgh",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM-MOS is an out-of-tree Clang and LLVM backend for the MOS Technology 6502, the CPU behind the NES, Atari 2600/8-bit, BBC Micro, Commodore 64, and many more beloved devices. LLVM-MOS converts freestanding C/C++ into fairly efficient 6502 machine code, despite the 6502’s limited and heterogeneous registers, lack of stack-relative addressing modes, and 256-byte stack. This talk will explore the grab-bag of tricks that hoodwinked LLVM into supporting an almost 50-year-old architecture: \"imaginary\" registers, instruction set regularization, whole-program static stack allocation, and, of course, lots and lots of pseudo-instructions.",
+        "videoUrl": "https://youtu.be/2lW3WHPtmKo",
+        "videoId": "2lW3WHPtmKo",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LLVM-MOS-6502Backend.pdf",
+        "tags": [
+          "Backend",
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm-mos 6502 backend: having a blast in the past",
+        "_speakerLower": "daniel thornburgh",
+        "_abstractLower": "llvm-mos is an out-of-tree clang and llvm backend for the mos technology 6502, the cpu behind the nes, atari 2600/8-bit, bbc micro, commodore 64, and many more beloved devices. llvm-mos converts freestanding c/c++ into fairly efficient 6502 machine code, despite the 6502’s limited and heterogeneous registers, lack of stack-relative addressing modes, and 256-byte stack. this talk will explore the grab-bag of tricks that hoodwinked llvm into supporting an almost 50-year-old architecture: \"imaginary\" registers, instruction set regularization, whole-program static stack allocation, and, of course, lots and lots of pseudo-instructions.",
+        "_tagsLower": "backend clang llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm-mos 6502 backend having a blast in the past",
+              "words": [
+                "llvm-mos",
+                "6502",
+                "backend",
+                "having",
+                "blast",
+                "in",
+                "the",
+                "past"
+              ]
+            },
+            "speakers": {
+              "text": "daniel thornburgh",
+              "words": [
+                "daniel",
+                "thornburgh"
+              ]
+            },
+            "tags": {
+              "text": "backend clang llvm",
+              "words": [
+                "backend",
+                "clang",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "llvm-mos is an out-of-tree clang and llvm backend for the mos technology 6502 the cpu behind the nes atari 2600 8-bit bbc micro commodore 64 and many more beloved devices. llvm-mos converts freestanding c c++ into fairly efficient 6502 machine code despite the 6502s limited and heterogeneous registers lack of stack-relative addressing modes and 256-byte stack. this talk will explore the grab-bag of tricks that hoodwinked llvm into supporting an almost 50-year-old architecture imaginary registers instruction set regularization whole-program static stack allocation and of course lots and lots of pseudo-instructions.",
+              "words": [
+                "llvm-mos",
+                "is",
+                "an",
+                "out-of-tree",
+                "clang",
+                "and",
+                "llvm",
+                "backend",
+                "for",
+                "the",
+                "mos",
+                "technology",
+                "6502",
+                "the",
+                "cpu",
+                "behind",
+                "the",
+                "nes",
+                "atari",
+                "2600",
+                "8-bit",
+                "bbc",
+                "micro",
+                "commodore",
+                "64",
+                "and",
+                "many",
+                "more",
+                "beloved",
+                "devices.",
+                "llvm-mos",
+                "converts",
+                "freestanding",
+                "c++",
+                "into",
+                "fairly",
+                "efficient",
+                "6502",
+                "machine",
+                "code",
+                "despite",
+                "the",
+                "6502s",
+                "limited",
+                "and",
+                "heterogeneous",
+                "registers",
+                "lack",
+                "of",
+                "stack-relative",
+                "addressing",
+                "modes",
+                "and",
+                "256-byte",
+                "stack.",
+                "this",
+                "talk",
+                "will",
+                "explore",
+                "the",
+                "grab-bag",
+                "of",
+                "tricks",
+                "that",
+                "hoodwinked",
+                "llvm",
+                "into",
+                "supporting",
+                "an",
+                "almost",
+                "50-year-old",
+                "architecture",
+                "imaginary",
+                "registers",
+                "instruction",
+                "set",
+                "regularization",
+                "whole-program",
+                "static",
+                "stack",
+                "allocation",
+                "and",
+                "of",
+                "course",
+                "lots",
+                "and",
+                "lots",
+                "of",
+                "pseudo-instructions."
+              ]
+            },
+            "category": {
+              "text": "quick-talk",
+              "words": [
+                "quick-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "llvm-mos 6502 backend having a blast in the past llvm-mos is an out-of-tree clang and llvm backend for the mos technology 6502 the cpu behind the nes atari 2600 8-bit bbc micro commodore 64 and many more beloved devices. llvm-mos converts freestanding c c++ into fairly efficient 6502 machine code despite the 6502s limited and heterogeneous registers lack of stack-relative addressing modes and 256-byte stack. this talk will explore the grab-bag of tricks that hoodwinked llvm into supporting an almost 50-year-old architecture imaginary registers instruction set regularization whole-program static stack allocation and of course lots and lots of pseudo-instructions. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 quick-talk daniel thornburgh backend clang llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2020-09-013": {
+      "talk": {
+        "id": "2020-09-013",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Building compiler extension for LLVM 10.0.1",
+        "speakers": [
+          {
+            "name": "Serge Guelton",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/PkfTHdoUzT8",
+        "videoId": "PkfTHdoUzT8",
+        "slidesUrl": "http://serge-sans-paille.github.io/talks/llvmdev2020/output/index.html",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "building compiler extension for llvm 10.0.1",
+        "_speakerLower": "serge guelton",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "building compiler extension for llvm 10.0.1",
+              "words": [
+                "building",
+                "compiler",
+                "extension",
+                "for",
+                "llvm",
+                "10.0.1"
+              ]
+            },
+            "speakers": {
+              "text": "serge guelton",
+              "words": [
+                "serge",
+                "guelton"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "building compiler extension for llvm 10.0.1 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk serge guelton llvm"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-035": {
+      "talk": {
+        "id": "2020-09-035",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "A fast algorithm for global code motion of congruent instructions",
+        "speakers": [
+          {
+            "name": "A. Kumar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "S. Pop",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/Ar17O-bb90E",
+        "videoId": "Ar17O-bb90E",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/A_fast_algorithm_for_global_code_motion_of_congruent_instructions.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "a fast algorithm for global code motion of congruent instructions",
+        "_speakerLower": "a. kumar s. pop",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a fast algorithm for global code motion of congruent instructions",
+              "words": [
+                "fast",
+                "algorithm",
+                "for",
+                "global",
+                "code",
+                "motion",
+                "of",
+                "congruent",
+                "instructions"
+              ]
+            },
+            "speakers": {
+              "text": "a. kumar s. pop",
+              "words": [
+                "a.",
+                "kumar",
+                "s.",
+                "pop"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "a fast algorithm for global code motion of congruent instructions 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk a. kumar s. pop"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-018": {
+      "talk": {
+        "id": "2020-04-018",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "PGO: Demystified Internals",
+        "speakers": [
+          {
+            "name": "Pavel Kosov",
+            "affiliation": "Huawei R & D",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "In this talk we will describe how PGO is implemented in LLVM. First, we will make general overview of PGO, talk about pipeline of instrumentation and sampling, compare two kinds of instrumentation (frontend and IR), overview kinds of counters, look deeper at instrumentation implementation (structures, algorithms). Then we will present some practical information: how counters are stored in executable file and on disk, describe profdata format, how it is loaded by llvm to profile metadata, and how this metadata is used in optimizations. Finally, we will make a comparison with talk about PGO which was presented 7 years ago on LLVM Dev Meeting 2013 ( https://llvm.org/devmtg/2013-11/ #talk14 ) – and we will see what was changed and how.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_65",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_65.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "pgo: demystified internals",
+        "_speakerLower": "pavel kosov",
+        "_abstractLower": "in this talk we will describe how pgo is implemented in llvm. first, we will make general overview of pgo, talk about pipeline of instrumentation and sampling, compare two kinds of instrumentation (frontend and ir), overview kinds of counters, look deeper at instrumentation implementation (structures, algorithms). then we will present some practical information: how counters are stored in executable file and on disk, describe profdata format, how it is loaded by llvm to profile metadata, and how this metadata is used in optimizations. finally, we will make a comparison with talk about pgo which was presented 7 years ago on llvm dev meeting 2013 ( https://llvm.org/devmtg/2013-11/ #talk14 ) – and we will see what was changed and how.",
+        "_tagsLower": "llvm pgo optimizations",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "pgo demystified internals",
+              "words": [
+                "pgo",
+                "demystified",
+                "internals"
+              ]
+            },
+            "speakers": {
+              "text": "pavel kosov",
+              "words": [
+                "pavel",
+                "kosov"
+              ]
+            },
+            "tags": {
+              "text": "llvm pgo optimizations",
+              "words": [
+                "llvm",
+                "pgo",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk we will describe how pgo is implemented in llvm. first we will make general overview of pgo talk about pipeline of instrumentation and sampling compare two kinds of instrumentation frontend and ir overview kinds of counters look deeper at instrumentation implementation structures algorithms . then we will present some practical information how counters are stored in executable file and on disk describe profdata format how it is loaded by llvm to profile metadata and how this metadata is used in optimizations. finally we will make a comparison with talk about pgo which was presented 7 years ago on llvm dev meeting 2013 https llvm.org devmtg 2013-11 #talk14 and we will see what was changed and how.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "describe",
+                "how",
+                "pgo",
+                "is",
+                "implemented",
+                "in",
+                "llvm.",
+                "first",
+                "we",
+                "will",
+                "make",
+                "general",
+                "overview",
+                "of",
+                "pgo",
+                "talk",
+                "about",
+                "pipeline",
+                "of",
+                "instrumentation",
+                "and",
+                "sampling",
+                "compare",
+                "two",
+                "kinds",
+                "of",
+                "instrumentation",
+                "frontend",
+                "and",
+                "ir",
+                "overview",
+                "kinds",
+                "of",
+                "counters",
+                "look",
+                "deeper",
+                "at",
+                "instrumentation",
+                "implementation",
+                "structures",
+                "algorithms",
+                "then",
+                "we",
+                "will",
+                "present",
+                "some",
+                "practical",
+                "information",
+                "how",
+                "counters",
+                "are",
+                "stored",
+                "in",
+                "executable",
+                "file",
+                "and",
+                "on",
+                "disk",
+                "describe",
+                "profdata",
+                "format",
+                "how",
+                "it",
+                "is",
+                "loaded",
+                "by",
+                "llvm",
+                "to",
+                "profile",
+                "metadata",
+                "and",
+                "how",
+                "this",
+                "metadata",
+                "is",
+                "used",
+                "in",
+                "optimizations.",
+                "finally",
+                "we",
+                "will",
+                "make",
+                "comparison",
+                "with",
+                "talk",
+                "about",
+                "pgo",
+                "which",
+                "was",
+                "presented",
+                "years",
+                "ago",
+                "on",
+                "llvm",
+                "dev",
+                "meeting",
+                "2013",
+                "https",
+                "llvm.org",
+                "devmtg",
+                "2013-11",
+                "#talk14",
+                "and",
+                "we",
+                "will",
+                "see",
+                "what",
+                "was",
+                "changed",
+                "and",
+                "how."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "pgo demystified internals in this talk we will describe how pgo is implemented in llvm. first we will make general overview of pgo talk about pipeline of instrumentation and sampling compare two kinds of instrumentation frontend and ir overview kinds of counters look deeper at instrumentation implementation structures algorithms . then we will present some practical information how counters are stored in executable file and on disk describe profdata format how it is loaded by llvm to profile metadata and how this metadata is used in optimizations. finally we will make a comparison with talk about pgo which was presented 7 years ago on llvm dev meeting 2013 https llvm.org devmtg 2013-11 #talk14 and we will see what was changed and how. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk pavel kosov llvm pgo optimizations"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-02-23-001": {
+      "talk": {
+        "id": "2020-02-23-001",
+        "meeting": "2020-02-23",
+        "meetingName": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "meetingLocation": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "meetingDate": "February 23, 2020",
+        "category": "technical-talk",
+        "title": "An Overview of the Region Vectorizer",
+        "speakers": [
+          {
+            "name": "Simon Moll",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The Region Vectorizer (RV) is a data-parallel vecorizer for LLVM IR. This talk gives an overview of the RV vectorization system, its main features and future directions.",
+        "videoId": null,
+        "tags": [
+          "Autovectorization",
+          "IR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "an overview of the region vectorizer",
+        "_speakerLower": "simon moll",
+        "_abstractLower": "the region vectorizer (rv) is a data-parallel vecorizer for llvm ir. this talk gives an overview of the rv vectorization system, its main features and future directions.",
+        "_tagsLower": "autovectorization ir llvm",
+        "_meetingLower": "2020 fourth llvm performance workshop @ cgo20 fourth llvm performance workshop at cgo20, san diego, ca, usa february 23, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an overview of the region vectorizer",
+              "words": [
+                "an",
+                "overview",
+                "of",
+                "the",
+                "region",
+                "vectorizer"
+              ]
+            },
+            "speakers": {
+              "text": "simon moll",
+              "words": [
+                "simon",
+                "moll"
+              ]
+            },
+            "tags": {
+              "text": "autovectorization ir llvm",
+              "words": [
+                "autovectorization",
+                "ir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020",
+              "words": [
+                "2020",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo20",
+                "fourth",
+                "llvm",
+                "performance",
+                "workshop",
+                "at",
+                "cgo20",
+                "san",
+                "diego",
+                "ca",
+                "usa",
+                "february",
+                "23",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "the region vectorizer rv is a data-parallel vecorizer for llvm ir. this talk gives an overview of the rv vectorization system its main features and future directions.",
+              "words": [
+                "the",
+                "region",
+                "vectorizer",
+                "rv",
+                "is",
+                "data-parallel",
+                "vecorizer",
+                "for",
+                "llvm",
+                "ir.",
+                "this",
+                "talk",
+                "gives",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "rv",
+                "vectorization",
+                "system",
+                "its",
+                "main",
+                "features",
+                "and",
+                "future",
+                "directions."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "an overview of the region vectorizer the region vectorizer rv is a data-parallel vecorizer for llvm ir. this talk gives an overview of the rv vectorization system its main features and future directions. 2020 fourth llvm performance workshop cgo20 fourth llvm performance workshop at cgo20 san diego ca usa february 23 2020 2020-02-23 technical-talk simon moll autovectorization ir llvm"
+      },
+      "meeting": {
+        "slug": "2020-02-23",
+        "name": "2020 Fourth LLVM Performance Workshop @ CGO20",
+        "date": "February 23, 2020",
+        "location": "Fourth LLVM Performance Workshop at CGO20, San Diego, CA, USA",
+        "canceled": false,
+        "talkCount": 10
+      }
+    }
+  }
+}

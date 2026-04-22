@@ -1,0 +1,3240 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2025-06-018": {
+      "talk": {
+        "id": "2025-06-018",
+        "meeting": "2025-06",
+        "meetingName": "2025 AsiaLLVM Developers' Meeting",
+        "meetingLocation": "Tokyo, Japan",
+        "meetingDate": "June 10, 2025",
+        "category": "lightning-talk",
+        "title": "Wanco: WebAssembly AOT Compiler That Supports Live Migration",
+        "speakers": [
+          {
+            "name": "Raiki Tamura",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We introduce Wanco, an AOT compiler for WebAssembly that enables migration across platforms, making it ideal for edge computing and IoT devices. Leveraging LLVM, Wanco introduces up to 50% overhead while storing snapshots in a CPU- and OS-independent format, enhancing the portability of WebAssembly programs.",
+        "videoUrl": "https://youtu.be/gVvgSn7dyts",
+        "videoId": "gVvgSn7dyts",
+        "slidesUrl": "https://llvm.org/devmtg/2025-06/slides/lightning-talk/tamura-webassembly.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "wanco: webassembly aot compiler that supports live migration",
+        "_speakerLower": "raiki tamura",
+        "_abstractLower": "we introduce wanco, an aot compiler for webassembly that enables migration across platforms, making it ideal for edge computing and iot devices. leveraging llvm, wanco introduces up to 50% overhead while storing snapshots in a cpu- and os-independent format, enhancing the portability of webassembly programs.",
+        "_tagsLower": "llvm wasm",
+        "_meetingLower": "2025 asiallvm developers' meeting tokyo, japan june 10, 2025",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "wanco webassembly aot compiler that supports live migration",
+              "words": [
+                "wanco",
+                "webassembly",
+                "aot",
+                "compiler",
+                "that",
+                "supports",
+                "live",
+                "migration"
+              ]
+            },
+            "speakers": {
+              "text": "raiki tamura",
+              "words": [
+                "raiki",
+                "tamura"
+              ]
+            },
+            "tags": {
+              "text": "llvm wasm",
+              "words": [
+                "llvm",
+                "wasm"
+              ]
+            },
+            "meeting": {
+              "text": "2025 asiallvm developers meeting tokyo japan june 10 2025",
+              "words": [
+                "2025",
+                "asiallvm",
+                "developers",
+                "meeting",
+                "tokyo",
+                "japan",
+                "june",
+                "10",
+                "2025"
+              ]
+            },
+            "abstract": {
+              "text": "we introduce wanco an aot compiler for webassembly that enables migration across platforms making it ideal for edge computing and iot devices. leveraging llvm wanco introduces up to 50 overhead while storing snapshots in a cpu- and os-independent format enhancing the portability of webassembly programs.",
+              "words": [
+                "we",
+                "introduce",
+                "wanco",
+                "an",
+                "aot",
+                "compiler",
+                "for",
+                "webassembly",
+                "that",
+                "enables",
+                "migration",
+                "across",
+                "platforms",
+                "making",
+                "it",
+                "ideal",
+                "for",
+                "edge",
+                "computing",
+                "and",
+                "iot",
+                "devices.",
+                "leveraging",
+                "llvm",
+                "wanco",
+                "introduces",
+                "up",
+                "to",
+                "50",
+                "overhead",
+                "while",
+                "storing",
+                "snapshots",
+                "in",
+                "cpu-",
+                "and",
+                "os-independent",
+                "format",
+                "enhancing",
+                "the",
+                "portability",
+                "of",
+                "webassembly",
+                "programs."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "wanco webassembly aot compiler that supports live migration we introduce wanco an aot compiler for webassembly that enables migration across platforms making it ideal for edge computing and iot devices. leveraging llvm wanco introduces up to 50 overhead while storing snapshots in a cpu- and os-independent format enhancing the portability of webassembly programs. 2025 asiallvm developers meeting tokyo japan june 10 2025 2025-06 lightning-talk raiki tamura llvm wasm"
+      },
+      "meeting": {
+        "slug": "2025-06",
+        "name": "2025 AsiaLLVM Developers' Meeting",
+        "date": "June 10, 2025",
+        "location": "Tokyo, Japan",
+        "canceled": false,
+        "talkCount": 23
+      }
+    },
+    "2024-04-008": {
+      "talk": {
+        "id": "2024-04-008",
+        "meeting": "2024-04",
+        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingLocation": "Vienna, Austria",
+        "meetingDate": "April 9-11, 2024",
+        "category": "technical-talk",
+        "title": "Swift/C++ Interoperability",
+        "speakers": [
+          {
+            "name": "Egor Zhdan",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Swift/C++ interoperability enables incrementally incorporating Swift - a memory safe language - into existing C++ codebases and has been used to gradually adopt Swift in large C++ projects, including the Swift compiler itself.",
+        "videoUrl": "https://youtu.be/2g-fQd_OYUU",
+        "videoId": "2g-fQd_OYUU",
+        "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Zhdan-SwiftCPlusPus-Interoperability.pdf",
+        "tags": [
+          "Programming Languages",
+          "Swift"
+        ],
+        "projectGithub": "https://github.com/apple/swift",
+        "githubReferences": [
+          "https://github.com/apple/swift"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/apple/swift",
+            "source": "slides",
+            "label": "Open Source Collaboration Part of the Swift OSS project. We would appreciate your contributions!",
+            "context": "Open Source Collaboration Part of the Swift OSS project. We would appreciate your contributions!",
+            "library": "swift",
+            "repository": "apple/swift",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/apple/swift"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "swift/c++ interoperability",
+        "_speakerLower": "egor zhdan",
+        "_abstractLower": "swift/c++ interoperability enables incrementally incorporating swift - a memory safe language - into existing c++ codebases and has been used to gradually adopt swift in large c++ projects, including the swift compiler itself.",
+        "_tagsLower": "programming languages swift",
+        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "swift c++ interoperability",
+              "words": [
+                "swift",
+                "c++",
+                "interoperability"
+              ]
+            },
+            "speakers": {
+              "text": "egor zhdan",
+              "words": [
+                "egor",
+                "zhdan"
+              ]
+            },
+            "tags": {
+              "text": "programming languages swift",
+              "words": [
+                "programming",
+                "languages",
+                "swift"
+              ]
+            },
+            "meeting": {
+              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "words": [
+                "2024",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "vienna",
+                "austria",
+                "april",
+                "9-11",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "swift c++ interoperability enables incrementally incorporating swift - a memory safe language - into existing c++ codebases and has been used to gradually adopt swift in large c++ projects including the swift compiler itself.",
+              "words": [
+                "swift",
+                "c++",
+                "interoperability",
+                "enables",
+                "incrementally",
+                "incorporating",
+                "swift",
+                "memory",
+                "safe",
+                "language",
+                "into",
+                "existing",
+                "c++",
+                "codebases",
+                "and",
+                "has",
+                "been",
+                "used",
+                "to",
+                "gradually",
+                "adopt",
+                "swift",
+                "in",
+                "large",
+                "c++",
+                "projects",
+                "including",
+                "the",
+                "swift",
+                "compiler",
+                "itself."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "swift c++ interoperability swift c++ interoperability enables incrementally incorporating swift - a memory safe language - into existing c++ codebases and has been used to gradually adopt swift in large c++ projects including the swift compiler itself. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk egor zhdan programming languages swift"
+      },
+      "meeting": {
+        "slug": "2024-04",
+        "name": "2024 European LLVM Developers' Meeting",
+        "date": "April 9-11, 2024",
+        "location": "Vienna, Austria",
+        "canceled": false,
+        "talkCount": 62
+      }
+    },
+    "2024-03-009": {
+      "talk": {
+        "id": "2024-03-009",
+        "meeting": "2024-03",
+        "meetingName": "2024 Eight LLVM Performance Workshop @ CGO2024",
+        "meetingLocation": "Eight LLVM Performance Workshop @ CGO2024, Edinburgh - In Person",
+        "meetingDate": "March 2-6, 2024",
+        "category": "keynote",
+        "title": "Keynote: \"Arrays 2.0: Extending the Scope of the Array Abstraction\"",
+        "speakers": [
+          {
+            "name": "Saman Amarasinghe",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "FORTRAN, the first programming language introduced over a half a century ago, ushered in multi-dimensional arrays to store data and FOR loops to iterate over them. Since then, the programming world has evolved to introduce a plethora of data structures ranging from lists and sets to trees and graphs. Yet, when it comes to handling immense data sets, arrays and loops remain a practical mainstay. Every imperative programming language has implemented arrays and loops and most programmers learn to use them early on. Many important features in modern hardware from caches to prefetchers were created to efficiently execute array accesses by loops. Even in LLVM, many optimizations including loop invariant code motion, vectorization and polyhedral optimizations were dedicated to optimizing loopy codes with array accesses. The scope of the array data structure, a multi-dimensional, dense, integer grid of points in a rectilinear space, first introduced in FOTRAN, haven't expanded beyond this definition. However, a significant portion of real-world data, either originating from sensors, computational processes, or human input, embodies innate structures such as sparsity, repeated value sequences, symmetry and continuous real-valued indices. These characteristics are evident in diverse fields like scientific computing, data analytics, graph processing, and machine learning. In this talk, I will attempt to expand the familiar arrays and loops abstraction beyond the original scope of FORTRAN with the TACO and Finch compilers. TACO pioneered auto-generating of kernels for any sparse tensor algebra operation across prevalent formats. Finch, on the other hand, has seamlessly integrated the management of structured data, capturing nuances like sparsity, repeated values, symmetry and arrays where indices are real values. I will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compiler's output rivals the performance of best-of-class handcrafted codes. I hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes. Saman Amarasinghe is a Professor in the Department of Electrical Engineering and Computer Science at Massachusetts Institute of Technology and a member of its Computer Science and Artificial Intelligence Laboratory (CSAIL) where he leads the Commit compiler group. Under Saman's guidance, the Commit group has developed a myriad of pioneering programming languages and compilers including the StreamIt, StreamJIT, PetaBricks, Halide, Simit, MILK, Cimple, TACO, GraphIt, BioStream, CoLa and Seq programming languages and compilers, DynamoRIO, Helium, Tiramisu, Codon and BuildIt compiler/runtime frameworks, Superword Level Parallelism (SLP), goSLP and VeGen for vectorization, Ithemal machine learning based performance predictor, Program Shepherding to protect programs against external attacks, the OpenTuner extendable autotuner, and the Kendo deterministic execution system. He was the co-leader of the Raw architecture project. Beyond academia, Saman was a co-founder of Determina, Lanka Internet Services Ltd., Venti Technologies, DataCebo and Exaloop corporations. Saman received his BS in Electrical Engineering and Computer Science from Cornell University in 1988, and his MSEE and Ph.D. from Stanford University in 1990 and 1997, respectively. He is an ACM Fellow.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2024-03/slides/Arrays-2.0-LLVM-CGO-2024-Keynote.pdf",
+        "tags": [
+          "AI",
+          "Autovectorization",
+          "Backend",
+          "Flang",
+          "Loop transformations",
+          "ML",
+          "Optimizations",
+          "Performance",
+          "Polly",
+          "Programming Languages"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "keynote: \"arrays 2.0: extending the scope of the array abstraction\"",
+        "_speakerLower": "saman amarasinghe",
+        "_abstractLower": "fortran, the first programming language introduced over a half a century ago, ushered in multi-dimensional arrays to store data and for loops to iterate over them. since then, the programming world has evolved to introduce a plethora of data structures ranging from lists and sets to trees and graphs. yet, when it comes to handling immense data sets, arrays and loops remain a practical mainstay. every imperative programming language has implemented arrays and loops and most programmers learn to use them early on. many important features in modern hardware from caches to prefetchers were created to efficiently execute array accesses by loops. even in llvm, many optimizations including loop invariant code motion, vectorization and polyhedral optimizations were dedicated to optimizing loopy codes with array accesses. the scope of the array data structure, a multi-dimensional, dense, integer grid of points in a rectilinear space, first introduced in fotran, haven't expanded beyond this definition. however, a significant portion of real-world data, either originating from sensors, computational processes, or human input, embodies innate structures such as sparsity, repeated value sequences, symmetry and continuous real-valued indices. these characteristics are evident in diverse fields like scientific computing, data analytics, graph processing, and machine learning. in this talk, i will attempt to expand the familiar arrays and loops abstraction beyond the original scope of fortran with the taco and finch compilers. taco pioneered auto-generating of kernels for any sparse tensor algebra operation across prevalent formats. finch, on the other hand, has seamlessly integrated the management of structured data, capturing nuances like sparsity, repeated values, symmetry and arrays where indices are real values. i will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compiler's output rivals the performance of best-of-class handcrafted codes. i hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes. saman amarasinghe is a professor in the department of electrical engineering and computer science at massachusetts institute of technology and a member of its computer science and artificial intelligence laboratory (csail) where he leads the commit compiler group. under saman's guidance, the commit group has developed a myriad of pioneering programming languages and compilers including the streamit, streamjit, petabricks, halide, simit, milk, cimple, taco, graphit, biostream, cola and seq programming languages and compilers, dynamorio, helium, tiramisu, codon and buildit compiler/runtime frameworks, superword level parallelism (slp), goslp and vegen for vectorization, ithemal machine learning based performance predictor, program shepherding to protect programs against external attacks, the opentuner extendable autotuner, and the kendo deterministic execution system. he was the co-leader of the raw architecture project. beyond academia, saman was a co-founder of determina, lanka internet services ltd., venti technologies, datacebo and exaloop corporations. saman received his bs in electrical engineering and computer science from cornell university in 1988, and his msee and ph.d. from stanford university in 1990 and 1997, respectively. he is an acm fellow.",
+        "_tagsLower": "ai autovectorization backend flang loop transformations ml optimizations performance polly programming languages llvm code generation",
+        "_meetingLower": "2024 eight llvm performance workshop @ cgo2024 eight llvm performance workshop @ cgo2024, edinburgh - in person march 2-6, 2024",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "keynote arrays 2.0 extending the scope of the array abstraction",
+              "words": [
+                "keynote",
+                "arrays",
+                "2.0",
+                "extending",
+                "the",
+                "scope",
+                "of",
+                "the",
+                "array",
+                "abstraction"
+              ]
+            },
+            "speakers": {
+              "text": "saman amarasinghe",
+              "words": [
+                "saman",
+                "amarasinghe"
+              ]
+            },
+            "tags": {
+              "text": "ai autovectorization backend flang loop transformations ml optimizations performance polly programming languages llvm code generation",
+              "words": [
+                "ai",
+                "autovectorization",
+                "backend",
+                "flang",
+                "loop",
+                "transformations",
+                "ml",
+                "optimizations",
+                "performance",
+                "polly",
+                "programming",
+                "languages",
+                "llvm",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "2024 eight llvm performance workshop cgo2024 eight llvm performance workshop cgo2024 edinburgh - in person march 2-6 2024",
+              "words": [
+                "2024",
+                "eight",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo2024",
+                "eight",
+                "llvm",
+                "performance",
+                "workshop",
+                "cgo2024",
+                "edinburgh",
+                "in",
+                "person",
+                "march",
+                "2-6",
+                "2024"
+              ]
+            },
+            "abstract": {
+              "text": "fortran the first programming language introduced over a half a century ago ushered in multi-dimensional arrays to store data and for loops to iterate over them. since then the programming world has evolved to introduce a plethora of data structures ranging from lists and sets to trees and graphs. yet when it comes to handling immense data sets arrays and loops remain a practical mainstay. every imperative programming language has implemented arrays and loops and most programmers learn to use them early on. many important features in modern hardware from caches to prefetchers were created to efficiently execute array accesses by loops. even in llvm many optimizations including loop invariant code motion vectorization and polyhedral optimizations were dedicated to optimizing loopy codes with array accesses. the scope of the array data structure a multi-dimensional dense integer grid of points in a rectilinear space first introduced in fotran havent expanded beyond this definition. however a significant portion of real-world data either originating from sensors computational processes or human input embodies innate structures such as sparsity repeated value sequences symmetry and continuous real-valued indices. these characteristics are evident in diverse fields like scientific computing data analytics graph processing and machine learning. in this talk i will attempt to expand the familiar arrays and loops abstraction beyond the original scope of fortran with the taco and finch compilers. taco pioneered auto-generating of kernels for any sparse tensor algebra operation across prevalent formats. finch on the other hand has seamlessly integrated the management of structured data capturing nuances like sparsity repeated values symmetry and arrays where indices are real values. i will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compilers output rivals the performance of best-of-class handcrafted codes. i hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes. saman amarasinghe is a professor in the department of electrical engineering and computer science at massachusetts institute of technology and a member of its computer science and artificial intelligence laboratory csail where he leads the commit compiler group. under samans guidance the commit group has developed a myriad of pioneering programming languages and compilers including the streamit streamjit petabricks halide simit milk cimple taco graphit biostream cola and seq programming languages and compilers dynamorio helium tiramisu codon and buildit compiler runtime frameworks superword level parallelism slp goslp and vegen for vectorization ithemal machine learning based performance predictor program shepherding to protect programs against external attacks the opentuner extendable autotuner and the kendo deterministic execution system. he was the co-leader of the raw architecture project. beyond academia saman was a co-founder of determina lanka internet services ltd. venti technologies datacebo and exaloop corporations. saman received his bs in electrical engineering and computer science from cornell university in 1988 and his msee and ph.d. from stanford university in 1990 and 1997 respectively. he is an acm fellow.",
+              "words": [
+                "fortran",
+                "the",
+                "first",
+                "programming",
+                "language",
+                "introduced",
+                "over",
+                "half",
+                "century",
+                "ago",
+                "ushered",
+                "in",
+                "multi-dimensional",
+                "arrays",
+                "to",
+                "store",
+                "data",
+                "and",
+                "for",
+                "loops",
+                "to",
+                "iterate",
+                "over",
+                "them.",
+                "since",
+                "then",
+                "the",
+                "programming",
+                "world",
+                "has",
+                "evolved",
+                "to",
+                "introduce",
+                "plethora",
+                "of",
+                "data",
+                "structures",
+                "ranging",
+                "from",
+                "lists",
+                "and",
+                "sets",
+                "to",
+                "trees",
+                "and",
+                "graphs.",
+                "yet",
+                "when",
+                "it",
+                "comes",
+                "to",
+                "handling",
+                "immense",
+                "data",
+                "sets",
+                "arrays",
+                "and",
+                "loops",
+                "remain",
+                "practical",
+                "mainstay.",
+                "every",
+                "imperative",
+                "programming",
+                "language",
+                "has",
+                "implemented",
+                "arrays",
+                "and",
+                "loops",
+                "and",
+                "most",
+                "programmers",
+                "learn",
+                "to",
+                "use",
+                "them",
+                "early",
+                "on.",
+                "many",
+                "important",
+                "features",
+                "in",
+                "modern",
+                "hardware",
+                "from",
+                "caches",
+                "to",
+                "prefetchers",
+                "were",
+                "created",
+                "to",
+                "efficiently",
+                "execute",
+                "array",
+                "accesses",
+                "by",
+                "loops.",
+                "even",
+                "in",
+                "llvm",
+                "many",
+                "optimizations",
+                "including",
+                "loop",
+                "invariant",
+                "code",
+                "motion",
+                "vectorization",
+                "and",
+                "polyhedral",
+                "optimizations",
+                "were",
+                "dedicated",
+                "to",
+                "optimizing",
+                "loopy",
+                "codes",
+                "with",
+                "array",
+                "accesses.",
+                "the",
+                "scope",
+                "of",
+                "the",
+                "array",
+                "data",
+                "structure",
+                "multi-dimensional",
+                "dense",
+                "integer",
+                "grid",
+                "of",
+                "points",
+                "in",
+                "rectilinear",
+                "space",
+                "first",
+                "introduced",
+                "in",
+                "fotran",
+                "havent",
+                "expanded",
+                "beyond",
+                "this",
+                "definition.",
+                "however",
+                "significant",
+                "portion",
+                "of",
+                "real-world",
+                "data",
+                "either",
+                "originating",
+                "from",
+                "sensors",
+                "computational",
+                "processes",
+                "or",
+                "human",
+                "input",
+                "embodies",
+                "innate",
+                "structures",
+                "such",
+                "as",
+                "sparsity",
+                "repeated",
+                "value",
+                "sequences",
+                "symmetry",
+                "and",
+                "continuous",
+                "real-valued",
+                "indices.",
+                "these",
+                "characteristics",
+                "are",
+                "evident",
+                "in",
+                "diverse",
+                "fields",
+                "like",
+                "scientific",
+                "computing",
+                "data",
+                "analytics",
+                "graph",
+                "processing",
+                "and",
+                "machine",
+                "learning.",
+                "in",
+                "this",
+                "talk",
+                "will",
+                "attempt",
+                "to",
+                "expand",
+                "the",
+                "familiar",
+                "arrays",
+                "and",
+                "loops",
+                "abstraction",
+                "beyond",
+                "the",
+                "original",
+                "scope",
+                "of",
+                "fortran",
+                "with",
+                "the",
+                "taco",
+                "and",
+                "finch",
+                "compilers.",
+                "taco",
+                "pioneered",
+                "auto-generating",
+                "of",
+                "kernels",
+                "for",
+                "any",
+                "sparse",
+                "tensor",
+                "algebra",
+                "operation",
+                "across",
+                "prevalent",
+                "formats.",
+                "finch",
+                "on",
+                "the",
+                "other",
+                "hand",
+                "has",
+                "seamlessly",
+                "integrated",
+                "the",
+                "management",
+                "of",
+                "structured",
+                "data",
+                "capturing",
+                "nuances",
+                "like",
+                "sparsity",
+                "repeated",
+                "values",
+                "symmetry",
+                "and",
+                "arrays",
+                "where",
+                "indices",
+                "are",
+                "real",
+                "values.",
+                "will",
+                "demonstrate",
+                "how",
+                "to",
+                "compile",
+                "complex",
+                "loopy",
+                "programs",
+                "with",
+                "structured",
+                "data",
+                "into",
+                "efficient",
+                "loops",
+                "in",
+                "systematic",
+                "way",
+                "and",
+                "how",
+                "our",
+                "compilers",
+                "output",
+                "rivals",
+                "the",
+                "performance",
+                "of",
+                "best-of-class",
+                "handcrafted",
+                "codes.",
+                "hope",
+                "to",
+                "convince",
+                "you",
+                "that",
+                "we",
+                "can",
+                "finally",
+                "put",
+                "structured",
+                "array",
+                "programming",
+                "on",
+                "the",
+                "same",
+                "compiler",
+                "transformation",
+                "and",
+                "code",
+                "generation",
+                "footing",
+                "as",
+                "dense",
+                "array",
+                "codes.",
+                "saman",
+                "amarasinghe",
+                "is",
+                "professor",
+                "in",
+                "the",
+                "department",
+                "of",
+                "electrical",
+                "engineering",
+                "and",
+                "computer",
+                "science",
+                "at",
+                "massachusetts",
+                "institute",
+                "of",
+                "technology",
+                "and",
+                "member",
+                "of",
+                "its",
+                "computer",
+                "science",
+                "and",
+                "artificial",
+                "intelligence",
+                "laboratory",
+                "csail",
+                "where",
+                "he",
+                "leads",
+                "the",
+                "commit",
+                "compiler",
+                "group.",
+                "under",
+                "samans",
+                "guidance",
+                "the",
+                "commit",
+                "group",
+                "has",
+                "developed",
+                "myriad",
+                "of",
+                "pioneering",
+                "programming",
+                "languages",
+                "and",
+                "compilers",
+                "including",
+                "the",
+                "streamit",
+                "streamjit",
+                "petabricks",
+                "halide",
+                "simit",
+                "milk",
+                "cimple",
+                "taco",
+                "graphit",
+                "biostream",
+                "cola",
+                "and",
+                "seq",
+                "programming",
+                "languages",
+                "and",
+                "compilers",
+                "dynamorio",
+                "helium",
+                "tiramisu",
+                "codon",
+                "and",
+                "buildit",
+                "compiler",
+                "runtime",
+                "frameworks",
+                "superword",
+                "level",
+                "parallelism",
+                "slp",
+                "goslp",
+                "and",
+                "vegen",
+                "for",
+                "vectorization",
+                "ithemal",
+                "machine",
+                "learning",
+                "based",
+                "performance",
+                "predictor",
+                "program",
+                "shepherding",
+                "to",
+                "protect",
+                "programs",
+                "against",
+                "external",
+                "attacks",
+                "the",
+                "opentuner",
+                "extendable",
+                "autotuner",
+                "and",
+                "the",
+                "kendo",
+                "deterministic",
+                "execution",
+                "system.",
+                "he",
+                "was",
+                "the",
+                "co-leader",
+                "of",
+                "the",
+                "raw",
+                "architecture",
+                "project.",
+                "beyond",
+                "academia",
+                "saman",
+                "was",
+                "co-founder",
+                "of",
+                "determina",
+                "lanka",
+                "internet",
+                "services",
+                "ltd.",
+                "venti",
+                "technologies",
+                "datacebo",
+                "and",
+                "exaloop",
+                "corporations.",
+                "saman",
+                "received",
+                "his",
+                "bs",
+                "in",
+                "electrical",
+                "engineering",
+                "and",
+                "computer",
+                "science",
+                "from",
+                "cornell",
+                "university",
+                "in",
+                "1988",
+                "and",
+                "his",
+                "msee",
+                "and",
+                "ph.d.",
+                "from",
+                "stanford",
+                "university",
+                "in",
+                "1990",
+                "and",
+                "1997",
+                "respectively.",
+                "he",
+                "is",
+                "an",
+                "acm",
+                "fellow."
+              ]
+            },
+            "category": {
+              "text": "keynote",
+              "words": [
+                "keynote"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "keynote arrays 2.0 extending the scope of the array abstraction fortran the first programming language introduced over a half a century ago ushered in multi-dimensional arrays to store data and for loops to iterate over them. since then the programming world has evolved to introduce a plethora of data structures ranging from lists and sets to trees and graphs. yet when it comes to handling immense data sets arrays and loops remain a practical mainstay. every imperative programming language has implemented arrays and loops and most programmers learn to use them early on. many important features in modern hardware from caches to prefetchers were created to efficiently execute array accesses by loops. even in llvm many optimizations including loop invariant code motion vectorization and polyhedral optimizations were dedicated to optimizing loopy codes with array accesses. the scope of the array data structure a multi-dimensional dense integer grid of points in a rectilinear space first introduced in fotran havent expanded beyond this definition. however a significant portion of real-world data either originating from sensors computational processes or human input embodies innate structures such as sparsity repeated value sequences symmetry and continuous real-valued indices. these characteristics are evident in diverse fields like scientific computing data analytics graph processing and machine learning. in this talk i will attempt to expand the familiar arrays and loops abstraction beyond the original scope of fortran with the taco and finch compilers. taco pioneered auto-generating of kernels for any sparse tensor algebra operation across prevalent formats. finch on the other hand has seamlessly integrated the management of structured data capturing nuances like sparsity repeated values symmetry and arrays where indices are real values. i will demonstrate how to compile complex loopy programs with structured data into efficient loops in a systematic way and how our compilers output rivals the performance of best-of-class handcrafted codes. i hope to convince you that we can finally put structured array programming on the same compiler transformation and code generation footing as dense array codes. saman amarasinghe is a professor in the department of electrical engineering and computer science at massachusetts institute of technology and a member of its computer science and artificial intelligence laboratory csail where he leads the commit compiler group. under samans guidance the commit group has developed a myriad of pioneering programming languages and compilers including the streamit streamjit petabricks halide simit milk cimple taco graphit biostream cola and seq programming languages and compilers dynamorio helium tiramisu codon and buildit compiler runtime frameworks superword level parallelism slp goslp and vegen for vectorization ithemal machine learning based performance predictor program shepherding to protect programs against external attacks the opentuner extendable autotuner and the kendo deterministic execution system. he was the co-leader of the raw architecture project. beyond academia saman was a co-founder of determina lanka internet services ltd. venti technologies datacebo and exaloop corporations. saman received his bs in electrical engineering and computer science from cornell university in 1988 and his msee and ph.d. from stanford university in 1990 and 1997 respectively. he is an acm fellow. 2024 eight llvm performance workshop cgo2024 eight llvm performance workshop cgo2024 edinburgh - in person march 2-6 2024 2024-03 keynote saman amarasinghe ai autovectorization backend flang loop transformations ml optimizations performance polly programming languages llvm code generation"
+      },
+      "meeting": {
+        "slug": "2024-03",
+        "name": "2024 Eight LLVM Performance Workshop @ CGO2024",
+        "date": "March 2-6, 2024",
+        "location": "Eight LLVM Performance Workshop @ CGO2024, Edinburgh - In Person",
+        "canceled": false,
+        "talkCount": 10
+      }
+    },
+    "2023-05-017": {
+      "talk": {
+        "id": "2023-05-017",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "Structured Bindings and How to Analyze Them",
+        "speakers": [
+          {
+            "name": "Domján Dániel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "A deeper dive into how structured bindings are handled inside the Clang Static Analyzer. The process involves multiple parts of the analyzer throughout the static analysis pipeline. This speech will give an insight into all the steps and tricks used in the implementation.",
+        "videoUrl": "https://youtu.be/ZPcf7w-Tk3Y",
+        "videoId": "ZPcf7w-Tk3Y",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May11/02-Domjan-StructuredBindingsCombined.pdf",
+        "tags": [
+          "Clang",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "structured bindings and how to analyze them",
+        "_speakerLower": "domján dániel",
+        "_abstractLower": "a deeper dive into how structured bindings are handled inside the clang static analyzer. the process involves multiple parts of the analyzer throughout the static analysis pipeline. this speech will give an insight into all the steps and tricks used in the implementation.",
+        "_tagsLower": "clang static analysis",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "structured bindings and how to analyze them",
+              "words": [
+                "structured",
+                "bindings",
+                "and",
+                "how",
+                "to",
+                "analyze",
+                "them"
+              ]
+            },
+            "speakers": {
+              "text": "domjan daniel",
+              "words": [
+                "domjan",
+                "daniel"
+              ]
+            },
+            "tags": {
+              "text": "clang static analysis",
+              "words": [
+                "clang",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "a deeper dive into how structured bindings are handled inside the clang static analyzer. the process involves multiple parts of the analyzer throughout the static analysis pipeline. this speech will give an insight into all the steps and tricks used in the implementation.",
+              "words": [
+                "deeper",
+                "dive",
+                "into",
+                "how",
+                "structured",
+                "bindings",
+                "are",
+                "handled",
+                "inside",
+                "the",
+                "clang",
+                "static",
+                "analyzer.",
+                "the",
+                "process",
+                "involves",
+                "multiple",
+                "parts",
+                "of",
+                "the",
+                "analyzer",
+                "throughout",
+                "the",
+                "static",
+                "analysis",
+                "pipeline.",
+                "this",
+                "speech",
+                "will",
+                "give",
+                "an",
+                "insight",
+                "into",
+                "all",
+                "the",
+                "steps",
+                "and",
+                "tricks",
+                "used",
+                "in",
+                "the",
+                "implementation."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "structured bindings and how to analyze them a deeper dive into how structured bindings are handled inside the clang static analyzer. the process involves multiple parts of the analyzer throughout the static analysis pipeline. this speech will give an insight into all the steps and tricks used in the implementation. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk domjan daniel clang static analysis"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2023-05-039": {
+      "talk": {
+        "id": "2023-05-039",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "lightning-talk",
+        "title": "Using MLIR for Dalvik Bytecode Analysis",
+        "speakers": [
+          {
+            "name": "Eduardo Blázquez",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Eduardo Blázquez, University Carlos III of Madrid Using intermediate representations allows analysts to write optimizations and code analysis passes easier than parsing binary or bytecode directly. Kunai is a library intended for static analysis of dalvik bytecode, in a newer version of the library, the idea is to use the capabilities and possibilities offered by MLIR, writing a new dialect centered on Dalvik instructions.",
+        "videoUrl": "https://youtu.be/hfqOivYdD40",
+        "videoId": "hfqOivYdD40",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/01-Eduardo-EuroLLVM2023.pdf",
+        "tags": [
+          "IR",
+          "MLIR",
+          "Optimizations",
+          "Static Analysis"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "using mlir for dalvik bytecode analysis",
+        "_speakerLower": "eduardo blázquez",
+        "_abstractLower": "eduardo blázquez, university carlos iii of madrid using intermediate representations allows analysts to write optimizations and code analysis passes easier than parsing binary or bytecode directly. kunai is a library intended for static analysis of dalvik bytecode, in a newer version of the library, the idea is to use the capabilities and possibilities offered by mlir, writing a new dialect centered on dalvik instructions.",
+        "_tagsLower": "ir mlir optimizations static analysis",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "using mlir for dalvik bytecode analysis",
+              "words": [
+                "using",
+                "mlir",
+                "for",
+                "dalvik",
+                "bytecode",
+                "analysis"
+              ]
+            },
+            "speakers": {
+              "text": "eduardo blazquez",
+              "words": [
+                "eduardo",
+                "blazquez"
+              ]
+            },
+            "tags": {
+              "text": "ir mlir optimizations static analysis",
+              "words": [
+                "ir",
+                "mlir",
+                "optimizations",
+                "static",
+                "analysis"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "eduardo blazquez university carlos iii of madrid using intermediate representations allows analysts to write optimizations and code analysis passes easier than parsing binary or bytecode directly. kunai is a library intended for static analysis of dalvik bytecode in a newer version of the library the idea is to use the capabilities and possibilities offered by mlir writing a new dialect centered on dalvik instructions.",
+              "words": [
+                "eduardo",
+                "blazquez",
+                "university",
+                "carlos",
+                "iii",
+                "of",
+                "madrid",
+                "using",
+                "intermediate",
+                "representations",
+                "allows",
+                "analysts",
+                "to",
+                "write",
+                "optimizations",
+                "and",
+                "code",
+                "analysis",
+                "passes",
+                "easier",
+                "than",
+                "parsing",
+                "binary",
+                "or",
+                "bytecode",
+                "directly.",
+                "kunai",
+                "is",
+                "library",
+                "intended",
+                "for",
+                "static",
+                "analysis",
+                "of",
+                "dalvik",
+                "bytecode",
+                "in",
+                "newer",
+                "version",
+                "of",
+                "the",
+                "library",
+                "the",
+                "idea",
+                "is",
+                "to",
+                "use",
+                "the",
+                "capabilities",
+                "and",
+                "possibilities",
+                "offered",
+                "by",
+                "mlir",
+                "writing",
+                "new",
+                "dialect",
+                "centered",
+                "on",
+                "dalvik",
+                "instructions."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "using mlir for dalvik bytecode analysis eduardo blazquez university carlos iii of madrid using intermediate representations allows analysts to write optimizations and code analysis passes easier than parsing binary or bytecode directly. kunai is a library intended for static analysis of dalvik bytecode in a newer version of the library the idea is to use the capabilities and possibilities offered by mlir writing a new dialect centered on dalvik instructions. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk eduardo blazquez ir mlir optimizations static analysis"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-005": {
+      "talk": {
+        "id": "2022-05-005",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "Lightweight Instrumentation using Debug Information",
+        "speakers": [
+          {
+            "name": "Ellis Hoag",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kyungwoo Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Profile-Guided Optimization (PGO) has been shown to be useful not only in CPU-bound scenarios, but also in the mobile space where app size is a dominating issue. Collecting profiles on size-constrained devices is challenging because the instrumented binary can be doubled in size. Recently, we’ve introduced Lightweight Instrumentation that greatly improves the instrumented binary size overhead using debug info. In this talk we will describe how we reduced this overhead, how to create a minimal instrumented binary for function entry coverage only, and our future plans in this space.",
+        "videoUrl": "https://youtu.be/vFWwJrOiVMM",
+        "videoId": "vFWwJrOiVMM",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LightweightInstrumentationUsingDebugInformation.pdf",
+        "tags": [
+          "Debug Information",
+          "Optimizations",
+          "PGO",
+          "Performance"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "lightweight instrumentation using debug information",
+        "_speakerLower": "ellis hoag kyungwoo lee",
+        "_abstractLower": "profile-guided optimization (pgo) has been shown to be useful not only in cpu-bound scenarios, but also in the mobile space where app size is a dominating issue. collecting profiles on size-constrained devices is challenging because the instrumented binary can be doubled in size. recently, we’ve introduced lightweight instrumentation that greatly improves the instrumented binary size overhead using debug info. in this talk we will describe how we reduced this overhead, how to create a minimal instrumented binary for function entry coverage only, and our future plans in this space.",
+        "_tagsLower": "debug information optimizations pgo performance",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "lightweight instrumentation using debug information",
+              "words": [
+                "lightweight",
+                "instrumentation",
+                "using",
+                "debug",
+                "information"
+              ]
+            },
+            "speakers": {
+              "text": "ellis hoag kyungwoo lee",
+              "words": [
+                "ellis",
+                "hoag",
+                "kyungwoo",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "debug information optimizations pgo performance",
+              "words": [
+                "debug",
+                "information",
+                "optimizations",
+                "pgo",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "profile-guided optimization pgo has been shown to be useful not only in cpu-bound scenarios but also in the mobile space where app size is a dominating issue. collecting profiles on size-constrained devices is challenging because the instrumented binary can be doubled in size. recently weve introduced lightweight instrumentation that greatly improves the instrumented binary size overhead using debug info. in this talk we will describe how we reduced this overhead how to create a minimal instrumented binary for function entry coverage only and our future plans in this space.",
+              "words": [
+                "profile-guided",
+                "optimization",
+                "pgo",
+                "has",
+                "been",
+                "shown",
+                "to",
+                "be",
+                "useful",
+                "not",
+                "only",
+                "in",
+                "cpu-bound",
+                "scenarios",
+                "but",
+                "also",
+                "in",
+                "the",
+                "mobile",
+                "space",
+                "where",
+                "app",
+                "size",
+                "is",
+                "dominating",
+                "issue.",
+                "collecting",
+                "profiles",
+                "on",
+                "size-constrained",
+                "devices",
+                "is",
+                "challenging",
+                "because",
+                "the",
+                "instrumented",
+                "binary",
+                "can",
+                "be",
+                "doubled",
+                "in",
+                "size.",
+                "recently",
+                "weve",
+                "introduced",
+                "lightweight",
+                "instrumentation",
+                "that",
+                "greatly",
+                "improves",
+                "the",
+                "instrumented",
+                "binary",
+                "size",
+                "overhead",
+                "using",
+                "debug",
+                "info.",
+                "in",
+                "this",
+                "talk",
+                "we",
+                "will",
+                "describe",
+                "how",
+                "we",
+                "reduced",
+                "this",
+                "overhead",
+                "how",
+                "to",
+                "create",
+                "minimal",
+                "instrumented",
+                "binary",
+                "for",
+                "function",
+                "entry",
+                "coverage",
+                "only",
+                "and",
+                "our",
+                "future",
+                "plans",
+                "in",
+                "this",
+                "space."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "lightweight instrumentation using debug information profile-guided optimization pgo has been shown to be useful not only in cpu-bound scenarios but also in the mobile space where app size is a dominating issue. collecting profiles on size-constrained devices is challenging because the instrumented binary can be doubled in size. recently weve introduced lightweight instrumentation that greatly improves the instrumented binary size overhead using debug info. in this talk we will describe how we reduced this overhead how to create a minimal instrumented binary for function entry coverage only and our future plans in this space. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk ellis hoag kyungwoo lee debug information optimizations pgo performance"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2022-05-027": {
+      "talk": {
+        "id": "2022-05-027",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "llvm-foundation",
+        "title": "LLVM Foundation Updates",
+        "speakers": [
+          {
+            "name": "LLVM Board of Directors",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "LLVM Foundation update session from EuroLLVM, presented by the LLVM Board of Directors.",
+        "videoUrl": "https://youtu.be/jWr-THo_MNE",
+        "videoId": "jWr-THo_MNE",
+        "tags": [
+          "LLVM Foundation"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm foundation updates",
+        "_speakerLower": "llvm board of directors",
+        "_abstractLower": "llvm foundation update session from eurollvm, presented by the llvm board of directors.",
+        "_tagsLower": "llvm foundation llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm foundation updates",
+              "words": [
+                "llvm",
+                "foundation",
+                "updates"
+              ]
+            },
+            "speakers": {
+              "text": "llvm board of directors",
+              "words": [
+                "llvm",
+                "board",
+                "of",
+                "directors"
+              ]
+            },
+            "tags": {
+              "text": "llvm foundation llvm",
+              "words": [
+                "llvm",
+                "foundation",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "llvm foundation update session from eurollvm presented by the llvm board of directors.",
+              "words": [
+                "llvm",
+                "foundation",
+                "update",
+                "session",
+                "from",
+                "eurollvm",
+                "presented",
+                "by",
+                "the",
+                "llvm",
+                "board",
+                "of",
+                "directors."
+              ]
+            },
+            "category": {
+              "text": "llvm-foundation",
+              "words": [
+                "llvm-foundation"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "llvm foundation updates llvm foundation update session from eurollvm presented by the llvm board of directors. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 llvm-foundation llvm board of directors llvm foundation llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2021-11-009": {
+      "talk": {
+        "id": "2021-11-009",
+        "meeting": "2021-11",
+        "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "November 16-19, 2021",
+        "category": "technical-talk",
+        "title": "Byte types, or how to get rid of i8 abuse for chars in LLVM IR",
+        "speakers": [
+          {
+            "name": "Juneyoung Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Nuno Lopes",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "George Mitenkov",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/j9QJ56x4lRY",
+        "videoId": "j9QJ56x4lRY",
+        "slidesUrl": "https://llvm.org/devmtg/2021-11/slides/2021-ByteTypesOrHowToGetRidOfI8AbuseForCharsInLLVMIR.pdf",
+        "tags": [
+          "IR"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "byte types, or how to get rid of i8 abuse for chars in llvm ir",
+        "_speakerLower": "juneyoung lee nuno lopes george mitenkov",
+        "_abstractLower": "",
+        "_tagsLower": "ir llvm",
+        "_meetingLower": "2021 llvm developers' meeting (virtual) virtual november 16-19, 2021",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "byte types or how to get rid of i8 abuse for chars in llvm ir",
+              "words": [
+                "byte",
+                "types",
+                "or",
+                "how",
+                "to",
+                "get",
+                "rid",
+                "of",
+                "i8",
+                "abuse",
+                "for",
+                "chars",
+                "in",
+                "llvm",
+                "ir"
+              ]
+            },
+            "speakers": {
+              "text": "juneyoung lee nuno lopes george mitenkov",
+              "words": [
+                "juneyoung",
+                "lee",
+                "nuno",
+                "lopes",
+                "george",
+                "mitenkov"
+              ]
+            },
+            "tags": {
+              "text": "ir llvm",
+              "words": [
+                "ir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2021 llvm developers meeting virtual virtual november 16-19 2021",
+              "words": [
+                "2021",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "november",
+                "16-19",
+                "2021"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "byte types or how to get rid of i8 abuse for chars in llvm ir 2021 llvm developers meeting virtual virtual november 16-19 2021 2021-11 technical-talk juneyoung lee nuno lopes george mitenkov ir llvm"
+      },
+      "meeting": {
+        "slug": "2021-11",
+        "name": "2021 LLVM Developers' Meeting (Virtual)",
+        "date": "November 16-19, 2021",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 67
+      }
+    },
+    "2020-09-021": {
+      "talk": {
+        "id": "2020-09-021",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "Proposal for A Framework for More Effective Loop Optimizations",
+        "speakers": [
+          {
+            "name": "M. Kruse",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "H. Finkel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/zHHUh0c5wig",
+        "videoId": "zHHUh0c5wig",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/KruseFinkel-Proposal_for_A_Framework_for_More_Effective_Loop_Optimizations.pdf",
+        "tags": [
+          "Loop transformations",
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "proposal for a framework for more effective loop optimizations",
+        "_speakerLower": "m. kruse h. finkel",
+        "_abstractLower": "",
+        "_tagsLower": "loop transformations optimizations",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "proposal for a framework for more effective loop optimizations",
+              "words": [
+                "proposal",
+                "for",
+                "framework",
+                "for",
+                "more",
+                "effective",
+                "loop",
+                "optimizations"
+              ]
+            },
+            "speakers": {
+              "text": "m. kruse h. finkel",
+              "words": [
+                "m.",
+                "kruse",
+                "h.",
+                "finkel"
+              ]
+            },
+            "tags": {
+              "text": "loop transformations optimizations",
+              "words": [
+                "loop",
+                "transformations",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "proposal for a framework for more effective loop optimizations 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk m. kruse h. finkel loop transformations optimizations"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-043": {
+      "talk": {
+        "id": "2020-09-043",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "Compile Faster with the Program Repository and ccache",
+        "speakers": [
+          {
+            "name": "Y. Yi",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "P. Bowen-Huggett",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/9bQEtJHkDTw",
+        "videoId": "9bQEtJHkDTw",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "slidesUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "compile faster with the program repository and ccache",
+        "_speakerLower": "y. yi p. bowen-huggett",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "compile faster with the program repository and ccache",
+              "words": [
+                "compile",
+                "faster",
+                "with",
+                "the",
+                "program",
+                "repository",
+                "and",
+                "ccache"
+              ]
+            },
+            "speakers": {
+              "text": "y. yi p. bowen-huggett",
+              "words": [
+                "y.",
+                "yi",
+                "p.",
+                "bowen-huggett"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "compile faster with the program repository and ccache 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk y. yi p. bowen-huggett"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-004": {
+      "talk": {
+        "id": "2020-04-004",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Transitioning the Scientific Software Toolchain to Clang/LLVM",
+        "speakers": [
+          {
+            "name": "Mike Pozulp",
+            "affiliation": "Lawrence Livermore National Laboratory and University of California",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Davis)",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Shawn Dawson",
+            "affiliation": "Lawrence Livermore National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Ryan Bleile",
+            "affiliation": "Lawrence Livermore National Laboratory and University of Oregon",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Patrick Brantley",
+            "affiliation": "Lawrence Livermore National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "M. Scott McKinley",
+            "affiliation": "Lawrence Livermore National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Matt O'Brien",
+            "affiliation": "Lawrence Livermore National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Dave Richards",
+            "affiliation": "Lawrence Livermore National Laboratory",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "For the past 25 years, many of the largest scientific software applications at Lawrence Livermore National Laboratory (LLNL) have used the Intel C/C++ compiler (icc/icpc) to compile the executables provided to users on x86. This spring 2020, the Monte Carlo Transport Project will release our first executable compiled with clang, which builds 25% faster and runs 6.1% faster than icpc. The poster accompanying this paper will describe the challenges of switching toolchains and the resulting advantages of using a clang/LLVM toolchain for large scientific software applications at LLNL. Acknowledgement: The title was inspired by a technical talk from the 2019 LLVM Developers' Meeting, \"Transitioning the Networking Software Toolchain to Clang/LLVM\".",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_11",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_11.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "transitioning the scientific software toolchain to clang/llvm",
+        "_speakerLower": "mike pozulp davis) shawn dawson ryan bleile patrick brantley m. scott mckinley matt o'brien dave richards",
+        "_abstractLower": "for the past 25 years, many of the largest scientific software applications at lawrence livermore national laboratory (llnl) have used the intel c/c++ compiler (icc/icpc) to compile the executables provided to users on x86. this spring 2020, the monte carlo transport project will release our first executable compiled with clang, which builds 25% faster and runs 6.1% faster than icpc. the poster accompanying this paper will describe the challenges of switching toolchains and the resulting advantages of using a clang/llvm toolchain for large scientific software applications at llnl. acknowledgement: the title was inspired by a technical talk from the 2019 llvm developers' meeting, \"transitioning the networking software toolchain to clang/llvm\".",
+        "_tagsLower": "llvm clang infrastructure",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "transitioning the scientific software toolchain to clang llvm",
+              "words": [
+                "transitioning",
+                "the",
+                "scientific",
+                "software",
+                "toolchain",
+                "to",
+                "clang",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "mike pozulp davis shawn dawson ryan bleile patrick brantley m. scott mckinley matt obrien dave richards",
+              "words": [
+                "mike",
+                "pozulp",
+                "davis",
+                "shawn",
+                "dawson",
+                "ryan",
+                "bleile",
+                "patrick",
+                "brantley",
+                "m.",
+                "scott",
+                "mckinley",
+                "matt",
+                "obrien",
+                "dave",
+                "richards"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang infrastructure",
+              "words": [
+                "llvm",
+                "clang",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "for the past 25 years many of the largest scientific software applications at lawrence livermore national laboratory llnl have used the intel c c++ compiler icc icpc to compile the executables provided to users on x86. this spring 2020 the monte carlo transport project will release our first executable compiled with clang which builds 25 faster and runs 6.1 faster than icpc. the poster accompanying this paper will describe the challenges of switching toolchains and the resulting advantages of using a clang llvm toolchain for large scientific software applications at llnl. acknowledgement the title was inspired by a technical talk from the 2019 llvm developers meeting transitioning the networking software toolchain to clang llvm .",
+              "words": [
+                "for",
+                "the",
+                "past",
+                "25",
+                "years",
+                "many",
+                "of",
+                "the",
+                "largest",
+                "scientific",
+                "software",
+                "applications",
+                "at",
+                "lawrence",
+                "livermore",
+                "national",
+                "laboratory",
+                "llnl",
+                "have",
+                "used",
+                "the",
+                "intel",
+                "c++",
+                "compiler",
+                "icc",
+                "icpc",
+                "to",
+                "compile",
+                "the",
+                "executables",
+                "provided",
+                "to",
+                "users",
+                "on",
+                "x86.",
+                "this",
+                "spring",
+                "2020",
+                "the",
+                "monte",
+                "carlo",
+                "transport",
+                "project",
+                "will",
+                "release",
+                "our",
+                "first",
+                "executable",
+                "compiled",
+                "with",
+                "clang",
+                "which",
+                "builds",
+                "25",
+                "faster",
+                "and",
+                "runs",
+                "6.1",
+                "faster",
+                "than",
+                "icpc.",
+                "the",
+                "poster",
+                "accompanying",
+                "this",
+                "paper",
+                "will",
+                "describe",
+                "the",
+                "challenges",
+                "of",
+                "switching",
+                "toolchains",
+                "and",
+                "the",
+                "resulting",
+                "advantages",
+                "of",
+                "using",
+                "clang",
+                "llvm",
+                "toolchain",
+                "for",
+                "large",
+                "scientific",
+                "software",
+                "applications",
+                "at",
+                "llnl.",
+                "acknowledgement",
+                "the",
+                "title",
+                "was",
+                "inspired",
+                "by",
+                "technical",
+                "talk",
+                "from",
+                "the",
+                "2019",
+                "llvm",
+                "developers",
+                "meeting",
+                "transitioning",
+                "the",
+                "networking",
+                "software",
+                "toolchain",
+                "to",
+                "clang",
+                "llvm"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "transitioning the scientific software toolchain to clang llvm for the past 25 years many of the largest scientific software applications at lawrence livermore national laboratory llnl have used the intel c c++ compiler icc icpc to compile the executables provided to users on x86. this spring 2020 the monte carlo transport project will release our first executable compiled with clang which builds 25 faster and runs 6.1 faster than icpc. the poster accompanying this paper will describe the challenges of switching toolchains and the resulting advantages of using a clang llvm toolchain for large scientific software applications at llnl. acknowledgement the title was inspired by a technical talk from the 2019 llvm developers meeting transitioning the networking software toolchain to clang llvm . 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk mike pozulp davis shawn dawson ryan bleile patrick brantley m. scott mckinley matt obrien dave richards llvm clang infrastructure"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-026": {
+      "talk": {
+        "id": "2020-04-026",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "tutorial",
+        "title": "LLVM in a Bare Metal Environment",
+        "speakers": [
+          {
+            "name": "Hafiz Abid Qadeer",
+            "affiliation": "Mentor Graphics",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This tutorial is about building and validating LLVM toolchain for Embedded Bare Metal Systems. Currently, most of the bare metal toolchains using LLVM depend on an existing GCC installation to provide some runtime bits. In this tutorial, I will go through the steps involved in building an LLVM toolchain that does not have this dependency. The tutorial will cover the following topics: What are multilibs and how to specify them How to generate command line options for compiler, linker and other tools in the driver How building runtime libraries is different from building host tools and ways to build LLVM runtime libraries (compiler-rt, libunwind, libcxxabi, libcxx) for bare metal targets Overview of the LLVM testing and how to test runtime libraries Current testing infrastructure provides support to test runtime libraries on emulator like QEMU. How to extend it to real bare metal hardware",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_22",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_22.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "llvm in a bare metal environment",
+        "_speakerLower": "hafiz abid qadeer",
+        "_abstractLower": "this tutorial is about building and validating llvm toolchain for embedded bare metal systems. currently, most of the bare metal toolchains using llvm depend on an existing gcc installation to provide some runtime bits. in this tutorial, i will go through the steps involved in building an llvm toolchain that does not have this dependency. the tutorial will cover the following topics: what are multilibs and how to specify them how to generate command line options for compiler, linker and other tools in the driver how building runtime libraries is different from building host tools and ways to build llvm runtime libraries (compiler-rt, libunwind, libcxxabi, libcxx) for bare metal targets overview of the llvm testing and how to test runtime libraries current testing infrastructure provides support to test runtime libraries on emulator like qemu. how to extend it to real bare metal hardware",
+        "_tagsLower": "llvm compiler-rt runtimes libc++abi libunwind testing infrastructure embedded",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llvm in a bare metal environment",
+              "words": [
+                "llvm",
+                "in",
+                "bare",
+                "metal",
+                "environment"
+              ]
+            },
+            "speakers": {
+              "text": "hafiz abid qadeer",
+              "words": [
+                "hafiz",
+                "abid",
+                "qadeer"
+              ]
+            },
+            "tags": {
+              "text": "llvm compiler-rt runtimes libc++abi libunwind testing infrastructure embedded",
+              "words": [
+                "llvm",
+                "compiler-rt",
+                "runtimes",
+                "libc++abi",
+                "libunwind",
+                "testing",
+                "infrastructure",
+                "embedded"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "this tutorial is about building and validating llvm toolchain for embedded bare metal systems. currently most of the bare metal toolchains using llvm depend on an existing gcc installation to provide some runtime bits. in this tutorial i will go through the steps involved in building an llvm toolchain that does not have this dependency. the tutorial will cover the following topics what are multilibs and how to specify them how to generate command line options for compiler linker and other tools in the driver how building runtime libraries is different from building host tools and ways to build llvm runtime libraries compiler-rt libunwind libcxxabi libcxx for bare metal targets overview of the llvm testing and how to test runtime libraries current testing infrastructure provides support to test runtime libraries on emulator like qemu. how to extend it to real bare metal hardware",
+              "words": [
+                "this",
+                "tutorial",
+                "is",
+                "about",
+                "building",
+                "and",
+                "validating",
+                "llvm",
+                "toolchain",
+                "for",
+                "embedded",
+                "bare",
+                "metal",
+                "systems.",
+                "currently",
+                "most",
+                "of",
+                "the",
+                "bare",
+                "metal",
+                "toolchains",
+                "using",
+                "llvm",
+                "depend",
+                "on",
+                "an",
+                "existing",
+                "gcc",
+                "installation",
+                "to",
+                "provide",
+                "some",
+                "runtime",
+                "bits.",
+                "in",
+                "this",
+                "tutorial",
+                "will",
+                "go",
+                "through",
+                "the",
+                "steps",
+                "involved",
+                "in",
+                "building",
+                "an",
+                "llvm",
+                "toolchain",
+                "that",
+                "does",
+                "not",
+                "have",
+                "this",
+                "dependency.",
+                "the",
+                "tutorial",
+                "will",
+                "cover",
+                "the",
+                "following",
+                "topics",
+                "what",
+                "are",
+                "multilibs",
+                "and",
+                "how",
+                "to",
+                "specify",
+                "them",
+                "how",
+                "to",
+                "generate",
+                "command",
+                "line",
+                "options",
+                "for",
+                "compiler",
+                "linker",
+                "and",
+                "other",
+                "tools",
+                "in",
+                "the",
+                "driver",
+                "how",
+                "building",
+                "runtime",
+                "libraries",
+                "is",
+                "different",
+                "from",
+                "building",
+                "host",
+                "tools",
+                "and",
+                "ways",
+                "to",
+                "build",
+                "llvm",
+                "runtime",
+                "libraries",
+                "compiler-rt",
+                "libunwind",
+                "libcxxabi",
+                "libcxx",
+                "for",
+                "bare",
+                "metal",
+                "targets",
+                "overview",
+                "of",
+                "the",
+                "llvm",
+                "testing",
+                "and",
+                "how",
+                "to",
+                "test",
+                "runtime",
+                "libraries",
+                "current",
+                "testing",
+                "infrastructure",
+                "provides",
+                "support",
+                "to",
+                "test",
+                "runtime",
+                "libraries",
+                "on",
+                "emulator",
+                "like",
+                "qemu.",
+                "how",
+                "to",
+                "extend",
+                "it",
+                "to",
+                "real",
+                "bare",
+                "metal",
+                "hardware"
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "llvm in a bare metal environment this tutorial is about building and validating llvm toolchain for embedded bare metal systems. currently most of the bare metal toolchains using llvm depend on an existing gcc installation to provide some runtime bits. in this tutorial i will go through the steps involved in building an llvm toolchain that does not have this dependency. the tutorial will cover the following topics what are multilibs and how to specify them how to generate command line options for compiler linker and other tools in the driver how building runtime libraries is different from building host tools and ways to build llvm runtime libraries compiler-rt libunwind libcxxabi libcxx for bare metal targets overview of the llvm testing and how to test runtime libraries current testing infrastructure provides support to test runtime libraries on emulator like qemu. how to extend it to real bare metal hardware 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial hafiz abid qadeer llvm compiler-rt runtimes libc++abi libunwind testing infrastructure embedded"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-048": {
+      "talk": {
+        "id": "2020-04-048",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "lightning-talk",
+        "title": "Extending Clang and LLVM for Interpreter Profiling Perf-ection",
+        "speakers": [
+          {
+            "name": "Frej Drejhammar",
+            "affiliation": "RISE SICS",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "When profiling a highly optimized interpreter, such as the Erlang virtual machine, a profiler does not really give you the information you need. This talk will show how surprisingly easy it is to extend Clang and LLVM to solve an one-off profiling task using the Perf tool. The Erlang virtual machine (BEAM) is a classic threaded interpreter, using first class labels and gotos, contained in a single function. For profiling purposes this is bad, as the profiler will attribute execution time to the main interpreter function when you as a developer really want execution time attributed to individual BEAM opcodes. By adding custom attributes to Clang and an analysis late in the LLVM back-end, we can easily traverse the CFG of the interpreter and figure out which basic blocks are executed by each BEAM opcode. With a small patch to Perf's JIT interface, we can make this basic block information override the debug information for the main interpreter function, thus allowing Perf to assign execution time to individual BEAM opcodes.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_LightningTalk_36",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_LightningTalk_36.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "extending clang and llvm for interpreter profiling perf-ection",
+        "_speakerLower": "frej drejhammar",
+        "_abstractLower": "when profiling a highly optimized interpreter, such as the erlang virtual machine, a profiler does not really give you the information you need. this talk will show how surprisingly easy it is to extend clang and llvm to solve an one-off profiling task using the perf tool. the erlang virtual machine (beam) is a classic threaded interpreter, using first class labels and gotos, contained in a single function. for profiling purposes this is bad, as the profiler will attribute execution time to the main interpreter function when you as a developer really want execution time attributed to individual beam opcodes. by adding custom attributes to clang and an analysis late in the llvm back-end, we can easily traverse the cfg of the interpreter and figure out which basic blocks are executed by each beam opcode. with a small patch to perf's jit interface, we can make this basic block information override the debug information for the main interpreter function, thus allowing perf to assign execution time to individual beam opcodes.",
+        "_tagsLower": "llvm clang jit debug information",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "extending clang and llvm for interpreter profiling perf-ection",
+              "words": [
+                "extending",
+                "clang",
+                "and",
+                "llvm",
+                "for",
+                "interpreter",
+                "profiling",
+                "perf-ection"
+              ]
+            },
+            "speakers": {
+              "text": "frej drejhammar",
+              "words": [
+                "frej",
+                "drejhammar"
+              ]
+            },
+            "tags": {
+              "text": "llvm clang jit debug information",
+              "words": [
+                "llvm",
+                "clang",
+                "jit",
+                "debug",
+                "information"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "when profiling a highly optimized interpreter such as the erlang virtual machine a profiler does not really give you the information you need. this talk will show how surprisingly easy it is to extend clang and llvm to solve an one-off profiling task using the perf tool. the erlang virtual machine beam is a classic threaded interpreter using first class labels and gotos contained in a single function. for profiling purposes this is bad as the profiler will attribute execution time to the main interpreter function when you as a developer really want execution time attributed to individual beam opcodes. by adding custom attributes to clang and an analysis late in the llvm back-end we can easily traverse the cfg of the interpreter and figure out which basic blocks are executed by each beam opcode. with a small patch to perfs jit interface we can make this basic block information override the debug information for the main interpreter function thus allowing perf to assign execution time to individual beam opcodes.",
+              "words": [
+                "when",
+                "profiling",
+                "highly",
+                "optimized",
+                "interpreter",
+                "such",
+                "as",
+                "the",
+                "erlang",
+                "virtual",
+                "machine",
+                "profiler",
+                "does",
+                "not",
+                "really",
+                "give",
+                "you",
+                "the",
+                "information",
+                "you",
+                "need.",
+                "this",
+                "talk",
+                "will",
+                "show",
+                "how",
+                "surprisingly",
+                "easy",
+                "it",
+                "is",
+                "to",
+                "extend",
+                "clang",
+                "and",
+                "llvm",
+                "to",
+                "solve",
+                "an",
+                "one-off",
+                "profiling",
+                "task",
+                "using",
+                "the",
+                "perf",
+                "tool.",
+                "the",
+                "erlang",
+                "virtual",
+                "machine",
+                "beam",
+                "is",
+                "classic",
+                "threaded",
+                "interpreter",
+                "using",
+                "first",
+                "class",
+                "labels",
+                "and",
+                "gotos",
+                "contained",
+                "in",
+                "single",
+                "function.",
+                "for",
+                "profiling",
+                "purposes",
+                "this",
+                "is",
+                "bad",
+                "as",
+                "the",
+                "profiler",
+                "will",
+                "attribute",
+                "execution",
+                "time",
+                "to",
+                "the",
+                "main",
+                "interpreter",
+                "function",
+                "when",
+                "you",
+                "as",
+                "developer",
+                "really",
+                "want",
+                "execution",
+                "time",
+                "attributed",
+                "to",
+                "individual",
+                "beam",
+                "opcodes.",
+                "by",
+                "adding",
+                "custom",
+                "attributes",
+                "to",
+                "clang",
+                "and",
+                "an",
+                "analysis",
+                "late",
+                "in",
+                "the",
+                "llvm",
+                "back-end",
+                "we",
+                "can",
+                "easily",
+                "traverse",
+                "the",
+                "cfg",
+                "of",
+                "the",
+                "interpreter",
+                "and",
+                "figure",
+                "out",
+                "which",
+                "basic",
+                "blocks",
+                "are",
+                "executed",
+                "by",
+                "each",
+                "beam",
+                "opcode.",
+                "with",
+                "small",
+                "patch",
+                "to",
+                "perfs",
+                "jit",
+                "interface",
+                "we",
+                "can",
+                "make",
+                "this",
+                "basic",
+                "block",
+                "information",
+                "override",
+                "the",
+                "debug",
+                "information",
+                "for",
+                "the",
+                "main",
+                "interpreter",
+                "function",
+                "thus",
+                "allowing",
+                "perf",
+                "to",
+                "assign",
+                "execution",
+                "time",
+                "to",
+                "individual",
+                "beam",
+                "opcodes."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "extending clang and llvm for interpreter profiling perf-ection when profiling a highly optimized interpreter such as the erlang virtual machine a profiler does not really give you the information you need. this talk will show how surprisingly easy it is to extend clang and llvm to solve an one-off profiling task using the perf tool. the erlang virtual machine beam is a classic threaded interpreter using first class labels and gotos contained in a single function. for profiling purposes this is bad as the profiler will attribute execution time to the main interpreter function when you as a developer really want execution time attributed to individual beam opcodes. by adding custom attributes to clang and an analysis late in the llvm back-end we can easily traverse the cfg of the interpreter and figure out which basic blocks are executed by each beam opcode. with a small patch to perfs jit interface we can make this basic block information override the debug information for the main interpreter function thus allowing perf to assign execution time to individual beam opcodes. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk frej drejhammar llvm clang jit debug information"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2016-09-006": {
+      "talk": {
+        "id": "2016-09-006",
+        "meeting": "2016-09",
+        "meetingName": "2016 LLVM Cauldron",
+        "meetingLocation": "LLVM Cauldron, Hebden Bridge, UK",
+        "meetingDate": "September 8, 2016",
+        "category": "technical-talk",
+        "title": "Syntax macros - a case study in extending Clang",
+        "speakers": [
+          {
+            "name": "Norman Rink",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/kG6kpQ-Deak",
+        "videoId": "kG6kpQ-Deak",
+        "slidesUrl": "https://llvm.org/devmtg/2016-09/slides/Rink-SyntaxMacros.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "projectGithub": "https://github.com/normanrink/clang-syntax-macros",
+        "githubReferences": [
+          "https://github.com/normanrink/clang-syntax-macros",
+          "https://github.com/normanrink/llvm-syntax-macros"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/normanrink/clang-syntax-macros",
+            "source": "slides",
+            "label": "(vanilla) version of LLVM: Please contribute: questions, bugs, patches, impro",
+            "context": "(vanilla) version of LLVM: Please contribute: questions, bugs, patches, impro",
+            "library": "clang-syntax-macros",
+            "repository": "normanrink/clang-syntax-macros",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/normanrink/llvm-syntax-macros",
+            "source": "slides",
+            "label": "Please contribute: questions, bugs, patches, improvements all welcome!",
+            "context": "Please contribute: questions, bugs, patches, improvements all welcome!",
+            "library": "llvm-syntax-macros",
+            "repository": "normanrink/llvm-syntax-macros",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/normanrink/clang-syntax-macros"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/normanrink/llvm-syntax-macros"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "syntax macros - a case study in extending clang",
+        "_speakerLower": "norman rink",
+        "_abstractLower": "",
+        "_tagsLower": "clang",
+        "_meetingLower": "2016 llvm cauldron llvm cauldron, hebden bridge, uk september 8, 2016",
+        "_year": "2016",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "syntax macros - a case study in extending clang",
+              "words": [
+                "syntax",
+                "macros",
+                "case",
+                "study",
+                "in",
+                "extending",
+                "clang"
+              ]
+            },
+            "speakers": {
+              "text": "norman rink",
+              "words": [
+                "norman",
+                "rink"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016",
+              "words": [
+                "2016",
+                "llvm",
+                "cauldron",
+                "llvm",
+                "cauldron",
+                "hebden",
+                "bridge",
+                "uk",
+                "september",
+                "2016"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2016",
+              "words": [
+                "2016"
+              ]
+            }
+          },
+          "year": 2016
+        },
+        "_searchBlob": "syntax macros - a case study in extending clang 2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016 2016-09 technical-talk norman rink clang"
+      },
+      "meeting": {
+        "slug": "2016-09",
+        "name": "2016 LLVM Cauldron",
+        "date": "September 8, 2016",
+        "location": "LLVM Cauldron, Hebden Bridge, UK",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2014-04-009": {
+      "talk": {
+        "id": "2014-04-009",
+        "meeting": "2014-04",
+        "meetingName": "2014 European LLVM Developers' Meeting",
+        "meetingLocation": "Edinburgh, Scotland",
+        "meetingDate": "April 7-8, 2014",
+        "category": "technical-talk",
+        "title": "Branching in Data-Parallel Languages using Predication with LLVM",
+        "speakers": [
+          {
+            "name": "Marcello Maggioni",
+            "affiliation": "Codeplay Software",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://www.youtube.com/watch?v=xh6RWegAza0",
+        "videoId": "xh6RWegAza0",
+        "slidesUrl": "https://llvm.org/devmtg/2014-04/PDFs/Talks/pred_presentation.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "branching in data-parallel languages using predication with llvm",
+        "_speakerLower": "marcello maggioni",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2014 european llvm developers' meeting edinburgh, scotland april 7-8, 2014",
+        "_year": "2014",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "branching in data-parallel languages using predication with llvm",
+              "words": [
+                "branching",
+                "in",
+                "data-parallel",
+                "languages",
+                "using",
+                "predication",
+                "with",
+                "llvm"
+              ]
+            },
+            "speakers": {
+              "text": "marcello maggioni",
+              "words": [
+                "marcello",
+                "maggioni"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2014 european llvm developers meeting edinburgh scotland april 7-8 2014",
+              "words": [
+                "2014",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "edinburgh",
+                "scotland",
+                "april",
+                "7-8",
+                "2014"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2014",
+              "words": [
+                "2014"
+              ]
+            }
+          },
+          "year": 2014
+        },
+        "_searchBlob": "branching in data-parallel languages using predication with llvm 2014 european llvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk marcello maggioni llvm"
+      },
+      "meeting": {
+        "slug": "2014-04",
+        "name": "2014 European LLVM Developers' Meeting",
+        "date": "April 7-8, 2014",
+        "location": "Edinburgh, Scotland",
+        "canceled": false,
+        "talkCount": 31
+      }
+    },
+    "2013-04-019": {
+      "talk": {
+        "id": "2013-04-019",
+        "meeting": "2013-04",
+        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France",
+        "meetingDate": "April 29-30, 2013",
+        "category": "lightning-talk",
+        "title": "Rebuild of all Debian packages using Clang instead of gcc",
+        "speakers": [
+          {
+            "name": "Sylvestre Ledru",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Besides the GNU/Linux kernel, Debian is now able to run with two others kernels (KFreeBSD & HURD). However, in terms of compilation, Debian is still coupled to gcc. This lightning talk will present the results of the rebuild of the whole Debian archive with various clang versions. A necessary step to make Debian compiler agnostic.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2013-04/ledru-slides.pdf",
+        "tags": [
+          "Clang"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "rebuild of all debian packages using clang instead of gcc",
+        "_speakerLower": "sylvestre ledru",
+        "_abstractLower": "besides the gnu/linux kernel, debian is now able to run with two others kernels (kfreebsd & hurd). however, in terms of compilation, debian is still coupled to gcc. this lightning talk will present the results of the rebuild of the whole debian archive with various clang versions. a necessary step to make debian compiler agnostic.",
+        "_tagsLower": "clang",
+        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_year": "2013",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "rebuild of all debian packages using clang instead of gcc",
+              "words": [
+                "rebuild",
+                "of",
+                "all",
+                "debian",
+                "packages",
+                "using",
+                "clang",
+                "instead",
+                "of",
+                "gcc"
+              ]
+            },
+            "speakers": {
+              "text": "sylvestre ledru",
+              "words": [
+                "sylvestre",
+                "ledru"
+              ]
+            },
+            "tags": {
+              "text": "clang",
+              "words": [
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "words": [
+                "2013",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "april",
+                "29-30",
+                "2013"
+              ]
+            },
+            "abstract": {
+              "text": "besides the gnu linux kernel debian is now able to run with two others kernels kfreebsd and hurd . however in terms of compilation debian is still coupled to gcc. this lightning talk will present the results of the rebuild of the whole debian archive with various clang versions. a necessary step to make debian compiler agnostic.",
+              "words": [
+                "besides",
+                "the",
+                "gnu",
+                "linux",
+                "kernel",
+                "debian",
+                "is",
+                "now",
+                "able",
+                "to",
+                "run",
+                "with",
+                "two",
+                "others",
+                "kernels",
+                "kfreebsd",
+                "and",
+                "hurd",
+                "however",
+                "in",
+                "terms",
+                "of",
+                "compilation",
+                "debian",
+                "is",
+                "still",
+                "coupled",
+                "to",
+                "gcc.",
+                "this",
+                "lightning",
+                "talk",
+                "will",
+                "present",
+                "the",
+                "results",
+                "of",
+                "the",
+                "rebuild",
+                "of",
+                "the",
+                "whole",
+                "debian",
+                "archive",
+                "with",
+                "various",
+                "clang",
+                "versions.",
+                "necessary",
+                "step",
+                "to",
+                "make",
+                "debian",
+                "compiler",
+                "agnostic."
+              ]
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2013",
+              "words": [
+                "2013"
+              ]
+            }
+          },
+          "year": 2013
+        },
+        "_searchBlob": "rebuild of all debian packages using clang instead of gcc besides the gnu linux kernel debian is now able to run with two others kernels kfreebsd and hurd . however in terms of compilation debian is still coupled to gcc. this lightning talk will present the results of the rebuild of the whole debian archive with various clang versions. a necessary step to make debian compiler agnostic. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 lightning-talk sylvestre ledru clang"
+      },
+      "meeting": {
+        "slug": "2013-04",
+        "name": "2013 European LLVM Developers' Meeting",
+        "date": "April 29-30, 2013",
+        "location": "Paris, France",
+        "canceled": false,
+        "talkCount": 30
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "files": {
+    "siteStats": "js/data/site-stats.json?v=b8cf0a99edc3",
+    "talksCatalog": "js/data/talks-catalog.json?v=cf2b359fcea9",
+    "papersCatalog": "js/data/papers-catalog.json?v=72c399b397c1",
+    "peopleIndex": "js/data/people-index.json?v=bed0d8134d30",
+    "workSearchCorpus": "js/data/work-search-corpus.json?v=fe6dc3a02458",
+    "paperAddedAt": "js/data/paper-added-at.json?v=3a4c97086362",
+    "talkRelated": "js/data/talk-related.json?v=646af76c3810",
+    "paperRelated": "js/data/paper-related.json?v=d5150c93843e",
+    "autocompleteIndex": "js/data/autocomplete-index.json?v=cb24cccec6ef"
+  },
+  "shards": {
+    "talkDetails": {
+      "template": "js/data/talk-details/{shard}.json?v=viewer-precomputed-v1-832eea503791",
+      "shardCount": 64,
+      "rootKey": "talks",
+      "itemKey": "talk"
+    },
+    "paperDetails": {
+      "template": "js/data/paper-details/{shard}.json?v=viewer-precomputed-v1-832eea503791",
+      "shardCount": 64,
+      "rootKey": "papers",
+      "itemKey": "paper"
+    }
+  }
+}

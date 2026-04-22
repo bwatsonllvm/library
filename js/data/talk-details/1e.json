@@ -1,0 +1,1666 @@
+{
+  "dataVersion": "viewer-precomputed-v1-832eea503791",
+  "generatedAt": "2026-04-22T15:47:54.673Z",
+  "talks": {
+    "2023-05-019": {
+      "talk": {
+        "id": "2023-05-019",
+        "meeting": "2023-05",
+        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingLocation": "Glasgow, Scotland",
+        "meetingDate": "May 10-11, 2023",
+        "category": "technical-talk",
+        "title": "ML-LLVM-Tools: Towards Seamless Integration of Machine Learning in Compiler Optimizations",
+        "speakers": [
+          {
+            "name": "S. VenkataKeerthy",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "With the growth in usage of Machine Learning (ML) to support compiler optimization decisions, there is a need for robust tools to support both training and inference. Such tools should be scalable and independent of the underlying model, and the ML framework upon which the model is built. We propose a unified infrastructure to aid ML based compiler optimizations in LLVM at each of training and inference stages by using: (1) LLVM-gRPC, a gRPC based framework to support training, (2) LLVM-InferenceEngine, a novel ONNX based infrastructure to support ML inference within LLVM. Our infrastructure allows seamless integration of both the approaches with ML based compiler optimization passes. When our LLVM-InferenceEngine is integrated with a recently proposed approach that uses Reinforcement Learning for performing Register Allocation, it results in a 12.5x speedup in compile time.",
+        "videoUrl": "https://youtu.be/3RYPv27Tp6s",
+        "videoId": "3RYPv27Tp6s",
+        "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May10/10-Venkat-ML-LLVM-Tools.pdf",
+        "tags": [
+          "Backend",
+          "ML",
+          "Optimizations",
+          "Performance"
+        ],
+        "projectGithub": "https://github.com/onnx/onnx",
+        "githubReferences": [
+          "https://github.com/onnx/onnx",
+          "https://github.com/facebookresearch/CompilerGym"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/onnx/onnx",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "onnx",
+            "repository": "onnx/onnx",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/facebookresearch/CompilerGym",
+            "source": "slides",
+            "label": "ML, …; Single Vs. Multiple communication ● CompilerGym ○ Other Related Works 27 2022",
+            "context": "ML, …; Single Vs. Multiple communication ● CompilerGym ○ Other Related Works 27 2022",
+            "library": "CompilerGym",
+            "repository": "facebookresearch/CompilerGym",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/onnx/onnx"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/facebookresearch/CompilerGym"
+          }
+        ],
+        "keywords": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "ml-llvm-tools: towards seamless integration of machine learning in compiler optimizations",
+        "_speakerLower": "s. venkatakeerthy",
+        "_abstractLower": "with the growth in usage of machine learning (ml) to support compiler optimization decisions, there is a need for robust tools to support both training and inference. such tools should be scalable and independent of the underlying model, and the ml framework upon which the model is built. we propose a unified infrastructure to aid ml based compiler optimizations in llvm at each of training and inference stages by using: (1) llvm-grpc, a grpc based framework to support training, (2) llvm-inferenceengine, a novel onnx based infrastructure to support ml inference within llvm. our infrastructure allows seamless integration of both the approaches with ml based compiler optimization passes. when our llvm-inferenceengine is integrated with a recently proposed approach that uses reinforcement learning for performing register allocation, it results in a 12.5x speedup in compile time.",
+        "_tagsLower": "backend ml optimizations performance llvm register allocation infrastructure",
+        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "ml-llvm-tools towards seamless integration of machine learning in compiler optimizations",
+              "words": [
+                "ml-llvm-tools",
+                "towards",
+                "seamless",
+                "integration",
+                "of",
+                "machine",
+                "learning",
+                "in",
+                "compiler",
+                "optimizations"
+              ]
+            },
+            "speakers": {
+              "text": "s. venkatakeerthy",
+              "words": [
+                "s.",
+                "venkatakeerthy"
+              ]
+            },
+            "tags": {
+              "text": "backend ml optimizations performance llvm register allocation infrastructure",
+              "words": [
+                "backend",
+                "ml",
+                "optimizations",
+                "performance",
+                "llvm",
+                "register",
+                "allocation",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "words": [
+                "2023",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "glasgow",
+                "scotland",
+                "may",
+                "10-11",
+                "2023"
+              ]
+            },
+            "abstract": {
+              "text": "with the growth in usage of machine learning ml to support compiler optimization decisions there is a need for robust tools to support both training and inference. such tools should be scalable and independent of the underlying model and the ml framework upon which the model is built. we propose a unified infrastructure to aid ml based compiler optimizations in llvm at each of training and inference stages by using 1 llvm-grpc a grpc based framework to support training 2 llvm-inferenceengine a novel onnx based infrastructure to support ml inference within llvm. our infrastructure allows seamless integration of both the approaches with ml based compiler optimization passes. when our llvm-inferenceengine is integrated with a recently proposed approach that uses reinforcement learning for performing register allocation it results in a 12.5x speedup in compile time.",
+              "words": [
+                "with",
+                "the",
+                "growth",
+                "in",
+                "usage",
+                "of",
+                "machine",
+                "learning",
+                "ml",
+                "to",
+                "support",
+                "compiler",
+                "optimization",
+                "decisions",
+                "there",
+                "is",
+                "need",
+                "for",
+                "robust",
+                "tools",
+                "to",
+                "support",
+                "both",
+                "training",
+                "and",
+                "inference.",
+                "such",
+                "tools",
+                "should",
+                "be",
+                "scalable",
+                "and",
+                "independent",
+                "of",
+                "the",
+                "underlying",
+                "model",
+                "and",
+                "the",
+                "ml",
+                "framework",
+                "upon",
+                "which",
+                "the",
+                "model",
+                "is",
+                "built.",
+                "we",
+                "propose",
+                "unified",
+                "infrastructure",
+                "to",
+                "aid",
+                "ml",
+                "based",
+                "compiler",
+                "optimizations",
+                "in",
+                "llvm",
+                "at",
+                "each",
+                "of",
+                "training",
+                "and",
+                "inference",
+                "stages",
+                "by",
+                "using",
+                "llvm-grpc",
+                "grpc",
+                "based",
+                "framework",
+                "to",
+                "support",
+                "training",
+                "llvm-inferenceengine",
+                "novel",
+                "onnx",
+                "based",
+                "infrastructure",
+                "to",
+                "support",
+                "ml",
+                "inference",
+                "within",
+                "llvm.",
+                "our",
+                "infrastructure",
+                "allows",
+                "seamless",
+                "integration",
+                "of",
+                "both",
+                "the",
+                "approaches",
+                "with",
+                "ml",
+                "based",
+                "compiler",
+                "optimization",
+                "passes.",
+                "when",
+                "our",
+                "llvm-inferenceengine",
+                "is",
+                "integrated",
+                "with",
+                "recently",
+                "proposed",
+                "approach",
+                "that",
+                "uses",
+                "reinforcement",
+                "learning",
+                "for",
+                "performing",
+                "register",
+                "allocation",
+                "it",
+                "results",
+                "in",
+                "12.5x",
+                "speedup",
+                "in",
+                "compile",
+                "time."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "ml-llvm-tools towards seamless integration of machine learning in compiler optimizations with the growth in usage of machine learning ml to support compiler optimization decisions there is a need for robust tools to support both training and inference. such tools should be scalable and independent of the underlying model and the ml framework upon which the model is built. we propose a unified infrastructure to aid ml based compiler optimizations in llvm at each of training and inference stages by using 1 llvm-grpc a grpc based framework to support training 2 llvm-inferenceengine a novel onnx based infrastructure to support ml inference within llvm. our infrastructure allows seamless integration of both the approaches with ml based compiler optimization passes. when our llvm-inferenceengine is integrated with a recently proposed approach that uses reinforcement learning for performing register allocation it results in a 12.5x speedup in compile time. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk s. venkatakeerthy backend ml optimizations performance llvm register allocation infrastructure"
+      },
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
+    },
+    "2022-05-007": {
+      "talk": {
+        "id": "2022-05-007",
+        "meeting": "2022-05",
+        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "May 10-11, 2022",
+        "category": "technical-talk",
+        "title": "LLD for Mach-O: The Journey",
+        "speakers": [
+          {
+            "name": "Jez Ng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "It's been more than two years since we started working on the Mach-O back-end of LLD. We can now successfully link a wide range of large programs, including Chromium as well as LLVM itself. LLD links programs roughly 2x faster than ld64, greatly improving the developer experience on large projects. In this talk, we'll go over some of the challenges we've faced, the reasoning behind the design decisions we've made, as well as our future plans for the linker.",
+        "videoUrl": "https://youtu.be/ynbFTojAOiY",
+        "videoId": "ynbFTojAOiY",
+        "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-LLD-for-Mach-O.pdf",
+        "tags": [
+          "Backend",
+          "LLD"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "lld for mach-o: the journey",
+        "_speakerLower": "jez ng",
+        "_abstractLower": "it's been more than two years since we started working on the mach-o back-end of lld. we can now successfully link a wide range of large programs, including chromium as well as llvm itself. lld links programs roughly 2x faster than ld64, greatly improving the developer experience on large projects. in this talk, we'll go over some of the challenges we've faced, the reasoning behind the design decisions we've made, as well as our future plans for the linker.",
+        "_tagsLower": "backend lld llvm",
+        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "lld for mach-o the journey",
+              "words": [
+                "lld",
+                "for",
+                "mach-o",
+                "the",
+                "journey"
+              ]
+            },
+            "speakers": {
+              "text": "jez ng",
+              "words": [
+                "jez",
+                "ng"
+              ]
+            },
+            "tags": {
+              "text": "backend lld llvm",
+              "words": [
+                "backend",
+                "lld",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "words": [
+                "2022",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "may",
+                "10-11",
+                "2022"
+              ]
+            },
+            "abstract": {
+              "text": "its been more than two years since we started working on the mach-o back-end of lld. we can now successfully link a wide range of large programs including chromium as well as llvm itself. lld links programs roughly 2x faster than ld64 greatly improving the developer experience on large projects. in this talk well go over some of the challenges weve faced the reasoning behind the design decisions weve made as well as our future plans for the linker.",
+              "words": [
+                "its",
+                "been",
+                "more",
+                "than",
+                "two",
+                "years",
+                "since",
+                "we",
+                "started",
+                "working",
+                "on",
+                "the",
+                "mach-o",
+                "back-end",
+                "of",
+                "lld.",
+                "we",
+                "can",
+                "now",
+                "successfully",
+                "link",
+                "wide",
+                "range",
+                "of",
+                "large",
+                "programs",
+                "including",
+                "chromium",
+                "as",
+                "well",
+                "as",
+                "llvm",
+                "itself.",
+                "lld",
+                "links",
+                "programs",
+                "roughly",
+                "2x",
+                "faster",
+                "than",
+                "ld64",
+                "greatly",
+                "improving",
+                "the",
+                "developer",
+                "experience",
+                "on",
+                "large",
+                "projects.",
+                "in",
+                "this",
+                "talk",
+                "well",
+                "go",
+                "over",
+                "some",
+                "of",
+                "the",
+                "challenges",
+                "weve",
+                "faced",
+                "the",
+                "reasoning",
+                "behind",
+                "the",
+                "design",
+                "decisions",
+                "weve",
+                "made",
+                "as",
+                "well",
+                "as",
+                "our",
+                "future",
+                "plans",
+                "for",
+                "the",
+                "linker."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "lld for mach-o the journey its been more than two years since we started working on the mach-o back-end of lld. we can now successfully link a wide range of large programs including chromium as well as llvm itself. lld links programs roughly 2x faster than ld64 greatly improving the developer experience on large projects. in this talk well go over some of the challenges weve faced the reasoning behind the design decisions weve made as well as our future plans for the linker. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk jez ng backend lld llvm"
+      },
+      "meeting": {
+        "slug": "2022-05",
+        "name": "2022 European LLVM Developers' Meeting",
+        "date": "May 10-11, 2022",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 27
+      }
+    },
+    "2020-09-001": {
+      "talk": {
+        "id": "2020-09-001",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "keynote",
+        "title": "Undef and Poison: Present and Future",
+        "speakers": [
+          {
+            "name": "Juneyoung Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/ZMaZH3YYJqY",
+        "videoId": "ZMaZH3YYJqY",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Lee-UndefPoison.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "undef and poison: present and future",
+        "_speakerLower": "juneyoung lee",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "undef and poison present and future",
+              "words": [
+                "undef",
+                "and",
+                "poison",
+                "present",
+                "and",
+                "future"
+              ]
+            },
+            "speakers": {
+              "text": "juneyoung lee",
+              "words": [
+                "juneyoung",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "keynote",
+              "words": [
+                "keynote"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "undef and poison present and future 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 keynote juneyoung lee"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-023": {
+      "talk": {
+        "id": "2020-09-023",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "technical-talk",
+        "title": "(OpenMP) Parallelism-Aware Optimizations",
+        "speakers": [],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/gtxWkeLCxmU",
+        "videoId": "gtxWkeLCxmU",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/OpenMP_Parallelism_Aware_Optimizations.pdf",
+        "tags": [
+          "Optimizations"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "(openmp) parallelism-aware optimizations",
+        "_speakerLower": "",
+        "_abstractLower": "",
+        "_tagsLower": "optimizations openmp",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "openmp parallelism-aware optimizations",
+              "words": [
+                "openmp",
+                "parallelism-aware",
+                "optimizations"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "optimizations openmp",
+              "words": [
+                "optimizations",
+                "openmp"
+              ]
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "openmp parallelism-aware optimizations 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 technical-talk optimizations openmp"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-09-045": {
+      "talk": {
+        "id": "2020-09-045",
+        "meeting": "2020-09",
+        "meetingName": "2020 LLVM Developers' Meeting (Virtual)",
+        "meetingLocation": "virtual",
+        "meetingDate": "October 6-8, 2020",
+        "category": "lightning-talk",
+        "title": "CompilerInvocation to -cc1 command line",
+        "speakers": [
+          {
+            "name": "D. Grumberg",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/0QJIPn7N6GA",
+        "videoId": "0QJIPn7N6GA",
+        "slidesUrl": "https://llvm.org/devmtg/2020-09/slides/Grumberg-Frontend_Option_Parsing.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "compilerinvocation to -cc1 command line",
+        "_speakerLower": "d. grumberg",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2020 llvm developers' meeting (virtual) virtual october 6-8, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "compilerinvocation to -cc1 command line",
+              "words": [
+                "compilerinvocation",
+                "to",
+                "-cc1",
+                "command",
+                "line"
+              ]
+            },
+            "speakers": {
+              "text": "d. grumberg",
+              "words": [
+                "d.",
+                "grumberg"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2020 llvm developers meeting virtual virtual october 6-8 2020",
+              "words": [
+                "2020",
+                "llvm",
+                "developers",
+                "meeting",
+                "virtual",
+                "virtual",
+                "october",
+                "6-8",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "lightning-talk",
+              "words": [
+                "lightning-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "compilerinvocation to -cc1 command line 2020 llvm developers meeting virtual virtual october 6-8 2020 2020-09 lightning-talk d. grumberg"
+      },
+      "meeting": {
+        "slug": "2020-09",
+        "name": "2020 LLVM Developers' Meeting (Virtual)",
+        "date": "October 6-8, 2020",
+        "location": "virtual",
+        "canceled": false,
+        "talkCount": 52
+      }
+    },
+    "2020-04-006": {
+      "talk": {
+        "id": "2020-04-006",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "technical-talk",
+        "title": "Testing the Debugger",
+        "speakers": [
+          {
+            "name": "Jonas Devlieghere",
+            "affiliation": "Apple",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Testing the debugger has unique challenges. Unlike the compiler where you have a fixed set of input and output files, the debugger is an interactive tool that deals with many variants, ranging from the compiler and debug info format to the platform being debugged. LLDB's test suite has seen some significant changes over the past two years. Not only has the number of tests increased steadily, we also changed the way we test things. This talk will give an overview of those changes, the different testing strategies used by LLDB and how to decide which one to use when writing a new test case.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_TechTalk_14",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_TechTalk_14.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "testing the debugger",
+        "_speakerLower": "jonas devlieghere",
+        "_abstractLower": "testing the debugger has unique challenges. unlike the compiler where you have a fixed set of input and output files, the debugger is an interactive tool that deals with many variants, ranging from the compiler and debug info format to the platform being debugged. lldb's test suite has seen some significant changes over the past two years. not only has the number of tests increased steadily, we also changed the way we test things. this talk will give an overview of those changes, the different testing strategies used by lldb and how to decide which one to use when writing a new test case.",
+        "_tagsLower": "lldb testing",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "testing the debugger",
+              "words": [
+                "testing",
+                "the",
+                "debugger"
+              ]
+            },
+            "speakers": {
+              "text": "jonas devlieghere",
+              "words": [
+                "jonas",
+                "devlieghere"
+              ]
+            },
+            "tags": {
+              "text": "lldb testing",
+              "words": [
+                "lldb",
+                "testing"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "testing the debugger has unique challenges. unlike the compiler where you have a fixed set of input and output files the debugger is an interactive tool that deals with many variants ranging from the compiler and debug info format to the platform being debugged. lldbs test suite has seen some significant changes over the past two years. not only has the number of tests increased steadily we also changed the way we test things. this talk will give an overview of those changes the different testing strategies used by lldb and how to decide which one to use when writing a new test case.",
+              "words": [
+                "testing",
+                "the",
+                "debugger",
+                "has",
+                "unique",
+                "challenges.",
+                "unlike",
+                "the",
+                "compiler",
+                "where",
+                "you",
+                "have",
+                "fixed",
+                "set",
+                "of",
+                "input",
+                "and",
+                "output",
+                "files",
+                "the",
+                "debugger",
+                "is",
+                "an",
+                "interactive",
+                "tool",
+                "that",
+                "deals",
+                "with",
+                "many",
+                "variants",
+                "ranging",
+                "from",
+                "the",
+                "compiler",
+                "and",
+                "debug",
+                "info",
+                "format",
+                "to",
+                "the",
+                "platform",
+                "being",
+                "debugged.",
+                "lldbs",
+                "test",
+                "suite",
+                "has",
+                "seen",
+                "some",
+                "significant",
+                "changes",
+                "over",
+                "the",
+                "past",
+                "two",
+                "years.",
+                "not",
+                "only",
+                "has",
+                "the",
+                "number",
+                "of",
+                "tests",
+                "increased",
+                "steadily",
+                "we",
+                "also",
+                "changed",
+                "the",
+                "way",
+                "we",
+                "test",
+                "things.",
+                "this",
+                "talk",
+                "will",
+                "give",
+                "an",
+                "overview",
+                "of",
+                "those",
+                "changes",
+                "the",
+                "different",
+                "testing",
+                "strategies",
+                "used",
+                "by",
+                "lldb",
+                "and",
+                "how",
+                "to",
+                "decide",
+                "which",
+                "one",
+                "to",
+                "use",
+                "when",
+                "writing",
+                "new",
+                "test",
+                "case."
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "testing the debugger testing the debugger has unique challenges. unlike the compiler where you have a fixed set of input and output files the debugger is an interactive tool that deals with many variants ranging from the compiler and debug info format to the platform being debugged. lldbs test suite has seen some significant changes over the past two years. not only has the number of tests increased steadily we also changed the way we test things. this talk will give an overview of those changes the different testing strategies used by lldb and how to decide which one to use when writing a new test case. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk jonas devlieghere lldb testing"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2020-04-028": {
+      "talk": {
+        "id": "2020-04-028",
+        "meeting": "2020-04",
+        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingLocation": "Paris, France - Canceled",
+        "meetingDate": "April 6-7, 2020",
+        "category": "tutorial",
+        "title": "How to Give and Receive Code Reviews",
+        "speakers": [
+          {
+            "name": "Kit Barton",
+            "affiliation": "IBM Canada",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hal Finkel",
+            "affiliation": "ANL",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Code reviews are a critical component to the development process for the LLVM Community. Code maintainers rely on the code review process to ensure a high quality of code and to serve as an early detection and prevention mechanism for potential bugs. Developers also benefit greatly from code reviews through the insight and suggestions they receive from the reviewers. This tutorial will cover the code review process from both the developer and the reviewer's point of view. As a developer, there are several guidelines to follow when preparing patches for review, as well as common etiquette to follow during the review process. As a reviewer, there many things to look for during the review (correctness, style, computational complexity, etc). This talk will discuss both these roles, in depth. It will use demonstrations with Phabricator to emphasize several aspects of the code review process. It will also highlight several features in Phabricator that can be used during code reviews. The focus will be to summarize the current best practices for code reviews that have been discussed on the llvm-dev mailing list and summarized on our website ( https://llvm.org/docs /CodeReview.html ). It is meant to be as interactive as possible, with questions during the presentation encouraged.",
+        "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_60",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_60.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "how to give and receive code reviews",
+        "_speakerLower": "kit barton hal finkel",
+        "_abstractLower": "code reviews are a critical component to the development process for the llvm community. code maintainers rely on the code review process to ensure a high quality of code and to serve as an early detection and prevention mechanism for potential bugs. developers also benefit greatly from code reviews through the insight and suggestions they receive from the reviewers. this tutorial will cover the code review process from both the developer and the reviewer's point of view. as a developer, there are several guidelines to follow when preparing patches for review, as well as common etiquette to follow during the review process. as a reviewer, there many things to look for during the review (correctness, style, computational complexity, etc). this talk will discuss both these roles, in depth. it will use demonstrations with phabricator to emphasize several aspects of the code review process. it will also highlight several features in phabricator that can be used during code reviews. the focus will be to summarize the current best practices for code reviews that have been discussed on the llvm-dev mailing list and summarized on our website ( https://llvm.org/docs /codereview.html ). it is meant to be as interactive as possible, with questions during the presentation encouraged.",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "how to give and receive code reviews",
+              "words": [
+                "how",
+                "to",
+                "give",
+                "and",
+                "receive",
+                "code",
+                "reviews"
+              ]
+            },
+            "speakers": {
+              "text": "kit barton hal finkel",
+              "words": [
+                "kit",
+                "barton",
+                "hal",
+                "finkel"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "words": [
+                "2020",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "paris",
+                "france",
+                "canceled",
+                "april",
+                "6-7",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "code reviews are a critical component to the development process for the llvm community. code maintainers rely on the code review process to ensure a high quality of code and to serve as an early detection and prevention mechanism for potential bugs. developers also benefit greatly from code reviews through the insight and suggestions they receive from the reviewers. this tutorial will cover the code review process from both the developer and the reviewers point of view. as a developer there are several guidelines to follow when preparing patches for review as well as common etiquette to follow during the review process. as a reviewer there many things to look for during the review correctness style computational complexity etc . this talk will discuss both these roles in depth. it will use demonstrations with phabricator to emphasize several aspects of the code review process. it will also highlight several features in phabricator that can be used during code reviews. the focus will be to summarize the current best practices for code reviews that have been discussed on the llvm-dev mailing list and summarized on our website https llvm.org docs codereview.html . it is meant to be as interactive as possible with questions during the presentation encouraged.",
+              "words": [
+                "code",
+                "reviews",
+                "are",
+                "critical",
+                "component",
+                "to",
+                "the",
+                "development",
+                "process",
+                "for",
+                "the",
+                "llvm",
+                "community.",
+                "code",
+                "maintainers",
+                "rely",
+                "on",
+                "the",
+                "code",
+                "review",
+                "process",
+                "to",
+                "ensure",
+                "high",
+                "quality",
+                "of",
+                "code",
+                "and",
+                "to",
+                "serve",
+                "as",
+                "an",
+                "early",
+                "detection",
+                "and",
+                "prevention",
+                "mechanism",
+                "for",
+                "potential",
+                "bugs.",
+                "developers",
+                "also",
+                "benefit",
+                "greatly",
+                "from",
+                "code",
+                "reviews",
+                "through",
+                "the",
+                "insight",
+                "and",
+                "suggestions",
+                "they",
+                "receive",
+                "from",
+                "the",
+                "reviewers.",
+                "this",
+                "tutorial",
+                "will",
+                "cover",
+                "the",
+                "code",
+                "review",
+                "process",
+                "from",
+                "both",
+                "the",
+                "developer",
+                "and",
+                "the",
+                "reviewers",
+                "point",
+                "of",
+                "view.",
+                "as",
+                "developer",
+                "there",
+                "are",
+                "several",
+                "guidelines",
+                "to",
+                "follow",
+                "when",
+                "preparing",
+                "patches",
+                "for",
+                "review",
+                "as",
+                "well",
+                "as",
+                "common",
+                "etiquette",
+                "to",
+                "follow",
+                "during",
+                "the",
+                "review",
+                "process.",
+                "as",
+                "reviewer",
+                "there",
+                "many",
+                "things",
+                "to",
+                "look",
+                "for",
+                "during",
+                "the",
+                "review",
+                "correctness",
+                "style",
+                "computational",
+                "complexity",
+                "etc",
+                "this",
+                "talk",
+                "will",
+                "discuss",
+                "both",
+                "these",
+                "roles",
+                "in",
+                "depth.",
+                "it",
+                "will",
+                "use",
+                "demonstrations",
+                "with",
+                "phabricator",
+                "to",
+                "emphasize",
+                "several",
+                "aspects",
+                "of",
+                "the",
+                "code",
+                "review",
+                "process.",
+                "it",
+                "will",
+                "also",
+                "highlight",
+                "several",
+                "features",
+                "in",
+                "phabricator",
+                "that",
+                "can",
+                "be",
+                "used",
+                "during",
+                "code",
+                "reviews.",
+                "the",
+                "focus",
+                "will",
+                "be",
+                "to",
+                "summarize",
+                "the",
+                "current",
+                "best",
+                "practices",
+                "for",
+                "code",
+                "reviews",
+                "that",
+                "have",
+                "been",
+                "discussed",
+                "on",
+                "the",
+                "llvm-dev",
+                "mailing",
+                "list",
+                "and",
+                "summarized",
+                "on",
+                "our",
+                "website",
+                "https",
+                "llvm.org",
+                "docs",
+                "codereview.html",
+                "it",
+                "is",
+                "meant",
+                "to",
+                "be",
+                "as",
+                "interactive",
+                "as",
+                "possible",
+                "with",
+                "questions",
+                "during",
+                "the",
+                "presentation",
+                "encouraged."
+              ]
+            },
+            "category": {
+              "text": "tutorial",
+              "words": [
+                "tutorial"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "how to give and receive code reviews code reviews are a critical component to the development process for the llvm community. code maintainers rely on the code review process to ensure a high quality of code and to serve as an early detection and prevention mechanism for potential bugs. developers also benefit greatly from code reviews through the insight and suggestions they receive from the reviewers. this tutorial will cover the code review process from both the developer and the reviewers point of view. as a developer there are several guidelines to follow when preparing patches for review as well as common etiquette to follow during the review process. as a reviewer there many things to look for during the review correctness style computational complexity etc . this talk will discuss both these roles in depth. it will use demonstrations with phabricator to emphasize several aspects of the code review process. it will also highlight several features in phabricator that can be used during code reviews. the focus will be to summarize the current best practices for code reviews that have been discussed on the llvm-dev mailing list and summarized on our website https llvm.org docs codereview.html . it is meant to be as interactive as possible with questions during the presentation encouraged. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial kit barton hal finkel llvm"
+      },
+      "meeting": {
+        "slug": "2020-04",
+        "name": "2020 European LLVM Developers' Meeting",
+        "date": "April 6-7, 2020",
+        "location": "Paris, France - Canceled",
+        "canceled": true,
+        "talkCount": 68
+      }
+    },
+    "2016-09-008": {
+      "talk": {
+        "id": "2016-09-008",
+        "meeting": "2016-09",
+        "meetingName": "2016 LLVM Cauldron",
+        "meetingLocation": "LLVM Cauldron, Hebden Bridge, UK",
+        "meetingDate": "September 8, 2016",
+        "category": "technical-talk",
+        "title": "How to add a new target to LLD",
+        "speakers": [
+          {
+            "name": "Peter Smith",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/FIXaeRU31Ww",
+        "videoId": "FIXaeRU31Ww",
+        "slidesUrl": "https://llvm.org/devmtg/2016-09/slides/Smith-NewLLDTarget.pdf",
+        "tags": [
+          "LLD"
+        ],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "how to add a new target to lld",
+        "_speakerLower": "peter smith",
+        "_abstractLower": "",
+        "_tagsLower": "lld",
+        "_meetingLower": "2016 llvm cauldron llvm cauldron, hebden bridge, uk september 8, 2016",
+        "_year": "2016",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "how to add a new target to lld",
+              "words": [
+                "how",
+                "to",
+                "add",
+                "new",
+                "target",
+                "to",
+                "lld"
+              ]
+            },
+            "speakers": {
+              "text": "peter smith",
+              "words": [
+                "peter",
+                "smith"
+              ]
+            },
+            "tags": {
+              "text": "lld",
+              "words": [
+                "lld"
+              ]
+            },
+            "meeting": {
+              "text": "2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016",
+              "words": [
+                "2016",
+                "llvm",
+                "cauldron",
+                "llvm",
+                "cauldron",
+                "hebden",
+                "bridge",
+                "uk",
+                "september",
+                "2016"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2016",
+              "words": [
+                "2016"
+              ]
+            }
+          },
+          "year": 2016
+        },
+        "_searchBlob": "how to add a new target to lld 2016 llvm cauldron llvm cauldron hebden bridge uk september 8 2016 2016-09 technical-talk peter smith lld"
+      },
+      "meeting": {
+        "slug": "2016-09",
+        "name": "2016 LLVM Cauldron",
+        "date": "September 8, 2016",
+        "location": "LLVM Cauldron, Hebden Bridge, UK",
+        "canceled": false,
+        "talkCount": 13
+      }
+    },
+    "2012-04-12-010": {
+      "talk": {
+        "id": "2012-04-12-010",
+        "meeting": "2012-04-12",
+        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "April 12, 2012",
+        "category": "technical-talk",
+        "title": "Turning control flow graphs into function call graphs: transformation of partitioned codes for execution in heterogeneous architectures",
+        "speakers": [
+          {
+            "name": "Pablo Barrio",
+            "affiliation": "University. Politécnica de Madrid",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/IuYknIy4ADg",
+        "videoId": "IuYknIy4ADg",
+        "slidesUrl": "https://llvm.org/devmtg/2012-04-12/Slides/Pablo_Barrio.pptx",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "turning control flow graphs into function call graphs: transformation of partitioned codes for execution in heterogeneous architectures",
+        "_speakerLower": "pablo barrio",
+        "_abstractLower": "",
+        "_tagsLower": "",
+        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_year": "2012",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "turning control flow graphs into function call graphs transformation of partitioned codes for execution in heterogeneous architectures",
+              "words": [
+                "turning",
+                "control",
+                "flow",
+                "graphs",
+                "into",
+                "function",
+                "call",
+                "graphs",
+                "transformation",
+                "of",
+                "partitioned",
+                "codes",
+                "for",
+                "execution",
+                "in",
+                "heterogeneous",
+                "architectures"
+              ]
+            },
+            "speakers": {
+              "text": "pablo barrio",
+              "words": [
+                "pablo",
+                "barrio"
+              ]
+            },
+            "tags": {
+              "text": "",
+              "words": []
+            },
+            "meeting": {
+              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "words": [
+                "2012",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "april",
+                "12",
+                "2012"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2012",
+              "words": [
+                "2012"
+              ]
+            }
+          },
+          "year": 2012
+        },
+        "_searchBlob": "turning control flow graphs into function call graphs transformation of partitioned codes for execution in heterogeneous architectures 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk pablo barrio"
+      },
+      "meeting": {
+        "slug": "2012-04-12",
+        "name": "2012 European LLVM Developers' Meeting",
+        "date": "April 12, 2012",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 14
+      }
+    },
+    "2011-09-16-001": {
+      "talk": {
+        "id": "2011-09-16-001",
+        "meeting": "2011-09-16",
+        "meetingName": "2011 European LLVM Developers' Meeting",
+        "meetingLocation": "London, UK",
+        "meetingDate": "September 16, 2011",
+        "category": "technical-talk",
+        "title": "Handling Multi-Versioning in LLVM: Code Tracking and Cloning",
+        "speakers": [
+          {
+            "name": "A. Jimborean",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "V. Loechner",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "P. Clauss",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "",
+        "videoUrl": "https://youtu.be/y9oBUlqMzvw",
+        "videoId": "y9oBUlqMzvw",
+        "slidesUrl": "https://llvm.org/devmtg/2011-09-16/EuroLLVM2011-MultiVersioningInLLVM.pdf",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "posterUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "handling multi-versioning in llvm: code tracking and cloning",
+        "_speakerLower": "a. jimborean v. loechner p. clauss",
+        "_abstractLower": "",
+        "_tagsLower": "llvm",
+        "_meetingLower": "2011 european llvm developers' meeting london, uk september 16, 2011",
+        "_year": "2011",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "handling multi-versioning in llvm code tracking and cloning",
+              "words": [
+                "handling",
+                "multi-versioning",
+                "in",
+                "llvm",
+                "code",
+                "tracking",
+                "and",
+                "cloning"
+              ]
+            },
+            "speakers": {
+              "text": "a. jimborean v. loechner p. clauss",
+              "words": [
+                "a.",
+                "jimborean",
+                "v.",
+                "loechner",
+                "p.",
+                "clauss"
+              ]
+            },
+            "tags": {
+              "text": "llvm",
+              "words": [
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "2011 european llvm developers meeting london uk september 16 2011",
+              "words": [
+                "2011",
+                "european",
+                "llvm",
+                "developers",
+                "meeting",
+                "london",
+                "uk",
+                "september",
+                "16",
+                "2011"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2011",
+              "words": [
+                "2011"
+              ]
+            }
+          },
+          "year": 2011
+        },
+        "_searchBlob": "handling multi-versioning in llvm code tracking and cloning 2011 european llvm developers meeting london uk september 16 2011 2011-09-16 technical-talk a. jimborean v. loechner p. clauss llvm"
+      },
+      "meeting": {
+        "slug": "2011-09-16",
+        "name": "2011 European LLVM Developers' Meeting",
+        "date": "September 16, 2011",
+        "location": "London, UK",
+        "canceled": false,
+        "talkCount": 7
+      }
+    }
+  }
+}

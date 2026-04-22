@@ -107,6 +107,21 @@ function isDevelopersMeeting(meeting) {
 }
 
 async function loadAndRenderStats() {
+  if (typeof window.loadViewerArtifactJson === 'function') {
+    try {
+      const stats = await window.loadViewerArtifactJson('siteStats');
+      if (stats && typeof stats === 'object') {
+        setText('about-stat-talks', formatCount(stats.talks));
+        setText('about-stat-papers', formatCount(stats.papers));
+        setText('about-stat-people', formatCount(stats.people));
+        setText('about-stat-meetings', formatCount(stats.meetings));
+        return;
+      }
+    } catch {
+      // Fall back to canonical loaders below.
+    }
+  }
+
   let meetings = [];
   let talks = [];
   let papers = [];

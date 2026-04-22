@@ -125,7 +125,6 @@ const CONTENT_TYPE_META = {
 const ALL_WORK_PAGE_PATH = 'work.html';
 const BLOGS_PAGE_PATH = 'blogs/';
 const PAPERS_PAGE_PATH = 'papers/';
-const UPDATES_LOG_PATH = 'updates/index.json';
 const PAPER_SORT_MODES = new Set(['relevance', 'year', 'citations', 'date-added']);
 const PAGE_SCOPE = (() => {
   const raw = normalizeFilterValue(document.body && document.body.dataset ? document.body.dataset.contentScope : '');
@@ -156,6 +155,8 @@ const state = {
 let scopedPapers = [];
 let publicationFilterOptions = [];
 let affiliationFilterOptions = [];
+let paperCatalogFilters = {};
+let paperCatalogAutocomplete = {};
 
 // ============================================================
 // Data Loading
@@ -232,15 +233,22 @@ async function loadPaperAddedAtMap() {
   if (paperAddedAtMapPromise) return paperAddedAtMapPromise;
 
   paperAddedAtMapPromise = (async () => {
-    try {
-      const response = await fetch(UPDATES_LOG_PATH, { cache: 'no-store' });
-      if (!response.ok) return new Map();
-      const payload = await response.json();
-      const entries = payload && typeof payload === 'object' ? payload.entries : [];
-      return buildAddedAtMapFromUpdates(entries);
-    } catch {
-      return new Map();
+    if (typeof window.loadViewerArtifactJson === 'function') {
+      try {
+        const payload = await window.loadViewerArtifactJson('paperAddedAt');
+        const byId = payload && typeof payload === 'object' && payload.byId && typeof payload.byId === 'object'
+          ? payload.byId
+          : {};
+        return new Map(
+          Object.entries(byId)
+            .map(([paperId, addedAt]) => [String(paperId || '').trim(), String(addedAt || '').trim()])
+            .filter(([paperId, addedAt]) => paperId && addedAt)
+        );
+      } catch {
+        // Fall back to the updates log below.
+      }
     }
+    return new Map();
   })();
 
   return paperAddedAtMapPromise;
@@ -491,6 +499,7 @@ function normalizePaperRecord(rawPaper) {
   paper.source = String(paper.source || '').trim();
   paper.paperUrl = String(paper.paperUrl || '').trim();
   paper.sourceUrl = String(paper.sourceUrl || '').trim();
+  paper.bodyText = String(paper.bodyText || '').trim();
   paper.citationCount = parseCitationCount(rawPaper);
 
   paper.authors = Array.isArray(paper.authors)
@@ -532,24 +541,30 @@ function normalizePaperRecord(rawPaper) {
   paper._addedAtTs = paper._addedAt ? Date.parse(paper._addedAt) : Number.NaN;
   if (!Number.isFinite(paper._addedAtTs)) paper._addedAtTs = 0;
   paper._citationCount = paper.citationCount;
-  paper._titleLower = paper.title.toLowerCase();
-  paper._authorLower = paper.authors.map((author) => `${author.name} ${author.affiliation || ''}`.trim()).join(' ').toLowerCase();
-  paper._abstractLower = paper.abstract.toLowerCase();
-  paper._tagsLower = paper.tags.join(' ').toLowerCase();
-  paper._keywordsLower = paper.keywords.join(' ').toLowerCase();
-  paper._authorsLower = paper._authorLower;
-  paper._topicsLower = `${paper._tagsLower} ${paper._keywordsLower}`.trim();
-  paper._contentLower = [
+  paper._titleLower = String(paper._titleLower || paper.title || '').toLowerCase();
+  paper._authorLower = String(
+    paper._authorLower
+    || paper.authors.map((author) => `${author.name} ${author.affiliation || ''}`.trim()).join(' ')
+  ).toLowerCase();
+  paper._abstractLower = String(paper._abstractLower || paper.abstract || '').toLowerCase();
+  paper._tagsLower = String(paper._tagsLower || paper.tags.join(' ')).toLowerCase();
+  paper._keywordsLower = String(paper._keywordsLower || paper.keywords.join(' ')).toLowerCase();
+  paper._authorsLower = String(paper._authorsLower || paper._authorLower).toLowerCase();
+  paper._topicsLower = String(paper._topicsLower || `${paper._tagsLower} ${paper._keywordsLower}`.trim()).toLowerCase();
+  paper._contentLower = String(paper._contentLower || '').toLowerCase() || [
+    paper.bodyText,
     paper.content,
     paper.body,
     paper.markdown,
     paper.html,
   ].map((value) => String(value || '').trim()).filter(Boolean).join(' ').toLowerCase();
-  paper._publicationLower = paper.publication.toLowerCase();
-  paper._venueLower = paper.venue.toLowerCase();
-  paper._typeLower = paper.type.toLowerCase();
-  paper._sourceLower = paper.source.toLowerCase();
-  paper._yearLower = paper._year.toLowerCase();
+  paper._publicationLower = String(paper._publicationLower || paper.publication || '').toLowerCase();
+  paper._venueLower = String(paper._venueLower || paper.venue || '').toLowerCase();
+  paper._typeLower = String(paper._typeLower || paper.type || '').toLowerCase();
+  paper._sourceLower = String(paper._sourceLower || paper.source || '').toLowerCase();
+  paper._yearLower = String(paper._yearLower || paper._year || '').toLowerCase();
+  if (paper._searchDoc && typeof paper._searchDoc !== 'object') delete paper._searchDoc;
+  paper._searchBlob = String(paper._searchBlob || '').trim().toLowerCase();
   paper._isBlog = BLOG_SOURCE_SLUGS.has(paper._sourceLower)
     || paper._typeLower === 'blog-post'
     || paper._typeLower === 'blog'
@@ -2098,6 +2113,10 @@ function syncYearChipsFromState() {
 }
 
 function initFilters() {
+  const scopeKey = PAGE_SCOPE === BLOG_FILTER_VALUE ? 'blog' : 'paper';
+  const scopeFilters = paperCatalogFilters && typeof paperCatalogFilters === 'object'
+    ? paperCatalogFilters[scopeKey]
+    : null;
   const tagCounts = {};
   const yearCounts = {};
   const contentTypeCounts = new Map([
@@ -2108,57 +2127,101 @@ function initFilters() {
   const publicationCounts = new Map();
   const affiliationCounts = new Map();
 
-  for (const paper of scopedPapers) {
-    for (const topic of getPaperKeyTopics(paper, 8)) {
-      if (String(topic || '').length > 48) continue;
-      tagCounts[topic] = (tagCounts[topic] || 0) + 1;
+  if (scopeFilters && typeof scopeFilters === 'object') {
+    for (const entry of (Array.isArray(scopeFilters.topics) ? scopeFilters.topics : [])) {
+      const label = String(entry && entry.label || '').trim();
+      const count = Number(entry && entry.count);
+      if (!label || !Number.isFinite(count) || count <= 0) continue;
+      tagCounts[label] = count;
     }
 
-    if (paper._year) {
-      yearCounts[paper._year] = (yearCounts[paper._year] || 0) + 1;
+    for (const entry of (Array.isArray(scopeFilters.years) ? scopeFilters.years : [])) {
+      const year = String(entry && entry.year || '').trim();
+      const count = Number(entry && entry.count);
+      if (!year || !Number.isFinite(count) || count <= 0) continue;
+      yearCounts[year] = count;
     }
 
-    const contentType = getPaperContentTypeValue(paper);
-    contentTypeCounts.set(contentType, (contentTypeCounts.get(contentType) || 0) + 1);
-
-    const citationBucket = getCitationBucketForCount(paper._citationCount || 0);
-    citationCounts.set(citationBucket, (citationCounts.get(citationBucket) || 0) + 1);
-
-    const publicationLabel = normalizePublicationLabel(paper.publication || paper.venue || '');
-    const publicationKey = normalizePublicationKey(publicationLabel);
-    if (publicationKey && publicationLabel) {
-      if (!publicationCounts.has(publicationKey)) {
-        publicationCounts.set(publicationKey, {
-          key: publicationKey,
-          label: publicationLabel,
-          count: 0,
-        });
-      }
-      const publicationBucket = publicationCounts.get(publicationKey);
-      publicationBucket.count += 1;
-      if (publicationLabel.length > publicationBucket.label.length) {
-        publicationBucket.label = publicationLabel;
-      }
+    for (const entry of (Array.isArray(scopeFilters.citations) ? scopeFilters.citations : [])) {
+      const key = String(entry && entry.key || '').trim();
+      const count = Number(entry && entry.count);
+      if (!key || !Number.isFinite(count) || count <= 0) continue;
+      citationCounts.set(key, count);
     }
 
-    const seenAffiliations = new Set();
-    for (const author of (paper.authors || [])) {
-      const affiliationLabel = normalizeAffiliationLabel(author && author.affiliation);
-      if (!affiliationLabel) continue;
-      const affiliationKey = normalizeAffiliationKey(affiliationLabel);
-      if (!affiliationKey || seenAffiliations.has(affiliationKey)) continue;
-      seenAffiliations.add(affiliationKey);
-      if (!affiliationCounts.has(affiliationKey)) {
-        affiliationCounts.set(affiliationKey, {
-          key: affiliationKey,
-          label: affiliationLabel,
-          count: 0,
-        });
+    for (const entry of (Array.isArray(scopeFilters.publications) ? scopeFilters.publications : [])) {
+      const key = String(entry && entry.key || '').trim();
+      const label = String(entry && entry.label || '').trim();
+      const count = Number(entry && entry.count);
+      if (!key || !label || !Number.isFinite(count) || count <= 0) continue;
+      publicationCounts.set(key, { key, label, count });
+    }
+
+    for (const entry of (Array.isArray(scopeFilters.affiliations) ? scopeFilters.affiliations : [])) {
+      const key = String(entry && entry.key || '').trim();
+      const label = String(entry && entry.label || '').trim();
+      const count = Number(entry && entry.count);
+      if (!key || !label || !Number.isFinite(count) || count <= 0) continue;
+      affiliationCounts.set(key, { key, label, count });
+    }
+
+    for (const paper of scopedPapers) {
+      const contentType = getPaperContentTypeValue(paper);
+      contentTypeCounts.set(contentType, (contentTypeCounts.get(contentType) || 0) + 1);
+    }
+  } else {
+    for (const paper of scopedPapers) {
+      for (const topic of getPaperKeyTopics(paper, 8)) {
+        if (String(topic || '').length > 48) continue;
+        tagCounts[topic] = (tagCounts[topic] || 0) + 1;
       }
-      const affiliationBucket = affiliationCounts.get(affiliationKey);
-      affiliationBucket.count += 1;
-      if (affiliationLabel.length > affiliationBucket.label.length) {
-        affiliationBucket.label = affiliationLabel;
+
+      if (paper._year) {
+        yearCounts[paper._year] = (yearCounts[paper._year] || 0) + 1;
+      }
+
+      const contentType = getPaperContentTypeValue(paper);
+      contentTypeCounts.set(contentType, (contentTypeCounts.get(contentType) || 0) + 1);
+
+      const citationBucket = getCitationBucketForCount(paper._citationCount || 0);
+      citationCounts.set(citationBucket, (citationCounts.get(citationBucket) || 0) + 1);
+
+      const publicationLabel = normalizePublicationLabel(paper.publication || paper.venue || '');
+      const publicationKey = normalizePublicationKey(publicationLabel);
+      if (publicationKey && publicationLabel) {
+        if (!publicationCounts.has(publicationKey)) {
+          publicationCounts.set(publicationKey, {
+            key: publicationKey,
+            label: publicationLabel,
+            count: 0,
+          });
+        }
+        const publicationBucket = publicationCounts.get(publicationKey);
+        publicationBucket.count += 1;
+        if (publicationLabel.length > publicationBucket.label.length) {
+          publicationBucket.label = publicationLabel;
+        }
+      }
+
+      const seenAffiliations = new Set();
+      for (const author of (paper.authors || [])) {
+        const affiliationLabel = normalizeAffiliationLabel(author && author.affiliation);
+        if (!affiliationLabel) continue;
+        const affiliationKey = normalizeAffiliationKey(affiliationLabel);
+        if (!affiliationKey || seenAffiliations.has(affiliationKey)) continue;
+        seenAffiliations.add(affiliationKey);
+        if (!affiliationCounts.has(affiliationKey)) {
+          affiliationCounts.set(affiliationKey, {
+            key: affiliationKey,
+            label: affiliationLabel,
+            count: 0,
+          });
+        }
+        const affiliationBucket = affiliationCounts.get(affiliationKey);
+        affiliationBucket.count += 1;
+        if (affiliationLabel.length > affiliationBucket.label.length) {
+          affiliationBucket.label = affiliationLabel;
+        }
       }
     }
   }
@@ -2880,6 +2943,22 @@ async function ensureEventDataLoader() {
 }
 
 function buildPaperAutocompleteBase() {
+  const scopeKey = PAGE_SCOPE === BLOG_FILTER_VALUE ? 'blog' : 'paper';
+  const scopeAutocomplete = paperCatalogAutocomplete && typeof paperCatalogAutocomplete === 'object'
+    ? paperCatalogAutocomplete[scopeKey]
+    : null;
+  if (scopeAutocomplete && typeof scopeAutocomplete === 'object') {
+    const speakers = Array.isArray(scopeAutocomplete.speakers) ? scopeAutocomplete.speakers : [];
+    autocompleteIndex.tags = Array.isArray(scopeAutocomplete.tags) ? scopeAutocomplete.tags : [];
+    autocompleteIndex.speakers = speakers;
+    autocompleteIndex.topics = Array.isArray(scopeAutocomplete.tags) ? scopeAutocomplete.tags : [];
+    autocompleteIndex.people = speakers;
+    autocompleteIndex.talks = [];
+    autocompleteIndex.papers = Array.isArray(scopeAutocomplete.papers) ? scopeAutocomplete.papers : [];
+    talkSearchIndex = [];
+    return;
+  }
+
   const paperTopicCounts = new Map();
   const peopleBuckets = new Map();
   const paperTitleCounts = new Map();
@@ -2919,6 +2998,51 @@ async function hydrateUniversalAutocomplete() {
   if (universalAutocompletePromise) return universalAutocompletePromise;
 
   universalAutocompletePromise = (async () => {
+    if (typeof window.loadViewerArtifactJson === 'function') {
+      try {
+        const scopeKey = PAGE_SCOPE === BLOG_FILTER_VALUE ? 'blog' : 'paper';
+        const [autocompletePayload, workPayload] = await Promise.all([
+          window.loadViewerArtifactJson('autocompleteIndex'),
+          window.loadViewerArtifactJson('workSearchCorpus'),
+        ]);
+        const scopeAutocomplete = paperCatalogAutocomplete && typeof paperCatalogAutocomplete === 'object'
+          ? paperCatalogAutocomplete[scopeKey]
+          : null;
+        autocompleteIndex.tags = Array.isArray(scopeAutocomplete && scopeAutocomplete.tags)
+          ? scopeAutocomplete.tags
+          : autocompleteIndex.tags;
+        autocompleteIndex.speakers = Array.isArray(scopeAutocomplete && scopeAutocomplete.speakers)
+          ? scopeAutocomplete.speakers
+          : autocompleteIndex.speakers;
+        autocompleteIndex.topics = Array.isArray(autocompletePayload && autocompletePayload.topics)
+          ? autocompletePayload.topics
+          : autocompleteIndex.topics;
+        autocompleteIndex.people = Array.isArray(autocompletePayload && autocompletePayload.people)
+          ? autocompletePayload.people
+          : autocompleteIndex.people;
+        autocompleteIndex.talks = Array.isArray(autocompletePayload && autocompletePayload.talks)
+          ? autocompletePayload.talks
+          : autocompleteIndex.talks;
+        autocompleteIndex.papers = Array.isArray(scopeAutocomplete && scopeAutocomplete.papers)
+          ? scopeAutocomplete.papers
+          : (
+            Array.isArray(autocompletePayload && autocompletePayload.papers)
+              ? autocompletePayload.papers
+              : autocompleteIndex.papers
+          );
+        talkSearchIndex = Array.isArray(workPayload && workPayload.talks) ? workPayload.talks : [];
+
+        const input = document.getElementById('search-input');
+        if (input) {
+          const query = String(input.value || '').trim();
+          if (query) renderDropdown(query);
+        }
+        return;
+      } catch {
+        // Fall back to loader-backed hydration below.
+      }
+    }
+
     const hasLoader = await ensureEventDataLoader();
     if (!hasLoader || typeof window.loadEventData !== 'function') return;
 
@@ -3576,7 +3700,14 @@ window.filterByTag = filterByTag;
   initShareMenu();
   initViewControls();
 
-  const [{ papers }, addedAtMap] = await Promise.all([loadData(), loadPaperAddedAtMap()]);
+  const [paperPayload, addedAtMap] = await Promise.all([loadData(), loadPaperAddedAtMap()]);
+  const papers = Array.isArray(paperPayload && paperPayload.papers) ? paperPayload.papers : [];
+  paperCatalogFilters = paperPayload && paperPayload.filters && typeof paperPayload.filters === 'object'
+    ? paperPayload.filters
+    : {};
+  paperCatalogAutocomplete = paperPayload && paperPayload.autocomplete && typeof paperPayload.autocomplete === 'object'
+    ? paperPayload.autocomplete
+    : {};
   allPapers = Array.isArray(papers)
     ? papers.map(normalizePaperRecord).filter(Boolean)
     : [];
