@@ -140,6 +140,57 @@
     return youtubeId ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeId)}?rel=0` : '';
   }
 
+  function getDirectVideoMimeType(videoUrl) {
+    const normalized = sanitizeExternalUrl(videoUrl);
+    if (!normalized) return '';
+    try {
+      const pathname = new URL(normalized).pathname.toLowerCase();
+      if (pathname.endsWith('.webm')) return 'video/webm';
+      if (pathname.endsWith('.ogv') || pathname.endsWith('.ogg')) return 'video/ogg';
+      if (pathname.endsWith('.mov')) return 'video/quicktime';
+      if (pathname.endsWith('.m4v')) return 'video/x-m4v';
+      if (pathname.endsWith('.mp4')) return 'video/mp4';
+    } catch {
+      return '';
+    }
+    return '';
+  }
+
+  function buildEmbeddedVideoMarkup(videoUrl, title, extraClassName) {
+    const normalized = sanitizeExternalUrl(videoUrl);
+    if (!normalized) return '';
+
+    const className = ['video-embed', collapseWhitespace(extraClassName)].filter(Boolean).join(' ');
+    const embeddedYoutubeUrl = buildEmbeddedVideoUrl(normalized);
+    const titleEsc = escapeHtml(title || 'Talk video');
+
+    if (embeddedYoutubeUrl) {
+      return `
+        <div class="${escapeHtml(className)}">
+          <iframe
+            src="${escapeHtml(embeddedYoutubeUrl)}"
+            title="${titleEsc}"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>`;
+    }
+
+    const mimeType = getDirectVideoMimeType(normalized);
+    if (mimeType) {
+      return `
+        <div class="${escapeHtml(className)}">
+          <video controls preload="metadata" playsinline title="${titleEsc}">
+            <source src="${escapeHtml(normalized)}" type="${escapeHtml(mimeType)}">
+          </video>
+        </div>`;
+    }
+
+    return '';
+  }
+
   function normalizeTalkResourceActions(talk) {
     return Array.isArray(talk && talk.resourceActions)
       ? talk.resourceActions
@@ -1361,24 +1412,35 @@
       ? `<img src="${escapeHtml(thumbnailUrl)}" alt="" loading="lazy" data-thumbnail-category="${escapeHtml(categoryKey)}">`
       : placeholderHtml;
     const abstractPreview = buildAbstractPreview(talk && talk.abstract, 300);
+    const inlineVideoHtml = buildEmbeddedVideoMarkup(talk && talk.videoUrl, title || 'Related talk video', 'card-inline-video');
+    const compactHeaderClass = inlineVideoHtml ? ' card-link-wrap--compact' : '';
+    const inlineAbstractHtml = inlineVideoHtml && abstractPreview
+      ? `<div class="card-related-abstract"><p class="card-abstract">${escapeHtml(abstractPreview)}</p></div>`
+      : '';
+    const defaultAbstractHtml = !inlineVideoHtml && abstractPreview
+      ? `<p class="card-abstract">${escapeHtml(abstractPreview)}</p>`
+      : '';
 
     return `
       <article class="talk-card">
-        <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="card-link-wrap" aria-label="${titleEsc}${escapeHtml(speakerLabel)}">
+        <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="card-link-wrap${compactHeaderClass}" aria-label="${titleEsc}${escapeHtml(speakerLabel)}">
+          ${inlineVideoHtml ? '' : `
           <div class="card-thumbnail" aria-hidden="true">
             ${thumbnailHtml}
             ${thumbnailUrl ? `<div class="play-overlay" aria-hidden="true"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>` : ''}
-          </div>
+          </div>`}
           <div class="card-body">
             <div class="card-meta">
               <span class="${badgeCls}">${escapeHtml(categoryLabel(categoryKey))}</span>
               ${meetingLabel ? `<span class="meeting-label">${escapeHtml(meetingLabel)}</span>` : ''}
             </div>
             <p class="card-title">${titleEsc}</p>
-            ${abstractPreview ? `<p class="card-abstract">${escapeHtml(abstractPreview)}</p>` : ''}
+            ${defaultAbstractHtml}
           </div>
         </a>
         ${renderTalkCardSpeakerLinks(talk)}
+        ${inlineVideoHtml}
+        ${inlineAbstractHtml}
         ${renderTalkCardTags(talk)}
         ${renderTalkCardActions(talk)}
       </article>`;
@@ -1426,7 +1488,7 @@
     const meetingMeta = [meetingDate, meetingLocation].filter(Boolean).join(' · ');
 
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
-    const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
+    const embeddedVideoHtml = buildEmbeddedVideoMarkup(videoUrl, title || 'Talk video');
     const primarySlidesLink = buildPrimarySlidesLink(talk);
     const links = buildResourceLinks(talk);
 
@@ -1465,6 +1527,12 @@
           <div class="speakers-list">${renderSpeakers(talk.speakers)}</div>
         </section>
 
+        ${embeddedVideoHtml ? `
+        <section class="video-section" aria-label="Video player">
+          <div class="section-label" aria-hidden="true">Video</div>
+          ${embeddedVideoHtml}
+        </section>` : ''}
+
         <section class="abstract-section" aria-label="Abstract">
           <div class="section-label" aria-hidden="true">Abstract</div>
           <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
@@ -1488,21 +1556,6 @@
         </section>
 
         ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
-
-        ${embeddedVideoUrl ? `
-        <section class="video-section" aria-label="Video player">
-          <div class="section-label" aria-hidden="true">Video</div>
-          <div class="video-embed">
-            <iframe
-              src="${escapeHtml(embeddedVideoUrl)}"
-              title="${escapeHtml(title || 'Talk video')}"
-              loading="lazy"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </section>` : ''}
 
         ${topicsHtml}
       </div>

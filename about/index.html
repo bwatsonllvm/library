@@ -219,7 +219,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=92b71f85a6df">
+  <link rel="stylesheet" href="css/style.css?v=736cee9379bd">
 </head>
 <body>
 
@@ -353,7 +353,7 @@
   <section class="search-hero search-hero--compact" aria-label="About the library">
     <div class="search-hero-shell about-hero-shell">
       <h1>About This Library</h1>
-      <p class="subtitle">A research library for LLVM talks, papers, blogs, and people.</p>
+      <p class="subtitle">A research library for LLVM talks, papers, blogs, people, and MLIR-focused browsing.</p>
       <form class="search-box global-search-form about-hero-search" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
         <input type="hidden" name="mode" value="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -385,6 +385,12 @@
       <h2 id="about-overview-heading">What This Website Contains</h2>
       <p>
         This research library combines LLVM Developers' Meeting talks, LLVM-related research papers, LLVM Project Blog posts, and a merged people index. It is designed for both quick lookup and cross-reference research workflows. The library updates nightly at 00:00 UTC.
+      </p>
+      <p>
+        It also includes a dedicated <a href="mlir/">MLIR page</a> that gathers MLIR-tagged talks and publications into a focused browse experience without duplicating the underlying records.
+      </p>
+      <p>
+        Talk detail pages include more than titles and abstracts: when available, they also surface referenced papers, referenced talks, and slide- or poster-derived external links such as GitHub repositories, issues, pull requests, LLVM reviews, and LLVM Discourse threads.
       </p>
       <div class="about-stats-grid" aria-label="Library coverage">
         <article class="about-stat-card">
@@ -465,10 +471,11 @@
       <ol>
         <li><strong>Start broad:</strong> use <a href="work.html?mode=search">Search All</a> for free-text queries, or <a href="work.html">All Work</a> for speaker/topic rollups.</li>
         <li><strong>Narrow with filters:</strong> Talks supports key topics, type, year, event, and resources; Papers supports key topics, type, year, and author targeting.</li>
+        <li><strong>Use the MLIR page for focused browsing:</strong> open <a href="mlir/">MLIR</a> to browse MLIR-tagged talks and publications through a dedicated subproject view.</li>
         <li><strong>Use sort + layout controls:</strong> switch between relevance, chronology, citations, and compact/card views where available.</li>
         <li><strong>Pivot through People:</strong> open a person profile card to jump into their talks, papers, or global results.</li>
         <li><strong>Browse by event history:</strong> use <a href="talks/events.html">Events</a> to inspect each LLVM Developers' Meeting edition.</li>
-        <li><strong>Open detail pages:</strong> talk and paper pages include abstracts (or full blog content), structured fields, and source links.</li>
+        <li><strong>Open detail pages:</strong> talk and paper pages include abstracts (or full blog content), structured fields, source links, and for talks, referenced papers, referenced talks, and external reference links when available.</li>
         <li><strong>Share reproducible views:</strong> active filters and searches are encoded in the URL so links preserve context.</li>
       </ol>
     </section>
@@ -477,9 +484,11 @@
       <h2 id="about-sources-heading">How This Database Is Built</h2>
       <ul>
         <li><strong>Talks:</strong> synchronized from public <code>llvm-www/devmtg</code> pages into <code>devmtg/events/*.json</code>, then normalized to a consistent schema (IDs, meeting fields, speakers, slides/video links, categories, tags).</li>
+        <li><strong>Talk references and links:</strong> talk detail pages precompute related papers, related talks, and extracted external references from slides or posters, including GitHub links, LLVM reviews, and LLVM Discourse links when they can be reliably identified.</li>
         <li><strong>Papers:</strong> combined from LLVM publications (<code>llvm.org/pubs</code>) and OpenAlex discovery results that match LLVM-focused keywords/subprojects and known library contributors.</li>
         <li><strong>Blogs:</strong> synchronized from <code>llvm/llvm-blog-www</code>, published in a dedicated Blogs section with full content and source links, and indexed alongside papers and talks in search.</li>
         <li><strong>People:</strong> derived from talk speakers and paper authors, then merged across name variants to reduce duplicates.</li>
+        <li><strong>MLIR:</strong> the <a href="mlir/">MLIR page</a> is built from the same core library data, using MLIR-tagged talks and publications to provide a focused subproject view.</li>
         <li><strong>Updates:</strong> generated from content deltas and shown newest-first, with links to in-library talks, papers, and blogs.</li>
         <li><strong>Refresh cadence:</strong> automated sync jobs run nightly at 00:00 UTC, so new upstream changes may appear later here.</li>
         <li><strong>Scope and limits:</strong> all indexed material is public; this site is a research index and does not replace canonical LLVM project sources.</li>

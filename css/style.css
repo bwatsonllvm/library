@@ -2476,6 +2476,10 @@ body.filter-collapsed .filter-collapse-btn svg {
   flex: 1;
 }
 
+.talk-card .card-link-wrap--compact {
+  flex: 0 0 auto;
+}
+
 /* Card Thumbnail */
 .card-thumbnail {
   position: relative;
@@ -3392,6 +3396,15 @@ mark {
   border: none;
 }
 
+.video-embed video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+}
+
 /* Abstract */
 .abstract-section {
   margin-bottom: var(--space-6);
@@ -4227,6 +4240,20 @@ html[data-theme="dark"] .subproject-research-note {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-4);
+}
+
+.talk-card .card-inline-video {
+  margin: 0 var(--space-4) var(--space-3);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+.talk-card .card-related-abstract {
+  padding: 0 var(--space-4) var(--space-3);
+}
+
+.talk-card .card-related-abstract .card-abstract {
+  margin: 0;
 }
 
 /* ============================================================
