@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import importlib.util
 import json
+import logging
 import re
 import subprocess
 import sys
@@ -38,6 +40,21 @@ GENERIC_DESCRIPTION_RE = re.compile(
     r"\b(?:more tech talks on #mlir|subscribe|follow us|playlist|click here|watch more|coming soon|discuss on llvm forums|videos filmed|edited by|bash films|twitter|facebook|instagram|linkedin|join us|oreilly)\b",
     re.IGNORECASE,
 )
+RESOURCE_TOKEN_RE = re.compile(
+    r"\b(?:slides?|recordings?|recording|transcript|event|events|talk|talks|part\s+\d+|additional slides?)\b",
+    re.IGNORECASE,
+)
+SPEAKER_PREFIX_RE = re.compile(
+    r"^(?:speakers?|speaker|presenter|presented by|guest(?: speaker)?|host|fullname)\s*[:;-]?\s*",
+    re.IGNORECASE,
+)
+PERSON_TOKEN_RE = re.compile(r"^[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]*$")
+NON_PERSON_LINE_RE = re.compile(
+    r"\b(?:mlir|llvm|tensor|dialect|meeting|openai|nvidia|google|workshop|conference|university|institute|agenda|overview|analysis|frontend|support|design|targeting|interaction|rewrite|rules|shaderpulse|xla|spir-v|gpu|webassembly|wasm|woven|toyota)\b",
+    re.IGNORECASE,
+)
+PDF_INFO_CACHE: dict[str, tuple[str, str]] = {}
+PDF_EXTRACTOR_CACHE: dict[str, object] = {}
 
 
 def collapse_ws(value: str) -> str:
@@ -272,6 +289,274 @@ def load_json_file(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_speaker_name(value: str) -> str:
+    text = collapse_ws(value)
+    text = re.sub(r"\((?:filling in for|moderator|host|guest|speaker|presenter)[^)]+\)", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\(@[^)]*\)", "", text)
+    text = text.strip(" ,;:-")
+    return collapse_ws(text)
+
+
+def looks_like_person_name(value: str) -> bool:
+    text = normalize_speaker_name(value)
+    if not text or re.search(r"\d", text):
+        return False
+    tokens = [token for token in re.split(r"\s+", text) if token]
+    if len(tokens) < 2 or len(tokens) > 6:
+        return False
+    if any(token.lower() in {"by", "of", "for", "in", "to"} for token in tokens):
+        return False
+    if NON_PERSON_LINE_RE.search(text):
+        return False
+    return all(PERSON_TOKEN_RE.fullmatch(token.strip("()")) for token in tokens)
+
+
+def split_paired_name_tokens(text: str) -> list[str]:
+    tokens = [token for token in re.split(r"\s+", collapse_ws(text)) if token]
+    if len(tokens) < 4 or len(tokens) % 2 != 0:
+        return []
+    if not all(PERSON_TOKEN_RE.fullmatch(token) for token in tokens):
+        return []
+    return [" ".join(tokens[index : index + 2]) for index in range(0, len(tokens), 2)]
+
+
+def dedupe_speaker_names(values: list[str]) -> list[dict]:
+    out: list[dict] = []
+    seen: set[str] = set()
+    for value in values:
+        name = normalize_speaker_name(value)
+        key = name.lower()
+        if not looks_like_person_name(name) or key in seen:
+            continue
+        seen.add(key)
+        out.append({"name": name, "affiliation": ""})
+    return out
+
+
+def extract_speaker_names_from_text(value: str) -> list[dict]:
+    text = collapse_ws(value)
+    if not text:
+        return []
+
+    candidates: list[str] = []
+    working = SPEAKER_PREFIX_RE.sub("", text)
+    working = working.replace(";", ",")
+    for segment in re.split(r"\s+/\s+|\s+&\s+|\s+ and \s+", working, flags=re.IGNORECASE):
+        cleaned = collapse_ws(segment)
+        if not cleaned:
+            continue
+        if " - " in cleaned and not looks_like_person_name(cleaned):
+            tail = collapse_ws(cleaned.rsplit(" - ", 1)[-1])
+            if looks_like_person_name(tail):
+                candidates.append(tail)
+                continue
+            cleaned = collapse_ws(cleaned.split(" - ", 1)[0])
+        cleaned = re.sub(r",\s*\d{4}.*$", "", cleaned)
+        cleaned = normalize_speaker_name(cleaned)
+        if not cleaned:
+            continue
+        if "," in cleaned:
+            for part in cleaned.split(","):
+                candidates.append(part)
+            continue
+        paired = split_paired_name_tokens(cleaned)
+        if paired:
+            candidates.extend(paired)
+            continue
+        candidates.append(cleaned)
+
+    return dedupe_speaker_names(candidates)
+
+
+def infer_speakers_from_metadata(entry: dict) -> list[dict]:
+    raw_candidates: list[str] = []
+    for source in [entry.get("summary", ""), entry.get("text", "")]:
+        candidate = collapse_ws(source)
+        if not candidate:
+            continue
+        if " @ " in candidate:
+            candidate = candidate.split(" @ ", 1)[0]
+        if ";" in candidate:
+            candidate = candidate.rsplit(";", 1)[-1]
+        candidate = RESOURCE_TOKEN_RE.sub(" ", candidate)
+        candidate = collapse_ws(candidate).strip(" ,;:-")
+        if candidate:
+            raw_candidates.append(candidate)
+    for candidate in raw_candidates:
+        speakers = extract_speaker_names_from_text(candidate)
+        if speakers:
+            return speakers
+    return []
+
+
+def infer_speakers_from_youtube_description(description: str, title: str) -> list[dict]:
+    if not description:
+        return []
+
+    full_names = re.findall(r"\bfullname:\s*([^;]+);", description, flags=re.IGNORECASE)
+    speakers = dedupe_speaker_names(full_names)
+    if speakers:
+        return speakers
+
+    lines = [clean_description_line(line) for line in description.replace("\r\n", "\n").replace("\r", "\n").split("\n")]
+    for index, line in enumerate(lines[:12]):
+        if not line:
+            continue
+        prefixed = SPEAKER_PREFIX_RE.sub("", line)
+        if prefixed != line:
+            candidate = prefixed
+            if not candidate and index + 1 < len(lines):
+                candidate = lines[index + 1]
+            speakers = extract_speaker_names_from_text(candidate)
+            if speakers:
+                return speakers
+        if title and collapse_ws(title).lower() in line.lower() and " - " in line:
+            speakers = extract_speaker_names_from_text(line.rsplit(" - ", 1)[-1])
+            if speakers:
+                return speakers
+    return []
+
+
+def load_pypdf_reader():
+    cached = PDF_EXTRACTOR_CACHE.get("pypdf-reader")
+    if cached is not None:
+        return cached
+    try:
+        logging.getLogger("pypdf").setLevel(logging.ERROR)
+        from pypdf import PdfReader  # type: ignore
+    except Exception:
+        PdfReader = None
+    PDF_EXTRACTOR_CACHE["pypdf-reader"] = PdfReader
+    return PdfReader
+
+
+def load_fallback_pdf_page_extractor():
+    cached = PDF_EXTRACTOR_CACHE.get("fallback-extractor")
+    if cached is not None:
+        return cached
+
+    module_path = Path(__file__).with_name("generate-talk-paper-links.py")
+    if not module_path.exists():
+        PDF_EXTRACTOR_CACHE["fallback-extractor"] = None
+        return None
+    spec = importlib.util.spec_from_file_location("generate_talk_paper_links", module_path)
+    if spec is None or spec.loader is None:
+        PDF_EXTRACTOR_CACHE["fallback-extractor"] = None
+        return None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    extractor = getattr(module, "extract_pdf_pages", None)
+    PDF_EXTRACTOR_CACHE["fallback-extractor"] = extractor
+    return extractor
+
+
+def extract_pdf_title_page_info(pdf_path: Path) -> tuple[str, str]:
+    cache_key = str(pdf_path.resolve())
+    cached = PDF_INFO_CACHE.get(cache_key)
+    if cached is not None:
+        return cached
+
+    author = ""
+    text = ""
+
+    reader_cls = load_pypdf_reader()
+    if reader_cls is not None:
+        try:
+            reader = reader_cls(str(pdf_path))
+            metadata = reader.metadata or {}
+            author = collapse_ws(str(metadata.get("/Author", "") or ""))
+            if reader.pages:
+                text = (reader.pages[0].extract_text() or "").replace("\x00", "")
+        except Exception:
+            author = ""
+            text = ""
+
+    if not text:
+        extractor = load_fallback_pdf_page_extractor()
+        if extractor is not None:
+            try:
+                pages = extractor(pdf_path.read_bytes())
+                text = pages[0] if pages else ""
+            except Exception:
+                text = ""
+
+    result = (author, text)
+    PDF_INFO_CACHE[cache_key] = result
+    return result
+
+
+def resolve_local_mlir_slides_path(slides_url: str, local_mlir_root: Path | None) -> Path | None:
+    if local_mlir_root is None:
+        return None
+    normalized = normalize_url(slides_url)
+    if not normalized:
+        return None
+    parsed = urllib.parse.urlparse(normalized)
+    rel_path = urllib.parse.unquote(parsed.path).lstrip("/")
+    if not rel_path.startswith("OpenMeetings/"):
+        return None
+    candidate = (local_mlir_root / "website/static" / rel_path).resolve()
+    return candidate if candidate.exists() else None
+
+
+def infer_speakers_from_slide_page(text: str, title: str) -> list[dict]:
+    lines = [collapse_ws(line) for line in str(text or "").replace("\r\n", "\n").replace("\r", "\n").split("\n")]
+    lines = [line for line in lines if line]
+    if not lines:
+        return []
+
+    candidate_lines = lines[:8]
+    found_names: list[str] = []
+    capturing = False
+    for line in candidate_lines:
+        if looks_like_title_line(line, title):
+            if capturing and found_names:
+                break
+            continue
+        if re.search(r"mlir open design meeting|open mlir meeting|agenda|overview|university|meeting|july|august|september|october|november|december|january|february|march|april|may|june", line, flags=re.IGNORECASE):
+            if capturing and found_names:
+                break
+            continue
+        line_names: list[str] = []
+        if "," in line and re.search(r",\s*\d{4}", line):
+            speakers = extract_speaker_names_from_text(line.split(",", 1)[0])
+            if speakers:
+                line_names.extend(speaker["name"] for speaker in speakers)
+        if not line_names and ("—" in line or "–" in line or " - " in line):
+            for segment in re.split(r"\s*[—–]\s*|\s+-\s+", line):
+                speakers = extract_speaker_names_from_text(segment)
+                if speakers:
+                    line_names.extend(speaker["name"] for speaker in speakers)
+        if not line_names:
+            speakers = extract_speaker_names_from_text(line)
+            if speakers:
+                line_names.extend(speaker["name"] for speaker in speakers)
+        if line_names:
+            capturing = True
+            found_names.extend(line_names)
+            continue
+        if capturing and found_names:
+            break
+    return dedupe_speaker_names(found_names)
+
+
+def infer_speakers_from_slide_deck(entry: dict, local_mlir_root: Path | None) -> list[dict]:
+    for action in entry.get("actions", []):
+        if collapse_ws(action.get("kind", "")).lower() != "slides":
+            continue
+        local_path = resolve_local_mlir_slides_path(action.get("url", ""), local_mlir_root)
+        if local_path is None:
+            continue
+        author, page_text = extract_pdf_title_page_info(local_path)
+        speakers = extract_speaker_names_from_text(author)
+        if speakers:
+            return speakers
+        speakers = infer_speakers_from_slide_page(page_text, collapse_ws(entry.get("title", "")))
+        if speakers:
+            return speakers
+    return []
+
+
 def extract_json_string_field(text: str, marker: str) -> str:
     idx = text.find(marker)
     if idx == -1:
@@ -398,6 +683,8 @@ def enrich_talk_abstracts_with_youtube(
     timeout: float,
     cache_path: Path,
     refresh: bool,
+    local_mlir_root: Path | None,
+    enable_youtube: bool,
 ) -> None:
     cache = load_json_file(cache_path) if cache_path.exists() else {}
     cache_videos = cache.setdefault("videos", {})
@@ -406,6 +693,7 @@ def enrich_talk_abstracts_with_youtube(
     for section in sections:
         for group in section.get("groups", []):
             for entry in group.get("entries", []):
+                speakers = infer_speakers_from_metadata(entry)
                 actions = entry.get("actions", [])
                 recording_url = ""
                 for action in actions:
@@ -414,10 +702,25 @@ def enrich_talk_abstracts_with_youtube(
                         recording_url = url
                         break
                 if not recording_url:
+                    if not speakers:
+                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    if speakers:
+                        entry["speakers"] = speakers
                     continue
 
                 video_id = extract_youtube_video_id(recording_url)
                 if not video_id:
+                    if not speakers:
+                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    if speakers:
+                        entry["speakers"] = speakers
+                    continue
+
+                if not enable_youtube:
+                    if not speakers:
+                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    if speakers:
+                        entry["speakers"] = speakers
                     continue
 
                 cached = cache_videos.get(video_id, {}) if isinstance(cache_videos, dict) else {}
@@ -439,6 +742,13 @@ def enrich_talk_abstracts_with_youtube(
                 if abstract:
                     entry["abstract"] = abstract
                     entry["abstractSource"] = "youtube"
+
+                if not speakers:
+                    speakers = infer_speakers_from_youtube_description(raw_description, collapse_ws(entry.get("title", "")))
+                if not speakers:
+                    speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                if speakers:
+                    entry["speakers"] = speakers
 
     if cache_dirty:
         cache["schemaVersion"] = 1
@@ -677,13 +987,14 @@ def main() -> int:
 
     talk_sections = filter_talk_sections(parse_markdown_page(talks_text, page_kind="talks"))
     pub_sections = parse_markdown_page(pubs_text, page_kind="publications")
-    if not args.skip_youtube_abstracts:
-        enrich_talk_abstracts_with_youtube(
-            talk_sections,
-            timeout=args.timeout,
-            cache_path=(repo_root / args.youtube_cache).resolve(),
-            refresh=args.refresh_youtube_abstracts,
-        )
+    enrich_talk_abstracts_with_youtube(
+        talk_sections,
+        timeout=args.timeout,
+        cache_path=(repo_root / args.youtube_cache).resolve(),
+        refresh=args.refresh_youtube_abstracts,
+        local_mlir_root=local_mlir_root,
+        enable_youtube=not args.skip_youtube_abstracts,
+    )
     assign_entry_ids(talk_sections, prefix="mlir-talk")
     assign_entry_ids(pub_sections, prefix="mlir-pub")
 

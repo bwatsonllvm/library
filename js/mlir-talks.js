@@ -230,6 +230,7 @@
     const name = collapseWhitespace(normalized && normalized.name ? normalized.name : value);
     return name
       .replace(/\((?:filling in for|moderator|host)[^)]+\)/gi, '')
+      .replace(/\b(?:filling in for|moderator|host)\b.*$/gi, '')
       .replace(/\s{2,}/g, ' ')
       .replace(/^[,;:]+|[,;:]+$/g, '')
       .trim();
@@ -240,6 +241,7 @@
     if (!text || /\d/.test(text)) return false;
     const tokens = text.split(/\s+/).filter(Boolean);
     if (tokens.length < 2 || tokens.length > 6) return false;
+    if (tokens.some((token) => ['by', 'of', 'for', 'in', 'to'].includes(token.toLowerCase()))) return false;
     return tokens.every((token) => {
       const cleaned = token.replace(/^[.'’()-]+|[.'’()-]+$/g, '');
       if (!cleaned) return false;
@@ -256,6 +258,12 @@
   }
 
   function extractSpeakers(entry, actions) {
+    if (Array.isArray(entry && entry.speakers) && entry.speakers.length) {
+      return entry.speakers
+        .map((speaker) => ({ name: normalizeSpeakerName(speaker && speaker.name), affiliation: collapseWhitespace(speaker && speaker.affiliation) }))
+        .filter((speaker) => looksLikePersonName(speaker.name));
+    }
+
     const rawCandidates = [];
     for (const source of [entry && entry.summary, entry && entry.text]) {
       let candidate = collapseWhitespace(source);
@@ -264,7 +272,6 @@
       if (candidate.includes(';')) candidate = candidate.split(';').pop();
       candidate = candidate
         .replace(/\b(?:slides?|recordings?|recording|transcript|event|talk|part\s+\d+|additional slides?)\b/gi, ' ')
-        .replace(/[()]/g, ' ')
         .replace(/\s{2,}/g, ' ')
         .trim();
       if (candidate) rawCandidates.push(candidate);

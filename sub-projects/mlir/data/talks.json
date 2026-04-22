@@ -1,6 +1,6 @@
 {
   "dataVersion": "2026-04-21-mlir-talks",
-  "generatedAt": "2026-04-21T23:57:05Z",
+  "generatedAt": "2026-04-22T00:11:20Z",
   "title": "MLIR Talks",
   "sourceUrl": "https://mlir.llvm.org/talks/",
   "sourcePath": "/Users/britton/Documents/GitHub/mlir-www/website/content/talks/_index.md",
@@ -38,6 +38,16 @@
               ],
               "abstract": "MLIR is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to LLVM. It aims at generalizing the success of LLVM\u2019s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning, to HW design. More LLVM sub-projects are using MLIR: flang has already been merged and is using MLIR for FIR, its own high-level IR.\n\nTwo new projects are proposed for incubation in LLVM mlir-npcomp, a numpy compiler ; and CIRCT, which is applying MLIR to the domain of hardware design tools.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Mehdi Amini",
+                  "affiliation": ""
+                },
+                {
+                  "name": "River Riddle",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-mlir-tutorial"
             }
           ]
@@ -63,6 +73,16 @@
                   "url": "http://www.cs.utah.edu/~mhall/mlir4hpc/"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Jacques Pienaar",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Sana Damani",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-mlir-tutorial-2"
             },
             {
@@ -79,6 +99,20 @@
                   "kind": "event",
                   "label": "Event",
                   "url": "https://llvm.org/devmtg/2019-04"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Mehdi Amini",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Alex Zinenko",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Nicolas Vasilache",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-tutorial-building-a-compiler-with-mlir"
@@ -113,6 +147,12 @@
                   "url": "https://fosdem.org/2023/"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Marius Brehler",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-how-to-build-your-own-mlir-dialect"
             },
             {
@@ -136,6 +176,12 @@
                   "url": "https://llvm.swoogo.com/2021devmtg/"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Aart Bik",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-compiler-support-for-sparse-tensor-computations-in-mlir"
             },
             {
@@ -152,6 +198,12 @@
                   "kind": "event",
                   "label": "Event",
                   "url": "https://conf.researchr.org/home/cgo-2021"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Alex Zinenko",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-mlir-scaling-compiler-infrastructure-for-domain-specific-computation"
@@ -177,6 +229,12 @@
                   "url": "https://www.youtube.com/watch?v=0bxyZDGs-aA"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Mehdi Amini",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-llvm-compiler-infrastructure-in-hpc-workshop-keynote-mlir-an-agile-infrastructure-for-building-a-compiler-ecosystem-slides"
             },
             {
@@ -190,6 +248,16 @@
                   "url": "https://docs.google.com/presentation/d/11-VjSNNNJoRhPlLxFgvtb909it1WNdxTnQFipryfAPU/edit#slide=id.g7d334b12e5_0_4"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Chris Lattner",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Tatiana Shpeisman",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-cgo-2020-keynote-mlir-compiler-infrastructure"
             },
             {
@@ -201,6 +269,12 @@
                   "kind": "slides",
                   "label": "Slides",
                   "url": "https://acohen.gitlabpages.inria.fr/impact/impact2020/slides/IMPACT_2020_keynote.pdf"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Uday Bondhugula",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-impact-2020-keynote-polyhedral-compilation-opportunities-in-mlir"
@@ -219,6 +293,16 @@
                   "kind": "event",
                   "label": "Event",
                   "url": "https://llvm.org/devmtg/2019-04"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Tatiana Shpeisman",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Chris Lattner",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-mlir-multi-level-intermediate-representation-for-compiler-infrastructure"
@@ -242,6 +326,16 @@
                   "kind": "link",
                   "label": "CGO 2019",
                   "url": "http://cgo.org/cgo2019/"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Chris Lattner",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Jacques Pienaar",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-mlir-primer-a-compiler-infrastructure-for-the-end-of-moore-s-law-slides"
@@ -271,6 +365,12 @@
               ],
               "abstract": "This talk will describe MLIR - machine learning compiler infrastructure for TensorFlow and explain how it helps TensorFlow to scale faster to meet the needs of rapidly evolving machine learning software and hardware.\n\nWatch all TensorFlow Dev Summit 2020 sessions \u2192 https://goo.gle/TFDS20",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Jacques Pienaar",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-mlir-accelerating-tf-with-compilers"
             },
             {
@@ -289,6 +389,12 @@
                   "url": "https://www.c4ml.org/c4ml2020"
                 }
               ],
+              "speakers": [
+                {
+                  "name": "Jacques Pienaar",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-mlir-in-the-tensorflow-ecosystem"
             },
             {
@@ -305,6 +411,16 @@
                   "kind": "event",
                   "label": "Event",
                   "url": "https://conferences.oreilly.com/tensorflow/tf-ca"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "Chris Lattner",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Tatiana Shpeisman",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-mlir-accelerating-ai"
@@ -327,6 +443,12 @@
               ],
               "abstract": "The LLVM-based Flang project is actively developing a standards-compliant compiler for Fortran's \u201dthe world's\u2122s first high-level programming language and still an important language for science and engineering today. While Fortran's core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. The Flang project has been exploring the use of MLIR, specifically the definition of Flang's Fortran IR (FIR) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of Flang. This talk will explore what the FIR dialect is, how it is built upon and uses other aspects of MLIR, as well as some of the high-level optimizations achieved.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Eric Schweitz",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-an-mlir-dialect-for-high-level-optimization-of-fortran"
             },
             {
@@ -347,6 +469,16 @@
               ],
               "abstract": "Swift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. The two options today are LLVM (there's a running joke that Swift is just syntactic sugar for LLVM) and TensorFlow graphs (which is the contribution of early versions of Swift for TensorFlow).\n\nMulti-Level Intermediate Representation (MLIR) is a generalization of both the LLVM IR and TensorFlow graphs to represent arbitrary computations at multiple levels of abstraction. This enables domain-specific optimizations and code generation (e.g. for CPUs, GPUs, TPUs, and other hardware targets).",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Eugene Burmako",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Alex Suhan",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-swift-as-syntactic-sugar-for-mlir"
             },
             {
@@ -367,6 +499,12 @@
               ],
               "abstract": "MLIR is a flexible compiler infrastructure with an open ecosystem of dialects, built for a world of increasingly heterogeneous hardware. With its support for metaprogramming and extensible JIT compiler, Julia is well-positioned as a frontend language for the MLIR stack.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "James Bradbury",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-targeting-accelerators-with-mlir-jl"
             },
             {
@@ -382,6 +520,12 @@
               ],
               "abstract": "Take an inside look into the TensorFlow team\u2019s own internal training sessions--technical deep dives into TensorFlow by the very people who are building it. On this episode of Inside TensorFlow, Software Engineer Jacques Pienaar discusses MLIR: multi-level intermediate representation compiler infrastructure for TensorFlow developers. Let us know what you think about this presentation in the comments below!",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Jacques Pienaar",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-inside-tensorflow-mlir-for-tf-developers"
             },
             {
@@ -402,6 +546,12 @@
               ],
               "abstract": "This is a recording of my talk at LLVM Social Berlin #20.\n\nThe talk presents MLIR basics by building a very simplifiied version of AOT (ahead of time) compiler for mruby.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Alex Denisov",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-compiling-ruby-with-mlir"
             }
           ]
@@ -444,6 +594,12 @@
               ],
               "abstract": "In this meeting we're discussing the next steps on the migration to properties.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Krzysztof Drewniak",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2"
             },
             {
@@ -464,6 +620,20 @@
               ],
               "abstract": "An open design meeting on the proposed WebAssembly Dialect for MLIR.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Ferdinand Lemaire",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Jessica Paquette",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Luc Forget",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2025-06-26-webassembly-dialect-slides"
             },
             {
@@ -554,6 +724,12 @@
               ],
               "abstract": "In this meeting, Fabian led a discussion on the [RFC] about adding support for OpenMP GPU target offload and the on-going work on revamping our offloading infrastructure in MLIR.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Fabian Mora-Cordero",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2024-02-15-openmp-gpu-target-offload-slides"
             },
             {
@@ -574,6 +750,12 @@
               ],
               "abstract": "This is a design discussion on the topic of handling reshapes in the vector dialect.\n\nFormalizing the definition of a virtual vector How to position various reshape operations (collapse/expand/squeeze/unsqueeze/shape_cast) within the dialect How do we expect to target SPIR-V/LLVM/Scalable Vectors without each being so sensitive to small canonicalization/pattern changes How does this all relate to vector layouts and/or SIMT",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Vector Reshapes",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-12-14-vector-dialect-reshape-and-handling-of-unit-dimensions-slides"
             },
             {
@@ -594,6 +776,12 @@
               ],
               "abstract": "In this talk, Guray presents the developments within the NVGPU and NVVM dialects to target H100.\n\nTo unlock NVIDIA H100 full potential, leveraging new features is essential. The focus will be on illustrating the implementation of key elements such as the Tensor Memory Accelerator (TMA), warp-group level tensor core instructions, and transactional barriers.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Guray Ozen",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-11-16-targeting-h100-with-nvgpu-and-nvvm-dialects-slides"
             },
             {
@@ -614,6 +802,16 @@
               ],
               "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads.\n\nThis presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Nick Brown",
+                  "affiliation": ""
+                },
+                {
+                  "name": "EPCC Edinburgh",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides"
             },
             {
@@ -634,6 +832,16 @@
               ],
               "abstract": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Alexander Viand",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Jeremy Kun",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides"
             },
             {
@@ -654,6 +862,16 @@
               ],
               "abstract": "Nowadays, a robust sharding infrastructure is imperative for distributed computing, in particular for ML and Large Language Models, regardless of whether sharding is determined manually or automatically. Meanwhile, mesh-like deep learning clusters are being extensively employed. For instance, the TPU 3D torus is explicitly defined as a mesh-like cluster, and several DGX boxes could be regarded as a 2-D mesh-like cluster.\n\nThe motivation of this presentation is to propose the design of the Mesh dialect, aiming to represent the mesh cluster and the sharding, along with collective communication operations on it. Additionally, it will outline a typical workflow for undertaking sharding annotation from frontends, performing sharding propagation and optimization, and converting the IR to SPMD format.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Device Mesh",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Chengji YaoByteDance AI Compiler Team",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-09-28-sharding-framework-for-device-mesh-slides"
             },
             {
@@ -674,6 +892,12 @@
               ],
               "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as \u201cisConstant\u201d. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "THE IR",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides"
             },
             {
@@ -694,6 +918,16 @@
               ],
               "abstract": "In this presentation, Vinicius Espindola presents an approach to Pattern Matching for Library and Acceleration Instruction Rewriting. The motivation for this work is to support modern ISA extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. Although recent works have proposed different ways of raising code abstraction, they rely on specialized languages, compiler recompilation, or in-depth dialect knowledge. With this in mind, we developed Source-based Matching and Rewriting (SMR), an MLIR based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Acceleration Instruction Rewriting",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Vinicius Espindola",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-07-06-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting-slides"
             },
             {
@@ -719,6 +953,12 @@
               ],
               "abstract": "This is a review and discussion of the RFC on creating a ArmSME Dialect. We will first have an introduction into Arm\u2019s Scalable Matrix Extension, including the MLIR codegen perspective, the work done so far to target SME from MLIR, and discuss what\u2019s the best way to target \u201cCPU accelerators\u201d from MLIR. Then we will have a second part to detail the proposal for this dialect.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Security Level",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-06-22-targeting-arm-sme-from-mlir-and-sme-dialect-slides-part-1"
             },
             {
@@ -759,6 +999,28 @@
               ],
               "abstract": "In this talk, Maksim Levental presents Nelli: a Python embedded domain-specific language for emitting MLIR. It builds on top of existing MLIR Python bindings to map Python primitives (such as if s, for s, and class es) to various MLIR dialects. The foremost goal of Nelli is to make MLIR more ergonomic to use and thereby more accessible. A secondary goal is to enable compiler engineers to easily write \u201cmicro-kernels\u201d that are performant and compatible with various MLIR dialects. Nelli realizes these aims by remaining \u201cPythonic\u201d while preserving the semantics of MLIR (vis-a-vis the in-tree Python bindings).",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Max Levental",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Alok Kamatar",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Ryan Chard",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Kyle Chard",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Ian Foster",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-03-23-nelli-a-lightweight-pythonic-frontend-for-mlir-slides"
             },
             {
@@ -779,6 +1041,12 @@
               ],
               "abstract": "Convolution is one of the most common linear algebra operations for machine-learning applications. With the increasingly important compiler integration into such frameworks, improving performance in code-generated implementations of convolution is key for the future. In this talk, Victor Ferrari (UNICAMP) presents a new convolution approach for MLIR which improves performance when compared to the traditional Im2Col + GEMM method used in the linalg dialect and many other places.\n\n0:00 Introduction 4:41 Model Inference Results 10:35 Optimizing Convolutions for CPUs 14:05 Optimizing Convolutions in MLIR 16:30 Current Compilation Flow 23:57 Convolution Slicing Analysis (CSA) 32:12 Optimized Micro-Kernel 35:47 Micro-Kernel: access pattern 40:02 Useful Observation 46:03 Experimental Setup 49:07 Packing Improvements 49:46 Next Steps (Macro-Kernel Lowering) 51:56 A little bit of code navigation 58:05 Next Steps (Micro-Kernel Lowering)",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Integrating Convolution",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides"
             },
             {
@@ -799,6 +1067,12 @@
               ],
               "abstract": "In this presentation, Mehdi Amini presents the new \"Action\" framework to trace and debug MLIR-based compiler.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Mehdi Amini",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-02-23-mlir-actions-tracing-and-debugging-mlir-based-compilers-slides"
             },
             {
@@ -819,6 +1093,12 @@
               ],
               "abstract": "In this presentation, Mehdi AMINI will introduce some of the nitty-gritty aspects of MLIR internal core data-structures. If you ever wondered what happens when you create an Operation or an Attribute in MLIR, this may be interesting! Then we introduce Operation Properties as a new concept to potentially replace inherent Attributes on Operation. More info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Mehdi Amini",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-02-09-deep-dive-on-mlir-internals-operation-attribute-towards-properties-slides"
             },
             {
@@ -839,6 +1119,20 @@
               ],
               "abstract": "Alex Zinenko discusses the transform dialect and related infrastructure for precise control of compiler transformations, particularly useful for code generation. Numerous high-performance code generators rely on explicit or implicit schedules that describe how the program is to be run separately from the program itself, including Halide, TVM and Rise. The transform dialect approach brings the notion of schedules to the MLIR ecosystem and connects it to code generation for structured ops, bufferization and vectorizaton. It allows for code generation heuristics to be externalized (e.g., stored and shipped as IR or bytecode) or generated by third-party tools. It also inspired the extension of the core infrastructure, in particular dialect extensions, and more variants of pattern rewriting. This talk discusses the current state of the transform dialect infrastructure, its evolution since the original RFC, and the expected longer-term effects on MLIR-based compiler construction.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Alex Zinenko",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Denys Shabalin",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Nicolas Vasilache",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-01-26-controllable-transformations-in-mlir"
             },
             {
@@ -859,6 +1153,12 @@
               ],
               "abstract": "In this MLIR Open Meeting, we discussed the RFC about Poison Semantics in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Public RFC",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-11-03-poison-semantics-in-mlir"
             },
             {
@@ -879,6 +1179,16 @@
               ],
               "abstract": "In this meeting, Mathieu Fehr presents IRDL, a dialect to represent IR definitions.\n\nIRDL can represent types, attributes, and operations in a similar manner than TableGen, and register them at runtime without having to compile to C++. IRDL also compiles to IRDL-SSA, which is an SSA-based representation of dialect definitions that are easier to generate and modify. The hope is that IRDL and IRDL-SSA will allow users to more easily define dialects from other languages and projects, as well as to more easily reason about the dialect definitions.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Mathieu Fehr",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Th\u00e9o Degioanni",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-06-02-irdl-a-dialect-to-represent-ir-definitions"
             },
             {
@@ -899,6 +1209,12 @@
               ],
               "abstract": "In this meeting, Alex Zinenko presents a mechanism for more precise control over IR transformation by reifying the sequence of IR transformation instructions as more IR. The simplest way to use such Transform IR operations is to create a \u201cschedule interpreter\u201d that calls \u201capply\u201d following some predefined rules, e.g., sequentially. This is similar to the approach adopted by Halide, TVM, etc.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Alex Zinenko",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-03-17-interfaces-and-dialects-for-precise-ir-transformation-control"
             },
             {
@@ -939,6 +1255,12 @@
               ],
               "abstract": "Yi Zhang presents the \u201cAnatomy of a Linalg Op\u201d, a nice introduction to Linalg and Linalg.generic concepts.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Yi Zhang",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-01-27-anatomy-of-linalg-generic"
             },
             {
@@ -959,6 +1281,12 @@
               ],
               "abstract": "In this talk, Matthias Springer will give an overview of the new one-shot bufferization, how to use it, and how it can be extended to support new ops. Finally, he will also discuss plans for unifying both bufferization solutions. More complete description: https://llvm.discourse.group/t/open-mlir-meeting-1-13-2021-one-shot-function-bufferization-of-tensor-programs/5197",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "One-Shot Function Bufferization",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-01-13-one-shot-function-bufferization-of-tensor-programs"
             },
             {
@@ -979,6 +1307,12 @@
               ],
               "abstract": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf\n\nAt the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We\u2019ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Stephen Neuendorffer",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides"
             },
             {
@@ -999,6 +1333,12 @@
               ],
               "abstract": "This presentation assumes some background on PDL, see previous talks on this topic on: https://mlir.llvm.org/talks/\n\n2021-04-15: Pattern Descriptor Language 2019-12-19: Interpreted Pattern Match Execution",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "River Riddle",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2021-11-04-pdll-a-frontend-for-pdl"
             },
             {
@@ -1019,6 +1359,12 @@
               ],
               "abstract": "Gus Smith presents the results of his work on \u201cML-Driven Auto-Configurator for Sparse Tensor Kernels in MLIR\u201d.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "An ML-Driven Autoconfigurator",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2021-09-09-an-ml-driven-autoconfigurator-for-sparse-tensor-kernels-in-mlir"
             },
             {
@@ -1035,6 +1381,12 @@
                   "kind": "recording",
                   "label": "Recording",
                   "url": "https://youtu.be/XEfkPEUw-08"
+                }
+              ],
+              "speakers": [
+                {
+                  "name": "PolyMage Labs",
+                  "affiliation": ""
                 }
               ],
               "id": "mlir-talk-2021-08-26-high-performance-gpu-tensor-corecode-generation-for-matmul-using-mlir"
@@ -1137,6 +1489,12 @@
               ],
               "abstract": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "River Riddle",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files"
             },
             {
@@ -1722,6 +2080,12 @@
               ],
               "abstract": "An open design meeting on the Inet Dialect for modeling Interaction Networks paradigm, adopted among others by HVM2 and Vine IVM.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Martin Coll",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2025-04-10-inet-interaction-network-dialect"
             },
             {
@@ -1742,6 +2106,12 @@
               ],
               "abstract": "In this meeting, talks about Shaderpulse: a new GLSL frontend for MLIR SPIR-V. He walks through the project through example compute shaders, and show how the Shaderpulse AST maps to the SPIR-V MLIR Dialect.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Ahmed Harmouche",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2024-10-17-shaderpulse-a-glsl-frontend-for-mlir-spir-v"
             },
             {
@@ -1782,6 +2152,12 @@
               ],
               "abstract": "Kai Ting Wang and Kevin Lee present PyDSL: a small subset of the Python language aiming to assist users in constructing MLIR particularly in the affine and transform dialects. They have developed several in-house optimizations in the affine dialect, and they wish to expose these optimizations to the kernel developers via usage of the transform ops. Programming in MLIR\u2019s Python binding is quite verbose which gives birth to this fun project. They designed a light-weight wrapper-like language utilizing Python\u2019s AST package and the decorator syntax to allow kernel developers to construct MLIR.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "HUAWEI TECHNOLOGIES CO.",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides"
             },
             {
@@ -1802,6 +2178,12 @@
               ],
               "abstract": "Ivan Butygin presents the progress on python compiler based on Numba and MLIR.\n\nThe goal of this project is to create compiler for numeric python code which provides efficient code generation for CPUs and portable and efficient offload capabilities for GPUs. Numba is used as a frontend and mapped to a set of custom MLIR dialects: Ntensor - dialect for numpy arrays and functions, which supports mutable tensors, broadcasting on dynamic shapes, ArrayAPI-style compute-follows-data approach and lowering to linalg-on-tensors/memrefs. GPUX/gpu_runtime - extension to exisitng GPU dialect which allows more precise control over offloading scope, device/queue selection, kernel loading and supports lowering to SYCL runtime.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Ivan Butygin",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-06-08-15-update-on-numba-mlir-slides"
             },
             {
@@ -1842,6 +2224,12 @@
               ],
               "abstract": "In this presentation, Pedro Ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. This talk approaches this problem by creating an IR for static dataflow using MLIR, and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. In this presentation, we\u2019ll focus on the challenges related to the use of MLIR and open the way for feedback and discussion regarding the found solutions.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Pedro Ciambra",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2023-03-30-representing-dataflow-with-mlir"
             },
             {
@@ -1862,6 +2250,12 @@
               ],
               "abstract": "In this MLIR Open Meeting, Dumitru Potop-Butucaru presents their work on Embedded Reactive Programming in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317\n\nToday\u2019s machine learning (ML) frameworks (TensorFlow, PyTorch\u2026) and compilers (MLIR, Glow\u2026) allow the specification and efficient implementation of deep neural networks (DNNs) that have ever-increasing precision when applied to Big Data that is already stored in large databases. By contrast, in various applications, a clear need emerges for reactive ML applications that operate in a stateful fashion on streams of data, in time (in RNNs, attention-based approaches, reinforcement learning - RL - or even when scheduling convolutional networks in time to reduce memory requirements). Beyond this view focused on ML algorithmic design, the field of embedded ML, where ML components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. Existing ML frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. The situation has reached a point where ML algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - RL- or in transformers) is largely distinct from embedded ML engineering, the latter focusing on simpler (often stateless) network architectures. Ad hoc remedies are proposed in the literature for specific and limited cases. For instance, the time dimension of RL applications is traversed using (interpreted) Python code unsuitable for an embedded implementation. Modifications to the Python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Dumitru Potop-Butucaru",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-12-15-embedded-reactive-programming-in-mlir"
             },
             {
@@ -1882,6 +2276,12 @@
               ],
               "abstract": "Krzysztof Drewniak presents the coordinate transformations system used by AMD\u2019s high-performance GPU code generator at the core of the rocMLIR project, which is currently focused on convolution and matrix multiplication kernels.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Krzysztof Drewniak",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-10-06-coordinate-transformations-in-amd-s-rocmlir"
             },
             {
@@ -1942,6 +2342,36 @@
               ],
               "abstract": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR.\n\nDaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
               "abstractSource": "youtube",
+              "speakers": [
+                {
+                  "name": "Tal Ben-Nun",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Alexandros-Nikolaos Ziogas",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Timo Schneider",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Philipp Schaad",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Oliver Rausch",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Andrei Ivanov",
+                  "affiliation": ""
+                },
+                {
+                  "name": "Berke Ates",
+                  "affiliation": ""
+                }
+              ],
               "id": "mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures"
             },
             {
