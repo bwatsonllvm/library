@@ -241,7 +241,7 @@ ruby -rjson -ruri -e '
 ' "$EVENTS_ROOT" "$UPDATES_ROOT" "$PAPERS_ROOT"
 
 # Validate talk paper links JSON.
-ruby -rjson -e '
+ruby -rjson -ruri -e '
   site_root = ARGV.fetch(0)
   path = File.join(site_root, "js", "data", "talk-paper-links.json")
   payload = JSON.parse(File.read(path))
