@@ -49,10 +49,44 @@ SPEAKER_PREFIX_RE = re.compile(
     re.IGNORECASE,
 )
 PERSON_TOKEN_RE = re.compile(r"^[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]*$")
+NAME_TOKEN_PATTERN = r"[A-ZÀ-ÖØ-Þ][a-zà-öø-ÿ]+(?:[.'’-][A-ZÀ-ÖØ-Þa-zà-öø-ÿ]+)*"
+COMMA_NAME_RE = re.compile(rf"(?P<name>{NAME_TOKEN_PATTERN}(?:\s+{NAME_TOKEN_PATTERN}){{1,2}}),")
 NON_PERSON_LINE_RE = re.compile(
-    r"\b(?:mlir|llvm|tensor|dialect|meeting|openai|nvidia|google|workshop|conference|university|institute|agenda|overview|analysis|frontend|support|design|targeting|interaction|rewrite|rules|shaderpulse|xla|spir-v|gpu|webassembly|wasm|woven|toyota)\b",
+    r"\b(?:mlir|llvm|tensor|dialect|meeting|openai|nvidia|google|workshop|conference|university|institute|agenda|overview|analysis|frontend|support|design|targeting|interaction|rewrite|rules|shaderpulse|xla|spir-v|gpu|webassembly|wasm|woven|toyota|security|level|department|author|date|proposal|context|hosted|discussion|conversion|compiler|framework|attributes?|properties|actions|reshapes?|public|copyright|confidential|proprietary|edinburgh|cambridge|group|chair|laboratory|national|inria)\b",
     re.IGNORECASE,
 )
+DATE_TITLE_PREFIX_RE = re.compile(
+    r"^(?P<prefix>\d{4}-\d{2}(?:-\d{2}(?:/\d{2})?)?(?:\s*&\s*\d{4}-\d{2}(?:-\d{2})?)?)\s*:\s*(?P<rest>.+)$"
+)
+SLIDE_MEETING_MARKER_RE = re.compile(
+    r"\b(?:MLIR Open Design Meeting|MLIR Open Meeting|Open MLIR Meeting|MLIR ODM)\b",
+    re.IGNORECASE,
+)
+MONTH_OR_DATE_RE = re.compile(
+    r"\b(?:January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec|\d{1,2}/\d{1,2}/\d{2,4}|\d{4}-\d{2}-\d{2})\b",
+    re.IGNORECASE,
+)
+TITLE_TOKEN_RE = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ0-9][A-Za-zÀ-ÖØ-öø-ÿ0-9'.’+-]*")
+TITLE_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "at",
+    "by",
+    "for",
+    "from",
+    "in",
+    "of",
+    "on",
+    "part",
+    "recording",
+    "recordings",
+    "slide",
+    "slides",
+    "the",
+    "to",
+    "with",
+}
 PDF_INFO_CACHE: dict[str, tuple[str, str]] = {}
 PDF_EXTRACTOR_CACHE: dict[str, object] = {}
 
@@ -297,25 +331,44 @@ def normalize_speaker_name(value: str) -> str:
     return collapse_ws(text)
 
 
+def clean_person_token(value: str) -> str:
+    token = collapse_ws(value)
+    token = re.sub(r"^[^A-Za-zÀ-ÖØ-öø-ÿ]+", "", token)
+    token = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+$", "", token)
+    return collapse_ws(token)
+
+
+def looks_like_person_token(token: str) -> bool:
+    cleaned = clean_person_token(token)
+    if not cleaned or not PERSON_TOKEN_RE.fullmatch(cleaned):
+        return False
+    letters = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", cleaned)
+    if not letters:
+        return False
+    return any(char.islower() for char in letters)
+
+
 def looks_like_person_name(value: str) -> bool:
     text = normalize_speaker_name(value)
     if not text or re.search(r"\d", text):
         return False
-    tokens = [token for token in re.split(r"\s+", text) if token]
+    tokens = [clean_person_token(token) for token in re.split(r"\s+", text)]
+    tokens = [token for token in tokens if token]
     if len(tokens) < 2 or len(tokens) > 6:
         return False
     if any(token.lower() in {"by", "of", "for", "in", "to"} for token in tokens):
         return False
     if NON_PERSON_LINE_RE.search(text):
         return False
-    return all(PERSON_TOKEN_RE.fullmatch(token.strip("()")) for token in tokens)
+    return all(looks_like_person_token(token) for token in tokens)
 
 
 def split_paired_name_tokens(text: str) -> list[str]:
-    tokens = [token for token in re.split(r"\s+", collapse_ws(text)) if token]
+    tokens = [clean_person_token(token) for token in re.split(r"\s+", collapse_ws(text))]
+    tokens = [token for token in tokens if token]
     if len(tokens) < 4 or len(tokens) % 2 != 0:
         return []
-    if not all(PERSON_TOKEN_RE.fullmatch(token) for token in tokens):
+    if not all(looks_like_person_token(token) for token in tokens):
         return []
     return [" ".join(tokens[index : index + 2]) for index in range(0, len(tokens), 2)]
 
@@ -325,12 +378,52 @@ def dedupe_speaker_names(values: list[str]) -> list[dict]:
     seen: set[str] = set()
     for value in values:
         name = normalize_speaker_name(value)
+        if name and not looks_like_person_name(name):
+            tokens = [clean_person_token(token) for token in re.split(r"\s+", name)]
+            tokens = [token for token in tokens if token]
+            while len(tokens) > 2 and not looks_like_person_name(" ".join(tokens)):
+                tokens = tokens[1:]
+            name = " ".join(tokens)
         key = name.lower()
         if not looks_like_person_name(name) or key in seen:
             continue
         seen.add(key)
         out.append({"name": name, "affiliation": ""})
     return out
+
+
+def extract_name_like_windows(value: str, *, max_width: int = 4) -> list[dict]:
+    text = collapse_ws(value)
+    if not text:
+        return []
+
+    cleaned = re.sub(r"https?://\S+|\S+@\S+", " ", text)
+    tokens = [clean_person_token(token) for token in re.split(r"\s+", cleaned)]
+    tokens = [token for token in tokens if token]
+    if len(tokens) < 2:
+        return []
+
+    candidates: list[str] = []
+    index = 0
+    while index < len(tokens):
+        matched = False
+        for width in range(min(max_width, len(tokens) - index), 1, -1):
+            segment = " ".join(tokens[index : index + width])
+            paired = split_paired_name_tokens(segment)
+            if paired and all(looks_like_person_name(name) for name in paired):
+                candidates.extend(paired)
+                index += width
+                matched = True
+                break
+            if looks_like_person_name(segment):
+                candidates.append(segment)
+                index += width
+                matched = True
+                break
+        if not matched:
+            index += 1
+
+    return dedupe_speaker_names(candidates)
 
 
 def extract_speaker_names_from_text(value: str) -> list[dict]:
@@ -365,7 +458,129 @@ def extract_speaker_names_from_text(value: str) -> list[dict]:
             continue
         candidates.append(cleaned)
 
+    if not candidates:
+        fallback = extract_name_like_windows(working)
+        if fallback:
+            candidates.extend(speaker["name"] for speaker in fallback)
+
     return dedupe_speaker_names(candidates)
+
+
+def split_date_title_prefix(title: str) -> tuple[str, str]:
+    text = collapse_ws(title)
+    match = DATE_TITLE_PREFIX_RE.match(text)
+    if not match:
+        return "", text
+    return collapse_ws(match.group("prefix")), collapse_ws(match.group("rest"))
+
+
+def strip_resource_title_suffix(title: str) -> str:
+    text = collapse_ws(title)
+    previous = None
+    while text and text != previous:
+        previous = text
+        text = re.sub(
+            r"[\s;:,\-()]+(?:and\s+)?(?:additional\s+slides?|slides?(?:\s*(?:part\s*\d+|\d+))?|recordings?(?:\s*(?:part\s*\d+|\d+))?|transcript)\s*$",
+            "",
+            text,
+            flags=re.IGNORECASE,
+        ).strip(" ,;:-()[]")
+    if text.count("(") > text.count(")"):
+        text = text.rstrip("(").rstrip()
+    return collapse_ws(text)
+
+
+def clean_markdown_talk_title(title: str) -> str:
+    _, rest = split_date_title_prefix(title)
+    cleaned = strip_resource_title_suffix(rest)
+    return cleaned or rest or collapse_ws(title)
+
+
+def title_token_set(value: str) -> set[str]:
+    tokens = {
+        token.lower()
+        for token in TITLE_TOKEN_RE.findall(collapse_ws(value))
+        if token and token.lower() not in TITLE_STOPWORDS
+    }
+    return tokens
+
+
+def title_token_overlap_ratio(left: str, right: str) -> float:
+    left_tokens = title_token_set(left)
+    right_tokens = title_token_set(right)
+    if not left_tokens or not right_tokens:
+        return 0.0
+    return len(left_tokens & right_tokens) / max(len(left_tokens), len(right_tokens))
+
+
+def is_probably_garbled_pdf_text(text: str) -> bool:
+    candidate = collapse_ws(text)
+    if not candidate:
+        return True
+    if re.search(r"\b(?:6HFXULW|QDPH|\+HWHURJHQHRXV)\b", candidate):
+        return True
+    weird_count = sum(1 for char in candidate if char in "\\|_^[]{}@")
+    if weird_count >= 6 and weird_count / max(len(candidate), 1) > 0.025:
+        return True
+    return False
+
+
+def strip_slide_title_noise(text: str) -> str:
+    candidate = collapse_ws(text)
+    candidate = re.sub(r"^©?\s*\d{4}\s+[A-Za-z][A-Za-z0-9&.'’\-]*(?:\s+[A-Za-z][A-Za-z0-9&.'’\-]*){0,4}\s+", "", candidate)
+    candidate = re.sub(r"\bHosted:\s*[^—–-]+$", "", candidate, flags=re.IGNORECASE)
+    candidate = SLIDE_MEETING_MARKER_RE.split(candidate, 1)[0]
+    candidate = MONTH_OR_DATE_RE.split(candidate, 1)[0]
+    candidate = re.sub(r"\s+\d+$", "", candidate)
+    return collapse_ws(candidate).strip(" ,;:-()[]")
+
+
+def infer_title_from_slide_page(text: str, fallback_title: str) -> str:
+    candidate = collapse_ws(text)
+    if not candidate or is_probably_garbled_pdf_text(candidate):
+        return ""
+    if len(candidate) > 220 and re.search(r"\b(?:copyright|confidential|proprietary|reserved)\b", candidate, flags=re.IGNORECASE):
+        return fallback_title if fallback_title else ""
+
+    segments = [collapse_ws(segment) for segment in re.split(r"\s*[—–]\s*|\s+-\s+", candidate) if collapse_ws(segment)]
+    if segments:
+        candidate = segments[0]
+
+    name_comma_match = COMMA_NAME_RE.search(candidate)
+    if name_comma_match:
+        candidate = candidate[: name_comma_match.start()]
+
+    candidate = strip_slide_title_noise(candidate)
+    if not candidate:
+        return ""
+    if len(candidate.split()) < 2:
+        return ""
+    if len(candidate.split()) > 14:
+        return ""
+    if "@" in candidate or "http://" in candidate.lower() or "https://" in candidate.lower():
+        return ""
+    if re.search(r"\b(?:for|in|with|of|to|from)\b$", candidate, flags=re.IGNORECASE):
+        return ""
+    if extract_name_like_windows(candidate):
+        return ""
+    return candidate
+
+
+def should_prefer_slide_title(candidate: str, fallback_title: str, slide_count: int) -> bool:
+    if not candidate:
+        return False
+    if not fallback_title:
+        return True
+
+    overlap = title_token_overlap_ratio(candidate, fallback_title)
+    candidate_words = len(candidate.split())
+    fallback_words = len(fallback_title.split())
+
+    if slide_count > 1:
+        return overlap >= 0.55 and candidate_words >= max(3, fallback_words - 1)
+    if candidate_words < 2:
+        return False
+    return overlap >= 0.25
 
 
 def infer_speakers_from_metadata(entry: dict) -> list[dict]:
@@ -412,6 +627,24 @@ def infer_speakers_from_youtube_description(description: str, title: str) -> lis
                 return speakers
         if title and collapse_ws(title).lower() in line.lower() and " - " in line:
             speakers = extract_speaker_names_from_text(line.rsplit(" - ", 1)[-1])
+            if speakers:
+                return speakers
+
+    prose_lines = [
+        line
+        for line in lines[:10]
+        if not GENERIC_DESCRIPTION_RE.search(line)
+        and re.search(r"\b(?:will|presents?|introduces?|discuss(?:es|ing)?|talk(?:s|ing)?|walk through)\b", line, flags=re.IGNORECASE)
+    ]
+    for line in prose_lines:
+        for pattern in [
+            r"\b([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+){1,3})\s+(?:will|presents?|introduces?|discuss(?:es|ing)?|talk(?:s|ing)?|walk through)\b",
+            r"\b(?:In this talk|In this presentation|In this session),?\s+([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+){1,3})\s+(?:will|presents?|introduces?|discuss(?:es|ing)?)\b",
+        ]:
+            match = re.search(pattern, line)
+            if not match:
+                continue
+            speakers = extract_speaker_names_from_text(match.group(1))
             if speakers:
                 return speakers
     return []
@@ -500,35 +733,51 @@ def resolve_local_mlir_slides_path(slides_url: str, local_mlir_root: Path | None
 
 
 def infer_speakers_from_slide_page(text: str, title: str) -> list[dict]:
+    if is_probably_garbled_pdf_text(text):
+        return []
     lines = [collapse_ws(line) for line in str(text or "").replace("\r\n", "\n").replace("\r", "\n").split("\n")]
     lines = [line for line in lines if line]
     if not lines:
         return []
 
+    fallback_title = clean_markdown_talk_title(title)
     candidate_lines = lines[:8]
     found_names: list[str] = []
     capturing = False
     for line in candidate_lines:
-        if looks_like_title_line(line, title):
+        line_title_candidate = infer_title_from_slide_page(line, fallback_title)
+        if looks_like_title_line(line, fallback_title or title) and collapse_ws(line_title_candidate).lower() == collapse_ws(line).lower():
             if capturing and found_names:
                 break
             continue
-        if re.search(r"mlir open design meeting|open mlir meeting|agenda|overview|university|meeting|july|august|september|october|november|december|january|february|march|april|may|june", line, flags=re.IGNORECASE):
+        if re.fullmatch(r"(?:mlir open design meeting|open mlir meeting|agenda|overview)", line, flags=re.IGNORECASE):
             if capturing and found_names:
                 break
             continue
+
+        speaker_zone = line
+        title_candidate = line_title_candidate
+        if title_candidate:
+            speaker_zone = speaker_zone.replace(title_candidate, " ")
+        speaker_zone = re.sub(r"\bHosted:\s*[^—–-]+$", " ", speaker_zone, flags=re.IGNORECASE)
+        speaker_zone = SLIDE_MEETING_MARKER_RE.sub(" ", speaker_zone)
+        speaker_zone = MONTH_OR_DATE_RE.sub(" ", speaker_zone)
+
         line_names: list[str] = []
-        if "," in line and re.search(r",\s*\d{4}", line):
-            speakers = extract_speaker_names_from_text(line.split(",", 1)[0])
+        comma_names = [match.group("name") for match in COMMA_NAME_RE.finditer(speaker_zone)]
+        if comma_names:
+            line_names.extend(speaker["name"] for speaker in dedupe_speaker_names(comma_names))
+        if "," in speaker_zone and re.search(r",\s*\d{4}", speaker_zone):
+            speakers = extract_speaker_names_from_text(speaker_zone.split(",", 1)[0])
             if speakers:
                 line_names.extend(speaker["name"] for speaker in speakers)
-        if not line_names and ("—" in line or "–" in line or " - " in line):
-            for segment in re.split(r"\s*[—–]\s*|\s+-\s+", line):
+        if not line_names and ("—" in speaker_zone or "–" in speaker_zone or " - " in speaker_zone):
+            for segment in re.split(r"\s*[—–]\s*|\s+-\s+", speaker_zone):
                 speakers = extract_speaker_names_from_text(segment)
                 if speakers:
                     line_names.extend(speaker["name"] for speaker in speakers)
         if not line_names:
-            speakers = extract_speaker_names_from_text(line)
+            speakers = extract_speaker_names_from_text(speaker_zone)
             if speakers:
                 line_names.extend(speaker["name"] for speaker in speakers)
         if line_names:
@@ -540,21 +789,65 @@ def infer_speakers_from_slide_page(text: str, title: str) -> list[dict]:
     return dedupe_speaker_names(found_names)
 
 
-def infer_speakers_from_slide_deck(entry: dict, local_mlir_root: Path | None) -> list[dict]:
-    for action in entry.get("actions", []):
-        if collapse_ws(action.get("kind", "")).lower() != "slides":
-            continue
+def collect_slide_deck_metadata(entry: dict, local_mlir_root: Path | None) -> tuple[str, list[dict]]:
+    fallback_title = clean_markdown_talk_title(collapse_ws(entry.get("title", "")))
+    slide_actions = [
+        action
+        for action in entry.get("actions", [])
+        if collapse_ws(action.get("kind", "")).lower() == "slides"
+    ]
+    title_candidates: list[str] = []
+    speaker_values: list[str] = []
+
+    for action in slide_actions:
         local_path = resolve_local_mlir_slides_path(action.get("url", ""), local_mlir_root)
         if local_path is None:
             continue
         author, page_text = extract_pdf_title_page_info(local_path)
-        speakers = extract_speaker_names_from_text(author)
-        if speakers:
-            return speakers
-        speakers = infer_speakers_from_slide_page(page_text, collapse_ws(entry.get("title", "")))
-        if speakers:
-            return speakers
-    return []
+
+        title_candidate = infer_title_from_slide_page(page_text, fallback_title)
+        if title_candidate:
+            title_candidates.append(title_candidate)
+
+        author_speakers = extract_speaker_names_from_text(author)
+        if author_speakers:
+            speaker_values.extend(speaker["name"] for speaker in author_speakers)
+
+        page_speakers = infer_speakers_from_slide_page(page_text, fallback_title)
+        if page_speakers:
+            speaker_values.extend(speaker["name"] for speaker in page_speakers)
+
+    display_title = fallback_title
+    best_title = next(
+        (
+            candidate
+            for candidate in title_candidates
+            if should_prefer_slide_title(candidate, fallback_title, len(slide_actions))
+        ),
+        "",
+    )
+    if best_title:
+        display_title = best_title
+
+    return display_title, dedupe_speaker_names(speaker_values)
+
+
+def infer_speakers_from_slide_deck(entry: dict, local_mlir_root: Path | None) -> list[dict]:
+    _, speakers = collect_slide_deck_metadata(entry, local_mlir_root)
+    return speakers
+
+
+def choose_best_speakers(*speaker_lists: list[dict]) -> list[dict]:
+    best: list[dict] = []
+    for speakers in speaker_lists:
+        if not speakers:
+            continue
+        if len(speakers) > len(best):
+            best = speakers
+            continue
+        if not best:
+            best = speakers
+    return best
 
 
 def extract_json_string_field(text: str, marker: str) -> str:
@@ -581,7 +874,9 @@ def fetch_youtube_short_description(video_id: str, timeout: float) -> str:
 
 
 def clean_description_line(line: str) -> str:
-    text = collapse_ws(line.replace("\u00a0", " "))
+    text = line.replace("\u00a0", " ")
+    text = re.sub(r"[\u200b-\u200f\u202a-\u202e]", "", text)
+    text = collapse_ws(text)
     text = text.lstrip("•-–— \t")
     return collapse_ws(text)
 
@@ -693,8 +988,12 @@ def enrich_talk_abstracts_with_youtube(
     for section in sections:
         for group in section.get("groups", []):
             for entry in group.get("entries", []):
-                speakers = infer_speakers_from_metadata(entry)
+                metadata_speakers = infer_speakers_from_metadata(entry)
                 actions = entry.get("actions", [])
+                display_title, slide_speakers = collect_slide_deck_metadata(entry, local_mlir_root)
+                if display_title:
+                    entry["displayTitle"] = display_title
+                title_for_matching = collapse_ws(entry.get("displayTitle") or clean_markdown_talk_title(entry.get("title", "")))
                 recording_url = ""
                 for action in actions:
                     url = collapse_ws(action.get("url", ""))
@@ -702,23 +1001,20 @@ def enrich_talk_abstracts_with_youtube(
                         recording_url = url
                         break
                 if not recording_url:
-                    if not speakers:
-                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    speakers = choose_best_speakers(metadata_speakers, slide_speakers)
                     if speakers:
                         entry["speakers"] = speakers
                     continue
 
                 video_id = extract_youtube_video_id(recording_url)
                 if not video_id:
-                    if not speakers:
-                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    speakers = choose_best_speakers(metadata_speakers, slide_speakers)
                     if speakers:
                         entry["speakers"] = speakers
                     continue
 
                 if not enable_youtube:
-                    if not speakers:
-                        speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                    speakers = choose_best_speakers(metadata_speakers, slide_speakers)
                     if speakers:
                         entry["speakers"] = speakers
                     continue
@@ -727,26 +1023,28 @@ def enrich_talk_abstracts_with_youtube(
                 raw_description = str(cached.get("rawDescription", "") or "")
 
                 if refresh or not raw_description:
-                    raw_description = fetch_youtube_short_description(video_id, timeout)
-                    cached = {
-                        "videoId": video_id,
-                        "videoUrl": recording_url,
-                        "title": collapse_ws(entry.get("title", "")),
-                        "rawDescription": raw_description,
-                        "fetchedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-                    }
-                    cache_videos[video_id] = cached
-                    cache_dirty = True
+                    try:
+                        raw_description = fetch_youtube_short_description(video_id, timeout)
+                    except Exception:
+                        raw_description = str(cached.get("rawDescription", "") or "")
+                    if raw_description:
+                        cached = {
+                            "videoId": video_id,
+                            "videoUrl": recording_url,
+                            "title": collapse_ws(entry.get("title", "")),
+                            "rawDescription": raw_description,
+                            "fetchedAt": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+                        }
+                        cache_videos[video_id] = cached
+                        cache_dirty = True
 
-                abstract = extract_abstract_from_youtube_description(raw_description, collapse_ws(entry.get("title", "")))
+                abstract = extract_abstract_from_youtube_description(raw_description, title_for_matching)
                 if abstract:
                     entry["abstract"] = abstract
                     entry["abstractSource"] = "youtube"
 
-                if not speakers:
-                    speakers = infer_speakers_from_youtube_description(raw_description, collapse_ws(entry.get("title", "")))
-                if not speakers:
-                    speakers = infer_speakers_from_slide_deck(entry, local_mlir_root)
+                youtube_speakers = infer_speakers_from_youtube_description(raw_description, title_for_matching)
+                speakers = choose_best_speakers(metadata_speakers, youtube_speakers, slide_speakers)
                 if speakers:
                     entry["speakers"] = speakers
 
@@ -987,6 +1285,8 @@ def main() -> int:
 
     talk_sections = filter_talk_sections(parse_markdown_page(talks_text, page_kind="talks"))
     pub_sections = parse_markdown_page(pubs_text, page_kind="publications")
+    assign_entry_ids(talk_sections, prefix="mlir-talk")
+    assign_entry_ids(pub_sections, prefix="mlir-pub")
     enrich_talk_abstracts_with_youtube(
         talk_sections,
         timeout=args.timeout,
@@ -995,8 +1295,6 @@ def main() -> int:
         local_mlir_root=local_mlir_root,
         enable_youtube=not args.skip_youtube_abstracts,
     )
-    assign_entry_ids(talk_sections, prefix="mlir-talk")
-    assign_entry_ids(pub_sections, prefix="mlir-pub")
 
     talks_payload = build_payload(
         title="MLIR Talks",

@@ -93,6 +93,10 @@
     if (!title) return '';
 
     title = title
+      .replace(/^\d{4}-\d{2}(?:-\d{2}(?:\/\d{2})?)?(?:\s*&\s*\d{4}-\d{2}(?:-\d{2})?)?\s*:\s*/i, '')
+      .trim();
+
+    title = title
       .replace(/\s*\((?:slides?|recordings?|recording|transcript)\s*$/i, '')
       .replace(/\s*[-;:]\s*(?:slides?|recordings?|recording|transcript|additional slides?)\s*$/i, '')
       .replace(/\s+(?:slides?|recordings?|recording|transcript)\s*$/i, '')
@@ -401,7 +405,7 @@
     const sourceUrl = pickSourceUrl(actions, fallbackUrl, new Set([videoUrl, slidesUrl].filter(Boolean)));
     const detailUrl = buildLocalDetailUrl(talkId);
 
-    const cleanedTitle = cleanTalkTitle(entry && entry.title) || 'Untitled MLIR Talk';
+    const cleanedTitle = collapseWhitespace(entry && entry.displayTitle) || cleanTalkTitle(entry && entry.title) || 'Untitled MLIR Talk';
     const speakers = extractSpeakers(entry, actions);
     const abstract = buildAbstract({ ...entry, title: cleanedTitle }, speakers);
     const meetingName = inferMeetingName({ ...entry, title: cleanedTitle }, sectionTitle, groupTitle, actions);
