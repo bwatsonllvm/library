@@ -4,6 +4,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const childProcess = require('node:child_process');
 
 function parseArgs(argv) {
   const out = {
@@ -66,6 +67,47 @@ function sha1(value) {
 
 function hashFile(pathname) {
   return sha1(fs.readFileSync(pathname));
+}
+
+function maxIsoDate(values) {
+  let bestIso = '';
+  let bestTs = 0;
+  for (const value of (Array.isArray(values) ? values : [])) {
+    const raw = collapseWhitespace(value);
+    if (!raw) continue;
+    const ts = Date.parse(raw);
+    if (!Number.isFinite(ts)) continue;
+    if (!bestIso || ts > bestTs) {
+      bestIso = new Date(ts).toISOString();
+      bestTs = ts;
+    }
+  }
+  return bestIso;
+}
+
+function resolveGeneratedAtFromGit(inputFiles) {
+  const relativePaths = [...new Set((Array.isArray(inputFiles) ? inputFiles : [])
+    .map((pathname) => path.relative(repoRoot, pathname))
+    .filter(Boolean)
+    .sort())];
+  if (!relativePaths.length) return '';
+
+  try {
+    const result = childProcess.spawnSync(
+      'git',
+      ['log', '-1', '--format=%cI', '--', ...relativePaths],
+      {
+        cwd: repoRoot,
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }
+    );
+    if (result.status !== 0) return '';
+    const iso = collapseWhitespace(result.stdout);
+    return Number.isFinite(Date.parse(iso)) ? new Date(Date.parse(iso)).toISOString() : '';
+  } catch {
+    return '';
+  }
 }
 
 function collapseWhitespace(value) {
@@ -1160,14 +1202,15 @@ function collectPaperSources(sources) {
 function loadEventManifestData() {
   const manifestPath = path.join(repoRoot, 'devmtg', 'events', 'index.json');
   const manifest = readJson(manifestPath);
-  const referencePayload = readJson(path.join(repoRoot, 'js', 'data', 'talk-paper-links.json'));
+  const referencePath = path.join(repoRoot, 'js', 'data', 'talk-paper-links.json');
+  const referencePayload = readJson(referencePath);
   const referenceIndex = referencePayload && referencePayload.talks && typeof referencePayload.talks === 'object'
     ? referencePayload.talks
     : {};
 
   const talks = [];
   const meetings = [];
-  const inputFiles = [manifestPath, path.join(repoRoot, 'js', 'data', 'talk-paper-links.json')];
+  const inputFiles = [manifestPath, referencePath];
 
   for (const rel of (Array.isArray(manifest.eventFiles) ? manifest.eventFiles : [])) {
     const bundlePath = path.join(repoRoot, 'devmtg', 'events', rel);
@@ -1180,7 +1223,14 @@ function loadEventManifestData() {
     }
   }
 
-  return { talks, meetings, referencePayload, inputFiles, dataVersion: collapseWhitespace(manifest.dataVersion) };
+  return {
+    talks,
+    meetings,
+    referencePayload,
+    inputFiles,
+    dataVersion: collapseWhitespace(manifest.dataVersion),
+    generatedAt: maxIsoDate([referencePayload && referencePayload.generatedAt]),
+  };
 }
 
 function loadPaperManifestData() {
@@ -1188,7 +1238,8 @@ function loadPaperManifestData() {
   const manifest = readJson(manifestPath);
   const papers = [];
   const sources = [];
-  const inputFiles = [manifestPath, path.join(repoRoot, 'updates', 'index.json')];
+  const updatesPath = path.join(repoRoot, 'updates', 'index.json');
+  const inputFiles = [manifestPath, updatesPath];
 
   for (const rel of (Array.isArray(manifest.paperFiles) ? manifest.paperFiles : [])) {
     const bundlePath = path.join(repoRoot, 'papers', rel);
@@ -1201,7 +1252,7 @@ function loadPaperManifestData() {
     }
   }
 
-  const updatesPayload = readJson(path.join(repoRoot, 'updates', 'index.json'));
+  const updatesPayload = readJson(updatesPath);
   const addedAtById = buildAddedAtMap(updatesPayload && updatesPayload.entries);
   applyAddedAtMap(papers, addedAtById);
   return {
@@ -1210,6 +1261,7 @@ function loadPaperManifestData() {
     addedAtById,
     inputFiles,
     dataVersion: collapseWhitespace(manifest.dataVersion),
+    generatedAt: maxIsoDate([updatesPayload && updatesPayload.generatedAt]),
   };
 }
 
@@ -1235,13 +1287,20 @@ function buildOutputs() {
   const talkRelatedById = buildTalkRelatedMap(allTalks, allPaperSummaries, eventData.referencePayload);
   const paperRelatedById = buildPaperRelatedMap(allPaperSummaries, allTalks, eventData.referencePayload);
 
-  const latestInputMs = [...new Set([...eventData.inputFiles, ...paperData.inputFiles, __filename, path.join(repoRoot, 'js', 'shared', 'library-utils.js')])]
-    .map((pathname) => fs.statSync(pathname).mtimeMs)
-    .reduce((max, value) => Math.max(max, value), 0);
-  const generatedAt = new Date(latestInputMs).toISOString();
+  const generationInputs = [...new Set([
+    ...eventData.inputFiles,
+    ...paperData.inputFiles,
+    __filename,
+    path.join(repoRoot, 'js', 'shared', 'library-utils.js'),
+  ])];
+  const generatedAt = maxIsoDate([
+    resolveGeneratedAtFromGit(generationInputs),
+    eventData.generatedAt,
+    paperData.generatedAt,
+  ]) || '1970-01-01T00:00:00.000Z';
 
   const versionHash = sha1(
-    [...new Set([...eventData.inputFiles, ...paperData.inputFiles, __filename, path.join(repoRoot, 'js', 'shared', 'library-utils.js')])]
+    generationInputs
       .sort()
       .map((pathname) => `${path.relative(repoRoot, pathname)}:${hashFile(pathname)}`)
       .join('\n')
