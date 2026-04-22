@@ -12,271 +12,35 @@
     (function () {
       try {
         var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
-        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
-          ? storedTheme
-          : 'system';
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system') ? storedTheme : 'system';
         var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
         var storedTextSize = localStorage.getItem('llvm-hub-text-size');
         var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
-
         document.documentElement.setAttribute('data-theme', resolvedTheme);
         document.documentElement.setAttribute('data-theme-preference', themePreference);
-        if (textSize === 'default') {
-          document.documentElement.removeAttribute('data-text-size');
-        } else {
-          document.documentElement.setAttribute('data-text-size', textSize);
-        }
+        if (textSize === 'default') document.documentElement.removeAttribute('data-text-size');
+        else document.documentElement.setAttribute('data-text-size', textSize);
         document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
-      } catch (_) {
-        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var fallbackTheme = fallbackDark ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', fallbackTheme);
-        document.documentElement.setAttribute('data-theme-preference', 'system');
-        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
-      }
+      } catch (_) {}
     })();
   </script>
   <style>
     html { background: #f5f5f5; }
     html[data-theme="dark"] { background: #000000; }
     body { background: transparent; }
-
-    .updates-shell {
-      width: min(980px, calc(100vw - 2rem));
-      margin: 0 auto 2rem;
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .page-hero {
-      width: min(980px, calc(100vw - 2rem));
-      margin: 0 auto 1rem;
-      text-align: left;
-    }
-
-    .update-batch {
-      border: 1px solid var(--color-border);
-      border-radius: 14px;
-      background: var(--color-surface);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-    }
-
-    .update-batch-toggle {
-      width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      grid-template-areas:
-        "heading chevron"
-        "meta chevron";
-      align-items: center;
-      gap: 0.28rem 0.8rem;
-      border: 0;
-      padding: 0.9rem 1rem;
-      margin: 0;
-      text-align: left;
-      background: transparent;
-      color: var(--color-text);
-      cursor: pointer;
-      font: inherit;
-    }
-
-    .update-batch-toggle:hover {
-      background: var(--color-surface-hover);
-    }
-
-    .update-batch-toggle:focus-visible {
-      outline: 2px solid var(--color-link);
-      outline-offset: -2px;
-    }
-
-    .update-batch-heading {
-      grid-area: heading;
-      font-size: var(--font-size-base);
-      line-height: 1.25;
-      font-weight: var(--font-weight-semibold);
-    }
-
-    .update-batch-subheading {
-      grid-area: meta;
-      color: var(--color-text-muted);
-      font-size: var(--font-size-sm);
-      line-height: 1.3;
-    }
-
-    .update-batch-chevron {
-      grid-area: chevron;
-      color: var(--color-text-muted);
-      font-size: 1.05rem;
-      transition: transform var(--transition-fast);
-      transform: rotate(0deg);
-    }
-
-    .update-batch.is-open .update-batch-chevron {
-      transform: rotate(180deg);
-    }
-
-    .update-batch-panel {
-      display: grid;
-      gap: 0.65rem;
-      padding: 0.75rem 1rem 1rem;
-      border-top: 1px solid var(--color-border);
-      background: var(--color-surface-subtle);
-    }
-
-    .update-batch-panel[hidden] {
-      display: none !important;
-    }
-
-    .update-batch-entries {
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .update-batch-load-status {
-      margin: 0;
-      color: var(--color-text-muted);
-      font-size: var(--font-size-xs);
-    }
-
-    .update-batch-load-sentinel {
-      width: 100%;
-      height: 1px;
-    }
-
-    .update-entry {
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      background: var(--color-surface);
-      padding: 0.82rem 0.9rem;
-      display: grid;
-      gap: 0.55rem;
-    }
-
-    .update-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem 0.6rem;
-      align-items: center;
-      color: var(--color-text-muted);
-      font-size: var(--font-size-xs);
-    }
-
-    .update-kind {
-      display: inline-flex;
-      align-items: center;
-      border-radius: var(--radius-sm);
-      padding: 0.14rem 0.52rem;
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      border: 1px solid var(--color-border);
-      background: var(--badge-other-bg);
-      color: var(--badge-other-text);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .update-kind.paper {
-      background: var(--badge-paper-bg);
-      color: var(--badge-paper-text);
-      border-color: transparent;
-    }
-
-    .update-kind.blog {
-      background: var(--badge-blog-bg);
-      color: var(--badge-blog-text);
-      border-color: transparent;
-    }
-
-    .update-kind.talk {
-      background: var(--color-accent-bg);
-      color: var(--color-accent);
-      border-color: transparent;
-    }
-
-    .update-parts,
-    .update-topics,
-    .update-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .update-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.55rem;
-    }
-
-    .update-row-label {
-      flex: 0 0 auto;
-      color: var(--color-text-muted);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-      white-space: nowrap;
-      padding-top: 0.16rem;
-    }
-
-    .update-row .card-tags {
-      flex: 1 1 auto;
-    }
-
-    .update-title {
-      margin: 0;
-      font-size: var(--font-size-lg);
-      line-height: 1.25;
-      font-weight: var(--font-weight-semibold);
-    }
-
-    .update-title a {
-      color: var(--color-text);
-      text-decoration: none;
-      border-bottom: 1px dashed transparent;
-      transition: border-color var(--transition-fast), color var(--transition-fast);
-    }
-
-    .update-title a:hover {
-      color: var(--color-link);
-      border-color: currentColor;
-    }
-
-    .update-context {
-      color: var(--color-text-muted);
-      font-size: var(--font-size-sm);
-      line-height: var(--line-height-base);
-    }
-
-    .updates-empty {
-      margin: 0 auto;
-      width: min(820px, calc(100vw - 2rem));
-      border: 1px dashed var(--color-border);
-      border-radius: 14px;
-      background: var(--color-surface);
-      color: var(--color-text-muted);
-      text-align: center;
-      padding: 1.2rem 1rem;
-    }
-
-    .updates-load-status {
-      margin: 0;
-      text-align: center;
-      color: var(--color-text-muted);
-      font-size: var(--font-size-sm);
-    }
   </style>
-  <title>Update Log — LLVM Research Library</title>
-  <meta name="description" content="Recently added llvm-www/devmtg talks, llvm-blog posts, and paper discovery updates in the LLVM Research Library.">
+  <title>MLIR — LLVM Research Library</title>
+  <meta name="description" content="MLIR talks and publications within the LLVM Research Library.">
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
   <link rel="stylesheet" href="css/style.css?v=05fc7dd597d9">
 </head>
 <body>
+
   <nav class="skip-links" aria-label="Skip links">
-    <a href="#updates-root" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   </nav>
 
   <header class="site-header">
@@ -398,20 +162,34 @@
     </div>
   </header>
 
-  <div class="page-hero">
-    <h1>Update Log</h1>
-    <p id="updates-subtitle">Loading update history…</p>
-  </div>
-
-  <main class="updates-shell" id="updates-root" tabindex="-1">
-    <div class="loading-state">
-      <div class="spinner" aria-hidden="true"></div>
-      <p>Loading updates…</p>
+  <section class="search-hero" aria-label="MLIR">
+    <div class="search-hero-shell">
+      <div class="search-hero-title-row">
+        <h1>MLIR</h1>
+        <p class="search-hero-title-aside">Project talks and publications</p>
+      </div>
+      <p class="subtitle">Browse MLIR talks and publications without mixing them into the main LLVM event archive.</p>
     </div>
+  </section>
+
+  <main class="subproject-shell" id="main-content" tabindex="-1">
+    <section class="subproject-intro" aria-label="MLIR overview">
+      <p class="subproject-copy">This area keeps MLIR’s own talks and publications separate from the LLVM Developers' Meeting event dataset while still using the same library conventions around browsing, linking, and permanent local artifacts.</p>
+      <div class="subproject-card-grid">
+        <a href="mlir/talks/" class="subproject-card">
+          <h2 class="subproject-card-title">Talks</h2>
+          <p class="subproject-card-copy">Synced from the MLIR project’s own talks page, including tutorials, tech talks, and open design meeting presentations.</p>
+        </a>
+        <a href="mlir/pubs/" class="subproject-card">
+          <h2 class="subproject-card-title">Publications</h2>
+          <p class="subproject-card-copy">Curated MLIR publications from mlir.llvm.org plus all archive papers in this library tagged to MLIR.</p>
+        </a>
+      </div>
+    </section>
   </main>
 
   <script src="js/shared/library-utils.js?v=3e88e45f37c4"></script>
-
-  <script src="js/updates.js?v=9def18247a1d"></script>
+  <script src="js/shared/global-search.js?v=babe91128100"></script>
+  <script src="js/subproject-home.js?v=3be791bf2366"></script>
 </body>
 </html>

@@ -43,6 +43,23 @@ function pickTalkId(repoRoot) {
   return '';
 }
 
+function pickMlirTalkId(repoRoot) {
+  const bundlePath = path.join(repoRoot, 'sub-projects/mlir/data/talks.json');
+  const payload = loadJsonFile(bundlePath);
+  const sections = Array.isArray(payload && payload.sections) ? payload.sections : [];
+
+  for (const section of sections) {
+    const groups = Array.isArray(section && section.groups) ? section.groups : [];
+    for (const group of groups) {
+      const entries = Array.isArray(group && group.entries) ? group.entries : [];
+      const firstWithId = entries.find((entry) => entry && typeof entry.id === 'string' && entry.id.trim());
+      if (firstWithId) return firstWithId.id.trim();
+    }
+  }
+
+  return '';
+}
+
 function pickPaperIds(repoRoot) {
   const bundlePath = path.join(repoRoot, 'papers/combined-all-papers-deduped.json');
   const payload = loadJsonFile(bundlePath);
@@ -143,9 +160,11 @@ if (!playwright) {
     const baseUrl = `http://${host}:${port}`;
 
     const talkId = pickTalkId(repoRoot);
+    const mlirTalkId = pickMlirTalkId(repoRoot);
     const { paperId, blogId } = pickPaperIds(repoRoot);
 
     assert.ok(talkId, 'Could not find a talk ID for smoke test');
+    assert.ok(mlirTalkId, 'Could not find an MLIR talk ID for smoke test');
     assert.ok(paperId, 'Could not find a paper ID for smoke test');
 
     const server = spawn('python3', ['-m', 'http.server', String(port), '--bind', host], {
@@ -174,6 +193,15 @@ if (!playwright) {
       'Talk detail page'
     );
     await talkPage.close();
+
+    const mlirTalkPage = await browser.newPage();
+    await assertDetailPageHealthy(
+      mlirTalkPage,
+      `${baseUrl}/mlir/talks/talk.html?id=${encodeURIComponent(mlirTalkId)}`,
+      '#talk-detail-root',
+      'MLIR talk detail page'
+    );
+    await mlirTalkPage.close();
 
     const paperPage = await browser.newPage();
     await assertDetailPageHealthy(

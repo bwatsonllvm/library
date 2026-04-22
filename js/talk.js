@@ -4,6 +4,9 @@
 
 (function () {
   const HubUtils = window.LLVMHubUtils || {};
+  const TalkPageConfig = window.LLVMTalkPageConfig && typeof window.LLVMTalkPageConfig === 'object'
+    ? window.LLVMTalkPageConfig
+    : {};
   const PageShell = typeof HubUtils.createPageShell === 'function'
     ? HubUtils.createPageShell()
     : null;
@@ -15,7 +18,14 @@
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
   const safeSessionGet = PageShell ? PageShell.safeSessionGet : () => null;
 
-  const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
+  const TALK_PAPER_LINKS_PATH = String(TalkPageConfig.referenceIndexPath || 'js/data/talk-paper-links.json').trim() || 'js/data/talk-paper-links.json';
+  const TALK_LISTING_PATH = String(TalkPageConfig.listingPath || 'talks/').trim() || 'talks/';
+  const TALK_LISTING_LABEL = String(TalkPageConfig.listingLabel || 'All Talks').trim() || 'All Talks';
+  const TALK_DETAIL_PATH = String(TalkPageConfig.detailPath || 'talks/talk.html').trim() || 'talks/talk.html';
+  const TALK_DATA_HINT_HTML = String(
+    TalkPageConfig.dataHintHtml
+    || 'Ensure <code>devmtg/events/index.json</code> and <code>devmtg/events/*.json</code> are available and that <code>js/events-data.js</code> loads first.'
+  ).trim();
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
   const MATCH_STOPWORDS = new Set([
@@ -107,6 +117,12 @@
       return '';
     }
     return '';
+  }
+
+  function buildTalkDetailUrl(talk) {
+    const explicit = sanitizeExternalUrl(talk && talk.detailUrl);
+    if (explicit) return explicit;
+    return `${TALK_DETAIL_PATH}?id=${encodeURIComponent(String(talk && talk.id || '').trim())}`;
   }
 
   function buildEmbeddedVideoUrl(videoUrl) {
@@ -527,6 +543,15 @@
     return `work.html?kind=speaker&value=${encodeURIComponent(speaker)}&from=talks`;
   }
 
+  function countTopicOverlap(values, topicKeys) {
+    let total = 0;
+    for (const value of (Array.isArray(values) ? values : [])) {
+      const key = normalizeMatchText(value);
+      if (key && topicKeys.has(key)) total += 1;
+    }
+    return total;
+  }
+
   function renderSpeakers(speakers) {
     const values = Array.isArray(speakers) ? speakers : [];
     if (!values.length) {
@@ -552,36 +577,40 @@
     const targetId = String(talk && talk.id || '').trim();
     if (!targetId || !values.length) return [];
 
-    const maxItems = 6;
-    const sameMeeting = [];
-    const sameCategory = [];
+    const topicKeys = new Set(
+      getTalkTopics(talk, Infinity)
+        .map((topic) => normalizeMatchText(topic))
+        .filter(Boolean)
+    );
+    if (!topicKeys.size) return [];
+
+    const scored = [];
 
     for (const candidate of values) {
       if (!candidate || typeof candidate !== 'object') continue;
       const candidateId = String(candidate.id || '').trim();
       if (!candidateId || candidateId === targetId) continue;
-
-      if (candidate.meeting && talk.meeting && candidate.meeting === talk.meeting) {
-        sameMeeting.push(candidate);
-        continue;
-      }
-      if (candidate.category && talk.category && candidate.category === talk.category) {
-        sameCategory.push(candidate);
-      }
+      const overlap = countTopicOverlap(getTalkTopics(candidate, Infinity), topicKeys);
+      if (!overlap) continue;
+      scored.push({
+        talk: candidate,
+        overlap,
+        sameMeeting: candidate.meeting && talk.meeting && candidate.meeting === talk.meeting ? 1 : 0,
+      });
     }
 
-    const out = [];
-    const seen = new Set();
-    for (const list of [sameMeeting, sameCategory]) {
-      for (const item of list) {
-        const id = String(item.id || '').trim();
-        if (!id || seen.has(id)) continue;
-        seen.add(id);
-        out.push(item);
-        if (out.length >= maxItems) return out;
-      }
-    }
-    return out;
+    scored.sort((a, b) => {
+      const overlapDiff = b.overlap - a.overlap;
+      if (overlapDiff !== 0) return overlapDiff;
+      const meetingDiff = b.sameMeeting - a.sameMeeting;
+      if (meetingDiff !== 0) return meetingDiff;
+      const meetingCompare = String(b.talk && (b.talk.meetingDate || b.talk.meeting) || '')
+        .localeCompare(String(a.talk && (a.talk.meetingDate || a.talk.meeting) || ''));
+      if (meetingCompare !== 0) return meetingCompare;
+      return String(a.talk && a.talk.title || '').localeCompare(String(b.talk && b.talk.title || ''));
+    });
+
+    return scored.slice(0, 6).map((entry) => entry.talk);
   }
 
   function renderRelatedCard(talk) {
@@ -595,7 +624,7 @@
 
     return `
       <article class="talk-card">
-        <a href="talks/talk.html?id=${encodeURIComponent(String(talk && talk.id || '').trim())}" class="card-link-wrap" aria-label="${escapeHtml(label)}">
+        <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="card-link-wrap" aria-label="${escapeHtml(label)}">
           <div class="card-body">
             <div class="card-meta">
               ${meeting ? `<span class="meeting-label">${escapeHtml(meeting)}</span>` : ''}
@@ -611,15 +640,15 @@
     if (!root) return;
     root.innerHTML = `
       <div class="talk-detail">
-        <a href="talks/" class="back-btn" aria-label="Back">
+        <a href="${escapeHtml(TALK_LISTING_PATH)}" class="back-btn" aria-label="Back to ${escapeHtml(TALK_LISTING_LABEL)}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-          <span aria-hidden="true">All Talks</span>
+          <span aria-hidden="true">${escapeHtml(TALK_LISTING_LABEL)}</span>
         </a>
         <div class="empty-state">
           <div class="empty-state-icon" aria-hidden="true">!</div>
           <h2>Talk not found</h2>
           <p>No talk found with ID <code>${escapeHtml(id || '(none)')}</code>.</p>
-          <p><a href="talks/">Browse all talks →</a></p>
+          <p><a href="${escapeHtml(TALK_LISTING_PATH)}">Browse ${escapeHtml(TALK_LISTING_LABEL)} →</a></p>
         </div>
       </div>`;
   }
@@ -632,7 +661,7 @@
         <div class="empty-state" role="alert">
           <div class="empty-state-icon" aria-hidden="true">!</div>
           <h2>Could not load data</h2>
-          <p>Ensure <code>devmtg/events/index.json</code> and <code>devmtg/events/*.json</code> are available and that <code>js/events-data.js</code> loads first.</p>
+          <p>${TALK_DATA_HINT_HTML}</p>
         </div>
       </div>`;
   }
@@ -681,9 +710,9 @@
 
     root.innerHTML = `
       <div class="talk-detail">
-        <a href="talks/" class="back-btn" id="back-btn" aria-label="Back">
+        <a href="${escapeHtml(TALK_LISTING_PATH)}" class="back-btn" id="back-btn" aria-label="Back to ${escapeHtml(TALK_LISTING_LABEL)}">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-          <span aria-hidden="true">All Talks</span>
+          <span aria-hidden="true">${escapeHtml(TALK_LISTING_LABEL)}</span>
         </a>
 
         <div class="talk-header">

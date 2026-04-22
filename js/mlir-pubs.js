@@ -10,7 +10,8 @@
 
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
   const DATA_PATH = 'sub-projects/mlir/data/publications.json';
-  const PAGE_PATH = 'sub-projects/mlir/pubs/';
+  const PAGE_PATH = 'mlir/pubs/';
+  const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
 
   function escapeHtml(value) {
     return String(value || '')
@@ -37,26 +38,19 @@
     return '';
   }
 
-  function getPaperTopics(entry) {
-    if (typeof HubUtils.getPaperKeyTopics !== 'function') return [];
-    const summary = collapseWhitespace(entry && entry.summary);
-    return HubUtils.getPaperKeyTopics({
-      title: collapseWhitespace(entry && entry.title),
-      abstract: summary,
-      tags: [],
-      keywords: [],
-      matchedSubprojects: ['MLIR'],
-    }, 8);
+  function normalizeTitleKey(value) {
+    return collapseWhitespace(String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' '));
   }
 
-  function countEntries(sections) {
-    let total = 0;
-    for (const section of (Array.isArray(sections) ? sections : [])) {
-      for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
-        total += Array.isArray(group && group.entries) ? group.entries.length : 0;
-      }
-    }
-    return total;
+  function extractDoi(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const match = raw.match(/10\.\d{4,9}\/[\w.()\-;/:%+]+/i);
+    return match ? String(match[0]).trim().toLowerCase() : '';
+  }
+
+  function isDirectPdfUrl(value) {
+    return DIRECT_PDF_URL_RE.test(String(value || '').trim());
   }
 
   function uniqueStrings(values) {
@@ -72,31 +66,8 @@
     return out;
   }
 
-  function extractYear(entry) {
-    const match = collapseWhitespace([
-      entry && entry.title,
-      entry && entry.summary,
-      entry && entry.text,
-    ].join(' ')).match(/\b((?:19|20)\d{2})\b/);
-    return match ? match[1] : '';
-  }
-
-  function extractAuthors(entry) {
-    const summary = collapseWhitespace(entry && entry.summary);
-    const authorSegment = summary.split(' - ')[0] || summary;
-    return uniqueStrings(
-      authorSegment
-        .split(/\s*,\s*/)
-        .map((value) => collapseWhitespace(value))
-        .filter((value) => value && !/\bproceedings\b/i.test(value))
-    );
-  }
-
-  function extractVenue(entry) {
-    const summary = collapseWhitespace(entry && entry.summary);
-    const segments = summary.split(' - ').map((value) => collapseWhitespace(value)).filter(Boolean);
-    if (segments.length <= 1) return '';
-    return segments.slice(1).join(' - ');
+  function buildPaperDetailUrl(paper) {
+    return `papers/paper.html?id=${encodeURIComponent(String(paper && paper.id || '').trim())}&from=mlir-pubs`;
   }
 
   function normalizeActions(entry) {
@@ -127,8 +98,132 @@
     return params.toString() ? `${PAGE_PATH}?${params.toString()}` : PAGE_PATH;
   }
 
-  function renderAuthors(entry) {
-    const authors = extractAuthors(entry);
+  function extractYear(entry) {
+    const match = collapseWhitespace([
+      entry && entry.title,
+      entry && entry.summary,
+      entry && entry.text,
+    ].join(' ')).match(/\b((?:19|20)\d{2})\b/);
+    return match ? match[1] : '';
+  }
+
+  function extractAuthors(entry) {
+    const summary = collapseWhitespace(entry && entry.summary);
+    const authorSegment = summary.split(' - ')[0] || summary;
+    return uniqueStrings(
+      authorSegment
+        .split(/\s*,\s*|\s+and\s+/i)
+        .map((value) => collapseWhitespace(value))
+        .filter((value) => value && !/\bproceedings\b/i.test(value))
+    );
+  }
+
+  function extractVenue(entry) {
+    const summary = collapseWhitespace(entry && entry.summary);
+    const segments = summary.split(' - ').map((value) => collapseWhitespace(value)).filter(Boolean);
+    if (segments.length <= 1) return '';
+    return segments.slice(1).join(' - ');
+  }
+
+  function normalizePaperRecord(rawPaper) {
+    if (!rawPaper || typeof rawPaper !== 'object') return null;
+    const paper = { ...rawPaper };
+    paper.id = collapseWhitespace(paper.id);
+    paper.title = collapseWhitespace(paper.title);
+    paper.abstract = collapseWhitespace(paper.abstract);
+    paper.year = collapseWhitespace(paper.year);
+    paper.publication = collapseWhitespace(paper.publication || paper.venue);
+    paper.paperUrl = sanitizeExternalUrl(paper.paperUrl || '');
+    paper.sourceUrl = sanitizeExternalUrl(paper.sourceUrl || '');
+    paper.doi = extractDoi(paper.doi || paper.paperUrl || paper.sourceUrl || '');
+    paper.authors = Array.isArray(paper.authors)
+      ? paper.authors
+          .map((author) => {
+            const name = collapseWhitespace(author && author.name);
+            return name ? { name } : null;
+          })
+          .filter(Boolean)
+      : [];
+    paper.tags = uniqueStrings([
+      ...(Array.isArray(paper.tags) ? paper.tags : []),
+      ...(Array.isArray(paper.keywords) ? paper.keywords : []),
+      ...(Array.isArray(paper.matchedSubprojects) ? paper.matchedSubprojects : []),
+    ]);
+    if (!paper.id || !paper.title) return null;
+    paper.titleKey = normalizeTitleKey(paper.title);
+    return paper;
+  }
+
+  function buildPaperIndex(payload) {
+    const index = {
+      byTitle: new Map(),
+      byDoi: new Map(),
+      byUrl: new Map(),
+    };
+
+    const papers = Array.isArray(payload && payload.papers) ? payload.papers : [];
+    for (const rawPaper of papers) {
+      const paper = normalizePaperRecord(rawPaper);
+      if (!paper) continue;
+
+      if (paper.titleKey && !index.byTitle.has(paper.titleKey)) {
+        index.byTitle.set(paper.titleKey, paper);
+      }
+      if (paper.doi && !index.byDoi.has(paper.doi)) {
+        index.byDoi.set(paper.doi, paper);
+      }
+      for (const url of [paper.paperUrl, paper.sourceUrl]) {
+        const normalizedUrl = sanitizeExternalUrl(url);
+        if (normalizedUrl && !index.byUrl.has(normalizedUrl)) {
+          index.byUrl.set(normalizedUrl, paper);
+        }
+      }
+    }
+
+    return index;
+  }
+
+  function findLinkedPaper(entry, paperIndex) {
+    if (!paperIndex) return null;
+    const actions = normalizeActions(entry);
+
+    for (const action of actions) {
+      const doi = extractDoi(action.url);
+      if (doi && paperIndex.byDoi.has(doi)) return paperIndex.byDoi.get(doi) || null;
+    }
+
+    const titleKey = normalizeTitleKey(entry && entry.title);
+    if (titleKey && paperIndex.byTitle.has(titleKey)) {
+      return paperIndex.byTitle.get(titleKey) || null;
+    }
+
+    for (const action of actions) {
+      const url = sanitizeExternalUrl(action.url);
+      if (url && paperIndex.byUrl.has(url)) return paperIndex.byUrl.get(url) || null;
+    }
+
+    return null;
+  }
+
+  function getPaperTopics(entry, linkedPaper) {
+    if (linkedPaper && Array.isArray(linkedPaper.tags) && linkedPaper.tags.length) {
+      return linkedPaper.tags.slice(0, 8);
+    }
+    if (typeof HubUtils.getPaperKeyTopics !== 'function') return [];
+    const summary = collapseWhitespace(entry && entry.summary);
+    return HubUtils.getPaperKeyTopics({
+      title: collapseWhitespace(entry && entry.title),
+      abstract: summary,
+      tags: [],
+      keywords: [],
+      matchedSubprojects: ['MLIR'],
+    }, 8);
+  }
+
+  function renderAuthors(entry, linkedPaper) {
+    const authors = linkedPaper && Array.isArray(linkedPaper.authors) && linkedPaper.authors.length
+      ? linkedPaper.authors.map((author) => collapseWhitespace(author && author.name)).filter(Boolean)
+      : extractAuthors(entry);
     if (!authors.length) return '';
     return `
       <p class="card-speakers paper-authors">
@@ -136,8 +231,8 @@
       </p>`;
   }
 
-  function renderTopicTags(entry) {
-    const topics = getPaperTopics(entry);
+  function renderTopicTags(entry, linkedPaper) {
+    const topics = getPaperTopics(entry, linkedPaper);
     if (!topics.length) return '';
     return `
       <div class="card-tags-wrap">
@@ -150,23 +245,71 @@
       </div>`;
   }
 
-  function renderActionButtons(actions) {
-    const limited = actions.slice(0, 4);
-    if (!limited.length) return '';
-    return limited.map((action, index) => {
-      const classes = ['card-link-btn'];
-      if (index === 0) classes.push('card-link-btn--video');
-      return `<a href="${escapeHtml(action.url)}" class="${classes.join(' ')}" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(action.label)} in a new tab"><span aria-hidden="true">${escapeHtml(action.label)}</span></a>`;
-    }).join('');
+  function normalizeExternalActionLabel(action) {
+    const url = sanitizeExternalUrl(action && action.url);
+    const label = collapseWhitespace(action && action.label);
+    const kind = collapseWhitespace(action && action.kind).toLowerCase();
+
+    if (kind === 'faq') return 'FAQ';
+    if (kind === 'preprint') return /arxiv/i.test(label || url) ? 'arXiv' : (label || 'Preprint');
+    if (isDirectPdfUrl(url)) return 'PDF';
+    if (/arxiv\.org/i.test(url)) return 'arXiv';
+    if (kind === 'primary' && extractDoi(url)) return 'Publisher';
+    if (kind === 'primary' && label.toLowerCase() === 'paper') return 'Publisher';
+    return label || 'Source';
   }
 
-  function renderEntry(entry, fallbackUrl) {
+  function buildActionButtons(entry, linkedPaper) {
+    const buttons = [];
+    const seenUrls = new Set();
+
+    if (linkedPaper) {
+      buttons.push(
+        `<a href="${escapeHtml(buildPaperDetailUrl(linkedPaper))}" class="card-link-btn card-link-btn--video" aria-label="Open library page for ${escapeHtml(linkedPaper.title)}"><span aria-hidden="true">Paper</span></a>`
+      );
+    }
+
+    const pushExternalButton = (label, url) => {
+      const normalizedUrl = sanitizeExternalUrl(url);
+      if (!normalizedUrl || seenUrls.has(normalizedUrl)) return;
+      seenUrls.add(normalizedUrl);
+      buttons.push(
+        `<a href="${escapeHtml(normalizedUrl)}" class="card-link-btn" target="_blank" rel="noopener noreferrer" aria-label="Open ${escapeHtml(label)} in a new tab"><span aria-hidden="true">${escapeHtml(label)}</span></a>`
+      );
+    };
+
     const actions = normalizeActions(entry);
-    const detailHref = buildPrimaryHref(actions, fallbackUrl);
+    for (const action of actions) {
+      pushExternalButton(normalizeExternalActionLabel(action), action.url);
+    }
+
+    if (linkedPaper) {
+      const externalCandidates = [
+        { label: isDirectPdfUrl(linkedPaper.paperUrl) ? 'PDF' : 'Publisher', url: linkedPaper.paperUrl },
+        { label: isDirectPdfUrl(linkedPaper.sourceUrl) ? 'PDF' : 'Source', url: linkedPaper.sourceUrl },
+      ];
+      for (const candidate of externalCandidates) {
+        pushExternalButton(candidate.label, candidate.url);
+      }
+    }
+
+    return buttons.join('');
+  }
+
+  function renderEntry(entry, linkedPaper, fallbackUrl) {
+    const actions = normalizeActions(entry);
+    const detailHref = linkedPaper
+      ? buildPaperDetailUrl(linkedPaper)
+      : buildPrimaryHref(actions, fallbackUrl);
     const title = collapseWhitespace(entry && entry.title) || 'Untitled MLIR Publication';
-    const year = extractYear(entry);
-    const venue = extractVenue(entry);
-    const summary = collapseWhitespace(entry && entry.summary);
+    const year = linkedPaper && linkedPaper.year ? linkedPaper.year : extractYear(entry);
+    const venue = linkedPaper && linkedPaper.publication ? linkedPaper.publication : extractVenue(entry);
+    const summary = collapseWhitespace(
+      linkedPaper && linkedPaper.abstract
+        ? linkedPaper.abstract
+        : (entry && entry.summary)
+    );
+    const footerHtml = buildActionButtons(entry, linkedPaper);
 
     return `
       <article class="talk-card paper-card">
@@ -181,13 +324,23 @@
             <p class="card-abstract">${escapeHtml(summary || venue || 'Curated MLIR publication')}</p>
           </div>
         </a>
-        ${renderAuthors(entry)}
-        ${renderTopicTags(entry)}
-        ${actions.length ? `<div class="card-footer">${renderActionButtons(actions)}</div>` : ''}
+        ${renderAuthors(entry, linkedPaper)}
+        ${renderTopicTags(entry, linkedPaper)}
+        ${footerHtml ? `<div class="card-footer">${footerHtml}</div>` : ''}
       </article>`;
   }
 
-  function renderSections(payload) {
+  function countEntries(sections) {
+    let total = 0;
+    for (const section of (Array.isArray(sections) ? sections : [])) {
+      for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
+        total += Array.isArray(group && group.entries) ? group.entries.length : 0;
+      }
+    }
+    return total;
+  }
+
+  function renderSections(payload, paperIndex) {
     const sections = Array.isArray(payload && payload.sections) ? payload.sections : [];
     const fallbackUrl = sanitizeExternalUrl(payload && payload.sourceUrl);
     const entries = [];
@@ -198,7 +351,7 @@
         }
       }
     }
-    return entries.map((entry) => renderEntry(entry, fallbackUrl)).join('');
+    return entries.map((entry) => renderEntry(entry, findLinkedPaper(entry, paperIndex), fallbackUrl)).join('');
   }
 
   async function init() {
@@ -210,15 +363,19 @@
     }
 
     try {
-      const response = await fetch(DATA_PATH, { cache: 'default' });
+      const [response, paperPayload] = await Promise.all([
+        fetch(DATA_PATH, { cache: 'default' }),
+        typeof window.loadPaperData === 'function' ? window.loadPaperData() : Promise.resolve({ papers: [] }),
+      ]);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
       const totalEntries = countEntries(payload && payload.sections);
       const sourceUrl = sanitizeExternalUrl(payload && payload.sourceUrl);
+      const paperIndex = buildPaperIndex(paperPayload);
       if (summary) {
         summary.innerHTML = `Showing <strong>${totalEntries.toLocaleString()}</strong> curated publications from <a href="${escapeHtml(sourceUrl)}" target="_blank" rel="noopener noreferrer">mlir.llvm.org/pubs</a>.`;
       }
-      root.innerHTML = renderSections(payload);
+      root.innerHTML = renderSections(payload, paperIndex);
       root.setAttribute('aria-busy', 'false');
     } catch (error) {
       root.innerHTML = `

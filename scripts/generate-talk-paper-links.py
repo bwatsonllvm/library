@@ -157,6 +157,39 @@ def load_event_bundles(repo_root: Path) -> list[dict]:
     return talks
 
 
+def load_mlir_talks(repo_root: Path) -> list[dict]:
+    payload = parse_json(repo_root / "sub-projects" / "mlir" / "data" / "talks.json")
+    talks: list[dict] = []
+
+    for section in payload.get("sections", []):
+        if not isinstance(section, dict):
+            continue
+        for group in section.get("groups", []):
+            if not isinstance(group, dict):
+                continue
+            for entry in group.get("entries", []):
+                if not isinstance(entry, dict):
+                    continue
+                talk_id = collapse_ws(str(entry.get("id", "")))
+                if not talk_id:
+                    continue
+                slides_url = ""
+                for action in entry.get("actions", []):
+                    if not isinstance(action, dict):
+                        continue
+                    if collapse_ws(str(action.get("kind", ""))).lower() != "slides":
+                        continue
+                    slides_url = collapse_ws(str(action.get("url", "")))
+                    if slides_url:
+                        break
+                talks.append({
+                    "id": talk_id,
+                    "slidesUrl": slides_url,
+                })
+
+    return talks
+
+
 def load_papers(repo_root: Path) -> list[dict]:
     manifest = parse_json(repo_root / "papers" / "index.json")
     papers: list[dict] = []
@@ -273,8 +306,48 @@ def resolve_local_slide_path(slides_url: str, local_devmtg_root: Path | None) ->
     return candidate
 
 
-def fetch_bytes(url: str, timeout: float, *, local_devmtg_root: Path | None = None) -> bytes:
+def resolve_local_mlir_slide_path(slides_url: str, local_mlir_www_root: Path | None) -> Path | None:
+    if local_mlir_www_root is None:
+        return None
+
+    raw = collapse_ws(slides_url)
+    if not raw:
+        return None
+
+    try:
+        parsed = urllib.parse.urlparse(raw)
+    except ValueError:
+        return None
+
+    hostname = collapse_ws(parsed.netloc).lower()
+    if hostname and hostname not in {"mlir.llvm.org", "www.mlir.llvm.org"}:
+        return None
+
+    url_path = collapse_ws(urllib.parse.unquote(parsed.path or ""))
+    if not url_path or not url_path.lower().endswith(".pdf"):
+        return None
+
+    root = local_mlir_www_root.resolve()
+    candidate = (root / "website" / "static" / url_path.lstrip("/")).resolve()
+    try:
+        candidate.relative_to(root)
+    except ValueError:
+        return None
+    if not candidate.is_file():
+        return None
+    return candidate
+
+
+def fetch_bytes(
+    url: str,
+    timeout: float,
+    *,
+    local_devmtg_root: Path | None = None,
+    local_mlir_www_root: Path | None = None,
+) -> bytes:
     local_path = resolve_local_slide_path(url, local_devmtg_root)
+    if local_path is None:
+        local_path = resolve_local_mlir_slide_path(url, local_mlir_www_root)
     if local_path is not None:
         return local_path.read_bytes()
     request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
@@ -818,6 +891,7 @@ def generate_talk_artifact(
     timeout: float,
     refresh_existing: bool,
     local_devmtg_root: Path | None,
+    local_mlir_www_root: Path | None,
 ) -> dict:
     talks_map = dict(existing.get("talks") or {})
     existing_processor_version = int(existing.get("processorVersion") or 0)
@@ -855,7 +929,12 @@ def generate_talk_artifact(
             continue
 
         try:
-            pdf_bytes = fetch_bytes(slides_url, timeout=timeout, local_devmtg_root=local_devmtg_root)
+            pdf_bytes = fetch_bytes(
+                slides_url,
+                timeout=timeout,
+                local_devmtg_root=local_devmtg_root,
+                local_mlir_www_root=local_mlir_www_root,
+            )
             pdf_pages = extract_pdf_pages(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
             talks_map[talk_id] = {
@@ -888,16 +967,21 @@ def main() -> int:
     parser.add_argument("--talk-id", action="append", default=[])
     parser.add_argument("--fetch-pdf-references", action="store_true")
     parser.add_argument("--refresh-existing", action="store_true")
+    parser.add_argument("--include-mlir", action="store_true")
     parser.add_argument("--timeout", type=float, default=20.0)
     parser.add_argument("--local-devmtg-root", default="")
+    parser.add_argument("--local-mlir-www-root", default="")
     args = parser.parse_args()
 
     repo_root = Path(args.repo_root).resolve()
     output_path = (repo_root / args.output).resolve()
     output_path.parent.mkdir(parents=True, exist_ok=True)
     local_devmtg_root = Path(args.local_devmtg_root).resolve() if collapse_ws(args.local_devmtg_root) else None
+    local_mlir_www_root = Path(args.local_mlir_www_root).resolve() if collapse_ws(args.local_mlir_www_root) else None
 
     all_talks = load_event_bundles(repo_root)
+    if args.include_mlir:
+        all_talks.extend(load_mlir_talks(repo_root))
     papers = load_papers(repo_root)
     existing = load_existing_artifact(output_path)
 
@@ -920,6 +1004,7 @@ def main() -> int:
         timeout=args.timeout,
         refresh_existing=args.refresh_existing,
         local_devmtg_root=local_devmtg_root,
+        local_mlir_www_root=local_mlir_www_root,
     )
 
     output_path.write_text(json.dumps(artifact, indent=2, sort_keys=False) + "\n", encoding="utf-8")

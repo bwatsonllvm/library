@@ -4,7 +4,10 @@
 
 (function () {
   const DATA_PATH = 'sub-projects/mlir/data/talks.json';
+  const LOCAL_DETAIL_PATH = 'mlir/talks/talk.html';
   const HubUtils = window.LLVMHubUtils || {};
+  const loaderMode = String(window.LLVMLIRTalkDataMode || '').trim().toLowerCase();
+  const shouldOverrideGlobals = loaderMode !== 'namespaced';
   const MONTH_LOOKUP = Object.freeze({
     jan: '01', january: '01',
     feb: '02', february: '02',
@@ -342,6 +345,29 @@
     return (Array.isArray(actions) ? actions : []).find((action) => action && predicate(action)) || null;
   }
 
+  function buildLocalDetailUrl(talkId) {
+    const id = collapseWhitespace(talkId);
+    if (!id) return LOCAL_DETAIL_PATH;
+    return `${LOCAL_DETAIL_PATH}?id=${encodeURIComponent(id)}`;
+  }
+
+  function pickSourceUrl(actions, fallbackUrl, blockedUrls) {
+    const blocked = blockedUrls instanceof Set ? blockedUrls : new Set();
+    const candidates = Array.isArray(actions)
+      ? actions.filter((action) => action && ['primary', 'link', 'event'].includes(action.kind))
+      : [];
+
+    for (const action of candidates) {
+      const url = collapseWhitespace(action && action.url);
+      if (!url || blocked.has(url)) continue;
+      return url;
+    }
+
+    const fallback = collapseWhitespace(fallbackUrl);
+    if (fallback && !blocked.has(fallback)) return fallback;
+    return '';
+  }
+
   function buildTalkRecord(entry, sectionTitle, groupTitle, fallbackUrl) {
     const actions = Array.isArray(entry && entry.actions)
       ? entry.actions
@@ -361,20 +387,26 @@
       || actions[0]
       || null;
 
-    const detailUrl = collapseWhitespace(primaryAction && primaryAction.url) || fallbackUrl;
+    const talkId = collapseWhitespace(entry && entry.id)
+      || slugify(entry && entry.title)
+      || slugify(collapseWhitespace(primaryAction && primaryAction.url) || fallbackUrl);
     const videoAction = pickFirstAction(actions, (action) => action.kind === 'recording')
       || (primaryAction && (primaryAction.kind === 'recording' || typeof HubUtils.extractYouTubeId === 'function' && HubUtils.extractYouTubeId(primaryAction.url))
         ? primaryAction
         : null);
     const slidesAction = pickFirstAction(actions, (action) => action.kind === 'slides');
     const githubAction = pickFirstAction(actions, (action) => /github\.com/i.test(action.url));
+    const videoUrl = collapseWhitespace(videoAction && videoAction.url);
+    const slidesUrl = collapseWhitespace(slidesAction && slidesAction.url);
+    const sourceUrl = pickSourceUrl(actions, fallbackUrl, new Set([videoUrl, slidesUrl].filter(Boolean)));
+    const detailUrl = buildLocalDetailUrl(talkId);
 
     const cleanedTitle = cleanTalkTitle(entry && entry.title) || 'Untitled MLIR Talk';
     const speakers = extractSpeakers(entry, actions);
     const abstract = buildAbstract({ ...entry, title: cleanedTitle }, speakers);
     const meetingName = inferMeetingName({ ...entry, title: cleanedTitle }, sectionTitle, groupTitle, actions);
     const dateInfo = parseDateInfo(entry, actions);
-    const sortSuffix = slugify(meetingName || cleanedTitle || entry && entry.id || '').slice(0, 48);
+    const sortSuffix = slugify(meetingName || cleanedTitle || talkId).slice(0, 48);
     const meeting = sortSuffix
       ? `${dateInfo.sortKey}-${sortSuffix}`
       : dateInfo.sortKey;
@@ -385,7 +417,7 @@
     ]);
 
     return {
-      id: collapseWhitespace(entry && entry.id) || slugify(entry && entry.title) || slugify(detailUrl),
+      id: talkId,
       title: cleanedTitle,
       abstract,
       speakers,
@@ -395,10 +427,10 @@
       meetingName,
       meetingDate: dateInfo.label,
       meetingLocation: '',
-      videoUrl: collapseWhitespace(videoAction && videoAction.url),
-      slidesUrl: collapseWhitespace(slidesAction && slidesAction.url),
+      videoUrl,
+      slidesUrl,
       projectGithub: collapseWhitespace(githubAction && githubAction.url),
-      sourceUrl: detailUrl,
+      sourceUrl,
       detailUrl,
       mlirSection: collapseWhitespace(sectionTitle),
       mlirGroup: cleanTopicLabel(groupTitle),
@@ -438,7 +470,31 @@
     return talksPromise;
   }
 
-  window.loadEventData = async function loadEventData() {
-    return { talks: await loadMLIRTalks() };
-  };
+  async function loadMLIRTalkRecordById(talkId) {
+    const targetId = collapseWhitespace(talkId);
+    if (!targetId) return null;
+
+    const talks = await loadMLIRTalks();
+    const talk = talks.find((candidate) => collapseWhitespace(candidate && candidate.id) === targetId) || null;
+    if (!talk) return null;
+
+    return {
+      talk,
+      talks,
+      meeting: null,
+      dataVersion: '',
+    };
+  }
+
+  window.loadMLIRTalks = loadMLIRTalks;
+  window.loadMLIRTalkRecordById = loadMLIRTalkRecordById;
+  if (shouldOverrideGlobals) {
+    window.loadEventData = async function loadEventData() {
+      return {
+        talks: await loadMLIRTalks(),
+        meetings: [],
+      };
+    };
+    window.loadTalkRecordById = loadMLIRTalkRecordById;
+  }
 })();

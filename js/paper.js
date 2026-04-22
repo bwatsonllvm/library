@@ -16,7 +16,7 @@
 
   const BLOGS_PAGE_PATH = 'blogs/';
   const PAPERS_PAGE_PATH = 'papers/';
-  const MLIR_PUBS_PAGE_PATH = 'sub-projects/mlir/pubs/';
+  const MLIR_PUBS_PAGE_PATH = 'mlir/pubs/';
   const TALK_PAPER_LINKS_PATH = 'js/data/talk-paper-links.json';
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const PAPER_TO_TALK_REDIRECTS = Object.freeze({});
@@ -227,6 +227,10 @@
     if (!speaker) return 'work.html';
     const from = isBlogPaper(paper) ? 'blogs' : 'papers';
     return `work.html?kind=speaker&value=${encodeURIComponent(speaker)}&from=${from}`;
+  }
+
+  function isMlirTalkId(value) {
+    return String(value || '').trim().toLowerCase().startsWith('mlir-talk-');
   }
 
   function setIssueContext(context) {
@@ -888,7 +892,11 @@
   }
 
   function buildTalkDetailUrl(talk) {
-    return `talks/talk.html?id=${encodeURIComponent(String(talk && talk.id || '').trim())}`;
+    const talkId = String(talk && talk.id || '').trim();
+    const detailPath = isMlirTalkId(talkId)
+      ? 'mlir/talks/talk.html'
+      : 'talks/talk.html';
+    return `${detailPath}?id=${encodeURIComponent(talkId)}`;
   }
 
   function getFeaturedTalkIdsForPaper(indexPayload, paper) {
@@ -913,11 +921,15 @@
     const ids = Array.isArray(talkIds)
       ? [...new Set(talkIds.map((value) => String(value || '').trim()).filter(Boolean))]
       : [];
-    if (!ids.length || typeof window.loadTalkRecordById !== 'function') return [];
+    if (!ids.length) return [];
 
     const talks = await Promise.all(ids.map(async (talkId) => {
       try {
-        const payload = await window.loadTalkRecordById(talkId);
+        const loader = isMlirTalkId(talkId)
+          ? window.loadMLIRTalkRecordById
+          : window.loadTalkRecordById;
+        if (typeof loader !== 'function') return null;
+        const payload = await loader(talkId);
         if (!payload || typeof payload !== 'object') return null;
         const normalized = normalizeTalks([payload.talk]);
         return normalized.length ? normalized[0] : null;
@@ -1009,7 +1021,11 @@
     const section = document.getElementById('paper-featured-talks-section');
     if (!section) return;
 
-    if (!paper || isBlogPaper(paper) || typeof window.loadTalkRecordById !== 'function') {
+    if (
+      !paper
+      || isBlogPaper(paper)
+      || (typeof window.loadTalkRecordById !== 'function' && typeof window.loadMLIRTalkRecordById !== 'function')
+    ) {
       section.remove();
       return;
     }

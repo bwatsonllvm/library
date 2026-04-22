@@ -25,9 +25,14 @@ for f in \
   papers/paper.html \
   blogs/index.html \
   people/index.html \
+  mlir/index.html \
+  mlir/talks/index.html \
+  mlir/talks/talk.html \
+  mlir/pubs/index.html \
   sub-projects/index.html \
   sub-projects/mlir/index.html \
   sub-projects/mlir/talks/index.html \
+  sub-projects/mlir/talks/talk.html \
   sub-projects/mlir/pubs/index.html \
   about/index.html \
   updates/index.html \
@@ -312,9 +317,14 @@ ruby -e '
     papers/paper.html
     blogs/index.html
     people/index.html
+    mlir/index.html
+    mlir/talks/index.html
+    mlir/talks/talk.html
+    mlir/pubs/index.html
     sub-projects/index.html
     sub-projects/mlir/index.html
     sub-projects/mlir/talks/index.html
+    sub-projects/mlir/talks/talk.html
     sub-projects/mlir/pubs/index.html
     about/index.html
     updates/index.html
