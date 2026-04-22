@@ -1,5 +1,5 @@
 /**
- * mlir-browser.js - combined MLIR talks + papers browser for the /mlir/ landing route.
+ * mlir-browser.js - combined MLIR talks + papers browser for the /mlir/ route.
  */
 
 (function () {
@@ -13,6 +13,8 @@
   const initCustomizationMenu = PageShell ? () => PageShell.initCustomizationMenu() : () => {};
   const initMobileNavMenu = PageShell ? () => PageShell.initMobileNavMenu() : () => {};
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
+  const safeSessionSet = PageShell ? PageShell.safeSessionSet : () => {};
+  const safeSessionRemove = PageShell ? PageShell.safeSessionRemove : () => {};
 
   const getTalkKeyTopicsFromHub = typeof HubUtils.getTalkKeyTopics === 'function'
     ? HubUtils.getTalkKeyTopics.bind(HubUtils)
@@ -25,6 +27,12 @@
     : null;
   const normalizePersonKeyFromHub = typeof HubUtils.normalizePersonKey === 'function'
     ? HubUtils.normalizePersonKey.bind(HubUtils)
+    : null;
+  const normalizeTalkCategoryFromHub = typeof HubUtils.normalizeTalkCategory === 'function'
+    ? HubUtils.normalizeTalkCategory.bind(HubUtils)
+    : null;
+  const categoryOrderFromHub = HubUtils && typeof HubUtils.CATEGORY_ORDER === 'object' && HubUtils.CATEGORY_ORDER
+    ? HubUtils.CATEGORY_ORDER
     : null;
 
   const CURATED_PUBS_DATA_PATH = 'sub-projects/mlir/data/publications.json';
@@ -48,18 +56,44 @@
     workshop: 'Workshop',
     other: 'Other',
   });
+  const TALK_CATEGORY_ORDER = Object.freeze({
+    keynote: 0,
+    'technical-talk': 1,
+    tutorial: 2,
+    panel: 3,
+    'quick-talk': 4,
+    'lightning-talk': 5,
+    'student-talk': 6,
+    'llvm-foundation': 7,
+    'open-design-meeting': 8,
+    bof: 9,
+    poster: 10,
+    workshop: 11,
+    other: 12,
+  });
+  const SCOPE_LABELS = Object.freeze({
+    all: 'Works',
+    talks: 'Talks',
+    papers: 'Papers',
+  });
   const state = {
     query: '',
     source: 'all',
+    scope: 'all',
+    activeTopics: new Set(),
+    years: new Set(),
+    talkTypes: new Set(),
   };
 
   let allItems = [];
   let filteredItems = [];
   let renderedCount = 0;
-  let currentCounts = {
+  let currentSourceCounts = {
     all: { works: 0, talks: 0, papers: 0 },
     official: { works: 0, talks: 0, papers: 0 },
   };
+  let currentScopeCounts = { works: 0, talks: 0, papers: 0 };
+  let currentSelectedCounts = { works: 0, talks: 0, papers: 0 };
 
   function escapeHtml(value) {
     return String(value || '')
@@ -77,7 +111,7 @@
     const raw = String(value || '').trim();
     if (!raw) return '';
     try {
-      const parsed = new URL(raw, window.location.href);
+      const parsed = new URL(raw, document.baseURI);
       const protocol = parsed.protocol.toLowerCase();
       if (protocol === 'http:' || protocol === 'https:') return parsed.toString();
     } catch {
@@ -123,6 +157,12 @@
   function normalizePersonKey(value) {
     if (normalizePersonKeyFromHub) return normalizePersonKeyFromHub(value);
     return normalizeKey(value);
+  }
+
+  function normalizeTalkCategory(value) {
+    if (normalizeTalkCategoryFromHub) return normalizeTalkCategoryFromHub(value);
+    const normalized = collapseWhitespace(value).toLowerCase();
+    return TALK_CATEGORY_LABELS[normalized] ? normalized : 'other';
   }
 
   function truncateText(value, maxLength) {
@@ -190,18 +230,39 @@
     return year ? Number(`${year}0000`) : 0;
   }
 
+  function parseCsvParam(value) {
+    return uniqueStrings(String(value || '').split(',').map((item) => item || ''));
+  }
+
   function buildCurrentPageUrl(overrides) {
     const params = new URLSearchParams(window.location.search);
     const next = {
       query: Object.prototype.hasOwnProperty.call(overrides || {}, 'query') ? overrides.query : state.query,
       source: Object.prototype.hasOwnProperty.call(overrides || {}, 'source') ? overrides.source : state.source,
+      scope: Object.prototype.hasOwnProperty.call(overrides || {}, 'scope') ? overrides.scope : state.scope,
+      tags: Object.prototype.hasOwnProperty.call(overrides || {}, 'tags') ? overrides.tags : [...state.activeTopics],
+      years: Object.prototype.hasOwnProperty.call(overrides || {}, 'years') ? overrides.years : [...state.years],
+      talkTypes: Object.prototype.hasOwnProperty.call(overrides || {}, 'talkTypes') ? overrides.talkTypes : [...state.talkTypes],
     };
 
     params.delete('q');
     params.delete('source');
+    params.delete('scope');
+    params.delete('tag');
+    params.delete('year');
+    params.delete('talkType');
 
     if (collapseWhitespace(next.query)) params.set('q', collapseWhitespace(next.query));
     if (next.source === 'official') params.set('source', 'official');
+    if (next.scope === 'talks' || next.scope === 'papers') params.set('scope', next.scope);
+
+    const tags = uniqueStrings(Array.isArray(next.tags) ? next.tags : []);
+    const years = uniqueStrings(Array.isArray(next.years) ? next.years : []);
+    const talkTypes = uniqueStrings(Array.isArray(next.talkTypes) ? next.talkTypes : []);
+
+    if (tags.length) params.set('tag', tags.join(','));
+    if (years.length) params.set('year', years.join(','));
+    if (talkTypes.length) params.set('talkType', talkTypes.join(','));
 
     return `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
   }
@@ -211,8 +272,22 @@
     window.history.replaceState({}, '', nextUrl);
   }
 
-  function buildLocalQueryHref(query) {
-    return buildCurrentPageUrl({ query });
+  function buildSpeakerQueryHref(name) {
+    return buildCurrentPageUrl({
+      query: name,
+      tags: [],
+      years: [],
+      talkTypes: [],
+    });
+  }
+
+  function buildTopicFilterHref(topic) {
+    return buildCurrentPageUrl({
+      query: '',
+      tags: [topic],
+      years: [],
+      talkTypes: [],
+    });
   }
 
   function buildTalkDetailUrl(talk) {
@@ -237,7 +312,7 @@
   }
 
   function talkCategoryLabel(category) {
-    const key = collapseWhitespace(category).toLowerCase() || 'other';
+    const key = normalizeTalkCategory(category);
     return TALK_CATEGORY_LABELS[key] || TALK_CATEGORY_LABELS.other;
   }
 
@@ -529,10 +604,14 @@
     });
   }
 
+  function emptyCounts() {
+    return { works: 0, talks: 0, papers: 0 };
+  }
+
   function buildSourceCounts(items) {
     const counts = {
-      all: { works: 0, talks: 0, papers: 0 },
-      official: { works: 0, talks: 0, papers: 0 },
+      all: emptyCounts(),
+      official: emptyCounts(),
     };
 
     for (const item of (Array.isArray(items) ? items : [])) {
@@ -549,6 +628,24 @@
     }
 
     return counts;
+  }
+
+  function buildScopeCounts(items) {
+    const counts = emptyCounts();
+    for (const item of (Array.isArray(items) ? items : [])) {
+      if (!item) continue;
+      counts.works += 1;
+      if (item.kind === 'talk') counts.talks += 1;
+      if (item.kind === 'paper') counts.papers += 1;
+    }
+    return counts;
+  }
+
+  function countForScope(counts, scope) {
+    const normalizedScope = scope === 'talks' || scope === 'papers' ? scope : 'all';
+    if (normalizedScope === 'talks') return Number(counts && counts.talks) || 0;
+    if (normalizedScope === 'papers') return Number(counts && counts.papers) || 0;
+    return Number(counts && counts.works) || 0;
   }
 
   function tokenizeQuery(value) {
@@ -616,7 +713,10 @@
       sourceArchive: !!(talk && talk._mlirSourceArchive),
       sourceLabel: describeSourceLabel(talk),
       topics,
+      topicKeys: new Set(topics.map(normalizeTopicKey)),
       searchIndex,
+      year: talkYear(talk),
+      talkCategory: normalizeTalkCategory(talk && talk.category),
       sortStamp: buildDateStamp(
         `${collapseWhitespace(talk && talk.meetingDate)} ${collapseWhitespace(talk && talk.meeting)}`,
         talk && talk.title
@@ -635,7 +735,10 @@
       sourceArchive: !!(paper && paper._mlirSourceArchive),
       sourceLabel: describeSourceLabel(paper),
       topics,
+      topicKeys: new Set(topics.map(normalizeTopicKey)),
       searchIndex,
+      year: collapseWhitespace(paper && (paper._year || paper.year)),
+      talkCategory: '',
       sortStamp: buildDateStamp(
         `${collapseWhitespace(paper && paper.publishedDate)} ${collapseWhitespace(paper && paper.year)} ${collapseWhitespace(paper && paper._year)}`,
         paper && paper.title
@@ -643,9 +746,48 @@
     };
   }
 
-  function matchesSelectedSource(item) {
-    if (state.source === 'official') return !!(item && item.sourceUpstream);
+  function matchesSelectedSource(item, source = state.source) {
+    if (source === 'official') return !!(item && item.sourceUpstream);
     return true;
+  }
+
+  function matchesSelectedScope(item, scope = state.scope) {
+    if (scope === 'talks') return !!item && item.kind === 'talk';
+    if (scope === 'papers') return !!item && item.kind === 'paper';
+    return true;
+  }
+
+  function matchesSelectedTopics(item, topics = state.activeTopics) {
+    if (!topics || !topics.size) return true;
+    const itemTopicKeys = item && item.topicKeys instanceof Set ? item.topicKeys : new Set();
+    for (const topic of topics) {
+      if (itemTopicKeys.has(normalizeTopicKey(topic))) return true;
+    }
+    return false;
+  }
+
+  function matchesSelectedYears(item, years = state.years) {
+    if (!years || !years.size) return true;
+    const year = collapseWhitespace(item && item.year);
+    return !!year && years.has(year);
+  }
+
+  function matchesSelectedTalkTypes(item, talkTypes = state.talkTypes, scope = state.scope) {
+    if (!talkTypes || !talkTypes.size) return true;
+    if (scope !== 'talks') return true;
+    if (!item || item.kind !== 'talk') return false;
+    return talkTypes.has(collapseWhitespace(item.talkCategory));
+  }
+
+  function matchesSelectedFilters(item, overrides) {
+    const options = overrides || {};
+    return matchesSelectedTopics(item, options.topics !== undefined ? options.topics : state.activeTopics)
+      && matchesSelectedYears(item, options.years !== undefined ? options.years : state.years)
+      && matchesSelectedTalkTypes(
+        item,
+        options.talkTypes !== undefined ? options.talkTypes : state.talkTypes,
+        options.scope !== undefined ? options.scope : state.scope
+      );
   }
 
   function compareItems(a, b) {
@@ -663,7 +805,7 @@
     const values = uniqueStrings(names);
     if (!values.length) return '';
     return values
-      .map((name) => `<a class="speaker-btn" href="${escapeHtml(buildLocalQueryHref(name))}">${escapeHtml(name)}</a>`)
+      .map((name) => `<a class="speaker-btn" href="${escapeHtml(buildSpeakerQueryHref(name))}">${escapeHtml(name)}</a>`)
       .join('<span class="speaker-btn-sep">, </span>');
   }
 
@@ -673,7 +815,7 @@
     return `
       <div class="card-tags-wrap">
         <div class="card-tags" aria-label="Key Topics">
-          ${shown.map((topic) => `<a class="card-tag" href="${escapeHtml(buildLocalQueryHref(topic))}">${escapeHtml(topic)}</a>`).join('')}
+          ${shown.map((topic) => `<a class="card-tag" href="${escapeHtml(buildTopicFilterHref(topic))}">${escapeHtml(topic)}</a>`).join('')}
           ${topics.length > shown.length ? `<span class="card-tag card-tag--more" aria-hidden="true">+${topics.length - shown.length}</span>` : ''}
         </div>
       </div>`;
@@ -818,7 +960,7 @@
     const authorNames = Array.isArray(paper && paper.authors)
       ? paper.authors.map((author) => collapseWhitespace(author && author.name)).filter(Boolean)
       : [];
-    const citationCount = Number.isFinite(Number(paper && paper._citationCount)) ? Number(paper._citationCount) : 0;
+    const citationCount = Number.isFinite(Number(paper && paper._citationCount)) ? Number(paper && paper._citationCount) : 0;
 
     return `
       <article class="talk-card paper-card">
@@ -857,7 +999,7 @@
     root.innerHTML = `
       <div class="loading-state">
         <div class="spinner" aria-hidden="true"></div>
-        <p>Loading MLIR talks and papers…</p>
+        <p>Loading MLIR content…</p>
       </div>`;
     root.setAttribute('aria-busy', 'true');
   }
@@ -868,8 +1010,8 @@
     root.innerHTML = `
       <div class="empty-state">
         <div class="empty-state-icon" aria-hidden="true">!</div>
-        <h2>No MLIR works found</h2>
-        <p>Try a different query or switch the source toggle.</p>
+        <h2>No MLIR results found</h2>
+        <p>Try a different query, switch between talks and papers, or clear the active filters.</p>
       </div>`;
     root.setAttribute('aria-busy', 'false');
   }
@@ -886,6 +1028,94 @@
         <p>${escapeHtml(String(message || 'Unknown error'))}</p>
       </div>`;
     root.setAttribute('aria-busy', 'false');
+  }
+
+  function createActiveFilterPill(typeLabel, valueLabel, ariaLabel, onRemove) {
+    const pill = document.createElement('span');
+    pill.className = 'active-filter-pill';
+
+    const type = document.createElement('span');
+    type.className = 'active-filter-pill__type';
+    type.textContent = typeLabel;
+    pill.appendChild(type);
+
+    const value = document.createElement('span');
+    value.className = 'active-filter-pill__value';
+    value.textContent = valueLabel;
+    pill.appendChild(value);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'active-filter-pill__remove';
+    button.setAttribute('aria-label', ariaLabel);
+    button.innerHTML = '<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      onRemove();
+    });
+    pill.appendChild(button);
+
+    return pill;
+  }
+
+  function renderActiveFilters() {
+    const el = getNode('mlir-active-filters');
+    if (!el) return;
+
+    const pills = [];
+
+    for (const topic of [...state.activeTopics].sort((a, b) => a.localeCompare(b))) {
+      pills.push(createActiveFilterPill(
+        'Key Topic',
+        topic,
+        `Remove key topic filter: ${topic}`,
+        () => {
+          state.activeTopics.delete(topic);
+          updateUrl();
+          recomputeResults();
+        }
+      ));
+    }
+
+    for (const year of [...state.years].sort((a, b) => Number(b) - Number(a))) {
+      pills.push(createActiveFilterPill(
+        'Year',
+        year,
+        `Remove year filter: ${year}`,
+        () => {
+          state.years.delete(year);
+          updateUrl();
+          recomputeResults();
+        }
+      ));
+    }
+
+    for (const talkType of [...state.talkTypes].sort((a, b) => {
+      const left = categoryOrderFromHub && Object.prototype.hasOwnProperty.call(categoryOrderFromHub, a)
+        ? categoryOrderFromHub[a]
+        : (Object.prototype.hasOwnProperty.call(TALK_CATEGORY_ORDER, a) ? TALK_CATEGORY_ORDER[a] : 999);
+      const right = categoryOrderFromHub && Object.prototype.hasOwnProperty.call(categoryOrderFromHub, b)
+        ? categoryOrderFromHub[b]
+        : (Object.prototype.hasOwnProperty.call(TALK_CATEGORY_ORDER, b) ? TALK_CATEGORY_ORDER[b] : 999);
+      if (left !== right) return left - right;
+      return talkCategoryLabel(a).localeCompare(talkCategoryLabel(b));
+    })) {
+      pills.push(createActiveFilterPill(
+        'Talk Type',
+        talkCategoryLabel(talkType),
+        `Remove talk type filter: ${talkCategoryLabel(talkType)}`,
+        () => {
+          state.talkTypes.delete(talkType);
+          updateUrl();
+          recomputeResults();
+        }
+      ));
+    }
+
+    el.innerHTML = '';
+    el.classList.toggle('hidden', pills.length === 0);
+    pills.forEach((pill) => el.appendChild(pill));
   }
 
   function updateSearchUi() {
@@ -910,35 +1140,194 @@
     }
     const allCount = getNode('mlir-source-count-all');
     const officialCount = getNode('mlir-source-count-official');
-    if (allCount) allCount.textContent = currentCounts.all.works.toLocaleString();
-    if (officialCount) officialCount.textContent = currentCounts.official.works.toLocaleString();
+    if (allCount) allCount.textContent = countForScope(currentSourceCounts.all, state.scope).toLocaleString();
+    if (officialCount) officialCount.textContent = countForScope(currentSourceCounts.official, state.scope).toLocaleString();
+  }
+
+  function updateScopeUi() {
+    const scopeButtons = [
+      { id: 'mlir-scope-all', scope: 'all' },
+      { id: 'mlir-scope-talks', scope: 'talks' },
+      { id: 'mlir-scope-papers', scope: 'papers' },
+    ];
+    for (const { id, scope } of scopeButtons) {
+      const button = getNode(id);
+      if (!button) continue;
+      const active = state.scope === scope;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+
+    const allCount = getNode('mlir-scope-count-all');
+    const talksCount = getNode('mlir-scope-count-talks');
+    const papersCount = getNode('mlir-scope-count-papers');
+    if (allCount) allCount.textContent = currentScopeCounts.works.toLocaleString();
+    if (talksCount) talksCount.textContent = currentScopeCounts.talks.toLocaleString();
+    if (papersCount) papersCount.textContent = currentScopeCounts.papers.toLocaleString();
   }
 
   function updateSummaryUi() {
     const subtitle = getNode('mlir-browse-subtitle');
     const resultsCount = getNode('mlir-results-count');
     const resultsContext = getNode('mlir-results-context');
-    const selectedCounts = state.source === 'official' ? currentCounts.official : currentCounts.all;
     const sourceText = state.source === 'official'
       ? 'from mlir.llvm.org'
       : 'from mlir.llvm.org and the LLVM archive';
     const queryText = collapseWhitespace(state.query);
+    const selectedCount = countForScope(currentSelectedCounts, state.scope);
 
     if (subtitle) {
-      if (queryText) {
-        subtitle.innerHTML = `Showing <strong>${selectedCounts.works.toLocaleString()}</strong> MLIR works matching <strong>${escapeHtml(queryText)}</strong>: <strong>${selectedCounts.talks.toLocaleString()}</strong> talks and <strong>${selectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
+      if (state.scope === 'talks') {
+        if (queryText) {
+          subtitle.innerHTML = `Showing <strong>${selectedCount.toLocaleString()}</strong> MLIR talks matching <strong>${escapeHtml(queryText)}</strong> ${sourceText}.`;
+        } else {
+          subtitle.innerHTML = `Browse <strong>${selectedCount.toLocaleString()}</strong> MLIR talks ${sourceText}.`;
+        }
+      } else if (state.scope === 'papers') {
+        if (queryText) {
+          subtitle.innerHTML = `Showing <strong>${selectedCount.toLocaleString()}</strong> MLIR papers matching <strong>${escapeHtml(queryText)}</strong> ${sourceText}.`;
+        } else {
+          subtitle.innerHTML = `Browse <strong>${selectedCount.toLocaleString()}</strong> MLIR papers ${sourceText}.`;
+        }
+      } else if (queryText) {
+        subtitle.innerHTML = `Showing <strong>${selectedCount.toLocaleString()}</strong> MLIR works matching <strong>${escapeHtml(queryText)}</strong>: <strong>${currentSelectedCounts.talks.toLocaleString()}</strong> talks and <strong>${currentSelectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
       } else {
-        subtitle.innerHTML = `Browse <strong>${selectedCounts.works.toLocaleString()}</strong> MLIR works: <strong>${selectedCounts.talks.toLocaleString()}</strong> talks and <strong>${selectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
+        subtitle.innerHTML = `Browse <strong>${selectedCount.toLocaleString()}</strong> MLIR works: <strong>${currentSelectedCounts.talks.toLocaleString()}</strong> talks and <strong>${currentSelectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
       }
     }
 
     if (resultsCount) {
-      resultsCount.textContent = `${selectedCounts.works.toLocaleString()} work${selectedCounts.works === 1 ? '' : 's'}`;
+      const label = state.scope === 'talks'
+        ? 'talk'
+        : (state.scope === 'papers' ? 'paper' : 'work');
+      resultsCount.textContent = `${selectedCount.toLocaleString()} ${label}${selectedCount === 1 ? '' : 's'}`;
     }
 
     if (resultsContext) {
-      resultsContext.textContent = `${selectedCounts.talks.toLocaleString()} talks · ${selectedCounts.papers.toLocaleString()} papers`;
+      resultsContext.textContent = `${currentSelectedCounts.talks.toLocaleString()} talks · ${currentSelectedCounts.papers.toLocaleString()} papers`;
     }
+  }
+
+  function renderFacetButtons(containerId, options, selectedSet, facetName, labelFormatter) {
+    const container = getNode(containerId);
+    if (!container) return;
+    if (!Array.isArray(options) || !options.length) {
+      container.innerHTML = '<p class="filter-group-hint">No filters available.</p>';
+      return;
+    }
+
+    container.innerHTML = options.map((option) => {
+      const value = collapseWhitespace(option && option.value);
+      const active = selectedSet.has(value);
+      const label = typeof labelFormatter === 'function' ? labelFormatter(value) : value;
+      return `
+        <button
+          type="button"
+          class="filter-chip${facetName === 'topic' ? ' filter-chip--tag' : ''}${facetName === 'talkType' ? ' filter-chip--type' : ''}${active ? ' active' : ''}"
+          data-filter-type="${escapeHtml(facetName)}"
+          data-value="${escapeHtml(value)}"
+          role="switch"
+          aria-checked="${active ? 'true' : 'false'}"
+        >
+          <span class="${facetName === 'talkType' ? 'filter-chip-type-label' : ''}">${escapeHtml(label)}</span>
+          <span class="${facetName === 'talkType' ? 'filter-chip-type-count' : 'filter-chip-count'}">${Number(option && option.count || 0).toLocaleString()}</span>
+        </button>`;
+    }).join('');
+  }
+
+  function buildTopicFacetOptions(queryMatchedItems) {
+    const items = queryMatchedItems.filter((item) => (
+      matchesSelectedSource(item)
+      && matchesSelectedScope(item)
+      && matchesSelectedYears(item)
+      && matchesSelectedTalkTypes(item)
+    ));
+    const counts = new Map();
+    for (const item of items) {
+      const seen = new Set();
+      for (const topic of (Array.isArray(item.topics) ? item.topics : [])) {
+        const label = collapseWhitespace(topic);
+        const key = normalizeTopicKey(label);
+        if (!label || !key || seen.has(key)) continue;
+        seen.add(key);
+        const current = counts.get(key) || { value: label, count: 0 };
+        current.count += 1;
+        counts.set(key, current);
+      }
+    }
+    return [...counts.values()].sort((a, b) => {
+      if (b.count !== a.count) return b.count - a.count;
+      return a.value.localeCompare(b.value);
+    });
+  }
+
+  function buildYearFacetOptions(queryMatchedItems) {
+    const items = queryMatchedItems.filter((item) => (
+      matchesSelectedSource(item)
+      && matchesSelectedScope(item)
+      && matchesSelectedTopics(item)
+      && matchesSelectedTalkTypes(item)
+    ));
+    const counts = new Map();
+    for (const item of items) {
+      const year = collapseWhitespace(item && item.year);
+      if (!year) continue;
+      counts.set(year, (counts.get(year) || 0) + 1);
+    }
+    return [...counts.entries()]
+      .map(([value, count]) => ({ value, count }))
+      .sort((a, b) => Number(b.value) - Number(a.value));
+  }
+
+  function buildTalkTypeFacetOptions(queryMatchedItems) {
+    const items = queryMatchedItems.filter((item) => (
+      item && item.kind === 'talk'
+      && matchesSelectedSource(item)
+      && matchesSelectedTopics(item)
+      && matchesSelectedYears(item)
+    ));
+    const counts = new Map();
+    for (const item of items) {
+      const category = collapseWhitespace(item && item.talkCategory) || 'other';
+      counts.set(category, (counts.get(category) || 0) + 1);
+    }
+    return [...counts.entries()]
+      .map(([value, count]) => ({ value, count }))
+      .sort((a, b) => {
+        const left = categoryOrderFromHub && Object.prototype.hasOwnProperty.call(categoryOrderFromHub, a.value)
+          ? categoryOrderFromHub[a.value]
+          : (Object.prototype.hasOwnProperty.call(TALK_CATEGORY_ORDER, a.value) ? TALK_CATEGORY_ORDER[a.value] : 999);
+        const right = categoryOrderFromHub && Object.prototype.hasOwnProperty.call(categoryOrderFromHub, b.value)
+          ? categoryOrderFromHub[b.value]
+          : (Object.prototype.hasOwnProperty.call(TALK_CATEGORY_ORDER, b.value) ? TALK_CATEGORY_ORDER[b.value] : 999);
+        if (left !== right) return left - right;
+        return talkCategoryLabel(a.value).localeCompare(talkCategoryLabel(b.value));
+      });
+  }
+
+  function updateFilterClearButton() {
+    const clearButton = getNode('mlir-clear-filters');
+    if (!clearButton) return;
+    const hasFilters = state.activeTopics.size > 0 || state.years.size > 0 || state.talkTypes.size > 0;
+    clearButton.classList.toggle('hidden', !hasFilters);
+  }
+
+  function updateFilterUi(queryMatchedItems) {
+    renderFacetButtons('mlir-filter-tags', buildTopicFacetOptions(queryMatchedItems), state.activeTopics, 'topic');
+    renderFacetButtons('mlir-filter-years', buildYearFacetOptions(queryMatchedItems), state.years, 'year');
+    renderFacetButtons(
+      'mlir-filter-talk-types',
+      buildTalkTypeFacetOptions(queryMatchedItems),
+      state.talkTypes,
+      'talkType',
+      (value) => talkCategoryLabel(value)
+    );
+
+    const talkTypeSection = document.querySelector('.filter-accordion[data-accordion="talk-type"]');
+    if (talkTypeSection) talkTypeSection.hidden = state.scope !== 'talks';
+
+    updateFilterClearButton();
+    renderActiveFilters();
   }
 
   function renderBatch(reset) {
@@ -968,7 +1357,8 @@
 
     const remaining = filteredItems.length - renderedCount;
     if (remaining > 0) {
-      more.textContent = `Show more works (${remaining.toLocaleString()} left)`;
+      const noun = state.scope === 'talks' ? 'talks' : (state.scope === 'papers' ? 'papers' : 'works');
+      more.textContent = `Show more ${noun} (${remaining.toLocaleString()} left)`;
       more.classList.remove('hidden');
     } else {
       more.classList.add('hidden');
@@ -986,23 +1376,44 @@
       queryMatchedItems.push(item);
     }
 
-    currentCounts = buildSourceCounts(queryMatchedItems);
-    filteredItems = queryMatchedItems.filter(matchesSelectedSource).sort(compareItems);
+    const facetMatchedItems = queryMatchedItems.filter((item) => matchesSelectedFilters(item));
+    currentSourceCounts = buildSourceCounts(facetMatchedItems);
+
+    const sourceMatchedItems = facetMatchedItems.filter((item) => matchesSelectedSource(item));
+    currentScopeCounts = buildScopeCounts(sourceMatchedItems);
+
+    filteredItems = sourceMatchedItems.filter((item) => matchesSelectedScope(item)).sort(compareItems);
+    currentSelectedCounts = state.scope === 'all'
+      ? buildScopeCounts(filteredItems)
+      : currentScopeCounts;
+
+    updateSearchUi();
     updateSourceUi();
+    updateScopeUi();
     updateSummaryUi();
+    updateFilterUi(queryMatchedItems);
     renderBatch(true);
   }
 
   function parseUrlState() {
     const params = new URLSearchParams(window.location.search);
     state.query = collapseWhitespace(params.get('q'));
+
     const source = collapseWhitespace(params.get('source')).toLowerCase();
     state.source = (source === 'official' || source === 'mlir.llvm.org' || source === 'mlir-llvm-org') ? 'official' : 'all';
+
+    const scope = collapseWhitespace(params.get('scope')).toLowerCase();
+    state.scope = (scope === 'talks' || scope === 'papers') ? scope : 'all';
+
+    state.activeTopics = new Set(parseCsvParam(params.get('tag')));
+    state.years = new Set(parseCsvParam(params.get('year')));
+    state.talkTypes = new Set(parseCsvParam(params.get('talkType')).map(normalizeTalkCategory));
+
+    if (state.scope !== 'talks') state.talkTypes.clear();
   }
 
   function setQuery(nextQuery) {
     state.query = collapseWhitespace(nextQuery);
-    updateSearchUi();
     updateUrl();
     recomputeResults();
   }
@@ -1011,6 +1422,190 @@
     state.source = nextSource === 'official' ? 'official' : 'all';
     updateUrl();
     recomputeResults();
+  }
+
+  function setScope(nextScope) {
+    state.scope = nextScope === 'talks' || nextScope === 'papers' ? nextScope : 'all';
+    if (state.scope !== 'talks') state.talkTypes.clear();
+    updateUrl();
+    recomputeResults();
+  }
+
+  function clearFilters() {
+    state.activeTopics.clear();
+    state.years.clear();
+    state.talkTypes.clear();
+    updateUrl();
+    recomputeResults();
+  }
+
+  function toggleFacetValue(type, value) {
+    const normalizedValue = collapseWhitespace(value);
+    if (!normalizedValue) return;
+
+    let targetSet = null;
+    if (type === 'topic') targetSet = state.activeTopics;
+    if (type === 'year') targetSet = state.years;
+    if (type === 'talkType') targetSet = state.talkTypes;
+    if (!targetSet) return;
+
+    if (targetSet.has(normalizedValue)) targetSet.delete(normalizedValue);
+    else targetSet.add(normalizedValue);
+
+    updateUrl();
+    recomputeResults();
+  }
+
+  function setFilterAccordionOpen(name, open) {
+    const section = document.querySelector(`.filter-accordion[data-accordion="${CSS.escape(name)}"]`);
+    if (!section) return;
+
+    const toggle = section.querySelector('.filter-accordion-toggle');
+    const panel = section.querySelector('.filter-accordion-panel');
+    if (!toggle || !panel) return;
+
+    section.classList.toggle('is-collapsed', !open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    panel.hidden = !open;
+  }
+
+  function initFilterAccordions() {
+    const sections = document.querySelectorAll('.filter-accordion[data-accordion]');
+    if (!sections.length) return;
+
+    sections.forEach((section) => {
+      const name = section.dataset.accordion;
+      const toggle = section.querySelector('.filter-accordion-toggle');
+      if (!name || !toggle) return;
+
+      setFilterAccordionOpen(name, true);
+
+      toggle.addEventListener('click', () => {
+        const currentlyOpen = toggle.getAttribute('aria-expanded') === 'true';
+        setFilterAccordionOpen(name, !currentlyOpen);
+      });
+    });
+  }
+
+  function setFilterSidebarCollapsed(collapsed, persist = true) {
+    const collapseBtn = getNode('mlir-filter-collapse-btn');
+    if (!collapseBtn) return;
+
+    document.body.classList.toggle('filter-collapsed', collapsed);
+    collapseBtn.setAttribute('aria-pressed', collapsed ? 'true' : 'false');
+    collapseBtn.setAttribute('aria-label', collapsed ? 'Expand filters' : 'Collapse filters');
+    collapseBtn.setAttribute('title', collapsed ? 'Expand filters' : 'Collapse filters');
+
+    if (persist) {
+      safeSessionSet('llvm-hub-filter-sidebar-collapsed', collapsed ? '1' : '0');
+    }
+  }
+
+  function initFilterSidebarCollapse() {
+    const collapseBtn = getNode('mlir-filter-collapse-btn');
+    const filterSection = document.querySelector('.filter-section');
+    const mobileOpenBtn = getNode('mlir-mobile-filter-open');
+    const mobileCloseBtn = getNode('mlir-mobile-filter-close');
+    const mobileApplyBtn = getNode('mlir-mobile-filter-apply');
+    const mobileClearBtn = getNode('mlir-mobile-filter-clear');
+    const mobileScrim = getNode('mlir-mobile-filter-scrim');
+    if (!collapseBtn || !filterSection) return;
+
+    const mobileMq = window.matchMedia('(max-width: 1180px)');
+
+    const setMobileDrawerOpen = (open) => {
+      const isMobile = mobileMq.matches;
+      const active = isMobile && open;
+
+      document.body.classList.toggle('mobile-filters-open', active);
+      if (mobileOpenBtn) mobileOpenBtn.setAttribute('aria-expanded', active ? 'true' : 'false');
+
+      if (mobileScrim) {
+        mobileScrim.classList.toggle('hidden', !active);
+        mobileScrim.setAttribute('aria-hidden', active ? 'false' : 'true');
+      }
+
+      if (isMobile) {
+        filterSection.hidden = !active;
+        if (active) filterSection.removeAttribute('inert');
+        else filterSection.setAttribute('inert', '');
+      } else {
+        filterSection.hidden = false;
+        filterSection.removeAttribute('inert');
+      }
+    };
+
+    const syncSidebarMode = () => {
+      if (mobileMq.matches) {
+        document.body.classList.remove('filter-collapsed');
+        collapseBtn.setAttribute('aria-pressed', 'false');
+        collapseBtn.setAttribute('aria-label', 'Collapse filters');
+        collapseBtn.setAttribute('title', 'Collapse filters');
+        setMobileDrawerOpen(false);
+        return;
+      }
+
+      safeSessionRemove('llvm-hub-filter-sidebar-collapsed');
+      setFilterSidebarCollapsed(false, false);
+      setMobileDrawerOpen(false);
+    };
+
+    syncSidebarMode();
+
+    if (typeof mobileMq.addEventListener === 'function') {
+      mobileMq.addEventListener('change', syncSidebarMode);
+    } else if (typeof mobileMq.addListener === 'function') {
+      mobileMq.addListener(syncSidebarMode);
+    }
+
+    collapseBtn.addEventListener('click', () => {
+      if (mobileMq.matches) return;
+      const next = !document.body.classList.contains('filter-collapsed');
+      setFilterSidebarCollapsed(next, true);
+    });
+
+    if (mobileOpenBtn) {
+      mobileOpenBtn.addEventListener('click', () => {
+        if (!mobileMq.matches) return;
+        setMobileDrawerOpen(true);
+      });
+    }
+
+    if (mobileCloseBtn) {
+      mobileCloseBtn.addEventListener('click', () => {
+        setMobileDrawerOpen(false);
+        if (mobileOpenBtn) mobileOpenBtn.focus();
+      });
+    }
+
+    if (mobileScrim) {
+      mobileScrim.addEventListener('click', () => {
+        setMobileDrawerOpen(false);
+        if (mobileOpenBtn) mobileOpenBtn.focus();
+      });
+    }
+
+    if (mobileApplyBtn) {
+      mobileApplyBtn.addEventListener('click', () => {
+        setMobileDrawerOpen(false);
+        if (mobileOpenBtn) mobileOpenBtn.focus();
+      });
+    }
+
+    if (mobileClearBtn) {
+      mobileClearBtn.addEventListener('click', () => {
+        clearFilters();
+        setMobileDrawerOpen(false);
+        if (mobileOpenBtn) mobileOpenBtn.focus();
+      });
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.body.classList.contains('mobile-filters-open')) {
+        setMobileDrawerOpen(false);
+        if (mobileOpenBtn) mobileOpenBtn.focus();
+      }
+    });
   }
 
   async function loadCombinedItems() {
@@ -1087,8 +1682,13 @@
     const input = getNode('mlir-search-input');
     const clear = getNode('mlir-search-clear');
     const more = getNode('mlir-results-more');
-    const allToggle = getNode('mlir-source-all');
-    const officialToggle = getNode('mlir-source-official');
+    const allSourceToggle = getNode('mlir-source-all');
+    const officialSourceToggle = getNode('mlir-source-official');
+    const allScopeToggle = getNode('mlir-scope-all');
+    const talksScopeToggle = getNode('mlir-scope-talks');
+    const papersScopeToggle = getNode('mlir-scope-papers');
+    const clearFiltersButton = getNode('mlir-clear-filters');
+    const filterSidebarBody = getNode('mlir-filter-sidebar-body');
 
     if (form) {
       form.addEventListener('submit', (event) => {
@@ -1113,12 +1713,38 @@
       more.addEventListener('click', () => renderBatch(false));
     }
 
-    if (allToggle) {
-      allToggle.addEventListener('click', () => setSource('all'));
+    if (allSourceToggle) {
+      allSourceToggle.addEventListener('click', () => setSource('all'));
     }
 
-    if (officialToggle) {
-      officialToggle.addEventListener('click', () => setSource('official'));
+    if (officialSourceToggle) {
+      officialSourceToggle.addEventListener('click', () => setSource('official'));
+    }
+
+    if (allScopeToggle) {
+      allScopeToggle.addEventListener('click', () => setScope('all'));
+    }
+
+    if (talksScopeToggle) {
+      talksScopeToggle.addEventListener('click', () => setScope('talks'));
+    }
+
+    if (papersScopeToggle) {
+      papersScopeToggle.addEventListener('click', () => setScope('papers'));
+    }
+
+    if (clearFiltersButton) {
+      clearFiltersButton.addEventListener('click', clearFilters);
+    }
+
+    if (filterSidebarBody) {
+      filterSidebarBody.addEventListener('click', (event) => {
+        const target = event.target && typeof event.target.closest === 'function'
+          ? event.target.closest('[data-filter-type][data-value]')
+          : null;
+        if (!target) return;
+        toggleFacetValue(target.dataset.filterType, target.dataset.value);
+      });
     }
   }
 
@@ -1131,8 +1757,9 @@
 
     parseUrlState();
     updateSearchUi();
-    updateSourceUi();
     setLoadingState();
+    initFilterAccordions();
+    initFilterSidebarCollapse();
     bindUi();
 
     try {

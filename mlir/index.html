@@ -35,7 +35,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=b1f3ce598fc2">
+  <link rel="stylesheet" href="css/style.css?v=1096e3ce9341">
 </head>
 <body>
 
@@ -111,7 +111,7 @@
         <a href="papers/" class="mobile-nav-link">Papers</a>
         <a href="blogs/" class="mobile-nav-link">Blogs</a>
         <a href="people/" class="mobile-nav-link">People</a>
-        <a href="mlir/" class="mobile-nav-link mobile-nav-link--mlir">
+        <a href="mlir/" class="mobile-nav-link mobile-nav-link--mlir" aria-label="MLIR">
           <span>MLIR</span>
           <img src="images/mlir-logo.png" alt="" class="mobile-nav-link-logo">
         </a>
@@ -171,7 +171,7 @@
       <div class="search-hero-title-row search-hero-title-row--brand">
         <div class="subproject-brand-lockup">
           <img src="images/mlir-logo.png" alt="MLIR logo" class="subproject-brand-mark">
-          <h1>MLIR</h1>
+          <h1 class="sr-only">MLIR</h1>
         </div>
         <p class="search-hero-title-aside">Talks and papers in one surface</p>
       </div>
@@ -198,13 +198,113 @@
           </svg>
         </button>
       </form>
+      <div class="active-filters hidden" id="mlir-active-filters" role="status" aria-label="Active filters" aria-live="polite"></div>
     </div>
   </section>
 
-  <div class="hub-layout hub-layout--work">
+  <div class="hub-layout">
+    <aside class="filter-section" role="region" aria-label="Filters">
+      <div class="filter-sidebar-head">
+        <h2>Filters</h2>
+        <button class="mobile-filter-close" id="mlir-mobile-filter-close" aria-label="Close filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <button class="filter-collapse-btn" id="mlir-filter-collapse-btn" aria-label="Collapse filters" aria-pressed="false" title="Collapse filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="btn-clear-filters hidden" id="mlir-clear-filters" aria-label="Clear all filters">
+          Clear filters
+        </button>
+      </div>
+
+      <div class="filter-sidebar-body" id="mlir-filter-sidebar-body">
+        <section class="filter-accordion" data-accordion="topics">
+          <button class="filter-accordion-toggle" id="mlir-toggle-topics" aria-expanded="true" aria-controls="mlir-panel-topics">
+            <span>Key Topics</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="filter-accordion-panel" id="mlir-panel-topics">
+            <div class="filter-tags-row" aria-label="Filter by key topic">
+              <div class="filter-tags-header">
+                <span class="filter-group-hint">Focus the MLIR surface by subject area</span>
+              </div>
+              <div class="filter-group filter-group--wrap" id="mlir-filter-tags" aria-label="Key Topic filters"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="talk-type">
+          <button class="filter-accordion-toggle" id="mlir-toggle-talk-type" aria-expanded="true" aria-controls="mlir-panel-talk-type">
+            <span>Talk Type</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="filter-accordion-panel" id="mlir-panel-talk-type">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by talk type">
+                <div class="filter-group" id="mlir-filter-talk-types" aria-label="Talk type filters"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="filter-accordion" data-accordion="year">
+          <button class="filter-accordion-toggle" id="mlir-toggle-year" aria-expanded="true" aria-controls="mlir-panel-year">
+            <span>Year</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="filter-accordion-panel" id="mlir-panel-year">
+            <div class="filter-scroll filter-scroll--secondary">
+              <div class="filter-cluster" aria-label="Filter by year">
+                <div class="filter-group" id="mlir-filter-years" aria-label="Year filters"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="mobile-filter-footer">
+          <button class="mobile-filter-footer-btn mobile-filter-footer-btn--secondary" id="mlir-mobile-filter-clear" type="button">Clear all</button>
+          <button class="mobile-filter-footer-btn" id="mlir-mobile-filter-apply" type="button">Apply filters</button>
+        </div>
+      </div>
+    </aside>
+
+    <div class="mobile-filter-scrim hidden" id="mlir-mobile-filter-scrim" aria-hidden="true"></div>
+
     <main class="feed-column" id="main-content" tabindex="-1">
       <div class="results-bar">
+        <div class="results-meta">
+          <button class="mobile-filter-toggle" id="mlir-mobile-filter-open" aria-label="Open filters" aria-controls="mlir-filter-sidebar-body" aria-expanded="false">
+            Filters
+          </button>
+          <span class="results-count" id="mlir-results-count" role="status" aria-live="polite" aria-atomic="true"></span>
+          <span class="results-context" id="mlir-results-context" aria-live="polite" aria-atomic="true"></span>
+        </div>
         <div class="results-controls">
+          <div class="work-scope-toggle" role="group" aria-label="MLIR content type">
+            <button type="button" class="work-scope-btn active" id="mlir-scope-all" aria-pressed="true">
+              <span>All</span>
+              <span class="work-scope-count" id="mlir-scope-count-all">0</span>
+            </button>
+            <button type="button" class="work-scope-btn" id="mlir-scope-talks" aria-pressed="false">
+              <span>Talks</span>
+              <span class="work-scope-count" id="mlir-scope-count-talks">0</span>
+            </button>
+            <button type="button" class="work-scope-btn" id="mlir-scope-papers" aria-pressed="false">
+              <span>Papers</span>
+              <span class="work-scope-count" id="mlir-scope-count-papers">0</span>
+            </button>
+          </div>
           <div class="work-scope-toggle" role="group" aria-label="MLIR source">
             <button type="button" class="work-scope-btn active" id="mlir-source-all" aria-pressed="true">
               <span>All</span>
@@ -215,10 +315,6 @@
               <span class="work-scope-count" id="mlir-source-count-official">0</span>
             </button>
           </div>
-        </div>
-        <div class="results-meta">
-          <span class="results-count" id="mlir-results-count" role="status" aria-live="polite" aria-atomic="true"></span>
-          <span class="results-context" id="mlir-results-context" aria-live="polite" aria-atomic="true"></span>
         </div>
       </div>
 
@@ -240,6 +336,6 @@
   <script src="js/papers-data.js?v=c7e1dc09095c"></script>
   <script>window.LLVMLIRTalkDataMode = 'namespaced';</script>
   <script src="js/mlir-talks.js?v=f7f358699a32"></script>
-  <script src="js/mlir-browser.js?v=e89cf346e9b0"></script>
+  <script src="js/mlir-browser.js?v=791a5a1d6ba1"></script>
 </body>
 </html>

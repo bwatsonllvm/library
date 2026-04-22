@@ -383,7 +383,11 @@ ul, ol {
 }
 
 .nav-link--mlir {
-  gap: 6px;
+  gap: 0;
+}
+
+.nav-link--mlir > span {
+  display: none;
 }
 
 .nav-link-logo {
@@ -391,6 +395,11 @@ ul, ol {
   height: 17px;
   flex: 0 0 auto;
   object-fit: contain;
+}
+
+.nav-link-logo--mlir {
+  width: 74px;
+  height: 28px;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -756,7 +765,11 @@ ul, ol {
 }
 
 .mobile-nav-link--mlir {
-  gap: 8px;
+  gap: 0;
+}
+
+.mobile-nav-link--mlir span {
+  display: none;
 }
 
 .mobile-nav-link-logo {
@@ -764,6 +777,11 @@ ul, ol {
   height: 16px;
   flex: 0 0 auto;
   object-fit: contain;
+}
+
+.mobile-nav-link--mlir .mobile-nav-link-logo {
+  width: 82px;
+  height: 28px;
 }
 
 .mobile-nav-link:hover,
@@ -2889,7 +2907,7 @@ body.filter-collapsed .filter-collapse-btn svg {
   margin-right: 0.42em;
   flex: 0 0 auto;
   border-radius: 4px;
-  background: center / contain no-repeat url("../images/mlir-logo.png");
+  background: center / contain no-repeat url("../images/mlir-logo-emblem.png");
 }
 
 .card-tag:hover {
@@ -3878,11 +3896,11 @@ mark {
 }
 
 .subproject-brand-mark {
-  width: clamp(3.1rem, 5vw, 4.25rem);
+  width: clamp(10rem, 24vw, 18rem);
   height: auto;
   flex: 0 0 auto;
-  border-radius: 18px;
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .subproject-copy--lead {
