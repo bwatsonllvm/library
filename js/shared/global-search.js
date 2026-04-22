@@ -61,7 +61,7 @@
   }
 
   const LIBRARY_ROOT_PATH = resolveLibraryRootPath();
-  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=c2ffcab2f637');
+  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=9797eb33f572');
   const ADVANCED_FIELDS = [
     'allWords',
     'exactPhrase',

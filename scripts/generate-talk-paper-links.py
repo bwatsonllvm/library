@@ -88,6 +88,9 @@ GITHUB_RESERVED_OWNERS = {
     "security", "settings", "site", "sponsors", "team", "teams", "topics", "trending",
     "users",
 }
+KNOWN_GITHUB_URL_CORRECTIONS = {
+    "https://github.com/ssrg-vt/ELLFSource": "https://github.com/ssrg-vt/ELLF",
+}
 GITHUB_RESOURCE_SEGMENTS = {
     "actions", "blob", "commit", "commits", "compare", "discussions", "issues", "milestone",
     "milestones", "packages", "projects", "pull", "pulls", "pulse", "raw", "releases",
@@ -266,7 +269,8 @@ def normalize_github_url(value: str) -> str:
         return ""
 
     path = "/" + "/".join(urllib.parse.quote(part, safe=":@!$&'()*+,;=-._~") for part in normalized_parts)
-    return urllib.parse.urlunparse(("https", "github.com", path, "", "", ""))
+    normalized_url = urllib.parse.urlunparse(("https", "github.com", path, "", "", ""))
+    return KNOWN_GITHUB_URL_CORRECTIONS.get(normalized_url, normalized_url)
 
 
 def extract_github_urls_from_text(value: str) -> list[str]:
