@@ -5651,6 +5651,43 @@
 
   const TALK_KEY_TOPIC_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
   const PAPER_KEY_TOPIC_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  const TALK_RELATED_SIGNAL_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  const PAPER_RELATED_SIGNAL_CACHE = typeof WeakMap !== 'undefined' ? new WeakMap() : null;
+  const RELATED_TITLE_TERM_STOPWORDS = new Set([
+    'adding', 'advanced', 'approach', 'approaches', 'based', 'building',
+    'build', 'clang', 'code', 'compilation', 'compiler', 'compilers',
+    'creating', 'design', 'developer', 'developers', 'enabling',
+    'framework', 'frameworks', 'getting', 'implementation',
+    'implementations', 'implementing', 'introduction', 'intro', 'llvm',
+    'meeting', 'meetings', 'mlir', 'overview', 'paper', 'papers',
+    'poster', 'posters', 'project', 'projects', 'session', 'sessions',
+    'started', 'support', 'system', 'systems', 'talk', 'talks',
+    'technical', 'tutorial', 'tutorials', 'using', 'writing',
+    'workshop', 'workshops',
+  ]);
+  const GENERIC_RELATED_TOPIC_KEYS = new Set([
+    'ai',
+    'backend',
+    'clang',
+    'clangir',
+    'codegeneration',
+    'flang',
+    'frontend',
+    'infrastructure',
+    'ir',
+    'jit',
+    'libraries',
+    'lld',
+    'lldb',
+    'llvm',
+    'ml',
+    'mlir',
+    'optimizations',
+    'performance',
+    'programminglanguages',
+    'security',
+    'testing',
+  ]);
 
   function canonicalizeKeyTopic(value) {
     const key = normalizeTopicKey(collapseWhitespace(value));
@@ -5736,6 +5773,296 @@
 
     if (!Number.isFinite(limit)) return [...cached];
     return cached.slice(0, Math.max(0, Math.floor(limit)));
+  }
+
+  function countSetOverlap(a, b) {
+    if (!(a instanceof Set) || !(b instanceof Set) || !a.size || !b.size) return 0;
+    const [smaller, larger] = a.size <= b.size ? [a, b] : [b, a];
+    let overlap = 0;
+    for (const value of smaller) {
+      if (larger.has(value)) overlap += 1;
+    }
+    return overlap;
+  }
+
+  function countSpecificTopicOverlap(a, b) {
+    if (!(a instanceof Set) || !(b instanceof Set) || !a.size || !b.size) return 0;
+    const [smaller, larger] = a.size <= b.size ? [a, b] : [b, a];
+    let overlap = 0;
+    for (const value of smaller) {
+      if (!value || GENERIC_RELATED_TOPIC_KEYS.has(value)) continue;
+      if (larger.has(value)) overlap += 1;
+    }
+    return overlap;
+  }
+
+  function extractRelatedTitleTerms(value) {
+    const tokens = tokenizeSearchText(value, 4);
+    if (!tokens.length) return [];
+
+    const out = [];
+    const seen = new Set();
+    for (const token of tokens) {
+      if (!token || seen.has(token)) continue;
+      if (SEARCH_STOPWORDS.has(token) || RELATED_TITLE_TERM_STOPWORDS.has(token)) continue;
+      if (/^\d+$/.test(token)) continue;
+      seen.add(token);
+      out.push(token);
+    }
+    return out;
+  }
+
+  function buildTalkRelatedSignals(talk) {
+    return {
+      speakerKeys: new Set(
+        (Array.isArray(talk && talk.speakers) ? talk.speakers : [])
+          .map((speaker) => normalizePersonKey(speaker && speaker.name))
+          .filter(Boolean)
+      ),
+      topicKeys: new Set(
+        getTalkKeyTopics(talk, Infinity)
+          .map((topic) => normalizeTopicKey(topic))
+          .filter(Boolean)
+      ),
+      titleTerms: new Set(extractRelatedTitleTerms(talk && talk.title)),
+      categoryKey: normalizeTalkCategory(talk && talk.category),
+      meetingKey: collapseWhitespace(talk && talk.meeting),
+      year: parseYearNumber((talk && talk._year) || (talk && talk.meeting) || (talk && talk.meetingDate)),
+    };
+  }
+
+  function getTalkRelatedSignals(talk) {
+    if (!talk || typeof talk !== 'object') {
+      return {
+        speakerKeys: new Set(),
+        topicKeys: new Set(),
+        titleTerms: new Set(),
+        categoryKey: '',
+        meetingKey: '',
+        year: 0,
+      };
+    }
+
+    if (TALK_RELATED_SIGNAL_CACHE && TALK_RELATED_SIGNAL_CACHE.has(talk)) {
+      return TALK_RELATED_SIGNAL_CACHE.get(talk);
+    }
+
+    const signals = buildTalkRelatedSignals(talk);
+    if (TALK_RELATED_SIGNAL_CACHE) TALK_RELATED_SIGNAL_CACHE.set(talk, signals);
+    return signals;
+  }
+
+  function scoreRelatedTalkCandidate(targetTalk, candidateTalk) {
+    const targetId = collapseWhitespace(targetTalk && targetTalk.id);
+    const candidateId = collapseWhitespace(candidateTalk && candidateTalk.id);
+    if (!targetId || !candidateId || targetId === candidateId) return null;
+
+    const targetSignals = getTalkRelatedSignals(targetTalk);
+    const candidateSignals = getTalkRelatedSignals(candidateTalk);
+    const sharedSpeakers = countSetOverlap(targetSignals.speakerKeys, candidateSignals.speakerKeys);
+    const sharedTopics = countSetOverlap(targetSignals.topicKeys, candidateSignals.topicKeys);
+    const sharedSpecificTopics = countSpecificTopicOverlap(targetSignals.topicKeys, candidateSignals.topicKeys);
+    const sharedTitleTerms = countSetOverlap(targetSignals.titleTerms, candidateSignals.titleTerms);
+    const sameCategory = !!(
+      targetSignals.categoryKey
+      && candidateSignals.categoryKey
+      && targetSignals.categoryKey === candidateSignals.categoryKey
+    );
+    const sameMeeting = !!(
+      targetSignals.meetingKey
+      && candidateSignals.meetingKey
+      && targetSignals.meetingKey === candidateSignals.meetingKey
+    );
+
+    const eligible = sharedSpeakers >= 2
+      || (sharedSpeakers >= 1 && sharedTitleTerms >= 1)
+      || (sharedTopics >= 1 && sharedTitleTerms >= 1);
+    if (!eligible) return null;
+
+    let score = 0;
+    score += sharedSpeakers * 240;
+    score += sharedTopics * 90;
+    score += sharedSpecificTopics * 24;
+    score += sharedTitleTerms * 70;
+    if (sameCategory) score += 16;
+    if (sameMeeting) score += 8;
+
+    const yearDistance = (
+      targetSignals.year > 0
+      && candidateSignals.year > 0
+      ? Math.abs(targetSignals.year - candidateSignals.year)
+      : Number.POSITIVE_INFINITY
+    );
+    if (yearDistance === 0) score += 10;
+    else if (yearDistance === 1) score += 6;
+    else if (yearDistance === 2) score += 3;
+
+    return {
+      candidate: candidateTalk,
+      score,
+      sharedSpeakers,
+      sharedTopics,
+      sharedSpecificTopics,
+      sharedTitleTerms,
+      sameCategory,
+      sameMeeting,
+    };
+  }
+
+  function getRelatedTalkCandidates(talk, relatedPool, options = {}) {
+    const values = Array.isArray(relatedPool) ? relatedPool : [];
+    const targetId = collapseWhitespace(talk && talk.id);
+    if (!targetId || !values.length) return [];
+
+    const limit = Number.isFinite(options.limit) && options.limit > 0
+      ? Math.floor(options.limit)
+      : 6;
+    const scored = [];
+
+    for (const candidate of values) {
+      if (!candidate || typeof candidate !== 'object') continue;
+      const result = scoreRelatedTalkCandidate(talk, candidate);
+      if (!result) continue;
+      scored.push(result);
+    }
+
+    scored.sort((a, b) =>
+      b.score - a.score
+      || b.sharedSpeakers - a.sharedSpeakers
+      || b.sharedSpecificTopics - a.sharedSpecificTopics
+      || b.sharedTopics - a.sharedTopics
+      || b.sharedTitleTerms - a.sharedTitleTerms
+      || String((b.candidate && b.candidate.meetingDate) || (b.candidate && b.candidate.meeting) || '')
+        .localeCompare(String((a.candidate && a.candidate.meetingDate) || (a.candidate && a.candidate.meeting) || ''))
+      || String((a.candidate && a.candidate.title) || '').localeCompare(String((b.candidate && b.candidate.title) || ''))
+    );
+
+    return scored.slice(0, limit).map((entry) => entry.candidate);
+  }
+
+  function buildPaperRelatedSignals(paper) {
+    return {
+      authorKeys: new Set(
+        (Array.isArray(paper && paper.authors) ? paper.authors : [])
+          .map((author) => normalizePersonKey(author && author.name))
+          .filter(Boolean)
+      ),
+      topicKeys: new Set(
+        getPaperKeyTopics(paper, Infinity)
+          .map((topic) => normalizeTopicKey(topic))
+          .filter(Boolean)
+      ),
+      titleTerms: new Set(extractRelatedTitleTerms(paper && paper.title)),
+      publicationKey: normalizePublicationKey(getPaperPrimaryPublication(paper) || (paper && paper.venue) || ''),
+      year: parseYearNumber((paper && paper._year) || (paper && paper.year) || (paper && paper.publishedDate)),
+      kind: (paper && paper._isBlog) === true ? 'blog' : 'paper',
+    };
+  }
+
+  function getPaperRelatedSignals(paper) {
+    if (!paper || typeof paper !== 'object') {
+      return {
+        authorKeys: new Set(),
+        topicKeys: new Set(),
+        titleTerms: new Set(),
+        publicationKey: '',
+        year: 0,
+        kind: 'paper',
+      };
+    }
+
+    if (PAPER_RELATED_SIGNAL_CACHE && PAPER_RELATED_SIGNAL_CACHE.has(paper)) {
+      return PAPER_RELATED_SIGNAL_CACHE.get(paper);
+    }
+
+    const signals = buildPaperRelatedSignals(paper);
+    if (PAPER_RELATED_SIGNAL_CACHE) PAPER_RELATED_SIGNAL_CACHE.set(paper, signals);
+    return signals;
+  }
+
+  function scoreRelatedPaperCandidate(targetPaper, candidatePaper) {
+    const targetId = collapseWhitespace(targetPaper && targetPaper.id);
+    const candidateId = collapseWhitespace(candidatePaper && candidatePaper.id);
+    if (!targetId || !candidateId || targetId === candidateId) return null;
+
+    const targetSignals = getPaperRelatedSignals(targetPaper);
+    const candidateSignals = getPaperRelatedSignals(candidatePaper);
+    const sharedAuthors = countSetOverlap(targetSignals.authorKeys, candidateSignals.authorKeys);
+    const sharedTopics = countSetOverlap(targetSignals.topicKeys, candidateSignals.topicKeys);
+    const sharedSpecificTopics = countSpecificTopicOverlap(targetSignals.topicKeys, candidateSignals.topicKeys);
+    const sharedTitleTerms = countSetOverlap(targetSignals.titleTerms, candidateSignals.titleTerms);
+    const samePublication = !!(
+      targetSignals.publicationKey
+      && candidateSignals.publicationKey
+      && targetSignals.publicationKey === candidateSignals.publicationKey
+    );
+    const sameKind = targetSignals.kind === candidateSignals.kind;
+
+    const eligible = sharedAuthors >= 2
+      || (sharedAuthors >= 1 && (sharedTopics >= 1 || sharedTitleTerms >= 1 || samePublication))
+      || (sharedTopics >= 1 && sharedTitleTerms >= 1)
+      || (samePublication && (sharedAuthors >= 1 || sharedSpecificTopics >= 1 || sharedTitleTerms >= 1));
+    if (!eligible) return null;
+
+    let score = 0;
+    score += sharedAuthors * 260;
+    score += sharedTopics * 90;
+    score += sharedSpecificTopics * 28;
+    score += sharedTitleTerms * 70;
+    if (samePublication) score += 35;
+    if (sameKind) score += 8;
+
+    const yearDistance = (
+      targetSignals.year > 0
+      && candidateSignals.year > 0
+      ? Math.abs(targetSignals.year - candidateSignals.year)
+      : Number.POSITIVE_INFINITY
+    );
+    if (yearDistance === 0) score += 10;
+    else if (yearDistance === 1) score += 6;
+    else if (yearDistance === 2) score += 3;
+
+    return {
+      candidate: candidatePaper,
+      score,
+      sharedAuthors,
+      sharedTopics,
+      sharedSpecificTopics,
+      sharedTitleTerms,
+      samePublication,
+      sameKind,
+    };
+  }
+
+  function getRelatedPaperCandidates(paper, relatedPool, options = {}) {
+    const values = Array.isArray(relatedPool) ? relatedPool : [];
+    const targetId = collapseWhitespace(paper && paper.id);
+    if (!targetId || !values.length) return [];
+
+    const limit = Number.isFinite(options.limit) && options.limit > 0
+      ? Math.floor(options.limit)
+      : 6;
+    const scored = [];
+
+    for (const candidate of values) {
+      if (!candidate || typeof candidate !== 'object') continue;
+      const result = scoreRelatedPaperCandidate(paper, candidate);
+      if (!result) continue;
+      scored.push(result);
+    }
+
+    scored.sort((a, b) =>
+      b.score - a.score
+      || b.sharedAuthors - a.sharedAuthors
+      || b.sharedSpecificTopics - a.sharedSpecificTopics
+      || b.sharedTopics - a.sharedTopics
+      || b.sharedTitleTerms - a.sharedTitleTerms
+      || String((b.candidate && b.candidate._publishedDate) || (b.candidate && b.candidate._year) || '')
+        .localeCompare(String((a.candidate && a.candidate._publishedDate) || (a.candidate && a.candidate._year) || ''))
+      || String((a.candidate && a.candidate.title) || '').localeCompare(String((b.candidate && b.candidate.title) || ''))
+    );
+
+    return scored.slice(0, limit).map((entry) => entry.candidate);
   }
 
   function safeStorageGet(key) {
@@ -6361,6 +6688,8 @@
     extractYouTubeId,
     formatMeetingDateUniversal,
     getPaperKeyTopics,
+    getRelatedPaperCandidates,
+    getRelatedTalkCandidates,
     getTalkKeyTopics,
     findStrongPersonMatches,
     highlightSearchText,

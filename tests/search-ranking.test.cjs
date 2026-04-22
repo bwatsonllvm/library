@@ -122,6 +122,62 @@ test('buildPeopleIndex separates compound talk speaker names into individual peo
   );
 });
 
+test('getRelatedTalkCandidates excludes same-meeting noise and keeps close matches', () => {
+  const target = {
+    id: 'talk-target',
+    title: 'Runtime Bootstrapping with LLVM_ENABLE_RUNTIMES',
+    meeting: '2026-04',
+    category: 'tutorial',
+    speakers: [{ name: 'Alice Smith' }],
+    tags: ['runtimes'],
+  };
+  const speakerAndTermMatch = {
+    id: 'talk-speaker-term',
+    title: 'Troubleshooting LLVM_ENABLE_RUNTIMES Bootstrapping',
+    meeting: '2025-11',
+    category: 'tutorial',
+    speakers: [{ name: 'Alice Smith' }],
+    tags: ['runtimes'],
+  };
+  const topicAndTermMatch = {
+    id: 'talk-topic-term',
+    title: 'Runtime Bootstrapping Patterns for Toolchains',
+    meeting: '2024-04',
+    category: 'technical-talk',
+    speakers: [{ name: 'Bob Jones' }],
+    tags: ['runtimes'],
+  };
+  const sameMeetingNoise = {
+    id: 'talk-noise-meeting',
+    title: 'Welcome and Opening Remarks',
+    meeting: '2026-04',
+    category: 'tutorial',
+    speakers: [{ name: 'Carol White' }],
+    tags: ['LLVM Foundation'],
+  };
+  const topicOnlyNoise = {
+    id: 'talk-noise-topic',
+    title: 'Infrastructure Updates for Package Managers',
+    meeting: '2025-04',
+    category: 'tutorial',
+    speakers: [{ name: 'Dan Green' }],
+    tags: ['runtimes'],
+  };
+
+  const related = utils.getRelatedTalkCandidates(target, [
+    target,
+    speakerAndTermMatch,
+    topicAndTermMatch,
+    sameMeetingNoise,
+    topicOnlyNoise,
+  ]);
+
+  assert.deepEqual(
+    related.map((entry) => entry.id),
+    ['talk-speaker-term', 'talk-topic-term']
+  );
+});
+
 test('person normalization merges known aliases while preserving alternate spellings as variants', () => {
   assert.equal(utils.normalizePersonKey('Alex Zinenko'), utils.normalizePersonKey('Oleksandr Zinenko'));
   assert.equal(utils.normalizePersonKey('Owen T. Anderson'), utils.normalizePersonKey('Owen Anderson'));
@@ -150,6 +206,67 @@ test('person normalization merges known aliases while preserving alternate spell
   assert.ok(Array.isArray(people[0].variantNames));
   assert.ok(people[0].variantNames.includes('Alex Zinenko'));
   assert.ok(people[0].variantNames.includes('Oleksandr Zinenko'));
+});
+
+test('getRelatedPaperCandidates excludes same-year noise and keeps author/topic/title matches', () => {
+  const target = {
+    id: 'paper-target',
+    title: 'Transform Dialect Extensions for Tensor Fusion',
+    authors: [{ name: 'Alice Smith' }],
+    tags: ['MLIR'],
+    publication: "LLVM Developers' Meeting",
+    year: '2024',
+    _year: '2024',
+  };
+  const authorTopicMatch = {
+    id: 'paper-author-topic',
+    title: 'Tensor Fusion with the MLIR Transform Dialect',
+    authors: [{ name: 'Alice Smith' }, { name: 'Bob Jones' }],
+    tags: ['MLIR'],
+    publication: "LLVM Developers' Meeting",
+    year: '2023',
+    _year: '2023',
+  };
+  const topicTermMatch = {
+    id: 'paper-topic-term',
+    title: 'Transform Dialect Recipes for Tensor Fusion',
+    authors: [{ name: 'Carol White' }],
+    tags: ['MLIR'],
+    publication: 'arXiv',
+    year: '2024',
+    _year: '2024',
+  };
+  const sameYearNoise = {
+    id: 'paper-noise-year',
+    title: 'LLDB Debug Adapter Improvements on Windows',
+    authors: [{ name: 'Dan Green' }],
+    tags: ['LLDB'],
+    publication: "LLVM Developers' Meeting",
+    year: '2024',
+    _year: '2024',
+  };
+  const samePublicationNoise = {
+    id: 'paper-noise-publication',
+    title: 'Quantum Compiler Scheduling with Trapped Ions',
+    authors: [{ name: 'Eve Black' }],
+    tags: ['Quantum Computing'],
+    publication: "LLVM Developers' Meeting",
+    year: '2024',
+    _year: '2024',
+  };
+
+  const related = utils.getRelatedPaperCandidates(target, [
+    target,
+    authorTopicMatch,
+    topicTermMatch,
+    sameYearNoise,
+    samePublicationNoise,
+  ]);
+
+  assert.deepEqual(
+    related.map((entry) => entry.id),
+    ['paper-author-topic', 'paper-topic-term']
+  );
 });
 
 test('hasStrongPersonQueryMatch detects direct name intent without substring false positives', () => {

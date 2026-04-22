@@ -1131,15 +1131,6 @@
     return `work.html?kind=speaker&value=${encodeURIComponent(speaker)}&from=talks`;
   }
 
-  function countTopicOverlap(values, topicKeys) {
-    let total = 0;
-    for (const value of (Array.isArray(values) ? values : [])) {
-      const key = normalizeMatchText(value);
-      if (key && topicKeys.has(key)) total += 1;
-    }
-    return total;
-  }
-
   function renderSpeakers(speakers) {
     const values = Array.isArray(speakers) ? speakers : [];
     if (!values.length) {
@@ -1165,40 +1156,10 @@
     const targetId = String(talk && talk.id || '').trim();
     if (!targetId || !values.length) return [];
 
-    const topicKeys = new Set(
-      getTalkTopics(talk, Infinity)
-        .map((topic) => normalizeMatchText(topic))
-        .filter(Boolean)
-    );
-    if (!topicKeys.size) return [];
-
-    const scored = [];
-
-    for (const candidate of values) {
-      if (!candidate || typeof candidate !== 'object') continue;
-      const candidateId = String(candidate.id || '').trim();
-      if (!candidateId || candidateId === targetId) continue;
-      const overlap = countTopicOverlap(getTalkTopics(candidate, Infinity), topicKeys);
-      if (!overlap) continue;
-      scored.push({
-        talk: candidate,
-        overlap,
-        sameMeeting: candidate.meeting && talk.meeting && candidate.meeting === talk.meeting ? 1 : 0,
-      });
+    if (typeof HubUtils.getRelatedTalkCandidates === 'function') {
+      return HubUtils.getRelatedTalkCandidates(talk, values, { limit: 6 });
     }
-
-    scored.sort((a, b) => {
-      const overlapDiff = b.overlap - a.overlap;
-      if (overlapDiff !== 0) return overlapDiff;
-      const meetingDiff = b.sameMeeting - a.sameMeeting;
-      if (meetingDiff !== 0) return meetingDiff;
-      const meetingCompare = String(b.talk && (b.talk.meetingDate || b.talk.meeting) || '')
-        .localeCompare(String(a.talk && (a.talk.meetingDate || a.talk.meeting) || ''));
-      if (meetingCompare !== 0) return meetingCompare;
-      return String(a.talk && a.talk.title || '').localeCompare(String(b.talk && b.talk.title || ''));
-    });
-
-    return scored.slice(0, 6).map((entry) => entry.talk);
+    return [];
   }
 
   function renderRelatedCard(talk) {

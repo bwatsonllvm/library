@@ -977,15 +977,6 @@ function addYearStatsToPeople(people, talks, papers, blogs) {
   });
 }
 
-function countTopicOverlap(values, topicKeys) {
-  let total = 0;
-  for (const value of (Array.isArray(values) ? values : [])) {
-    const key = normalizeSearchText(value);
-    if (key && topicKeys.has(key)) total += 1;
-  }
-  return total;
-}
-
 function buildTalkSummaryCardData(talk) {
   return {
     id: talk.id,
@@ -1039,34 +1030,7 @@ function buildTalkRelatedMap(talks, paperSummaries, talkReferencePayload) {
       ? referenceEntry.slideTalkIds.map((value) => collapseWhitespace(value)).filter(Boolean)
       : [];
 
-    const topicKeys = new Set(
-      HubUtils.getTalkKeyTopics(talk, Infinity)
-        .map((topic) => normalizeSearchText(topic))
-        .filter(Boolean)
-    );
-    const scoredRelatedTalks = [];
-    if (topicKeys.size) {
-      for (const candidate of talks) {
-        const candidateId = collapseWhitespace(candidate.id);
-        if (!candidateId || candidateId === talkId) continue;
-        const overlap = countTopicOverlap(HubUtils.getTalkKeyTopics(candidate, Infinity), topicKeys);
-        if (!overlap) continue;
-        scoredRelatedTalks.push({
-          talk: candidate,
-          overlap,
-          sameMeeting: candidate.meeting && talk.meeting && candidate.meeting === talk.meeting ? 1 : 0,
-        });
-      }
-    }
-
-    scoredRelatedTalks.sort((a, b) =>
-      b.overlap - a.overlap
-      || b.sameMeeting - a.sameMeeting
-      || String(b.talk && (b.talk.meetingDate || b.talk.meeting) || '').localeCompare(String(a.talk && (a.talk.meetingDate || a.talk.meeting) || ''))
-      || String(a.talk && a.talk.title || '').localeCompare(String(b.talk && b.talk.title || ''))
-    );
-
-    const relatedTalks = scoredRelatedTalks.slice(0, 6).map((entry) => buildTalkSummaryCardData(entry.talk));
+    const relatedTalks = HubUtils.getRelatedTalkCandidates(talk, talks, { limit: 6 }).map(buildTalkSummaryCardData);
 
     byTalkId[talkId] = {
       slidePaperIds,
@@ -1079,44 +1043,6 @@ function buildTalkRelatedMap(talks, paperSummaries, talkReferencePayload) {
   }
 
   return byTalkId;
-}
-
-function getRelatedPapersForRecord(paper, relatedPool) {
-  const values = Array.isArray(relatedPool) ? relatedPool : [];
-  const targetId = collapseWhitespace(paper && paper.id);
-  if (!targetId || !values.length) return [];
-
-  const targetYear = collapseWhitespace(paper && paper._year);
-  const targetIsBlog = !!(paper && paper._isBlog);
-  const tagSet = new Set(
-    HubUtils.getPaperKeyTopics(paper, Infinity)
-      .map((value) => normalizeSearchText(value))
-      .filter(Boolean)
-  );
-  if (!tagSet.size && !targetYear) return [];
-
-  const scored = [];
-  for (const candidate of values) {
-    if (!candidate || typeof candidate !== 'object') continue;
-    const id = collapseWhitespace(candidate.id);
-    if (!id || id === targetId) continue;
-    const sameYear = !!(targetYear && collapseWhitespace(candidate._year) === targetYear);
-    const overlap = countTopicOverlap(HubUtils.getPaperKeyTopics(candidate, Infinity), tagSet);
-    if (!sameYear && overlap < 1) continue;
-    let score = 0;
-    if (sameYear) score += 120;
-    score += overlap * 28;
-    if (!!candidate._isBlog === targetIsBlog) score += 10;
-    if (candidate._year) score += Number.parseInt(candidate._year, 10) * 0.001;
-    scored.push({ paper: candidate, score, overlap });
-  }
-
-  scored.sort((a, b) =>
-    b.score - a.score
-    || b.overlap - a.overlap
-    || String(a.paper && a.paper.title || '').localeCompare(String(b.paper && b.paper.title || ''))
-  );
-  return scored.slice(0, 6).map((entry) => entry.paper);
 }
 
 function buildPaperRelatedMap(papers, talks, talkReferencePayload) {
@@ -1147,7 +1073,7 @@ function buildPaperRelatedMap(papers, talks, talkReferencePayload) {
       .filter(Boolean)
       .sort((a, b) => String(b && b.id || '').localeCompare(String(a && a.id || '')) || String(a && a.title || '').localeCompare(String(b && b.title || '')))
       .map(buildTalkSummaryCardData);
-    const relatedPapers = getRelatedPapersForRecord(paper, papers).map(buildPaperSummaryCardData);
+    const relatedPapers = HubUtils.getRelatedPaperCandidates(paper, papers, { limit: 6 }).map(buildPaperSummaryCardData);
     byPaperId[paperId] = {
       featuredTalkIds,
       relatedPaperIds: relatedPapers.map((entry) => entry.id),

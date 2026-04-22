@@ -827,20 +827,6 @@
     }).join('');
   }
 
-  function countTagOverlap(candidate, tagSet) {
-    if (!(tagSet instanceof Set) || !tagSet.size) return 0;
-    const values = [
-      ...(Array.isArray(candidate && candidate.tags) ? candidate.tags : []),
-      ...(Array.isArray(candidate && candidate.keywords) ? candidate.keywords : []),
-    ];
-    let overlap = 0;
-    for (const value of values) {
-      const normalized = String(value || '').trim().toLowerCase();
-      if (normalized && tagSet.has(normalized)) overlap += 1;
-    }
-    return overlap;
-  }
-
   function getRelatedPapers(paper, relatedPool) {
     const values = Array.isArray(relatedPool) ? relatedPool : [];
     if (!values.length) return [];
@@ -848,54 +834,10 @@
     const targetId = String(paper && paper.id || '').trim();
     if (!targetId) return [];
 
-    const targetIsBlog = isBlogPaper(paper);
-    const targetYear = String(paper && paper._year || '').trim();
-    const tagSet = new Set(
-      [
-        ...(Array.isArray(paper && paper.tags) ? paper.tags : []),
-        ...(Array.isArray(paper && paper.keywords) ? paper.keywords : []),
-      ]
-        .map((value) => String(value || '').trim().toLowerCase())
-        .filter(Boolean)
-    );
-
-    const MAX_SCAN = 8000;
-    const stride = values.length > MAX_SCAN ? Math.ceil(values.length / MAX_SCAN) : 1;
-
-    const scored = [];
-    const seenIds = new Set();
-    for (let index = 0; index < values.length; index += stride) {
-      const candidate = values[index];
-      if (!candidate || typeof candidate !== 'object') continue;
-      const id = String(candidate.id || '').trim();
-      if (!id || id === targetId || seenIds.has(id)) continue;
-      seenIds.add(id);
-
-      const normalized = normalizePaperRecord(candidate);
-      if (!normalized) continue;
-
-      const sameYear = !!(targetYear && normalized._year === targetYear);
-      const overlap = countTagOverlap(normalized, tagSet);
-      if (!sameYear && overlap < 1) continue;
-
-      let score = 0;
-      if (sameYear) score += 120;
-      score += overlap * 28;
-      if (isBlogPaper(normalized) === targetIsBlog) score += 10;
-      if (normalized._year) score += Number.parseInt(normalized._year, 10) * 0.001;
-
-      scored.push({ paper: normalized, score, overlap });
+    if (typeof HubUtils.getRelatedPaperCandidates === 'function') {
+      return HubUtils.getRelatedPaperCandidates(paper, values, { limit: 6 });
     }
-
-    scored.sort((a, b) => {
-      const scoreDiff = b.score - a.score;
-      if (scoreDiff !== 0) return scoreDiff;
-      const overlapDiff = b.overlap - a.overlap;
-      if (overlapDiff !== 0) return overlapDiff;
-      return String(a.paper.title || '').localeCompare(String(b.paper.title || ''));
-    });
-
-    return scored.slice(0, 6).map((entry) => entry.paper);
+    return [];
   }
 
   function buildTalkDetailUrl(talk) {
