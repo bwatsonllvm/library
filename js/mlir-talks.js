@@ -6,8 +6,17 @@
   const DATA_PATH = 'sub-projects/mlir/data/talks.json';
   const LOCAL_DETAIL_PATH = 'mlir/talks/talk.html';
   const HubUtils = window.LLVMHubUtils || {};
+  const baseEventDataLoader = typeof window.loadEventData === 'function'
+    ? window.loadEventData.bind(window)
+    : null;
   const loaderMode = String(window.LLVMLIRTalkDataMode || '').trim().toLowerCase();
   const shouldOverrideGlobals = loaderMode !== 'namespaced';
+  const normalizeTalksFromHub = typeof HubUtils.normalizeTalks === 'function'
+    ? HubUtils.normalizeTalks.bind(HubUtils)
+    : (rawTalks) => (Array.isArray(rawTalks) ? rawTalks : []);
+  const extractYouTubeIdFromHub = typeof HubUtils.extractYouTubeId === 'function'
+    ? HubUtils.extractYouTubeId.bind(HubUtils)
+    : null;
   const MONTH_LOOKUP = Object.freeze({
     jan: '01', january: '01',
     feb: '02', february: '02',
@@ -349,6 +358,70 @@
     return (Array.isArray(actions) ? actions : []).find((action) => action && predicate(action)) || null;
   }
 
+  function normalizeTitleKey(value) {
+    return collapseWhitespace(value)
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  }
+
+  function getTalkVideoId(talk) {
+    const explicit = collapseWhitespace(talk && talk.videoId);
+    if (explicit) return explicit;
+    const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
+    if (!videoUrl || !extractYouTubeIdFromHub) return '';
+    return collapseWhitespace(extractYouTubeIdFromHub(videoUrl));
+  }
+
+  function getTalkSpeakerKey(talk) {
+    const speakers = Array.isArray(talk && talk.speakers) ? talk.speakers : [];
+    return speakers
+      .map((speaker) => normalizeSpeakerName(speaker && speaker.name))
+      .filter(Boolean)
+      .sort((left, right) => left.localeCompare(right))
+      .join('|');
+  }
+
+  function getTalkDedupKeys(talk) {
+    const keys = new Set();
+    const videoId = getTalkVideoId(talk);
+    if (videoId) keys.add(`video:${videoId}`);
+
+    const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
+    if (slidesUrl) keys.add(`slides:${slidesUrl}`);
+
+    const titleKey = normalizeTitleKey(talk && talk.title);
+    if (titleKey) {
+      const speakerKey = getTalkSpeakerKey(talk);
+      if (speakerKey) keys.add(`title-speakers:${titleKey}|${speakerKey}`);
+    }
+
+    return keys;
+  }
+
+  function isMlirArchiveTalk(talk) {
+    const tags = Array.isArray(talk && talk.tags) ? talk.tags : [];
+    return tags.some((tag) => slugify(tag) === 'mlir');
+  }
+
+  async function loadArchiveMlirTalks() {
+    if (!baseEventDataLoader) {
+      return { talks: [], meetings: [] };
+    }
+
+    try {
+      const payload = await baseEventDataLoader();
+      const talks = normalizeTalksFromHub(payload && payload.talks).filter(isMlirArchiveTalk);
+      return {
+        talks,
+        meetings: Array.isArray(payload && payload.meetings) ? payload.meetings : [],
+      };
+    } catch {
+      return { talks: [], meetings: [] };
+    }
+  }
+
   function buildLocalDetailUrl(talkId) {
     const id = collapseWhitespace(talkId);
     if (!id) return LOCAL_DETAIL_PATH;
@@ -495,9 +568,29 @@
   window.loadMLIRTalkRecordById = loadMLIRTalkRecordById;
   if (shouldOverrideGlobals) {
     window.loadEventData = async function loadEventData() {
+      const [mlirTalks, archivePayload] = await Promise.all([
+        loadMLIRTalks(),
+        loadArchiveMlirTalks(),
+      ]);
+      const archiveTalks = Array.isArray(archivePayload && archivePayload.talks)
+        ? archivePayload.talks
+        : [];
+      const archiveDedupKeys = new Set();
+      for (const talk of archiveTalks) {
+        for (const key of getTalkDedupKeys(talk)) archiveDedupKeys.add(key);
+      }
+      const uniqueMlirTalks = mlirTalks.filter((talk) => {
+        const keys = getTalkDedupKeys(talk);
+        for (const key of keys) {
+          if (archiveDedupKeys.has(key)) return false;
+        }
+        return true;
+      });
       return {
-        talks: await loadMLIRTalks(),
-        meetings: [],
+        talks: [...uniqueMlirTalks, ...archiveTalks],
+        meetings: Array.isArray(archivePayload && archivePayload.meetings)
+          ? archivePayload.meetings
+          : [],
       };
     };
     window.loadTalkRecordById = loadMLIRTalkRecordById;
