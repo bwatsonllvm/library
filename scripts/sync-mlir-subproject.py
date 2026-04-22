@@ -13,6 +13,7 @@ import subprocess
 import sys
 import urllib.parse
 import urllib.request
+from collections import defaultdict
 from pathlib import Path
 
 
@@ -323,6 +324,43 @@ def load_json_file(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def decode_pdf_metadata_value(token: bytes) -> str:
+    value = token.strip()
+    if not value:
+        return ""
+    if value.startswith(b"<") and value.endswith(b">"):
+        hex_bytes = re.sub(rb"\s+", b"", value[1:-1])
+        try:
+            raw_bytes = bytes.fromhex(hex_bytes.decode("ascii"))
+        except Exception:
+            return ""
+        for encoding in ("utf-16", "utf-16-be", "utf-8", "latin1"):
+            try:
+                return collapse_ws(raw_bytes.decode(encoding))
+            except Exception:
+                continue
+        return ""
+    if value.startswith(b"(") and value.endswith(b")"):
+        raw_text = value[1:-1].decode("latin1", errors="replace")
+        raw_text = re.sub(r"\\([()\\])", r"\1", raw_text)
+        raw_text = raw_text.replace("\\n", "\n").replace("\\r", "\r").replace("\\t", "\t")
+        return collapse_ws(raw_text)
+    return collapse_ws(value.decode("latin1", errors="replace"))
+
+
+def extract_pdf_metadata_field(raw_bytes: bytes, field_name: str) -> str:
+    if not raw_bytes:
+        return ""
+    pattern = re.compile(
+        rb"/" + re.escape(field_name.encode("ascii")) + rb"\s+(<[^>]+>|\((?:\\.|[^\\)])*\))",
+        flags=re.DOTALL,
+    )
+    match = pattern.search(raw_bytes)
+    if not match:
+        return ""
+    return decode_pdf_metadata_value(match.group(1))
+
+
 def normalize_speaker_name(value: str) -> str:
     text = collapse_ws(value)
     text = re.sub(r"\((?:filling in for|moderator|host|guest|speaker|presenter)[^)]+\)", "", text, flags=re.IGNORECASE)
@@ -390,6 +428,62 @@ def dedupe_speaker_names(values: list[str]) -> list[dict]:
         seen.add(key)
         out.append({"name": name, "affiliation": ""})
     return out
+
+
+def register_known_person_name(known_people_index: dict[str, set[str]], value: str) -> None:
+    name = normalize_speaker_name(value)
+    if not looks_like_person_name(name):
+        return
+    first_name = clean_person_token(name.split()[0]).lower()
+    if not first_name:
+        return
+    known_people_index[first_name].add(name)
+
+
+def build_known_people_index(repo_root: Path) -> dict[str, set[str]]:
+    known_people: dict[str, set[str]] = defaultdict(set)
+
+    devmtg_root = repo_root / "devmtg" / "events"
+    for event_path in sorted(devmtg_root.glob("*.json")):
+        try:
+            payload = json.loads(event_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        for talk in payload.get("talks", []):
+            for speaker in talk.get("speakers", []) or []:
+                if isinstance(speaker, dict):
+                    register_known_person_name(known_people, str(speaker.get("name", "") or ""))
+                elif speaker:
+                    register_known_person_name(known_people, str(speaker))
+
+    existing_mlir_talks_path = repo_root / "sub-projects" / "mlir" / "data" / "talks.json"
+    if existing_mlir_talks_path.exists():
+        try:
+            existing_payload = json.loads(existing_mlir_talks_path.read_text(encoding="utf-8"))
+        except Exception:
+            existing_payload = {}
+        for section in existing_payload.get("sections", []):
+            for group in section.get("groups", []):
+                for entry in group.get("entries", []):
+                    for speaker in entry.get("speakers", []) or []:
+                        if isinstance(speaker, dict):
+                            register_known_person_name(known_people, str(speaker.get("name", "") or ""))
+                        elif speaker:
+                            register_known_person_name(known_people, str(speaker))
+
+    return dict(known_people)
+
+
+def resolve_known_person_by_first_name(first_name: str, known_people_index: dict[str, set[str]] | None) -> list[dict]:
+    if known_people_index is None:
+        return []
+    key = clean_person_token(first_name).lower()
+    if not key:
+        return []
+    matches = sorted(known_people_index.get(key, set()))
+    if len(matches) != 1:
+        return []
+    return [{"name": matches[0], "affiliation": ""}]
 
 
 def extract_name_like_windows(value: str, *, max_width: int = 4) -> list[dict]:
@@ -632,7 +726,11 @@ def infer_speakers_from_metadata(entry: dict) -> list[dict]:
     return []
 
 
-def infer_speakers_from_youtube_description(description: str, title: str) -> list[dict]:
+def infer_speakers_from_youtube_description(
+    description: str,
+    title: str,
+    known_people_index: dict[str, set[str]] | None = None,
+) -> list[dict]:
     if not description:
         return []
 
@@ -673,6 +771,20 @@ def infer_speakers_from_youtube_description(description: str, title: str) -> lis
             if not match:
                 continue
             speakers = extract_speaker_names_from_text(match.group(1))
+            if speakers:
+                return speakers
+        for pattern in [
+            r"\b(?:In this talk|In this presentation|In this session|In this meeting),?\s+([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+)\s+(?:will|presents?|introduces?|discuss(?:es|ing)?|talk(?:s|ing)?|walk through)\b",
+            r"\b([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+)\s+(?:will|presents?|introduces?|discuss(?:es|ing)?|talk(?:s|ing)?|walk through)\b",
+        ]:
+            match = re.search(pattern, line)
+            if not match:
+                continue
+            candidate = clean_person_token(match.group(1))
+            letters_only = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", candidate)
+            if len(letters_only) > 1 and letters_only.upper() == letters_only:
+                continue
+            speakers = resolve_known_person_by_first_name(candidate, known_people_index)
             if speakers:
                 return speakers
     return []
@@ -740,6 +852,12 @@ def extract_pdf_title_page_info(pdf_path: Path) -> tuple[str, str]:
                 text = pages[0] if pages else ""
             except Exception:
                 text = ""
+
+    if not author:
+        try:
+            author = extract_pdf_metadata_field(pdf_path.read_bytes(), "Author")
+        except Exception:
+            author = ""
 
     result = (author, text)
     PDF_INFO_CACHE[cache_key] = result
@@ -1031,6 +1149,7 @@ def enrich_talk_abstracts_with_youtube(
     refresh: bool,
     local_mlir_root: Path | None,
     enable_youtube: bool,
+    known_people_index: dict[str, set[str]] | None,
 ) -> None:
     cache = load_json_file(cache_path) if cache_path.exists() else {}
     cache_videos = cache.setdefault("videos", {})
@@ -1094,7 +1213,11 @@ def enrich_talk_abstracts_with_youtube(
                     entry["abstract"] = abstract
                     entry["abstractSource"] = "youtube"
 
-                youtube_speakers = infer_speakers_from_youtube_description(raw_description, title_for_matching)
+                youtube_speakers = infer_speakers_from_youtube_description(
+                    raw_description,
+                    title_for_matching,
+                    known_people_index=known_people_index,
+                )
                 speakers = choose_best_speakers(metadata_speakers, youtube_speakers, slide_speakers)
                 if speakers:
                     entry["speakers"] = speakers
@@ -1338,6 +1461,7 @@ def main() -> int:
     pub_sections = parse_markdown_page(pubs_text, page_kind="publications")
     assign_entry_ids(talk_sections, prefix="mlir-talk")
     assign_entry_ids(pub_sections, prefix="mlir-pub")
+    known_people_index = build_known_people_index(repo_root)
     enrich_talk_abstracts_with_youtube(
         talk_sections,
         timeout=args.timeout,
@@ -1345,6 +1469,7 @@ def main() -> int:
         refresh=args.refresh_youtube_abstracts,
         local_mlir_root=local_mlir_root,
         enable_youtube=not args.skip_youtube_abstracts,
+        known_people_index=known_people_index,
     )
 
     talks_payload = build_payload(
