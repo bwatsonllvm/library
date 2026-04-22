@@ -1107,7 +1107,21 @@
       .split(/\n{2,}|\r\n\r\n/)
       .map((paragraph) => paragraph.trim())
       .filter(Boolean)
-      .map((paragraph) => `<p>${escapeHtml(paragraph.replace(/\n/g, ' '))}</p>`)
+      .map((paragraph) => {
+        const lines = paragraph
+          .split(/\r?\n/)
+          .map((line) => line.trim())
+          .filter(Boolean);
+        if (lines.length >= 2 && lines.every((line) => /^\d+\.\s+/.test(line))) {
+          const items = lines
+            .map((line) => line.replace(/^\d+\.\s+/, '').trim())
+            .filter(Boolean)
+            .map((line) => `<li>${escapeHtml(line)}</li>`)
+            .join('');
+          return `<ol>${items}</ol>`;
+        }
+        return `<p>${escapeHtml(paragraph.replace(/\n/g, ' '))}</p>`;
+      })
       .join('\n');
   }
 

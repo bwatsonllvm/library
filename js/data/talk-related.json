@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-bd13018b4e87",
+  "dataVersion": "viewer-precomputed-v1-aaf2559ac273",
   "generatedAt": "2026-04-22T19:31:42.000Z",
   "byTalkId": {
     "2026-04-001": {
@@ -4978,10 +4978,10 @@
       "relatedTalkIds": [
         "2024-03-010",
         "2020-02-23-004",
-        "2020-04-026",
         "2026-04-048",
-        "2015-10-008",
-        "2015-10-018"
+        "2015-10-018",
+        "2024-10-070",
+        "2018-10-061"
       ],
       "referencedPapers": [],
       "referencedTalks": [
@@ -5099,29 +5099,6 @@
           ]
         },
         {
-          "id": "2020-04-026",
-          "title": "LLVM in a Bare Metal Environment",
-          "meeting": "2020-04",
-          "meetingName": "2020 European LLVM Developers' Meeting",
-          "meetingDate": "April 6-7, 2020",
-          "meetingLocation": "Paris, France - Canceled",
-          "category": "tutorial",
-          "speakers": [
-            {
-              "name": "Hafiz Abid Qadeer",
-              "affiliation": "Mentor Graphics",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_22.pdf",
-          "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_22",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": []
-        },
-        {
           "id": "2026-04-048",
           "title": "GPU optimizations, and where Rust knows more than LLVM",
           "meeting": "2026-04",
@@ -5143,34 +5120,6 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
-        },
-        {
-          "id": "2015-10-008",
-          "title": "A Heterogeneous Execution Engine for LLVM",
-          "meeting": "2015-10",
-          "meetingName": "2015 US LLVM Developers' Meeting",
-          "meetingDate": "October 29-30, 2015",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Christos Margiolas",
-              "affiliation": "University of Edinburgh",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2015-10/slides/Margiolas-HeterogeneousExecutionEngineForLLVM.pdf",
-          "videoUrl": "https://www.youtube.com/watch?v=utpD3Kv7h88&index=7&list=PL_R5A0lGi1AA4Lv2bBFSwhgDaHvvpVU21",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "Embedded",
-            "GPU",
-            "IR",
-            "JIT"
-          ]
         },
         {
           "id": "2015-10-018",
@@ -5197,6 +5146,67 @@
             "Clang",
             "GPU",
             "Performance"
+          ]
+        },
+        {
+          "id": "2024-10-070",
+          "title": "Flang Update",
+          "meeting": "2024-10",
+          "meetingName": "2024 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-24, 2024",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Steve Scalpone",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/lightning/Scalpone-FlangUpdate.pdf",
+          "videoUrl": "https://youtu.be/xfBANFcMhCo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Flang",
+            "GPU",
+            "MLIR",
+            "Performance",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2018-10-061",
+          "title": "Integration of OpenMP, libcxx and libcxxabi packages into LLVM toolchain",
+          "meeting": "2018-10",
+          "meetingName": "2018 US LLVM Developers' Meeting",
+          "meetingDate": "October 17-18, 2018",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "Reshabh Sharma",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "C Libs",
+            "C++",
+            "C++ Libs",
+            "Clang",
+            "LLD",
+            "LLDB",
+            "Libraries",
+            "Polly"
           ]
         }
       ]
