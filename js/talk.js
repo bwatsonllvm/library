@@ -224,8 +224,8 @@
     if (!refs.length) return '';
 
     return `
-      <section class="talk-github-links-section" aria-label="GitHub references">
-        <div class="section-label" aria-hidden="true">GitHub References</div>
+      <section class="talk-github-links-section" aria-label="Repos referenced">
+        <div class="section-label" aria-hidden="true">Repos Referenced</div>
         <ul class="talk-github-reference-list">
           ${refs.map((ref) => {
             const titleBits = [ref.owner, ref.repo];
@@ -872,8 +872,18 @@
           <div class="speakers-list">${renderSpeakers(talk.speakers)}</div>
         </section>
 
-        ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
+        <section class="abstract-section" aria-label="Abstract">
+          <div class="section-label" aria-hidden="true">Abstract</div>
+          <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
+        </section>
+
+        <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Referenced papers" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Referenced Papers</div>
+          <p class="talk-paper-links-loading">Loading slide-referenced papers…</p>
+        </section>
+
         ${githubReferencesHtml}
+        ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
 
         ${embeddedVideoUrl ? `
         <section class="video-section" aria-label="Video player">
@@ -889,16 +899,6 @@
             ></iframe>
           </div>
         </section>` : ''}
-
-        <section class="abstract-section" aria-label="Abstract">
-          <div class="section-label" aria-hidden="true">Abstract</div>
-          <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
-        </section>
-
-        <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Referenced papers" aria-busy="true">
-          <div class="section-label" aria-hidden="true">Referenced Papers</div>
-          <p class="talk-paper-links-loading">Loading slide-referenced papers…</p>
-        </section>
 
         ${topicsHtml}
       </div>

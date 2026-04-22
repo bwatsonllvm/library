@@ -520,6 +520,55 @@
         "MLIR",
         "Homomorphic Encryption"
       ]
+    },
+    {
+      "id": "manual-library-liberation-2025",
+      "source": "manual-added",
+      "sourceName": "Manual Added Papers",
+      "title": "Library Liberation: Competitive Performance Matmul Through Compiler-composed Nanokernels",
+      "authors": [
+        {
+          "name": "Arun Thangamani"
+        },
+        {
+          "name": "Md Asghar Ahmad Shahid"
+        },
+        {
+          "name": "Adam Siemieniuk"
+        },
+        {
+          "name": "Rolf Morel"
+        },
+        {
+          "name": "Renato Golin"
+        },
+        {
+          "name": "Alexander Heinecke"
+        }
+      ],
+      "year": "2025",
+      "type": "research-paper",
+      "abstract": "The rapidly evolving landscape of AI and machine learning workloads has widened the gap between high-level domain operations and efficient hardware utilization. Achieving near-peak performance still demands deep hardware expertise-experts either handcraft target-specific kernels (e.g., DeepSeek) or rely on specialized libraries (e.g., CUTLASS)-both of which add complexity and limit scalability for most ML practitioners. This paper introduces a compilation scheme that automatically generates scalable, high-performance microkernels by leveraging the MLIR dialects to bridge domain-level operations and processor capabilities. Our approach removes dependence on low-level libraries by enabling the compiler to auto-generate near-optimal code directly. At its core is a mechanism for composing nanokernels from low-level IR constructs with near-optimal register utilization, forming efficient microkernels tailored to each target. We implement this technique in an MLIR-based compiler supporting both vector and tile based CPU instructions. Experiments show that the generated nanokernels are of production-quality, and competitive with state-of-the-art microkernel libraries.",
+      "paperUrl": "https://arxiv.org/pdf/2511.13764.pdf",
+      "sourceUrl": "https://arxiv.org/abs/2511.13764",
+      "doi": "10.48550/arXiv.2511.13764",
+      "citationCount": 0,
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "contentFormat": "markdown",
+      "content": "- arXiv: https://arxiv.org/abs/2511.13764\n- DOI: https://doi.org/10.48550/arXiv.2511.13764\n- PDF: https://arxiv.org/pdf/2511.13764.pdf",
+      "tags": [
+        "MLIR",
+        "Code Generation",
+        "Performance",
+        "Libraries"
+      ],
+      "keywords": [
+        "MLIR",
+        "Code Generation",
+        "Performance",
+        "Libraries"
+      ]
     }
   ]
 }
