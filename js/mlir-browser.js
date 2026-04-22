@@ -39,6 +39,7 @@
   const INTERNAL_PAPER_PAGE_PATH = 'papers/paper.html';
   const INITIAL_BATCH_SIZE = 60;
   const RENDER_BATCH_SIZE = 40;
+  const LOAD_MORE_ROOT_MARGIN = '900px 0px';
   const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const TALK_CATEGORY_LABELS = Object.freeze({
@@ -88,6 +89,8 @@
   let allItems = [];
   let filteredItems = [];
   let renderedCount = 0;
+  let loadMoreObserver = null;
+  let loadMoreScrollHandler = null;
   let currentSourceCounts = {
     all: { works: 0, talks: 0, papers: 0 },
     official: { works: 0, talks: 0, papers: 0 },
@@ -1017,6 +1020,7 @@
     const root = getNode('mlir-results-root');
     const subtitle = getNode('mlir-browse-subtitle');
     if (subtitle) subtitle.textContent = 'Could not load MLIR content.';
+    teardownInfiniteLoader();
     if (!root) return;
     root.innerHTML = `
       <div class="empty-state" role="alert">
@@ -1327,23 +1331,52 @@
     renderActiveFilters();
   }
 
-  function renderBatch(reset) {
-    const root = getNode('mlir-results-root');
-    const more = getNode('mlir-results-more');
-    if (!root || !more) return;
-
-    if (reset) {
-      root.innerHTML = '';
-      renderedCount = 0;
+  function teardownInfiniteLoader() {
+    if (loadMoreObserver) {
+      loadMoreObserver.disconnect();
+      loadMoreObserver = null;
     }
 
+    if (loadMoreScrollHandler) {
+      window.removeEventListener('scroll', loadMoreScrollHandler);
+      window.removeEventListener('resize', loadMoreScrollHandler);
+      loadMoreScrollHandler = null;
+    }
+
+    const sentinel = getNode('mlir-load-sentinel');
+    if (sentinel) sentinel.remove();
+  }
+
+  function ensureLoadMoreSentinel(root) {
+    let sentinel = getNode('mlir-load-sentinel');
+    if (!sentinel) {
+      sentinel = document.createElement('div');
+      sentinel.id = 'mlir-load-sentinel';
+      sentinel.setAttribute('aria-hidden', 'true');
+      sentinel.style.width = '100%';
+      sentinel.style.height = '1px';
+      sentinel.style.gridColumn = '1 / -1';
+    }
+    root.appendChild(sentinel);
+    return sentinel;
+  }
+
+  function appendNextResultsBatch(forceBatchSize = RENDER_BATCH_SIZE) {
+    const root = getNode('mlir-results-root');
+    if (!root) return;
+
     if (!filteredItems.length) {
-      more.classList.add('hidden');
+      teardownInfiniteLoader();
       renderEmptyState();
       return;
     }
 
-    const nextCount = Math.min(renderedCount + (reset ? INITIAL_BATCH_SIZE : RENDER_BATCH_SIZE), filteredItems.length);
+    if (renderedCount >= filteredItems.length) {
+      teardownInfiniteLoader();
+      return;
+    }
+
+    const nextCount = Math.min(renderedCount + forceBatchSize, filteredItems.length);
     let html = '';
     for (let index = renderedCount; index < nextCount; index += 1) {
       html += renderItem(filteredItems[index]);
@@ -1352,14 +1385,68 @@
     root.setAttribute('aria-busy', 'false');
     renderedCount = nextCount;
 
-    const remaining = filteredItems.length - renderedCount;
-    if (remaining > 0) {
-      const noun = state.scope === 'talks' ? 'talks' : (state.scope === 'papers' ? 'papers' : 'works');
-      more.textContent = `Show more ${noun} (${remaining.toLocaleString()} left)`;
-      more.classList.remove('hidden');
-    } else {
-      more.classList.add('hidden');
+    if (renderedCount >= filteredItems.length) {
+      teardownInfiniteLoader();
+      return;
     }
+
+    ensureLoadMoreSentinel(root);
+  }
+
+  function setupInfiniteLoader() {
+    const root = getNode('mlir-results-root');
+    if (!root) return;
+
+    teardownInfiniteLoader();
+    if (renderedCount >= filteredItems.length) return;
+
+    const sentinel = ensureLoadMoreSentinel(root);
+
+    if ('IntersectionObserver' in window) {
+      loadMoreObserver = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            appendNextResultsBatch();
+            break;
+          }
+        }
+      }, { root: null, rootMargin: LOAD_MORE_ROOT_MARGIN, threshold: 0 });
+
+      loadMoreObserver.observe(sentinel);
+      return;
+    }
+
+    loadMoreScrollHandler = () => {
+      const activeSentinel = getNode('mlir-load-sentinel');
+      if (!activeSentinel) return;
+      const rect = activeSentinel.getBoundingClientRect();
+      if (rect.top <= window.innerHeight + 900) {
+        appendNextResultsBatch();
+      }
+    };
+
+    window.addEventListener('scroll', loadMoreScrollHandler, { passive: true });
+    window.addEventListener('resize', loadMoreScrollHandler);
+    loadMoreScrollHandler();
+  }
+
+  function renderResults() {
+    const root = getNode('mlir-results-root');
+    if (!root) return;
+
+    root.setAttribute('aria-busy', 'false');
+
+    teardownInfiniteLoader();
+    renderedCount = 0;
+
+    if (!filteredItems.length) {
+      renderEmptyState();
+      return;
+    }
+
+    root.innerHTML = '';
+    appendNextResultsBatch(INITIAL_BATCH_SIZE);
+    setupInfiniteLoader();
   }
 
   function recomputeResults() {
@@ -1389,7 +1476,7 @@
     updateScopeUi();
     updateSummaryUi();
     updateFilterUi(queryMatchedItems);
-    renderBatch(true);
+    renderResults();
   }
 
   function parseUrlState() {
@@ -1678,7 +1765,6 @@
     const form = getNode('mlir-search-form');
     const input = getNode('mlir-search-input');
     const clear = getNode('mlir-search-clear');
-    const more = getNode('mlir-results-more');
     const allSourceToggle = getNode('mlir-source-all');
     const officialSourceToggle = getNode('mlir-source-official');
     const allScopeToggle = getNode('mlir-scope-all');
@@ -1704,10 +1790,6 @@
       clear.addEventListener('click', () => {
         setQuery('');
       });
-    }
-
-    if (more) {
-      more.addEventListener('click', () => renderBatch(false));
     }
 
     if (allSourceToggle) {
