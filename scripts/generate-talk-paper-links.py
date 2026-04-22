@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate slide-reference paper and repository links for talk detail pages.
+"""Generate slide-reference paper and repository/discussion links for talk detail pages.
 
 Only explicit slide-deck references should be emitted. Title-only mentions are
 filtered unless nearby slide text also looks like a citation.
@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-ARTIFACT_VERSION = 5
+ARTIFACT_VERSION = 6
 BLOG_SOURCE_SLUGS = {"llvm-blog-www", "llvm-www-blog"}
 USER_AGENT = "llvm-library-talk-paper-links/1.0"
 MATCH_STOPWORDS = {
@@ -97,9 +97,18 @@ GITHUB_URL_RE = re.compile(
     r"(?:(?:https?://)?(?:www\.)?github\.com/[^\s<>()\[\]{}\"'`]+)",
     flags=re.IGNORECASE,
 )
+REFERENCE_URL_RE = re.compile(
+    r"(?:(?:https?://)?(?:www\.)?(?:github\.com|discourse\.llvm\.org|reviews\.llvm\.org)/[^\s<>()\[\]{}\"'`]+)",
+    flags=re.IGNORECASE,
+)
 GITHUB_PATH_SEGMENT_RE = re.compile(r"[A-Za-z0-9_.-]+")
-GENERIC_GITHUB_CONTEXT_RE = re.compile(
-    r"^(?:github|repo|repository|source|link|links|code|upstreaming|upstream|implementation)$",
+GENERIC_REFERENCE_CONTEXT_RE = re.compile(
+    r"^(?:github|repo|repository|source|link|links|code|upstreaming|upstream|implementation|"
+    r"discussion|discussions|thread|threads|discourse|review|reviews)$",
+    flags=re.IGNORECASE,
+)
+REFERENCE_SPLIT_MARKER_RE = re.compile(
+    r"(?=(?:https?://|https?:/|github\.com/|discourse\.llvm\.org/|reviews\.llvm\.org/))",
     flags=re.IGNORECASE,
 )
 
@@ -157,8 +166,46 @@ def trim_wrapping_url_punctuation(value: str) -> str:
     return text
 
 
+def normalize_scheme_slashes(value: str) -> str:
+    text = collapse_ws(value)
+    if not text:
+        return ""
+    return re.sub(r"^(https?):/(?!/)", r"\1://", text, flags=re.IGNORECASE)
+
+
+def looks_like_truncated_reference_segment(value: str) -> bool:
+    text = collapse_ws(value)
+    if not text:
+        return True
+    return text[-1] in {"-", "_", "."}
+
+
+def split_reference_candidate(value: str) -> list[str]:
+    text = collapse_ws(value)
+    if not text:
+        return []
+
+    starts = sorted({
+        match.start()
+        for match in REFERENCE_SPLIT_MARKER_RE.finditer(text)
+        if match.start() >= 0
+    })
+    if not starts:
+        return [text]
+    if starts[0] != 0:
+        starts.insert(0, 0)
+
+    parts: list[str] = []
+    for index, start in enumerate(starts):
+        end = starts[index + 1] if index + 1 < len(starts) else len(text)
+        candidate = collapse_ws(text[start:end])
+        if candidate:
+            parts.append(candidate)
+    return parts or [text]
+
+
 def normalize_github_url(value: str) -> str:
-    raw = collapse_ws(str(value or ""))
+    raw = normalize_scheme_slashes(str(value or ""))
     if not raw:
         return ""
     raw = trim_wrapping_url_punctuation(raw)
@@ -191,6 +238,8 @@ def normalize_github_url(value: str) -> str:
     repo = re.sub(r"\.git$", "", repo, flags=re.IGNORECASE)
     if not owner or not repo:
         return ""
+    if looks_like_truncated_reference_segment(owner) or looks_like_truncated_reference_segment(repo):
+        return ""
     if owner.lower() in GITHUB_RESERVED_OWNERS:
         return ""
     normalized_parts = [owner, repo]
@@ -213,6 +262,9 @@ def normalize_github_url(value: str) -> str:
                 return ""
             normalized_parts.extend([resource, *parts[3:]])
 
+    if looks_like_truncated_reference_segment(normalized_parts[-1]):
+        return ""
+
     path = "/" + "/".join(urllib.parse.quote(part, safe=":@!$&'()*+,;=-._~") for part in normalized_parts)
     return urllib.parse.urlunparse(("https", "github.com", path, "", "", ""))
 
@@ -224,6 +276,76 @@ def extract_github_urls_from_text(value: str) -> list[str]:
     return dedupe_urls(
         normalize_github_url(match.group(0))
         for match in GITHUB_URL_RE.finditer(text)
+    )
+
+
+def normalize_discourse_url(value: str) -> str:
+    raw = normalize_scheme_slashes(str(value or ""))
+    if not raw:
+        return ""
+    raw = trim_wrapping_url_punctuation(raw)
+    if not raw:
+        return ""
+    if raw.lower().startswith("discourse.llvm.org/"):
+        raw = f"https://{raw}"
+
+    try:
+        parsed = urllib.parse.urlparse(raw)
+    except ValueError:
+        return ""
+
+    host = collapse_ws(parsed.netloc).lower().replace("www.", "")
+    if host != "discourse.llvm.org":
+        return ""
+
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
+    if not parts:
+        return ""
+
+    path = "/" + "/".join(urllib.parse.quote(part, safe=":@!$&'()*+,;=-._~") for part in parts)
+    return urllib.parse.urlunparse(("https", "discourse.llvm.org", path, "", "", ""))
+
+
+def normalize_llvm_review_url(value: str) -> str:
+    raw = normalize_scheme_slashes(str(value or ""))
+    if not raw:
+        return ""
+    raw = trim_wrapping_url_punctuation(raw)
+    if not raw:
+        return ""
+    if raw.lower().startswith("reviews.llvm.org/"):
+        raw = f"https://{raw}"
+
+    try:
+        parsed = urllib.parse.urlparse(raw)
+    except ValueError:
+        return ""
+
+    host = collapse_ws(parsed.netloc).lower().replace("www.", "")
+    if host != "reviews.llvm.org":
+        return ""
+
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
+    if not parts:
+        return ""
+
+    path = "/" + "/".join(urllib.parse.quote(part, safe=":@!$&'()*+,;=-._~") for part in parts)
+    return urllib.parse.urlunparse(("https", "reviews.llvm.org", path, "", "", ""))
+
+
+def normalize_reference_url(value: str) -> str:
+    return (
+        normalize_github_url(value)
+        or normalize_discourse_url(value)
+        or normalize_llvm_review_url(value)
     )
 
 
@@ -254,10 +376,12 @@ def looks_like_bad_reference_label(value: str) -> bool:
     text = collapse_ws(value)
     if not text:
         return True
-    if GENERIC_GITHUB_CONTEXT_RE.fullmatch(text):
+    if GENERIC_REFERENCE_CONTEXT_RE.fullmatch(text):
+        return True
+    if re.search(r"\[\d+\]", text):
         return True
     lowered = text.lower()
-    if "github" in lowered or "http" in lowered or "/" in text:
+    if any(token in lowered for token in ("github", "discourse", "review", "http")) or "/" in text:
         return True
     return False
 
@@ -313,23 +437,48 @@ def parse_github_reference(value: str) -> dict[str, str] | None:
         return None
 
     resource = collapse_ws(parts[2]).lower() if len(parts) > 2 else ""
+    kind = "github-repo"
     file_name = ""
     file_path = ""
     reference_path = ""
 
     if resource in {"blob", "raw"} and len(parts) >= 5:
+        kind = "github-file"
         file_path = "/".join(parts[4:])
         file_name = parts[-1]
         reference_path = file_path
     elif resource == "tree" and len(parts) >= 4:
+        kind = "github-tree"
         file_path = "/".join(parts[4:])
         file_name = parts[-1] if file_path else ""
         reference_path = file_path or parts[3]
     elif len(parts) > 2:
+        kind = {
+            "issues": "github-issue",
+            "pull": "github-pull",
+            "pulls": "github-pull",
+            "discussions": "github-discussion",
+            "commit": "github-commit",
+            "commits": "github-commit",
+            "compare": "github-compare",
+            "releases": "github-release",
+            "wiki": "github-wiki",
+        }.get(resource, "github-resource")
         reference_path = "/".join(parts[2:])
+
+    if kind in {"github-issue", "github-pull", "github-discussion"}:
+        if len(parts) < 4 or not re.fullmatch(r"\d+", parts[3]):
+            return None
+    elif kind == "github-commit":
+        if len(parts) < 4 or not re.fullmatch(r"[0-9a-f]{7,40}", parts[3], flags=re.IGNORECASE):
+            return None
+    elif looks_like_truncated_reference_segment(parts[-1]):
+        return None
 
     return {
         "url": url,
+        "host": "github.com",
+        "kind": kind,
         "library": repo,
         "repository": f"{owner}/{repo}",
         "fileName": file_name,
@@ -415,6 +564,182 @@ def extract_github_reference_items_from_pages(pages: list[str]) -> list[dict[str
     for page in pages or []:
         page_items.extend(extract_github_reference_items_from_text(page, source="slides"))
     return merge_github_reference_items(page_items)
+
+
+def parse_discourse_reference(value: str) -> dict[str, str] | None:
+    url = normalize_discourse_url(value)
+    if not url:
+        return None
+
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except ValueError:
+        return None
+
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
+    if not parts:
+        return None
+
+    head = parts[0].lower()
+    if head == "t":
+        if len(parts) >= 2 and re.fullmatch(r"\d+", parts[1]):
+            pass
+        elif len(parts) >= 3 and re.fullmatch(r"\d+", parts[2]):
+            pass
+        else:
+            return None
+        if len(parts) >= 2 and not re.fullmatch(r"\d+", parts[1]) and looks_like_truncated_reference_segment(parts[1]):
+            return None
+        kind = "discourse-topic"
+    elif head == "c":
+        if len(parts) < 2:
+            return None
+        if any(looks_like_truncated_reference_segment(part) for part in parts[1:]):
+            return None
+        kind = "discourse-category"
+    else:
+        return None
+
+    return {
+        "url": url,
+        "host": "discourse.llvm.org",
+        "kind": kind,
+        "referencePath": "/".join(parts),
+    }
+
+
+def parse_llvm_review_reference(value: str) -> dict[str, str] | None:
+    url = normalize_llvm_review_url(value)
+    if not url:
+        return None
+
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except ValueError:
+        return None
+
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
+    if not parts:
+        return None
+
+    return {
+        "url": url,
+        "host": "reviews.llvm.org",
+        "kind": "llvm-review",
+        "referencePath": "/".join(parts),
+    }
+
+
+def parse_reference_item(value: str) -> dict[str, str] | None:
+    return (
+        parse_github_reference(value)
+        or parse_discourse_reference(value)
+        or parse_llvm_review_reference(value)
+    )
+
+
+def reference_item_score(item: dict[str, str]) -> tuple[int, int, int]:
+    label = collapse_ws(item.get("label", ""))
+    source = collapse_ws(item.get("source", "")).lower()
+    label_quality = 0
+    if label:
+        label_quality = 2 if 4 <= len(label) <= 80 else 1
+    return (
+        1 if source == "slides" else 0,
+        label_quality,
+        max(0, 120 - min(len(label), 120)),
+    )
+
+
+def merge_reference_items(*groups: Iterable[dict[str, str]]) -> list[dict[str, str]]:
+    merged: dict[str, dict[str, str]] = {}
+
+    for group in groups:
+        for raw_item in group or []:
+            if not isinstance(raw_item, dict):
+                continue
+            parsed = parse_reference_item(raw_item.get("url", ""))
+            if not parsed:
+                continue
+            item = {
+                **parsed,
+                "source": collapse_ws(raw_item.get("source", "")),
+                "label": collapse_ws(raw_item.get("label", "")),
+                "context": collapse_ws(raw_item.get("context", "")),
+                "library": collapse_ws(raw_item.get("library", "")) or parsed.get("library", ""),
+                "repository": collapse_ws(raw_item.get("repository", "")) or parsed.get("repository", ""),
+                "fileName": collapse_ws(raw_item.get("fileName", "")) or parsed.get("fileName", ""),
+                "filePath": collapse_ws(raw_item.get("filePath", "")) or parsed.get("filePath", ""),
+                "referencePath": collapse_ws(raw_item.get("referencePath", "")) or parsed.get("referencePath", ""),
+            }
+            existing = merged.get(parsed["url"])
+            if existing is None or reference_item_score(item) > reference_item_score(existing):
+                if existing:
+                    for key, value in existing.items():
+                        if key == "url" or item.get(key):
+                            continue
+                        item[key] = value
+                merged[parsed["url"]] = item
+            else:
+                for key, value in item.items():
+                    if key == "url" or not value or merged[parsed["url"]].get(key):
+                        continue
+                    merged[parsed["url"]][key] = value
+
+    return [merged[url] for url in dedupe_urls(merged.keys())]
+
+
+def extract_reference_items_from_text(value: str, *, source: str) -> list[dict[str, str]]:
+    text = str(value or "")
+    if not text:
+        return []
+
+    items: list[dict[str, str]] = []
+    for match in REFERENCE_URL_RE.finditer(text):
+        for candidate in split_reference_candidate(match.group(0)):
+            ref = parse_reference_item(candidate)
+            if not ref:
+                continue
+            context_label = extract_context_label(text, match.start(), match.end())
+            ref.update(
+                {
+                    "source": source,
+                    "label": context_label,
+                    "context": context_label,
+                }
+            )
+            items.append(ref)
+    return merge_reference_items(items)
+
+
+def extract_reference_items_from_pages(pages: list[str]) -> list[dict[str, str]]:
+    page_items: list[dict[str, str]] = []
+    for page in pages or []:
+        page_items.extend(extract_reference_items_from_text(page, source="slides"))
+    return merge_reference_items(page_items)
+
+
+def filter_github_reference_items(items: Iterable[dict[str, str]]) -> list[dict[str, str]]:
+    return merge_reference_items(
+        item for item in (items or [])
+        if isinstance(item, dict) and collapse_ws(item.get("host", "")).lower() == "github.com"
+    )
+
+
+def reference_urls_from_items(items: Iterable[dict[str, str]]) -> list[str]:
+    return dedupe_urls(
+        collapse_ws((item or {}).get("url", ""))
+        for item in (items or [])
+        if isinstance(item, dict)
+    )
 
 
 def build_title_variants(title: str) -> list[str]:
@@ -1312,8 +1637,7 @@ def generate_talk_artifact(
             continue
 
         slides_url = collapse_ws(str(talk.get("slidesUrl", "")))
-        abstract_github_repo_urls = extract_github_urls_from_text(str(talk.get("abstract", "")))
-        abstract_github_references = extract_github_reference_items_from_text(str(talk.get("abstract", "")), source="abstract")
+        abstract_reference_items = extract_reference_items_from_text(str(talk.get("abstract", "")), source="abstract")
         previous = talks_map.get(talk_id)
         previous_slides_url = collapse_ws(str((previous or {}).get("slidesUrl", "")))
         previous_slide_paper_ids = (
@@ -1334,34 +1658,48 @@ def generate_talk_artifact(
             if isinstance((previous or {}).get("slideGithubRepoUrls"), list)
             else []
         )
-        previous_slide_github_references = merge_github_reference_items((previous or {}).get("slideGithubReferences", []))
-        previous_github_references = merge_github_reference_items((previous or {}).get("githubReferences", []))
+        previous_slide_reference_items = merge_reference_items(
+            (previous or {}).get("slideReferenceItems", []),
+            (previous or {}).get("slideGithubReferences", []),
+        )
+        previous_reference_items = merge_reference_items(
+            (previous or {}).get("referenceItems", []),
+            (previous or {}).get("githubReferences", []),
+        )
+        previous_slide_github_references = filter_github_reference_items(previous_slide_reference_items)
+        previous_github_references = filter_github_reference_items(previous_reference_items)
         if not fetch_pdf_references:
-            merged_github_references = merge_github_reference_items(
-                abstract_github_references,
-                previous_slide_github_references,
-                previous_github_references,
+            merged_reference_items = merge_reference_items(
+                abstract_reference_items,
+                previous_slide_reference_items,
+                previous_reference_items,
             )
+            merged_github_references = filter_github_reference_items(merged_reference_items)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": previous_slide_paper_ids,
                 "slideTalkIds": previous_slide_talk_ids,
                 "slideGithubRepoUrls": previous_slide_github_repo_urls,
                 "slideGithubReferences": previous_slide_github_references,
-                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                "slideReferenceItems": previous_slide_reference_items,
+                "githubRepoUrls": reference_urls_from_items(merged_github_references),
                 "githubReferences": merged_github_references,
+                "referenceItems": merged_reference_items,
             }
             continue
         if not slides_url.lower().startswith(("http://", "https://")):
-            merged_github_references = merge_github_reference_items(abstract_github_references)
+            merged_reference_items = merge_reference_items(abstract_reference_items)
+            merged_github_references = filter_github_reference_items(merged_reference_items)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": [],
                 "slideTalkIds": [],
                 "slideGithubRepoUrls": [],
                 "slideGithubReferences": [],
-                "githubRepoUrls": abstract_github_repo_urls,
+                "slideReferenceItems": [],
+                "githubRepoUrls": reference_urls_from_items(merged_github_references),
                 "githubReferences": merged_github_references,
+                "referenceItems": merged_reference_items,
             }
             continue
 
@@ -1372,11 +1710,12 @@ def generate_talk_artifact(
             and previous_slides_url == slides_url
             and isinstance(previous.get("slidePaperIds"), list)
         ):
-            merged_github_references = merge_github_reference_items(
-                abstract_github_references,
-                previous_slide_github_references,
-                previous_github_references,
+            merged_reference_items = merge_reference_items(
+                abstract_reference_items,
+                previous_slide_reference_items,
+                previous_reference_items,
             )
+            merged_github_references = filter_github_reference_items(merged_reference_items)
             talks_map[talk_id] = {
                 **previous,
                 "slidesUrl": slides_url,
@@ -1384,8 +1723,10 @@ def generate_talk_artifact(
                 "slideTalkIds": previous_slide_talk_ids,
                 "slideGithubRepoUrls": previous_slide_github_repo_urls,
                 "slideGithubReferences": previous_slide_github_references,
-                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                "slideReferenceItems": previous_slide_reference_items,
+                "githubRepoUrls": reference_urls_from_items(merged_github_references),
                 "githubReferences": merged_github_references,
+                "referenceItems": merged_reference_items,
             }
             print(f"kept {talk_id}: existing slide-reference papers", file=sys.stderr)
             continue
@@ -1400,30 +1741,35 @@ def generate_talk_artifact(
             pdf_pages = extract_pdf_pages(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
             slide_talk_ids = find_slide_talk_matches(pdf_pages, reference_talks, talk_id)
-            slide_github_references = extract_github_reference_items_from_pages(pdf_pages)
-            slide_github_repo_urls = [item["url"] for item in slide_github_references]
-            merged_github_references = merge_github_reference_items(abstract_github_references, slide_github_references)
+            slide_reference_items = extract_reference_items_from_pages(pdf_pages)
+            slide_github_references = filter_github_reference_items(slide_reference_items)
+            slide_github_repo_urls = reference_urls_from_items(slide_github_references)
+            merged_reference_items = merge_reference_items(abstract_reference_items, slide_reference_items)
+            merged_github_references = filter_github_reference_items(merged_reference_items)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": slide_paper_ids,
                 "slideTalkIds": slide_talk_ids,
                 "slideGithubRepoUrls": slide_github_repo_urls,
                 "slideGithubReferences": slide_github_references,
-                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *slide_github_repo_urls]),
+                "slideReferenceItems": slide_reference_items,
+                "githubRepoUrls": reference_urls_from_items(merged_github_references),
                 "githubReferences": merged_github_references,
+                "referenceItems": merged_reference_items,
                 "slideChecksum": hashlib.sha1(pdf_bytes).hexdigest(),
             }
             print(
                 f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers, "
-                f"{len(slide_talk_ids)} slide-reference talks, {len(slide_github_references)} repo refs",
+                f"{len(slide_talk_ids)} slide-reference talks, {len(slide_reference_items)} link refs",
                 file=sys.stderr,
             )
         except Exception as exc:
-            merged_github_references = merge_github_reference_items(
-                abstract_github_references,
-                previous_slide_github_references,
-                previous_github_references,
+            merged_reference_items = merge_reference_items(
+                abstract_reference_items,
+                previous_slide_reference_items,
+                previous_reference_items,
             )
+            merged_github_references = filter_github_reference_items(merged_reference_items)
             if previous:
                 talks_map[talk_id] = {
                     **previous,
@@ -1432,8 +1778,10 @@ def generate_talk_artifact(
                     "slideTalkIds": previous_slide_talk_ids,
                     "slideGithubRepoUrls": previous_slide_github_repo_urls,
                     "slideGithubReferences": previous_slide_github_references,
-                    "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                    "slideReferenceItems": previous_slide_reference_items,
+                    "githubRepoUrls": reference_urls_from_items(merged_github_references),
                     "githubReferences": merged_github_references,
+                    "referenceItems": merged_reference_items,
                 }
             else:
                 talks_map[talk_id] = {
@@ -1442,8 +1790,10 @@ def generate_talk_artifact(
                     "slideTalkIds": [],
                     "slideGithubRepoUrls": [],
                     "slideGithubReferences": [],
-                    "githubRepoUrls": abstract_github_repo_urls,
+                    "slideReferenceItems": [],
+                    "githubRepoUrls": reference_urls_from_items(merged_github_references),
                     "githubReferences": merged_github_references,
+                    "referenceItems": merged_reference_items,
                 }
             print(f"warning: could not refresh slide references for {talk_id}: {exc}", file=sys.stderr)
 

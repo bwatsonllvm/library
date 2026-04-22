@@ -119,6 +119,12 @@
     return '';
   }
 
+  function looksLikeTruncatedReferenceSegment(value) {
+    const text = collapseWhitespace(value);
+    if (!text) return true;
+    return ['-', '_', '.'].includes(text[text.length - 1]);
+  }
+
   function buildTalkDetailUrl(talk) {
     const explicit = sanitizeExternalUrl(talk && talk.detailUrl);
     if (explicit) return explicit;
@@ -164,26 +170,53 @@
       const owner = parts[0];
       const repo = parts[1].replace(/\.git$/i, '');
       if (!owner || !repo) return null;
+      if (looksLikeTruncatedReferenceSegment(owner) || looksLikeTruncatedReferenceSegment(repo)) {
+        return null;
+      }
 
       const resource = String(parts[2] || '').toLowerCase();
+      let kind = 'github-repo';
       let fileName = '';
       let filePath = '';
       let referencePath = '';
 
       if ((resource === 'blob' || resource === 'raw') && parts.length >= 5) {
+        kind = 'github-file';
         filePath = parts.slice(4).join('/');
         fileName = parts[parts.length - 1];
         referencePath = filePath;
       } else if (resource === 'tree' && parts.length >= 4) {
+        kind = 'github-tree';
         filePath = parts.slice(4).join('/');
         fileName = filePath ? parts[parts.length - 1] : '';
         referencePath = filePath || parts[3];
       } else if (parts.length > 2) {
+        kind = ({
+          issues: 'github-issue',
+          pull: 'github-pull',
+          pulls: 'github-pull',
+          discussions: 'github-discussion',
+          commit: 'github-commit',
+          commits: 'github-commit',
+          compare: 'github-compare',
+          releases: 'github-release',
+          wiki: 'github-wiki',
+        }[resource]) || 'github-resource';
         referencePath = parts.slice(2).join('/');
+      }
+
+      if (kind === 'github-issue' || kind === 'github-pull' || kind === 'github-discussion') {
+        if (parts.length < 4 || !/^\d+$/.test(parts[3])) return null;
+      } else if (kind === 'github-commit') {
+        if (parts.length < 4 || !/^[0-9a-f]{7,40}$/i.test(parts[3])) return null;
+      } else if (looksLikeTruncatedReferenceSegment(parts[parts.length - 1])) {
+        return null;
       }
 
       return {
         url: parsed.toString(),
+        host: 'github.com',
+        kind,
         owner,
         library: repo,
         repository: `${owner}/${repo}`,
@@ -199,8 +232,86 @@
     }
   }
 
-  function normalizeGitHubReferenceItem(item) {
-    const parsed = parseGitHubReference(item && item.url);
+  function parseDiscourseReference(value) {
+    const href = sanitizeExternalUrl(value);
+    if (!href) return null;
+
+    try {
+      const parsed = new URL(href);
+      const host = String(parsed.hostname || '').toLowerCase().replace(/^www\./, '');
+      if (host !== 'discourse.llvm.org') return null;
+
+      const parts = parsed.pathname
+        .split('/')
+        .map((part) => collapseWhitespace(decodeURIComponent(part)))
+        .filter(Boolean);
+      if (!parts.length) return null;
+
+      const head = parts[0];
+      let kind = '';
+      if (head === 't') {
+        const hasTopicId = (parts.length >= 2 && /^\d+$/.test(parts[1])) || (parts.length >= 3 && /^\d+$/.test(parts[2]));
+        if (!hasTopicId) return null;
+        if (parts.length >= 2 && !/^\d+$/.test(parts[1]) && looksLikeTruncatedReferenceSegment(parts[1])) {
+          return null;
+        }
+        kind = 'discourse-topic';
+      } else if (head === 'c') {
+        if (parts.length < 2) return null;
+        if (parts.slice(1).some((part) => looksLikeTruncatedReferenceSegment(part))) return null;
+        kind = 'discourse-category';
+      } else {
+        return null;
+      }
+
+      return {
+        url: `${parsed.origin}${parsed.pathname}`,
+        host: 'discourse.llvm.org',
+        kind,
+        referencePath: parts.join('/'),
+        label: '',
+        context: '',
+        source: '',
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function parseLlvmReviewReference(value) {
+    const href = sanitizeExternalUrl(value);
+    if (!href) return null;
+
+    try {
+      const parsed = new URL(href);
+      const host = String(parsed.hostname || '').toLowerCase().replace(/^www\./, '');
+      if (host !== 'reviews.llvm.org') return null;
+      const parts = parsed.pathname
+        .split('/')
+        .map((part) => collapseWhitespace(decodeURIComponent(part)))
+        .filter(Boolean);
+      if (!parts.length) return null;
+      return {
+        url: `${parsed.origin}${parsed.pathname}`,
+        host: 'reviews.llvm.org',
+        kind: 'llvm-review',
+        referencePath: parts.join('/'),
+        label: '',
+        context: '',
+        source: '',
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function parseReferenceItem(value) {
+    return parseGitHubReference(value) || parseDiscourseReference(value) || parseLlvmReviewReference(value);
+  }
+
+  function normalizeReferenceItem(item) {
+    const rawUrl = item && typeof item === 'object' ? item.url : item;
+    const parsed = parseReferenceItem(rawUrl);
     if (!parsed) return null;
     const library = collapseWhitespace(item && item.library) || parsed.library || '';
     const repository = collapseWhitespace(item && item.repository) || parsed.repository || '';
@@ -208,67 +319,118 @@
       ...parsed,
       library,
       repository,
+      host: collapseWhitespace(item && item.host) || parsed.host || '',
+      kind: collapseWhitespace(item && item.kind).toLowerCase() || parsed.kind || '',
       label: collapseWhitespace(item && item.label),
       context: collapseWhitespace(item && item.context),
       source: collapseWhitespace(item && item.source),
+      fileName: collapseWhitespace(item && item.fileName) || parsed.fileName || '',
+      filePath: collapseWhitespace(item && item.filePath) || parsed.filePath || '',
+      referencePath: collapseWhitespace(item && item.referencePath) || parsed.referencePath || '',
     };
   }
 
-  function isUsefulGitHubReferenceText(value) {
+  function normalizeReferenceItems(entry) {
+    const rawItems = Array.isArray(entry && entry.referenceItems)
+      ? entry.referenceItems
+      : (Array.isArray(entry && entry.githubReferences) ? entry.githubReferences : []);
+    const out = [];
+    const seen = new Set();
+
+    for (const rawItem of rawItems) {
+      const item = normalizeReferenceItem(rawItem);
+      if (!item || seen.has(item.url)) continue;
+      seen.add(item.url);
+      out.push(item);
+    }
+    return out;
+  }
+
+  function isUsefulReferenceText(value) {
     const text = collapseWhitespace(value);
     if (!text) return false;
     if (text.length > 96) return false;
+    if (text.split(/\s+/).filter(Boolean).length > 12) return false;
     if (/[A-Za-z0-9]{20,}/.test(text)) return false;
-    if (/github|https?:\/\/|\/blob\/|\/tree\//i.test(text)) return false;
+    if (/\[\d+\]/.test(text)) return false;
+    if (/github|discourse|reviews\.llvm|https?:\/\/|\/blob\/|\/tree\//i.test(text)) return false;
     if (/\b\d{4}\.\d{4,6}\b/.test(text)) return false;
     if (/\b(?:upstreaming|white paper)\b/i.test(text)) return false;
     return true;
   }
 
-  function collectGitHubReferences(talk) {
-    const refs = [];
-    const seen = new Set();
-
-    function pushRef(ref) {
-      if (!ref || seen.has(ref.url)) return;
-      seen.add(ref.url);
-      refs.push(ref);
-    }
-
-    function push(value) {
-      pushRef(parseGitHubReference(value));
-    }
-
-    push(talk && talk.projectGithub);
-
-    const detailedRefs = Array.isArray(talk && talk.githubReferenceItems) ? talk.githubReferenceItems : [];
-    for (const item of detailedRefs) pushRef(normalizeGitHubReferenceItem(item));
-
-    const directRefs = Array.isArray(talk && talk.githubReferences) ? talk.githubReferences : [];
-    for (const value of directRefs) push(value);
-
-    const resourceActions = normalizeTalkResourceActions(talk);
-    for (const action of resourceActions) {
-      push(action && action.url);
-    }
-
-    return refs;
+  function humanizeSlug(value) {
+    return collapseWhitespace(String(value || '').replace(/[-_]+/g, ' '));
   }
 
-  function renderGitHubReferences(talk) {
-    const refs = collectGitHubReferences(talk);
+  function describeReferenceKind(ref) {
+    const kind = collapseWhitespace(ref && ref.kind).toLowerCase();
+    if (kind === 'github-repo') return 'GitHub repo';
+    if (kind === 'github-issue') return 'GitHub issue';
+    if (kind === 'github-pull') return 'GitHub pull request';
+    if (kind === 'github-discussion') return 'GitHub discussion';
+    if (kind === 'github-file') return 'GitHub file';
+    if (kind === 'github-tree') return 'GitHub tree';
+    if (kind === 'github-commit') return 'GitHub commit';
+    if (kind === 'github-compare') return 'GitHub compare';
+    if (kind === 'github-release') return 'GitHub release';
+    if (kind === 'github-wiki') return 'GitHub wiki';
+    if (kind === 'discourse-topic') return 'LLVM Discourse topic';
+    if (kind === 'discourse-category') return 'LLVM Discourse category';
+    if (kind === 'llvm-review') return 'LLVM review';
+    return 'Reference';
+  }
+
+  function buildReferenceFallbackTitle(ref) {
+    if (!ref || typeof ref !== 'object') return '';
+    if (ref.kind === 'github-issue') {
+      const match = String(ref.referencePath || '').match(/issues\/(\d+)/i);
+      return `${ref.repository || ref.library || 'GitHub'} issue${match ? ` #${match[1]}` : ''}`;
+    }
+    if (ref.kind === 'github-pull') {
+      const match = String(ref.referencePath || '').match(/pulls?\/(\d+)/i);
+      return `${ref.repository || ref.library || 'GitHub'} PR${match ? ` #${match[1]}` : ''}`;
+    }
+    if (ref.kind === 'github-discussion') {
+      const match = String(ref.referencePath || '').match(/discussions\/(\d+)/i);
+      return `${ref.repository || ref.library || 'GitHub'} discussion${match ? ` #${match[1]}` : ''}`;
+    }
+    if (ref.kind === 'github-file') {
+      return ref.fileName ? `${ref.repository || ref.library || 'GitHub'} / ${ref.fileName}` : (ref.repository || ref.url);
+    }
+    if (ref.kind === 'github-repo') {
+      return ref.repository || ref.library || ref.url;
+    }
+    if (ref.kind === 'llvm-review') {
+      const reviewId = String(ref.referencePath || '').split('/').filter(Boolean)[0] || 'Review';
+      return `LLVM Review ${reviewId}`;
+    }
+    if (ref.kind === 'discourse-topic') {
+      const parts = String(ref.referencePath || '').split('/').filter(Boolean);
+      return humanizeSlug(parts[1] || 'LLVM Discourse Topic') || 'LLVM Discourse Topic';
+    }
+    if (ref.kind === 'discourse-category') {
+      const parts = String(ref.referencePath || '').split('/').filter(Boolean);
+      return humanizeSlug(parts.slice(1, -1).join(' / ')) || 'LLVM Discourse Category';
+    }
+    return ref.repository || ref.library || ref.url;
+  }
+
+  function renderReferenceItems(referenceEntry) {
+    const refs = normalizeReferenceItems(referenceEntry);
     if (!refs.length) return '';
 
     return `
-      <section class="talk-github-links-section" aria-label="Repos referenced">
-        <div class="section-label" aria-hidden="true">Repos Referenced</div>
+      <section class="talk-github-links-section" aria-label="Referenced links">
+        <div class="section-label" aria-hidden="true">Referenced Links</div>
         <ul class="talk-github-reference-list">
           ${refs.map((ref) => {
-            const title = (isUsefulGitHubReferenceText(ref.label) ? ref.label : '')
-              || (isUsefulGitHubReferenceText(ref.context) ? ref.context : '')
-              || (ref.fileName ? `${ref.library || ref.repository} / ${ref.fileName}` : (ref.library || ref.repository || ref.url));
-            const description = isUsefulGitHubReferenceText(ref.context) && ref.context !== title ? ref.context : '';
+            const title = (isUsefulReferenceText(ref.label) ? ref.label : '')
+              || (isUsefulReferenceText(ref.context) ? ref.context : '')
+              || buildReferenceFallbackTitle(ref);
+            const description = isUsefulReferenceText(ref.context) && ref.context !== title ? ref.context : '';
             const metaBits = [];
+            metaBits.push(`Type: ${describeReferenceKind(ref)}`);
             if (ref.library) metaBits.push(`Library: ${ref.library}`);
             if (ref.repository) metaBits.push(`Repository: ${ref.repository}`);
             if (ref.fileName) {
@@ -278,6 +440,9 @@
             }
             if (ref.filePath && ref.filePath !== ref.fileName) {
               metaBits.push(`Path: ${ref.filePath}`);
+            }
+            if (ref.host && ref.host !== 'github.com') {
+              metaBits.push(`Host: ${ref.host}`);
             }
             if (ref.source) {
               metaBits.push(`Source: ${ref.source === 'slides' ? 'Slides' : 'Abstract'}`);
@@ -297,7 +462,8 @@
     const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
     const posterUrl = sanitizeExternalUrl(talk && talk.posterUrl);
-    const githubUrl = sanitizeExternalUrl(talk && talk.projectGithub);
+    const githubRef = parseGitHubReference(talk && talk.projectGithub);
+    const githubUrl = githubRef && githubRef.kind === 'github-repo' ? githubRef.url : '';
     const sourceUrl = sanitizeExternalUrl(talk && talk.sourceUrl);
     const resourceActions = normalizeTalkResourceActions(talk);
     const links = [];
@@ -542,37 +708,32 @@
     return talkPaperLinkIndexPromise;
   }
 
-  function getSlideReferencedPaperIds(indexPayload, talk) {
-    if (!indexPayload || typeof indexPayload !== 'object') return [];
+  function getTalkReferenceEntry(indexPayload, talk) {
+    if (!indexPayload || typeof indexPayload !== 'object') return null;
     const talks = indexPayload.talks;
-    if (!talks || typeof talks !== 'object') return [];
+    if (!talks || typeof talks !== 'object') return null;
     const talkId = String(talk && talk.id || '').trim();
-    if (!talkId) return [];
+    if (!talkId) return null;
     const entry = talks[talkId];
-    if (!entry || typeof entry !== 'object') return [];
+    if (!entry || typeof entry !== 'object') return null;
 
     const indexedSlidesUrl = sanitizeExternalUrl(entry.slidesUrl || '');
     const currentSlidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
-    if (indexedSlidesUrl && currentSlidesUrl && indexedSlidesUrl !== currentSlidesUrl) return [];
+    if (indexedSlidesUrl && currentSlidesUrl && indexedSlidesUrl !== currentSlidesUrl) return null;
+    return entry;
+  }
 
+  function getSlideReferencedPaperIds(indexPayload, talk) {
+    const entry = getTalkReferenceEntry(indexPayload, talk);
+    if (!entry) return [];
     return Array.isArray(entry.slidePaperIds)
       ? entry.slidePaperIds.map((value) => String(value || '').trim()).filter(Boolean)
       : [];
   }
 
   function getSlideReferencedTalkIds(indexPayload, talk) {
-    if (!indexPayload || typeof indexPayload !== 'object') return [];
-    const talks = indexPayload.talks;
-    if (!talks || typeof talks !== 'object') return [];
-    const talkId = String(talk && talk.id || '').trim();
-    if (!talkId) return [];
-    const entry = talks[talkId];
-    if (!entry || typeof entry !== 'object') return [];
-
-    const indexedSlidesUrl = sanitizeExternalUrl(entry.slidesUrl || '');
-    const currentSlidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
-    if (indexedSlidesUrl && currentSlidesUrl && indexedSlidesUrl !== currentSlidesUrl) return [];
-
+    const entry = getTalkReferenceEntry(indexPayload, talk);
+    if (!entry) return [];
     return Array.isArray(entry.slideTalkIds)
       ? entry.slideTalkIds.map((value) => String(value || '').trim()).filter(Boolean)
       : [];
@@ -793,6 +954,24 @@
         <ul class="talk-paper-list">
           ${referencedTalks.map((entry) => renderReferencedTalkEntry(entry)).join('')}
         </ul>`;
+    } catch {
+      section.remove();
+    }
+  }
+
+  async function populateReferencedLinks(talk) {
+    const section = document.getElementById('talk-referenced-links-section');
+    if (!section) return;
+
+    try {
+      const slideReferenceIndex = await loadTalkPaperLinkIndex();
+      const entry = getTalkReferenceEntry(slideReferenceIndex, talk);
+      const html = renderReferenceItems(entry);
+      if (!html) {
+        section.remove();
+        return;
+      }
+      section.outerHTML = html;
     } catch {
       section.remove();
     }
@@ -1042,7 +1221,6 @@
     const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
     const primarySlidesLink = buildPrimarySlidesLink(talk);
     const links = buildResourceLinks(talk);
-    const githubReferencesHtml = renderGitHubReferences(talk);
 
     const topics = getTalkTopics(talk, 18);
     const topicsHtml = topics.length
@@ -1096,7 +1274,11 @@
           <p class="talk-paper-links-loading">Loading slide-referenced talks…</p>
         </section>
 
-        ${githubReferencesHtml}
+        <section class="talk-github-links-section" id="talk-referenced-links-section" aria-label="Referenced links" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Referenced Links</div>
+          <p class="talk-paper-links-loading">Loading referenced links…</p>
+        </section>
+
         ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
 
         ${embeddedVideoUrl ? `
@@ -1179,6 +1361,7 @@
     renderTalkDetail(talk, context.relatedPool, context.related);
     void populateRelatedPapers(talk, context.related);
     void populateReferencedTalks(talk, context.related);
+    void populateReferencedLinks(talk);
     setIssueContextForTalk(talk);
     initShareMenu();
   }
