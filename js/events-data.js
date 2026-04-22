@@ -160,6 +160,7 @@
     if (!String(enriched.projectGithub || '').trim()) {
       enriched.projectGithub = githubUrls[0];
     }
+    enriched.githubReferences = githubUrls;
     const mergedActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
     if (mergedActions.length) {
       enriched.resourceActions = mergedActions;

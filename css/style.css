@@ -3692,6 +3692,10 @@ mark {
   margin-bottom: var(--space-8);
 }
 
+.talk-github-links-section {
+  margin-bottom: var(--space-8);
+}
+
 .talk-paper-links-loading {
   margin: 0;
   color: var(--color-text-muted);
@@ -3711,6 +3715,41 @@ mark {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+}
+
+.talk-github-reference-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.talk-github-reference-item {
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.talk-github-reference-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semi);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.talk-github-reference-link:hover {
+  color: var(--color-accent);
+}
+
+.talk-github-reference-meta {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
 }
 
 .talk-paper-title-row {

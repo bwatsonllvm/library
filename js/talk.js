@@ -146,6 +146,109 @@
       : [];
   }
 
+  function parseGitHubReference(value) {
+    const href = sanitizeExternalUrl(value);
+    if (!href) return null;
+
+    try {
+      const parsed = new URL(href);
+      const host = String(parsed.hostname || '').toLowerCase().replace(/^www\./, '');
+      if (host !== 'github.com') return null;
+
+      const parts = parsed.pathname
+        .split('/')
+        .map((part) => collapseWhitespace(decodeURIComponent(part)))
+        .filter(Boolean);
+      if (parts.length < 2) return null;
+
+      const owner = parts[0];
+      const repo = parts[1].replace(/\.git$/i, '');
+      if (!owner || !repo) return null;
+
+      const resource = String(parts[2] || '').toLowerCase();
+      let fileName = '';
+      let filePath = '';
+      let referencePath = '';
+
+      if ((resource === 'blob' || resource === 'raw') && parts.length >= 5) {
+        filePath = parts.slice(4).join('/');
+        fileName = parts[parts.length - 1];
+        referencePath = filePath;
+      } else if (resource === 'tree' && parts.length >= 4) {
+        filePath = parts.slice(4).join('/');
+        fileName = filePath ? parts[parts.length - 1] : '';
+        referencePath = filePath || parts[3];
+      } else if (parts.length > 2) {
+        referencePath = parts.slice(2).join('/');
+      }
+
+      return {
+        url: parsed.toString(),
+        owner,
+        repo,
+        fileName,
+        filePath,
+        referencePath,
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function collectGitHubReferences(talk) {
+    const refs = [];
+    const seen = new Set();
+
+    function push(value) {
+      const ref = parseGitHubReference(value);
+      if (!ref || seen.has(ref.url)) return;
+      seen.add(ref.url);
+      refs.push(ref);
+    }
+
+    push(talk && talk.projectGithub);
+
+    const directRefs = Array.isArray(talk && talk.githubReferences) ? talk.githubReferences : [];
+    for (const value of directRefs) push(value);
+
+    const resourceActions = normalizeTalkResourceActions(talk);
+    for (const action of resourceActions) {
+      push(action && action.url);
+    }
+
+    return refs;
+  }
+
+  function renderGitHubReferences(talk) {
+    const refs = collectGitHubReferences(talk);
+    if (!refs.length) return '';
+
+    return `
+      <section class="talk-github-links-section" aria-label="GitHub references">
+        <div class="section-label" aria-hidden="true">GitHub References</div>
+        <ul class="talk-github-reference-list">
+          ${refs.map((ref) => {
+            const titleBits = [ref.owner, ref.repo];
+            if (ref.fileName) titleBits.push(ref.fileName);
+            const metaBits = [`Author: ${ref.owner}`, `Repository: ${ref.repo}`];
+            if (ref.fileName) {
+              metaBits.push(`File: ${ref.fileName}`);
+            } else if (ref.referencePath) {
+              metaBits.push(`Reference: ${ref.referencePath}`);
+            }
+            if (ref.filePath && ref.filePath !== ref.fileName) {
+              metaBits.push(`Path: ${ref.filePath}`);
+            }
+            return `
+              <li class="talk-github-reference-item">
+                <a href="${escapeHtml(ref.url)}" class="talk-github-reference-link" target="_blank" rel="noopener noreferrer">${escapeHtml(titleBits.join(' / '))}</a>
+                <p class="talk-github-reference-meta">${escapeHtml(metaBits.join(' · '))}</p>
+              </li>`;
+          }).join('')}
+        </ul>
+      </section>`;
+  }
+
   function buildResourceLinks(talk) {
     const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
@@ -170,12 +273,12 @@
       pushLink(slidesUrl, primaryDocLabel);
     }
     if (posterUrl && posterUrl !== slidesUrl) pushLink(posterUrl, 'View Poster');
-    if (githubUrl) pushLink(githubUrl, 'Project on GitHub');
+    if (githubUrl) pushLink(githubUrl, 'GitHub');
     if (sourceUrl) pushLink(sourceUrl, 'Source Listing');
 
     for (const action of resourceActions) {
       const kind = String(action && action.kind || '').trim().toLowerCase();
-      if (!action.url || kind === 'primary') continue;
+      if (!action.url || kind === 'primary' || kind === 'github') continue;
       let label = String(action.label || '').trim();
       if (!label) {
         if (kind === 'slides') label = 'Slides';
@@ -734,6 +837,7 @@
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
     const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
     const links = buildResourceLinks(talk);
+    const githubReferencesHtml = renderGitHubReferences(talk);
 
     const topics = getTalkTopics(talk, 18);
     const topicsHtml = topics.length
@@ -769,6 +873,7 @@
         </section>
 
         ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
+        ${githubReferencesHtml}
 
         ${embeddedVideoUrl ? `
         <section class="video-section" aria-label="Video player">

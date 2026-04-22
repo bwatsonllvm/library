@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-ARTIFACT_VERSION = 3
+ARTIFACT_VERSION = 4
 BLOG_SOURCE_SLUGS = {"llvm-blog-www", "llvm-www-blog"}
 USER_AGENT = "llvm-library-talk-paper-links/1.0"
 MATCH_STOPWORDS = {
@@ -70,6 +70,11 @@ GITHUB_RESERVED_OWNERS = {
     "new", "notifications", "orgs", "organizations", "pricing", "pulls", "search",
     "security", "settings", "site", "sponsors", "team", "teams", "topics", "trending",
     "users",
+}
+GITHUB_RESOURCE_SEGMENTS = {
+    "actions", "blob", "commit", "commits", "compare", "discussions", "issues", "milestone",
+    "milestones", "packages", "projects", "pull", "pulls", "pulse", "raw", "releases",
+    "security", "tree", "wiki",
 }
 GITHUB_URL_RE = re.compile(
     r"(?:(?:https?://)?(?:www\.)?github\.com/[^\s<>()\[\]{}\"'`]+)",
@@ -119,8 +124,23 @@ def dedupe_urls(values: Iterable[str]) -> list[str]:
     return urls
 
 
-def canonicalize_github_repo_url(value: str) -> str:
+def trim_wrapping_url_punctuation(value: str) -> str:
+    text = collapse_ws(value)
+    if not text:
+        return ""
+
+    while text and text[0] in "([{\"'":
+        text = text[1:].strip()
+    while text and text[-1] in ".,;:!?)]}\"'":
+        text = text[:-1].rstrip()
+    return text
+
+
+def normalize_github_url(value: str) -> str:
     raw = collapse_ws(str(value or ""))
+    if not raw:
+        return ""
+    raw = trim_wrapping_url_punctuation(raw)
     if not raw:
         return ""
     if raw.lower().startswith("github.com/"):
@@ -135,7 +155,11 @@ def canonicalize_github_repo_url(value: str) -> str:
     if host != "github.com":
         return ""
 
-    parts = [collapse_ws(part) for part in parsed.path.split("/") if collapse_ws(part)]
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
     if len(parts) < 2:
         return ""
 
@@ -148,16 +172,36 @@ def canonicalize_github_repo_url(value: str) -> str:
         return ""
     if owner.lower() in GITHUB_RESERVED_OWNERS:
         return ""
+    normalized_parts = [owner, repo]
 
-    return f"https://github.com/{owner}/{repo}"
+    if len(parts) > 2:
+        resource = collapse_ws(parts[2]).lower()
+        if resource not in GITHUB_RESOURCE_SEGMENTS:
+            return ""
+
+        if resource in {"blob", "raw"}:
+            if len(parts) < 5:
+                return ""
+            normalized_parts.extend([resource, parts[3], *parts[4:]])
+        elif resource == "tree":
+            if len(parts) < 4:
+                return ""
+            normalized_parts.extend([resource, parts[3], *parts[4:]])
+        else:
+            if len(parts) < 4:
+                return ""
+            normalized_parts.extend([resource, *parts[3:]])
+
+    path = "/" + "/".join(urllib.parse.quote(part, safe=":@!$&'()*+,;=-._~") for part in normalized_parts)
+    return urllib.parse.urlunparse(("https", "github.com", path, "", "", ""))
 
 
-def extract_github_repo_urls_from_text(value: str) -> list[str]:
+def extract_github_urls_from_text(value: str) -> list[str]:
     text = str(value or "")
     if not text:
         return []
     return dedupe_urls(
-        canonicalize_github_repo_url(match.group(0))
+        normalize_github_url(match.group(0))
         for match in GITHUB_URL_RE.finditer(text)
     )
 
@@ -970,12 +1014,12 @@ def generate_talk_artifact(
             continue
 
         slides_url = collapse_ws(str(talk.get("slidesUrl", "")))
-        abstract_github_repo_urls = extract_github_repo_urls_from_text(str(talk.get("abstract", "")))
+        abstract_github_repo_urls = extract_github_urls_from_text(str(talk.get("abstract", "")))
         previous = talks_map.get(talk_id)
         previous_slides_url = collapse_ws(str((previous or {}).get("slidesUrl", "")))
         previous_slide_github_repo_urls = (
             dedupe_urls(
-                canonicalize_github_repo_url(value)
+                normalize_github_url(value)
                 for value in (previous or {}).get("slideGithubRepoUrls", [])
             )
             if isinstance((previous or {}).get("slideGithubRepoUrls"), list)
@@ -1023,7 +1067,7 @@ def generate_talk_artifact(
             )
             pdf_pages = extract_pdf_pages(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
-            slide_github_repo_urls = extract_github_repo_urls_from_text("\n\n".join(pdf_pages))
+            slide_github_repo_urls = extract_github_urls_from_text("\n\n".join(pdf_pages))
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": slide_paper_ids,
@@ -1033,7 +1077,7 @@ def generate_talk_artifact(
             }
             print(f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers", file=sys.stderr)
         except Exception as exc:
-            if previous and not refresh_existing and existing_processor_version == ARTIFACT_VERSION:
+            if previous:
                 talks_map[talk_id] = {
                     **previous,
                     "slidesUrl": slides_url,

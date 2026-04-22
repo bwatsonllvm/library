@@ -122,6 +122,7 @@
     if (!collapseWhitespace(enriched.projectGithub)) {
       enriched.projectGithub = githubUrls[0];
     }
+    enriched.githubReferences = githubUrls;
     enriched.resourceActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
     return enriched;
   }
