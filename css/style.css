@@ -936,6 +936,10 @@ body.filter-collapsed .search-hero--compact .search-hero-shell {
   flex-wrap: wrap;
 }
 
+.search-hero-title-row--brand {
+  align-items: center;
+}
+
 .search-hero-title-row h1 {
   margin-bottom: 0;
 }
@@ -2850,6 +2854,22 @@ body.filter-collapsed .filter-collapse-btn svg {
   white-space: nowrap;
 }
 
+.card-tag[data-tag-filter="MLIR"]::before,
+.card-tag[href*="tag=MLIR"]::before,
+.card-tag[href*="value=MLIR"]::before,
+.detail-tag[href*="tag=MLIR"]::before,
+.detail-tag[href*="value=MLIR"]::before,
+.filter-chip--tag[data-value="MLIR"]::before,
+.suggestion-chip[data-suggestion="MLIR"]::before {
+  content: "";
+  width: 1.05em;
+  height: 1.05em;
+  margin-right: 0.42em;
+  flex: 0 0 auto;
+  border-radius: 4px;
+  background: center / contain no-repeat url("../images/mlir-logo.png");
+}
+
 .card-tag:hover {
   background: var(--color-surface-hover);
   border-color: var(--color-border-strong);
@@ -3826,6 +3846,21 @@ mark {
   grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.95fr);
   gap: var(--space-6);
   align-items: stretch;
+}
+
+.subproject-brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.subproject-brand-mark {
+  width: clamp(3.1rem, 5vw, 4.25rem);
+  height: auto;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
 }
 
 .subproject-copy--lead {
