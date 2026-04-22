@@ -134,6 +134,62 @@
     return youtubeId ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(youtubeId)}?rel=0` : '';
   }
 
+  function normalizeTalkResourceActions(talk) {
+    return Array.isArray(talk && talk.resourceActions)
+      ? talk.resourceActions
+          .map((action) => ({
+            kind: collapseWhitespace(action && action.kind).toLowerCase(),
+            label: collapseWhitespace(action && action.label),
+            url: sanitizeExternalUrl(action && action.url),
+          }))
+          .filter((action) => action.url)
+      : [];
+  }
+
+  function buildResourceLinks(talk) {
+    const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
+    const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
+    const posterUrl = sanitizeExternalUrl(talk && talk.posterUrl);
+    const githubUrl = sanitizeExternalUrl(talk && talk.projectGithub);
+    const sourceUrl = sanitizeExternalUrl(talk && talk.sourceUrl);
+    const resourceActions = normalizeTalkResourceActions(talk);
+    const links = [];
+    const seenUrls = new Set();
+
+    function pushLink(url, label) {
+      const href = sanitizeExternalUrl(url);
+      const text = String(label || '').trim();
+      if (!href || !text || seenUrls.has(href)) return;
+      seenUrls.add(href);
+      links.push(`<a href="${escapeHtml(href)}" class="link-btn" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}</a>`);
+    }
+
+    if (videoUrl) pushLink(videoUrl, 'Watch Video');
+    if (slidesUrl) {
+      const primaryDocLabel = String(talk && talk.category || '').trim().toLowerCase() === 'poster' ? 'View Poster' : 'View Slides';
+      pushLink(slidesUrl, primaryDocLabel);
+    }
+    if (posterUrl && posterUrl !== slidesUrl) pushLink(posterUrl, 'View Poster');
+    if (githubUrl) pushLink(githubUrl, 'Project on GitHub');
+    if (sourceUrl) pushLink(sourceUrl, 'Source Listing');
+
+    for (const action of resourceActions) {
+      const kind = String(action && action.kind || '').trim().toLowerCase();
+      if (!action.url || kind === 'primary') continue;
+      let label = String(action.label || '').trim();
+      if (!label) {
+        if (kind === 'slides') label = 'Slides';
+        else if (kind === 'recording') label = 'Recording';
+        else if (kind === 'event') label = 'Event';
+        else if (kind === 'transcript') label = 'Transcript';
+        else label = 'Link';
+      }
+      pushLink(action.url, label);
+    }
+
+    return links;
+  }
+
   function normalizePeople(rawPeople) {
     const values = Array.isArray(rawPeople) ? rawPeople : [];
     return values.map((rawPerson) => {
@@ -677,22 +733,7 @@
 
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
     const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
-    const slidesUrl = sanitizeExternalUrl(talk.slidesUrl);
-    const posterUrl = sanitizeExternalUrl(talk.posterUrl);
-    const githubUrl = sanitizeExternalUrl(talk.projectGithub);
-    const sourceUrl = sanitizeExternalUrl(talk.sourceUrl);
-
-    const links = [];
-    if (videoUrl) links.push(`<a href="${escapeHtml(videoUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Watch Video</a>`);
-    if (slidesUrl) {
-      const primaryDocLabel = String(talk.category || '').trim().toLowerCase() === 'poster' ? 'View Poster' : 'View Slides';
-      links.push(`<a href="${escapeHtml(slidesUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">${primaryDocLabel}</a>`);
-    }
-    if (posterUrl && posterUrl !== slidesUrl) {
-      links.push(`<a href="${escapeHtml(posterUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">View Poster</a>`);
-    }
-    if (githubUrl) links.push(`<a href="${escapeHtml(githubUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Project on GitHub</a>`);
-    if (sourceUrl) links.push(`<a href="${escapeHtml(sourceUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">Source Listing</a>`);
+    const links = buildResourceLinks(talk);
 
     const topics = getTalkTopics(talk, 18);
     const topicsHtml = topics.length

@@ -425,6 +425,7 @@
       title: cleanedTitle,
       abstract,
       speakers,
+      resourceActions: actions,
       category: SECTION_CATEGORY_MAP[slugify(sectionTitle)] || 'other',
       tags: topics,
       meeting,
