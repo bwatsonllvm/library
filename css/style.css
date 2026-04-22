@@ -382,6 +382,17 @@ ul, ol {
   transition: color var(--transition-fast);
 }
 
+.nav-link--mlir {
+  gap: 6px;
+}
+
+.nav-link-logo {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .nav-link:hover, .nav-link.active {
   color: var(--color-text);
   background: transparent;
@@ -742,6 +753,17 @@ ul, ol {
   align-items: center;
   justify-content: flex-start;
   transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mobile-nav-link--mlir {
+  gap: 8px;
+}
+
+.mobile-nav-link-logo {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .mobile-nav-link:hover,
