@@ -50,7 +50,7 @@
     const raw = String(value || '').trim();
     if (!raw) return '';
     try {
-      const parsed = new URL(raw, window.location.href);
+      const parsed = new URL(raw, document.baseURI || window.location.href);
       const protocol = parsed.protocol.toLowerCase();
       if (protocol === 'http:' || protocol === 'https:') return parsed.toString();
     } catch {
