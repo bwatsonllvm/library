@@ -981,6 +981,7 @@ function buildTalkSummaryCardData(talk) {
   return {
     id: talk.id,
     title: talk.title,
+    abstract: talk.abstract,
     meeting: talk.meeting,
     meetingName: talk.meetingName,
     meetingDate: talk.meetingDate,
@@ -988,8 +989,10 @@ function buildTalkSummaryCardData(talk) {
     category: talk.category,
     speakers: talk.speakers,
     slidesUrl: talk.slidesUrl,
+    posterUrl: talk.posterUrl,
     videoUrl: talk.videoUrl,
     sourceUrl: talk.sourceUrl,
+    detailUrl: talk.detailUrl,
     projectGithub: talk.projectGithub,
     tags: talk.tags,
   };
@@ -1085,10 +1088,24 @@ function buildPaperRelatedMap(papers, talks, talkReferencePayload) {
   return byPaperId;
 }
 
+function isCanceledMeeting(meeting) {
+  if (!meeting || typeof meeting !== 'object') return false;
+  if (meeting.canceled === true) return true;
+  const location = String(meeting.location || '').toLowerCase();
+  return location.includes('canceled') || location.includes('cancelled');
+}
+
+function isDevelopersMeeting(meeting) {
+  if (!meeting || typeof meeting !== 'object') return false;
+  if (isCanceledMeeting(meeting)) return false;
+  const name = String(meeting.name || '').toLowerCase();
+  return name.includes("llvm developers' meeting");
+}
+
 function buildSiteStats(talks, meetings, papers, people) {
   const activeMeetingIds = new Set(
     (Array.isArray(meetings) ? meetings : [])
-      .filter((meeting) => meeting && meeting.name && !meeting.canceled)
+      .filter((meeting) => meeting && meeting.name && isDevelopersMeeting(meeting))
       .map((meeting) => collapseWhitespace(meeting.slug || meeting.name))
       .filter(Boolean)
   );

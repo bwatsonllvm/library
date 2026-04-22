@@ -1151,6 +1151,188 @@
     }).join('');
   }
 
+  function buildAbstractPreview(text, maxLength = 300) {
+    const raw = collapseWhitespace(text);
+    if (!raw) return '';
+    if (raw.length <= maxLength) return raw;
+    const hardSlice = raw.slice(0, maxLength).trim();
+    const softSlice = hardSlice.replace(/\s+\S*$/, '').trim();
+    return `${softSlice || hardSlice}...`;
+  }
+
+  function formatCardTalkSpeakers(speakers) {
+    return Array.isArray(speakers)
+      ? speakers.map((speaker) => collapseWhitespace(speaker && speaker.name)).filter(Boolean)
+      : [];
+  }
+
+  function categoryLabel(category) {
+    const key = collapseWhitespace(category).toLowerCase();
+    return ({
+      keynote: 'Keynote',
+      'technical-talk': 'Technical Talk',
+      tutorial: 'Tutorial',
+      panel: 'Panel',
+      'quick-talk': 'Quick Talk',
+      'lightning-talk': 'Lightning Talk',
+      'student-talk': 'Student Talk',
+      'llvm-foundation': 'LLVM Foundation',
+      'open-design-meeting': 'Open Design Meeting',
+      bof: 'BoF',
+      poster: 'Poster',
+      workshop: 'Workshop',
+      other: 'Other',
+    }[key]) || (key ? key.replace(/-/g, ' ').replace(/\b\w/g, (match) => match.toUpperCase()) : 'Other');
+  }
+
+  function sourceNameFromHost(hostname) {
+    const host = String(hostname || '').toLowerCase().replace(/^www\./, '');
+    if (!host) return 'External Source';
+    if (host === 'youtu.be' || host.endsWith('youtube.com')) return 'YouTube';
+    if (host === 'devimages.apple.com') return 'Apple Developer';
+    return host;
+  }
+
+  function isAppleDeveloperVideoUrl(videoUrl) {
+    if (!videoUrl) return false;
+    try {
+      const host = new URL(videoUrl).hostname.toLowerCase().replace(/^www\./, '');
+      return host === 'devimages.apple.com';
+    } catch {
+      return false;
+    }
+  }
+
+  function getVideoLinkMeta(videoUrl, titleEsc) {
+    const fallback = {
+      text: 'Watch',
+      ariaLabel: `Watch video: ${titleEsc} (opens in new tab)`,
+      icon: 'play',
+    };
+    if (!videoUrl) return fallback;
+
+    try {
+      const url = new URL(videoUrl);
+      const sourceName = sourceNameFromHost(url.hostname);
+      const isYouTube = sourceName === 'YouTube';
+      const isDownload =
+        /\.(mov|m4v|mp4|mkv|avi|wmv|webm)$/i.test(url.pathname) ||
+        /download/i.test(url.pathname) ||
+        /download/i.test(url.search);
+
+      if (isDownload) {
+        const sourceText = isYouTube ? '' : ` (${sourceName})`;
+        return {
+          text: `Download${sourceText}`,
+          ariaLabel: `Download video${isYouTube ? '' : ` from ${sourceName}`}: ${titleEsc} (opens in new tab)`,
+          icon: sourceName === 'Apple Developer' ? 'tv' : 'download',
+        };
+      }
+
+      if (!isYouTube) {
+        return {
+          text: `Watch on ${sourceName}`,
+          ariaLabel: `Watch on ${sourceName}: ${titleEsc} (opens in new tab)`,
+          icon: 'play',
+        };
+      }
+
+      return {
+        text: 'Watch',
+        ariaLabel: `Watch on YouTube: ${titleEsc} (opens in new tab)`,
+        icon: 'play',
+      };
+    } catch {
+      return fallback;
+    }
+  }
+
+  const CARD_SVG_DOC = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`;
+  const CARD_SVG_SLIDES = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="14" height="10" rx="1.8"/><path d="M7 9h8"/><path d="M7 12h5"/><path d="M9 19h11a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/></svg>`;
+  const CARD_SVG_POSTER = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="1.5"/><path d="M9 7h6"/><path d="M9 10h6"/><path d="M12 17v4"/><path d="M9.5 21h5"/></svg>`;
+  const CARD_SVG_TOOL = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`;
+  const CARD_SVG_CHAT = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+  const CARD_SVG_TV = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" ry="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/><polygon points="10 9 15 11 10 13 10 9" fill="currentColor" stroke="none"/></svg>`;
+
+  function placeholderSvgForCategory(category) {
+    const key = collapseWhitespace(category).toLowerCase();
+    return ({ workshop: CARD_SVG_TOOL, panel: CARD_SVG_CHAT, bof: CARD_SVG_CHAT, 'open-design-meeting': CARD_SVG_CHAT }[key]) || CARD_SVG_DOC;
+  }
+
+  function mediaPlaceholderForTalk(talk) {
+    const videoHref = sanitizeExternalUrl(talk && talk.videoUrl);
+    const slidesHref = sanitizeExternalUrl(talk && talk.slidesUrl);
+    const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
+    const category = collapseWhitespace(talk && talk.category).toLowerCase();
+
+    if (!videoHref) {
+      if (category === 'poster' || posterHref) {
+        return { svg: CARD_SVG_POSTER, label: 'Poster' };
+      }
+      if (slidesHref) {
+        return { svg: CARD_SVG_SLIDES, label: 'Slides' };
+      }
+    }
+
+    if (isAppleDeveloperVideoUrl(videoHref)) {
+      return { svg: CARD_SVG_TV, label: 'Video' };
+    }
+    return { svg: placeholderSvgForCategory(category), label: '' };
+  }
+
+  function renderTalkCardSpeakerLinks(talk) {
+    const speakers = formatCardTalkSpeakers(talk && talk.speakers);
+    if (!speakers.length) return '';
+    return `
+      <p class="card-speakers">
+        ${speakers.map((name) =>
+          `<a href="${buildSpeakerWorkUrl(name)}" class="speaker-btn" aria-label="View talks and papers by ${escapeHtml(name)}">${escapeHtml(name)}</a>`
+        ).join('<span class="speaker-btn-sep">, </span>')}
+      </p>`;
+  }
+
+  function renderTalkCardTags(talk) {
+    const tags = getTalkTopics(talk, 8);
+    if (!tags.length) return '';
+    const shown = tags.slice(0, 4);
+    return `
+      <div class="card-tags-wrap">
+        <div class="card-tags" aria-label="Key Topics">
+          ${shown.map((tag) =>
+            `<a href="talks/?tag=${encodeURIComponent(tag)}" class="card-tag" aria-label="Browse talks for key topic ${escapeHtml(tag)}">${escapeHtml(tag)}</a>`
+          ).join('')}
+          ${tags.length > shown.length ? `<span class="card-tag card-tag--more" aria-hidden="true">+${tags.length - shown.length}</span>` : ''}
+        </div>
+      </div>`;
+  }
+
+  function renderTalkCardActions(talk) {
+    const title = collapseWhitespace(talk && talk.title) || 'Untitled talk';
+    const titleEsc = escapeHtml(title);
+    const videoHref = sanitizeExternalUrl(talk && talk.videoUrl);
+    const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
+    const slidesHref = sanitizeExternalUrl(talk && talk.slidesUrl) || posterHref;
+    const githubHref = sanitizeExternalUrl(talk && talk.projectGithub);
+    const videoMeta = getVideoLinkMeta(videoHref, titleEsc);
+    const videoIcon = videoMeta.icon === 'download'
+      ? `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg>`
+      : videoMeta.icon === 'tv'
+        ? `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" ry="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/></svg>`
+        : `<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+    const videoLinkHtml = videoHref
+      ? `<a href="${escapeHtml(videoHref)}" class="card-link-btn card-link-btn--video" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(videoMeta.ariaLabel)}">${videoIcon}<span aria-hidden="true">${escapeHtml(videoMeta.text)}</span></a>`
+      : '';
+    const slidesLabel = collapseWhitespace(talk && talk.category).toLowerCase() === 'poster' || posterHref ? 'Poster' : 'Slides';
+    const slidesLinkHtml = slidesHref
+      ? `<a href="${escapeHtml(slidesHref)}" class="card-link-btn" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(slidesLabel.toLowerCase())}: ${titleEsc} (opens in new tab)"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span aria-hidden="true">${escapeHtml(slidesLabel)}</span></a>`
+      : '';
+    const githubLinkHtml = githubHref
+      ? `<a href="${escapeHtml(githubHref)}" class="card-link-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository: ${titleEsc} (opens in new tab)"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg><span aria-hidden="true">GitHub</span></a>`
+      : '';
+    const actions = [videoLinkHtml, slidesLinkHtml, githubLinkHtml].filter(Boolean);
+    return actions.length ? `<div class="card-footer">${actions.join('')}</div>` : '';
+  }
+
   function getRelatedTalks(talk, relatedPool) {
     const values = Array.isArray(relatedPool) ? relatedPool : [];
     const targetId = String(talk && talk.id || '').trim();
@@ -1163,24 +1345,42 @@
   }
 
   function renderRelatedCard(talk) {
-    const title = String(talk && talk.title || '').trim() || '(untitled talk)';
-    const meeting = String(talk && talk.meeting || '').trim();
-    const speakers = Array.isArray(talk && talk.speakers)
-      ? talk.speakers.map((speaker) => String(speaker && speaker.name || '').trim()).filter(Boolean)
-      : [];
-    const speakerText = speakers.join(', ');
-    const label = speakerText ? `${title} by ${speakerText}` : title;
+    const title = collapseWhitespace(talk && talk.title) || 'Untitled talk';
+    const titleEsc = escapeHtml(title);
+    const speakerNames = formatCardTalkSpeakers(talk && talk.speakers);
+    const speakerLabel = speakerNames.length ? ` by ${speakerNames.join(', ')}` : '';
+    const meetingLabel = collapseWhitespace(talk && (talk.meetingName || talk._year || talk.meeting));
+    const categoryKey = collapseWhitespace(talk && talk.category).toLowerCase() || 'other';
+    const badgeCls = `badge badge-${escapeHtml(categoryKey)}`;
+    const thumbnailUrl = collapseWhitespace(talk && talk.videoId)
+      ? `https://img.youtube.com/vi/${encodeURIComponent(String(talk.videoId || '').trim())}/hqdefault.jpg`
+      : '';
+    const placeholder = mediaPlaceholderForTalk(talk);
+    const placeholderHtml = `<div class="card-thumbnail-placeholder">${placeholder.svg}${placeholder.label ? `<span class="card-thumbnail-placeholder-label">${escapeHtml(placeholder.label)}</span>` : ''}</div>`;
+    const thumbnailHtml = thumbnailUrl
+      ? `<img src="${escapeHtml(thumbnailUrl)}" alt="" loading="lazy" data-thumbnail-category="${escapeHtml(categoryKey)}">`
+      : placeholderHtml;
+    const abstractPreview = buildAbstractPreview(talk && talk.abstract, 300);
 
     return `
       <article class="talk-card">
-        <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="card-link-wrap" aria-label="${escapeHtml(label)}">
+        <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="card-link-wrap" aria-label="${titleEsc}${escapeHtml(speakerLabel)}">
+          <div class="card-thumbnail" aria-hidden="true">
+            ${thumbnailHtml}
+            ${thumbnailUrl ? `<div class="play-overlay" aria-hidden="true"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>` : ''}
+          </div>
           <div class="card-body">
             <div class="card-meta">
-              ${meeting ? `<span class="meeting-label">${escapeHtml(meeting)}</span>` : ''}
+              <span class="${badgeCls}">${escapeHtml(categoryLabel(categoryKey))}</span>
+              ${meetingLabel ? `<span class="meeting-label">${escapeHtml(meetingLabel)}</span>` : ''}
             </div>
-            <p class="card-title">${escapeHtml(title)}</p>
+            <p class="card-title">${titleEsc}</p>
+            ${abstractPreview ? `<p class="card-abstract">${escapeHtml(abstractPreview)}</p>` : ''}
           </div>
         </a>
+        ${renderTalkCardSpeakerLinks(talk)}
+        ${renderTalkCardTags(talk)}
+        ${renderTalkCardActions(talk)}
       </article>`;
   }
 
