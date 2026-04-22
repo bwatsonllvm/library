@@ -525,6 +525,34 @@ def is_probably_garbled_pdf_text(text: str) -> bool:
     return False
 
 
+def maybe_decode_shifted_pdf_text(text: str) -> str:
+    candidate = collapse_ws(text)
+    if not candidate:
+        return ""
+
+    decoded_chars: list[str] = []
+    for char in candidate:
+        codepoint = ord(char)
+        if 32 <= codepoint <= 126:
+            shifted = codepoint + 29
+            while shifted > 126:
+                shifted = 32 + (shifted - 127)
+            decoded_chars.append(chr(shifted))
+        else:
+            decoded_chars.append(char)
+    decoded = collapse_ws("".join(decoded_chars).replace("=", " "))
+    if not decoded:
+        return ""
+    signal_count = sum(
+        1
+        for word in ("security", "department", "author", "name", "date", "proposal", "compiler", "hosted")
+        if word in decoded.lower()
+    )
+    if signal_count >= 3:
+        return decoded
+    return ""
+
+
 def strip_slide_title_noise(text: str) -> str:
     candidate = collapse_ws(text)
     candidate = re.sub(r"^©?\s*\d{4}\s+[A-Za-z][A-Za-z0-9&.'’\-]*(?:\s+[A-Za-z][A-Za-z0-9&.'’\-]*){0,4}\s+", "", candidate)
@@ -733,9 +761,32 @@ def resolve_local_mlir_slides_path(slides_url: str, local_mlir_root: Path | None
 
 
 def infer_speakers_from_slide_page(text: str, title: str) -> list[dict]:
-    if is_probably_garbled_pdf_text(text):
+    working_text = collapse_ws(text)
+    decoded_text = maybe_decode_shifted_pdf_text(working_text) if is_probably_garbled_pdf_text(working_text) else ""
+    if decoded_text:
+        working_text = decoded_text
+    elif is_probably_garbled_pdf_text(working_text):
         return []
-    lines = [collapse_ws(line) for line in str(text or "").replace("\r\n", "\n").replace("\r", "\n").split("\n")]
+
+    author_match = re.search(
+        r"\bAuthor(?:\s+s)?\s+name\s+([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+){1,3}?)(?=\s+(?:Date|$))",
+        working_text,
+    )
+    if author_match:
+        speakers = extract_speaker_names_from_text(author_match.group(1))
+        if speakers:
+            return speakers
+
+    hosted_match = re.search(
+        r"\bHosted:\s*([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'.’\-]+){1,3})\b",
+        working_text,
+    )
+    if hosted_match:
+        speakers = extract_speaker_names_from_text(hosted_match.group(1))
+        if speakers:
+            return speakers
+
+    lines = [collapse_ws(line) for line in working_text.replace("\r\n", "\n").replace("\r", "\n").split("\n")]
     lines = [line for line in lines if line]
     if not lines:
         return []
