@@ -22,7 +22,7 @@
   const SECTION_CATEGORY_MAP = Object.freeze({
     tutorials: 'tutorial',
     'tech-talks': 'technical-talk',
-    'open-design-meeting-presentations': 'bof',
+    'open-design-meeting-presentations': 'open-design-meeting',
     'upcoming-talks-or-presentations': 'technical-talk',
     'past-conferences-and-workshops': 'workshop',
   });

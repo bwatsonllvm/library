@@ -52,6 +52,7 @@ const CATEGORY_META = {
   'lightning-talk': { label: 'Lightning Talk',  order: 5 },
   'student-talk':   { label: 'Student Technical Talk', order: 6 },
   'llvm-foundation': { label: 'LLVM Foundation', order: 7 },
+  'open-design-meeting': { label: 'Open Design Meeting', order: 8 },
   'bof':            { label: 'BoF',             order: 8 },
   'poster':         { label: 'Poster',          order: 9 },
   'workshop':       { label: 'Workshop',        order: 10 },
@@ -565,7 +566,7 @@ const _SVG_CHAT = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" s
 const _SVG_TV = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" ry="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/><polygon points="10 9 15 11 10 13 10 9" fill="currentColor" stroke="none"/></svg>`;
 
 function placeholderSvgForCategory(category) {
-  return { workshop: _SVG_TOOL, panel: _SVG_CHAT, bof: _SVG_CHAT }[category] ?? _SVG_DOC;
+  return { workshop: _SVG_TOOL, panel: _SVG_CHAT, bof: _SVG_CHAT, 'open-design-meeting': _SVG_CHAT }[category] ?? _SVG_DOC;
 }
 
 function placeholderSvgForTalk(talk) {

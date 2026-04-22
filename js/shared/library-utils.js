@@ -12,10 +12,11 @@
     'lightning-talk': 5,
     'student-talk': 6,
     'llvm-foundation': 7,
-    'bof': 8,
-    'poster': 9,
-    'workshop': 10,
-    'other': 11,
+    'open-design-meeting': 8,
+    'bof': 9,
+    'poster': 10,
+    'workshop': 11,
+    'other': 12,
   };
   const KNOWN_TALK_CATEGORIES = new Set(Object.keys(CATEGORY_ORDER));
   const TALK_CATEGORY_ALIAS_MAP = {
@@ -59,6 +60,14 @@
     'foundation-updates': 'llvm-foundation',
     'llvm-foundation-update': 'llvm-foundation',
     'llvm-foundation-updates': 'llvm-foundation',
+
+    'open-design-meeting': 'open-design-meeting',
+    'open-design-meetings': 'open-design-meeting',
+    'open-design': 'open-design-meeting',
+    'design-meeting': 'open-design-meeting',
+    'design-meetings': 'open-design-meeting',
+    'open-mlir-meeting': 'open-design-meeting',
+    'open-mlir-meetings': 'open-design-meeting',
 
     bof: 'bof',
     'birds-of-feather': 'bof',
