@@ -312,10 +312,6 @@
     }
 
     if (videoUrl) pushLink(videoUrl, 'Watch Video');
-    if (slidesUrl) {
-      const primaryDocLabel = String(talk && talk.category || '').trim().toLowerCase() === 'poster' ? 'View Poster' : 'View Slides';
-      pushLink(slidesUrl, primaryDocLabel);
-    }
     if (posterUrl && posterUrl !== slidesUrl) pushLink(posterUrl, 'View Poster');
     if (githubUrl) pushLink(githubUrl, 'GitHub');
     if (sourceUrl) pushLink(sourceUrl, 'Source Listing');
@@ -335,6 +331,15 @@
     }
 
     return links;
+  }
+
+  function buildPrimarySlidesLink(talk) {
+    const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
+    if (!slidesUrl) return '';
+    const label = String(talk && talk.category || '').trim().toLowerCase() === 'poster'
+      ? 'View Poster'
+      : 'View Slides';
+    return `<a href="${escapeHtml(slidesUrl)}" class="link-btn" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
   }
 
   function normalizePeople(rawPeople) {
@@ -1035,6 +1040,7 @@
 
     const videoUrl = sanitizeExternalUrl(talk.videoUrl);
     const embeddedVideoUrl = buildEmbeddedVideoUrl(videoUrl);
+    const primarySlidesLink = buildPrimarySlidesLink(talk);
     const links = buildResourceLinks(talk);
     const githubReferencesHtml = renderGitHubReferences(talk);
 
@@ -1077,6 +1083,8 @@
           <div class="section-label" aria-hidden="true">Abstract</div>
           <div class="abstract-body">${renderAbstract(talk.abstract)}</div>
         </section>
+
+        ${primarySlidesLink ? `<div class="links-bar" aria-label="Slides">${primarySlidesLink}</div>` : ''}
 
         <section class="talk-paper-links-section" id="talk-related-papers-section" aria-label="Referenced papers" aria-busy="true">
           <div class="section-label" aria-hidden="true">Referenced Papers</div>
