@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-040": {
@@ -2162,7 +2162,7 @@
       "talk": {
         "id": "2019-04-051",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "bof",
@@ -2184,7 +2184,7 @@
         "_speakerLower": "",
         "_abstractLower": "llvm has a suite of binary utilities that broadly mirror the gnu binutils suite, with tools such as llvm-readelf, llvm-nm, and llvm-objcopy. these tools are already widely used in testing the rest of llvm, and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier, how far we need to go to make drop-in replacements for the gnu tools, and what features people want to prioritize. finally, we will look at the broader future goals of these tools.",
         "_tagsLower": "llvm testing",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2207,11 +2207,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2341,11 +2340,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "llvm binutils llvm has a suite of binary utilities that broadly mirror the gnu binutils suite with tools such as llvm-readelf llvm-nm and llvm-objcopy. these tools are already widely used in testing the rest of llvm and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier how far we need to go to make drop-in replacements for the gnu tools and what features people want to prioritize. finally we will look at the broader future goals of these tools. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 bof llvm testing"
+        "_searchBlob": "llvm binutils llvm has a suite of binary utilities that broadly mirror the gnu binutils suite with tools such as llvm-readelf llvm-nm and llvm-objcopy. these tools are already widely used in testing the rest of llvm and are now starting to be adopted as full replacements for the gnu tools in production environments. this discussion will focus on what more needs to be done to make this migration process easier how far we need to go to make drop-in replacements for the gnu tools and what features people want to prioritize. finally we will look at the broader future goals of these tools. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 bof llvm testing"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -2356,7 +2355,7 @@
       "talk": {
         "id": "2019-04-073",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -2395,7 +2394,7 @@
         "_speakerLower": "vasileios porpodas luís f. w. góes",
         "_abstractLower": "the slp vectorizer is llvm's second vectorizer (after the loop vectorizer). it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns (groups), and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add/sub (or mul/div) expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp (sn-slp) because it extends the slp graph to include new \"fat\" nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches.",
         "_tagsLower": "autovectorization llvm",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2429,11 +2428,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2586,11 +2584,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "vectorizing add sub expressions with slp the slp vectorizer is llvms second vectorizer after the loop vectorizer . it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns groups and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add sub or mul div expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp sn-slp because it extends the slp graph to include new fat nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster vasileios porpodas luis f. w. goes autovectorization llvm"
+        "_searchBlob": "vectorizing add sub expressions with slp the slp vectorizer is llvms second vectorizer after the loop vectorizer . it performs auto-vectorization of straight-line code. it works by first exploring the scalar code for vectorizable patterns groups and then by replacing each group with its vectorized form. this talk presents the existing design of the slp vectorizer and shows how it fails to vectorize simple ir inputs with add sub or mul div expression trees. we propose specific improvements to the current design that will let us effectively handle such code. we named this design supernode slp sn-slp because it extends the slp graph to include new fat nodes that include multiple instructions. this talk also presents our detailed plan for upstreaming the bulk of this work in a sequence of patches. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster vasileios porpodas luis f. w. goes autovectorization llvm"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,

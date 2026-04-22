@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-021": {
@@ -2508,7 +2508,7 @@
       "talk": {
         "id": "2019-04-010",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "technical-talk",
@@ -2540,7 +2540,7 @@
         "_speakerLower": "josé luis march cabrelles",
         "_abstractLower": "in the development of embedded applications, the compiler plays a crucial role in the translation from source to machine code. if the application is safety-critical, functional safety standards such as iso 26262 for the automotive industry require that the user of the compiler develops confidence in the compilers correct operation. in this presentation we will discuss the requirements of iso 26262 on tools such as llvm compilers and how they can be met with a testing procedure that works well with the v-model of engineering. as the name implies, functional safety standards deal with specified functionality of components. but what about the optimizations that a llvm-based compiler applies to the program, sometimes even silently? optimizations are not even mentioned in the language standards for c and c++ - they are \"non-functional\" behavior of the compiler. as we will demonstrate, ignoring optimizations will lead to significant holes in the compiler's test coverage. we will show how we have developed a technique that achieves good results with optimization testing and have some errors in intel's well-regarded clang-based compiler to show. to show the completeness of our method for the requirements of functional safety, we have analyzed how the tests match with the various llvm ir-level transformation passes that they go through.",
         "_tagsLower": "testing llvm clang ir optimizations embedded",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2579,11 +2579,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2816,11 +2815,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "testing and qualification of optimizing compilers for functional safety in the development of embedded applications the compiler plays a crucial role in the translation from source to machine code. if the application is safety-critical functional safety standards such as iso 26262 for the automotive industry require that the user of the compiler develops confidence in the compilers correct operation. in this presentation we will discuss the requirements of iso 26262 on tools such as llvm compilers and how they can be met with a testing procedure that works well with the v-model of engineering. as the name implies functional safety standards deal with specified functionality of components. but what about the optimizations that a llvm-based compiler applies to the program sometimes even silently optimizations are not even mentioned in the language standards for c and c++ - they are non-functional behavior of the compiler. as we will demonstrate ignoring optimizations will lead to significant holes in the compilers test coverage. we will show how we have developed a technique that achieves good results with optimization testing and have some errors in intels well-regarded clang-based compiler to show. to show the completeness of our method for the requirements of functional safety we have analyzed how the tests match with the various llvm ir-level transformation passes that they go through. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk jose luis march cabrelles testing llvm clang ir optimizations embedded"
+        "_searchBlob": "testing and qualification of optimizing compilers for functional safety in the development of embedded applications the compiler plays a crucial role in the translation from source to machine code. if the application is safety-critical functional safety standards such as iso 26262 for the automotive industry require that the user of the compiler develops confidence in the compilers correct operation. in this presentation we will discuss the requirements of iso 26262 on tools such as llvm compilers and how they can be met with a testing procedure that works well with the v-model of engineering. as the name implies functional safety standards deal with specified functionality of components. but what about the optimizations that a llvm-based compiler applies to the program sometimes even silently optimizations are not even mentioned in the language standards for c and c++ - they are non-functional behavior of the compiler. as we will demonstrate ignoring optimizations will lead to significant holes in the compilers test coverage. we will show how we have developed a technique that achieves good results with optimization testing and have some errors in intels well-regarded clang-based compiler to show. to show the completeness of our method for the requirements of functional safety we have analyzed how the tests match with the various llvm ir-level transformation passes that they go through. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk jose luis march cabrelles testing llvm clang ir optimizations embedded"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -2831,7 +2830,7 @@
       "talk": {
         "id": "2019-04-032",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "student-talk",
@@ -2875,7 +2874,7 @@
         "_speakerLower": "rodrigo rocha zheng wang hugh leather",
         "_abstractLower": "resource-constrained devices for embedded systems are becoming increasingly important. in such systems, memory is highly restrictive, making code size in most cases even more important than performance. compared to more traditional platforms, memory is a larger part of the cost and code occupies much of it. despite that, compilers make little effort to reduce code size. one key technique attempts to merge the bodies of similar functions. however, production compilers only apply this optimization to identical functions, while research compilers improve on that by merging the few functions with identical control-flow graphs and signatures. overall, existing solutions are insufficient and we end up having to either increase cost by adding more memory or remove functionality from programs. we introduce a novel technique that can merge arbitrary functions through sequence alignment, a bioinformatics algo- rithm for identifying regions of similarity between sequences. we combine this technique with an intelligent exploration mechanism to direct the search towards the most promising function pairs. our approach is more than 2.4x better than the state-of-the-art, reducing code size by up to 25%, with an overall average of 6%, while introducing an average compilation-time overhead of only 15%. when aided by profiling information, this optimization can be deployed without any significant impact on the performance of the generated code.",
         "_tagsLower": "performance optimizations embedded",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2909,11 +2908,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3152,11 +3150,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "function merging by sequence alignment resource-constrained devices for embedded systems are becoming increasingly important. in such systems memory is highly restrictive making code size in most cases even more important than performance. compared to more traditional platforms memory is a larger part of the cost and code occupies much of it. despite that compilers make little effort to reduce code size. one key technique attempts to merge the bodies of similar functions. however production compilers only apply this optimization to identical functions while research compilers improve on that by merging the few functions with identical control-flow graphs and signatures. overall existing solutions are insufficient and we end up having to either increase cost by adding more memory or remove functionality from programs. we introduce a novel technique that can merge arbitrary functions through sequence alignment a bioinformatics algo- rithm for identifying regions of similarity between sequences. we combine this technique with an intelligent exploration mechanism to direct the search towards the most promising function pairs. our approach is more than 2.4x better than the state-of-the-art reducing code size by up to 25 with an overall average of 6 while introducing an average compilation-time overhead of only 15 . when aided by profiling information this optimization can be deployed without any significant impact on the performance of the generated code. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk rodrigo rocha zheng wang hugh leather performance optimizations embedded"
+        "_searchBlob": "function merging by sequence alignment resource-constrained devices for embedded systems are becoming increasingly important. in such systems memory is highly restrictive making code size in most cases even more important than performance. compared to more traditional platforms memory is a larger part of the cost and code occupies much of it. despite that compilers make little effort to reduce code size. one key technique attempts to merge the bodies of similar functions. however production compilers only apply this optimization to identical functions while research compilers improve on that by merging the few functions with identical control-flow graphs and signatures. overall existing solutions are insufficient and we end up having to either increase cost by adding more memory or remove functionality from programs. we introduce a novel technique that can merge arbitrary functions through sequence alignment a bioinformatics algo- rithm for identifying regions of similarity between sequences. we combine this technique with an intelligent exploration mechanism to direct the search towards the most promising function pairs. our approach is more than 2.4x better than the state-of-the-art reducing code size by up to 25 with an overall average of 6 while introducing an average compilation-time overhead of only 15 . when aided by profiling information this optimization can be deployed without any significant impact on the performance of the generated code. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk rodrigo rocha zheng wang hugh leather performance optimizations embedded"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -3167,7 +3165,7 @@
       "talk": {
         "id": "2019-04-054",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "bof",
@@ -3207,7 +3205,7 @@
         "_speakerLower": "artem dergachev gabor horvath",
         "_abstractLower": "let's discuss the present and future of the clang static analyzer! we'll start with a brief overview of analyzer features the community has added over the last year. we'll then dive into a discussion of possible focus areas for the next year, including potential deeper integration with clang-tidy.",
         "_tagsLower": "clang static analysis clang-tools-extra",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -3239,11 +3237,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3319,11 +3316,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "clang static analyzer bof lets discuss the present and future of the clang static analyzer well start with a brief overview of analyzer features the community has added over the last year. well then dive into a discussion of possible focus areas for the next year including potential deeper integration with clang-tidy. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 bof artem dergachev gabor horvath clang static analysis clang-tools-extra"
+        "_searchBlob": "clang static analyzer bof lets discuss the present and future of the clang static analyzer well start with a brief overview of analyzer features the community has added over the last year. well then dive into a discussion of possible focus areas for the next year including potential deeper integration with clang-tidy. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 bof artem dergachev gabor horvath clang static analysis clang-tools-extra"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -4433,7 +4430,7 @@
       "talk": {
         "id": "2018-04-020",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "technical-talk",
@@ -4465,7 +4462,7 @@
         "_speakerLower": "e. astigeevich",
         "_abstractLower": "the arm compiler 6 is a product based on clang/llvm projects. basing your product on clang/llvm sources brings challenges in organizing the product development lifecycle. you need to decide how to synchronize downstream and upstream repositories. the decision impacts ways of testing and benchmarking. the arm compiler team does development of the compiler on the upstream trunk keeping a downstream repository synchronized with the upstream trunk. upstream public build bots guard us from commits which can break our builds. we also have infrastructure to do additional testing. there are a few public performance tracking bots which run the llvm test-suite benchmarks. although the llvm test-suite covers many use cases, products often have to care about a wider variety of use cases. so you will have to track quality of code generation on other programs too. in this presentation we will explain how we protect the arm compiler product from code generation quality issues that the public bots don’t catch. we will cover topics like continuous regression tracking, process of fixing regressions, a benchmarking infrastructure. we will show that the most important part of protecting the quality of a llvm-based product is to be closely involved into development of the upstream llvm which means detect issues in the upstream llvm as early as possible and report them as soon as possible. we hope our experience will enable both better llvm-derived products to be made and for product teams of other companies to contribute to llvm itself more effectively.",
         "_tagsLower": "performance llvm clang code generation testing infrastructure",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -4500,11 +4497,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -4776,11 +4772,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "organising benchmarking llvm-based compiler arm experience the arm compiler 6 is a product based on clang llvm projects. basing your product on clang llvm sources brings challenges in organizing the product development lifecycle. you need to decide how to synchronize downstream and upstream repositories. the decision impacts ways of testing and benchmarking. the arm compiler team does development of the compiler on the upstream trunk keeping a downstream repository synchronized with the upstream trunk. upstream public build bots guard us from commits which can break our builds. we also have infrastructure to do additional testing. there are a few public performance tracking bots which run the llvm test-suite benchmarks. although the llvm test-suite covers many use cases products often have to care about a wider variety of use cases. so you will have to track quality of code generation on other programs too. in this presentation we will explain how we protect the arm compiler product from code generation quality issues that the public bots dont catch. we will cover topics like continuous regression tracking process of fixing regressions a benchmarking infrastructure. we will show that the most important part of protecting the quality of a llvm-based product is to be closely involved into development of the upstream llvm which means detect issues in the upstream llvm as early as possible and report them as soon as possible. we hope our experience will enable both better llvm-derived products to be made and for product teams of other companies to contribute to llvm itself more effectively. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk e. astigeevich performance llvm clang code generation testing infrastructure"
+        "_searchBlob": "organising benchmarking llvm-based compiler arm experience the arm compiler 6 is a product based on clang llvm projects. basing your product on clang llvm sources brings challenges in organizing the product development lifecycle. you need to decide how to synchronize downstream and upstream repositories. the decision impacts ways of testing and benchmarking. the arm compiler team does development of the compiler on the upstream trunk keeping a downstream repository synchronized with the upstream trunk. upstream public build bots guard us from commits which can break our builds. we also have infrastructure to do additional testing. there are a few public performance tracking bots which run the llvm test-suite benchmarks. although the llvm test-suite covers many use cases products often have to care about a wider variety of use cases. so you will have to track quality of code generation on other programs too. in this presentation we will explain how we protect the arm compiler product from code generation quality issues that the public bots dont catch. we will cover topics like continuous regression tracking process of fixing regressions a benchmarking infrastructure. we will show that the most important part of protecting the quality of a llvm-based product is to be closely involved into development of the upstream llvm which means detect issues in the upstream llvm as early as possible and report them as soon as possible. we hope our experience will enable both better llvm-derived products to be made and for product teams of other companies to contribute to llvm itself more effectively. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk e. astigeevich performance llvm clang code generation testing infrastructure"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -4791,7 +4787,7 @@
       "talk": {
         "id": "2018-04-042",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "poster",
@@ -4838,7 +4834,7 @@
         "_speakerLower": "g. horváth r. kovács p. szécsi",
         "_abstractLower": "the proposition of a new patch to the clang static analyzer engine includes information about the possible effects of the change. this normally consists of analysis results on a few software projects before and after applying the patch. this common practice has a few shortcomings. first, patch authors often have a bias towards a set of projects they are familiar with. indeed, finding a set of test projects that truly show the effects of the patch can be a challenging task. not to mention that a reviewer's request to extend the number of test projects might result in a significant amount of extra work for the patch author. ideally, the reproduction and the extension of an analysis should be painless, and it should be possible to display results in an easily shareable format. we present a set of scripts for clang-tidy and the clang static analyzer to address the above described issues in the hope that they will be beneficial not only to analyzer patch authors, but to a wide range of developers within the community.",
         "_tagsLower": "clang static analysis clang-tools-extra",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -4876,11 +4872,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -5075,11 +5070,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "effortless differential analysis of clang static analyzer changes the proposition of a new patch to the clang static analyzer engine includes information about the possible effects of the change. this normally consists of analysis results on a few software projects before and after applying the patch. this common practice has a few shortcomings. first patch authors often have a bias towards a set of projects they are familiar with. indeed finding a set of test projects that truly show the effects of the patch can be a challenging task. not to mention that a reviewers request to extend the number of test projects might result in a significant amount of extra work for the patch author. ideally the reproduction and the extension of an analysis should be painless and it should be possible to display results in an easily shareable format. we present a set of scripts for clang-tidy and the clang static analyzer to address the above described issues in the hope that they will be beneficial not only to analyzer patch authors but to a wide range of developers within the community. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 poster g. horvath r. kovacs p. szecsi clang static analysis clang-tools-extra"
+        "_searchBlob": "effortless differential analysis of clang static analyzer changes the proposition of a new patch to the clang static analyzer engine includes information about the possible effects of the change. this normally consists of analysis results on a few software projects before and after applying the patch. this common practice has a few shortcomings. first patch authors often have a bias towards a set of projects they are familiar with. indeed finding a set of test projects that truly show the effects of the patch can be a challenging task. not to mention that a reviewers request to extend the number of test projects might result in a significant amount of extra work for the patch author. ideally the reproduction and the extension of an analysis should be painless and it should be possible to display results in an easily shareable format. we present a set of scripts for clang-tidy and the clang static analyzer to address the above described issues in the hope that they will be beneficial not only to analyzer patch authors but to a wide range of developers within the community. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 poster g. horvath r. kovacs p. szecsi clang static analysis clang-tools-extra"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -5462,7 +5457,7 @@
       "talk": {
         "id": "2017-03-031",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "lightning-talk",
@@ -5496,7 +5491,7 @@
         "_speakerLower": "stephan bergmann",
         "_abstractLower": "libreoffice (with its staroffice/openoffice.org ancestry) is one of the behemoths in the open source c++ project zoo. on the one hand, we are always looking for tools that help us in keeping its code in shape and maintainable. on the other hand, the sheer size of the code base and its diversity are a welcome test bed for any tool to run against. whatever clever static analysis feat you come up with, you'll be sure to find at least one hit in the libreoffice code base.this talk gives a short overview of how we use clang-based tooling in libreoffice development.",
         "_tagsLower": "clang community building static analysis llvm",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -5527,11 +5522,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -5660,11 +5654,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "libreoffice loves llvm libreoffice with its staroffice openoffice.org ancestry is one of the behemoths in the open source c++ project zoo. on the one hand we are always looking for tools that help us in keeping its code in shape and maintainable. on the other hand the sheer size of the code base and its diversity are a welcome test bed for any tool to run against. whatever clever static analysis feat you come up with youll be sure to find at least one hit in the libreoffice code base.this talk gives a short overview of how we use clang-based tooling in libreoffice development. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk stephan bergmann clang community building static analysis llvm"
+        "_searchBlob": "libreoffice loves llvm libreoffice with its staroffice openoffice.org ancestry is one of the behemoths in the open source c++ project zoo. on the one hand we are always looking for tools that help us in keeping its code in shape and maintainable. on the other hand the sheer size of the code base and its diversity are a welcome test bed for any tool to run against. whatever clever static analysis feat you come up with youll be sure to find at least one hit in the libreoffice code base.this talk gives a short overview of how we use clang-based tooling in libreoffice development. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk stephan bergmann clang community building static analysis llvm"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-020": {
@@ -2994,7 +2994,7 @@
       "talk": {
         "id": "2019-04-031",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "student-talk",
@@ -3031,7 +3031,7 @@
         "_speakerLower": "fabian wahlster nicolai hähnle",
         "_abstractLower": "compiling programs for an spmd execution model, e.g. for gpus or for whole program vectorization on cpus, requires a transform from the thread-level input program into a vectorized wave-level program in which the values of the original threads are stored in corresponding lanes of vectors. the main challenge of this transform is handling divergent control flow, where threads take different paths through the original cfg. a common approach, which is currently taken by the amdgpu backend in llvm, is to first structurize the program as a simplification for subsequent steps. however, structurization is overly conservative. it can be avoided when control flow is uniform, i.e. not divergent. even where control flow is divergent, structurization is often unnecessary. moreover, llvm's structurizecfg pass relies on region analysis, which limits the extent to which it can be evolved. we propose a new approach to spmd vectorization based on saying that a cfg is reconverging if for every divergent branch, one of the successors is a post-dominator. this property is weaker than structuredness, and we show that it can be achieved while preserving uniform branches and inserting fewer new basic blocks than structurization requires. it is also sufficient for code generation, because it guarantees that threads which \"leave\" a wave at divergent branches will be able to rejoin it later.",
         "_tagsLower": "llvm autovectorization code generation gpu",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -3069,11 +3069,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3311,11 +3310,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "implementing spmd control flow in llvm using reconverging cfgs compiling programs for an spmd execution model e.g. for gpus or for whole program vectorization on cpus requires a transform from the thread-level input program into a vectorized wave-level program in which the values of the original threads are stored in corresponding lanes of vectors. the main challenge of this transform is handling divergent control flow where threads take different paths through the original cfg. a common approach which is currently taken by the amdgpu backend in llvm is to first structurize the program as a simplification for subsequent steps. however structurization is overly conservative. it can be avoided when control flow is uniform i.e. not divergent. even where control flow is divergent structurization is often unnecessary. moreover llvms structurizecfg pass relies on region analysis which limits the extent to which it can be evolved. we propose a new approach to spmd vectorization based on saying that a cfg is reconverging if for every divergent branch one of the successors is a post-dominator. this property is weaker than structuredness and we show that it can be achieved while preserving uniform branches and inserting fewer new basic blocks than structurization requires. it is also sufficient for code generation because it guarantees that threads which leave a wave at divergent branches will be able to rejoin it later. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk fabian wahlster nicolai hahnle llvm autovectorization code generation gpu"
+        "_searchBlob": "implementing spmd control flow in llvm using reconverging cfgs compiling programs for an spmd execution model e.g. for gpus or for whole program vectorization on cpus requires a transform from the thread-level input program into a vectorized wave-level program in which the values of the original threads are stored in corresponding lanes of vectors. the main challenge of this transform is handling divergent control flow where threads take different paths through the original cfg. a common approach which is currently taken by the amdgpu backend in llvm is to first structurize the program as a simplification for subsequent steps. however structurization is overly conservative. it can be avoided when control flow is uniform i.e. not divergent. even where control flow is divergent structurization is often unnecessary. moreover llvms structurizecfg pass relies on region analysis which limits the extent to which it can be evolved. we propose a new approach to spmd vectorization based on saying that a cfg is reconverging if for every divergent branch one of the successors is a post-dominator. this property is weaker than structuredness and we show that it can be achieved while preserving uniform branches and inserting fewer new basic blocks than structurization requires. it is also sufficient for code generation because it guarantees that threads which leave a wave at divergent branches will be able to rejoin it later. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk fabian wahlster nicolai hahnle llvm autovectorization code generation gpu"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -3326,7 +3325,7 @@
       "talk": {
         "id": "2019-04-053",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "bof",
@@ -3356,7 +3355,7 @@
         "_speakerLower": "stephen kelly",
         "_abstractLower": "the goal of this bof is to create the basis for a new page of documentation enumerating the stability guarantees of interfaces exposed from llvm products. there are some interfaces which are known to make no stability guarantees, such as the clang c++ api, others which make strict api guarantees, such as the libclang c api, and still others, such as the llvm ir api which is somewhere in between. only the latter appears in the llvm developer policy. mostly the rest of the interface stability guarantees are tribal knowledge. a centralized location in the documentation for this documentation would present guidelines for developers to follow when changing various parts of llvm code, and inform consumers what they can expect and rely upon when using interfaces. this includes code interfaces and command line interfaces.",
         "_tagsLower": "llvm clang ir",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -3386,11 +3385,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3551,11 +3549,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "llvm interface stability guarantees bof the goal of this bof is to create the basis for a new page of documentation enumerating the stability guarantees of interfaces exposed from llvm products. there are some interfaces which are known to make no stability guarantees such as the clang c++ api others which make strict api guarantees such as the libclang c api and still others such as the llvm ir api which is somewhere in between. only the latter appears in the llvm developer policy. mostly the rest of the interface stability guarantees are tribal knowledge. a centralized location in the documentation for this documentation would present guidelines for developers to follow when changing various parts of llvm code and inform consumers what they can expect and rely upon when using interfaces. this includes code interfaces and command line interfaces. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 bof stephen kelly llvm clang ir"
+        "_searchBlob": "llvm interface stability guarantees bof the goal of this bof is to create the basis for a new page of documentation enumerating the stability guarantees of interfaces exposed from llvm products. there are some interfaces which are known to make no stability guarantees such as the clang c++ api others which make strict api guarantees such as the libclang c api and still others such as the llvm ir api which is somewhere in between. only the latter appears in the llvm developer policy. mostly the rest of the interface stability guarantees are tribal knowledge. a centralized location in the documentation for this documentation would present guidelines for developers to follow when changing various parts of llvm code and inform consumers what they can expect and rely upon when using interfaces. this includes code interfaces and command line interfaces. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 bof stephen kelly llvm clang ir"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -3566,7 +3564,7 @@
       "talk": {
         "id": "2019-04-075",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -3598,7 +3596,7 @@
         "_speakerLower": "william s. moses",
         "_abstractLower": "as computation moves towards parallel programming models, writing efficient parallel programs becomes paramount. as a result, there have been several efforts (tapir, hpvm, among others) to augment serial compilers such as llvm to have a first-class representation of parallelism. such representations theoretically permit the compiler to both analyze and optimize parallel programs. a major difference between serial and parallel programs is that in many parallel runtimes, one cannot make any assumptions about the ordering of various logical tasks. this nondeterminism creates an opportunity for the compiler. since any ordering is valid, the compiler can also reorder tasks if it believes it beneficial. this talk will discuss how the compiler can take advantage of this nondeterminacy through a number of example optimizations, taking a look at their theoretical implications as well as how they perform when implemented atop the tapir extension to llvm.",
         "_tagsLower": "security llvm optimizations",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -3632,11 +3630,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3803,11 +3800,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "optimizing nondeterminacy exploiting race conditions in parallel programs as computation moves towards parallel programming models writing efficient parallel programs becomes paramount. as a result there have been several efforts tapir hpvm among others to augment serial compilers such as llvm to have a first-class representation of parallelism. such representations theoretically permit the compiler to both analyze and optimize parallel programs. a major difference between serial and parallel programs is that in many parallel runtimes one cannot make any assumptions about the ordering of various logical tasks. this nondeterminism creates an opportunity for the compiler. since any ordering is valid the compiler can also reorder tasks if it believes it beneficial. this talk will discuss how the compiler can take advantage of this nondeterminacy through a number of example optimizations taking a look at their theoretical implications as well as how they perform when implemented atop the tapir extension to llvm. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster william s. moses security llvm optimizations"
+        "_searchBlob": "optimizing nondeterminacy exploiting race conditions in parallel programs as computation moves towards parallel programming models writing efficient parallel programs becomes paramount. as a result there have been several efforts tapir hpvm among others to augment serial compilers such as llvm to have a first-class representation of parallelism. such representations theoretically permit the compiler to both analyze and optimize parallel programs. a major difference between serial and parallel programs is that in many parallel runtimes one cannot make any assumptions about the ordering of various logical tasks. this nondeterminism creates an opportunity for the compiler. since any ordering is valid the compiler can also reorder tasks if it believes it beneficial. this talk will discuss how the compiler can take advantage of this nondeterminacy through a number of example optimizations taking a look at their theoretical implications as well as how they perform when implemented atop the tapir extension to llvm. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster william s. moses security llvm optimizations"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -4487,7 +4484,7 @@
       "talk": {
         "id": "2018-04-041",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "poster",
@@ -4541,7 +4538,7 @@
         "_speakerLower": "g. horvath p. szecsi z. gera d. krupp",
         "_abstractLower": "the clang static analyzer cannot reason about errors that span across multiple translation units. we implemented cross translation unit analysis and presented the performance properties of our implementation in the last year's eurollvm conference. in the ctu analysis mode we usually find 1.5-2 times more potential bugs. it is of paramount importance to study what are the quality (true/false positive rate, path length, ...) of these reports. this year we present a poster about the advancements since last year and a qualitative analysis of the reports on popular open source projects using ctu.",
         "_tagsLower": "clang static analysis performance",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -4586,11 +4583,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -4712,11 +4708,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "cross translation unit analysis in clang static analyzer qualitative evaluation on c c++ projects the clang static analyzer cannot reason about errors that span across multiple translation units. we implemented cross translation unit analysis and presented the performance properties of our implementation in the last years eurollvm conference. in the ctu analysis mode we usually find 1.5-2 times more potential bugs. it is of paramount importance to study what are the quality true false positive rate path length ... of these reports. this year we present a poster about the advancements since last year and a qualitative analysis of the reports on popular open source projects using ctu. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 poster g. horvath p. szecsi z. gera d. krupp clang static analysis performance"
+        "_searchBlob": "cross translation unit analysis in clang static analyzer qualitative evaluation on c c++ projects the clang static analyzer cannot reason about errors that span across multiple translation units. we implemented cross translation unit analysis and presented the performance properties of our implementation in the last years eurollvm conference. in the ctu analysis mode we usually find 1.5-2 times more potential bugs. it is of paramount importance to study what are the quality true false positive rate path length ... of these reports. this year we present a poster about the advancements since last year and a qualitative analysis of the reports on popular open source projects using ctu. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 poster g. horvath p. szecsi z. gera d. krupp clang static analysis performance"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -5318,7 +5314,7 @@
       "talk": {
         "id": "2017-03-030",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "lightning-talk",
@@ -5351,7 +5347,7 @@
         "_speakerLower": "sean eveson",
         "_abstractLower": "i present three modified api checkers, that use external metadata, to warn on improper function calls. we aim to upstream these checkers to replace existing hard-coded data and duplicated code. the goal is to allow anyone to check any api, using the static analyzer as a black box.",
         "_tagsLower": "clang static analysis",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -5384,11 +5380,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -5464,11 +5459,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "generalized api checkers for the clang static analyzer i present three modified api checkers that use external metadata to warn on improper function calls. we aim to upstream these checkers to replace existing hard-coded data and duplicated code. the goal is to allow anyone to check any api using the static analyzer as a black box. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk sean eveson clang static analysis"
+        "_searchBlob": "generalized api checkers for the clang static analyzer i present three modified api checkers that use external metadata to warn on improper function calls. we aim to upstream these checkers to replace existing hard-coded data and duplicated code. the goal is to allow anyone to check any api using the static analyzer as a black box. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk sean eveson clang static analysis"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,

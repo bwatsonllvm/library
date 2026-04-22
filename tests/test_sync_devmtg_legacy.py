@@ -181,7 +181,7 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
         existing_payload = {
             "meeting": {
                 "slug": "2012-04-12",
-                "name": "2012 European LLVM Developers' Meeting",
+                "name": "2012 EuroLLVM Developers' Meeting",
                 "date": "April 12, 2012",
                 "location": "London, UK",
                 "canceled": False,
@@ -191,7 +191,7 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
                 {
                     "id": "2012-04-12-001",
                     "meeting": "2012-04-12",
-                    "meetingName": "2012 European LLVM Developers' Meeting",
+                    "meetingName": "2012 EuroLLVM Developers' Meeting",
                     "meetingLocation": "London, UK",
                     "meetingDate": "April 12, 2012",
                     "category": "technical-talk",
@@ -207,7 +207,7 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
                 {
                     "id": "2012-04-12-003",
                     "meeting": "2012-04-12",
-                    "meetingName": "2012 European LLVM Developers' Meeting",
+                    "meetingName": "2012 EuroLLVM Developers' Meeting",
                     "meetingLocation": "London, UK",
                     "meetingDate": "April 12, 2012",
                     "category": "technical-talk",
@@ -223,7 +223,7 @@ class SyncDevMtgLegacyTests(unittest.TestCase):
                 {
                     "id": "2012-04-12-004",
                     "meeting": "2012-04-12",
-                    "meetingName": "2012 European LLVM Developers' Meeting",
+                    "meetingName": "2012 EuroLLVM Developers' Meeting",
                     "meetingLocation": "London, UK",
                     "meetingDate": "April 12, 2012",
                     "category": "technical-talk",

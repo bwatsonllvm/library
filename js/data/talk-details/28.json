@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-071": {
@@ -1173,7 +1173,7 @@
       "talk": {
         "id": "2019-04-060",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -1205,7 +1205,7 @@
         "_speakerLower": "li-an her",
         "_abstractLower": "modern computation of neural network, signal processing of gps and wifi, image processing, etc, highly depends on enormous linear algebra operations. algebraic simplification improves performance for more and more complicated computation such as convolutions for cnn and sobel operator, inner products for discrete cosine transform and fft of signal processing, etc. llvm ir provides several passes of optimization for algebraic simplification, constant folding, copy propagation, etc. one is global value numbering (gvn). these passes work fine except encountering branches and non-local cases. one case is partial redundancy elimination (pre). at least two instructions are redundant or congruent, but they are in different blocks. even though elimination of one redundant won't lead to logic error, compiler lacks such rule and ignores such elimination. thus, algebraic simplification fails to optimize code when pre occurs. gvn provides pre mechanism with lazy code motion, but it cannot provide more accurate congruence information due to loops and φ-nodes. new gvn handles such case and provides more delicate congruence information, but it lacks mechanism for and ignores pre. in this paper, we propose splendid gvn which inserts pre mechanism for new gvn on llvm 7.0.0. when pre happens, our pass checks safety and applies hoist code motion to eliminate partial redundancy. original gvn applies less accurate algorithm and can only perform lazy code motion, which takes risk for increasing code size. original hoist gvn cannot handle pre and utilizes gvn instead of new gvn, which cannot provide more delicate information due to loops and may miss opportunity for further elimination. experiments show that our splendid gvn performs hoist code motion for pre on 2 qualified pre programs from llvm test directory for gvn (available in source code). splendid gvn reduces total code size with -18.37% and -7% compared to original 2 programs and new gvn results.",
         "_tagsLower": "optimizations llvm ir performance",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -1239,11 +1239,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -1571,11 +1570,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "splendid gvn partial redundancy elimination for algebraic simplification modern computation of neural network signal processing of gps and wifi image processing etc highly depends on enormous linear algebra operations. algebraic simplification improves performance for more and more complicated computation such as convolutions for cnn and sobel operator inner products for discrete cosine transform and fft of signal processing etc. llvm ir provides several passes of optimization for algebraic simplification constant folding copy propagation etc. one is global value numbering gvn . these passes work fine except encountering branches and non-local cases. one case is partial redundancy elimination pre . at least two instructions are redundant or congruent but they are in different blocks. even though elimination of one redundant wont lead to logic error compiler lacks such rule and ignores such elimination. thus algebraic simplification fails to optimize code when pre occurs. gvn provides pre mechanism with lazy code motion but it cannot provide more accurate congruence information due to loops and -nodes. new gvn handles such case and provides more delicate congruence information but it lacks mechanism for and ignores pre. in this paper we propose splendid gvn which inserts pre mechanism for new gvn on llvm 7.0.0. when pre happens our pass checks safety and applies hoist code motion to eliminate partial redundancy. original gvn applies less accurate algorithm and can only perform lazy code motion which takes risk for increasing code size. original hoist gvn cannot handle pre and utilizes gvn instead of new gvn which cannot provide more delicate information due to loops and may miss opportunity for further elimination. experiments show that our splendid gvn performs hoist code motion for pre on 2 qualified pre programs from llvm test directory for gvn available in source code . splendid gvn reduces total code size with -18.37 and -7 compared to original 2 programs and new gvn results. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster li-an her optimizations llvm ir performance"
+        "_searchBlob": "splendid gvn partial redundancy elimination for algebraic simplification modern computation of neural network signal processing of gps and wifi image processing etc highly depends on enormous linear algebra operations. algebraic simplification improves performance for more and more complicated computation such as convolutions for cnn and sobel operator inner products for discrete cosine transform and fft of signal processing etc. llvm ir provides several passes of optimization for algebraic simplification constant folding copy propagation etc. one is global value numbering gvn . these passes work fine except encountering branches and non-local cases. one case is partial redundancy elimination pre . at least two instructions are redundant or congruent but they are in different blocks. even though elimination of one redundant wont lead to logic error compiler lacks such rule and ignores such elimination. thus algebraic simplification fails to optimize code when pre occurs. gvn provides pre mechanism with lazy code motion but it cannot provide more accurate congruence information due to loops and -nodes. new gvn handles such case and provides more delicate congruence information but it lacks mechanism for and ignores pre. in this paper we propose splendid gvn which inserts pre mechanism for new gvn on llvm 7.0.0. when pre happens our pass checks safety and applies hoist code motion to eliminate partial redundancy. original gvn applies less accurate algorithm and can only perform lazy code motion which takes risk for increasing code size. original hoist gvn cannot handle pre and utilizes gvn instead of new gvn which cannot provide more delicate information due to loops and may miss opportunity for further elimination. experiments show that our splendid gvn performs hoist code motion for pre on 2 qualified pre programs from llvm test directory for gvn available in source code . splendid gvn reduces total code size with -18.37 and -7 compared to original 2 programs and new gvn results. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster li-an her optimizations llvm ir performance"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,

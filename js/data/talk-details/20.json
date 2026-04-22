@@ -1,12 +1,12 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2022-05-009": {
       "talk": {
         "id": "2022-05-009",
         "meeting": "2022-05",
-        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingName": "2022 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "May 10-11, 2022",
         "category": "technical-talk",
@@ -75,7 +75,7 @@
         "_speakerLower": "cyril six",
         "_abstractLower": "kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend, including the challenges we faced, and a comparison between gcc and llvm generated code on a few examples.",
         "_tagsLower": "backend llvm",
-        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_meetingLower": "2022 eurollvm developers' meeting london, uk may 10-11, 2022",
         "_year": "2022",
         "_searchDoc": {
           "fields": {
@@ -109,11 +109,10 @@
               ]
             },
             "meeting": {
-              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "text": "2022 eurollvm developers meeting london uk may 10-11 2022",
               "words": [
                 "2022",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -199,11 +198,11 @@
           },
           "year": 2022
         },
-        "_searchBlob": "developing an llvm backend for the kv3 kalray vliw core kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend including the challenges we faced and a comparison between gcc and llvm generated code on a few examples. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk cyril six backend llvm"
+        "_searchBlob": "developing an llvm backend for the kv3 kalray vliw core kalray is a semiconductor company. we design and produce a manycore architecture with 6-issue vliw cores. we started writing a backend for our vliw 3 years ago. this talk will describe our architecture and relate our experience in the development of its llvm backend including the challenges we faced and a comparison between gcc and llvm generated code on a few examples. 2022 eurollvm developers meeting london uk may 10-11 2022 2022-05 technical-talk cyril six backend llvm"
       },
       "meeting": {
         "slug": "2022-05",
-        "name": "2022 European LLVM Developers' Meeting",
+        "name": "2022 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2022",
         "location": "London, UK",
         "canceled": false,
@@ -950,7 +949,7 @@
       "talk": {
         "id": "2020-04-008",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "technical-talk",
@@ -1001,7 +1000,7 @@
         "_speakerLower": "ettore tiotto wai hung (whitney) tsang bardia mahjour kit barton",
         "_abstractLower": "this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph, induced from the data dependence graph (ddg), to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements, memory streams, code size, etc., to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model, making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application, and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are: how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass",
         "_tagsLower": "llvm optimizations infrastructure",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -1042,11 +1041,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -1250,11 +1248,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "loop fission distributing loops based on conflicting heuristics this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph induced from the data dependence graph ddg to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements memory streams code size etc. to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk ettore tiotto wai hung whitney tsang bardia mahjour kit barton llvm optimizations infrastructure"
+        "_searchBlob": "loop fission distributing loops based on conflicting heuristics this talk is about a new optimization pass implemented in llvm opt - loopfissionpass. loop fission aims at distributing independent statements in a loop into separate loops. in our implementation we use an interference graph induced from the data dependence graph ddg to balance potentially conflicting heuristics and derive an optimal distribution plan. we consider data reuse between statements memory streams code size etc. to decide how to distribute a loop nest. additional heuristics can be easily incorporated into the model making this approach a flexible alternative to the existing loopdistributionpass in llvm. we will share our experience on running loop fission on a real-world application and we will provide results on industry benchmarks. this talk targets developers who have an interest in loop optimizations and want to learn about how to use the ddg infrastructure now available in llvm to drive a transformation pass. the takeaways for this talk are how to balance conflicting heuristics using an interference graph how to use the data dependence graph the key differences between the existing loopdistribution pass and our new loopfission pass 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk ettore tiotto wai hung whitney tsang bardia mahjour kit barton llvm optimizations infrastructure"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
@@ -1265,7 +1263,7 @@
       "talk": {
         "id": "2012-04-12-012",
         "meeting": "2012-04-12",
-        "meetingName": "2012 European LLVM Developers' Meeting",
+        "meetingName": "2012 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 12, 2012",
         "category": "technical-talk",
@@ -1306,7 +1304,7 @@
         "_speakerLower": "ralf karrenberg sebastian hack",
         "_abstractLower": "",
         "_tagsLower": "gpu opencl performance",
-        "_meetingLower": "2012 european llvm developers' meeting london, uk april 12, 2012",
+        "_meetingLower": "2012 eurollvm developers' meeting london, uk april 12, 2012",
         "_year": "2012",
         "_searchDoc": {
           "fields": {
@@ -1339,11 +1337,10 @@
               ]
             },
             "meeting": {
-              "text": "2012 european llvm developers meeting london uk april 12 2012",
+              "text": "2012 eurollvm developers meeting london uk april 12 2012",
               "words": [
                 "2012",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -1372,11 +1369,11 @@
           },
           "year": 2012
         },
-        "_searchBlob": "improving performance of opencl on cpus 2012 european llvm developers meeting london uk april 12 2012 2012-04-12 technical-talk ralf karrenberg sebastian hack gpu opencl performance"
+        "_searchBlob": "improving performance of opencl on cpus 2012 eurollvm developers meeting london uk april 12 2012 2012-04-12 technical-talk ralf karrenberg sebastian hack gpu opencl performance"
       },
       "meeting": {
         "slug": "2012-04-12",
-        "name": "2012 European LLVM Developers' Meeting",
+        "name": "2012 EuroLLVM Developers' Meeting",
         "date": "April 12, 2012",
         "location": "London, UK",
         "canceled": false,
@@ -1387,7 +1384,7 @@
       "talk": {
         "id": "2011-09-16-003",
         "meeting": "2011-09-16",
-        "meetingName": "2011 European LLVM Developers' Meeting",
+        "meetingName": "2011 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "September 16, 2011",
         "category": "technical-talk",
@@ -1417,7 +1414,7 @@
         "_speakerLower": "dan bailey",
         "_abstractLower": "",
         "_tagsLower": "",
-        "_meetingLower": "2011 european llvm developers' meeting london, uk september 16, 2011",
+        "_meetingLower": "2011 eurollvm developers' meeting london, uk september 16, 2011",
         "_year": "2011",
         "_searchDoc": {
           "fields": {
@@ -1446,11 +1443,10 @@
               "words": []
             },
             "meeting": {
-              "text": "2011 european llvm developers meeting london uk september 16 2011",
+              "text": "2011 eurollvm developers meeting london uk september 16 2011",
               "words": [
                 "2011",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -1479,11 +1475,11 @@
           },
           "year": 2011
         },
-        "_searchBlob": "jet a language and heterogeneous compiler for fluid simulations 2011 european llvm developers meeting london uk september 16 2011 2011-09-16 technical-talk dan bailey"
+        "_searchBlob": "jet a language and heterogeneous compiler for fluid simulations 2011 eurollvm developers meeting london uk september 16 2011 2011-09-16 technical-talk dan bailey"
       },
       "meeting": {
         "slug": "2011-09-16",
-        "name": "2011 European LLVM Developers' Meeting",
+        "name": "2011 EuroLLVM Developers' Meeting",
         "date": "September 16, 2011",
         "location": "London, UK",
         "canceled": false,

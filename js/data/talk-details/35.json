@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-014": {
@@ -1076,7 +1076,7 @@
       "talk": {
         "id": "2025-04-002",
         "meeting": "2025-04",
-        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingName": "2025 EuroLLVM Developers' Meeting",
         "meetingLocation": "Berlin, Germany",
         "meetingDate": "April 14-16, 2025",
         "category": "keynote",
@@ -1129,7 +1129,7 @@
         "_speakerLower": "alex zinenko",
         "_abstractLower": "mlir is now an inherent part of the llvm compiler infrastructure, but what connects the two representations? in theory, the conceptual similarity of the core representation. in practice, a highly important, yet often overlooked, module translation subsystem. this talk will present the multi-dialect translation mechanism available in mlir to target llvm ir, explain how to use it for a custom dialect, and argue why it may not always be the best idea. it will also discuss interoperability between mlir and llvm ir functions, including abi for built-in types and calling conventions.",
         "_tagsLower": "ir mlir llvm infrastructure",
-        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_meetingLower": "2025 eurollvm developers' meeting berlin, germany april 14-16, 2025",
         "_year": "2025",
         "_searchDoc": {
           "fields": {
@@ -1165,11 +1165,10 @@
               ]
             },
             "meeting": {
-              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "text": "2025 eurollvm developers meeting berlin germany april 14-16 2025",
               "words": [
                 "2025",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "berlin",
@@ -1288,11 +1287,11 @@
           },
           "year": 2025
         },
-        "_searchBlob": "deep dive into the mlir to llvm ir translation mechanism mlir is now an inherent part of the llvm compiler infrastructure but what connects the two representations in theory the conceptual similarity of the core representation. in practice a highly important yet often overlooked module translation subsystem. this talk will present the multi-dialect translation mechanism available in mlir to target llvm ir explain how to use it for a custom dialect and argue why it may not always be the best idea. it will also discuss interoperability between mlir and llvm ir functions including abi for built-in types and calling conventions. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 keynote alex zinenko ir mlir llvm infrastructure"
+        "_searchBlob": "deep dive into the mlir to llvm ir translation mechanism mlir is now an inherent part of the llvm compiler infrastructure but what connects the two representations in theory the conceptual similarity of the core representation. in practice a highly important yet often overlooked module translation subsystem. this talk will present the multi-dialect translation mechanism available in mlir to target llvm ir explain how to use it for a custom dialect and argue why it may not always be the best idea. it will also discuss interoperability between mlir and llvm ir functions including abi for built-in types and calling conventions. 2025 eurollvm developers meeting berlin germany april 14-16 2025 2025-04 keynote alex zinenko ir mlir llvm infrastructure"
       },
       "meeting": {
         "slug": "2025-04",
-        "name": "2025 European LLVM Developers' Meeting",
+        "name": "2025 EuroLLVM Developers' Meeting",
         "date": "April 14-16, 2025",
         "location": "Berlin, Germany",
         "canceled": false,
@@ -1303,7 +1302,7 @@
       "talk": {
         "id": "2025-04-024",
         "meeting": "2025-04",
-        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingName": "2025 EuroLLVM Developers' Meeting",
         "meetingLocation": "Berlin, Germany",
         "meetingDate": "April 14-16, 2025",
         "category": "technical-talk",
@@ -1363,7 +1362,7 @@
         "_speakerLower": "alex borcan kyungwoo lee",
         "_abstractLower": "optimizing code size is crucial for mobile applications, and function merging is a key technique to achieve this by consolidating identical or similar functions. recent advancements in global function merging and identical code folding (icf) at link time have resulted in significant size reductions, with a 3% reduction on top of the state-of-the-art global outliner and affecting 15% of total functions. additionally, a new safe_thunks mode has been introduced to improve binary size reduction without compromising runtime safety, achieving an additional 0.45% size savings over regular safe icf. however, function merging poses challenges for symbolication, which have been addressed through enhancements such as a new dwarf attribute and extended gsym format support, laying the groundwork for more accurate symbolication in optimized binaries.",
         "_tagsLower": "debug information lld",
-        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_meetingLower": "2025 eurollvm developers' meeting berlin, germany april 14-16, 2025",
         "_year": "2025",
         "_searchDoc": {
           "fields": {
@@ -1396,11 +1395,10 @@
               ]
             },
             "meeting": {
-              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "text": "2025 eurollvm developers meeting berlin germany april 14-16 2025",
               "words": [
                 "2025",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "berlin",
@@ -1548,11 +1546,11 @@
           },
           "year": 2025
         },
-        "_searchBlob": "advances in function merging and symbolication optimizing code size is crucial for mobile applications and function merging is a key technique to achieve this by consolidating identical or similar functions. recent advancements in global function merging and identical code folding icf at link time have resulted in significant size reductions with a 3 reduction on top of the state-of-the-art global outliner and affecting 15 of total functions. additionally a new safe thunks mode has been introduced to improve binary size reduction without compromising runtime safety achieving an additional 0.45 size savings over regular safe icf. however function merging poses challenges for symbolication which have been addressed through enhancements such as a new dwarf attribute and extended gsym format support laying the groundwork for more accurate symbolication in optimized binaries. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk alex borcan kyungwoo lee debug information lld"
+        "_searchBlob": "advances in function merging and symbolication optimizing code size is crucial for mobile applications and function merging is a key technique to achieve this by consolidating identical or similar functions. recent advancements in global function merging and identical code folding icf at link time have resulted in significant size reductions with a 3 reduction on top of the state-of-the-art global outliner and affecting 15 of total functions. additionally a new safe thunks mode has been introduced to improve binary size reduction without compromising runtime safety achieving an additional 0.45 size savings over regular safe icf. however function merging poses challenges for symbolication which have been addressed through enhancements such as a new dwarf attribute and extended gsym format support laying the groundwork for more accurate symbolication in optimized binaries. 2025 eurollvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk alex borcan kyungwoo lee debug information lld"
       },
       "meeting": {
         "slug": "2025-04",
-        "name": "2025 European LLVM Developers' Meeting",
+        "name": "2025 EuroLLVM Developers' Meeting",
         "date": "April 14-16, 2025",
         "location": "Berlin, Germany",
         "canceled": false,
@@ -1563,7 +1561,7 @@
       "talk": {
         "id": "2025-04-046",
         "meeting": "2025-04",
-        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingName": "2025 EuroLLVM Developers' Meeting",
         "meetingLocation": "Berlin, Germany",
         "meetingDate": "April 14-16, 2025",
         "category": "quick-talk",
@@ -1615,7 +1613,7 @@
         "_speakerLower": "rolf morel",
         "_abstractLower": "this will be an update on the current efforts to consolidate the mlir charter via the recently formed design group. in the two months before eurollvm, we'll collect rationale, design and implementation documents, review contents and propose changes and reach a state where we'll be in a position to start making more assertive suggestions based on the community's feedback on current progress. this effort will continue upstream, in the open, but we recognize that the volume and intensity of discussions can be daunting, so we plan to present a summary of the current state and potential futures, which will lead into a round table for discussions, and follow-up forum threads to finally reach back the rest of the community.",
         "_tagsLower": "mlir",
-        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_meetingLower": "2025 eurollvm developers' meeting berlin, germany april 14-16, 2025",
         "_year": "2025",
         "_searchDoc": {
           "fields": {
@@ -1643,11 +1641,10 @@
               ]
             },
             "meeting": {
-              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "text": "2025 eurollvm developers meeting berlin germany april 14-16 2025",
               "words": [
                 "2025",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "berlin",
@@ -1792,11 +1789,11 @@
           },
           "year": 2025
         },
-        "_searchBlob": "mlir tensor compiler charter update this will be an update on the current efforts to consolidate the mlir charter via the recently formed design group. in the two months before eurollvm well collect rationale design and implementation documents review contents and propose changes and reach a state where well be in a position to start making more assertive suggestions based on the communitys feedback on current progress. this effort will continue upstream in the open but we recognize that the volume and intensity of discussions can be daunting so we plan to present a summary of the current state and potential futures which will lead into a round table for discussions and follow-up forum threads to finally reach back the rest of the community. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 quick-talk rolf morel mlir"
+        "_searchBlob": "mlir tensor compiler charter update this will be an update on the current efforts to consolidate the mlir charter via the recently formed design group. in the two months before eurollvm well collect rationale design and implementation documents review contents and propose changes and reach a state where well be in a position to start making more assertive suggestions based on the communitys feedback on current progress. this effort will continue upstream in the open but we recognize that the volume and intensity of discussions can be daunting so we plan to present a summary of the current state and potential futures which will lead into a round table for discussions and follow-up forum threads to finally reach back the rest of the community. 2025 eurollvm developers meeting berlin germany april 14-16 2025 2025-04 quick-talk rolf morel mlir"
       },
       "meeting": {
         "slug": "2025-04",
-        "name": "2025 European LLVM Developers' Meeting",
+        "name": "2025 EuroLLVM Developers' Meeting",
         "date": "April 14-16, 2025",
         "location": "Berlin, Germany",
         "canceled": false,
@@ -2553,7 +2550,7 @@
       "talk": {
         "id": "2024-04-012",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "technical-talk",
@@ -2588,7 +2585,7 @@
         "_speakerLower": "alexy pellegrini",
         "_abstractLower": "cmake now supports building c++ modules with clang. we will briefly present what c++ modules are, how to build them and integrate them in your projects, and what are the main challenges and limitations.",
         "_tagsLower": "beginner c++ clang infrastructure cmake",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -2624,11 +2621,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -2692,11 +2688,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "c++ modules build em all with cmake and clang cmake now supports building c++ modules with clang. we will briefly present what c++ modules are how to build them and integrate them in your projects and what are the main challenges and limitations. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk alexy pellegrini beginner c++ clang infrastructure cmake"
+        "_searchBlob": "c++ modules build em all with cmake and clang cmake now supports building c++ modules with clang. we will briefly present what c++ modules are how to build them and integrate them in your projects and what are the main challenges and limitations. 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk alexy pellegrini beginner c++ clang infrastructure cmake"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -2707,7 +2703,7 @@
       "talk": {
         "id": "2024-04-034",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "quick-talk",
@@ -2845,7 +2841,7 @@
         "_speakerLower": "alexey sachkov",
         "_abstractLower": "driven by intel, sycl/dpc++ compiler is an llvm-based project that implements support for the sycl language. we (intel) have made several changes to the clang-linker-wrapper tool to support sycl device code linking and wrapping. this talk provides an overview of key features we have introduced to the tool in our downstream implementation. the talk will focus on our approach of device code handling, novel mechanism for propagating various metadata from the compiler to the runtime and few other changes.",
         "_tagsLower": "clang lld llvm libsycl",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -2877,11 +2873,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -2991,11 +2986,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "enhancing clang-linker-wrapper to support sycl dpc++ driven by intel sycl dpc++ compiler is an llvm-based project that implements support for the sycl language. we intel have made several changes to the clang-linker-wrapper tool to support sycl device code linking and wrapping. this talk provides an overview of key features we have introduced to the tool in our downstream implementation. the talk will focus on our approach of device code handling novel mechanism for propagating various metadata from the compiler to the runtime and few other changes. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 quick-talk alexey sachkov clang lld llvm libsycl"
+        "_searchBlob": "enhancing clang-linker-wrapper to support sycl dpc++ driven by intel sycl dpc++ compiler is an llvm-based project that implements support for the sycl language. we intel have made several changes to the clang-linker-wrapper tool to support sycl device code linking and wrapping. this talk provides an overview of key features we have introduced to the tool in our downstream implementation. the talk will focus on our approach of device code handling novel mechanism for propagating various metadata from the compiler to the runtime and few other changes. 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 quick-talk alexey sachkov clang lld llvm libsycl"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -3006,7 +3001,7 @@
       "talk": {
         "id": "2024-04-056",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "poster",
@@ -3039,7 +3034,7 @@
         "_speakerLower": "hao-chun chang",
         "_abstractLower": "in this poster, an experimental vliw risc-v target with vector extension is presented. we summarize the process of llvm compiler implementation for this experimental target. in addition, we also enable swing modulo scheduling for our target to enhance performance with software pipelining. there are issues related to lmul issues. we incorporate lmul design in rvv into swing modulo scheduling. we will discuss the problem encountered and the approach to handle it. eventually, we show the experimental result of performance improvement.",
         "_tagsLower": "backend performance llvm risc-v",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -3075,11 +3070,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -3189,11 +3183,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "developing an llvm backend for vliw risc-v vector extension architectures in this poster an experimental vliw risc-v target with vector extension is presented. we summarize the process of llvm compiler implementation for this experimental target. in addition we also enable swing modulo scheduling for our target to enhance performance with software pipelining. there are issues related to lmul issues. we incorporate lmul design in rvv into swing modulo scheduling. we will discuss the problem encountered and the approach to handle it. eventually we show the experimental result of performance improvement. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 poster hao-chun chang backend performance llvm risc-v"
+        "_searchBlob": "developing an llvm backend for vliw risc-v vector extension architectures in this poster an experimental vliw risc-v target with vector extension is presented. we summarize the process of llvm compiler implementation for this experimental target. in addition we also enable swing modulo scheduling for our target to enhance performance with software pipelining. there are issues related to lmul issues. we incorporate lmul design in rvv into swing modulo scheduling. we will discuss the problem encountered and the approach to handle it. eventually we show the experimental result of performance improvement. 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 poster hao-chun chang backend performance llvm risc-v"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -3660,7 +3654,7 @@
       "talk": {
         "id": "2023-05-021",
         "meeting": "2023-05",
-        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
         "category": "technical-talk",
@@ -3695,7 +3689,7 @@
         "_speakerLower": "kunwar grover",
         "_abstractLower": "kunwar grover, iiit hyderabad & arjun pitchanathan, university of edinburgh a number of transformations in high-level mlir dialects like linalg, scf and affine focus on building transformations for optimizing the cache behavior of programs. while building models for the cost of computation for these transformations are easy as it is a local property, data movement on cached architectures depends on the global state and is very hard to predict. current approaches for memory models for these transformations use transformation-specific cost models, which do not compose from one transformation to another due to the global properties of data movement. we introduce mlir-meminfo, a lightweight, analytical memory model for mlir. mlir-meminfo accurately predicts the cache behavior of a program, with a particular focus on transformations, updating the cache information almost instantly for modern neural networks like bert, containing hundreds of memory accesses. with the introduction of mlir-meminfo, we aim to revolutionize transformation memory models for mlir and improve developer productivity for performance programming.",
         "_tagsLower": "ai ir mlir performance",
-        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
           "fields": {
@@ -3726,11 +3720,10 @@
               ]
             },
             "meeting": {
-              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "text": "2023 eurollvm developers meeting glasgow scotland may 10-11 2023",
               "words": [
                 "2023",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "glasgow",
@@ -3916,11 +3909,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "mlir-meminfo a memory model for mlir kunwar grover iiit hyderabad and arjun pitchanathan university of edinburgh a number of transformations in high-level mlir dialects like linalg scf and affine focus on building transformations for optimizing the cache behavior of programs. while building models for the cost of computation for these transformations are easy as it is a local property data movement on cached architectures depends on the global state and is very hard to predict. current approaches for memory models for these transformations use transformation-specific cost models which do not compose from one transformation to another due to the global properties of data movement. we introduce mlir-meminfo a lightweight analytical memory model for mlir. mlir-meminfo accurately predicts the cache behavior of a program with a particular focus on transformations updating the cache information almost instantly for modern neural networks like bert containing hundreds of memory accesses. with the introduction of mlir-meminfo we aim to revolutionize transformation memory models for mlir and improve developer productivity for performance programming. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk kunwar grover ai ir mlir performance"
+        "_searchBlob": "mlir-meminfo a memory model for mlir kunwar grover iiit hyderabad and arjun pitchanathan university of edinburgh a number of transformations in high-level mlir dialects like linalg scf and affine focus on building transformations for optimizing the cache behavior of programs. while building models for the cost of computation for these transformations are easy as it is a local property data movement on cached architectures depends on the global state and is very hard to predict. current approaches for memory models for these transformations use transformation-specific cost models which do not compose from one transformation to another due to the global properties of data movement. we introduce mlir-meminfo a lightweight analytical memory model for mlir. mlir-meminfo accurately predicts the cache behavior of a program with a particular focus on transformations updating the cache information almost instantly for modern neural networks like bert containing hundreds of memory accesses. with the introduction of mlir-meminfo we aim to revolutionize transformation memory models for mlir and improve developer productivity for performance programming. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk kunwar grover ai ir mlir performance"
       },
       "meeting": {
         "slug": "2023-05",
-        "name": "2023 European LLVM Developers' Meeting",
+        "name": "2023 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2023",
         "location": "Glasgow, Scotland",
         "canceled": false,
@@ -3931,7 +3924,7 @@
       "talk": {
         "id": "2023-05-043",
         "meeting": "2023-05",
-        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
         "category": "lightning-talk",
@@ -3966,7 +3959,7 @@
         "_speakerLower": "stephen livermore-tozer",
         "_abstractLower": "in clang, the -og flag is intended to run optimizations that will not significantly reduce the quality of the program's debug information. rather than making informed decisions about which optimizations will preserve debug info, this flag currently uses the -o1 pipeline, to run a few optimizations and hope that debug info will not be significantly affected. this is due to the lack of useful data about how well the various optimization passes in llvm preserve debug info. in this talk i explain how we at sony have attempted to solve this problem using dexter, a tool for testing debug info quality, in an automated test pipeline to empirically explore different pipeline designs to find a fast and debuggable -og pipeline.",
         "_tagsLower": "clang debug information optimizations testing llvm",
-        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
           "fields": {
@@ -4002,11 +3995,10 @@
               ]
             },
             "meeting": {
-              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "text": "2023 eurollvm developers meeting glasgow scotland may 10-11 2023",
               "words": [
                 "2023",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "glasgow",
@@ -4152,11 +4144,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "using automated tests to tune the -og pipeline in clang the -og flag is intended to run optimizations that will not significantly reduce the quality of the programs debug information. rather than making informed decisions about which optimizations will preserve debug info this flag currently uses the -o1 pipeline to run a few optimizations and hope that debug info will not be significantly affected. this is due to the lack of useful data about how well the various optimization passes in llvm preserve debug info. in this talk i explain how we at sony have attempted to solve this problem using dexter a tool for testing debug info quality in an automated test pipeline to empirically explore different pipeline designs to find a fast and debuggable -og pipeline. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk stephen livermore-tozer clang debug information optimizations testing llvm"
+        "_searchBlob": "using automated tests to tune the -og pipeline in clang the -og flag is intended to run optimizations that will not significantly reduce the quality of the programs debug information. rather than making informed decisions about which optimizations will preserve debug info this flag currently uses the -o1 pipeline to run a few optimizations and hope that debug info will not be significantly affected. this is due to the lack of useful data about how well the various optimization passes in llvm preserve debug info. in this talk i explain how we at sony have attempted to solve this problem using dexter a tool for testing debug info quality in an automated test pipeline to empirically explore different pipeline designs to find a fast and debuggable -og pipeline. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk stephen livermore-tozer clang debug information optimizations testing llvm"
       },
       "meeting": {
         "slug": "2023-05",
-        "name": "2023 European LLVM Developers' Meeting",
+        "name": "2023 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2023",
         "location": "Glasgow, Scotland",
         "canceled": false,
@@ -5251,7 +5243,7 @@
       "talk": {
         "id": "2020-04-030",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "bof",
@@ -5281,7 +5273,7 @@
         "_speakerLower": "sjoerd meijer",
         "_abstractLower": "at the 2019 us llvm developers' meeting we have presented arm's new m-profile vector extension (mve), which is a vector extension for arm's microcontrollers to accelerate execution of dsp workloads. while it is still early days for this new architecture extension and its compiler support, we are now getting experience with vectorisation for this dsp-like architecture. i.e., after adding compiler support for the new architecture features such as vectorisation, predication, and hardware-loops, which is still ongoing work, we are now also confronted with the next challenge: adoption of the technology. the main question is: will llvm's auto- vectorisation and mve code-generation good enough for dsp workloads so that people will give up writing intrinsics and even assembly, and can we thus just let the compiler do its job? since dsp workloads are usually characterised by small, tight loops where every cycle counts, any compiler translation inefficiency means resorting to hand-tuned intrinsics/assembly code, which obviously comes at the expense of portability and maintainability of these codes. for this reason, and just for software ecosystem legacy reasons, the auto-vectoriser's competition for dsp workloads is often still hand-tuned intrinsics/assembly code, but can we change that? in order to answer this question, we need to have a closer look at: what exactly are these dsp workloads? are there industry accepted benchmarks and workloads, and which dsp idioms are important to translate efficiently? how good is the auto-vectoriser performing against intrinsics, and how far off are we if there is a gap? do we see obvious areas to improve the vectoriser? besides performance, usability of the toolchain is crucial. that is, if performance goals are not met, how easy can users get insights in the compiler and auto-vectorisation decision making, and how can it influence and steer this to achieve better results?",
         "_tagsLower": "llvm autovectorization performance infrastructure",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -5313,11 +5305,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -5644,11 +5635,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "let the compiler do its job at the 2019 us llvm developers meeting we have presented arms new m-profile vector extension mve which is a vector extension for arms microcontrollers to accelerate execution of dsp workloads. while it is still early days for this new architecture extension and its compiler support we are now getting experience with vectorisation for this dsp-like architecture. i.e. after adding compiler support for the new architecture features such as vectorisation predication and hardware-loops which is still ongoing work we are now also confronted with the next challenge adoption of the technology. the main question is will llvms auto- vectorisation and mve code-generation good enough for dsp workloads so that people will give up writing intrinsics and even assembly and can we thus just let the compiler do its job since dsp workloads are usually characterised by small tight loops where every cycle counts any compiler translation inefficiency means resorting to hand-tuned intrinsics assembly code which obviously comes at the expense of portability and maintainability of these codes. for this reason and just for software ecosystem legacy reasons the auto-vectorisers competition for dsp workloads is often still hand-tuned intrinsics assembly code but can we change that in order to answer this question we need to have a closer look at what exactly are these dsp workloads are there industry accepted benchmarks and workloads and which dsp idioms are important to translate efficiently how good is the auto-vectoriser performing against intrinsics and how far off are we if there is a gap do we see obvious areas to improve the vectoriser besides performance usability of the toolchain is crucial. that is if performance goals are not met how easy can users get insights in the compiler and auto-vectorisation decision making and how can it influence and steer this to achieve better results 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 bof sjoerd meijer llvm autovectorization performance infrastructure"
+        "_searchBlob": "let the compiler do its job at the 2019 us llvm developers meeting we have presented arms new m-profile vector extension mve which is a vector extension for arms microcontrollers to accelerate execution of dsp workloads. while it is still early days for this new architecture extension and its compiler support we are now getting experience with vectorisation for this dsp-like architecture. i.e. after adding compiler support for the new architecture features such as vectorisation predication and hardware-loops which is still ongoing work we are now also confronted with the next challenge adoption of the technology. the main question is will llvms auto- vectorisation and mve code-generation good enough for dsp workloads so that people will give up writing intrinsics and even assembly and can we thus just let the compiler do its job since dsp workloads are usually characterised by small tight loops where every cycle counts any compiler translation inefficiency means resorting to hand-tuned intrinsics assembly code which obviously comes at the expense of portability and maintainability of these codes. for this reason and just for software ecosystem legacy reasons the auto-vectorisers competition for dsp workloads is often still hand-tuned intrinsics assembly code but can we change that in order to answer this question we need to have a closer look at what exactly are these dsp workloads are there industry accepted benchmarks and workloads and which dsp idioms are important to translate efficiently how good is the auto-vectoriser performing against intrinsics and how far off are we if there is a gap do we see obvious areas to improve the vectoriser besides performance usability of the toolchain is crucial. that is if performance goals are not met how easy can users get insights in the compiler and auto-vectorisation decision making and how can it influence and steer this to achieve better results 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 bof sjoerd meijer llvm autovectorization performance infrastructure"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
@@ -5659,7 +5650,7 @@
       "talk": {
         "id": "2020-04-052",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "lightning-talk",
@@ -5689,7 +5680,7 @@
         "_speakerLower": "carlos enciso",
         "_abstractLower": "complexity and source-to-dwarf mapping are common problems with llvm’s debug information. for example, see the different sections used to store several items such as strings, types, locations lists, line information, executable code, etc. in 2017 we presented diva [1] which we have successfully used to analyse several debug information issues in clang and llvm. diva used libdwarf [2] to parse dwarf debug information from elf files. we have since re-implemented and expanded upon this functionality in llvm-diva, a new tool which requires no additional dependencies outside of llvm. llvm-diva is a command line tool that reads a file (e.g. elf or pdb) containing debug information (dwarf or codeview) and produces an output that represents its logical view. the logical view is a high-level representation of the debug information composed of scopes, types, symbols and lines. llvm-diva has two modes: printing and comparison. the first prints a logical view containing attributes such as: lexical scopes, disassembly code associated with the debug line records, types, variables percentage coverage, etc. the second compares logical views to produce a report with the logical elements that are missing or added. this is a very powerful aid to find semantic differences in debug information produced by different toolchain versions, or even debug information formats [3]. the tool currently supports the elf, macos and pdb file formats and the dwarf and coff debug information formats. in this lightning talk i will show some of the above features, to illustrate how to use llvm-diva with the debug information generated by clang. we aim to propose llvm-diva for inclusion into the llvm monorepo soon. [1] https://llvm.org/devmtg/2017-03/as sets/slides/diva_debug_information_visual_analyzer.pdf [2] https://www.pre vanders.net/dwarf.html [3] https://llvm.org/pr43905",
         "_tagsLower": "llvm clang debug information infrastructure",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -5721,11 +5712,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -6029,11 +6019,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "llvm-diva debug information visual analyzer complexity and source-to-dwarf mapping are common problems with llvms debug information. for example see the different sections used to store several items such as strings types locations lists line information executable code etc. in 2017 we presented diva 1 which we have successfully used to analyse several debug information issues in clang and llvm. diva used libdwarf 2 to parse dwarf debug information from elf files. we have since re-implemented and expanded upon this functionality in llvm-diva a new tool which requires no additional dependencies outside of llvm. llvm-diva is a command line tool that reads a file e.g. elf or pdb containing debug information dwarf or codeview and produces an output that represents its logical view. the logical view is a high-level representation of the debug information composed of scopes types symbols and lines. llvm-diva has two modes printing and comparison. the first prints a logical view containing attributes such as lexical scopes disassembly code associated with the debug line records types variables percentage coverage etc. the second compares logical views to produce a report with the logical elements that are missing or added. this is a very powerful aid to find semantic differences in debug information produced by different toolchain versions or even debug information formats 3 . the tool currently supports the elf macos and pdb file formats and the dwarf and coff debug information formats. in this lightning talk i will show some of the above features to illustrate how to use llvm-diva with the debug information generated by clang. we aim to propose llvm-diva for inclusion into the llvm monorepo soon. 1 https llvm.org devmtg 2017-03 as sets slides diva debug information visual analyzer.pdf 2 https www.pre vanders.net dwarf.html 3 https llvm.org pr43905 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk carlos enciso llvm clang debug information infrastructure"
+        "_searchBlob": "llvm-diva debug information visual analyzer complexity and source-to-dwarf mapping are common problems with llvms debug information. for example see the different sections used to store several items such as strings types locations lists line information executable code etc. in 2017 we presented diva 1 which we have successfully used to analyse several debug information issues in clang and llvm. diva used libdwarf 2 to parse dwarf debug information from elf files. we have since re-implemented and expanded upon this functionality in llvm-diva a new tool which requires no additional dependencies outside of llvm. llvm-diva is a command line tool that reads a file e.g. elf or pdb containing debug information dwarf or codeview and produces an output that represents its logical view. the logical view is a high-level representation of the debug information composed of scopes types symbols and lines. llvm-diva has two modes printing and comparison. the first prints a logical view containing attributes such as lexical scopes disassembly code associated with the debug line records types variables percentage coverage etc. the second compares logical views to produce a report with the logical elements that are missing or added. this is a very powerful aid to find semantic differences in debug information produced by different toolchain versions or even debug information formats 3 . the tool currently supports the elf macos and pdb file formats and the dwarf and coff debug information formats. in this lightning talk i will show some of the above features to illustrate how to use llvm-diva with the debug information generated by clang. we aim to propose llvm-diva for inclusion into the llvm monorepo soon. 1 https llvm.org devmtg 2017-03 as sets slides diva debug information visual analyzer.pdf 2 https www.pre vanders.net dwarf.html 3 https llvm.org pr43905 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk carlos enciso llvm clang debug information infrastructure"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
@@ -6044,7 +6034,7 @@
       "talk": {
         "id": "2019-04-007",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "technical-talk",
@@ -6076,7 +6066,7 @@
         "_speakerLower": "matthias liedtke",
         "_abstractLower": "for efficient parallel execution it is necessary to write massively concurrent algorithms and to optimize memory access. in this session we show our approach of a programming model that is able to execute the same concurrent algorithm efficiently on gpus and cpus: similar to openmp it allows the programmer to describe concurrency and memory access declaratively but hides complexity like memory transfers between the cpu and the gpu. in comparison to openmp our model provides a higher level of expressiveness which enables us to reach a performance comparable to opencl/cuda.",
         "_tagsLower": "gpu openmp performance cuda opencl",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -6114,11 +6104,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -6236,11 +6225,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "handling massive concurrency development of a programming model for gpu and cpu for efficient parallel execution it is necessary to write massively concurrent algorithms and to optimize memory access. in this session we show our approach of a programming model that is able to execute the same concurrent algorithm efficiently on gpus and cpus similar to openmp it allows the programmer to describe concurrency and memory access declaratively but hides complexity like memory transfers between the cpu and the gpu. in comparison to openmp our model provides a higher level of expressiveness which enables us to reach a performance comparable to opencl cuda. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk matthias liedtke gpu openmp performance cuda opencl"
+        "_searchBlob": "handling massive concurrency development of a programming model for gpu and cpu for efficient parallel execution it is necessary to write massively concurrent algorithms and to optimize memory access. in this session we show our approach of a programming model that is able to execute the same concurrent algorithm efficiently on gpus and cpus similar to openmp it allows the programmer to describe concurrency and memory access declaratively but hides complexity like memory transfers between the cpu and the gpu. in comparison to openmp our model provides a higher level of expressiveness which enables us to reach a performance comparable to opencl cuda. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk matthias liedtke gpu openmp performance cuda opencl"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -6251,7 +6240,7 @@
       "talk": {
         "id": "2019-04-029",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "student-talk",
@@ -6308,7 +6297,7 @@
         "_speakerLower": "juneyoung lee ralf jung",
         "_abstractLower": "in this talk, a list of optimizations that soundly removes casts between pointers and integers will be presented. in llvm, a pointer is more than just an integer: llvm allows a pointer to track its underlying object, and the rule to find it is defined as based-on relation. this allows llvm to aggressively optimize load/stores, but makes the meaning of pointer-integer casts complicated. this causes conflict between existing optimizations, causing long-standing miscompilation bugs like 34548. to fix it, we suggest disabling folding of inttoptr(ptrtoint(p)) to p and using a safe workaround to remove them. this optimization is important because it's removing a significant portion of such cast pairs. we'll show that even if the optimization is disabled, majority of casts can be removed by carefully adding new \\& modifying existing optimizations. after the updates, the performance is still comparable to the original llvm.",
         "_tagsLower": "llvm performance optimizations",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -6342,11 +6331,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -6515,11 +6503,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "safely optimizing casts between pointers and integers in this talk a list of optimizations that soundly removes casts between pointers and integers will be presented. in llvm a pointer is more than just an integer llvm allows a pointer to track its underlying object and the rule to find it is defined as based-on relation. this allows llvm to aggressively optimize load stores but makes the meaning of pointer-integer casts complicated. this causes conflict between existing optimizations causing long-standing miscompilation bugs like 34548. to fix it we suggest disabling folding of inttoptr ptrtoint p to p and using a safe workaround to remove them. this optimization is important because its removing a significant portion of such cast pairs. well show that even if the optimization is disabled majority of casts can be removed by carefully adding new and modifying existing optimizations. after the updates the performance is still comparable to the original llvm. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk juneyoung lee ralf jung llvm performance optimizations"
+        "_searchBlob": "safely optimizing casts between pointers and integers in this talk a list of optimizations that soundly removes casts between pointers and integers will be presented. in llvm a pointer is more than just an integer llvm allows a pointer to track its underlying object and the rule to find it is defined as based-on relation. this allows llvm to aggressively optimize load stores but makes the meaning of pointer-integer casts complicated. this causes conflict between existing optimizations causing long-standing miscompilation bugs like 34548. to fix it we suggest disabling folding of inttoptr ptrtoint p to p and using a safe workaround to remove them. this optimization is important because its removing a significant portion of such cast pairs. well show that even if the optimization is disabled majority of casts can be removed by carefully adding new and modifying existing optimizations. after the updates the performance is still comparable to the original llvm. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 student-talk juneyoung lee ralf jung llvm performance optimizations"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -6530,7 +6518,7 @@
       "talk": {
         "id": "2018-04-017",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "technical-talk",
@@ -6567,7 +6555,7 @@
         "_speakerLower": "c. hubain c. tessier",
         "_abstractLower": "this talk will go over our efforts to implement a new open-source dbi framework based on llvm. we have been using dbi frameworks in our work for a few years now: to gather coverage information for fuzzing, to break whitebox cryptography implementations used in drm or to simply assist reverse engineering. however we were dissatisfied with the state of existing dbi frameworks: they were either not supporting mobile architectures, too focused on a very specific use cases or very hard to use. this prompted the idea of developing qbdi ( https://qbdi.quarkslab.com ), a new framework which has been in development for two years and a half. with qbdi we wanted to try a modern take on dbi framework design and build a tool crafted to support mobile architectures from the start, adopting a modular design enabling its integration with other tools and that was easy to use by abstracting all the low-level details from the users. during the talk, we will review the motivation behind the usage of a dbi. we will explain its core principle and the main implementation challenges we faced. we will share some lessons learned in the process and how it changed the way we think about dynamic instrumentation tools.",
         "_tagsLower": "llvm testing",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -6601,11 +6589,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -6829,11 +6816,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "implementing an llvm based dynamic binary instrumentation framework this talk will go over our efforts to implement a new open-source dbi framework based on llvm. we have been using dbi frameworks in our work for a few years now to gather coverage information for fuzzing to break whitebox cryptography implementations used in drm or to simply assist reverse engineering. however we were dissatisfied with the state of existing dbi frameworks they were either not supporting mobile architectures too focused on a very specific use cases or very hard to use. this prompted the idea of developing qbdi https qbdi.quarkslab.com a new framework which has been in development for two years and a half. with qbdi we wanted to try a modern take on dbi framework design and build a tool crafted to support mobile architectures from the start adopting a modular design enabling its integration with other tools and that was easy to use by abstracting all the low-level details from the users. during the talk we will review the motivation behind the usage of a dbi. we will explain its core principle and the main implementation challenges we faced. we will share some lessons learned in the process and how it changed the way we think about dynamic instrumentation tools. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk c. hubain c. tessier llvm testing"
+        "_searchBlob": "implementing an llvm based dynamic binary instrumentation framework this talk will go over our efforts to implement a new open-source dbi framework based on llvm. we have been using dbi frameworks in our work for a few years now to gather coverage information for fuzzing to break whitebox cryptography implementations used in drm or to simply assist reverse engineering. however we were dissatisfied with the state of existing dbi frameworks they were either not supporting mobile architectures too focused on a very specific use cases or very hard to use. this prompted the idea of developing qbdi https qbdi.quarkslab.com a new framework which has been in development for two years and a half. with qbdi we wanted to try a modern take on dbi framework design and build a tool crafted to support mobile architectures from the start adopting a modular design enabling its integration with other tools and that was easy to use by abstracting all the low-level details from the users. during the talk we will review the motivation behind the usage of a dbi. we will explain its core principle and the main implementation challenges we faced. we will share some lessons learned in the process and how it changed the way we think about dynamic instrumentation tools. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk c. hubain c. tessier llvm testing"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -6844,7 +6831,7 @@
       "talk": {
         "id": "2018-04-039",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "lightning-talk",
@@ -6877,7 +6864,7 @@
         "_speakerLower": "s. cook",
         "_abstractLower": "as part of the secure project ( http://gtr.rcuk.ac.uk/projects?ref=132799 ), we are implementing transformations and analyses in open-source compilers which reduce programmer effort and error when implementing secure applications. this talk will discuss our work on extending the clang static analyzer to detect when \"critical\" variables are used to affect control flow. critical variables are sensitive pieces of information that a programmer wishes to keep secret (such as cryptographic keys), and their use in the control flow graph can cause them to leak through side channel attacks. our checker searches for branches that depend on critical variables and values derived from such critical variables and generates reports informing a user where the value became critical in their program. we discuss our experience in extending the checker to detect cases where it is the type itself that is of interest rather than a particular value, as we are interested in whether a variable is critical, irrespective of the value it holds at any given time.",
         "_tagsLower": "clang static analysis",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -6911,11 +6898,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -7106,11 +7092,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "using clang static analyzer to detect critical control flow as part of the secure project http gtr.rcuk.ac.uk projects ref 132799 we are implementing transformations and analyses in open-source compilers which reduce programmer effort and error when implementing secure applications. this talk will discuss our work on extending the clang static analyzer to detect when critical variables are used to affect control flow. critical variables are sensitive pieces of information that a programmer wishes to keep secret such as cryptographic keys and their use in the control flow graph can cause them to leak through side channel attacks. our checker searches for branches that depend on critical variables and values derived from such critical variables and generates reports informing a user where the value became critical in their program. we discuss our experience in extending the checker to detect cases where it is the type itself that is of interest rather than a particular value as we are interested in whether a variable is critical irrespective of the value it holds at any given time. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk s. cook clang static analysis"
+        "_searchBlob": "using clang static analyzer to detect critical control flow as part of the secure project http gtr.rcuk.ac.uk projects ref 132799 we are implementing transformations and analyses in open-source compilers which reduce programmer effort and error when implementing secure applications. this talk will discuss our work on extending the clang static analyzer to detect when critical variables are used to affect control flow. critical variables are sensitive pieces of information that a programmer wishes to keep secret such as cryptographic keys and their use in the control flow graph can cause them to leak through side channel attacks. our checker searches for branches that depend on critical variables and values derived from such critical variables and generates reports informing a user where the value became critical in their program. we discuss our experience in extending the checker to detect cases where it is the type itself that is of interest rather than a particular value as we are interested in whether a variable is critical irrespective of the value it holds at any given time. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk s. cook clang static analysis"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -7508,7 +7494,7 @@
       "talk": {
         "id": "2017-03-006",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "technical-talk",
@@ -7549,7 +7535,7 @@
         "_speakerLower": "vladimir voskresensky petr kudryavtsev",
         "_abstractLower": "clang was written in a way that allows to use it inside ides as a provider for various things - from navigation and code completion to refactorings. but is it possible to use it with the modern ide written in pure java? our team spent some time porting clang into java and got \"clank - the java equivalent of native clang\". we will tell you why we failed to use native clang, how porting to java was done, what difficulties we faced and what outcome we have at this point.extended abstract:we will present the project clank (with last k) - the java port of native clang. the goal was to get the java code as close to the original c++ code of clang as possible:preserving structure, names, comments and formatting of original code, but built once to run everywhere.in this talk we will describe which tooling (also based on clang) we created to automate conversion of c++ llvm/clang codebase into clank java codebase. the tooling for upgrade clank code base when new version of clang is released will be described as well. we will present our experience with evaluating native clang/libclang technology as the provider for open source netbeans ide project for c++ language support. we will describe why we failed to use native clang in the ide written in pure java and why created the java-port named clank. will consider c++ constructions used in clank codebase without direct equivalent in java and how we resolved the challenges to keep code as close to the original as possible. also we will mention how clank was finally used in the production of open source netbeans project.",
         "_tagsLower": "c libs clang frontend llvm",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -7583,11 +7569,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -7890,11 +7875,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "clank java-port of c c++ compiler frontend clang was written in a way that allows to use it inside ides as a provider for various things - from navigation and code completion to refactorings. but is it possible to use it with the modern ide written in pure java our team spent some time porting clang into java and got clank - the java equivalent of native clang . we will tell you why we failed to use native clang how porting to java was done what difficulties we faced and what outcome we have at this point.extended abstract we will present the project clank with last k - the java port of native clang. the goal was to get the java code as close to the original c++ code of clang as possible preserving structure names comments and formatting of original code but built once to run everywhere.in this talk we will describe which tooling also based on clang we created to automate conversion of c++ llvm clang codebase into clank java codebase. the tooling for upgrade clank code base when new version of clang is released will be described as well. we will present our experience with evaluating native clang libclang technology as the provider for open source netbeans ide project for c++ language support. we will describe why we failed to use native clang in the ide written in pure java and why created the java-port named clank. will consider c++ constructions used in clank codebase without direct equivalent in java and how we resolved the challenges to keep code as close to the original as possible. also we will mention how clank was finally used in the production of open source netbeans project. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 technical-talk vladimir voskresensky petr kudryavtsev c libs clang frontend llvm"
+        "_searchBlob": "clank java-port of c c++ compiler frontend clang was written in a way that allows to use it inside ides as a provider for various things - from navigation and code completion to refactorings. but is it possible to use it with the modern ide written in pure java our team spent some time porting clang into java and got clank - the java equivalent of native clang . we will tell you why we failed to use native clang how porting to java was done what difficulties we faced and what outcome we have at this point.extended abstract we will present the project clank with last k - the java port of native clang. the goal was to get the java code as close to the original c++ code of clang as possible preserving structure names comments and formatting of original code but built once to run everywhere.in this talk we will describe which tooling also based on clang we created to automate conversion of c++ llvm clang codebase into clank java codebase. the tooling for upgrade clank code base when new version of clang is released will be described as well. we will present our experience with evaluating native clang libclang technology as the provider for open source netbeans ide project for c++ language support. we will describe why we failed to use native clang in the ide written in pure java and why created the java-port named clank. will consider c++ constructions used in clank codebase without direct equivalent in java and how we resolved the challenges to keep code as close to the original as possible. also we will mention how clank was finally used in the production of open source netbeans project. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 technical-talk vladimir voskresensky petr kudryavtsev c libs clang frontend llvm"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,
@@ -7905,7 +7890,7 @@
       "talk": {
         "id": "2017-03-028",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "lightning-talk",
@@ -7946,7 +7931,7 @@
         "_speakerLower": "georgios zacharopoulos laura pozzi",
         "_abstractLower": "recent llvm distributions have been offering the option to print the control flow graph (cfg) of functions in the intermediate representation (ir) level. this feature is fairly useful as it enables the visualization of the cfg of a function, thus providing a better overview of the control flow among the basic blocks (bbs). in many occasions, though, more information than that is needed in order to obtain quickly an adequate high level view of the execution of a function. one such desired attribute, that could lead to a better understanding, is the execution frequency of each basic block. we have developed our own llvm analysis pass which makes use of the bb frequency info analysis pass methods, as well as the profiling information gathered by the use of the llvm-profdata tool. our analysis pass gathers the execution frequency of each bb in every function of an application. subsequently, the other part of our toolchain, exploiting the default llvm cfg printer, makes use of this data and assigns a specific colour to each bb in a cfg of a function. the colour scheme followed was inspired by a typical weather map, as it can bee seen in figure 1. an example of the generated colour annotated cfg of a jpeg function can be seen in figure 2. our tool, clrfreqprinter, can be applied in any benchmark and can be used to provide instant intuition regarding the execution frequency of bbs inside a function. a feature that can be useful for any developer or researcher working with the llvm framework.",
         "_tagsLower": "ir performance security llvm infrastructure",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -7984,11 +7969,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -8265,11 +8249,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "clrfreqprinter a tool for frequency annotated control flow graphs generation recent llvm distributions have been offering the option to print the control flow graph cfg of functions in the intermediate representation ir level. this feature is fairly useful as it enables the visualization of the cfg of a function thus providing a better overview of the control flow among the basic blocks bbs . in many occasions though more information than that is needed in order to obtain quickly an adequate high level view of the execution of a function. one such desired attribute that could lead to a better understanding is the execution frequency of each basic block. we have developed our own llvm analysis pass which makes use of the bb frequency info analysis pass methods as well as the profiling information gathered by the use of the llvm-profdata tool. our analysis pass gathers the execution frequency of each bb in every function of an application. subsequently the other part of our toolchain exploiting the default llvm cfg printer makes use of this data and assigns a specific colour to each bb in a cfg of a function. the colour scheme followed was inspired by a typical weather map as it can bee seen in figure 1. an example of the generated colour annotated cfg of a jpeg function can be seen in figure 2. our tool clrfreqprinter can be applied in any benchmark and can be used to provide instant intuition regarding the execution frequency of bbs inside a function. a feature that can be useful for any developer or researcher working with the llvm framework. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk georgios zacharopoulos laura pozzi ir performance security llvm infrastructure"
+        "_searchBlob": "clrfreqprinter a tool for frequency annotated control flow graphs generation recent llvm distributions have been offering the option to print the control flow graph cfg of functions in the intermediate representation ir level. this feature is fairly useful as it enables the visualization of the cfg of a function thus providing a better overview of the control flow among the basic blocks bbs . in many occasions though more information than that is needed in order to obtain quickly an adequate high level view of the execution of a function. one such desired attribute that could lead to a better understanding is the execution frequency of each basic block. we have developed our own llvm analysis pass which makes use of the bb frequency info analysis pass methods as well as the profiling information gathered by the use of the llvm-profdata tool. our analysis pass gathers the execution frequency of each bb in every function of an application. subsequently the other part of our toolchain exploiting the default llvm cfg printer makes use of this data and assigns a specific colour to each bb in a cfg of a function. the colour scheme followed was inspired by a typical weather map as it can bee seen in figure 1. an example of the generated colour annotated cfg of a jpeg function can be seen in figure 2. our tool clrfreqprinter can be applied in any benchmark and can be used to provide instant intuition regarding the execution frequency of bbs inside a function. a feature that can be useful for any developer or researcher working with the llvm framework. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 lightning-talk georgios zacharopoulos laura pozzi ir performance security llvm infrastructure"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,
@@ -8573,7 +8557,7 @@
       "talk": {
         "id": "2016-03-016",
         "meeting": "2016-03",
-        "meetingName": "2016 European LLVM Developers' Meeting",
+        "meetingName": "2016 EuroLLVM Developers' Meeting",
         "meetingLocation": "Barcelona, Spain",
         "meetingDate": "March 17-18, 2016",
         "category": "technical-talk",
@@ -8606,7 +8590,7 @@
         "_speakerLower": "deepak panickal",
         "_abstractLower": "",
         "_tagsLower": "beginner lldb",
-        "_meetingLower": "2016 european llvm developers' meeting barcelona, spain march 17-18, 2016",
+        "_meetingLower": "2016 eurollvm developers' meeting barcelona, spain march 17-18, 2016",
         "_year": "2016",
         "_searchDoc": {
           "fields": {
@@ -8638,11 +8622,10 @@
               ]
             },
             "meeting": {
-              "text": "2016 european llvm developers meeting barcelona spain march 17-18 2016",
+              "text": "2016 eurollvm developers meeting barcelona spain march 17-18 2016",
               "words": [
                 "2016",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "barcelona",
@@ -8671,11 +8654,11 @@
           },
           "year": 2016
         },
-        "_searchBlob": "lldb tutorial adding debugger support for your target 2016 european llvm developers meeting barcelona spain march 17-18 2016 2016-03 technical-talk deepak panickal beginner lldb"
+        "_searchBlob": "lldb tutorial adding debugger support for your target 2016 eurollvm developers meeting barcelona spain march 17-18 2016 2016-03 technical-talk deepak panickal beginner lldb"
       },
       "meeting": {
         "slug": "2016-03",
-        "name": "2016 European LLVM Developers' Meeting",
+        "name": "2016 EuroLLVM Developers' Meeting",
         "date": "March 17-18, 2016",
         "location": "Barcelona, Spain",
         "canceled": false,
@@ -8932,7 +8915,7 @@
       "talk": {
         "id": "2015-04-047",
         "meeting": "2015-04",
-        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingName": "2015 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 13-14, 2015",
         "category": "technical-talk",
@@ -8983,7 +8966,7 @@
         "_speakerLower": "erkan diken pierre-andre saulais martin j. o'riordan david moloney",
         "_abstractLower": "",
         "_tagsLower": "llvm code generation",
-        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_meetingLower": "2015 eurollvm developers' meeting london, uk april 13-14, 2015",
         "_year": "2015",
         "_searchDoc": {
           "fields": {
@@ -9026,11 +9009,10 @@
               ]
             },
             "meeting": {
-              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "text": "2015 eurollvm developers meeting london uk april 13-14 2015",
               "words": [
                 "2015",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -9059,11 +9041,11 @@
           },
           "year": 2015
         },
-        "_searchBlob": "challenges of mixed-width vector code generation and static scheduling in llvm 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 technical-talk erkan diken pierre-andre saulais martin j. oriordan david moloney llvm code generation"
+        "_searchBlob": "challenges of mixed-width vector code generation and static scheduling in llvm 2015 eurollvm developers meeting london uk april 13-14 2015 2015-04 technical-talk erkan diken pierre-andre saulais martin j. oriordan david moloney llvm code generation"
       },
       "meeting": {
         "slug": "2015-04",
-        "name": "2015 European LLVM Developers' Meeting",
+        "name": "2015 EuroLLVM Developers' Meeting",
         "date": "April 13-14, 2015",
         "location": "London, UK",
         "canceled": false,
@@ -9074,7 +9056,7 @@
       "talk": {
         "id": "2015-04-003",
         "meeting": "2015-04",
-        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingName": "2015 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 13-14, 2015",
         "category": "lightning-talk",
@@ -9106,7 +9088,7 @@
         "_speakerLower": "tilmann scheller",
         "_abstractLower": "",
         "_tagsLower": "ir",
-        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_meetingLower": "2015 eurollvm developers' meeting london, uk april 13-14, 2015",
         "_year": "2015",
         "_searchDoc": {
           "fields": {
@@ -9134,11 +9116,10 @@
               ]
             },
             "meeting": {
-              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "text": "2015 eurollvm developers meeting london uk april 13-14 2015",
               "words": [
                 "2015",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -9167,11 +9148,11 @@
           },
           "year": 2015
         },
-        "_searchBlob": "spir standard portable intermediate representation 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 lightning-talk tilmann scheller ir"
+        "_searchBlob": "spir standard portable intermediate representation 2015 eurollvm developers meeting london uk april 13-14 2015 2015-04 lightning-talk tilmann scheller ir"
       },
       "meeting": {
         "slug": "2015-04",
-        "name": "2015 European LLVM Developers' Meeting",
+        "name": "2015 EuroLLVM Developers' Meeting",
         "date": "April 13-14, 2015",
         "location": "London, UK",
         "canceled": false,
@@ -9182,7 +9163,7 @@
       "talk": {
         "id": "2015-04-025",
         "meeting": "2015-04",
-        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingName": "2015 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 13-14, 2015",
         "category": "poster",
@@ -9219,7 +9200,7 @@
         "_speakerLower": "thomas bernard marco roodzant",
         "_abstractLower": "",
         "_tagsLower": "llvm",
-        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_meetingLower": "2015 eurollvm developers' meeting london, uk april 13-14, 2015",
         "_year": "2015",
         "_searchDoc": {
           "fields": {
@@ -9253,11 +9234,10 @@
               ]
             },
             "meeting": {
-              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "text": "2015 eurollvm developers meeting london uk april 13-14 2015",
               "words": [
                 "2015",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -9286,11 +9266,11 @@
           },
           "year": 2015
         },
-        "_searchBlob": "llvm-turbo rapid development of efficient code generators in llvm 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 poster thomas bernard marco roodzant llvm"
+        "_searchBlob": "llvm-turbo rapid development of efficient code generators in llvm 2015 eurollvm developers meeting london uk april 13-14 2015 2015-04 poster thomas bernard marco roodzant llvm"
       },
       "meeting": {
         "slug": "2015-04",
-        "name": "2015 European LLVM Developers' Meeting",
+        "name": "2015 EuroLLVM Developers' Meeting",
         "date": "April 13-14, 2015",
         "location": "London, UK",
         "canceled": false,
@@ -9739,7 +9719,7 @@
       "talk": {
         "id": "2014-04-013",
         "meeting": "2014-04",
-        "meetingName": "2014 European LLVM Developers' Meeting",
+        "meetingName": "2014 EuroLLVM Developers' Meeting",
         "meetingLocation": "Edinburgh, Scotland",
         "meetingDate": "April 7-8, 2014",
         "category": "technical-talk",
@@ -9771,7 +9751,7 @@
         "_speakerLower": "frej drejhammar",
         "_abstractLower": "",
         "_tagsLower": "jit llvm",
-        "_meetingLower": "2014 european llvm developers' meeting edinburgh, scotland april 7-8, 2014",
+        "_meetingLower": "2014 eurollvm developers' meeting edinburgh, scotland april 7-8, 2014",
         "_year": "2014",
         "_searchDoc": {
           "fields": {
@@ -9803,11 +9783,10 @@
               ]
             },
             "meeting": {
-              "text": "2014 european llvm developers meeting edinburgh scotland april 7-8 2014",
+              "text": "2014 eurollvm developers meeting edinburgh scotland april 7-8 2014",
               "words": [
                 "2014",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "edinburgh",
@@ -9836,11 +9815,11 @@
           },
           "year": 2014
         },
-        "_searchBlob": "beamjit an llvm based just-in-time compiler for erlang 2014 european llvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk frej drejhammar jit llvm"
+        "_searchBlob": "beamjit an llvm based just-in-time compiler for erlang 2014 eurollvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk frej drejhammar jit llvm"
       },
       "meeting": {
         "slug": "2014-04",
-        "name": "2014 European LLVM Developers' Meeting",
+        "name": "2014 EuroLLVM Developers' Meeting",
         "date": "April 7-8, 2014",
         "location": "Edinburgh, Scotland",
         "canceled": false,
@@ -9984,7 +9963,7 @@
       "talk": {
         "id": "2013-04-001",
         "meeting": "2013-04",
-        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingName": "2013 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France",
         "meetingDate": "April 29-30, 2013",
         "category": "keynote",
@@ -10016,7 +9995,7 @@
         "_speakerLower": "chandler carruth",
         "_abstractLower": "with all of the excitement surrounding clang, lld, lldb, sanitizers, and other projects in llvm, it is easy to let its origins slip your mind. however, llvm was and remains a platform for optimizing compilers and related parts of the toolchain. today, the llvm + clang optimizing c++ compiler is very powerful and can handle a wide range of code, but how well does it compete with modern versions of gcc? what are the root causes of some of the more striking differences? what is coming next in llvm that will significantly impact the optimizing power of the toolchain?",
         "_tagsLower": "optimizations llvm clang lld lldb sanitizers infrastructure",
-        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_meetingLower": "2013 eurollvm developers' meeting paris, france april 29-30, 2013",
         "_year": "2013",
         "_searchDoc": {
           "fields": {
@@ -10054,11 +10033,10 @@
               ]
             },
             "meeting": {
-              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "text": "2013 eurollvm developers meeting paris france april 29-30 2013",
               "words": [
                 "2013",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -10184,11 +10162,11 @@
           },
           "year": 2013
         },
-        "_searchBlob": "optimization in llvm - numbers a case study and looking forward with all of the excitement surrounding clang lld lldb sanitizers and other projects in llvm it is easy to let its origins slip your mind. however llvm was and remains a platform for optimizing compilers and related parts of the toolchain. today the llvm + clang optimizing c++ compiler is very powerful and can handle a wide range of code but how well does it compete with modern versions of gcc what are the root causes of some of the more striking differences what is coming next in llvm that will significantly impact the optimizing power of the toolchain 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 keynote chandler carruth optimizations llvm clang lld lldb sanitizers infrastructure"
+        "_searchBlob": "optimization in llvm - numbers a case study and looking forward with all of the excitement surrounding clang lld lldb sanitizers and other projects in llvm it is easy to let its origins slip your mind. however llvm was and remains a platform for optimizing compilers and related parts of the toolchain. today the llvm + clang optimizing c++ compiler is very powerful and can handle a wide range of code but how well does it compete with modern versions of gcc what are the root causes of some of the more striking differences what is coming next in llvm that will significantly impact the optimizing power of the toolchain 2013 eurollvm developers meeting paris france april 29-30 2013 2013-04 keynote chandler carruth optimizations llvm clang lld lldb sanitizers infrastructure"
       },
       "meeting": {
         "slug": "2013-04",
-        "name": "2013 European LLVM Developers' Meeting",
+        "name": "2013 EuroLLVM Developers' Meeting",
         "date": "April 29-30, 2013",
         "location": "Paris, France",
         "canceled": false,
@@ -10199,7 +10177,7 @@
       "talk": {
         "id": "2013-04-023",
         "meeting": "2013-04",
-        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingName": "2013 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France",
         "meetingDate": "April 29-30, 2013",
         "category": "poster",
@@ -10231,7 +10209,7 @@
         "_speakerLower": "diana chen",
         "_abstractLower": "mclinker is a system linker that uses fragments as its internal intermediate representations (irs) to process inputs, such as a .o file, and generate desired output file. valid inputs for now are: .o, .a, .so, and a piece of in-memory of code; and valid outputs are: .o, .so, and executable binary. fragments are good irs for a linker in a way that these fragments can easily generate data structures to be used by linkers. fragments can be either a function, a block of code, or a defined symbol with a memory region. for instance, the global offset table in a typical .so and the frame description table in dwarf format of mclinker are made directly from fragments. another reason is linking finer-grained fragments could lead to a more optimized result as opposed to coarse-grained sections, because finer-grained fragments would facilitate better data-stripping and reordering. however, llvm mc fragments are originally designed for assembler so they could not fulfill some requirements from linkers. thus, mclinker needs to define some additional fragment types. for example, mclinker defines general \"relocation fragments\" and \"stub fragments\" to represent stubs of the branch islands. mclinker also defines “region fragment” to hold arbitrary blocks of code or data. furthermore, mclinker introduces a general reference linkage between two fragments to represent their relocation relationship. mclinker is a full-fledged system linker. it is capable of linking elf object files on various platforms, such as arm, x86, and mips. some additional targets, such as x86-64 and x32, are still in development and will be available soon. mclinker fully supports complex elf features, such as dwarf debugging, itanium exception handling, comdat sections, instruction relaxation, and gnu archive format.",
         "_tagsLower": "lld llvm debug information x86-64",
-        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_meetingLower": "2013 eurollvm developers' meeting paris, france april 29-30, 2013",
         "_year": "2013",
         "_searchDoc": {
           "fields": {
@@ -10266,11 +10244,10 @@
               ]
             },
             "meeting": {
-              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "text": "2013 eurollvm developers meeting paris france april 29-30 2013",
               "words": [
                 "2013",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -10564,11 +10541,11 @@
           },
           "year": 2013
         },
-        "_searchBlob": "mclinker design and implementation of a fragments-based target-independent linker mclinker is a system linker that uses fragments as its internal intermediate representations irs to process inputs such as a .o file and generate desired output file. valid inputs for now are .o .a .so and a piece of in-memory of code and valid outputs are .o .so and executable binary. fragments are good irs for a linker in a way that these fragments can easily generate data structures to be used by linkers. fragments can be either a function a block of code or a defined symbol with a memory region. for instance the global offset table in a typical .so and the frame description table in dwarf format of mclinker are made directly from fragments. another reason is linking finer-grained fragments could lead to a more optimized result as opposed to coarse-grained sections because finer-grained fragments would facilitate better data-stripping and reordering. however llvm mc fragments are originally designed for assembler so they could not fulfill some requirements from linkers. thus mclinker needs to define some additional fragment types. for example mclinker defines general relocation fragments and stub fragments to represent stubs of the branch islands. mclinker also defines region fragment to hold arbitrary blocks of code or data. furthermore mclinker introduces a general reference linkage between two fragments to represent their relocation relationship. mclinker is a full-fledged system linker. it is capable of linking elf object files on various platforms such as arm x86 and mips. some additional targets such as x86-64 and x32 are still in development and will be available soon. mclinker fully supports complex elf features such as dwarf debugging itanium exception handling comdat sections instruction relaxation and gnu archive format. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 poster diana chen lld llvm debug information x86-64"
+        "_searchBlob": "mclinker design and implementation of a fragments-based target-independent linker mclinker is a system linker that uses fragments as its internal intermediate representations irs to process inputs such as a .o file and generate desired output file. valid inputs for now are .o .a .so and a piece of in-memory of code and valid outputs are .o .so and executable binary. fragments are good irs for a linker in a way that these fragments can easily generate data structures to be used by linkers. fragments can be either a function a block of code or a defined symbol with a memory region. for instance the global offset table in a typical .so and the frame description table in dwarf format of mclinker are made directly from fragments. another reason is linking finer-grained fragments could lead to a more optimized result as opposed to coarse-grained sections because finer-grained fragments would facilitate better data-stripping and reordering. however llvm mc fragments are originally designed for assembler so they could not fulfill some requirements from linkers. thus mclinker needs to define some additional fragment types. for example mclinker defines general relocation fragments and stub fragments to represent stubs of the branch islands. mclinker also defines region fragment to hold arbitrary blocks of code or data. furthermore mclinker introduces a general reference linkage between two fragments to represent their relocation relationship. mclinker is a full-fledged system linker. it is capable of linking elf object files on various platforms such as arm x86 and mips. some additional targets such as x86-64 and x32 are still in development and will be available soon. mclinker fully supports complex elf features such as dwarf debugging itanium exception handling comdat sections instruction relaxation and gnu archive format. 2013 eurollvm developers meeting paris france april 29-30 2013 2013-04 poster diana chen lld llvm debug information x86-64"
       },
       "meeting": {
         "slug": "2013-04",
-        "name": "2013 European LLVM Developers' Meeting",
+        "name": "2013 EuroLLVM Developers' Meeting",
         "date": "April 29-30, 2013",
         "location": "Paris, France",
         "canceled": false,

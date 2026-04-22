@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-051": {
@@ -1500,7 +1500,7 @@
       "talk": {
         "id": "2019-04-040",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "lightning-talk",
@@ -1533,7 +1533,7 @@
         "_speakerLower": "kristóf umann",
         "_abstractLower": "as checkers grew in numbers in the static analyzer, the problem of certain checkers depending on one another was inevitable. one particular problem, for example, is that a checker called mallocchecker, which despite its name does all sorts of memory allocation and de- or reallocation related checks, depends on cstringchecker to model calls to strcmp. while these checkers are completely separate entities, the static analyzer also contains large checker classes that in fact expose multiple checkers to the user: for example, iteratorchecker has a modeling part, and it exposes 3 iterator related checkers, and enabling any of the three will also enable the unexposed modeling part. having both of these structures makes it difficult to find a solution where the developer (or the experienced user) can easily see what checkers are enabled, as these dependencies are only expressed in the implementation. this talk is going to discuss elegant solutions as to how these rather fragile checker structures can be preserved by declaring these dependencies in tablegen files, how checker developers (and users) can ensure that when the analyzer is invoked, only the requested checkers will be enabled, and also take a very brief look at what other features the analyzer gained thanks to these issues being resolved.",
         "_tagsLower": "clang static analysis",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -1571,11 +1571,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -1807,11 +1806,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "resolving the almost decade old checker dependency issue in the clang static analyzer as checkers grew in numbers in the static analyzer the problem of certain checkers depending on one another was inevitable. one particular problem for example is that a checker called mallocchecker which despite its name does all sorts of memory allocation and de- or reallocation related checks depends on cstringchecker to model calls to strcmp. while these checkers are completely separate entities the static analyzer also contains large checker classes that in fact expose multiple checkers to the user for example iteratorchecker has a modeling part and it exposes 3 iterator related checkers and enabling any of the three will also enable the unexposed modeling part. having both of these structures makes it difficult to find a solution where the developer or the experienced user can easily see what checkers are enabled as these dependencies are only expressed in the implementation. this talk is going to discuss elegant solutions as to how these rather fragile checker structures can be preserved by declaring these dependencies in tablegen files how checker developers and users can ensure that when the analyzer is invoked only the requested checkers will be enabled and also take a very brief look at what other features the analyzer gained thanks to these issues being resolved. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk kristof umann clang static analysis"
+        "_searchBlob": "resolving the almost decade old checker dependency issue in the clang static analyzer as checkers grew in numbers in the static analyzer the problem of certain checkers depending on one another was inevitable. one particular problem for example is that a checker called mallocchecker which despite its name does all sorts of memory allocation and de- or reallocation related checks depends on cstringchecker to model calls to strcmp. while these checkers are completely separate entities the static analyzer also contains large checker classes that in fact expose multiple checkers to the user for example iteratorchecker has a modeling part and it exposes 3 iterator related checkers and enabling any of the three will also enable the unexposed modeling part. having both of these structures makes it difficult to find a solution where the developer or the experienced user can easily see what checkers are enabled as these dependencies are only expressed in the implementation. this talk is going to discuss elegant solutions as to how these rather fragile checker structures can be preserved by declaring these dependencies in tablegen files how checker developers and users can ensure that when the analyzer is invoked only the requested checkers will be enabled and also take a very brief look at what other features the analyzer gained thanks to these issues being resolved. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk kristof umann clang static analysis"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -1822,7 +1821,7 @@
       "talk": {
         "id": "2019-04-062",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -1854,7 +1853,7 @@
         "_speakerLower": "russell gallop",
         "_abstractLower": "the title of this lighting talk is from a bug filed in the early days of the ps4 compiler. it noted that the llvm-based ps4 compiler was more than 3 times larger than the ps3 compiler. since then it has almost doubled to over 40mb. for a compiler which targets one system this seems excessive. executable size can cost in worse cache performance and cost time if transferring for distributed builds. in this lightning talk i will look at where this comes from and how it can be managed.",
         "_tagsLower": "clang llvm performance",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -1893,11 +1892,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2012,11 +2010,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "does the win32 clang compiler executable really need to be over 21mb in size the title of this lighting talk is from a bug filed in the early days of the ps4 compiler. it noted that the llvm-based ps4 compiler was more than 3 times larger than the ps3 compiler. since then it has almost doubled to over 40mb. for a compiler which targets one system this seems excessive. executable size can cost in worse cache performance and cost time if transferring for distributed builds. in this lightning talk i will look at where this comes from and how it can be managed. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster russell gallop clang llvm performance"
+        "_searchBlob": "does the win32 clang compiler executable really need to be over 21mb in size the title of this lighting talk is from a bug filed in the early days of the ps4 compiler. it noted that the llvm-based ps4 compiler was more than 3 times larger than the ps3 compiler. since then it has almost doubled to over 40mb. for a compiler which targets one system this seems excessive. executable size can cost in worse cache performance and cost time if transferring for distributed builds. in this lightning talk i will look at where this comes from and how it can be managed. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster russell gallop clang llvm performance"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -3219,7 +3217,7 @@
       "talk": {
         "id": "2018-04-050",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "lightning-talk",
@@ -3269,7 +3267,7 @@
         "_speakerLower": "a. guinet",
         "_abstractLower": "dragonffi is a clang/llvm-based library that allows calling c functions and using c structures from any languages. it will show how clang and llvm are used to make this happen, and the pros/cons against similar libraries (like (c)ffi). in 2014, jordan rose and john mccall from apple presented a talk about using clang to call c functions from foreign languages. they showed issues they had doing it, especially about dealing with various abi. dragonffi provides a way to easily call c functions and manipulate c structures from any language. its purpose is to parse c libraries headers without any modifications and transparently use them in a foreign language, like python or ruby. in order to deal with abi issues previously demonstrated, it uses clang to generate scalar-only wrappers of c functions. it also uses generated debug metadata to have introspection on structures. this talk will present the tool, how clang and llvm are used to provide these functionalities, and the pros and cons against what other similar libraries like (c)ffi [0] [1] are doing. it will show the actual limitations of clang we had to circumvent, and the overall internal working of dragonffi. in an effort to try and get help from the community, we will also present a list of tasks of various difficulties that can be done to participle in the project. this library is in active development and is still in an alpha/beta stage. source code of the whole project is available here: https://github.com/aguinet/dragonffi . python packages can be installed using pip under linux 32/64 bits and osx 32/64 bits (pip install pydffi).",
         "_tagsLower": "llvm clang jit",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -3303,11 +3301,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -3596,11 +3593,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "dragonffi foreign function interface and jit using clang llvm dragonffi is a clang llvm-based library that allows calling c functions and using c structures from any languages. it will show how clang and llvm are used to make this happen and the pros cons against similar libraries like c ffi . in 2014 jordan rose and john mccall from apple presented a talk about using clang to call c functions from foreign languages. they showed issues they had doing it especially about dealing with various abi. dragonffi provides a way to easily call c functions and manipulate c structures from any language. its purpose is to parse c libraries headers without any modifications and transparently use them in a foreign language like python or ruby. in order to deal with abi issues previously demonstrated it uses clang to generate scalar-only wrappers of c functions. it also uses generated debug metadata to have introspection on structures. this talk will present the tool how clang and llvm are used to provide these functionalities and the pros and cons against what other similar libraries like c ffi 0 1 are doing. it will show the actual limitations of clang we had to circumvent and the overall internal working of dragonffi. in an effort to try and get help from the community we will also present a list of tasks of various difficulties that can be done to participle in the project. this library is in active development and is still in an alpha beta stage. source code of the whole project is available here https github.com aguinet dragonffi . python packages can be installed using pip under linux 32 64 bits and osx 32 64 bits pip install pydffi . 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk a. guinet llvm clang jit"
+        "_searchBlob": "dragonffi foreign function interface and jit using clang llvm dragonffi is a clang llvm-based library that allows calling c functions and using c structures from any languages. it will show how clang and llvm are used to make this happen and the pros cons against similar libraries like c ffi . in 2014 jordan rose and john mccall from apple presented a talk about using clang to call c functions from foreign languages. they showed issues they had doing it especially about dealing with various abi. dragonffi provides a way to easily call c functions and manipulate c structures from any language. its purpose is to parse c libraries headers without any modifications and transparently use them in a foreign language like python or ruby. in order to deal with abi issues previously demonstrated it uses clang to generate scalar-only wrappers of c functions. it also uses generated debug metadata to have introspection on structures. this talk will present the tool how clang and llvm are used to provide these functionalities and the pros and cons against what other similar libraries like c ffi 0 1 are doing. it will show the actual limitations of clang we had to circumvent and the overall internal working of dragonffi. in an effort to try and get help from the community we will also present a list of tasks of various difficulties that can be done to participle in the project. this library is in active development and is still in an alpha beta stage. source code of the whole project is available here https github.com aguinet dragonffi . python packages can be installed using pip under linux 32 64 bits and osx 32 64 bits pip install pydffi . 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk a. guinet llvm clang jit"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,

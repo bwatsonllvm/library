@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-031": {
@@ -2384,7 +2384,7 @@
       "talk": {
         "id": "2019-04-020",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "technical-talk",
@@ -2417,7 +2417,7 @@
         "_speakerLower": "marshall clow",
         "_abstractLower": "the next version of the c++ standard will almost certainly be approved next year, and be called c++20. there will be many new features in the standard library in c++20. things like ranges, concepts, calendar support, and many others. in this talk, i'll give an overview of the new features, and an update on the status of their implementation in libc++.",
         "_tagsLower": "c++ c++ libs libc",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2451,11 +2451,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2546,11 +2545,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "changes to the c++ standard library for c++20 the next version of the c++ standard will almost certainly be approved next year and be called c++20. there will be many new features in the standard library in c++20. things like ranges concepts calendar support and many others. in this talk ill give an overview of the new features and an update on the status of their implementation in libc++. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk marshall clow c++ c++ libs libc"
+        "_searchBlob": "changes to the c++ standard library for c++20 the next version of the c++ standard will almost certainly be approved next year and be called c++20. there will be many new features in the standard library in c++20. things like ranges concepts calendar support and many others. in this talk ill give an overview of the new features and an update on the status of their implementation in libc++. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk marshall clow c++ c++ libs libc"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -2561,7 +2560,7 @@
       "talk": {
         "id": "2019-04-042",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "lightning-talk",
@@ -2591,7 +2590,7 @@
         "_speakerLower": "ádám balogh",
         "_abstractLower": "the default constraint manager of the clang static analyzer is a simple range-based constraint manager: it stores and manages the valid ranges for the values of symbolic expressions. upon new assumptions it further constrains these ranges which often results in an empty range which tells the analyzer that the assumption is impossible. until now the constraint manager could handle basic assumptions: a <rel> m, a + n <rel> m and a - n <rel> m where a is a symbolic expression, n and m integer constants and <rel> a relational operator. in the latter two cases where a constant is added or subtracted from the symbolic expression the range of the additive expression is calculated by adjusting the range circularly by the constant. however, it could not cope with division and multiplication, thus not even the range for a*2 could be deduced from the range of a. this shortcoming lead to both false positives and missed true positives. to improve the true positive/false positive ratio of the analyzer we extended the range-based constraint manager to be able to handle expressions of the format a <mul> k <add> n <rel> m, where a is a symbolic expression, k, m and n integer constants, <mul> a multiplicative operator (* or /), <add> an additive operator (+ or -) and <rel> a relational operator. the main challenge in our work was to correctly scale the ranges in the circular arithmetic: for example in case of signed 8 bit types in a * 2 == 56 the value of a could not only be 28, but also -100. similarly, in a / 3 == 4 the value of a is not necessarily 12, but anything in range [12..14]. to ensure full correctness we also proved our solution: first we generated every range for every constants in both the 8 bit signed and unsigned arithmetic, then we tested whether the scaling algorithm calculates exactly the same ranges. finally we extrapolated this algorithm to wider integer types and ported it to the range-based constraint manager. according to our measurements there is no significant change in the performance and in the talk we will present numbers of lost false positives and new true positives.",
         "_tagsLower": "clang static analysis performance",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2625,11 +2624,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2981,11 +2979,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "multiplication and division in the range-based constraint manager the default constraint manager of the clang static analyzer is a simple range-based constraint manager it stores and manages the valid ranges for the values of symbolic expressions. upon new assumptions it further constrains these ranges which often results in an empty range which tells the analyzer that the assumption is impossible. until now the constraint manager could handle basic assumptions a rel m a + n rel m and a - n rel m where a is a symbolic expression n and m integer constants and rel a relational operator. in the latter two cases where a constant is added or subtracted from the symbolic expression the range of the additive expression is calculated by adjusting the range circularly by the constant. however it could not cope with division and multiplication thus not even the range for a 2 could be deduced from the range of a. this shortcoming lead to both false positives and missed true positives. to improve the true positive false positive ratio of the analyzer we extended the range-based constraint manager to be able to handle expressions of the format a mul k add n rel m where a is a symbolic expression k m and n integer constants mul a multiplicative operator or add an additive operator + or - and rel a relational operator. the main challenge in our work was to correctly scale the ranges in the circular arithmetic for example in case of signed 8 bit types in a 2 56 the value of a could not only be 28 but also -100. similarly in a 3 4 the value of a is not necessarily 12 but anything in range 12..14 . to ensure full correctness we also proved our solution first we generated every range for every constants in both the 8 bit signed and unsigned arithmetic then we tested whether the scaling algorithm calculates exactly the same ranges. finally we extrapolated this algorithm to wider integer types and ported it to the range-based constraint manager. according to our measurements there is no significant change in the performance and in the talk we will present numbers of lost false positives and new true positives. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk adam balogh clang static analysis performance"
+        "_searchBlob": "multiplication and division in the range-based constraint manager the default constraint manager of the clang static analyzer is a simple range-based constraint manager it stores and manages the valid ranges for the values of symbolic expressions. upon new assumptions it further constrains these ranges which often results in an empty range which tells the analyzer that the assumption is impossible. until now the constraint manager could handle basic assumptions a rel m a + n rel m and a - n rel m where a is a symbolic expression n and m integer constants and rel a relational operator. in the latter two cases where a constant is added or subtracted from the symbolic expression the range of the additive expression is calculated by adjusting the range circularly by the constant. however it could not cope with division and multiplication thus not even the range for a 2 could be deduced from the range of a. this shortcoming lead to both false positives and missed true positives. to improve the true positive false positive ratio of the analyzer we extended the range-based constraint manager to be able to handle expressions of the format a mul k add n rel m where a is a symbolic expression k m and n integer constants mul a multiplicative operator or add an additive operator + or - and rel a relational operator. the main challenge in our work was to correctly scale the ranges in the circular arithmetic for example in case of signed 8 bit types in a 2 56 the value of a could not only be 28 but also -100. similarly in a 3 4 the value of a is not necessarily 12 but anything in range 12..14 . to ensure full correctness we also proved our solution first we generated every range for every constants in both the 8 bit signed and unsigned arithmetic then we tested whether the scaling algorithm calculates exactly the same ranges. finally we extrapolated this algorithm to wider integer types and ported it to the range-based constraint manager. according to our measurements there is no significant change in the performance and in the talk we will present numbers of lost false positives and new true positives. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk adam balogh clang static analysis performance"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -2996,7 +2994,7 @@
       "talk": {
         "id": "2019-04-064",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -3029,7 +3027,7 @@
         "_speakerLower": "biplob",
         "_abstractLower": "performance analysis of the machine code generated by a compiler can be carried out in different ways and can also be based on application in question. common methods use some form of profiling on a running program which generally provides the statistical information about certain data and events. while this method does give important insights to a performance problem, some of the issues are more clearly understood when the compiled applications is actually run and the dynamic instructions of hot code execution paths are traced and analyzed in a small execution window. trace records contain instructions and data, memory addresses and other information which provide complete visibility into the workings of an application. while tracing is very useful in micro-architecture analysis we will stick to how these traces can benefit compiler performance analysis. in this talk we will look at some of these code-gen issues which were better identified when a running application compiled by llvm and other compilers were traced for hot code sections on ibm power9 processor.",
         "_tagsLower": "backend performance llvm code generation",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -3067,11 +3065,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -3265,11 +3262,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "instruction tracing and dynamic codegen analysis to identify unique llvm performance issues. performance analysis of the machine code generated by a compiler can be carried out in different ways and can also be based on application in question. common methods use some form of profiling on a running program which generally provides the statistical information about certain data and events. while this method does give important insights to a performance problem some of the issues are more clearly understood when the compiled applications is actually run and the dynamic instructions of hot code execution paths are traced and analyzed in a small execution window. trace records contain instructions and data memory addresses and other information which provide complete visibility into the workings of an application. while tracing is very useful in micro-architecture analysis we will stick to how these traces can benefit compiler performance analysis. in this talk we will look at some of these code-gen issues which were better identified when a running application compiled by llvm and other compilers were traced for hot code sections on ibm power9 processor. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster biplob backend performance llvm code generation"
+        "_searchBlob": "instruction tracing and dynamic codegen analysis to identify unique llvm performance issues. performance analysis of the machine code generated by a compiler can be carried out in different ways and can also be based on application in question. common methods use some form of profiling on a running program which generally provides the statistical information about certain data and events. while this method does give important insights to a performance problem some of the issues are more clearly understood when the compiled applications is actually run and the dynamic instructions of hot code execution paths are traced and analyzed in a small execution window. trace records contain instructions and data memory addresses and other information which provide complete visibility into the workings of an application. while tracing is very useful in micro-architecture analysis we will stick to how these traces can benefit compiler performance analysis. in this talk we will look at some of these code-gen issues which were better identified when a running application compiled by llvm and other compilers were traced for hot code sections on ibm power9 processor. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster biplob backend performance llvm code generation"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -4432,7 +4429,7 @@
       "talk": {
         "id": "2018-04-030",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "lightning-talk",
@@ -4462,7 +4459,7 @@
         "_speakerLower": "j. bennett",
         "_abstractLower": "deployment of a full new port of llvm for general commercial use typically requires several engineer years of effort. with a large and diverse community of users, there are demanding requirements for features, reliability and performance if the compiler is to be successful. this cost is perfectly reasonable in supporting a major processor design, whose development will have been an order of magnitude more expensive. however there are many other processors which do not fall into this category, particularly custom dsps and other specialist processors. such devices are often only used by the company which designed them and are typically programmed in assembly language by an in-house team. assembly programmers are rare and expensive to hire. using assembly language is inherently less productive than high level coding. being able to program in c would boost productivity and reduce costs, but with such a small user base, spending years on developing a full llvm compiler tool chain cannot be justified. but a full c/c++ compiler tool chain is not needed. c is sufficient, and the well defined user base means only a limited feature set is required. in this talk i will describe the development of a llvm tool chain for c for a 16-bit word-addressed harvard architecture dsp. the work required 120 days of engineering effort in 2016/17, and also included the implementation of a cgen-based assembler/disassembler, gdb and newlib c library. the llvm work included adding support for 16-bit integers and the whole tool chain was regression tested using both the llvm lit tests and gcc c regression test suite. the tool chain has been in production use for the past 12 months.",
         "_tagsLower": "llvm performance",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -4492,11 +4489,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -4786,11 +4782,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "low cost commercial deployment of llvm deployment of a full new port of llvm for general commercial use typically requires several engineer years of effort. with a large and diverse community of users there are demanding requirements for features reliability and performance if the compiler is to be successful. this cost is perfectly reasonable in supporting a major processor design whose development will have been an order of magnitude more expensive. however there are many other processors which do not fall into this category particularly custom dsps and other specialist processors. such devices are often only used by the company which designed them and are typically programmed in assembly language by an in-house team. assembly programmers are rare and expensive to hire. using assembly language is inherently less productive than high level coding. being able to program in c would boost productivity and reduce costs but with such a small user base spending years on developing a full llvm compiler tool chain cannot be justified. but a full c c++ compiler tool chain is not needed. c is sufficient and the well defined user base means only a limited feature set is required. in this talk i will describe the development of a llvm tool chain for c for a 16-bit word-addressed harvard architecture dsp. the work required 120 days of engineering effort in 2016 17 and also included the implementation of a cgen-based assembler disassembler gdb and newlib c library. the llvm work included adding support for 16-bit integers and the whole tool chain was regression tested using both the llvm lit tests and gcc c regression test suite. the tool chain has been in production use for the past 12 months. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk j. bennett llvm performance"
+        "_searchBlob": "low cost commercial deployment of llvm deployment of a full new port of llvm for general commercial use typically requires several engineer years of effort. with a large and diverse community of users there are demanding requirements for features reliability and performance if the compiler is to be successful. this cost is perfectly reasonable in supporting a major processor design whose development will have been an order of magnitude more expensive. however there are many other processors which do not fall into this category particularly custom dsps and other specialist processors. such devices are often only used by the company which designed them and are typically programmed in assembly language by an in-house team. assembly programmers are rare and expensive to hire. using assembly language is inherently less productive than high level coding. being able to program in c would boost productivity and reduce costs but with such a small user base spending years on developing a full llvm compiler tool chain cannot be justified. but a full c c++ compiler tool chain is not needed. c is sufficient and the well defined user base means only a limited feature set is required. in this talk i will describe the development of a llvm tool chain for c for a 16-bit word-addressed harvard architecture dsp. the work required 120 days of engineering effort in 2016 17 and also included the implementation of a cgen-based assembler disassembler gdb and newlib c library. the llvm work included adding support for 16-bit integers and the whole tool chain was regression tested using both the llvm lit tests and gcc c regression test suite. the tool chain has been in production use for the past 12 months. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk j. bennett llvm performance"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -6269,7 +6265,7 @@
       "talk": {
         "id": "2017-03-041",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "poster",
@@ -6323,7 +6319,7 @@
         "_speakerLower": "zoltan porkolab daniel krupp tibor brunner márton csordás",
         "_abstractLower": "bugfixing or new feature development requires a confident understanding of all details and consequences of the planned changes. for long existing large telecom systems, where the code base have been developed and maintained for decades by fluctuating teams, original intentions are lost, the documentation is untrustworthy or missing, the only reliable information is the code itself. code comprehension of such large software systems is an essential, but usually very challenging task. as the method of comprehension is fundamentally different from writing new code, development tools are not performing well. during the years, different programs have been developed with various complexity and feature set for code comprehension but none of them fulfilled all requirements.codecompass is an open source llvm/clang based tool developed by ericsson ltd. and the eötvös loránd university, budapest to help understanding large legacy software systems. based on the llvm/clang compiler infrastructure, codecompass gives exact information on complex c/c++ language elements like overloading, inheritance, the (read or write) usage of variables, possible calls on function pointers and the virtual functions -- features that various existing tools support only partially. the wide range of interactive visualizations extends further than the usual class and function call diagrams; architectural, component and interface diagrams are a few of the implemented graphs.to make comprehension more extensive, codecompass is not restricted to the source code. it also utilizes build information to explore the system architecture as well as version control information when available: git commit history and blame view are also visualized. clang based static analysis results are also integrated to codecompass. although the tool focuses mainly on c and c++, it also supports java and python languages. having a web-based. pluginable, extensible architecture, the codecompass framework can be an open platform to further code comprehension, static analysis and software metrics efforts.",
         "_tagsLower": "clang static analysis llvm infrastructure",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -6362,11 +6358,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -6691,11 +6686,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "codecompass an open software comprehension framework bugfixing or new feature development requires a confident understanding of all details and consequences of the planned changes. for long existing large telecom systems where the code base have been developed and maintained for decades by fluctuating teams original intentions are lost the documentation is untrustworthy or missing the only reliable information is the code itself. code comprehension of such large software systems is an essential but usually very challenging task. as the method of comprehension is fundamentally different from writing new code development tools are not performing well. during the years different programs have been developed with various complexity and feature set for code comprehension but none of them fulfilled all requirements.codecompass is an open source llvm clang based tool developed by ericsson ltd. and the eotvos lorand university budapest to help understanding large legacy software systems. based on the llvm clang compiler infrastructure codecompass gives exact information on complex c c++ language elements like overloading inheritance the read or write usage of variables possible calls on function pointers and the virtual functions -- features that various existing tools support only partially. the wide range of interactive visualizations extends further than the usual class and function call diagrams architectural component and interface diagrams are a few of the implemented graphs.to make comprehension more extensive codecompass is not restricted to the source code. it also utilizes build information to explore the system architecture as well as version control information when available git commit history and blame view are also visualized. clang based static analysis results are also integrated to codecompass. although the tool focuses mainly on c and c++ it also supports java and python languages. having a web-based. pluginable extensible architecture the codecompass framework can be an open platform to further code comprehension static analysis and software metrics efforts. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 poster zoltan porkolab daniel krupp tibor brunner marton csordas clang static analysis llvm infrastructure"
+        "_searchBlob": "codecompass an open software comprehension framework bugfixing or new feature development requires a confident understanding of all details and consequences of the planned changes. for long existing large telecom systems where the code base have been developed and maintained for decades by fluctuating teams original intentions are lost the documentation is untrustworthy or missing the only reliable information is the code itself. code comprehension of such large software systems is an essential but usually very challenging task. as the method of comprehension is fundamentally different from writing new code development tools are not performing well. during the years different programs have been developed with various complexity and feature set for code comprehension but none of them fulfilled all requirements.codecompass is an open source llvm clang based tool developed by ericsson ltd. and the eotvos lorand university budapest to help understanding large legacy software systems. based on the llvm clang compiler infrastructure codecompass gives exact information on complex c c++ language elements like overloading inheritance the read or write usage of variables possible calls on function pointers and the virtual functions -- features that various existing tools support only partially. the wide range of interactive visualizations extends further than the usual class and function call diagrams architectural component and interface diagrams are a few of the implemented graphs.to make comprehension more extensive codecompass is not restricted to the source code. it also utilizes build information to explore the system architecture as well as version control information when available git commit history and blame view are also visualized. clang based static analysis results are also integrated to codecompass. although the tool focuses mainly on c and c++ it also supports java and python languages. having a web-based. pluginable extensible architecture the codecompass framework can be an open platform to further code comprehension static analysis and software metrics efforts. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 poster zoltan porkolab daniel krupp tibor brunner marton csordas clang static analysis llvm infrastructure"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,

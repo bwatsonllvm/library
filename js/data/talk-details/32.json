@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-011": {
@@ -1196,7 +1196,7 @@
       "talk": {
         "id": "2025-04-021",
         "meeting": "2025-04",
-        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingName": "2025 EuroLLVM Developers' Meeting",
         "meetingLocation": "Berlin, Germany",
         "meetingDate": "April 14-16, 2025",
         "category": "technical-talk",
@@ -1230,7 +1230,7 @@
         "_speakerLower": "alexis engelke",
         "_abstractLower": "over the last two release cycles, llvm's back-end has seen substantial performance improvements of up to 18% (-o0 x86-64). in this talk, we will describe how these improvements were achieved, summarize lessons learned from finding and implementing these optimizations, and outline paths and ideas for further compile-time reductions in the future.",
         "_tagsLower": "backend optimizations performance llvm x86-64",
-        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_meetingLower": "2025 eurollvm developers' meeting berlin, germany april 14-16, 2025",
         "_year": "2025",
         "_searchDoc": {
           "fields": {
@@ -1265,11 +1265,10 @@
               ]
             },
             "meeting": {
-              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "text": "2025 eurollvm developers meeting berlin germany april 14-16 2025",
               "words": [
                 "2025",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "berlin",
@@ -1350,11 +1349,11 @@
           },
           "year": 2025
         },
-        "_searchBlob": "faster compilation improvements in llvm 20 and beyond over the last two release cycles llvms back-end has seen substantial performance improvements of up to 18 -o0 x86-64 . in this talk we will describe how these improvements were achieved summarize lessons learned from finding and implementing these optimizations and outline paths and ideas for further compile-time reductions in the future. 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk alexis engelke backend optimizations performance llvm x86-64"
+        "_searchBlob": "faster compilation improvements in llvm 20 and beyond over the last two release cycles llvms back-end has seen substantial performance improvements of up to 18 -o0 x86-64 . in this talk we will describe how these improvements were achieved summarize lessons learned from finding and implementing these optimizations and outline paths and ideas for further compile-time reductions in the future. 2025 eurollvm developers meeting berlin germany april 14-16 2025 2025-04 technical-talk alexis engelke backend optimizations performance llvm x86-64"
       },
       "meeting": {
         "slug": "2025-04",
-        "name": "2025 European LLVM Developers' Meeting",
+        "name": "2025 EuroLLVM Developers' Meeting",
         "date": "April 14-16, 2025",
         "location": "Berlin, Germany",
         "canceled": false,
@@ -1365,7 +1364,7 @@
       "talk": {
         "id": "2025-04-043",
         "meeting": "2025-04",
-        "meetingName": "2025 European LLVM Developers' Meeting",
+        "meetingName": "2025 EuroLLVM Developers' Meeting",
         "meetingLocation": "Berlin, Germany",
         "meetingDate": "April 14-16, 2025",
         "category": "quick-talk",
@@ -1417,7 +1416,7 @@
         "_speakerLower": "matthias springer",
         "_abstractLower": "the dialect conversion framework, one of the core pattern drivers in mlir, has recently been extended with 1:n support: replacing one ssa value with multiple other ssa values. this talk illustrates how to use the new infrastructure and migrate existing passes that are currently relying on workarounds",
         "_tagsLower": "mlir ir infrastructure",
-        "_meetingLower": "2025 european llvm developers' meeting berlin, germany april 14-16, 2025",
+        "_meetingLower": "2025 eurollvm developers' meeting berlin, germany april 14-16, 2025",
         "_year": "2025",
         "_searchDoc": {
           "fields": {
@@ -1446,11 +1445,10 @@
               ]
             },
             "meeting": {
-              "text": "2025 european llvm developers meeting berlin germany april 14-16 2025",
+              "text": "2025 eurollvm developers meeting berlin germany april 14-16 2025",
               "words": [
                 "2025",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "berlin",
@@ -1526,11 +1524,11 @@
           },
           "year": 2025
         },
-        "_searchBlob": "1 n dialect conversion in mlir the dialect conversion framework one of the core pattern drivers in mlir has recently been extended with 1 n support replacing one ssa value with multiple other ssa values. this talk illustrates how to use the new infrastructure and migrate existing passes that are currently relying on workarounds 2025 european llvm developers meeting berlin germany april 14-16 2025 2025-04 quick-talk matthias springer mlir ir infrastructure"
+        "_searchBlob": "1 n dialect conversion in mlir the dialect conversion framework one of the core pattern drivers in mlir has recently been extended with 1 n support replacing one ssa value with multiple other ssa values. this talk illustrates how to use the new infrastructure and migrate existing passes that are currently relying on workarounds 2025 eurollvm developers meeting berlin germany april 14-16 2025 2025-04 quick-talk matthias springer mlir ir infrastructure"
       },
       "meeting": {
         "slug": "2025-04",
-        "name": "2025 European LLVM Developers' Meeting",
+        "name": "2025 EuroLLVM Developers' Meeting",
         "date": "April 14-16, 2025",
         "location": "Berlin, Germany",
         "canceled": false,
@@ -2342,7 +2340,7 @@
       "talk": {
         "id": "2024-04-031",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "technical-talk",
@@ -2376,7 +2374,7 @@
         "_speakerLower": "panagiotis karouzakis",
         "_abstractLower": "in certain programs not all the expressions need to use all available bits of precision by the target machine. also, there are many 32 bit programs that now run in 64-bit targets. usually, in integer arithmetic and in floating-point arithmetic not all the expressions of a program need all the width of the register, but due to the switch from 32 to 64-bit architectures the registers are usually 64 bits. the compiler has to perform sign extensions in the narrow operations to preserve meaning. however, we can eliminate some sign extensions because not all of them are needed. the key is to know what each operator accepts and produces in their upper bits. doing it in the llvm frontend only adds support for this optimization for one language. in this approach, we performed this optimization inside the llvm ir. one problem is that if we find an optimal solution for one node, it might not result in an optimal overall solution. if we had an abstract syntax tree, this problem is completely solvable using dynamic programming. this not the case with ssa-form in llvm ir, because we have a dag with many users. in this work we explore how to apply the dynamic programming optimization from syntax trees where each node occurs once to llvm ir where each instruction may be involved in multiple chains.",
         "_tagsLower": "frontend ir optimizations llvm",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -2407,11 +2405,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -2664,11 +2661,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "sign extension optimizations inside llvm in certain programs not all the expressions need to use all available bits of precision by the target machine. also there are many 32 bit programs that now run in 64-bit targets. usually in integer arithmetic and in floating-point arithmetic not all the expressions of a program need all the width of the register but due to the switch from 32 to 64-bit architectures the registers are usually 64 bits. the compiler has to perform sign extensions in the narrow operations to preserve meaning. however we can eliminate some sign extensions because not all of them are needed. the key is to know what each operator accepts and produces in their upper bits. doing it in the llvm frontend only adds support for this optimization for one language. in this approach we performed this optimization inside the llvm ir. one problem is that if we find an optimal solution for one node it might not result in an optimal overall solution. if we had an abstract syntax tree this problem is completely solvable using dynamic programming. this not the case with ssa-form in llvm ir because we have a dag with many users. in this work we explore how to apply the dynamic programming optimization from syntax trees where each node occurs once to llvm ir where each instruction may be involved in multiple chains. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk panagiotis karouzakis frontend ir optimizations llvm"
+        "_searchBlob": "sign extension optimizations inside llvm in certain programs not all the expressions need to use all available bits of precision by the target machine. also there are many 32 bit programs that now run in 64-bit targets. usually in integer arithmetic and in floating-point arithmetic not all the expressions of a program need all the width of the register but due to the switch from 32 to 64-bit architectures the registers are usually 64 bits. the compiler has to perform sign extensions in the narrow operations to preserve meaning. however we can eliminate some sign extensions because not all of them are needed. the key is to know what each operator accepts and produces in their upper bits. doing it in the llvm frontend only adds support for this optimization for one language. in this approach we performed this optimization inside the llvm ir. one problem is that if we find an optimal solution for one node it might not result in an optimal overall solution. if we had an abstract syntax tree this problem is completely solvable using dynamic programming. this not the case with ssa-form in llvm ir because we have a dag with many users. in this work we explore how to apply the dynamic programming optimization from syntax trees where each node occurs once to llvm ir where each instruction may be involved in multiple chains. 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk panagiotis karouzakis frontend ir optimizations llvm"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -2679,7 +2676,7 @@
       "talk": {
         "id": "2024-04-053",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "lightning-talk",
@@ -2713,7 +2710,7 @@
         "_speakerLower": "maximilian bartel",
         "_abstractLower": "devices for neuromorphic computing are still prone to defects and limitations. however the impact those have on neural networks is not clear. in this talk i show how i used the linalg and transform dialect together with the python execution engine in mlir to test real devices on our lab equipment.",
         "_tagsLower": "ai jit mlir",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -2746,11 +2743,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -2829,11 +2825,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "how we use mlir to test reram cells devices for neuromorphic computing are still prone to defects and limitations. however the impact those have on neural networks is not clear. in this talk i show how i used the linalg and transform dialect together with the python execution engine in mlir to test real devices on our lab equipment. 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 lightning-talk maximilian bartel ai jit mlir"
+        "_searchBlob": "how we use mlir to test reram cells devices for neuromorphic computing are still prone to defects and limitations. however the impact those have on neural networks is not clear. in this talk i show how i used the linalg and transform dialect together with the python execution engine in mlir to test real devices on our lab equipment. 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 lightning-talk maximilian bartel ai jit mlir"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -3931,7 +3927,7 @@
       "talk": {
         "id": "2023-05-040",
         "meeting": "2023-05",
-        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
         "category": "lightning-talk",
@@ -3965,7 +3961,7 @@
         "_speakerLower": "jinmyoung lee",
         "_abstractLower": "one way to understand and debug ir optimization process is to visualize control flow graphs (cfgs) before and after optimization and compare them. however, since the cfgs can be drastically different, comparing these two graphs is a challenging task. llvm-flow (https://llvmflow.kc-ml2.com/), an open-source interactive cfg visualization web app, is developed to ease the difficulty by highlighting the same components in two graphs. by clicking the highlighted node, you can easily find the corresponding node in another graph. llvm-flow is a useful tool for llvm experts to understand the ir flow when writing a custom pass, as well as for llvm newcomers to study the ir pattern's behavior.",
         "_tagsLower": "beginner ir optimizations llvm",
-        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
           "fields": {
@@ -4005,11 +4001,10 @@
               ]
             },
             "meeting": {
-              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "text": "2023 eurollvm developers meeting glasgow scotland may 10-11 2023",
               "words": [
                 "2023",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "glasgow",
@@ -4144,11 +4139,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "spot the difference with llvm-flow an open-source interactive visualization tool for comparing ir cfgs one way to understand and debug ir optimization process is to visualize control flow graphs cfgs before and after optimization and compare them. however since the cfgs can be drastically different comparing these two graphs is a challenging task. llvm-flow https llvmflow.kc-ml2.com an open-source interactive cfg visualization web app is developed to ease the difficulty by highlighting the same components in two graphs. by clicking the highlighted node you can easily find the corresponding node in another graph. llvm-flow is a useful tool for llvm experts to understand the ir flow when writing a custom pass as well as for llvm newcomers to study the ir patterns behavior. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk jinmyoung lee beginner ir optimizations llvm"
+        "_searchBlob": "spot the difference with llvm-flow an open-source interactive visualization tool for comparing ir cfgs one way to understand and debug ir optimization process is to visualize control flow graphs cfgs before and after optimization and compare them. however since the cfgs can be drastically different comparing these two graphs is a challenging task. llvm-flow https llvmflow.kc-ml2.com an open-source interactive cfg visualization web app is developed to ease the difficulty by highlighting the same components in two graphs. by clicking the highlighted node you can easily find the corresponding node in another graph. llvm-flow is a useful tool for llvm experts to understand the ir flow when writing a custom pass as well as for llvm newcomers to study the ir patterns behavior. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 lightning-talk jinmyoung lee beginner ir optimizations llvm"
       },
       "meeting": {
         "slug": "2023-05",
-        "name": "2023 European LLVM Developers' Meeting",
+        "name": "2023 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2023",
         "location": "Glasgow, Scotland",
         "canceled": false,
@@ -4930,7 +4925,7 @@
       "talk": {
         "id": "2019-04-004",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "technical-talk",
@@ -4960,7 +4955,7 @@
         "_speakerLower": "stephen kelly",
         "_abstractLower": "in the last few years, clang has opened up new possibilities in c++ tooling for the masses. tools such as clang-tidy and clazy offer ready-to-use source-to-source transformations. available transformations can be used to modernize (use newer c++ language features), improve readability (remove redundant constructs), or improve adherence to the c++ core guidelines. however, when special needs arise, maintainers of large codebases need to learn some of the clang apis to create their own porting aids. the clang apis necessarily form a more-exact picture of the structure of c++ code than most developers keep in their heads, and bridging the conceptual gap can be a daunting task. this talk will show tools and features which make this task easier for developers, ranging from improvements to the clang-query interpreter improvements to the ast matcher api information essential to creating clang-tidy-checks debugging and profiling of ast matchers advanced tooling these features are in various stages along the way to being upstreamed to clang. they enable new possibilities for large-scale refactoring in a reasonable timeframe by solving problems of api discovery, guiding users in creating working refactorings.",
         "_tagsLower": "clang clang-tools-extra",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -4990,11 +4985,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -5204,11 +5198,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "the future of ast matcher-based refactoring in the last few years clang has opened up new possibilities in c++ tooling for the masses. tools such as clang-tidy and clazy offer ready-to-use source-to-source transformations. available transformations can be used to modernize use newer c++ language features improve readability remove redundant constructs or improve adherence to the c++ core guidelines. however when special needs arise maintainers of large codebases need to learn some of the clang apis to create their own porting aids. the clang apis necessarily form a more-exact picture of the structure of c++ code than most developers keep in their heads and bridging the conceptual gap can be a daunting task. this talk will show tools and features which make this task easier for developers ranging from improvements to the clang-query interpreter improvements to the ast matcher api information essential to creating clang-tidy-checks debugging and profiling of ast matchers advanced tooling these features are in various stages along the way to being upstreamed to clang. they enable new possibilities for large-scale refactoring in a reasonable timeframe by solving problems of api discovery guiding users in creating working refactorings. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk stephen kelly clang clang-tools-extra"
+        "_searchBlob": "the future of ast matcher-based refactoring in the last few years clang has opened up new possibilities in c++ tooling for the masses. tools such as clang-tidy and clazy offer ready-to-use source-to-source transformations. available transformations can be used to modernize use newer c++ language features improve readability remove redundant constructs or improve adherence to the c++ core guidelines. however when special needs arise maintainers of large codebases need to learn some of the clang apis to create their own porting aids. the clang apis necessarily form a more-exact picture of the structure of c++ code than most developers keep in their heads and bridging the conceptual gap can be a daunting task. this talk will show tools and features which make this task easier for developers ranging from improvements to the clang-query interpreter improvements to the ast matcher api information essential to creating clang-tidy-checks debugging and profiling of ast matchers advanced tooling these features are in various stages along the way to being upstreamed to clang. they enable new possibilities for large-scale refactoring in a reasonable timeframe by solving problems of api discovery guiding users in creating working refactorings. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 technical-talk stephen kelly clang clang-tools-extra"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -5219,7 +5213,7 @@
       "talk": {
         "id": "2019-04-026",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "tutorial",
@@ -5636,7 +5630,7 @@
         "_speakerLower": "amini mehdi alex zinenko",
         "_abstractLower": "this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl, and target llvm for lower level optimizations and code generation or jit execution.",
         "_tagsLower": "beginner mlir llvm jit code generation optimizations",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -5672,11 +5666,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -5756,11 +5749,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "tutorial building a compiler with mlir this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl and target llvm for lower level optimizations and code generation or jit execution. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 tutorial amini mehdi alex zinenko beginner mlir llvm jit code generation optimizations"
+        "_searchBlob": "tutorial building a compiler with mlir this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl and target llvm for lower level optimizations and code generation or jit execution. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 tutorial amini mehdi alex zinenko beginner mlir llvm jit code generation optimizations"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -5771,7 +5764,7 @@
       "talk": {
         "id": "2019-04-048",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "lightning-talk",
@@ -5803,7 +5796,7 @@
         "_speakerLower": "réka kovács",
         "_abstractLower": "c-reduce, released by regehr et al. in 2012, is an excellent tool designed to generate a minimal test case from a c/c++ file that has some specific property (e.g. triggers a bug). one of the most interesting parts of c-reduce is clang delta, which is a set of compiler-like transformations implemented using clang libraries. clang delta includes transformations like changing a function parameter to a global variable etc. with the introduction of the experimental cross translation unit analysis feature in the clang static analyzer, there arose a need to investigate crashes, bugs, or false positive reports that spread across different translation units. unfortunately, c-reduce was designed to minimize one translation unit at a time, and some of the clang delta transformations cannot be applied to multiple tus in their original form. this talk/poster is a status report about a work in progress that aims to make it possible to use c-reduce for cross translation unit test case reduction.",
         "_tagsLower": "testing clang static analysis",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -5835,11 +5828,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -6018,11 +6010,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "cross translation unit test case reduction c-reduce released by regehr et al. in 2012 is an excellent tool designed to generate a minimal test case from a c c++ file that has some specific property e.g. triggers a bug . one of the most interesting parts of c-reduce is clang delta which is a set of compiler-like transformations implemented using clang libraries. clang delta includes transformations like changing a function parameter to a global variable etc. with the introduction of the experimental cross translation unit analysis feature in the clang static analyzer there arose a need to investigate crashes bugs or false positive reports that spread across different translation units. unfortunately c-reduce was designed to minimize one translation unit at a time and some of the clang delta transformations cannot be applied to multiple tus in their original form. this talk poster is a status report about a work in progress that aims to make it possible to use c-reduce for cross translation unit test case reduction. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk reka kovacs testing clang static analysis"
+        "_searchBlob": "cross translation unit test case reduction c-reduce released by regehr et al. in 2012 is an excellent tool designed to generate a minimal test case from a c c++ file that has some specific property e.g. triggers a bug . one of the most interesting parts of c-reduce is clang delta which is a set of compiler-like transformations implemented using clang libraries. clang delta includes transformations like changing a function parameter to a global variable etc. with the introduction of the experimental cross translation unit analysis feature in the clang static analyzer there arose a need to investigate crashes bugs or false positive reports that spread across different translation units. unfortunately c-reduce was designed to minimize one translation unit at a time and some of the clang delta transformations cannot be applied to multiple tus in their original form. this talk poster is a status report about a work in progress that aims to make it possible to use c-reduce for cross translation unit test case reduction. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk reka kovacs testing clang static analysis"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -6310,7 +6302,7 @@
       "talk": {
         "id": "2018-04-014",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "technical-talk",
@@ -6342,7 +6334,7 @@
         "_speakerLower": "g. barany",
         "_abstractLower": "randomized differential testing of compilers has had great success in finding compiler crashes and silent miscompilations. in this talk i explain how i used the same approach to find missed optimizations in llvm and other open source compilers (gcc and compcert). i compile c code generated by standard random program generators and use a custom binary analysis tool to compare the output programs. depending on the optimization of interest, the tool can be configured to compare features such as the number of total instructions, multiply or divide instructions, function calls, stack accesses, and more. a standard test case reduction tool produces minimal examples once an interesting difference has been found. i have used these tools to compare the code generated by gcc, clang, and compcert. i found previously unreported missing arithmetic optimizations in all three compilers, as well as individual cases of unnecessary register spilling, missed opportunities for register coalescing, dead stores, redundant computations, and missing instruction selection patterns. in this talk i will show examples of optimizations missed by llvm in particular, both target-independent mid-end issues and ones in the arm back-end.",
         "_tagsLower": "optimizations llvm clang instruction selection testing",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -6378,11 +6370,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -6586,11 +6577,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "finding missed optimizations in llvm and other compilers randomized differential testing of compilers has had great success in finding compiler crashes and silent miscompilations. in this talk i explain how i used the same approach to find missed optimizations in llvm and other open source compilers gcc and compcert . i compile c code generated by standard random program generators and use a custom binary analysis tool to compare the output programs. depending on the optimization of interest the tool can be configured to compare features such as the number of total instructions multiply or divide instructions function calls stack accesses and more. a standard test case reduction tool produces minimal examples once an interesting difference has been found. i have used these tools to compare the code generated by gcc clang and compcert. i found previously unreported missing arithmetic optimizations in all three compilers as well as individual cases of unnecessary register spilling missed opportunities for register coalescing dead stores redundant computations and missing instruction selection patterns. in this talk i will show examples of optimizations missed by llvm in particular both target-independent mid-end issues and ones in the arm back-end. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk g. barany optimizations llvm clang instruction selection testing"
+        "_searchBlob": "finding missed optimizations in llvm and other compilers randomized differential testing of compilers has had great success in finding compiler crashes and silent miscompilations. in this talk i explain how i used the same approach to find missed optimizations in llvm and other open source compilers gcc and compcert . i compile c code generated by standard random program generators and use a custom binary analysis tool to compare the output programs. depending on the optimization of interest the tool can be configured to compare features such as the number of total instructions multiply or divide instructions function calls stack accesses and more. a standard test case reduction tool produces minimal examples once an interesting difference has been found. i have used these tools to compare the code generated by gcc clang and compcert. i found previously unreported missing arithmetic optimizations in all three compilers as well as individual cases of unnecessary register spilling missed opportunities for register coalescing dead stores redundant computations and missing instruction selection patterns. in this talk i will show examples of optimizations missed by llvm in particular both target-independent mid-end issues and ones in the arm back-end. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 technical-talk g. barany optimizations llvm clang instruction selection testing"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -6601,7 +6592,7 @@
       "talk": {
         "id": "2018-04-036",
         "meeting": "2018-04",
-        "meetingName": "2018 European LLVM Developers' Meeting",
+        "meetingName": "2018 EuroLLVM Developers' Meeting",
         "meetingLocation": "Bristol, UK",
         "meetingDate": "April 16-17, 2018",
         "category": "lightning-talk",
@@ -6645,7 +6636,7 @@
         "_speakerLower": "s. moll t. klössner s. hack",
         "_abstractLower": "this rfc is a joint effort by intel and saarland university to bring the divergence analysis of the region vectorizer (rv) to llvm. this is part of the vplan+rv proposal that we presented at the us llvm developers’ meeting 2017. the divergence analysis is an essential building block in loop vectorization and the optimization of spmd kernels. this effort is complementary to the vplan proposal brought forward by intel. the region vectorizer is an analysis and transformation framework for outer-loop and whole-function vectorization. rv vectorizes arbitrary reducible control flow including nested divergent loops. rv is being used by the impala [1] and the pacxx [6] high performance programming frameworks.",
         "_tagsLower": "llvm autovectorization performance optimizations vplan",
-        "_meetingLower": "2018 european llvm developers' meeting bristol, uk april 16-17, 2018",
+        "_meetingLower": "2018 eurollvm developers' meeting bristol, uk april 16-17, 2018",
         "_year": "2018",
         "_searchDoc": {
           "fields": {
@@ -6682,11 +6673,10 @@
               ]
             },
             "meeting": {
-              "text": "2018 european llvm developers meeting bristol uk april 16-17 2018",
+              "text": "2018 eurollvm developers meeting bristol uk april 16-17 2018",
               "words": [
                 "2018",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "bristol",
@@ -6822,11 +6812,11 @@
           },
           "year": 2018
         },
-        "_searchBlob": "rfc a new divergence analysis for llvm this rfc is a joint effort by intel and saarland university to bring the divergence analysis of the region vectorizer rv to llvm. this is part of the vplan+rv proposal that we presented at the us llvm developers meeting 2017. the divergence analysis is an essential building block in loop vectorization and the optimization of spmd kernels. this effort is complementary to the vplan proposal brought forward by intel. the region vectorizer is an analysis and transformation framework for outer-loop and whole-function vectorization. rv vectorizes arbitrary reducible control flow including nested divergent loops. rv is being used by the impala 1 and the pacxx 6 high performance programming frameworks. 2018 european llvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk s. moll t. klossner s. hack llvm autovectorization performance optimizations vplan"
+        "_searchBlob": "rfc a new divergence analysis for llvm this rfc is a joint effort by intel and saarland university to bring the divergence analysis of the region vectorizer rv to llvm. this is part of the vplan+rv proposal that we presented at the us llvm developers meeting 2017. the divergence analysis is an essential building block in loop vectorization and the optimization of spmd kernels. this effort is complementary to the vplan proposal brought forward by intel. the region vectorizer is an analysis and transformation framework for outer-loop and whole-function vectorization. rv vectorizes arbitrary reducible control flow including nested divergent loops. rv is being used by the impala 1 and the pacxx 6 high performance programming frameworks. 2018 eurollvm developers meeting bristol uk april 16-17 2018 2018-04 lightning-talk s. moll t. klossner s. hack llvm autovectorization performance optimizations vplan"
       },
       "meeting": {
         "slug": "2018-04",
-        "name": "2018 European LLVM Developers' Meeting",
+        "name": "2018 EuroLLVM Developers' Meeting",
         "date": "April 16-17, 2018",
         "location": "Bristol, UK",
         "canceled": false,
@@ -7188,7 +7178,7 @@
       "talk": {
         "id": "2017-03-003",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "technical-talk",
@@ -7223,7 +7213,7 @@
         "_speakerLower": "justin bogner",
         "_abstractLower": "recently there has been a lot of work on globalisel, which aims to entirely replace the existing instruction selectors for llvm. in order to approach such a transition, we need an effective way to test instruction selection and evaluate the new selector compared to the older ones.this talk will focus on our experiments and results in using fuzzing and input generation to test instruction selection. we'll discuss the tradeoffs in how to find valuable test inputs as well as the approach to validating the generated code. this will essentially consist of three parts:- generating useful inputs to test instruction selection- evaluating the output of instruction selection effectively- results and lessons learnedgenerating inputs-----------------we will discuss the tradeoffs between types of input generation and look at the options in terms of the level of abstraction of those inputs. here we talk about how we improved on the input generation of the llvm-stress tool by leveraging libfuzzer and embracing coverage guided testing and input mutation. we also go into the relative effectiveness of generating llvm ir versus generating machine-level ir directly in terms of finding valuable test cases.evaluating outputs------------------given that we're feeding instruction selection arbitrary inputs, we need to come up with ways to evaluate whether the results are sane. here we'll discuss the kinds of bugs that were found simply by looking for crashes and error paths versus those found by comparing against the older instruction selectors. we also explain the complexity of trying to compare instruction selectors and evaluate whether or not differences are functionally relevant.results-------finally, we'll talk about the effectiveness of these experiments and the adaptibility of these methods to other problem spaces.",
         "_tagsLower": "backend dynamic analysis ir testing llvm compiler-rt instruction selection",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -7259,11 +7249,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -7564,11 +7553,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "adventures in fuzzing instruction selection recently there has been a lot of work on globalisel which aims to entirely replace the existing instruction selectors for llvm. in order to approach such a transition we need an effective way to test instruction selection and evaluate the new selector compared to the older ones.this talk will focus on our experiments and results in using fuzzing and input generation to test instruction selection. well discuss the tradeoffs in how to find valuable test inputs as well as the approach to validating the generated code. this will essentially consist of three parts - generating useful inputs to test instruction selection- evaluating the output of instruction selection effectively- results and lessons learnedgenerating inputs-----------------we will discuss the tradeoffs between types of input generation and look at the options in terms of the level of abstraction of those inputs. here we talk about how we improved on the input generation of the llvm-stress tool by leveraging libfuzzer and embracing coverage guided testing and input mutation. we also go into the relative effectiveness of generating llvm ir versus generating machine-level ir directly in terms of finding valuable test cases.evaluating outputs------------------given that were feeding instruction selection arbitrary inputs we need to come up with ways to evaluate whether the results are sane. here well discuss the kinds of bugs that were found simply by looking for crashes and error paths versus those found by comparing against the older instruction selectors. we also explain the complexity of trying to compare instruction selectors and evaluate whether or not differences are functionally relevant.results-------finally well talk about the effectiveness of these experiments and the adaptibility of these methods to other problem spaces. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 technical-talk justin bogner backend dynamic analysis ir testing llvm compiler-rt instruction selection"
+        "_searchBlob": "adventures in fuzzing instruction selection recently there has been a lot of work on globalisel which aims to entirely replace the existing instruction selectors for llvm. in order to approach such a transition we need an effective way to test instruction selection and evaluate the new selector compared to the older ones.this talk will focus on our experiments and results in using fuzzing and input generation to test instruction selection. well discuss the tradeoffs in how to find valuable test inputs as well as the approach to validating the generated code. this will essentially consist of three parts - generating useful inputs to test instruction selection- evaluating the output of instruction selection effectively- results and lessons learnedgenerating inputs-----------------we will discuss the tradeoffs between types of input generation and look at the options in terms of the level of abstraction of those inputs. here we talk about how we improved on the input generation of the llvm-stress tool by leveraging libfuzzer and embracing coverage guided testing and input mutation. we also go into the relative effectiveness of generating llvm ir versus generating machine-level ir directly in terms of finding valuable test cases.evaluating outputs------------------given that were feeding instruction selection arbitrary inputs we need to come up with ways to evaluate whether the results are sane. here well discuss the kinds of bugs that were found simply by looking for crashes and error paths versus those found by comparing against the older instruction selectors. we also explain the complexity of trying to compare instruction selectors and evaluate whether or not differences are functionally relevant.results-------finally well talk about the effectiveness of these experiments and the adaptibility of these methods to other problem spaces. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 technical-talk justin bogner backend dynamic analysis ir testing llvm compiler-rt instruction selection"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,
@@ -7579,7 +7568,7 @@
       "talk": {
         "id": "2017-03-025",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "student-talk",
@@ -7635,7 +7624,7 @@
         "_speakerLower": "lawrence esswood khilan gudka david chisnall robert n. m. watson",
         "_abstractLower": "control-flow integrity (cfi) techniques make the deployment of malicious exploits harder by constraining the control flow of programs to that of a statically analyzed control-flow graph (cfg). this is made harder when position-independent dynamically shared objects are compiled separately, and then linked together only at runtime by a dynamic linker. deploying cfi only on statically linked objects ensures that control flow enters only the correct procedure linkage table (plt) entry, not where that trampoline jumps to; it leaves a weak link at the boundaries of shared objects that attackers can use to gain control. we show that manipulation of the plt got has a long history of exploitation, and is still being used today against real binaries - even with state of the art cfi enforcement. plt-cfi is a cfi implementation for the elf dynamic-linkage model, designed to work along-side existing cfi implementations that ensure correct control flow within a single dynamic shared object (dso). we make modifications to the llvm stack to insert dynamic checks into the plt that ensure correct control flow even in the presence of an unknown base address of a dynamic library, while maintaining the ability to link in a lazy fashion and allowing new implementations (e.g., plug-ins) to be loaded at runtime. we make only minor abi changes, and still offer full backwards compatibility with binaries compiled without our scheme. furthermore, we deployed our cfi scheme for both amd64 and aarch64 on the freebsd operating system and measured performance.",
         "_tagsLower": "c libs lld performance security llvm aarch64",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -7677,11 +7666,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -7947,11 +7935,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "elf got problems cfi can help. control-flow integrity cfi techniques make the deployment of malicious exploits harder by constraining the control flow of programs to that of a statically analyzed control-flow graph cfg . this is made harder when position-independent dynamically shared objects are compiled separately and then linked together only at runtime by a dynamic linker. deploying cfi only on statically linked objects ensures that control flow enters only the correct procedure linkage table plt entry not where that trampoline jumps to it leaves a weak link at the boundaries of shared objects that attackers can use to gain control. we show that manipulation of the plt got has a long history of exploitation and is still being used today against real binaries - even with state of the art cfi enforcement. plt-cfi is a cfi implementation for the elf dynamic-linkage model designed to work along-side existing cfi implementations that ensure correct control flow within a single dynamic shared object dso . we make modifications to the llvm stack to insert dynamic checks into the plt that ensure correct control flow even in the presence of an unknown base address of a dynamic library while maintaining the ability to link in a lazy fashion and allowing new implementations e.g. plug-ins to be loaded at runtime. we make only minor abi changes and still offer full backwards compatibility with binaries compiled without our scheme. furthermore we deployed our cfi scheme for both amd64 and aarch64 on the freebsd operating system and measured performance. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 student-talk lawrence esswood khilan gudka david chisnall robert n. m. watson c libs lld performance security llvm aarch64"
+        "_searchBlob": "elf got problems cfi can help. control-flow integrity cfi techniques make the deployment of malicious exploits harder by constraining the control flow of programs to that of a statically analyzed control-flow graph cfg . this is made harder when position-independent dynamically shared objects are compiled separately and then linked together only at runtime by a dynamic linker. deploying cfi only on statically linked objects ensures that control flow enters only the correct procedure linkage table plt entry not where that trampoline jumps to it leaves a weak link at the boundaries of shared objects that attackers can use to gain control. we show that manipulation of the plt got has a long history of exploitation and is still being used today against real binaries - even with state of the art cfi enforcement. plt-cfi is a cfi implementation for the elf dynamic-linkage model designed to work along-side existing cfi implementations that ensure correct control flow within a single dynamic shared object dso . we make modifications to the llvm stack to insert dynamic checks into the plt that ensure correct control flow even in the presence of an unknown base address of a dynamic library while maintaining the ability to link in a lazy fashion and allowing new implementations e.g. plug-ins to be loaded at runtime. we make only minor abi changes and still offer full backwards compatibility with binaries compiled without our scheme. furthermore we deployed our cfi scheme for both amd64 and aarch64 on the freebsd operating system and measured performance. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 student-talk lawrence esswood khilan gudka david chisnall robert n. m. watson c libs lld performance security llvm aarch64"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,
@@ -8370,7 +8358,7 @@
       "talk": {
         "id": "2016-03-013",
         "meeting": "2016-03",
-        "meetingName": "2016 European LLVM Developers' Meeting",
+        "meetingName": "2016 EuroLLVM Developers' Meeting",
         "meetingLocation": "Barcelona, Spain",
         "meetingDate": "March 17-18, 2016",
         "category": "technical-talk",
@@ -8402,7 +8390,7 @@
         "_speakerLower": "victor lomuller",
         "_abstractLower": "",
         "_tagsLower": "clang libsycl",
-        "_meetingLower": "2016 european llvm developers' meeting barcelona, spain march 17-18, 2016",
+        "_meetingLower": "2016 eurollvm developers' meeting barcelona, spain march 17-18, 2016",
         "_year": "2016",
         "_searchDoc": {
           "fields": {
@@ -8438,11 +8426,10 @@
               ]
             },
             "meeting": {
-              "text": "2016 european llvm developers meeting barcelona spain march 17-18 2016",
+              "text": "2016 eurollvm developers meeting barcelona spain march 17-18 2016",
               "words": [
                 "2016",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "barcelona",
@@ -8471,11 +8458,11 @@
           },
           "year": 2016
         },
-        "_searchBlob": "c++ on accelerators supporting single-source sycl and hsa programming models using clang 2016 european llvm developers meeting barcelona spain march 17-18 2016 2016-03 technical-talk victor lomuller clang libsycl"
+        "_searchBlob": "c++ on accelerators supporting single-source sycl and hsa programming models using clang 2016 eurollvm developers meeting barcelona spain march 17-18 2016 2016-03 technical-talk victor lomuller clang libsycl"
       },
       "meeting": {
         "slug": "2016-03",
-        "name": "2016 European LLVM Developers' Meeting",
+        "name": "2016 EuroLLVM Developers' Meeting",
         "date": "March 17-18, 2016",
         "location": "Barcelona, Spain",
         "canceled": false,
@@ -8676,7 +8663,7 @@
       "talk": {
         "id": "2015-04-044",
         "meeting": "2015-04",
-        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingName": "2015 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 13-14, 2015",
         "category": "technical-talk",
@@ -8706,7 +8693,7 @@
         "_speakerLower": "andrew ayers",
         "_abstractLower": "",
         "_tagsLower": "llvm",
-        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_meetingLower": "2015 eurollvm developers' meeting london, uk april 13-14, 2015",
         "_year": "2015",
         "_searchDoc": {
           "fields": {
@@ -8737,11 +8724,10 @@
               ]
             },
             "meeting": {
-              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "text": "2015 eurollvm developers meeting london uk april 13-14 2015",
               "words": [
                 "2015",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -8770,11 +8756,11 @@
           },
           "year": 2015
         },
-        "_searchBlob": "llilc llvm as a code generator for the coreclr 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 technical-talk andrew ayers llvm"
+        "_searchBlob": "llilc llvm as a code generator for the coreclr 2015 eurollvm developers meeting london uk april 13-14 2015 2015-04 technical-talk andrew ayers llvm"
       },
       "meeting": {
         "slug": "2015-04",
-        "name": "2015 European LLVM Developers' Meeting",
+        "name": "2015 EuroLLVM Developers' Meeting",
         "date": "April 13-14, 2015",
         "location": "London, UK",
         "canceled": false,
@@ -8785,7 +8771,7 @@
       "talk": {
         "id": "2015-04-022",
         "meeting": "2015-04",
-        "meetingName": "2015 European LLVM Developers' Meeting",
+        "meetingName": "2015 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "April 13-14, 2015",
         "category": "poster",
@@ -8829,7 +8815,7 @@
         "_speakerLower": "gabor ballabas akos kiss gabor loki",
         "_abstractLower": "",
         "_tagsLower": "llvm aarch64",
-        "_meetingLower": "2015 european llvm developers' meeting london, uk april 13-14, 2015",
+        "_meetingLower": "2015 eurollvm developers' meeting london, uk april 13-14, 2015",
         "_year": "2015",
         "_searchDoc": {
           "fields": {
@@ -8863,11 +8849,10 @@
               ]
             },
             "meeting": {
-              "text": "2015 european llvm developers meeting london uk april 13-14 2015",
+              "text": "2015 eurollvm developers meeting london uk april 13-14 2015",
               "words": [
                 "2015",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -8896,11 +8881,11 @@
           },
           "year": 2015
         },
-        "_searchBlob": "aarch64 support for the llvm ecosystem 2015 european llvm developers meeting london uk april 13-14 2015 2015-04 poster gabor ballabas akos kiss gabor loki llvm aarch64"
+        "_searchBlob": "aarch64 support for the llvm ecosystem 2015 eurollvm developers meeting london uk april 13-14 2015 2015-04 poster gabor ballabas akos kiss gabor loki llvm aarch64"
       },
       "meeting": {
         "slug": "2015-04",
-        "name": "2015 European LLVM Developers' Meeting",
+        "name": "2015 EuroLLVM Developers' Meeting",
         "date": "April 13-14, 2015",
         "location": "London, UK",
         "canceled": false,
@@ -9288,7 +9273,7 @@
       "talk": {
         "id": "2014-04-010",
         "meeting": "2014-04",
-        "meetingName": "2014 European LLVM Developers' Meeting",
+        "meetingName": "2014 EuroLLVM Developers' Meeting",
         "meetingLocation": "Edinburgh, Scotland",
         "meetingDate": "April 7-8, 2014",
         "category": "technical-talk",
@@ -9320,7 +9305,7 @@
         "_speakerLower": "daniel jasper",
         "_abstractLower": "",
         "_tagsLower": "clang clang-tools-extra",
-        "_meetingLower": "2014 european llvm developers' meeting edinburgh, scotland april 7-8, 2014",
+        "_meetingLower": "2014 eurollvm developers' meeting edinburgh, scotland april 7-8, 2014",
         "_year": "2014",
         "_searchDoc": {
           "fields": {
@@ -9349,11 +9334,10 @@
               ]
             },
             "meeting": {
-              "text": "2014 european llvm developers meeting edinburgh scotland april 7-8 2014",
+              "text": "2014 eurollvm developers meeting edinburgh scotland april 7-8 2014",
               "words": [
                 "2014",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "edinburgh",
@@ -9382,11 +9366,11 @@
           },
           "year": 2014
         },
-        "_searchBlob": "clang-tidy - lint-like checks and beyond 2014 european llvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk daniel jasper clang clang-tools-extra"
+        "_searchBlob": "clang-tidy - lint-like checks and beyond 2014 eurollvm developers meeting edinburgh scotland april 7-8 2014 2014-04 technical-talk daniel jasper clang clang-tools-extra"
       },
       "meeting": {
         "slug": "2014-04",
-        "name": "2014 European LLVM Developers' Meeting",
+        "name": "2014 EuroLLVM Developers' Meeting",
         "date": "April 7-8, 2014",
         "location": "Edinburgh, Scotland",
         "canceled": false,
@@ -9865,7 +9849,7 @@
       "talk": {
         "id": "2013-04-020",
         "meeting": "2013-04",
-        "meetingName": "2013 European LLVM Developers' Meeting",
+        "meetingName": "2013 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France",
         "meetingDate": "April 29-30, 2013",
         "category": "lightning-talk",
@@ -9899,7 +9883,7 @@
         "_speakerLower": "diego novillo",
         "_abstractLower": "at google, we achieve the highest levels of performance using whole program optimization. however, traditional whole program optimization does not scale to the size of applications that we are interested in optimizing. in this lightning talk, i will briefly describe the fdo technologies that we have implemented, how we apply them to whole program optimization and our plans to port this technology to the llvm compiler.",
         "_tagsLower": "lto optimizations pgo llvm performance",
-        "_meetingLower": "2013 european llvm developers' meeting paris, france april 29-30, 2013",
+        "_meetingLower": "2013 eurollvm developers' meeting paris, france april 29-30, 2013",
         "_year": "2013",
         "_searchDoc": {
           "fields": {
@@ -9932,11 +9916,10 @@
               ]
             },
             "meeting": {
-              "text": "2013 european llvm developers meeting paris france april 29-30 2013",
+              "text": "2013 eurollvm developers meeting paris france april 29-30 2013",
               "words": [
                 "2013",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -10031,11 +10014,11 @@
           },
           "year": 2013
         },
-        "_searchBlob": "fdo-based whole program optimization in llvm at google we achieve the highest levels of performance using whole program optimization. however traditional whole program optimization does not scale to the size of applications that we are interested in optimizing. in this lightning talk i will briefly describe the fdo technologies that we have implemented how we apply them to whole program optimization and our plans to port this technology to the llvm compiler. 2013 european llvm developers meeting paris france april 29-30 2013 2013-04 lightning-talk diego novillo lto optimizations pgo llvm performance"
+        "_searchBlob": "fdo-based whole program optimization in llvm at google we achieve the highest levels of performance using whole program optimization. however traditional whole program optimization does not scale to the size of applications that we are interested in optimizing. in this lightning talk i will briefly describe the fdo technologies that we have implemented how we apply them to whole program optimization and our plans to port this technology to the llvm compiler. 2013 eurollvm developers meeting paris france april 29-30 2013 2013-04 lightning-talk diego novillo lto optimizations pgo llvm performance"
       },
       "meeting": {
         "slug": "2013-04",
-        "name": "2013 European LLVM Developers' Meeting",
+        "name": "2013 EuroLLVM Developers' Meeting",
         "date": "April 29-30, 2013",
         "location": "Paris, France",
         "canceled": false,

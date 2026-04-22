@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-030": {
@@ -2407,7 +2407,7 @@
       "talk": {
         "id": "2019-04-041",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "lightning-talk",
@@ -2437,7 +2437,7 @@
         "_speakerLower": "jordan rupprecht",
         "_abstractLower": "although many projects have migrated from gcc-based toolchains to clang-based ones, tools from the gnu binutils collection are still widely used despite having equivalents in the llvm project. the problems faced when attempting to use llvm tools range anywhere from simple command line syntax differences to unimplemented or buggy features. in this talk, i will describe some of the types of challenges we faced when adopting llvm tools, as well as some of the strategies we used to test the toolchain.",
         "_tagsLower": "llvm clang infrastructure",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2468,11 +2468,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2582,11 +2581,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "adopting llvm binary utilities in toolchains although many projects have migrated from gcc-based toolchains to clang-based ones tools from the gnu binutils collection are still widely used despite having equivalents in the llvm project. the problems faced when attempting to use llvm tools range anywhere from simple command line syntax differences to unimplemented or buggy features. in this talk i will describe some of the types of challenges we faced when adopting llvm tools as well as some of the strategies we used to test the toolchain. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk jordan rupprecht llvm clang infrastructure"
+        "_searchBlob": "adopting llvm binary utilities in toolchains although many projects have migrated from gcc-based toolchains to clang-based ones tools from the gnu binutils collection are still widely used despite having equivalents in the llvm project. the problems faced when attempting to use llvm tools range anywhere from simple command line syntax differences to unimplemented or buggy features. in this talk i will describe some of the types of challenges we faced when adopting llvm tools as well as some of the strategies we used to test the toolchain. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 lightning-talk jordan rupprecht llvm clang infrastructure"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -2597,7 +2596,7 @@
       "talk": {
         "id": "2019-04-063",
         "meeting": "2019-04",
-        "meetingName": "2019 European LLVM Developers' Meeting",
+        "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
         "category": "poster",
@@ -2634,7 +2633,7 @@
         "_speakerLower": "jack j. garzella shaobo he",
         "_abstractLower": "developers nowadays regularly use numerous programming languages with different characteristics and trade-offs. unfortunately, implementing a software verifier for a new language from scratch is a large and tedious undertake, requiring expert knowledge in multiple domains, such as compilers, verification, and constraint solving. hence, only a tiny fraction of the used languages has readily available software verifiers to aid in the development of correct programs. in the past decade, there has been a trend of leveraging popular compiler intermediate representations (irs), such as llvm ir, when implementing software verifiers. the main advantage is to avoid implementing large front-ends, and instead rely on a typically simple canonical format of an ir. in addition, processing ir promises out-of-the-box multi- and cross-language verification since, at least in theory, a verifier ought to be able to handle a program in any programming language (and their combination) that can be compiled into the ir. in practice though, to the best of our knowledge, nobody has explored the feasibility and ease of such integration of new languages. this talk introduces a methodology for adding support for a new language into an ir-based verification toolflow. using our methodology, we extend an existing verifier called smack with support for 7 additional languages. we assess the quality of our extensions and the proposed methodology through several case studies, and we describe the lessons we learned in the process.",
         "_tagsLower": "llvm ir",
-        "_meetingLower": "2019 european llvm developers' meeting brussels, belgium april 8-9, 2019",
+        "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -2668,11 +2667,10 @@
               ]
             },
             "meeting": {
-              "text": "2019 european llvm developers meeting brussels belgium april 8-9 2019",
+              "text": "2019 eurollvm developers meeting brussels belgium april 8-9 2019",
               "words": [
                 "2019",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "brussels",
@@ -2919,11 +2917,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "enabling multi- and cross-language verification with llvm developers nowadays regularly use numerous programming languages with different characteristics and trade-offs. unfortunately implementing a software verifier for a new language from scratch is a large and tedious undertake requiring expert knowledge in multiple domains such as compilers verification and constraint solving. hence only a tiny fraction of the used languages has readily available software verifiers to aid in the development of correct programs. in the past decade there has been a trend of leveraging popular compiler intermediate representations irs such as llvm ir when implementing software verifiers. the main advantage is to avoid implementing large front-ends and instead rely on a typically simple canonical format of an ir. in addition processing ir promises out-of-the-box multi- and cross-language verification since at least in theory a verifier ought to be able to handle a program in any programming language and their combination that can be compiled into the ir. in practice though to the best of our knowledge nobody has explored the feasibility and ease of such integration of new languages. this talk introduces a methodology for adding support for a new language into an ir-based verification toolflow. using our methodology we extend an existing verifier called smack with support for 7 additional languages. we assess the quality of our extensions and the proposed methodology through several case studies and we describe the lessons we learned in the process. 2019 european llvm developers meeting brussels belgium april 8-9 2019 2019-04 poster jack j. garzella shaobo he llvm ir"
+        "_searchBlob": "enabling multi- and cross-language verification with llvm developers nowadays regularly use numerous programming languages with different characteristics and trade-offs. unfortunately implementing a software verifier for a new language from scratch is a large and tedious undertake requiring expert knowledge in multiple domains such as compilers verification and constraint solving. hence only a tiny fraction of the used languages has readily available software verifiers to aid in the development of correct programs. in the past decade there has been a trend of leveraging popular compiler intermediate representations irs such as llvm ir when implementing software verifiers. the main advantage is to avoid implementing large front-ends and instead rely on a typically simple canonical format of an ir. in addition processing ir promises out-of-the-box multi- and cross-language verification since at least in theory a verifier ought to be able to handle a program in any programming language and their combination that can be compiled into the ir. in practice though to the best of our knowledge nobody has explored the feasibility and ease of such integration of new languages. this talk introduces a methodology for adding support for a new language into an ir-based verification toolflow. using our methodology we extend an existing verifier called smack with support for 7 additional languages. we assess the quality of our extensions and the proposed methodology through several case studies and we describe the lessons we learned in the process. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 poster jack j. garzella shaobo he llvm ir"
       },
       "meeting": {
         "slug": "2019-04",
-        "name": "2019 European LLVM Developers' Meeting",
+        "name": "2019 EuroLLVM Developers' Meeting",
         "date": "April 8-9, 2019",
         "location": "Brussels, Belgium",
         "canceled": false,
@@ -5232,7 +5230,7 @@
       "talk": {
         "id": "2017-03-040",
         "meeting": "2017-03",
-        "meetingName": "2017 European LLVM Developers' Meeting",
+        "meetingName": "2017 EuroLLVM Developers' Meeting",
         "meetingLocation": "Saarbrücken, Germany",
         "meetingDate": "March 27-28, 2017",
         "category": "poster",
@@ -5262,7 +5260,7 @@
         "_speakerLower": "sam parker",
         "_abstractLower": "often application source code is not available to compiler engineers, which can make program analysis more difficult. binary instrumentation is a process of binary modification, where code is inserted into an already existing binary, which can help understand how the program performs. we have created an llvm-based binary instrumenter, building upon llvm-objdump, to enable us to gather static and runtime information of elf binaries.",
         "_tagsLower": "llvm",
-        "_meetingLower": "2017 european llvm developers' meeting saarbrücken, germany march 27-28, 2017",
+        "_meetingLower": "2017 eurollvm developers' meeting saarbrücken, germany march 27-28, 2017",
         "_year": "2017",
         "_searchDoc": {
           "fields": {
@@ -5292,11 +5290,10 @@
               ]
             },
             "meeting": {
-              "text": "2017 european llvm developers meeting saarbrucken germany march 27-28 2017",
+              "text": "2017 eurollvm developers meeting saarbrucken germany march 27-28 2017",
               "words": [
                 "2017",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "saarbrucken",
@@ -5389,11 +5386,11 @@
           },
           "year": 2017
         },
-        "_searchBlob": "binary instrumentation of elf objects on arm often application source code is not available to compiler engineers which can make program analysis more difficult. binary instrumentation is a process of binary modification where code is inserted into an already existing binary which can help understand how the program performs. we have created an llvm-based binary instrumenter building upon llvm-objdump to enable us to gather static and runtime information of elf binaries. 2017 european llvm developers meeting saarbrucken germany march 27-28 2017 2017-03 poster sam parker llvm"
+        "_searchBlob": "binary instrumentation of elf objects on arm often application source code is not available to compiler engineers which can make program analysis more difficult. binary instrumentation is a process of binary modification where code is inserted into an already existing binary which can help understand how the program performs. we have created an llvm-based binary instrumenter building upon llvm-objdump to enable us to gather static and runtime information of elf binaries. 2017 eurollvm developers meeting saarbrucken germany march 27-28 2017 2017-03 poster sam parker llvm"
       },
       "meeting": {
         "slug": "2017-03",
-        "name": "2017 European LLVM Developers' Meeting",
+        "name": "2017 EuroLLVM Developers' Meeting",
         "date": "March 27-28, 2017",
         "location": "Saarbrücken, Germany",
         "canceled": false,

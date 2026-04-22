@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-9f80093f7d74",
+  "dataVersion": "viewer-precomputed-v1-dec857809d02",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-06-019": {
@@ -224,7 +224,7 @@
       "talk": {
         "id": "2024-04-009",
         "meeting": "2024-04",
-        "meetingName": "2024 European LLVM Developers' Meeting",
+        "meetingName": "2024 EuroLLVM Developers' Meeting",
         "meetingLocation": "Vienna, Austria",
         "meetingDate": "April 9-11, 2024",
         "category": "technical-talk",
@@ -258,7 +258,7 @@
         "_speakerLower": "benjamin mikek",
         "_abstractLower": "slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvm’s peephole optimizations or in symbolic execution engines like klee, we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir, apply the optimizer, and then translate back, alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints, and increases the number of constraints solved at fixed timeouts by up to 80%.",
         "_tagsLower": "ir jit optimizations llvm",
-        "_meetingLower": "2024 european llvm developers' meeting vienna, austria april 9-11, 2024",
+        "_meetingLower": "2024 eurollvm developers' meeting vienna, austria april 9-11, 2024",
         "_year": "2024",
         "_searchDoc": {
           "fields": {
@@ -292,11 +292,10 @@
               ]
             },
             "meeting": {
-              "text": "2024 european llvm developers meeting vienna austria april 9-11 2024",
+              "text": "2024 eurollvm developers meeting vienna austria april 9-11 2024",
               "words": [
                 "2024",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "vienna",
@@ -435,11 +434,11 @@
           },
           "year": 2024
         },
-        "_searchBlob": "leveraging llvm optimizations to speed up constraint solving slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvms peephole optimizations or in symbolic execution engines like klee we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir apply the optimizer and then translate back alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints and increases the number of constraints solved at fixed timeouts by up to 80 . 2024 european llvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk benjamin mikek ir jit optimizations llvm"
+        "_searchBlob": "leveraging llvm optimizations to speed up constraint solving slot is a new tool which uses existing llvm optimization passes to speed up smt constraint solvers like z3. while existing work has used smt solving to verify llvms peephole optimizations or in symbolic execution engines like klee we flip the script and use llvm optimizations to improve constraint solving. our strategy is to translate smt constraints into llvm ir apply the optimizer and then translate back alleviating manual developer effort in understanding both solver and llvm internals. we find that slot speeds up average solving times by up to 2x for floating-point and bitvector constraints and increases the number of constraints solved at fixed timeouts by up to 80 . 2024 eurollvm developers meeting vienna austria april 9-11 2024 2024-04 technical-talk benjamin mikek ir jit optimizations llvm"
       },
       "meeting": {
         "slug": "2024-04",
-        "name": "2024 European LLVM Developers' Meeting",
+        "name": "2024 EuroLLVM Developers' Meeting",
         "date": "April 9-11, 2024",
         "location": "Vienna, Austria",
         "canceled": false,
@@ -450,7 +449,7 @@
       "talk": {
         "id": "2023-05-018",
         "meeting": "2023-05",
-        "meetingName": "2023 European LLVM Developers' Meeting",
+        "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
         "category": "technical-talk",
@@ -486,7 +485,7 @@
         "_speakerLower": "jeff niu",
         "_abstractLower": "mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use, but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design, such as concise and powerful representation and transparent composability, dialect design principles and techniques, such as preserving high-level information and distinguishing between “structural” and “computation” dialects, and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir.",
         "_tagsLower": "frontend ir mlir optimizations programming languages infrastructure",
-        "_meetingLower": "2023 european llvm developers' meeting glasgow, scotland may 10-11, 2023",
+        "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
           "fields": {
@@ -523,11 +522,10 @@
               ]
             },
             "meeting": {
-              "text": "2023 european llvm developers meeting glasgow scotland may 10-11 2023",
+              "text": "2023 eurollvm developers meeting glasgow scotland may 10-11 2023",
               "words": [
                 "2023",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "glasgow",
@@ -687,11 +685,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "mlir dialect design and composition for front-end compilers mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design such as concise and powerful representation and transparent composability dialect design principles and techniques such as preserving high-level information and distinguishing between structural and computation dialects and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir. 2023 european llvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk jeff niu frontend ir mlir optimizations programming languages infrastructure"
+        "_searchBlob": "mlir dialect design and composition for front-end compilers mlir dialect design is often more an art than a science. mlir provides powerful infrastructure for building ir and a vast ecosystem of dialects to use but lacks guidelines on how to actually do so. this talk is a deep dive on principles for mlir dialect design and composition. we will focus on criteria for dialect design such as concise and powerful representation and transparent composability dialect design principles and techniques such as preserving high-level information and distinguishing between structural and computation dialects and challenges with integrating with upstream dialects. we will study how good dialect design allows us efficiently and easily write powerful optimizations on our ir and how to write generic ir transformations with mlir interfaces. we will present our findings through the lens of building a general-purpose programming language with mlir. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk jeff niu frontend ir mlir optimizations programming languages infrastructure"
       },
       "meeting": {
         "slug": "2023-05",
-        "name": "2023 European LLVM Developers' Meeting",
+        "name": "2023 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2023",
         "location": "Glasgow, Scotland",
         "canceled": false,
@@ -702,7 +700,7 @@
       "talk": {
         "id": "2022-05-006",
         "meeting": "2022-05",
-        "meetingName": "2022 European LLVM Developers' Meeting",
+        "meetingName": "2022 EuroLLVM Developers' Meeting",
         "meetingLocation": "London, UK",
         "meetingDate": "May 10-11, 2022",
         "category": "technical-talk",
@@ -743,7 +741,7 @@
         "_speakerLower": "artur pilipenko azul",
         "_abstractLower": "this talk continues a series of technical talks about the internals of azul's falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session, we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics, prioritization, a combination of top-down and bottom-up traversal orders, and clustering.",
         "_tagsLower": "jit optimizations performance",
-        "_meetingLower": "2022 european llvm developers' meeting london, uk may 10-11, 2022",
+        "_meetingLower": "2022 eurollvm developers' meeting london, uk may 10-11, 2022",
         "_year": "2022",
         "_searchDoc": {
           "fields": {
@@ -775,11 +773,10 @@
               ]
             },
             "meeting": {
-              "text": "2022 european llvm developers meeting london uk may 10-11 2022",
+              "text": "2022 eurollvm developers meeting london uk may 10-11 2022",
               "words": [
                 "2022",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "london",
@@ -885,11 +882,11 @@
           },
           "year": 2022
         },
-        "_searchBlob": "custom benefit-driven inliner in falcon jit this talk continues a series of technical talks about the internals of azuls falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics prioritization a combination of top-down and bottom-up traversal orders and clustering. 2022 european llvm developers meeting london uk may 10-11 2022 2022-05 technical-talk artur pilipenko azul jit optimizations performance"
+        "_searchBlob": "custom benefit-driven inliner in falcon jit this talk continues a series of technical talks about the internals of azuls falcon compiler. inlining is a critically important compiler optimization. it is especially important in java because of the extensive use of object-oriented abstractions. introducing a custom downstream inliner in falcon enabled great performance and compile-time improvements. in this session we will give an overview of the inliner we implemented. we will talk about benefit-driven inlining heuristics prioritization a combination of top-down and bottom-up traversal orders and clustering. 2022 eurollvm developers meeting london uk may 10-11 2022 2022-05 technical-talk artur pilipenko azul jit optimizations performance"
       },
       "meeting": {
         "slug": "2022-05",
-        "name": "2022 European LLVM Developers' Meeting",
+        "name": "2022 EuroLLVM Developers' Meeting",
         "date": "May 10-11, 2022",
         "location": "London, UK",
         "canceled": false,
@@ -1149,7 +1146,7 @@
       "talk": {
         "id": "2020-04-005",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "technical-talk",
@@ -1179,7 +1176,7 @@
         "_speakerLower": "jan-willem roorda",
         "_abstractLower": "software pipelining (swp) is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically, swp is implemented using heuristics. but, also exhaustive approaches based on integer programming (ip) have been proposed. in this talk, we present an alternative approach implemented in llvm: an exhaustive software pipeliner based on a satisfiability modulo theories (smt) solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore, we show how the \"unsatisfiable core\" generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally, we compare our approach to llvm's implementation of swing-modulo-scheduling (sms).",
         "_tagsLower": "llvm optimizations",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -1209,11 +1206,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -1364,11 +1360,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "exhaustive software pipelining using an smt-solver software pipelining swp is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically swp is implemented using heuristics. but also exhaustive approaches based on integer programming ip have been proposed. in this talk we present an alternative approach implemented in llvm an exhaustive software pipeliner based on a satisfiability modulo theories smt solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore we show how the unsatisfiable core generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally we compare our approach to llvms implementation of swing-modulo-scheduling sms . 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk jan-willem roorda llvm optimizations"
+        "_searchBlob": "exhaustive software pipelining using an smt-solver software pipelining swp is a classic and important loop- optimization technique for vliw-processors. it improves instruction- level parallelism by overlapping multiple iterations of a loop and executing them in parallel. typically swp is implemented using heuristics. but also exhaustive approaches based on integer programming ip have been proposed. in this talk we present an alternative approach implemented in llvm an exhaustive software pipeliner based on a satisfiability modulo theories smt solver. we give experimental results in which we compare our approach with heuristic algorithms and hand-optimization. furthermore we show how the unsatisfiable core generation feature of modern smt- solvers can be used by the compiler to give feedback to programmers and processor-designers. finally we compare our approach to llvms implementation of swing-modulo-scheduling sms . 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 technical-talk jan-willem roorda llvm optimizations"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
@@ -1379,7 +1375,7 @@
       "talk": {
         "id": "2020-04-027",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "tutorial",
@@ -1416,7 +1412,7 @@
         "_speakerLower": "alex zinenko mehdi amini",
         "_abstractLower": "mlir is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to llvm. it aims at generalizing the success of llvm’s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning. in this tutorial, we will explain how the few core concepts present in mlir can be combined to represent and transform various irs, including llvm ir itself, by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers, irs and similar tools to start using mlir to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts, building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals, e.g. loop optimizations or gpu-specific abstractions.",
         "_tagsLower": "llvm mlir ir optimizations infrastructure gpu ml",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -1449,11 +1445,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -1638,11 +1633,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "mlir tutorial mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial alex zinenko mehdi amini llvm mlir ir optimizations infrastructure gpu ml"
+        "_searchBlob": "mlir tutorial mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial alex zinenko mehdi amini llvm mlir ir optimizations infrastructure gpu ml"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
@@ -1653,7 +1648,7 @@
       "talk": {
         "id": "2020-04-049",
         "meeting": "2020-04",
-        "meetingName": "2020 European LLVM Developers' Meeting",
+        "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
         "category": "lightning-talk",
@@ -1690,7 +1685,7 @@
         "_speakerLower": "alexey bader oleg maslov",
         "_abstractLower": "this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover \"sycl device compiler\" design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining, separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development.",
         "_tagsLower": "llvm clang offload libsycl infrastructure opencl",
-        "_meetingLower": "2020 european llvm developers' meeting paris, france - canceled april 6-7, 2020",
+        "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
           "fields": {
@@ -1727,11 +1722,10 @@
               ]
             },
             "meeting": {
-              "text": "2020 european llvm developers meeting paris france - canceled april 6-7 2020",
+              "text": "2020 eurollvm developers meeting paris france - canceled april 6-7 2020",
               "words": [
                 "2020",
-                "european",
-                "llvm",
+                "eurollvm",
                 "developers",
                 "meeting",
                 "paris",
@@ -1886,11 +1880,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "data parallel c++ compiler for accelerator programming this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover sycl device compiler design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development. 2020 european llvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk alexey bader oleg maslov llvm clang offload libsycl infrastructure opencl"
+        "_searchBlob": "data parallel c++ compiler for accelerator programming this talk introduces the clang-based sycl compiler with focus on the front-end and the driver enhancements enabling offloading of c++ code to wide range of accelerators. we will cover sycl device compiler design and demonstrate how we leverage existing llvm project infrastructure for offload code outlining separate diagnostics for offload code and driver offload mode. we also review how third-party open source tools from the khronos working group used to make our solution portable across different types of accelerators supporting opencl. we discuss abi between host and device parts of the application and how to integrate sycl offloading compiler with arbitrary c++11 compiler in addition to clang. we will update on the current status of sycl support in clang and plans for future development. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 lightning-talk alexey bader oleg maslov llvm clang offload libsycl infrastructure opencl"
       },
       "meeting": {
         "slug": "2020-04",
-        "name": "2020 European LLVM Developers' Meeting",
+        "name": "2020 EuroLLVM Developers' Meeting",
         "date": "April 6-7, 2020",
         "location": "Paris, France - Canceled",
         "canceled": true,
