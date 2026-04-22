@@ -1,0 +1,1147 @@
+/**
+ * mlir-browser.js - combined MLIR talks + papers browser for the /mlir/ landing route.
+ */
+
+(function () {
+  const HubUtils = window.LLVMHubUtils || {};
+  const PageShell = typeof HubUtils.createPageShell === 'function'
+    ? HubUtils.createPageShell()
+    : null;
+
+  const initTheme = PageShell ? () => PageShell.initTheme() : () => {};
+  const initTextSize = PageShell ? () => PageShell.initTextSize() : () => {};
+  const initCustomizationMenu = PageShell ? () => PageShell.initCustomizationMenu() : () => {};
+  const initMobileNavMenu = PageShell ? () => PageShell.initMobileNavMenu() : () => {};
+  const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
+
+  const getTalkKeyTopicsFromHub = typeof HubUtils.getTalkKeyTopics === 'function'
+    ? HubUtils.getTalkKeyTopics.bind(HubUtils)
+    : null;
+  const getPaperKeyTopicsFromHub = typeof HubUtils.getPaperKeyTopics === 'function'
+    ? HubUtils.getPaperKeyTopics.bind(HubUtils)
+    : null;
+  const normalizeTalksFromHub = typeof HubUtils.normalizeTalks === 'function'
+    ? HubUtils.normalizeTalks.bind(HubUtils)
+    : null;
+  const normalizePersonKeyFromHub = typeof HubUtils.normalizePersonKey === 'function'
+    ? HubUtils.normalizePersonKey.bind(HubUtils)
+    : null;
+
+  const CURATED_PUBS_DATA_PATH = 'sub-projects/mlir/data/publications.json';
+  const INTERNAL_PAPER_PAGE_PATH = 'papers/paper.html';
+  const INITIAL_BATCH_SIZE = 36;
+  const RENDER_BATCH_SIZE = 24;
+  const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
+  const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
+  const TALK_CATEGORY_LABELS = Object.freeze({
+    keynote: 'Keynote',
+    'technical-talk': 'Technical Talk',
+    tutorial: 'Tutorial',
+    panel: 'Panel',
+    'quick-talk': 'Quick Talk',
+    'lightning-talk': 'Lightning Talk',
+    'student-talk': 'Student Technical Talk',
+    'llvm-foundation': 'LLVM Foundation',
+    'open-design-meeting': 'Open Design Meeting',
+    bof: 'BoF',
+    poster: 'Poster',
+    workshop: 'Workshop',
+    other: 'Other',
+  });
+  const state = {
+    query: '',
+    source: 'all',
+  };
+
+  let allItems = [];
+  let filteredItems = [];
+  let renderedCount = 0;
+  let currentCounts = {
+    all: { works: 0, talks: 0, papers: 0 },
+    official: { works: 0, talks: 0, papers: 0 },
+  };
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function collapseWhitespace(value) {
+    return String(value || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function sanitizeExternalUrl(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    try {
+      const parsed = new URL(raw, window.location.href);
+      const protocol = parsed.protocol.toLowerCase();
+      if (protocol === 'http:' || protocol === 'https:') return parsed.toString();
+    } catch {
+      return '';
+    }
+    return '';
+  }
+
+  function uniqueStrings(values) {
+    const out = [];
+    const seen = new Set();
+    for (const value of (Array.isArray(values) ? values : [])) {
+      const text = collapseWhitespace(value);
+      const key = text.toLowerCase();
+      if (!text || seen.has(key)) continue;
+      seen.add(key);
+      out.push(text);
+    }
+    return out;
+  }
+
+  function normalizeKey(value) {
+    return collapseWhitespace(value).toLowerCase();
+  }
+
+  function slugify(value) {
+    return collapseWhitespace(value)
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+
+  function normalizeTitleKey(value) {
+    return collapseWhitespace(String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' '));
+  }
+
+  function normalizeTopicKey(value) {
+    return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  }
+
+  function normalizePersonKey(value) {
+    if (normalizePersonKeyFromHub) return normalizePersonKeyFromHub(value);
+    return normalizeKey(value);
+  }
+
+  function truncateText(value, maxLength) {
+    const text = collapseWhitespace(value);
+    if (!text || text.length <= maxLength) return text;
+    const slice = text.slice(0, maxLength);
+    const boundary = slice.lastIndexOf(' ');
+    return `${collapseWhitespace(boundary > 120 ? slice.slice(0, boundary) : slice)}…`;
+  }
+
+  function getTalkKeyTopics(talk, limit = Infinity) {
+    return getTalkKeyTopicsFromHub ? getTalkKeyTopicsFromHub(talk, limit) : [];
+  }
+
+  function getPaperKeyTopics(paper, limit = Infinity) {
+    if (getPaperKeyTopicsFromHub) return getPaperKeyTopicsFromHub(paper, limit);
+    return uniqueStrings([
+      ...(Array.isArray(paper && paper.tags) ? paper.tags : []),
+      ...(Array.isArray(paper && paper.keywords) ? paper.keywords : []),
+      ...(Array.isArray(paper && paper.matchedSubprojects) ? paper.matchedSubprojects : []),
+    ]).slice(0, limit);
+  }
+
+  function normalizeTalks(rawTalks) {
+    return normalizeTalksFromHub ? normalizeTalksFromHub(rawTalks) : (Array.isArray(rawTalks) ? rawTalks : []);
+  }
+
+  function isDirectPdfUrl(value) {
+    return DIRECT_PDF_URL_RE.test(String(value || '').trim());
+  }
+
+  function extractDoi(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    const match = raw.match(/10\.\d{4,9}\/[\w.()\-;/:%+]+/i);
+    return match ? String(match[0]).trim().toLowerCase() : '';
+  }
+
+  function isBlogPaper(paper) {
+    if (!paper || typeof paper !== 'object') return false;
+    if (paper._isBlog === true) return true;
+    const source = String(paper.source || '').trim().toLowerCase();
+    const type = String(paper.type || '').trim().toLowerCase();
+    const sourceUrl = String(paper.sourceUrl || '').trim();
+    const paperUrl = String(paper.paperUrl || '').trim();
+    return BLOG_SOURCE_SLUGS.has(source)
+      || type === 'blog'
+      || type === 'blog-post'
+      || /^https?:\/\/(?:www\.)?blog\.llvm\.org\//i.test(sourceUrl)
+      || /github\.com\/llvm\/(?:llvm-blog-www|llvm-www-blog)\b/i.test(paperUrl);
+  }
+
+  function parseYearNumber(value) {
+    const match = String(value || '').match(/\b((?:19|20)\d{2})\b/);
+    return match ? Number.parseInt(match[1], 10) : 0;
+  }
+
+  function buildDateStamp(value, fallbackYear) {
+    const raw = collapseWhitespace(value);
+    const exact = raw.match(/\b((?:19|20)\d{2})-(\d{2})-(\d{2})\b/);
+    if (exact) return Number(`${exact[1]}${exact[2]}${exact[3]}`);
+    const month = raw.match(/\b((?:19|20)\d{2})-(\d{2})\b/);
+    if (month) return Number(`${month[1]}${month[2]}00`);
+    const year = parseYearNumber(raw) || parseYearNumber(fallbackYear);
+    return year ? Number(`${year}0000`) : 0;
+  }
+
+  function buildCurrentPageUrl(overrides) {
+    const params = new URLSearchParams(window.location.search);
+    const next = {
+      query: Object.prototype.hasOwnProperty.call(overrides || {}, 'query') ? overrides.query : state.query,
+      source: Object.prototype.hasOwnProperty.call(overrides || {}, 'source') ? overrides.source : state.source,
+    };
+
+    params.delete('q');
+    params.delete('source');
+
+    if (collapseWhitespace(next.query)) params.set('q', collapseWhitespace(next.query));
+    if (next.source === 'official') params.set('source', 'official');
+
+    return `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`;
+  }
+
+  function updateUrl() {
+    const nextUrl = buildCurrentPageUrl({});
+    window.history.replaceState({}, '', nextUrl);
+  }
+
+  function buildLocalQueryHref(query) {
+    return buildCurrentPageUrl({ query });
+  }
+
+  function buildTalkDetailUrl(talk) {
+    const explicit = sanitizeExternalUrl(talk && talk.detailUrl);
+    if (explicit) return explicit;
+    return `talks/talk.html?id=${encodeURIComponent(collapseWhitespace(talk && talk.id))}`;
+  }
+
+  function buildPaperDetailUrl(paper) {
+    const id = collapseWhitespace(paper && paper.id);
+    if (!id) return '';
+    return `${INTERNAL_PAPER_PAGE_PATH}?id=${encodeURIComponent(id)}&from=mlir-pubs`;
+  }
+
+  function describeSourceLabel(record) {
+    const upstream = !!(record && record._mlirSourceUpstream);
+    const archive = !!(record && record._mlirSourceArchive);
+    if (upstream && archive) return 'mlir.llvm.org + archive';
+    if (upstream) return 'mlir.llvm.org';
+    if (archive) return 'LLVM archive';
+    return '';
+  }
+
+  function talkCategoryLabel(category) {
+    const key = collapseWhitespace(category).toLowerCase() || 'other';
+    return TALK_CATEGORY_LABELS[key] || TALK_CATEGORY_LABELS.other;
+  }
+
+  function normalizeTalkResourceActions(talk) {
+    return Array.isArray(talk && talk.resourceActions)
+      ? talk.resourceActions
+          .map((action) => ({
+            kind: collapseWhitespace(action && action.kind).toLowerCase(),
+            label: collapseWhitespace(action && action.label),
+            url: sanitizeExternalUrl(action && action.url),
+          }))
+          .filter((action) => action.url)
+      : [];
+  }
+
+  function mergeResourceActions(actionsA, actionsB) {
+    const merged = [];
+    const seen = new Set();
+    for (const action of [...(Array.isArray(actionsA) ? actionsA : []), ...(Array.isArray(actionsB) ? actionsB : [])]) {
+      const url = sanitizeExternalUrl(action && action.url);
+      if (!url || seen.has(url)) continue;
+      seen.add(url);
+      merged.push({
+        kind: collapseWhitespace(action && action.kind).toLowerCase(),
+        label: collapseWhitespace(action && action.label),
+        url,
+      });
+    }
+    return merged;
+  }
+
+  function mergeSpeakers(baseSpeakers, extraSpeakers) {
+    const merged = [];
+    const seen = new Set();
+    for (const speaker of [...(Array.isArray(baseSpeakers) ? baseSpeakers : []), ...(Array.isArray(extraSpeakers) ? extraSpeakers : [])]) {
+      const name = collapseWhitespace(speaker && speaker.name);
+      const key = normalizePersonKey(name);
+      if (!name || !key || seen.has(key)) continue;
+      seen.add(key);
+      merged.push({
+        name,
+        affiliation: collapseWhitespace(speaker && speaker.affiliation),
+      });
+    }
+    return merged;
+  }
+
+  function choosePreferredText(primary, secondary) {
+    const first = collapseWhitespace(primary);
+    const second = collapseWhitespace(secondary);
+    if (!first) return second;
+    if (!second) return first;
+    return first.length >= second.length ? first : second;
+  }
+
+  function talkYear(talk) {
+    return String(
+      parseYearNumber(
+        talk && (
+          talk.meetingDate
+          || talk.meeting
+          || talk.meetingName
+          || talk.title
+        )
+      ) || ''
+    );
+  }
+
+  function buildTalkMergeIndex(talks) {
+    const byExact = new Map();
+    const byTitle = new Map();
+    for (const talk of (Array.isArray(talks) ? talks : [])) {
+      const titleKey = normalizeTitleKey(talk && talk.title);
+      const year = talkYear(talk);
+      if (!titleKey) continue;
+      if (year) byExact.set(`${titleKey}|${year}`, talk);
+      if (!byTitle.has(titleKey)) byTitle.set(titleKey, []);
+      byTitle.get(titleKey).push(talk);
+    }
+    return { byExact, byTitle };
+  }
+
+  function findMatchingArchiveTalk(upstreamTalk, index) {
+    const titleKey = normalizeTitleKey(upstreamTalk && upstreamTalk.title);
+    if (!titleKey || !index) return null;
+
+    const year = talkYear(upstreamTalk);
+    if (year) {
+      const exact = index.byExact.get(`${titleKey}|${year}`);
+      if (exact) return exact;
+    }
+
+    const candidates = index.byTitle.get(titleKey) || [];
+    return candidates.length === 1 ? candidates[0] : null;
+  }
+
+  function mergeTalkRecords(baseTalk, extraTalk, extraIsUpstream) {
+    const merged = { ...baseTalk };
+    const sourceArchive = !!(baseTalk && baseTalk._mlirSourceArchive) || !!(extraTalk && extraTalk._mlirSourceArchive);
+    const sourceUpstream = !!(baseTalk && baseTalk._mlirSourceUpstream) || !!extraIsUpstream || !!(extraTalk && extraTalk._mlirSourceUpstream);
+
+    merged.title = choosePreferredText(baseTalk && baseTalk.title, extraTalk && extraTalk.title);
+    merged.abstract = choosePreferredText(baseTalk && baseTalk.abstract, extraTalk && extraTalk.abstract);
+    merged.meeting = choosePreferredText(baseTalk && baseTalk.meeting, extraTalk && extraTalk.meeting);
+    merged.meetingName = choosePreferredText(baseTalk && baseTalk.meetingName, extraTalk && extraTalk.meetingName);
+    merged.meetingDate = choosePreferredText(baseTalk && baseTalk.meetingDate, extraTalk && extraTalk.meetingDate);
+    merged.meetingLocation = choosePreferredText(baseTalk && baseTalk.meetingLocation, extraTalk && extraTalk.meetingLocation);
+    merged.videoUrl = sanitizeExternalUrl(baseTalk && baseTalk.videoUrl) || sanitizeExternalUrl(extraTalk && extraTalk.videoUrl);
+    merged.videoId = collapseWhitespace(baseTalk && baseTalk.videoId) || collapseWhitespace(extraTalk && extraTalk.videoId);
+    merged.slidesUrl = sanitizeExternalUrl(baseTalk && baseTalk.slidesUrl) || sanitizeExternalUrl(extraTalk && extraTalk.slidesUrl);
+    merged.posterUrl = sanitizeExternalUrl(baseTalk && baseTalk.posterUrl) || sanitizeExternalUrl(extraTalk && extraTalk.posterUrl);
+    merged.projectGithub = sanitizeExternalUrl(baseTalk && baseTalk.projectGithub) || sanitizeExternalUrl(extraTalk && extraTalk.projectGithub);
+    merged.sourceUrl = sanitizeExternalUrl(baseTalk && baseTalk.sourceUrl) || sanitizeExternalUrl(extraTalk && extraTalk.sourceUrl);
+    merged.detailUrl = sanitizeExternalUrl(baseTalk && baseTalk.detailUrl) || sanitizeExternalUrl(extraTalk && extraTalk.detailUrl);
+    merged.tags = uniqueStrings([...(Array.isArray(baseTalk && baseTalk.tags) ? baseTalk.tags : []), ...(Array.isArray(extraTalk && extraTalk.tags) ? extraTalk.tags : [])]);
+    merged.speakers = mergeSpeakers(baseTalk && baseTalk.speakers, extraTalk && extraTalk.speakers);
+    merged.resourceActions = mergeResourceActions(baseTalk && baseTalk.resourceActions, extraTalk && extraTalk.resourceActions);
+    merged._mlirSourceArchive = sourceArchive;
+    merged._mlirSourceUpstream = sourceUpstream;
+    return merged;
+  }
+
+  function normalizeActions(entry) {
+    return Array.isArray(entry && entry.actions)
+      ? entry.actions
+          .map((action) => ({
+            kind: collapseWhitespace(action && action.kind).toLowerCase(),
+            label: collapseWhitespace(action && action.label),
+            url: sanitizeExternalUrl(action && action.url),
+          }))
+          .filter((action) => action.label && action.url)
+      : [];
+  }
+
+  function buildPrimaryHref(actions, fallbackUrl) {
+    const primaryAction = actions.find((action) => action.kind === 'primary')
+      || actions.find((action) => action.kind === 'preprint')
+      || actions[0]
+      || null;
+    return collapseWhitespace(primaryAction && primaryAction.url) || sanitizeExternalUrl(fallbackUrl);
+  }
+
+  function extractYearFromEntry(entry) {
+    const match = collapseWhitespace([
+      entry && entry.title,
+      entry && entry.summary,
+      entry && entry.text,
+    ].join(' ')).match(/\b((?:19|20)\d{2})\b/);
+    return match ? match[1] : '';
+  }
+
+  function extractAuthorsFromEntry(entry) {
+    const summary = collapseWhitespace(entry && entry.summary);
+    const authorSegment = summary.split(' - ')[0] || summary;
+    return uniqueStrings(
+      authorSegment
+        .split(/\s*,\s*|\s+and\s+/i)
+        .map((value) => collapseWhitespace(value))
+        .filter((value) => value && !/\bproceedings\b/i.test(value))
+    );
+  }
+
+  function extractVenueFromEntry(entry) {
+    const summary = collapseWhitespace(entry && entry.summary);
+    const segments = summary.split(' - ').map((value) => collapseWhitespace(value)).filter(Boolean);
+    if (segments.length <= 1) return '';
+    return segments.slice(1).join(' - ');
+  }
+
+  function normalizePaperRecord(rawPaper) {
+    if (!rawPaper || typeof rawPaper !== 'object') return null;
+    const paper = { ...rawPaper };
+    paper.id = collapseWhitespace(paper.id);
+    paper.title = collapseWhitespace(paper.title);
+    paper.abstract = collapseWhitespace(paper.abstract);
+    paper._year = collapseWhitespace(paper._year || paper.year);
+    paper.year = collapseWhitespace(paper.year || paper._year);
+    paper.publication = collapseWhitespace(paper.publication || paper.venue);
+    paper.paperUrl = sanitizeExternalUrl(paper.paperUrl || '');
+    paper.sourceUrl = sanitizeExternalUrl(paper.sourceUrl || '');
+    paper.doi = extractDoi(paper.doi || paper.paperUrl || paper.sourceUrl || '');
+    paper.authors = Array.isArray(paper.authors)
+      ? paper.authors
+          .map((author) => {
+            const name = collapseWhitespace(author && author.name);
+            return name ? { name, affiliation: collapseWhitespace(author && author.affiliation) } : null;
+          })
+          .filter(Boolean)
+      : [];
+    paper.tags = uniqueStrings([
+      ...(Array.isArray(paper.tags) ? paper.tags : []),
+      ...(Array.isArray(paper.keywords) ? paper.keywords : []),
+      ...(Array.isArray(paper.matchedSubprojects) ? paper.matchedSubprojects : []),
+    ]);
+    paper.titleKey = normalizeTitleKey(paper.title);
+    paper._citationCount = Number.isFinite(Number(paper._citationCount)) ? Number(paper._citationCount) : 0;
+    paper._hasInternalDetail = typeof paper._hasInternalDetail === 'boolean' ? paper._hasInternalDetail : !!paper.id;
+    paper._mlirSourceArchive = !!paper._mlirSourceArchive;
+    paper._mlirSourceUpstream = !!paper._mlirSourceUpstream;
+    paper._mlirExternalActions = Array.isArray(paper._mlirExternalActions) ? paper._mlirExternalActions : [];
+    return paper.id && paper.title ? paper : null;
+  }
+
+  function buildPaperIndex(papers) {
+    const index = {
+      byTitle: new Map(),
+      byDoi: new Map(),
+      byUrl: new Map(),
+    };
+
+    for (const paper of (Array.isArray(papers) ? papers : [])) {
+      if (!paper) continue;
+      if (paper.titleKey && !index.byTitle.has(paper.titleKey)) {
+        index.byTitle.set(paper.titleKey, paper);
+      }
+      if (paper.doi && !index.byDoi.has(paper.doi)) {
+        index.byDoi.set(paper.doi, paper);
+      }
+      for (const url of [paper.paperUrl, paper.sourceUrl]) {
+        const normalizedUrl = sanitizeExternalUrl(url);
+        if (normalizedUrl && !index.byUrl.has(normalizedUrl)) {
+          index.byUrl.set(normalizedUrl, paper);
+        }
+      }
+    }
+
+    return index;
+  }
+
+  function findLinkedPaper(entry, paperIndex) {
+    if (!paperIndex) return null;
+    const actions = normalizeActions(entry);
+
+    for (const action of actions) {
+      const doi = extractDoi(action.url);
+      if (doi && paperIndex.byDoi.has(doi)) return paperIndex.byDoi.get(doi) || null;
+    }
+
+    const titleKey = normalizeTitleKey(entry && entry.title);
+    if (titleKey && paperIndex.byTitle.has(titleKey)) {
+      return paperIndex.byTitle.get(titleKey) || null;
+    }
+
+    for (const action of actions) {
+      const url = sanitizeExternalUrl(action.url);
+      if (url && paperIndex.byUrl.has(url)) return paperIndex.byUrl.get(url) || null;
+    }
+
+    return null;
+  }
+
+  function mergePaperActions(existingActions, extraActions) {
+    const merged = [];
+    const seen = new Set();
+    for (const action of [...(Array.isArray(existingActions) ? existingActions : []), ...(Array.isArray(extraActions) ? extraActions : [])]) {
+      const url = sanitizeExternalUrl(action && action.url);
+      if (!url || seen.has(url)) continue;
+      seen.add(url);
+      merged.push({
+        kind: collapseWhitespace(action && action.kind).toLowerCase(),
+        label: collapseWhitespace(action && action.label),
+        url,
+      });
+    }
+    return merged;
+  }
+
+  function buildSyntheticPaperFromEntry(entry, fallbackUrl) {
+    const actions = normalizeActions(entry);
+    const title = collapseWhitespace(entry && entry.title) || 'Untitled MLIR Publication';
+    const year = extractYearFromEntry(entry);
+    const venue = extractVenueFromEntry(entry);
+    return normalizePaperRecord({
+      id: `mlir-curated-${slugify(title)}`,
+      title,
+      abstract: collapseWhitespace(entry && entry.summary),
+      _year: year,
+      year,
+      publication: venue,
+      authors: extractAuthorsFromEntry(entry).map((name) => ({ name })),
+      paperUrl: buildPrimaryHref(actions, fallbackUrl),
+      sourceUrl: sanitizeExternalUrl(fallbackUrl),
+      tags: ['MLIR'],
+      matchedSubprojects: ['MLIR'],
+      _hasInternalDetail: false,
+      _mlirSourceArchive: false,
+      _mlirSourceUpstream: true,
+      _mlirExternalActions: actions,
+    });
+  }
+
+  function buildSourceCounts(items) {
+    const counts = {
+      all: { works: 0, talks: 0, papers: 0 },
+      official: { works: 0, talks: 0, papers: 0 },
+    };
+
+    for (const item of (Array.isArray(items) ? items : [])) {
+      if (!item) continue;
+      counts.all.works += 1;
+      if (item.kind === 'talk') counts.all.talks += 1;
+      if (item.kind === 'paper') counts.all.papers += 1;
+
+      if (item.sourceUpstream) {
+        counts.official.works += 1;
+        if (item.kind === 'talk') counts.official.talks += 1;
+        if (item.kind === 'paper') counts.official.papers += 1;
+      }
+    }
+
+    return counts;
+  }
+
+  function tokenizeQuery(value) {
+    return uniqueStrings(
+      String(value || '')
+        .toLowerCase()
+        .split(/[^a-z0-9+#.]+/)
+        .map((token) => token.trim())
+        .filter((token) => token.length >= 2)
+    );
+  }
+
+  function buildTalkSearchIndex(talk, topics) {
+    const speakerNames = Array.isArray(talk && talk.speakers)
+      ? talk.speakers.map((speaker) => collapseWhitespace(speaker && speaker.name)).filter(Boolean)
+      : [];
+    return {
+      title: normalizeKey(talk && talk.title),
+      abstract: normalizeKey(talk && talk.abstract),
+      names: normalizeKey(speakerNames.join(' ')),
+      topics: normalizeKey((Array.isArray(topics) ? topics : []).join(' ')),
+      meta: normalizeKey([talk && talk.meetingName, talk && talk.meetingDate, talk && talk.category].join(' ')),
+    };
+  }
+
+  function buildPaperSearchIndex(paper, topics) {
+    const authorNames = Array.isArray(paper && paper.authors)
+      ? paper.authors.map((author) => collapseWhitespace(author && author.name)).filter(Boolean)
+      : [];
+    return {
+      title: normalizeKey(paper && paper.title),
+      abstract: normalizeKey(paper && paper.abstract),
+      names: normalizeKey(authorNames.join(' ')),
+      topics: normalizeKey((Array.isArray(topics) ? topics : []).join(' ')),
+      meta: normalizeKey([paper && paper.publication, paper && paper._year, paper && paper.year].join(' ')),
+    };
+  }
+
+  function computeMatchScore(searchIndex, tokens, rawQuery) {
+    if (!tokens.length) return 0;
+    const phrase = normalizeKey(rawQuery);
+    let score = 0;
+    for (const token of tokens) {
+      let tokenScore = 0;
+      if (searchIndex.title.includes(token)) tokenScore = Math.max(tokenScore, 10);
+      if (searchIndex.names.includes(token)) tokenScore = Math.max(tokenScore, 8);
+      if (searchIndex.topics.includes(token)) tokenScore = Math.max(tokenScore, 7);
+      if (searchIndex.abstract.includes(token)) tokenScore = Math.max(tokenScore, 4);
+      if (searchIndex.meta.includes(token)) tokenScore = Math.max(tokenScore, 3);
+      if (!tokenScore) return 0;
+      score += tokenScore;
+    }
+    if (phrase && searchIndex.title.includes(phrase)) score += 12;
+    return score;
+  }
+
+  function buildTalkItem(talk) {
+    const topics = getTalkKeyTopics(talk, 8);
+    const searchIndex = buildTalkSearchIndex(talk, topics);
+    return {
+      kind: 'talk',
+      talk,
+      title: collapseWhitespace(talk && talk.title) || 'Untitled MLIR Talk',
+      sourceUpstream: !!(talk && talk._mlirSourceUpstream),
+      sourceArchive: !!(talk && talk._mlirSourceArchive),
+      sourceLabel: describeSourceLabel(talk),
+      topics,
+      searchIndex,
+      sortStamp: buildDateStamp(
+        `${collapseWhitespace(talk && talk.meetingDate)} ${collapseWhitespace(talk && talk.meeting)}`,
+        talk && talk.title
+      ),
+    };
+  }
+
+  function buildPaperItem(paper) {
+    const topics = getPaperKeyTopics(paper, 8);
+    const searchIndex = buildPaperSearchIndex(paper, topics);
+    return {
+      kind: 'paper',
+      paper,
+      title: collapseWhitespace(paper && paper.title) || 'Untitled MLIR Paper',
+      sourceUpstream: !!(paper && paper._mlirSourceUpstream),
+      sourceArchive: !!(paper && paper._mlirSourceArchive),
+      sourceLabel: describeSourceLabel(paper),
+      topics,
+      searchIndex,
+      sortStamp: buildDateStamp(
+        `${collapseWhitespace(paper && paper.publishedDate)} ${collapseWhitespace(paper && paper.year)} ${collapseWhitespace(paper && paper._year)}`,
+        paper && paper.title
+      ),
+    };
+  }
+
+  function matchesSelectedSource(item) {
+    if (state.source === 'official') return !!(item && item.sourceUpstream);
+    return true;
+  }
+
+  function compareItems(a, b) {
+    const scoreDiff = (b._queryScore || 0) - (a._queryScore || 0);
+    if (scoreDiff !== 0) return scoreDiff;
+    const dateDiff = (b.sortStamp || 0) - (a.sortStamp || 0);
+    if (dateDiff !== 0) return dateDiff;
+    const sourceDiff = ((b.sourceUpstream ? 1 : 0) + (b.sourceArchive ? 1 : 0)) - ((a.sourceUpstream ? 1 : 0) + (a.sourceArchive ? 1 : 0));
+    if (sourceDiff !== 0) return sourceDiff;
+    if (a.kind !== b.kind) return a.kind === 'talk' ? -1 : 1;
+    return String(a.title || '').localeCompare(String(b.title || ''));
+  }
+
+  function buildSpeakerLinks(names) {
+    const values = uniqueStrings(names);
+    if (!values.length) return '';
+    return values
+      .map((name) => `<a class="speaker-btn" href="${escapeHtml(buildLocalQueryHref(name))}">${escapeHtml(name)}</a>`)
+      .join('<span class="speaker-btn-sep">, </span>');
+  }
+
+  function renderTopicTags(topics) {
+    const shown = (Array.isArray(topics) ? topics : []).slice(0, 4);
+    if (!shown.length) return '';
+    return `
+      <div class="card-tags-wrap">
+        <div class="card-tags" aria-label="Key Topics">
+          ${shown.map((topic) => `<a class="card-tag" href="${escapeHtml(buildLocalQueryHref(topic))}">${escapeHtml(topic)}</a>`).join('')}
+          ${topics.length > shown.length ? `<span class="card-tag card-tag--more" aria-hidden="true">+${topics.length - shown.length}</span>` : ''}
+        </div>
+      </div>`;
+  }
+
+  function renderTalkActionButtons(talk) {
+    const buttons = [];
+    const seen = new Set();
+    const resourceActions = normalizeTalkResourceActions(talk);
+
+    function pushButton(label, url, extraClass) {
+      const href = sanitizeExternalUrl(url);
+      const text = collapseWhitespace(label);
+      if (!href || !text || seen.has(href)) return;
+      seen.add(href);
+      buttons.push(
+        `<a href="${escapeHtml(href)}" class="card-link-btn${extraClass ? ` ${extraClass}` : ''}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">${escapeHtml(text)}</span></a>`
+      );
+    }
+
+    if (talk && talk.videoUrl) pushButton('Watch', talk.videoUrl, 'card-link-btn--video');
+    if (talk && talk.slidesUrl) {
+      const label = String(talk && talk.category || '').trim().toLowerCase() === 'poster' ? 'Poster' : 'Slides';
+      pushButton(label, talk.slidesUrl, '');
+    }
+    if (talk && talk.projectGithub) pushButton('GitHub', talk.projectGithub, '');
+
+    for (const action of resourceActions) {
+      if (!action.url) continue;
+      if (action.kind === 'recording') {
+        pushButton(action.label || 'Recording', action.url, 'card-link-btn--video');
+        continue;
+      }
+      if (action.kind === 'slides') {
+        pushButton(action.label || 'Slides', action.url, '');
+        continue;
+      }
+      if (action.kind === 'github' || /github\.com/i.test(action.url)) {
+        pushButton(action.label || 'GitHub', action.url, '');
+      }
+    }
+
+    return buttons.join('');
+  }
+
+  function normalizePaperExternalActionLabel(action) {
+    const url = sanitizeExternalUrl(action && action.url);
+    const label = collapseWhitespace(action && action.label);
+    const kind = collapseWhitespace(action && action.kind).toLowerCase();
+
+    if (kind === 'faq') return 'FAQ';
+    if (kind === 'preprint') return /arxiv/i.test(label || url) ? 'arXiv' : (label || 'Preprint');
+    if (isDirectPdfUrl(url)) return 'PDF';
+    if (/arxiv\.org/i.test(url)) return 'arXiv';
+    if (kind === 'primary' && extractDoi(url)) return 'Publisher';
+    if (kind === 'primary' && label.toLowerCase() === 'paper') return 'Publisher';
+    return label || 'Source';
+  }
+
+  function renderPaperActionButtons(paper) {
+    const buttons = [];
+    const seen = new Set();
+    const detailHref = paper && paper._hasInternalDetail ? buildPaperDetailUrl(paper) : '';
+
+    function pushButton(label, url, extraClass, external) {
+      const href = external ? sanitizeExternalUrl(url) : collapseWhitespace(url);
+      const text = collapseWhitespace(label);
+      if (!href || !text || seen.has(href)) return;
+      seen.add(href);
+      buttons.push(
+        `<a href="${escapeHtml(href)}" class="card-link-btn${extraClass ? ` ${extraClass}` : ''}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}><span aria-hidden="true">${escapeHtml(text)}</span></a>`
+      );
+    }
+
+    if (detailHref) pushButton('Paper', detailHref, 'card-link-btn--video', false);
+
+    const directPdf = isDirectPdfUrl(paper && paper.paperUrl) ? paper.paperUrl : (isDirectPdfUrl(paper && paper.sourceUrl) ? paper.sourceUrl : '');
+    if (directPdf) pushButton('PDF', directPdf, '', true);
+    if (paper && paper.paperUrl && !directPdf) pushButton(extractDoi(paper.paperUrl) ? 'Publisher' : 'Source', paper.paperUrl, '', true);
+    if (paper && paper.sourceUrl && paper.sourceUrl !== paper.paperUrl && paper.sourceUrl !== directPdf) pushButton(isDirectPdfUrl(paper.sourceUrl) ? 'PDF' : 'Source', paper.sourceUrl, '', true);
+
+    for (const action of (Array.isArray(paper && paper._mlirExternalActions) ? paper._mlirExternalActions : [])) {
+      pushButton(normalizePaperExternalActionLabel(action), action.url, '', true);
+    }
+
+    return buttons.join('');
+  }
+
+  function renderTalkCard(item) {
+    const talk = item && item.talk;
+    const title = collapseWhitespace(talk && talk.title) || 'Untitled MLIR Talk';
+    const titleEsc = escapeHtml(title);
+    const detailHref = buildTalkDetailUrl(talk);
+    const meetingLabel = collapseWhitespace(talk && (talk.meetingName || talk.meetingDate || talk.meeting));
+    const abstract = truncateText(talk && talk.abstract, 300);
+    const thumbnailUrl = collapseWhitespace(talk && talk.videoId)
+      ? `https://img.youtube.com/vi/${encodeURIComponent(String(talk.videoId))}/hqdefault.jpg`
+      : '';
+    const footer = renderTalkActionButtons(talk);
+    const speakerNames = Array.isArray(talk && talk.speakers)
+      ? talk.speakers.map((speaker) => collapseWhitespace(speaker && speaker.name)).filter(Boolean)
+      : [];
+
+    return `
+      <article class="talk-card">
+        <a href="${escapeHtml(detailHref)}" class="card-link-wrap" aria-label="${titleEsc}">
+          <div class="card-thumbnail" aria-hidden="true">
+            ${thumbnailUrl
+              ? `<img src="${escapeHtml(thumbnailUrl)}" alt="" loading="lazy"><div class="play-overlay" aria-hidden="true"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>`
+              : `<div class="card-thumbnail-placeholder"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 18v3"/></svg></div>`
+            }
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge badge-${escapeHtml(collapseWhitespace(talk && talk.category).toLowerCase() || 'other')}">${escapeHtml(talkCategoryLabel(talk && talk.category))}</span>
+              ${meetingLabel ? `<span class="meeting-label">${escapeHtml(meetingLabel)}</span>` : ''}
+              ${item && item.sourceLabel ? `<span class="meeting-label">${escapeHtml(item.sourceLabel)}</span>` : ''}
+            </div>
+            <p class="card-title">${titleEsc}</p>
+            ${abstract ? `<p class="card-abstract">${escapeHtml(abstract)}</p>` : ''}
+          </div>
+        </a>
+        ${speakerNames.length ? `<p class="card-speakers">${buildSpeakerLinks(speakerNames)}</p>` : ''}
+        ${renderTopicTags(item && item.topics)}
+        ${footer ? `<div class="card-footer">${footer}</div>` : ''}
+      </article>`;
+  }
+
+  function renderPaperCard(item) {
+    const paper = item && item.paper;
+    const title = collapseWhitespace(paper && paper.title) || 'Untitled MLIR Paper';
+    const abstract = truncateText(
+      collapseWhitespace(paper && (paper.abstract || paper.summary || paper.publication || '')),
+      340
+    ) || 'Curated MLIR publication';
+    const year = collapseWhitespace(paper && (paper._year || paper.year));
+    const publication = collapseWhitespace(paper && (paper.publication || paper.venue));
+    const detailHref = paper && paper._hasInternalDetail
+      ? buildPaperDetailUrl(paper)
+      : (sanitizeExternalUrl(paper && paper.paperUrl) || sanitizeExternalUrl(paper && paper.sourceUrl));
+    const footer = renderPaperActionButtons(paper);
+    const authorNames = Array.isArray(paper && paper.authors)
+      ? paper.authors.map((author) => collapseWhitespace(author && author.name)).filter(Boolean)
+      : [];
+    const citationCount = Number.isFinite(Number(paper && paper._citationCount)) ? Number(paper._citationCount) : 0;
+
+    return `
+      <article class="talk-card paper-card">
+        <a href="${escapeHtml(detailHref)}" class="card-link-wrap" aria-label="${escapeHtml(title)}">
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="badge badge-paper">Paper</span>
+              ${year ? `<span class="meeting-label">${escapeHtml(year)}</span>` : ''}
+              ${publication ? `<span class="meeting-label">${escapeHtml(publication)}</span>` : ''}
+              ${item && item.sourceLabel ? `<span class="meeting-label">${escapeHtml(item.sourceLabel)}</span>` : ''}
+            </div>
+            <p class="card-title">${escapeHtml(title)}</p>
+            <p class="card-abstract">${escapeHtml(abstract)}</p>
+          </div>
+        </a>
+        ${authorNames.length ? `<p class="card-speakers paper-authors">${buildSpeakerLinks(authorNames)}</p>` : ''}
+        ${renderTopicTags(item && item.topics)}
+        ${(footer || citationCount > 0) ? `<div class="card-footer">${footer}${citationCount > 0 ? `<span class="paper-citation-count">${citationCount.toLocaleString()} citation${citationCount === 1 ? '' : 's'}</span>` : ''}</div>` : ''}
+      </article>`;
+  }
+
+  function renderItem(item) {
+    if (!item || typeof item !== 'object') return '';
+    if (item.kind === 'talk') return renderTalkCard(item);
+    if (item.kind === 'paper') return renderPaperCard(item);
+    return '';
+  }
+
+  function getNode(id) {
+    return document.getElementById(id);
+  }
+
+  function setLoadingState() {
+    const root = getNode('mlir-results-root');
+    if (!root) return;
+    root.innerHTML = `
+      <div class="loading-state">
+        <div class="spinner" aria-hidden="true"></div>
+        <p>Loading MLIR talks and papers…</p>
+      </div>`;
+    root.setAttribute('aria-busy', 'true');
+  }
+
+  function renderEmptyState() {
+    const root = getNode('mlir-results-root');
+    if (!root) return;
+    root.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon" aria-hidden="true">!</div>
+        <h2>No MLIR works found</h2>
+        <p>Try a different query or switch the source toggle.</p>
+      </div>`;
+    root.setAttribute('aria-busy', 'false');
+  }
+
+  function renderErrorState(message) {
+    const root = getNode('mlir-results-root');
+    const subtitle = getNode('mlir-browse-subtitle');
+    if (subtitle) subtitle.textContent = 'Could not load MLIR content.';
+    if (!root) return;
+    root.innerHTML = `
+      <div class="empty-state" role="alert">
+        <div class="empty-state-icon" aria-hidden="true">!</div>
+        <h2>Could not load MLIR content</h2>
+        <p>${escapeHtml(String(message || 'Unknown error'))}</p>
+      </div>`;
+    root.setAttribute('aria-busy', 'false');
+  }
+
+  function updateSearchUi() {
+    const input = getNode('mlir-search-input');
+    const clear = getNode('mlir-search-clear');
+    if (input && input.value !== state.query) input.value = state.query;
+    if (clear) clear.classList.toggle('visible', !!state.query);
+  }
+
+  function updateSourceUi() {
+    const allButton = getNode('mlir-source-all');
+    const officialButton = getNode('mlir-source-official');
+    if (allButton) {
+      const active = state.source === 'all';
+      allButton.classList.toggle('active', active);
+      allButton.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    if (officialButton) {
+      const active = state.source === 'official';
+      officialButton.classList.toggle('active', active);
+      officialButton.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    const allCount = getNode('mlir-source-count-all');
+    const officialCount = getNode('mlir-source-count-official');
+    if (allCount) allCount.textContent = currentCounts.all.works.toLocaleString();
+    if (officialCount) officialCount.textContent = currentCounts.official.works.toLocaleString();
+  }
+
+  function updateSummaryUi() {
+    const subtitle = getNode('mlir-browse-subtitle');
+    const resultsCount = getNode('mlir-results-count');
+    const resultsContext = getNode('mlir-results-context');
+    const selectedCounts = state.source === 'official' ? currentCounts.official : currentCounts.all;
+    const sourceText = state.source === 'official'
+      ? 'from mlir.llvm.org'
+      : 'from mlir.llvm.org and the LLVM archive';
+    const queryText = collapseWhitespace(state.query);
+
+    if (subtitle) {
+      if (queryText) {
+        subtitle.innerHTML = `Showing <strong>${selectedCounts.works.toLocaleString()}</strong> MLIR works matching <strong>${escapeHtml(queryText)}</strong>: <strong>${selectedCounts.talks.toLocaleString()}</strong> talks and <strong>${selectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
+      } else {
+        subtitle.innerHTML = `Browse <strong>${selectedCounts.works.toLocaleString()}</strong> MLIR works: <strong>${selectedCounts.talks.toLocaleString()}</strong> talks and <strong>${selectedCounts.papers.toLocaleString()}</strong> papers ${sourceText}.`;
+      }
+    }
+
+    if (resultsCount) {
+      resultsCount.textContent = `${selectedCounts.works.toLocaleString()} work${selectedCounts.works === 1 ? '' : 's'}`;
+    }
+
+    if (resultsContext) {
+      resultsContext.textContent = `${selectedCounts.talks.toLocaleString()} talks · ${selectedCounts.papers.toLocaleString()} papers`;
+    }
+  }
+
+  function renderBatch(reset) {
+    const root = getNode('mlir-results-root');
+    const more = getNode('mlir-results-more');
+    if (!root || !more) return;
+
+    if (reset) {
+      root.innerHTML = '';
+      renderedCount = 0;
+    }
+
+    if (!filteredItems.length) {
+      more.classList.add('hidden');
+      renderEmptyState();
+      return;
+    }
+
+    const nextCount = Math.min(renderedCount + (reset ? INITIAL_BATCH_SIZE : RENDER_BATCH_SIZE), filteredItems.length);
+    let html = '';
+    for (let index = renderedCount; index < nextCount; index += 1) {
+      html += renderItem(filteredItems[index]);
+    }
+    if (html) root.insertAdjacentHTML('beforeend', html);
+    root.setAttribute('aria-busy', 'false');
+    renderedCount = nextCount;
+
+    const remaining = filteredItems.length - renderedCount;
+    if (remaining > 0) {
+      more.textContent = `Show more works (${remaining.toLocaleString()} left)`;
+      more.classList.remove('hidden');
+    } else {
+      more.classList.add('hidden');
+    }
+  }
+
+  function recomputeResults() {
+    const tokens = tokenizeQuery(state.query);
+    const queryMatchedItems = [];
+
+    for (const item of allItems) {
+      const score = computeMatchScore(item.searchIndex, tokens, state.query);
+      if (tokens.length && score <= 0) continue;
+      item._queryScore = score;
+      queryMatchedItems.push(item);
+    }
+
+    currentCounts = buildSourceCounts(queryMatchedItems);
+    filteredItems = queryMatchedItems.filter(matchesSelectedSource).sort(compareItems);
+    updateSourceUi();
+    updateSummaryUi();
+    renderBatch(true);
+  }
+
+  function parseUrlState() {
+    const params = new URLSearchParams(window.location.search);
+    state.query = collapseWhitespace(params.get('q'));
+    const source = collapseWhitespace(params.get('source')).toLowerCase();
+    state.source = (source === 'official' || source === 'mlir.llvm.org' || source === 'mlir-llvm-org') ? 'official' : 'all';
+  }
+
+  function setQuery(nextQuery) {
+    state.query = collapseWhitespace(nextQuery);
+    updateSearchUi();
+    updateUrl();
+    recomputeResults();
+  }
+
+  function setSource(nextSource) {
+    state.source = nextSource === 'official' ? 'official' : 'all';
+    updateUrl();
+    recomputeResults();
+  }
+
+  async function loadCombinedItems() {
+    const [eventPayload, rawMlirTalks, paperPayload, curatedPubsResponse] = await Promise.all([
+      typeof window.loadEventData === 'function' ? window.loadEventData() : Promise.resolve({ talks: [] }),
+      typeof window.loadMLIRTalks === 'function' ? window.loadMLIRTalks() : Promise.resolve([]),
+      typeof window.loadPaperData === 'function' ? window.loadPaperData() : Promise.resolve({ papers: [] }),
+      fetch(CURATED_PUBS_DATA_PATH, { cache: 'default' }),
+    ]);
+
+    if (!curatedPubsResponse.ok) {
+      throw new Error(`Could not load ${CURATED_PUBS_DATA_PATH}: HTTP ${curatedPubsResponse.status}`);
+    }
+
+    const curatedPubsPayload = await curatedPubsResponse.json();
+
+    const archiveTalks = normalizeTalks(Array.isArray(eventPayload && eventPayload.talks) ? eventPayload.talks : [])
+      .filter((talk) => getTalkKeyTopics(talk, Infinity).some((topic) => normalizeTopicKey(topic) === 'mlir'))
+      .map((talk) => ({ ...talk, _mlirSourceArchive: true, _mlirSourceUpstream: false }));
+
+    const mergedTalks = archiveTalks.map((talk) => ({ ...talk }));
+    const talkIndex = buildTalkMergeIndex(mergedTalks);
+
+    for (const upstreamTalk of normalizeTalks(Array.isArray(rawMlirTalks) ? rawMlirTalks : [])) {
+      const taggedUpstreamTalk = { ...upstreamTalk, _mlirSourceArchive: false, _mlirSourceUpstream: true };
+      const match = findMatchingArchiveTalk(taggedUpstreamTalk, talkIndex);
+      if (match) {
+        const merged = mergeTalkRecords(match, taggedUpstreamTalk, true);
+        Object.assign(match, merged);
+        continue;
+      }
+      mergedTalks.push(taggedUpstreamTalk);
+    }
+
+    const archivePapers = (Array.isArray(paperPayload && paperPayload.papers) ? paperPayload.papers : [])
+      .filter((paper) => !isBlogPaper(paper))
+      .map((paper) => normalizePaperRecord({
+        ...paper,
+        _mlirSourceArchive: getPaperKeyTopics(paper, Infinity).some((topic) => normalizeTopicKey(topic) === 'mlir'),
+        _mlirSourceUpstream: false,
+      }))
+      .filter((paper) => paper && paper._mlirSourceArchive);
+
+    const fallbackPubsUrl = sanitizeExternalUrl(curatedPubsPayload && curatedPubsPayload.sourceUrl);
+    const mergedPapers = archivePapers.map((paper) => ({ ...paper }));
+    const paperIndex = buildPaperIndex(mergedPapers);
+
+    for (const section of (Array.isArray(curatedPubsPayload && curatedPubsPayload.sections) ? curatedPubsPayload.sections : [])) {
+      for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
+        for (const entry of (Array.isArray(group && group.entries) ? group.entries : [])) {
+          if (!entry || typeof entry !== 'object') continue;
+          const linkedPaper = findLinkedPaper(entry, paperIndex);
+          const actions = normalizeActions(entry);
+          if (linkedPaper) {
+            linkedPaper._mlirSourceUpstream = true;
+            linkedPaper._mlirExternalActions = mergePaperActions(linkedPaper._mlirExternalActions, actions);
+            linkedPaper.abstract = choosePreferredText(linkedPaper.abstract, entry && entry.summary);
+            continue;
+          }
+          const synthetic = buildSyntheticPaperFromEntry(entry, fallbackPubsUrl);
+          if (synthetic) mergedPapers.push(synthetic);
+        }
+      }
+    }
+
+    return [
+      ...mergedTalks.map(buildTalkItem),
+      ...mergedPapers.map(buildPaperItem),
+    ];
+  }
+
+  function bindUi() {
+    const form = getNode('mlir-search-form');
+    const input = getNode('mlir-search-input');
+    const clear = getNode('mlir-search-clear');
+    const more = getNode('mlir-results-more');
+    const allToggle = getNode('mlir-source-all');
+    const officialToggle = getNode('mlir-source-official');
+
+    if (form) {
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        setQuery(input ? input.value : '');
+      });
+    }
+
+    if (input) {
+      input.addEventListener('input', () => {
+        setQuery(input.value);
+      });
+    }
+
+    if (clear) {
+      clear.addEventListener('click', () => {
+        setQuery('');
+      });
+    }
+
+    if (more) {
+      more.addEventListener('click', () => renderBatch(false));
+    }
+
+    if (allToggle) {
+      allToggle.addEventListener('click', () => setSource('all'));
+    }
+
+    if (officialToggle) {
+      officialToggle.addEventListener('click', () => setSource('official'));
+    }
+  }
+
+  async function init() {
+    initTheme();
+    initTextSize();
+    initCustomizationMenu();
+    initMobileNavMenu();
+    initShareMenu();
+
+    parseUrlState();
+    updateSearchUi();
+    updateSourceUi();
+    setLoadingState();
+    bindUi();
+
+    try {
+      allItems = await loadCombinedItems();
+      recomputeResults();
+    } catch (error) {
+      renderErrorState(error && error.message ? error.message : error);
+    }
+  }
+
+  init();
+})();

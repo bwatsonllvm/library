@@ -30,8 +30,8 @@
     html[data-theme="dark"] { background: #000000; }
     body { background: transparent; }
   </style>
-  <title>MLIR — LLVM Research Library</title>
-  <meta name="description" content="Overview, talks, and publications for MLIR within the LLVM Research Library.">
+  <title>MLIR Talks and Papers — LLVM Research Library</title>
+  <meta name="description" content="Combined MLIR talks and papers from mlir.llvm.org and the LLVM archive.">
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
@@ -166,38 +166,80 @@
     </div>
   </header>
 
-  <section class="search-hero" aria-label="MLIR">
+  <section class="search-hero search-hero--compact" aria-label="MLIR talks and papers">
     <div class="search-hero-shell">
       <div class="search-hero-title-row search-hero-title-row--brand">
         <div class="subproject-brand-lockup">
           <img src="images/mlir-logo.png" alt="MLIR logo" class="subproject-brand-mark">
           <h1>MLIR</h1>
         </div>
-        <p class="search-hero-title-aside">Multi-Level Intermediate Representation</p>
+        <p class="search-hero-title-aside">Talks and papers in one surface</p>
       </div>
-      <p class="subtitle">A reusable and extensible compiler infrastructure for building and connecting domain-specific compilers.</p>
+      <p class="subtitle" id="mlir-browse-subtitle">Loading MLIR talks and papers…</p>
+      <form class="search-box global-search-form" id="mlir-search-form" role="search" aria-label="Search MLIR talks and papers">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="search"
+          class="search-input global-search-input"
+          id="mlir-search-input"
+          name="q"
+          placeholder="Search MLIR talks and papers…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search MLIR talks and papers"
+        >
+        <button type="button" class="search-clear" id="mlir-search-clear" aria-label="Clear search" title="Clear">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </form>
     </div>
   </section>
 
-  <main class="subproject-shell subproject-shell--mlir" id="main-content" tabindex="-1">
-    <section class="subproject-intro subproject-intro--mlir" aria-label="MLIR overview">
-      <div class="subproject-overview-grid">
-        <div class="subproject-overview-copy">
-          <p class="subproject-copy subproject-copy--lead">The MLIR project is a novel approach to building reusable and extensible compiler infrastructure. MLIR aims to address software fragmentation, improve compilation for heterogeneous hardware, significantly reduce the cost of building domain specific compilers, and aid in connecting existing compilers together.</p>
-          <p class="subproject-copy">MLIR is intended to be a hybrid IR that can support multiple different requirements in a unified infrastructure, from dataflow graphs and graph transformations to loop optimizations, lowering, vectorization, and target-specific operations.</p>
-          <p class="subproject-copy">This library’s MLIR area combines the MLIR project’s own talks and publications with MLIR-tagged material from the broader LLVM archive so you can browse the work as one connected surface.</p>
-          <div class="links-bar subproject-links-bar" aria-label="MLIR browse routes">
-            <a href="mlir/talks/" class="link-btn">Browse Talks</a>
-            <a href="mlir/pubs/" class="link-btn">Browse Papers</a>
-            <a href="https://mlir.llvm.org/" class="link-btn" target="_blank" rel="noopener noreferrer">Visit mlir.llvm.org</a>
+  <div class="hub-layout hub-layout--work">
+    <main class="feed-column" id="main-content" tabindex="-1">
+      <div class="results-bar">
+        <div class="results-controls">
+          <div class="work-scope-toggle" role="group" aria-label="MLIR source">
+            <button type="button" class="work-scope-btn active" id="mlir-source-all" aria-pressed="true">
+              <span>All</span>
+              <span class="work-scope-count" id="mlir-source-count-all">0</span>
+            </button>
+            <button type="button" class="work-scope-btn" id="mlir-source-official" aria-pressed="false">
+              <span>mlir.llvm.org</span>
+              <span class="work-scope-count" id="mlir-source-count-official">0</span>
+            </button>
           </div>
         </div>
+        <div class="results-meta">
+          <span class="results-count" id="mlir-results-count" role="status" aria-live="polite" aria-atomic="true"></span>
+          <span class="results-context" id="mlir-results-context" aria-live="polite" aria-atomic="true"></span>
+        </div>
       </div>
-    </section>
-  </main>
+
+      <div class="talks-container">
+        <div id="mlir-results-root" class="talks-grid" role="feed" aria-label="MLIR talks and papers" aria-busy="true">
+          <div class="loading-state">
+            <div class="spinner" aria-hidden="true"></div>
+            <p>Loading MLIR talks and papers…</p>
+          </div>
+        </div>
+        <button class="work-more-btn hidden" id="mlir-results-more" type="button">Show more works</button>
+      </div>
+    </main>
+  </div>
 
   <script src="js/shared/library-utils.js?v=3e88e45f37c4"></script>
   <script src="js/shared/global-search.js?v=babe91128100"></script>
-  <script src="js/subproject-home.js?v=3be791bf2366"></script>
+  <script src="js/events-data.js?v=19cf2b5856cb"></script>
+  <script src="js/papers-data.js?v=c7e1dc09095c"></script>
+  <script>window.LLVMLIRTalkDataMode = 'namespaced';</script>
+  <script src="js/mlir-talks.js?v=f7f358699a32"></script>
+  <script src="js/mlir-browser.js?v=e89cf346e9b0"></script>
 </body>
 </html>
