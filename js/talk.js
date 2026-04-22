@@ -381,6 +381,20 @@
     return 'Reference';
   }
 
+  function primaryGithubLabel(ref) {
+    const kind = collapseWhitespace(ref && ref.kind).toLowerCase();
+    if (kind === 'github-issue') return 'GitHub Issue';
+    if (kind === 'github-pull') return 'GitHub PR';
+    if (kind === 'github-discussion') return 'GitHub Discussion';
+    if (kind === 'github-file') return 'GitHub File';
+    if (kind === 'github-tree') return 'GitHub Tree';
+    if (kind === 'github-commit') return 'GitHub Commit';
+    if (kind === 'github-compare') return 'GitHub Compare';
+    if (kind === 'github-release') return 'GitHub Release';
+    if (kind === 'github-wiki') return 'GitHub Wiki';
+    return 'GitHub';
+  }
+
   function buildReferenceFallbackTitle(ref) {
     if (!ref || typeof ref !== 'object') return '';
     if (ref.kind === 'github-issue') {
@@ -459,13 +473,11 @@
   }
 
   function buildResourceLinks(talk) {
+    const resourceActions = normalizeTalkResourceActions(talk);
     const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
     const posterUrl = sanitizeExternalUrl(talk && talk.posterUrl);
-    const githubRef = parseGitHubReference(talk && talk.projectGithub);
-    const githubUrl = githubRef && githubRef.kind === 'github-repo' ? githubRef.url : '';
     const sourceUrl = sanitizeExternalUrl(talk && talk.sourceUrl);
-    const resourceActions = normalizeTalkResourceActions(talk);
     const links = [];
     const seenUrls = new Set();
 
@@ -477,14 +489,35 @@
       links.push(`<a href="${escapeHtml(href)}" class="link-btn" target="_blank" rel="noopener noreferrer">${escapeHtml(text)}</a>`);
     }
 
+    const githubCandidates = [];
+    const seenGithubUrls = new Set();
+    const addGithubCandidate = (value) => {
+      const ref = parseGitHubReference(value);
+      if (!ref || seenGithubUrls.has(ref.url)) return;
+      seenGithubUrls.add(ref.url);
+      githubCandidates.push(ref);
+    };
+
+    addGithubCandidate(talk && talk.projectGithub);
+    for (const action of resourceActions) {
+      if (String(action && action.kind || '').trim().toLowerCase() !== 'github') continue;
+      addGithubCandidate(action.url);
+    }
+
+    const primaryGithubRef = githubCandidates.find((ref) => ref.kind !== 'github-repo') || githubCandidates[0] || null;
+
     if (videoUrl) pushLink(videoUrl, 'Watch Video');
     if (posterUrl && posterUrl !== slidesUrl) pushLink(posterUrl, 'View Poster');
-    if (githubUrl) pushLink(githubUrl, 'GitHub');
+    if (primaryGithubRef && primaryGithubRef.url) pushLink(primaryGithubRef.url, primaryGithubLabel(primaryGithubRef));
     if (sourceUrl) pushLink(sourceUrl, 'Source Listing');
 
     for (const action of resourceActions) {
       const kind = String(action && action.kind || '').trim().toLowerCase();
-      if (!action.url || kind === 'primary' || kind === 'github') continue;
+      if (!action.url || kind === 'primary') continue;
+      if (kind === 'github') {
+        if (primaryGithubRef && sanitizeExternalUrl(action.url) === primaryGithubRef.url) continue;
+        continue;
+      }
       let label = String(action.label || '').trim();
       if (!label) {
         if (kind === 'slides') label = 'Slides';

@@ -269,6 +269,51 @@ function normalizeGithubReferenceItems(entry) {
   }));
 }
 
+function isGithubRepoRootUrl(value) {
+  const href = normalizeHttpUrl(value);
+  if (!href) return false;
+  try {
+    const parsed = new URL(href);
+    const host = collapseWhitespace(parsed.hostname).toLowerCase().replace(/^www\./, '');
+    if (host !== 'github.com') return false;
+    const parts = parsed.pathname
+      .split('/')
+      .map((part) => collapseWhitespace(part))
+      .filter(Boolean);
+    return parts.length === 2;
+  } catch {
+    return false;
+  }
+}
+
+function extractGithubActionUrls(actions) {
+  return Array.isArray(actions)
+    ? [...new Set(actions
+        .map((action) => action && String(action.kind || '').trim().toLowerCase() === 'github'
+          ? normalizeHttpUrl(action.url)
+          : '')
+        .filter(Boolean))]
+    : [];
+}
+
+function selectPrimaryGithubUrl(existingProjectGithub, githubUrls, existingActions) {
+  const preferred = normalizeHttpUrl(existingProjectGithub);
+  if (preferred && !isGithubRepoRootUrl(preferred)) return preferred;
+
+  const candidates = [];
+  const seen = new Set();
+  for (const value of [preferred, ...extractGithubActionUrls(existingActions), ...(Array.isArray(githubUrls) ? githubUrls : [])]) {
+    const href = normalizeHttpUrl(value);
+    if (!href || seen.has(href)) continue;
+    seen.add(href);
+    candidates.push(href);
+  }
+
+  const specific = candidates.find((href) => !isGithubRepoRootUrl(href));
+  if (specific) return specific;
+  return preferred || candidates[0] || '';
+}
+
 function mergeGithubResourceActions(existingActions, githubUrls) {
   const base = Array.isArray(existingActions)
     ? existingActions
@@ -305,9 +350,8 @@ function applyReferenceMetadataToTalk(talk, referenceIndex) {
   if (!githubUrls.length && !githubReferenceItems.length) return talk;
 
   const enriched = { ...talk };
-  if (!collapseWhitespace(enriched.projectGithub)) {
-    enriched.projectGithub = githubUrls[0];
-  }
+  const primaryGithubUrl = selectPrimaryGithubUrl(enriched.projectGithub, githubUrls, enriched.resourceActions);
+  if (primaryGithubUrl) enriched.projectGithub = primaryGithubUrl;
   enriched.githubReferences = githubUrls;
   enriched.githubReferenceItems = githubReferenceItems;
   const mergedActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);

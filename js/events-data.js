@@ -7,7 +7,7 @@
   const MANIFEST_JSON_PATH = 'devmtg/events/index.json';
   const EVENTS_PREFIX = 'devmtg/events/';
   const TALK_REFERENCE_JSON_PATH = 'js/data/talk-paper-links.json';
-  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=5154ebac443a';
+  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=ca25eb1043d8';
 
   let manifestCache = null;
   let manifestLoadPromise = null;
@@ -259,6 +259,51 @@
     }));
   }
 
+  function isGithubRepoRootUrl(value) {
+    const href = normalizeHttpUrl(value);
+    if (!href) return false;
+    try {
+      const parsed = new URL(href);
+      const host = String(parsed.hostname || '').trim().toLowerCase().replace(/^www\./, '');
+      if (host !== 'github.com') return false;
+      const parts = parsed.pathname
+        .split('/')
+        .map((part) => String(part || '').trim())
+        .filter(Boolean);
+      return parts.length === 2;
+    } catch {
+      return false;
+    }
+  }
+
+  function extractGithubActionUrls(actions) {
+    return Array.isArray(actions)
+      ? [...new Set(actions
+          .map((action) => String(action && action.kind || '').trim().toLowerCase() === 'github'
+            ? normalizeHttpUrl(action && action.url)
+            : '')
+          .filter(Boolean))]
+      : [];
+  }
+
+  function selectPrimaryGithubUrl(existingProjectGithub, githubUrls, existingActions) {
+    const preferred = normalizeHttpUrl(existingProjectGithub);
+    if (preferred && !isGithubRepoRootUrl(preferred)) return preferred;
+
+    const candidates = [];
+    const seen = new Set();
+    for (const value of [preferred, ...extractGithubActionUrls(existingActions), ...(Array.isArray(githubUrls) ? githubUrls : [])]) {
+      const href = normalizeHttpUrl(value);
+      if (!href || seen.has(href)) continue;
+      seen.add(href);
+      candidates.push(href);
+    }
+
+    const specific = candidates.find((href) => !isGithubRepoRootUrl(href));
+    if (specific) return specific;
+    return preferred || candidates[0] || '';
+  }
+
   function mergeGithubResourceActions(existingActions, githubUrls) {
     const base = Array.isArray(existingActions)
       ? existingActions
@@ -295,9 +340,8 @@
     if (!githubUrls.length && !githubReferenceItems.length) return talk;
 
     const enriched = { ...talk };
-    if (!String(enriched.projectGithub || '').trim()) {
-      enriched.projectGithub = githubUrls[0];
-    }
+    const primaryGithubUrl = selectPrimaryGithubUrl(enriched.projectGithub, githubUrls, enriched.resourceActions);
+    if (primaryGithubUrl) enriched.projectGithub = primaryGithubUrl;
     enriched.githubReferences = githubUrls;
     enriched.githubReferenceItems = githubReferenceItems;
     const mergedActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
