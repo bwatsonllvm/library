@@ -37,8 +37,8 @@
 
   const CURATED_PUBS_DATA_PATH = 'sub-projects/mlir/data/publications.json';
   const INTERNAL_PAPER_PAGE_PATH = 'papers/paper.html';
-  const INITIAL_BATCH_SIZE = 36;
-  const RENDER_BATCH_SIZE = 24;
+  const INITIAL_BATCH_SIZE = 60;
+  const RENDER_BATCH_SIZE = 40;
   const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const TALK_CATEGORY_LABELS = Object.freeze({
@@ -304,10 +304,7 @@
 
   function describeSourceLabel(record) {
     const upstream = !!(record && record._mlirSourceUpstream);
-    const archive = !!(record && record._mlirSourceArchive);
-    if (upstream && archive) return 'mlir.llvm.org + archive';
     if (upstream) return 'mlir.llvm.org';
-    if (archive) return 'LLVM archive';
     return '';
   }
 
