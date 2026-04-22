@@ -117,9 +117,48 @@
   }
 
   function normalizeGithubRepoUrls(entry) {
+    const detailed = Array.isArray(entry && entry.githubReferences)
+      ? entry.githubReferences
+      : [];
+    const detailedUrls = detailed
+      .map((item) => normalizeHttpUrl(item && item.url))
+      .filter(Boolean);
+    if (detailedUrls.length) return [...new Set(detailedUrls)];
     return Array.isArray(entry && entry.githubRepoUrls)
       ? entry.githubRepoUrls.map((value) => normalizeHttpUrl(value)).filter(Boolean)
       : [];
+  }
+
+  function normalizeGithubReferenceItems(entry) {
+    const rawItems = Array.isArray(entry && entry.githubReferences)
+      ? entry.githubReferences
+      : [];
+    if (rawItems.length) {
+      return rawItems
+        .map((item) => ({
+          url: normalizeHttpUrl(item && item.url),
+          source: String(item && item.source || '').trim(),
+          label: String(item && item.label || '').trim(),
+          context: String(item && item.context || '').trim(),
+          library: String(item && item.library || '').trim(),
+          repository: String(item && item.repository || '').trim(),
+          fileName: String(item && item.fileName || '').trim(),
+          filePath: String(item && item.filePath || '').trim(),
+          referencePath: String(item && item.referencePath || '').trim(),
+        }))
+        .filter((item) => item.url);
+    }
+    return normalizeGithubRepoUrls(entry).map((url) => ({
+      url,
+      source: '',
+      label: '',
+      context: '',
+      library: '',
+      repository: '',
+      fileName: '',
+      filePath: '',
+      referencePath: '',
+    }));
   }
 
   function mergeGithubResourceActions(existingActions, githubUrls) {
@@ -153,14 +192,16 @@
     const talkId = normalizeTalkId(talk.id);
     if (!talkId || !referenceIndex || typeof referenceIndex !== 'object') return talk;
     const referenceEntry = referenceIndex[talkId];
+    const githubReferenceItems = normalizeGithubReferenceItems(referenceEntry);
     const githubUrls = normalizeGithubRepoUrls(referenceEntry);
-    if (!githubUrls.length) return talk;
+    if (!githubUrls.length && !githubReferenceItems.length) return talk;
 
     const enriched = { ...talk };
     if (!String(enriched.projectGithub || '').trim()) {
       enriched.projectGithub = githubUrls[0];
     }
     enriched.githubReferences = githubUrls;
+    enriched.githubReferenceItems = githubReferenceItems;
     const mergedActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
     if (mergedActions.length) {
       enriched.resourceActions = mergedActions;

@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-ARTIFACT_VERSION = 4
+ARTIFACT_VERSION = 5
 BLOG_SOURCE_SLUGS = {"llvm-blog-www", "llvm-www-blog"}
 USER_AGENT = "llvm-library-talk-paper-links/1.0"
 MATCH_STOPWORDS = {
@@ -63,6 +63,23 @@ CITATION_CONTEXT_PHRASES = (
     "proceedings",
     "for more information",
 )
+TALK_CONTEXT_PHRASES = (
+    "tutorial",
+    "tutorials",
+    "presentation",
+    "presentations",
+    "recording",
+    "recordings",
+    "video",
+    "videos",
+    "speaker",
+    "speakers",
+    "watch",
+    "youtube",
+    "conference",
+    "workshop",
+    "open design meeting",
+)
 AUTHOR_SUFFIX_TOKENS = {"jr", "sr", "ii", "iii", "iv", "v"}
 GITHUB_RESERVED_OWNERS = {
     "about", "account", "apps", "collections", "contact", "customer-stories", "enterprise",
@@ -81,6 +98,10 @@ GITHUB_URL_RE = re.compile(
     flags=re.IGNORECASE,
 )
 GITHUB_PATH_SEGMENT_RE = re.compile(r"[A-Za-z0-9_.-]+")
+GENERIC_GITHUB_CONTEXT_RE = re.compile(
+    r"^(?:github|repo|repository|source|link|links|code|upstreaming|upstream|implementation)$",
+    flags=re.IGNORECASE,
+)
 
 
 def collapse_ws(value: str) -> str:
@@ -206,6 +227,196 @@ def extract_github_urls_from_text(value: str) -> list[str]:
     )
 
 
+def clean_reference_context(value: str) -> str:
+    text = re.sub(r"https?://[^\s<>()\[\]{}\"'`]+", " ", str(value or ""), flags=re.IGNORECASE)
+    text = collapse_ws(text)
+    if not text:
+        return ""
+    text = re.sub(r"^(?:\d{4}\s+)+", "", text)
+    text = re.sub(r"\b(?:department or event name|confidential)\b", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(?:blob|tree)/main\b", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"\b(?:[A-Za-z0-9_.-]+/){2,}[A-Za-z0-9_.-]+\b", " ", text)
+    text = collapse_ws(text).strip(" -–—:;,.|/•")
+    return collapse_ws(text)
+
+
+def trim_reference_label(value: str, max_words: int = 14) -> str:
+    text = clean_reference_context(value)
+    if not text:
+        return ""
+    tokens = text.split()
+    if len(tokens) > max_words:
+        text = " ".join(tokens[-max_words:])
+    return collapse_ws(text)
+
+
+def looks_like_bad_reference_label(value: str) -> bool:
+    text = collapse_ws(value)
+    if not text:
+        return True
+    if GENERIC_GITHUB_CONTEXT_RE.fullmatch(text):
+        return True
+    lowered = text.lower()
+    if "github" in lowered or "http" in lowered or "/" in text:
+        return True
+    return False
+
+
+def extract_context_label(text: str, start: int, end: int) -> str:
+    raw = str(text or "")
+    if not raw:
+        return ""
+
+    window_start = max(0, start - 220)
+    prefix = raw[window_start:start]
+    suffix = raw[end : min(len(raw), end + 140)]
+
+    candidate = ""
+    bullet_index = prefix.rfind("•")
+    if bullet_index != -1:
+        candidate = prefix[bullet_index + 1 :]
+    elif "|" in prefix:
+        candidate = prefix.split("|")[-1]
+    else:
+        candidate = prefix
+
+    label = trim_reference_label(candidate)
+    if looks_like_bad_reference_label(label):
+        label = trim_reference_label(suffix, max_words=10)
+    if looks_like_bad_reference_label(label):
+        return ""
+
+    return label
+
+
+def parse_github_reference(value: str) -> dict[str, str] | None:
+    url = normalize_github_url(value)
+    if not url:
+        return None
+
+    try:
+        parsed = urllib.parse.urlparse(url)
+    except ValueError:
+        return None
+
+    parts = [
+        collapse_ws(urllib.parse.unquote(part))
+        for part in parsed.path.split("/")
+        if collapse_ws(part)
+    ]
+    if len(parts) < 2:
+        return None
+
+    owner = parts[0]
+    repo = re.sub(r"\.git$", "", parts[1], flags=re.IGNORECASE)
+    if not owner or not repo:
+        return None
+
+    resource = collapse_ws(parts[2]).lower() if len(parts) > 2 else ""
+    file_name = ""
+    file_path = ""
+    reference_path = ""
+
+    if resource in {"blob", "raw"} and len(parts) >= 5:
+        file_path = "/".join(parts[4:])
+        file_name = parts[-1]
+        reference_path = file_path
+    elif resource == "tree" and len(parts) >= 4:
+        file_path = "/".join(parts[4:])
+        file_name = parts[-1] if file_path else ""
+        reference_path = file_path or parts[3]
+    elif len(parts) > 2:
+        reference_path = "/".join(parts[2:])
+
+    return {
+        "url": url,
+        "library": repo,
+        "repository": f"{owner}/{repo}",
+        "fileName": file_name,
+        "filePath": file_path,
+        "referencePath": reference_path,
+    }
+
+
+def github_reference_score(item: dict[str, str]) -> tuple[int, int, int]:
+    label = collapse_ws(item.get("label", ""))
+    source = collapse_ws(item.get("source", "")).lower()
+    label_quality = 0
+    if label:
+        label_quality = 2 if 4 <= len(label) <= 80 else 1
+    return (
+        1 if source == "slides" else 0,
+        label_quality,
+        max(0, 120 - min(len(label), 120)),
+    )
+
+
+def merge_github_reference_items(*groups: Iterable[dict[str, str]]) -> list[dict[str, str]]:
+    merged: dict[str, dict[str, str]] = {}
+
+    for group in groups:
+        for raw_item in group or []:
+            if not isinstance(raw_item, dict):
+                continue
+            url = normalize_github_url(raw_item.get("url", ""))
+            if not url:
+                continue
+            item = {
+                "url": url,
+                "source": collapse_ws(raw_item.get("source", "")),
+                "label": collapse_ws(raw_item.get("label", "")),
+                "context": collapse_ws(raw_item.get("context", "")),
+                "library": collapse_ws(raw_item.get("library", "")),
+                "repository": collapse_ws(raw_item.get("repository", "")),
+                "fileName": collapse_ws(raw_item.get("fileName", "")),
+                "filePath": collapse_ws(raw_item.get("filePath", "")),
+                "referencePath": collapse_ws(raw_item.get("referencePath", "")),
+            }
+            existing = merged.get(url)
+            if existing is None or github_reference_score(item) > github_reference_score(existing):
+                if existing:
+                    for key, value in existing.items():
+                        if key == "url" or item.get(key):
+                            continue
+                        item[key] = value
+                merged[url] = item
+            else:
+                for key, value in item.items():
+                    if key == "url" or not value or merged[url].get(key):
+                        continue
+                    merged[url][key] = value
+
+    return [merged[url] for url in dedupe_urls(merged.keys())]
+
+
+def extract_github_reference_items_from_text(value: str, *, source: str) -> list[dict[str, str]]:
+    text = str(value or "")
+    if not text:
+        return []
+    items: list[dict[str, str]] = []
+    for match in GITHUB_URL_RE.finditer(text):
+        ref = parse_github_reference(match.group(0))
+        if not ref:
+            continue
+        context_label = extract_context_label(text, match.start(), match.end())
+        ref.update(
+            {
+                "source": source,
+                "label": context_label,
+                "context": context_label,
+            }
+        )
+        items.append(ref)
+    return merge_github_reference_items(items)
+
+
+def extract_github_reference_items_from_pages(pages: list[str]) -> list[dict[str, str]]:
+    page_items: list[dict[str, str]] = []
+    for page in pages or []:
+        page_items.extend(extract_github_reference_items_from_text(page, source="slides"))
+    return merge_github_reference_items(page_items)
+
+
 def build_title_variants(title: str) -> list[str]:
     variants: list[str] = []
 
@@ -233,6 +444,10 @@ def build_title_variants(title: str) -> list[str]:
         add(parts[0])
 
     return variants
+
+
+def build_talk_title_variants(title: str) -> list[str]:
+    return build_title_variants(title)
 
 
 def extract_author_surnames(authors: Iterable[dict]) -> list[str]:
@@ -342,6 +557,34 @@ def load_papers(repo_root: Path) -> list[dict]:
                 }
             )
     return papers
+
+
+def normalize_reference_talk(talk: dict) -> dict | None:
+    talk_id = collapse_ws(str(talk.get("id", "")))
+    title = collapse_ws(str(talk.get("title", "")))
+    if not talk_id or not title:
+        return None
+
+    meeting_match = re.match(r"^(\d{4})-\d{2}", talk_id)
+    year = meeting_match.group(1) if meeting_match else ""
+
+    url_values = [
+        collapse_ws(str(value))
+        for value in (
+            talk.get("slidesUrl", ""),
+            talk.get("videoUrl", ""),
+        )
+        if value is not None and collapse_ws(str(value)).lower() not in {"", "none", "null"}
+    ]
+
+    return {
+        "id": talk_id,
+        "title": title,
+        "titleVariants": build_talk_title_variants(title),
+        "year": year,
+        "speakerSurnames": extract_author_surnames(talk.get("speakers", [])),
+        "urlKeys": [value.lower() for value in url_values],
+    }
 
 
 def load_existing_artifact(path: Path) -> dict:
@@ -958,6 +1201,30 @@ def page_has_title_citation_context(normalized_page: str, paper: dict) -> bool:
     return False
 
 
+def page_has_talk_reference_context(normalized_page: str, talk: dict) -> bool:
+    variants = talk.get("titleVariants") or []
+    if not variants or not normalized_page:
+        return False
+
+    speaker_surnames = talk.get("speakerSurnames") or []
+    year = collapse_ws(str(talk.get("year", "")))
+
+    for variant in variants:
+        needle = f" {variant} "
+        start = normalized_page.find(needle)
+        while start != -1:
+            window = normalized_page[max(0, start - 220): start + len(needle) + 220]
+            if any(f" {phrase} " in window for phrase in TALK_CONTEXT_PHRASES):
+                return True
+            if any(f" {surname} " in window for surname in speaker_surnames):
+                return True
+            if re.fullmatch(r"\d{4}", year) and f" {year} " in window:
+                return True
+            start = normalized_page.find(needle, start + len(needle))
+
+    return False
+
+
 def find_slide_paper_matches(slide_pages: list[str], papers: list[dict]) -> list[str]:
     page_texts = [collapse_ws(page) for page in slide_pages if collapse_ws(page)]
     slide_text = "\n\n".join(page_texts)
@@ -994,9 +1261,40 @@ def find_slide_paper_matches(slide_pages: list[str], papers: list[dict]) -> list
     return matched_ids
 
 
+def find_slide_talk_matches(slide_pages: list[str], talks: list[dict], current_talk_id: str) -> list[str]:
+    page_texts = [collapse_ws(page) for page in slide_pages if collapse_ws(page)]
+    slide_text = "\n\n".join(page_texts)
+    raw_lower = collapse_ws(slide_text).lower()
+    normalized = normalize_match_text(slide_text)
+    if not normalized:
+        return []
+
+    normalized_pages = [f" {normalize_match_text(page)} " for page in page_texts]
+    matched_ids: list[str] = []
+    seen: set[str] = set()
+
+    for talk in talks:
+        talk_id = collapse_ws(str(talk.get("id", "")))
+        if not talk_id or talk_id == current_talk_id or talk_id in seen:
+            continue
+
+        url_keys = talk.get("urlKeys") or []
+        if any(url and url in raw_lower for url in url_keys):
+            seen.add(talk_id)
+            matched_ids.append(talk_id)
+            continue
+
+        if any(page_has_talk_reference_context(page, talk) for page in normalized_pages):
+            seen.add(talk_id)
+            matched_ids.append(talk_id)
+
+    return matched_ids
+
+
 def generate_talk_artifact(
     talks: list[dict],
     papers: list[dict],
+    reference_talks: list[dict],
     existing: dict,
     *,
     fetch_pdf_references: bool,
@@ -1015,8 +1313,19 @@ def generate_talk_artifact(
 
         slides_url = collapse_ws(str(talk.get("slidesUrl", "")))
         abstract_github_repo_urls = extract_github_urls_from_text(str(talk.get("abstract", "")))
+        abstract_github_references = extract_github_reference_items_from_text(str(talk.get("abstract", "")), source="abstract")
         previous = talks_map.get(talk_id)
         previous_slides_url = collapse_ws(str((previous or {}).get("slidesUrl", "")))
+        previous_slide_paper_ids = (
+            [collapse_ws(str(value)) for value in (previous or {}).get("slidePaperIds", []) if collapse_ws(str(value))]
+            if isinstance((previous or {}).get("slidePaperIds"), list)
+            else []
+        )
+        previous_slide_talk_ids = (
+            [collapse_ws(str(value)) for value in (previous or {}).get("slideTalkIds", []) if collapse_ws(str(value))]
+            if isinstance((previous or {}).get("slideTalkIds"), list)
+            else []
+        )
         previous_slide_github_repo_urls = (
             dedupe_urls(
                 normalize_github_url(value)
@@ -1025,20 +1334,34 @@ def generate_talk_artifact(
             if isinstance((previous or {}).get("slideGithubRepoUrls"), list)
             else []
         )
+        previous_slide_github_references = merge_github_reference_items((previous or {}).get("slideGithubReferences", []))
+        previous_github_references = merge_github_reference_items((previous or {}).get("githubReferences", []))
         if not fetch_pdf_references:
+            merged_github_references = merge_github_reference_items(
+                abstract_github_references,
+                previous_slide_github_references,
+                previous_github_references,
+            )
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
-                "slidePaperIds": (previous or {}).get("slidePaperIds", []),
+                "slidePaperIds": previous_slide_paper_ids,
+                "slideTalkIds": previous_slide_talk_ids,
                 "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                "slideGithubReferences": previous_slide_github_references,
                 "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                "githubReferences": merged_github_references,
             }
             continue
         if not slides_url.lower().startswith(("http://", "https://")):
+            merged_github_references = merge_github_reference_items(abstract_github_references)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": [],
+                "slideTalkIds": [],
                 "slideGithubRepoUrls": [],
+                "slideGithubReferences": [],
                 "githubRepoUrls": abstract_github_repo_urls,
+                "githubReferences": merged_github_references,
             }
             continue
 
@@ -1049,11 +1372,20 @@ def generate_talk_artifact(
             and previous_slides_url == slides_url
             and isinstance(previous.get("slidePaperIds"), list)
         ):
+            merged_github_references = merge_github_reference_items(
+                abstract_github_references,
+                previous_slide_github_references,
+                previous_github_references,
+            )
             talks_map[talk_id] = {
                 **previous,
                 "slidesUrl": slides_url,
+                "slidePaperIds": previous_slide_paper_ids,
+                "slideTalkIds": previous_slide_talk_ids,
                 "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                "slideGithubReferences": previous_slide_github_references,
                 "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                "githubReferences": merged_github_references,
             }
             print(f"kept {talk_id}: existing slide-reference papers", file=sys.stderr)
             continue
@@ -1067,29 +1399,51 @@ def generate_talk_artifact(
             )
             pdf_pages = extract_pdf_pages(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
-            slide_github_repo_urls = extract_github_urls_from_text("\n\n".join(pdf_pages))
+            slide_talk_ids = find_slide_talk_matches(pdf_pages, reference_talks, talk_id)
+            slide_github_references = extract_github_reference_items_from_pages(pdf_pages)
+            slide_github_repo_urls = [item["url"] for item in slide_github_references]
+            merged_github_references = merge_github_reference_items(abstract_github_references, slide_github_references)
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": slide_paper_ids,
+                "slideTalkIds": slide_talk_ids,
                 "slideGithubRepoUrls": slide_github_repo_urls,
+                "slideGithubReferences": slide_github_references,
                 "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *slide_github_repo_urls]),
+                "githubReferences": merged_github_references,
                 "slideChecksum": hashlib.sha1(pdf_bytes).hexdigest(),
             }
-            print(f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers", file=sys.stderr)
+            print(
+                f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers, "
+                f"{len(slide_talk_ids)} slide-reference talks, {len(slide_github_references)} repo refs",
+                file=sys.stderr,
+            )
         except Exception as exc:
+            merged_github_references = merge_github_reference_items(
+                abstract_github_references,
+                previous_slide_github_references,
+                previous_github_references,
+            )
             if previous:
                 talks_map[talk_id] = {
                     **previous,
                     "slidesUrl": slides_url,
+                    "slidePaperIds": previous_slide_paper_ids,
+                    "slideTalkIds": previous_slide_talk_ids,
                     "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                    "slideGithubReferences": previous_slide_github_references,
                     "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                    "githubReferences": merged_github_references,
                 }
             else:
                 talks_map[talk_id] = {
                     "slidesUrl": slides_url,
                     "slidePaperIds": [],
+                    "slideTalkIds": [],
                     "slideGithubRepoUrls": [],
+                    "slideGithubReferences": [],
                     "githubRepoUrls": abstract_github_repo_urls,
+                    "githubReferences": merged_github_references,
                 }
             print(f"warning: could not refresh slide references for {talk_id}: {exc}", file=sys.stderr)
 
@@ -1126,6 +1480,7 @@ def main() -> int:
     if args.include_mlir:
         all_talks.extend(load_mlir_talks(repo_root))
     papers = load_papers(repo_root)
+    reference_talks = [item for item in (normalize_reference_talk(talk) for talk in all_talks) if item]
     existing = load_existing_artifact(output_path)
 
     meetings = {collapse_ws(value) for value in args.meeting if collapse_ws(value)}
@@ -1142,6 +1497,7 @@ def main() -> int:
     artifact = generate_talk_artifact(
         target_talks,
         papers,
+        reference_talks,
         existing,
         fetch_pdf_references=args.fetch_pdf_references,
         timeout=args.timeout,

@@ -79,9 +79,48 @@
   }
 
   function normalizeGithubRepoUrls(entry) {
+    const detailed = Array.isArray(entry && entry.githubReferences)
+      ? entry.githubReferences
+      : [];
+    const detailedUrls = detailed
+      .map((item) => sanitizeExternalUrl(item && item.url))
+      .filter(Boolean);
+    if (detailedUrls.length) return [...new Set(detailedUrls)];
     return Array.isArray(entry && entry.githubRepoUrls)
       ? entry.githubRepoUrls.map((value) => sanitizeExternalUrl(value)).filter(Boolean)
       : [];
+  }
+
+  function normalizeGithubReferenceItems(entry) {
+    const rawItems = Array.isArray(entry && entry.githubReferences)
+      ? entry.githubReferences
+      : [];
+    if (rawItems.length) {
+      return rawItems
+        .map((item) => ({
+          url: sanitizeExternalUrl(item && item.url),
+          source: collapseWhitespace(item && item.source),
+          label: collapseWhitespace(item && item.label),
+          context: collapseWhitespace(item && item.context),
+          library: collapseWhitespace(item && item.library),
+          repository: collapseWhitespace(item && item.repository),
+          fileName: collapseWhitespace(item && item.fileName),
+          filePath: collapseWhitespace(item && item.filePath),
+          referencePath: collapseWhitespace(item && item.referencePath),
+        }))
+        .filter((item) => item.url);
+    }
+    return normalizeGithubRepoUrls(entry).map((url) => ({
+      url,
+      source: '',
+      label: '',
+      context: '',
+      library: '',
+      repository: '',
+      fileName: '',
+      filePath: '',
+      referencePath: '',
+    }));
   }
 
   function mergeGithubResourceActions(existingActions, githubUrls) {
@@ -115,14 +154,16 @@
     const referenceEntry = referenceIndex && typeof referenceIndex === 'object'
       ? referenceIndex[collapseWhitespace(talk.id)]
       : null;
+    const githubReferenceItems = normalizeGithubReferenceItems(referenceEntry);
     const githubUrls = normalizeGithubRepoUrls(referenceEntry);
-    if (!githubUrls.length) return talk;
+    if (!githubUrls.length && !githubReferenceItems.length) return talk;
 
     const enriched = { ...talk };
     if (!collapseWhitespace(enriched.projectGithub)) {
       enriched.projectGithub = githubUrls[0];
     }
     enriched.githubReferences = githubUrls;
+    enriched.githubReferenceItems = githubReferenceItems;
     enriched.resourceActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
     return enriched;
   }

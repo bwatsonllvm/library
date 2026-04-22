@@ -589,6 +589,8 @@ function renderSpeakerButtons(speakers, tokens) {
 
 // SVG icons for no-video placeholder (defined outside renderCard to avoid HTML-escaping issues)
 const _SVG_DOC = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`;
+const _SVG_SLIDES = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="14" height="10" rx="1.8"/><path d="M7 9h8"/><path d="M7 12h5"/><path d="M9 19h11a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/></svg>`;
+const _SVG_POSTER = `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="1.5"/><path d="M9 7h6"/><path d="M9 10h6"/><path d="M12 17v4"/><path d="M9.5 21h5"/></svg>`;
 const _SVG_TOOL = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`;
 const _SVG_CHAT = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
 const _SVG_TV = `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" ry="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/><polygon points="10 9 15 11 10 13 10 9" fill="currentColor" stroke="none"/></svg>`;
@@ -597,9 +599,25 @@ function placeholderSvgForCategory(category) {
   return { workshop: _SVG_TOOL, panel: _SVG_CHAT, bof: _SVG_CHAT, 'open-design-meeting': _SVG_CHAT }[category] ?? _SVG_DOC;
 }
 
-function placeholderSvgForTalk(talk) {
-  if (isAppleDeveloperVideoUrl(talk.videoUrl)) return _SVG_TV;
-  return placeholderSvgForCategory(talk.category);
+function mediaPlaceholderForTalk(talk) {
+  const videoHref = sanitizeExternalUrl(talk && talk.videoUrl);
+  const slidesHref = sanitizeExternalUrl(talk && talk.slidesUrl);
+  const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
+  const category = String(talk && talk.category || '').trim().toLowerCase();
+
+  if (!videoHref) {
+    if (category === 'poster' || posterHref) {
+      return { svg: _SVG_POSTER, label: 'Poster' };
+    }
+    if (slidesHref) {
+      return { svg: _SVG_SLIDES, label: 'Slides' };
+    }
+  }
+
+  if (isAppleDeveloperVideoUrl(videoHref)) {
+    return { svg: _SVG_TV, label: 'Video' };
+  }
+  return { svg: placeholderSvgForCategory(category), label: '' };
 }
 
 // Called from img onerror to swap broken YouTube thumbnail with a category-appropriate placeholder
@@ -629,7 +647,8 @@ function renderCard(talk, tokens) {
   const meetingLabel = talk.meetingName || (talk._year || talk.meeting?.slice(0, 4) || '');
   const badgeCls = `badge badge-${escapeHtml(talk.category || 'other')}`;
 
-  const placeholderHtml = `<div class="card-thumbnail-placeholder">${placeholderSvgForTalk(talk)}</div>`;
+  const placeholder = mediaPlaceholderForTalk(talk);
+  const placeholderHtml = `<div class="card-thumbnail-placeholder">${placeholder.svg}${placeholder.label ? `<span class="card-thumbnail-placeholder-label">${escapeHtml(placeholder.label)}</span>` : ''}</div>`;
 
   const thumbnailHtml = thumbnailUrl
     ? `<img src="${escapeHtml(thumbnailUrl)}" alt="" loading="lazy" data-thumbnail-category="${escapeHtml(talk.category || '')}">`
@@ -648,7 +667,8 @@ function renderCard(talk, tokens) {
   const explicitDetailHref = sanitizeExternalUrl(talk.detailUrl);
   const detailHref = explicitDetailHref || `talks/talk.html?id=${encodeURIComponent(String(talk.id || ''))}`;
   const videoHref = sanitizeExternalUrl(talk.videoUrl);
-  const slidesHref = sanitizeExternalUrl(talk.slidesUrl);
+  const posterHref = sanitizeExternalUrl(talk.posterUrl);
+  const slidesHref = sanitizeExternalUrl(talk.slidesUrl) || posterHref;
   const githubHref = sanitizeExternalUrl(talk.projectGithub);
   const videoMeta = getVideoLinkMeta(videoHref, titleEsc);
   const videoIcon = videoMeta.icon === 'download'
@@ -664,9 +684,9 @@ function renderCard(talk, tokens) {
     : '';
 
   const slidesLinkHtml = slidesHref
-    ? `<a href="${escapeHtml(slidesHref)}" class="card-link-btn" target="_blank" rel="noopener noreferrer" aria-label="View slides: ${titleEsc} (opens in new tab)">
+    ? `<a href="${escapeHtml(slidesHref)}" class="card-link-btn" target="_blank" rel="noopener noreferrer" aria-label="View ${escapeHtml(String(talk.category || '').trim().toLowerCase() === 'poster' || posterHref ? 'poster' : 'slides')}: ${titleEsc} (opens in new tab)">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        <span aria-hidden="true">Slides</span>
+        <span aria-hidden="true">${escapeHtml(String(talk.category || '').trim().toLowerCase() === 'poster' || posterHref ? 'Poster' : 'Slides')}</span>
       </a>`
     : '';
 

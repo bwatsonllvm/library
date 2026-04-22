@@ -48,7 +48,7 @@ jobs:
         run: |
           python3 scripts/sanitize-library-urls.py --repo-root .
 
-      - name: Refresh slide-reference paper links for changed meetings
+      - name: Refresh slide-derived references for changed meetings
         run: |
           set -euo pipefail
           meetings="$(git diff --name-only -- devmtg/events/*.json | sed -n 's#^devmtg/events/\([0-9]\{4\}-[0-9]\{2\}\)\.json$#\1#p' | sort -u)"

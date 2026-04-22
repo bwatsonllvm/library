@@ -185,28 +185,64 @@
       return {
         url: parsed.toString(),
         owner,
-        repo,
+        library: repo,
+        repository: `${owner}/${repo}`,
         fileName,
         filePath,
         referencePath,
+        label: '',
+        context: '',
+        source: '',
       };
     } catch {
       return null;
     }
   }
 
+  function normalizeGitHubReferenceItem(item) {
+    const parsed = parseGitHubReference(item && item.url);
+    if (!parsed) return null;
+    const library = collapseWhitespace(item && item.library) || parsed.library || '';
+    const repository = collapseWhitespace(item && item.repository) || parsed.repository || '';
+    return {
+      ...parsed,
+      library,
+      repository,
+      label: collapseWhitespace(item && item.label),
+      context: collapseWhitespace(item && item.context),
+      source: collapseWhitespace(item && item.source),
+    };
+  }
+
+  function isUsefulGitHubReferenceText(value) {
+    const text = collapseWhitespace(value);
+    if (!text) return false;
+    if (text.length > 96) return false;
+    if (/[A-Za-z0-9]{20,}/.test(text)) return false;
+    if (/github|https?:\/\/|\/blob\/|\/tree\//i.test(text)) return false;
+    if (/\b\d{4}\.\d{4,6}\b/.test(text)) return false;
+    if (/\b(?:upstreaming|white paper)\b/i.test(text)) return false;
+    return true;
+  }
+
   function collectGitHubReferences(talk) {
     const refs = [];
     const seen = new Set();
 
-    function push(value) {
-      const ref = parseGitHubReference(value);
+    function pushRef(ref) {
       if (!ref || seen.has(ref.url)) return;
       seen.add(ref.url);
       refs.push(ref);
     }
 
+    function push(value) {
+      pushRef(parseGitHubReference(value));
+    }
+
     push(talk && talk.projectGithub);
+
+    const detailedRefs = Array.isArray(talk && talk.githubReferenceItems) ? talk.githubReferenceItems : [];
+    for (const item of detailedRefs) pushRef(normalizeGitHubReferenceItem(item));
 
     const directRefs = Array.isArray(talk && talk.githubReferences) ? talk.githubReferences : [];
     for (const value of directRefs) push(value);
@@ -228,9 +264,13 @@
         <div class="section-label" aria-hidden="true">Repos Referenced</div>
         <ul class="talk-github-reference-list">
           ${refs.map((ref) => {
-            const titleBits = [ref.owner, ref.repo];
-            if (ref.fileName) titleBits.push(ref.fileName);
-            const metaBits = [`Author: ${ref.owner}`, `Repository: ${ref.repo}`];
+            const title = (isUsefulGitHubReferenceText(ref.label) ? ref.label : '')
+              || (isUsefulGitHubReferenceText(ref.context) ? ref.context : '')
+              || (ref.fileName ? `${ref.library || ref.repository} / ${ref.fileName}` : (ref.library || ref.repository || ref.url));
+            const description = isUsefulGitHubReferenceText(ref.context) && ref.context !== title ? ref.context : '';
+            const metaBits = [];
+            if (ref.library) metaBits.push(`Library: ${ref.library}`);
+            if (ref.repository) metaBits.push(`Repository: ${ref.repository}`);
             if (ref.fileName) {
               metaBits.push(`File: ${ref.fileName}`);
             } else if (ref.referencePath) {
@@ -239,9 +279,13 @@
             if (ref.filePath && ref.filePath !== ref.fileName) {
               metaBits.push(`Path: ${ref.filePath}`);
             }
+            if (ref.source) {
+              metaBits.push(`Source: ${ref.source === 'slides' ? 'Slides' : 'Abstract'}`);
+            }
             return `
               <li class="talk-github-reference-item">
-                <a href="${escapeHtml(ref.url)}" class="talk-github-reference-link" target="_blank" rel="noopener noreferrer">${escapeHtml(titleBits.join(' / '))}</a>
+                <a href="${escapeHtml(ref.url)}" class="talk-github-reference-link" target="_blank" rel="noopener noreferrer">${escapeHtml(title)}</a>
+                ${description ? `<p class="talk-github-reference-description">${escapeHtml(description)}</p>` : ''}
                 <p class="talk-github-reference-meta">${escapeHtml(metaBits.join(' · '))}</p>
               </li>`;
           }).join('')}
@@ -511,6 +555,24 @@
       : [];
   }
 
+  function getSlideReferencedTalkIds(indexPayload, talk) {
+    if (!indexPayload || typeof indexPayload !== 'object') return [];
+    const talks = indexPayload.talks;
+    if (!talks || typeof talks !== 'object') return [];
+    const talkId = String(talk && talk.id || '').trim();
+    if (!talkId) return [];
+    const entry = talks[talkId];
+    if (!entry || typeof entry !== 'object') return [];
+
+    const indexedSlidesUrl = sanitizeExternalUrl(entry.slidesUrl || '');
+    const currentSlidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
+    if (indexedSlidesUrl && currentSlidesUrl && indexedSlidesUrl !== currentSlidesUrl) return [];
+
+    return Array.isArray(entry.slideTalkIds)
+      ? entry.slideTalkIds.map((value) => String(value || '').trim()).filter(Boolean)
+      : [];
+  }
+
   function buildRelatedPaperEntries(talk, papers, slideReferenceIndex) {
     if (!talk || typeof talk !== 'object') return [];
     const slidePaperIds = getSlideReferencedPaperIds(slideReferenceIndex, talk);
@@ -535,6 +597,50 @@
     }
 
     return results;
+  }
+
+  function buildReferencedTalkActions(talk) {
+    const title = String(talk && talk.title || '').trim() || 'this talk';
+    const actions = [
+      `<a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="link-btn" aria-label="Open library page for ${escapeHtml(title)}">Talk</a>`,
+    ];
+    const seen = new Set();
+
+    function push(url, label) {
+      const href = sanitizeExternalUrl(url);
+      if (!href || seen.has(href)) return;
+      seen.add(href);
+      actions.push(`<a href="${escapeHtml(href)}" class="link-btn" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`);
+    }
+
+    push(talk && talk.slidesUrl, 'Slides');
+    push(talk && talk.videoUrl, 'Video');
+    push(talk && talk.sourceUrl, 'Source');
+    return actions.join('');
+  }
+
+  function renderReferencedTalkEntry(talk) {
+    const speakers = Array.isArray(talk && talk.speakers)
+      ? talk.speakers.map((speaker) => collapseWhitespace(speaker && speaker.name)).filter(Boolean)
+      : [];
+    const meeting = collapseWhitespace(talk && (talk.meetingName || talk.meetingDate || talk.meeting));
+
+    return `
+      <li class="talk-paper-list-item">
+        <div class="talk-paper-title-row">
+          <a href="${escapeHtml(buildTalkDetailUrl(talk))}" class="talk-paper-link">${escapeHtml(String(talk && talk.title || '').trim())}</a>
+          ${meeting ? `<span class="talk-paper-year">${escapeHtml(meeting)}</span>` : ''}
+        </div>
+        ${speakers.length ? `<p class="talk-paper-authors">${speakers.map((name) => escapeHtml(name)).join(', ')}</p>` : ''}
+        <div class="talk-paper-meta-row">
+          <div class="talk-paper-reason-list">
+            <span class="detail-tag detail-tag--meta">Referenced in slides</span>
+          </div>
+        </div>
+        <div class="talk-paper-actions">
+          ${buildReferencedTalkActions(talk)}
+        </div>
+      </li>`;
   }
 
   function renderRelatedPaperEntry(entry) {
@@ -592,6 +698,53 @@
         <div class="section-label" aria-hidden="true">Referenced Papers</div>
         <ul class="talk-paper-list">
           ${entries.map((entry) => renderRelatedPaperEntry(entry)).join('')}
+        </ul>`;
+    } catch {
+      section.remove();
+    }
+  }
+
+  async function populateReferencedTalks(talk) {
+    const section = document.getElementById('talk-referenced-talks-section');
+    if (!section) return;
+    if (typeof window.loadEventData !== 'function') {
+      section.remove();
+      return;
+    }
+
+    try {
+      const [talkPayload, slideReferenceIndex] = await Promise.all([
+        window.loadEventData(),
+        loadTalkPaperLinkIndex(),
+      ]);
+      const referencedTalkIds = getSlideReferencedTalkIds(slideReferenceIndex, talk);
+      if (!referencedTalkIds.length) {
+        section.remove();
+        return;
+      }
+
+      const talks = normalizeTalks(talkPayload && talkPayload.talks);
+      const talkById = new Map();
+      for (const candidate of talks) {
+        const candidateId = String(candidate && candidate.id || '').trim();
+        if (!candidateId || talkById.has(candidateId)) continue;
+        talkById.set(candidateId, candidate);
+      }
+
+      const referencedTalks = referencedTalkIds
+        .map((id) => talkById.get(id))
+        .filter(Boolean);
+      if (!referencedTalks.length) {
+        section.remove();
+        return;
+      }
+
+      section.hidden = false;
+      section.removeAttribute('aria-busy');
+      section.innerHTML = `
+        <div class="section-label" aria-hidden="true">Referenced Talks</div>
+        <ul class="talk-paper-list">
+          ${referencedTalks.map((entry) => renderReferencedTalkEntry(entry)).join('')}
         </ul>`;
     } catch {
       section.remove();
@@ -882,6 +1035,11 @@
           <p class="talk-paper-links-loading">Loading slide-referenced papers…</p>
         </section>
 
+        <section class="talk-paper-links-section" id="talk-referenced-talks-section" aria-label="Referenced talks" aria-busy="true">
+          <div class="section-label" aria-hidden="true">Referenced Talks</div>
+          <p class="talk-paper-links-loading">Loading slide-referenced talks…</p>
+        </section>
+
         ${githubReferencesHtml}
         ${links.length ? `<div class="links-bar" aria-label="Resources">${links.join('')}</div>` : ''}
 
@@ -964,6 +1122,7 @@
     updateSeo(talk);
     renderTalkDetail(talk, context.relatedPool);
     void populateRelatedPapers(talk);
+    void populateReferencedTalks(talk);
     setIssueContextForTalk(talk);
     initShareMenu();
   }

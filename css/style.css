@@ -2502,12 +2502,22 @@ body.filter-collapsed .filter-collapse-btn svg {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: var(--space-2);
   background: var(--color-surface-subtle);
 }
 
 .card-thumbnail-placeholder svg {
   color: var(--color-text-muted);
   opacity: 0.45;
+}
+
+.card-thumbnail-placeholder-label {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semi);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .play-overlay {
@@ -3744,6 +3754,12 @@ mark {
 
 .talk-github-reference-link:hover {
   color: var(--color-accent);
+}
+
+.talk-github-reference-description {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
 }
 
 .talk-github-reference-meta {

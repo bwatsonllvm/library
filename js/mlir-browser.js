@@ -825,6 +825,7 @@
     const buttons = [];
     const seen = new Set();
     const resourceActions = normalizeTalkResourceActions(talk);
+    const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
 
     function pushButton(label, url, extraClass) {
       const href = sanitizeExternalUrl(url);
@@ -837,9 +838,9 @@
     }
 
     if (talk && talk.videoUrl) pushButton('Watch', talk.videoUrl, 'card-link-btn--video');
-    if (talk && talk.slidesUrl) {
-      const label = String(talk && talk.category || '').trim().toLowerCase() === 'poster' ? 'Poster' : 'Slides';
-      pushButton(label, talk.slidesUrl, '');
+    if (talk && (talk.slidesUrl || posterHref)) {
+      const label = String(talk && talk.category || '').trim().toLowerCase() === 'poster' || posterHref ? 'Poster' : 'Slides';
+      pushButton(label, talk.slidesUrl || posterHref, '');
     }
     if (talk && talk.projectGithub) pushButton('GitHub', talk.projectGithub, '');
 
@@ -859,6 +860,25 @@
     }
 
     return buttons.join('');
+  }
+
+  function buildTalkPlaceholder(talk) {
+    const videoHref = sanitizeExternalUrl(talk && talk.videoUrl);
+    const slidesHref = sanitizeExternalUrl(talk && talk.slidesUrl);
+    const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
+    const isPoster = String(talk && talk.category || '').trim().toLowerCase() === 'poster' || !!posterHref;
+
+    if (!videoHref) {
+      const label = isPoster ? 'Poster' : 'Slides';
+      const icon = isPoster
+        ? `<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="3" width="12" height="14" rx="1.5"/><path d="M9 7h6"/><path d="M9 10h6"/><path d="M12 17v4"/><path d="M9.5 21h5"/></svg>`
+        : `<svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="14" height="10" rx="1.8"/><path d="M7 9h8"/><path d="M7 12h5"/><path d="M9 19h11a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/></svg>`;
+      if (slidesHref || posterHref || isPoster) {
+        return `<div class="card-thumbnail-placeholder">${icon}<span class="card-thumbnail-placeholder-label">${escapeHtml(label)}</span></div>`;
+      }
+    }
+
+    return `<div class="card-thumbnail-placeholder"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 18v3"/></svg></div>`;
   }
 
   function normalizePaperExternalActionLabel(action) {
@@ -925,7 +945,7 @@
           <div class="card-thumbnail" aria-hidden="true">
             ${thumbnailUrl
               ? `<img src="${escapeHtml(thumbnailUrl)}" alt="" loading="lazy"><div class="play-overlay" aria-hidden="true"><div class="play-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg></div></div>`
-              : `<div class="card-thumbnail-placeholder"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 18v3"/></svg></div>`
+              : buildTalkPlaceholder(talk)
             }
           </div>
           <div class="card-body">

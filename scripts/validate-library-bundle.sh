@@ -278,6 +278,27 @@ ruby -rjson -ruri -e '
         abort("talk-paper-links.json entry for #{talk_id} contains invalid GitHub URL #{url}")
       end
     end
+    slide_talk_ids = entry["slideTalkIds"]
+    abort("talk-paper-links.json entry for #{talk_id} missing slideTalkIds array") unless slide_talk_ids.is_a?(Array)
+    slide_talk_ids.each do |ref_id|
+      abort("talk-paper-links.json entry for #{talk_id} contains empty talk id") if String(ref_id).strip.empty?
+    end
+    slide_github_refs = entry["slideGithubReferences"]
+    abort("talk-paper-links.json entry for #{talk_id} missing slideGithubReferences array") unless slide_github_refs.is_a?(Array)
+    github_refs = entry["githubReferences"]
+    abort("talk-paper-links.json entry for #{talk_id} missing githubReferences array") unless github_refs.is_a?(Array)
+    [slide_github_refs, github_refs].each do |refs|
+      refs.each do |item|
+        abort("talk-paper-links.json entry for #{talk_id} GitHub reference must be object") unless item.is_a?(Hash)
+        url = String(item["url"])
+        begin
+          uri = URI.parse(url)
+          abort("talk-paper-links.json entry for #{talk_id} contains invalid GitHub reference URL #{url}") unless %w[http https].include?(String(uri.scheme).downcase) && !String(uri.host).strip.empty?
+        rescue URI::InvalidURIError
+          abort("talk-paper-links.json entry for #{talk_id} contains invalid GitHub reference URL #{url}")
+        end
+      end
+    end
   end
 ' "$SITE_ROOT"
 
