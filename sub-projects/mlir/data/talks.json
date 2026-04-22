@@ -1,6 +1,6 @@
 {
   "dataVersion": "2026-04-21-mlir-talks",
-  "generatedAt": "2026-04-22T01:46:19Z",
+  "generatedAt": "2026-04-22T02:34:15Z",
   "title": "MLIR Talks",
   "sourceUrl": "https://mlir.llvm.org/talks/",
   "sourcePath": "/Users/britton/Documents/GitHub/mlir-www/website/content/talks/_index.md",
@@ -95,6 +95,16 @@
                 {
                   "kind": "recording",
                   "label": "Recording",
+                  "url": "https://youtu.be/cyICUIZ56wQ"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2019-04/slides/Tutorial-AminiVasilacheZinenko-MLIR.pdf"
+                },
+                {
+                  "kind": "recording",
+                  "label": "Recording",
                   "url": "https://llvm.org/devmtg/2019-04/talks.html#Tutorial_1"
                 },
                 {
@@ -118,7 +128,9 @@
                   "name": "Nicolas Vasilache",
                   "affiliation": ""
                 }
-              ]
+              ],
+              "abstract": "This tutorial will complement the technical talk about MLIR. We will implement a custom DSL for numerical processing and walk the audience step-by-step through the use of MLIR to support the lowering and the optimization of such DSL, and target LLVM for lower level optimizations and code generation or JIT execution.",
+              "abstractSource": "llvm-archive"
             }
           ]
         }
@@ -165,6 +177,11 @@
               "text": "Compiler Support for Sparse Tensor Computations in MLIR ; Aart Bik @ 2021 LLVM Developers' Meeting November 16-19, 2021.",
               "actions": [
                 {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2021-11/slides/2021-CompilerSupportforSparseTensorComputationsinMLIR.pdf"
+                },
+                {
                   "kind": "primary",
                   "label": "Talk",
                   "url": "https://youtu.be/x-nHc3hBxHM"
@@ -187,7 +204,9 @@
                   "name": "Aart Bik",
                   "affiliation": ""
                 }
-              ]
+              ],
+              "abstract": "In this technical talk, we discuss how compiler support for sparse tensor computations was added to MLIR (LLVM\u2019s extensible infrastructure for building domain specific compilers). We discuss the concept of sparse tensor types as first class citizens and show how this simplifies the introduction of new front-ends and back-ends for systems that want to add sparse tensor support. We also show how MLIR can be used for rapid sparse library development, driven by either exhaustively searching for suitable sparse storage formats or using ML to find such formats quicker, or even for end-to-end solutions mapping sparse agnostic specification of kernels to efficient sparse code at runtime. Finally, we discuss how you can contribute to this new sparse tensor support in MLIR.",
+              "abstractSource": "llvm-archive"
             },
             {
               "title": "MLIR: Scaling Compiler Infrastructure for Domain Specific Computation",
@@ -294,6 +313,16 @@
               "text": "MLIR: Multi-Level Intermediate Representation for Compiler Infrastructure ; slides ; Tatiana Shpeisman, Chris Lattner @ EuroLLVM 2019",
               "actions": [
                 {
+                  "kind": "recording",
+                  "label": "Recording",
+                  "url": "https://youtu.be/qzljG6DKgic"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2019-04/slides/Keynote-ShpeismanLattner-MLIR.pdf"
+                },
+                {
                   "kind": "slides",
                   "label": "Slides",
                   "url": "https://llvm.org/devmtg/2019-04/talks.html#Keynote_1"
@@ -315,7 +344,9 @@
                   "name": "Chris Lattner",
                   "affiliation": ""
                 }
-              ]
+              ],
+              "abstract": "This talk will give an overview of Multi-Level Intermediate Representation - a new intermediate representation designed to provide a unified, flexible and extensible intermediate representation that is language-agnostic and can be used as a base compiler infrastructure. MLIR shares similarities with traditional CFG-based three-address SSA representations (including LLVM IR or SIL), but it also introduces notions from the polyhedral domain as first class concepts. The notion of dialects is a core concept of MLIR extensibility, allowing multiple levels in a single representation. MLIR supports the continuous lowering from dataflow graphs to high-performance target specific code through partial specialization between dialects. We will illustrate in this talk how MLIR can be used to build an optimizing compiler infrastructure for deep learning applications. MLIR supports multiple front- and back-ends and uses LLVM IR as one of its primary code generation targets. MLIR also relies heavily on design principles and practices developed by the LLVM community. For example, it depends on LLVM APIs and programming idioms to minimize IR size and maximize optimization efficiency. MLIR uses LLVM testing utilities such as FileCheck to ensure robust functionality at every level of the compilation stack, TableGen to express IR invariants, and it leverages LLVM infrastructure such as dominance analysis to avoid implementing all the necessary compiler functionalities from scratch. At the same time, it is a brand new IR, both more restrictive and more general than LLVM IR in different aspects of its design. We believe that the LLVM community will find in MLIR a useful tool for developing new compilers, especially in machine learning and other high-performance domains.",
+              "abstractSource": "llvm-archive"
             },
             {
               "title": "MLIR Primer: A Compiler Infrastructure for the End of Moore\u2019s Law slides",
@@ -555,6 +586,16 @@
               "summary": "recording ; Alex Denisov @ LLVM Social Berlin #20",
               "text": "Compiling Ruby with MLIR ; recording ; Alex Denisov @ LLVM Social Berlin #20",
               "actions": [
+                {
+                  "kind": "recording",
+                  "label": "Recording",
+                  "url": "https://youtu.be/NfMX-dFMSr0"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May11/06-Denisov-CompilingRubyWithMLIR.pdf"
+                },
                 {
                   "kind": "recording",
                   "label": "Recording",
@@ -918,6 +959,16 @@
               "summary": "recording",
               "text": "2023-07-13: mlir-query: Tool to query MLIR IR dynamically slides - recording",
               "actions": [
+                {
+                  "kind": "recording",
+                  "label": "Recording",
+                  "url": "https://youtu.be/3ELHZARBmYs"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf"
+                },
                 {
                   "kind": "slides",
                   "label": "Slides",
@@ -2713,6 +2764,11 @@
                 {
                   "kind": "slides",
                   "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2020-04/slides/poster_Poster_52.pdf"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
                   "url": "https://drive.google.com/file/d/1pyBANtcAFgSC0c0Jz85a9ZT794lE9XJY"
                 },
                 {
@@ -2722,7 +2778,9 @@
                 }
               ],
               "id": "mlir-talk-2020-08-06-multilevel-tactics-lifting-loops-in-mlir",
-              "displayTitle": "MultiLevel Tactics: Lifting loops in MLIR"
+              "displayTitle": "MultiLevel Tactics: Lifting loops in MLIR",
+              "abstract": "We propose MultiLevel Tactics, or ML Tactics for short, an extension to MLIR that recognizes patterns of high-level abstractions (e.g., linear algebra operations) in low-level dialects and replaces them with the corresponding operations of an appropriate high-level dialect. Our current prototype recognizes matrix multiplications in loop nests of the Affine dialect and lifts these to the Linalg dialect. The pattern recognition and replacement scheme are designed as reusable building blocks for transformations between arbitrary dialects and can be used to recognize commonly recurrent patterns in HPC applications.",
+              "abstractSource": "llvm-archive"
             },
             {
               "title": "2020-05-21: MLIR case study: AVX512 codegen for Vector dialect",
@@ -2749,6 +2807,16 @@
               "text": "2020-05-14: RISE: A Functional Pattern-based Dialect in MLIR ; slides - recording",
               "actions": [
                 {
+                  "kind": "recording",
+                  "label": "Recording",
+                  "url": "https://www.youtube.com/watch?v=ytv_SRC_96"
+                },
+                {
+                  "kind": "slides",
+                  "label": "Slides",
+                  "url": "https://llvm.org/devmtg/2020-04/slides/slides_SRC_96.pdf"
+                },
+                {
                   "kind": "slides",
                   "label": "Slides",
                   "url": "https://drive.google.com/open?id=1curA4skh2DsJ2kVHynoJqQyUaJr74xkI"
@@ -2760,7 +2828,9 @@
                 }
               ],
               "id": "mlir-talk-2020-05-14-rise-a-functional-pattern-based-dialect-in-mlir",
-              "displayTitle": "RISE: A Functional Pattern-based Dialect in MLIR"
+              "displayTitle": "RISE: A Functional Pattern-based Dialect in MLIR",
+              "abstract": "Machine learning systems are stuck in a rut. Paul Barham and Michael Isard, two of the original authors of TensorFlow, come to this conclusion in their recent HotOS paper. They argue that while TensorFlow and similar frameworks have enabled great advances in machine learning, their current design and implementations focus on a fixed set of monolithic and inflexible kernels. We present our work on the MLIR dialect RISE, a compiler intermediate representation inspired by pattern-based program representations like Lift. A set of small generic patterns is provided, which can be composed to represent complex computations. We argue that this approach of using simple reusable patterns to break up large monolithic kernels will enable easier exploration of different novel optimizations for machine learning workloads. Rise is a spiritual successor to Lift and developed at the University of Edinburgh, University of Glasgow and University of M\u00fcnster. Martin L\u00fccke is a PhD student from Edinburgh and works on the MLIR implementation of RISE. This work is mainly focused on the representation of the high-level Rise patterns in MLIR, but we will also talk about the challenges of introducing low-level patterns and a rewriting system in the future.",
+              "abstractSource": "llvm-archive"
             },
             {
               "title": "2020-04-23: LLHD: A Multi-level Intermediate Representation for Hardware Description",

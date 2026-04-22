@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate slide-reference paper links for talk and paper detail pages.
+"""Generate slide-reference paper and repository links for talk detail pages.
 
 Only explicit slide-deck references should be emitted. Title-only mentions are
 filtered unless nearby slide text also looks like a citation.
@@ -22,7 +22,7 @@ from pathlib import Path
 from typing import Iterable
 
 
-ARTIFACT_VERSION = 2
+ARTIFACT_VERSION = 3
 BLOG_SOURCE_SLUGS = {"llvm-blog-www", "llvm-www-blog"}
 USER_AGENT = "llvm-library-talk-paper-links/1.0"
 MATCH_STOPWORDS = {
@@ -64,6 +64,18 @@ CITATION_CONTEXT_PHRASES = (
     "for more information",
 )
 AUTHOR_SUFFIX_TOKENS = {"jr", "sr", "ii", "iii", "iv", "v"}
+GITHUB_RESERVED_OWNERS = {
+    "about", "account", "apps", "collections", "contact", "customer-stories", "enterprise",
+    "events", "explore", "features", "gist", "github", "issues", "login", "marketplace",
+    "new", "notifications", "orgs", "organizations", "pricing", "pulls", "search",
+    "security", "settings", "site", "sponsors", "team", "teams", "topics", "trending",
+    "users",
+}
+GITHUB_URL_RE = re.compile(
+    r"(?:(?:https?://)?(?:www\.)?github\.com/[^\s<>()\[\]{}\"'`]+)",
+    flags=re.IGNORECASE,
+)
+GITHUB_PATH_SEGMENT_RE = re.compile(r"[A-Za-z0-9_.-]+")
 
 
 def collapse_ws(value: str) -> str:
@@ -93,6 +105,61 @@ def tokenize_important_words(value: str) -> list[str]:
 def extract_doi(value: str) -> str:
     match = re.search(r"10\.\d{4,9}/[\w.()\-;/:%+]+", str(value or ""), flags=re.IGNORECASE)
     return match.group(0).strip().lower() if match else ""
+
+
+def dedupe_urls(values: Iterable[str]) -> list[str]:
+    urls: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        text = collapse_ws(str(value or ""))
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        urls.append(text)
+    return urls
+
+
+def canonicalize_github_repo_url(value: str) -> str:
+    raw = collapse_ws(str(value or ""))
+    if not raw:
+        return ""
+    if raw.lower().startswith("github.com/"):
+        raw = f"https://{raw}"
+
+    try:
+        parsed = urllib.parse.urlparse(raw)
+    except ValueError:
+        return ""
+
+    host = collapse_ws(parsed.netloc).lower().replace("www.", "")
+    if host != "github.com":
+        return ""
+
+    parts = [collapse_ws(part) for part in parsed.path.split("/") if collapse_ws(part)]
+    if len(parts) < 2:
+        return ""
+
+    owner_match = GITHUB_PATH_SEGMENT_RE.match(unicodedata.normalize("NFKC", parts[0]))
+    repo_match = GITHUB_PATH_SEGMENT_RE.match(unicodedata.normalize("NFKC", parts[1]))
+    owner = owner_match.group(0).strip() if owner_match else ""
+    repo = repo_match.group(0).strip() if repo_match else ""
+    repo = re.sub(r"\.git$", "", repo, flags=re.IGNORECASE)
+    if not owner or not repo:
+        return ""
+    if owner.lower() in GITHUB_RESERVED_OWNERS:
+        return ""
+
+    return f"https://github.com/{owner}/{repo}"
+
+
+def extract_github_repo_urls_from_text(value: str) -> list[str]:
+    text = str(value or "")
+    if not text:
+        return []
+    return dedupe_urls(
+        canonicalize_github_repo_url(match.group(0))
+        for match in GITHUB_URL_RE.finditer(text)
+    )
 
 
 def build_title_variants(title: str) -> list[str]:
@@ -185,6 +252,7 @@ def load_mlir_talks(repo_root: Path) -> list[dict]:
                 talks.append({
                     "id": talk_id,
                     "slidesUrl": slides_url,
+                    "abstract": collapse_ws(str(entry.get("abstract", ""))),
                 })
 
     return talks
@@ -902,18 +970,31 @@ def generate_talk_artifact(
             continue
 
         slides_url = collapse_ws(str(talk.get("slidesUrl", "")))
+        abstract_github_repo_urls = extract_github_repo_urls_from_text(str(talk.get("abstract", "")))
         previous = talks_map.get(talk_id)
         previous_slides_url = collapse_ws(str((previous or {}).get("slidesUrl", "")))
+        previous_slide_github_repo_urls = (
+            dedupe_urls(
+                canonicalize_github_repo_url(value)
+                for value in (previous or {}).get("slideGithubRepoUrls", [])
+            )
+            if isinstance((previous or {}).get("slideGithubRepoUrls"), list)
+            else []
+        )
         if not fetch_pdf_references:
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": (previous or {}).get("slidePaperIds", []),
+                "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
             }
             continue
         if not slides_url.lower().startswith(("http://", "https://")):
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": [],
+                "slideGithubRepoUrls": [],
+                "githubRepoUrls": abstract_github_repo_urls,
             }
             continue
 
@@ -924,7 +1005,12 @@ def generate_talk_artifact(
             and previous_slides_url == slides_url
             and isinstance(previous.get("slidePaperIds"), list)
         ):
-            talks_map[talk_id] = previous
+            talks_map[talk_id] = {
+                **previous,
+                "slidesUrl": slides_url,
+                "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+            }
             print(f"kept {talk_id}: existing slide-reference papers", file=sys.stderr)
             continue
 
@@ -937,17 +1023,30 @@ def generate_talk_artifact(
             )
             pdf_pages = extract_pdf_pages(pdf_bytes)
             slide_paper_ids = find_slide_paper_matches(pdf_pages, papers)
+            slide_github_repo_urls = extract_github_repo_urls_from_text("\n\n".join(pdf_pages))
             talks_map[talk_id] = {
                 "slidesUrl": slides_url,
                 "slidePaperIds": slide_paper_ids,
+                "slideGithubRepoUrls": slide_github_repo_urls,
+                "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *slide_github_repo_urls]),
                 "slideChecksum": hashlib.sha1(pdf_bytes).hexdigest(),
             }
             print(f"linked {talk_id}: {len(slide_paper_ids)} slide-reference papers", file=sys.stderr)
         except Exception as exc:
             if previous and not refresh_existing and existing_processor_version == ARTIFACT_VERSION:
-                talks_map[talk_id] = previous
+                talks_map[talk_id] = {
+                    **previous,
+                    "slidesUrl": slides_url,
+                    "slideGithubRepoUrls": previous_slide_github_repo_urls,
+                    "githubRepoUrls": dedupe_urls([*abstract_github_repo_urls, *previous_slide_github_repo_urls]),
+                }
             else:
-                talks_map[talk_id] = {"slidesUrl": slides_url, "slidePaperIds": []}
+                talks_map[talk_id] = {
+                    "slidesUrl": slides_url,
+                    "slidePaperIds": [],
+                    "slideGithubRepoUrls": [],
+                    "githubRepoUrls": abstract_github_repo_urls,
+                }
             print(f"warning: could not refresh slide references for {talk_id}: {exc}", file=sys.stderr)
 
     timestamp = dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")

@@ -80,7 +80,7 @@ if find "$EVENTS_ROOT" -maxdepth 1 -name '*.md' | grep -q .; then
 fi
 
 # Validate event manifest points to existing JSON files.
-ruby -rjson -e '
+ruby -rjson -ruri -e '
   events_root = ARGV.fetch(0)
   idx_path = File.join(events_root, "index.json")
   idx = JSON.parse(File.read(idx_path))
@@ -257,6 +257,26 @@ ruby -rjson -e '
     abort("talk-paper-links.json entry for #{talk_id} missing slidePaperIds array") unless slide_ids.is_a?(Array)
     slide_ids.each do |paper_id|
       abort("talk-paper-links.json entry for #{talk_id} contains empty paper id") if String(paper_id).strip.empty?
+    end
+    slide_github = entry["slideGithubRepoUrls"]
+    abort("talk-paper-links.json entry for #{talk_id} missing slideGithubRepoUrls array") unless slide_github.is_a?(Array)
+    slide_github.each do |url|
+      begin
+        uri = URI.parse(String(url))
+        abort("talk-paper-links.json entry for #{talk_id} contains invalid slide GitHub URL #{url}") unless %w[http https].include?(String(uri.scheme).downcase) && !String(uri.host).strip.empty?
+      rescue URI::InvalidURIError
+        abort("talk-paper-links.json entry for #{talk_id} contains invalid slide GitHub URL #{url}")
+      end
+    end
+    github_urls = entry["githubRepoUrls"]
+    abort("talk-paper-links.json entry for #{talk_id} missing githubRepoUrls array") unless github_urls.is_a?(Array)
+    github_urls.each do |url|
+      begin
+        uri = URI.parse(String(url))
+        abort("talk-paper-links.json entry for #{talk_id} contains invalid GitHub URL #{url}") unless %w[http https].include?(String(uri.scheme).downcase) && !String(uri.host).strip.empty?
+      rescue URI::InvalidURIError
+        abort("talk-paper-links.json entry for #{talk_id} contains invalid GitHub URL #{url}")
+      end
     end
   end
 ' "$SITE_ROOT"

@@ -5,6 +5,7 @@
 (function () {
   const DATA_PATH = 'sub-projects/mlir/data/talks.json';
   const LOCAL_DETAIL_PATH = 'mlir/talks/talk.html';
+  const TALK_REFERENCE_JSON_PATH = 'js/data/talk-paper-links.json';
   const HubUtils = window.LLVMHubUtils || {};
   const loaderMode = String(window.LLVMLIRTalkDataMode || '').trim().toLowerCase();
   const shouldOverrideGlobals = loaderMode !== 'namespaced';
@@ -41,6 +42,7 @@
   const RESOURCE_ONLY_RE = /\b(?:slides?|recordings?|recording|transcript|talk|talks|event|events|part\s+\d+|additional slides?)\b/gi;
 
   let talksPromise = null;
+  let talkReferenceIndexPromise = null;
 
   function collapseWhitespace(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
@@ -57,6 +59,71 @@
       return '';
     }
     return '';
+  }
+
+  async function loadTalkReferenceIndex() {
+    if (talkReferenceIndexPromise) return talkReferenceIndexPromise;
+    talkReferenceIndexPromise = (async () => {
+      try {
+        const response = await fetch(TALK_REFERENCE_JSON_PATH, { cache: 'default' });
+        if (!response.ok) return {};
+        const payload = await response.json();
+        return payload && typeof payload === 'object' && payload.talks && typeof payload.talks === 'object'
+          ? payload.talks
+          : {};
+      } catch {
+        return {};
+      }
+    })();
+    return talkReferenceIndexPromise;
+  }
+
+  function normalizeGithubRepoUrls(entry) {
+    return Array.isArray(entry && entry.githubRepoUrls)
+      ? entry.githubRepoUrls.map((value) => sanitizeExternalUrl(value)).filter(Boolean)
+      : [];
+  }
+
+  function mergeGithubResourceActions(existingActions, githubUrls) {
+    const actions = Array.isArray(existingActions)
+      ? existingActions
+          .map((action) => ({
+            kind: collapseWhitespace(action && action.kind).toLowerCase(),
+            label: collapseWhitespace(action && action.label),
+            url: sanitizeExternalUrl(action && action.url),
+          }))
+          .filter((action) => action.url)
+      : [];
+    const seenUrls = new Set(actions.map((action) => action.url));
+    let githubCount = 0;
+    for (const value of (Array.isArray(githubUrls) ? githubUrls : [])) {
+      const url = sanitizeExternalUrl(value);
+      if (!url || seenUrls.has(url)) continue;
+      githubCount += 1;
+      seenUrls.add(url);
+      actions.push({
+        kind: 'github',
+        label: githubCount === 1 ? 'GitHub' : `GitHub ${githubCount}`,
+        url,
+      });
+    }
+    return actions;
+  }
+
+  function applyReferenceMetadataToTalk(talk, referenceIndex) {
+    if (!talk || typeof talk !== 'object') return talk;
+    const referenceEntry = referenceIndex && typeof referenceIndex === 'object'
+      ? referenceIndex[collapseWhitespace(talk.id)]
+      : null;
+    const githubUrls = normalizeGithubRepoUrls(referenceEntry);
+    if (!githubUrls.length) return talk;
+
+    const enriched = { ...talk };
+    if (!collapseWhitespace(enriched.projectGithub)) {
+      enriched.projectGithub = githubUrls[0];
+    }
+    enriched.resourceActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
+    return enriched;
   }
 
   function slugify(value) {
@@ -466,10 +533,13 @@
     if (talksPromise) return talksPromise;
 
     talksPromise = (async () => {
-      const response = await fetch(DATA_PATH, { cache: 'default' });
+      const [response, referenceIndex] = await Promise.all([
+        fetch(DATA_PATH, { cache: 'default' }),
+        loadTalkReferenceIndex(),
+      ]);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const payload = await response.json();
-      return transformPayload(payload);
+      return transformPayload(payload).map((talk) => applyReferenceMetadataToTalk(talk, referenceIndex));
     })();
 
     return talksPromise;

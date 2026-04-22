@@ -31,6 +31,10 @@ const PAGE_REQUIRED_TAGS = String(document.body && document.body.dataset ? docum
   .split(',')
   .map((value) => String(value || '').trim())
   .filter(Boolean);
+const PAGE_PRESERVED_QUERY_PARAMS = String(document.body && document.body.dataset ? document.body.dataset.preserveQueryParams || '' : '')
+  .split(',')
+  .map((value) => String(value || '').trim())
+  .filter(Boolean);
 
 const state = {
   query: '',
@@ -164,13 +168,23 @@ function samePersonName(a, b) {
 }
 
 async function loadData() {
-  if (typeof window.loadEventData !== 'function') {
-    showError('Could not load event data loader. Ensure <code>js/events-data.js</code> is included before this script.');
-    return false;
-  }
-
   try {
-    const { talks } = await window.loadEventData();
+    let talks = [];
+    if (typeof window.loadTalkData === 'function') {
+      const loaded = await window.loadTalkData();
+      talks = Array.isArray(loaded)
+        ? loaded
+        : Array.isArray(loaded && loaded.talks)
+          ? loaded.talks
+          : [];
+    } else {
+      if (typeof window.loadEventData !== 'function') {
+        showError('Could not load event data loader. Ensure <code>js/events-data.js</code> is included before this script.');
+        return false;
+      }
+      const loaded = await window.loadEventData();
+      talks = Array.isArray(loaded && loaded.talks) ? loaded.talks : [];
+    }
     allTalks = normalizeTalks(talks).filter(talkHasRequiredTags);
   } catch (err) {
     showError(`Could not load event JSON data: <code>${escapeHtml(String(err.message || err))}</code>`);
@@ -1353,7 +1367,14 @@ function clearQuery() {
 // ============================================================
 
 function syncUrl() {
+  const existingParams = new URLSearchParams(window.location.search);
   const params = new URLSearchParams();
+  for (const key of PAGE_PRESERVED_QUERY_PARAMS) {
+    const values = existingParams.getAll(key);
+    if (!values.length) continue;
+    params.delete(key);
+    for (const value of values) params.append(key, value);
+  }
   if (state.meeting)         params.set('meeting',  state.meeting);
   if (state.speaker)         params.set('speaker',  state.speaker);
   if (state.query)           params.set('q', state.query);
@@ -2752,7 +2773,8 @@ async function init() {
   const urlParams = new URLSearchParams(window.location.search);
   const hasUrlState = urlParams.has('speaker') || urlParams.has('q') || urlParams.has('tag') ||
     urlParams.has('meeting') || urlParams.has('category') || urlParams.has('year') ||
-    urlParams.has('video') || urlParams.has('slides') || urlParams.has('sort');
+    urlParams.has('video') || urlParams.has('slides') || urlParams.has('sort') ||
+    PAGE_PRESERVED_QUERY_PARAMS.some((key) => urlParams.has(key));
 
   const hasBackState = safeSessionGet('llvm-hub-search-state');
 

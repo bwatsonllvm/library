@@ -5,11 +5,14 @@
 (function () {
   const MANIFEST_JSON_PATH = 'devmtg/events/index.json';
   const EVENTS_PREFIX = 'devmtg/events/';
+  const TALK_REFERENCE_JSON_PATH = 'js/data/talk-paper-links.json';
 
   let manifestCache = null;
   let manifestLoadPromise = null;
   let fullDataCache = null;
   let fullDataVersion = '';
+  let talkReferenceCache = null;
+  let talkReferenceLoadPromise = null;
 
   const bundleCache = new Map();
   const bundleLoadPromises = new Map();
@@ -73,6 +76,95 @@
     } catch (err) {
       throw new Error(`${path}: invalid JSON (${err.message})`);
     }
+  }
+
+  function normalizeHttpUrl(value) {
+    const raw = String(value || '').trim();
+    if (!raw) return '';
+    try {
+      const parsed = new URL(raw, window.location.href);
+      const protocol = parsed.protocol.toLowerCase();
+      if (protocol === 'http:' || protocol === 'https:') return parsed.toString();
+    } catch {
+      return '';
+    }
+    return '';
+  }
+
+  async function loadTalkReferenceIndex() {
+    if (talkReferenceCache) return talkReferenceCache;
+    if (talkReferenceLoadPromise) return talkReferenceLoadPromise;
+
+    talkReferenceLoadPromise = (async () => {
+      try {
+        const payload = await fetchJson(TALK_REFERENCE_JSON_PATH);
+        const talks = payload && typeof payload === 'object' && payload.talks && typeof payload.talks === 'object'
+          ? payload.talks
+          : {};
+        talkReferenceCache = talks;
+        return talks;
+      } catch {
+        talkReferenceCache = {};
+        return talkReferenceCache;
+      }
+    })();
+
+    try {
+      return await talkReferenceLoadPromise;
+    } finally {
+      talkReferenceLoadPromise = null;
+    }
+  }
+
+  function normalizeGithubRepoUrls(entry) {
+    return Array.isArray(entry && entry.githubRepoUrls)
+      ? entry.githubRepoUrls.map((value) => normalizeHttpUrl(value)).filter(Boolean)
+      : [];
+  }
+
+  function mergeGithubResourceActions(existingActions, githubUrls) {
+    const base = Array.isArray(existingActions)
+      ? existingActions
+          .map((action) => ({
+            kind: String(action && action.kind || '').trim(),
+            label: String(action && action.label || '').trim(),
+            url: normalizeHttpUrl(action && action.url),
+          }))
+          .filter((action) => action.url)
+      : [];
+    const seenUrls = new Set(base.map((action) => action.url));
+    let githubCount = 0;
+    for (const value of (Array.isArray(githubUrls) ? githubUrls : [])) {
+      const url = normalizeHttpUrl(value);
+      if (!url || seenUrls.has(url)) continue;
+      githubCount += 1;
+      seenUrls.add(url);
+      base.push({
+        kind: 'github',
+        label: githubCount === 1 ? 'GitHub' : `GitHub ${githubCount}`,
+        url,
+      });
+    }
+    return base;
+  }
+
+  function applyReferenceMetadataToTalk(talk, referenceIndex) {
+    if (!talk || typeof talk !== 'object') return talk;
+    const talkId = normalizeTalkId(talk.id);
+    if (!talkId || !referenceIndex || typeof referenceIndex !== 'object') return talk;
+    const referenceEntry = referenceIndex[talkId];
+    const githubUrls = normalizeGithubRepoUrls(referenceEntry);
+    if (!githubUrls.length) return talk;
+
+    const enriched = { ...talk };
+    if (!String(enriched.projectGithub || '').trim()) {
+      enriched.projectGithub = githubUrls[0];
+    }
+    const mergedActions = mergeGithubResourceActions(enriched.resourceActions, githubUrls);
+    if (mergedActions.length) {
+      enriched.resourceActions = mergedActions;
+    }
+    return enriched;
   }
 
   function resetCachesForVersionChange() {
@@ -152,6 +244,7 @@
     if (fullDataCache && fullDataVersion === manifest.dataVersion) {
       return fullDataCache;
     }
+    const talkReferenceIndex = await loadTalkReferenceIndex();
 
     const bundles = await Promise.all(
       manifest.eventRefs.map(async (ref) => {
@@ -163,7 +256,10 @@
     const talks = [];
     const meetings = [];
     for (const bundle of bundles) {
-      talks.push(...(Array.isArray(bundle.talks) ? bundle.talks : []));
+      const bundleTalks = Array.isArray(bundle.talks)
+        ? bundle.talks.map((talk) => applyReferenceMetadataToTalk(talk, talkReferenceIndex))
+        : [];
+      talks.push(...bundleTalks);
       if (bundle.meeting) meetings.push(bundle.meeting);
     }
 
@@ -177,6 +273,7 @@
     if (!target) return null;
 
     const manifest = await loadManifest();
+    const talkReferenceIndex = await loadTalkReferenceIndex();
 
     if (fullDataCache && fullDataVersion === manifest.dataVersion) {
       const cached = findTalkById(fullDataCache.talks, target);
@@ -197,11 +294,14 @@
     for (const ref of orderedRefs) {
       const bundle = await loadEventBundle(ref);
       if (!bundle) continue;
-      const match = findTalkById(bundle.talks, target);
+      const bundleTalks = Array.isArray(bundle.talks)
+        ? bundle.talks.map((talk) => applyReferenceMetadataToTalk(talk, talkReferenceIndex))
+        : [];
+      const match = findTalkById(bundleTalks, target);
       if (match) {
         return {
           talk: match,
-          talks: bundle.talks,
+          talks: bundleTalks,
           meeting: bundle.meeting || null,
           dataVersion: manifest.dataVersion,
         };

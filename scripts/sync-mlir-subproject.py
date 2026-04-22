@@ -324,6 +324,92 @@ def load_json_file(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def normalize_title_key(value: str) -> str:
+    return slugify(value)
+
+
+def infer_entry_year(entry: dict) -> str:
+    for field in ("text", "summary", "displayTitle", "title"):
+        match = re.search(r"\b((?:19|20)\d{2})\b", collapse_ws(entry.get(field, "")))
+        if match:
+            return match.group(1)
+    return ""
+
+
+def build_llvm_archive_talk_index(repo_root: Path) -> dict[str, list[dict]]:
+    events_root = repo_root / "devmtg" / "events"
+    index: dict[str, list[dict]] = defaultdict(list)
+    if not events_root.exists():
+        return {}
+
+    for event_path in sorted(events_root.glob("*.json")):
+        if event_path.name == "index.json":
+            continue
+        payload = load_json_file(event_path)
+        for talk in payload.get("talks", []):
+            if not isinstance(talk, dict):
+                continue
+            key = normalize_title_key(str(talk.get("title", "") or ""))
+            if not key:
+                continue
+            index[key].append(talk)
+
+    return dict(index)
+
+
+def select_archive_talk_match(entry: dict, matches: list[dict]) -> dict | None:
+    if not matches:
+        return None
+    if len(matches) == 1:
+        return matches[0]
+
+    entry_year = infer_entry_year(entry)
+    if not entry_year:
+        return None
+
+    year_matches = [
+        talk for talk in matches
+        if collapse_ws(talk.get("meeting", "")).startswith(entry_year)
+        or entry_year in collapse_ws(talk.get("meetingDate", ""))
+        or entry_year in collapse_ws(talk.get("meetingName", ""))
+    ]
+    if len(year_matches) == 1:
+        return year_matches[0]
+    return None
+
+
+def enrich_talk_sections_with_llvm_archive(sections: list[dict], archive_talk_index: dict[str, list[dict]]) -> None:
+    for section in sections:
+        for group in section.get("groups", []):
+            for entry in group.get("entries", []):
+                title_key = normalize_title_key(str(entry.get("displayTitle") or entry.get("title") or ""))
+                if not title_key:
+                    continue
+                archive_talk = select_archive_talk_match(entry, archive_talk_index.get(title_key, []))
+                if not archive_talk:
+                    continue
+
+                abstract = collapse_ws(archive_talk.get("abstract", ""))
+                if abstract and not collapse_ws(entry.get("abstract", "")):
+                    entry["abstract"] = abstract
+                    entry["abstractSource"] = "llvm-archive"
+
+                actions = list(entry.get("actions", [])) if isinstance(entry.get("actions"), list) else []
+                existing_urls = {collapse_ws(action.get("url", "")) for action in actions if isinstance(action, dict)}
+                archive_actions: list[dict] = []
+
+                video_url = collapse_ws(archive_talk.get("videoUrl", ""))
+                if video_url and video_url not in existing_urls:
+                    archive_actions.append({"kind": "recording", "label": "Recording", "url": video_url})
+
+                slides_url = collapse_ws(archive_talk.get("slidesUrl", ""))
+                if slides_url and slides_url not in existing_urls:
+                    archive_actions.append({"kind": "slides", "label": "Slides", "url": slides_url})
+
+                if archive_actions:
+                    entry["actions"] = dedupe_actions(archive_actions + actions)
+
+
 def decode_pdf_metadata_value(token: bytes) -> str:
     value = token.strip()
     if not value:
@@ -1470,6 +1556,10 @@ def main() -> int:
         local_mlir_root=local_mlir_root,
         enable_youtube=not args.skip_youtube_abstracts,
         known_people_index=known_people_index,
+    )
+    enrich_talk_sections_with_llvm_archive(
+        talk_sections,
+        build_llvm_archive_talk_index(repo_root),
     )
 
     talks_payload = build_payload(
