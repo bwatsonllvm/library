@@ -1667,7 +1667,6 @@ def generate_talk_artifact(
             (previous or {}).get("githubReferences", []),
         )
         previous_slide_github_references = filter_github_reference_items(previous_slide_reference_items)
-        previous_github_references = filter_github_reference_items(previous_reference_items)
         if not fetch_pdf_references:
             merged_reference_items = merge_reference_items(
                 abstract_reference_items,

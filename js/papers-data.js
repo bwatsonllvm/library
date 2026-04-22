@@ -5,7 +5,7 @@
 (function () {
   const root = typeof window !== 'undefined' ? window : globalThis;
   const MANIFEST_JSON_CANDIDATES = ['../papers/index.json', 'papers/index.json', './papers/index.json'];
-  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=ca25eb1043d8';
+  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=5ba0ea23ae03';
 
   let manifestCache = null;
   let manifestLoadPromise = null;
