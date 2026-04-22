@@ -7,7 +7,7 @@
   const MANIFEST_JSON_PATH = 'devmtg/events/index.json';
   const EVENTS_PREFIX = 'devmtg/events/';
   const TALK_REFERENCE_JSON_PATH = 'js/data/talk-paper-links.json';
-  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=4c698b076fff';
+  const VIEWER_ARTIFACTS_MANIFEST_PATH = 'js/data/viewer-artifacts.json?v=74dcceb75eac';
 
   let manifestCache = null;
   let manifestLoadPromise = null;

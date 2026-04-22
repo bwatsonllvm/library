@@ -4,7 +4,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
-const childProcess = require('node:child_process');
 
 function parseArgs(argv) {
   const out = {
@@ -83,31 +82,6 @@ function maxIsoDate(values) {
     }
   }
   return bestIso;
-}
-
-function resolveGeneratedAtFromGit(inputFiles) {
-  const relativePaths = [...new Set((Array.isArray(inputFiles) ? inputFiles : [])
-    .map((pathname) => path.relative(repoRoot, pathname))
-    .filter(Boolean)
-    .sort())];
-  if (!relativePaths.length) return '';
-
-  try {
-    const result = childProcess.spawnSync(
-      'git',
-      ['log', '-1', '--format=%cI', '--', ...relativePaths],
-      {
-        cwd: repoRoot,
-        encoding: 'utf8',
-        stdio: ['ignore', 'pipe', 'ignore'],
-      }
-    );
-    if (result.status !== 0) return '';
-    const iso = collapseWhitespace(result.stdout);
-    return Number.isFinite(Date.parse(iso)) ? new Date(Date.parse(iso)).toISOString() : '';
-  } catch {
-    return '';
-  }
 }
 
 function collapseWhitespace(value) {
@@ -1294,7 +1268,6 @@ function buildOutputs() {
     path.join(repoRoot, 'js', 'shared', 'library-utils.js'),
   ])];
   const generatedAt = maxIsoDate([
-    resolveGeneratedAtFromGit(generationInputs),
     eventData.generatedAt,
     paperData.generatedAt,
   ]) || '1970-01-01T00:00:00.000Z';
