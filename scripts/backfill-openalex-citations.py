@@ -52,11 +52,49 @@ def _chunks(items: list[str], size: int) -> Iterable[list[str]]:
         yield items[i : i + size]
 
 
-def _fetch_openalex_counts(short_ids: list[str], mailto: str = "") -> dict[str, int]:
+def _parse_int(value) -> int | None:
+    try:
+        return int(value)
+    except Exception:
+        return None
+
+
+def _citation_rejection_reason(work: dict) -> str:
+    count = _parse_int(work.get("cited_by_count"))
+    publication_year = _parse_int(work.get("publication_year"))
+    if count is None or count <= 0 or publication_year is None:
+        return ""
+    counts_by_year = work.get("counts_by_year")
+    if not isinstance(counts_by_year, list):
+        return ""
+
+    pre_publication_count = 0
+    earliest_pre_publication_year: int | None = None
+    for item in counts_by_year:
+        if not isinstance(item, dict):
+            continue
+        year = _parse_int(item.get("year"))
+        cited_by = _parse_int(item.get("cited_by_count")) or 0
+        if year is None or cited_by <= 0 or year >= publication_year:
+            continue
+        pre_publication_count += cited_by
+        earliest_pre_publication_year = year if earliest_pre_publication_year is None else min(earliest_pre_publication_year, year)
+
+    if earliest_pre_publication_year is None:
+        return ""
+    if earliest_pre_publication_year <= publication_year - 2:
+        return "citations-before-publication-window"
+    if pre_publication_count >= max(25, int(count * 0.1)):
+        return "citations-before-publication-volume"
+    return ""
+
+
+def _fetch_openalex_counts(short_ids: list[str], mailto: str = "") -> tuple[dict[str, int], dict[str, str]]:
     if not short_ids:
-        return {}
+        return {}, {}
 
     counts: dict[str, int] = {}
+    rejected: dict[str, str] = {}
     batch_size = 40
     total_batches = math.ceil(len(short_ids) / batch_size)
 
@@ -64,7 +102,7 @@ def _fetch_openalex_counts(short_ids: list[str], mailto: str = "") -> dict[str, 
         params = {
             "filter": f"openalex:{'|'.join(batch)}",
             "per-page": str(len(batch)),
-            "select": "id,cited_by_count",
+            "select": "id,cited_by_count,publication_year,counts_by_year",
         }
         if mailto:
             params["mailto"] = mailto
@@ -92,17 +130,18 @@ def _fetch_openalex_counts(short_ids: list[str], mailto: str = "") -> dict[str, 
             short_id = _openalex_short_id(full_id)
             if not short_id:
                 continue
-            cited_by = work.get("cited_by_count", 0)
-            try:
-                count = int(cited_by)
-            except Exception:
-                count = 0
+            reason = _citation_rejection_reason(work)
+            if reason:
+                rejected[short_id] = reason
+                counts[short_id] = 0
+                continue
+            count = _parse_int(work.get("cited_by_count")) or 0
             counts[short_id] = max(0, count)
 
         print(f"[openalex] fetched batch {idx}/{total_batches} ({len(batch)} ids)", flush=True)
         time.sleep(0.08)
 
-    return counts
+    return counts, rejected
 
 
 def _collect_short_ids_from_bundles(bundle_payloads: list[tuple[Path, dict]]) -> list[str]:
@@ -120,13 +159,14 @@ def _collect_short_ids_from_bundles(bundle_payloads: list[tuple[Path, dict]]) ->
     return sorted(ids)
 
 
-def _apply_counts_to_bundle(payload: dict, counts: dict[str, int]) -> tuple[int, int]:
+def _apply_counts_to_bundle(payload: dict, counts: dict[str, int], rejected: dict[str, str]) -> tuple[int, int, int]:
     papers = payload.get("papers")
     if not isinstance(papers, list):
         raise ValueError("bundle missing papers array")
 
     updated = 0
     with_openalex_id = 0
+    rejected_count = 0
 
     for paper in papers:
         if not isinstance(paper, dict):
@@ -140,8 +180,15 @@ def _apply_counts_to_bundle(payload: dict, counts: dict[str, int]) -> tuple[int,
         if previous != count:
             updated += 1
         paper["citationCount"] = count
+        if short_id in rejected:
+            rejected_count += 1
+            paper["citationCountSource"] = "rejected-openalex"
+            paper["citationCountStatus"] = f"openalex-rejected:{rejected[short_id]}"
+        else:
+            paper["citationCountSource"] = "openalex"
+            paper.pop("citationCountStatus", None)
 
-    return updated, with_openalex_id
+    return updated, with_openalex_id, rejected_count
 
 
 def _update_manifest_version(manifest_path: Path) -> str:
@@ -183,14 +230,15 @@ def main() -> int:
 
     short_ids = _collect_short_ids_from_bundles(bundle_payloads)
     print(f"Unique OpenAlex ids to fetch: {len(short_ids)}")
-    counts = _fetch_openalex_counts(short_ids, mailto=args.mailto.strip())
+    counts, rejected = _fetch_openalex_counts(short_ids, mailto=args.mailto.strip())
     print(f"Counts resolved from OpenAlex: {len(counts)}")
+    print(f"OpenAlex counts rejected by sanity checks: {len(rejected)}")
 
     for path, payload in bundle_payloads:
-        updated, with_openalex_id = _apply_counts_to_bundle(payload, counts)
+        updated, with_openalex_id, rejected_count = _apply_counts_to_bundle(payload, counts, rejected)
         _save_json(path, payload)
         print(
-            f"Updated bundle: {path} | papers_with_openalex_id={with_openalex_id} | citationCount_written={updated}",
+            f"Updated bundle: {path} | papers_with_openalex_id={with_openalex_id} | citationCount_written={updated} | rejected_openalex_counts={rejected_count}",
             flush=True,
         )
 

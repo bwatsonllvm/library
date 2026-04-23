@@ -208,7 +208,7 @@ Subproject parsing and seed aliases now include deeper LLVM project coverage, in
 - `lld`, `lldb`, `llvm-libgcc`, `llvm`, `mlir`, `offload`, `openmp`, `orc-rt`, `polly`, `runtimes`
 
 The automated pipeline does not rely on a repository-maintained direct-name seed list.
-During the final merge, OpenAlex metadata is refreshed for titles, abstracts, authors, affiliations, citation counts, and URLs. For non-English or missing text, the pipeline also probes deeper landing-page metadata layers to recover English title/abstract when available.
+During the final merge, OpenAlex metadata is refreshed for titles, abstracts, authors, affiliations, citation counts, and URLs. Citation counts are sanity-checked before ranking: OpenAlex counts with impossible pre-publication citation histories are rejected, high-impact records are reconciled against Crossref, and Semantic Scholar can be enabled with `SEMANTIC_SCHOLAR_API_KEY`. For non-English or missing text, the pipeline also probes deeper landing-page metadata layers to recover English title/abstract when available.
 Blog entries are sourced directly from the blog repository and linked to their post files in GitHub, with the canonical blog URL also retained.
 Discovery output is treated as an intermediate input; the final single-database build is the stage that updates `papers/index.json`.
 

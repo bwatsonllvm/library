@@ -28,6 +28,7 @@ from pathlib import Path
 from typing import Iterable
 
 OPENALEX_WORKS_API = "https://api.openalex.org/works"
+CROSSREF_WORKS_API = "https://api.crossref.org/works"
 PLACEHOLDER_ABSTRACTS = {
     "no abstract available in openalex metadata.",
     "no abstract available in discovery metadata.",
@@ -578,6 +579,83 @@ def parse_int(value) -> int | None:
     except Exception:
         return None
     return out
+
+
+def openalex_citation_rejection_reason(work: dict) -> str:
+    """Return a short reason when an OpenAlex citation count is implausible."""
+    citation_count = parse_int(work.get("cited_by_count"))
+    publication_year = parse_int(work.get("publication_year"))
+    if citation_count is None or citation_count <= 0 or publication_year is None:
+        return ""
+    counts_by_year = work.get("counts_by_year")
+    if not isinstance(counts_by_year, list):
+        return ""
+
+    pre_publication_count = 0
+    earliest_pre_publication_year: int | None = None
+    for item in counts_by_year:
+        if not isinstance(item, dict):
+            continue
+        year = parse_int(item.get("year"))
+        count = parse_int(item.get("cited_by_count")) or 0
+        if year is None or count <= 0 or year >= publication_year:
+            continue
+        pre_publication_count += count
+        earliest_pre_publication_year = year if earliest_pre_publication_year is None else min(earliest_pre_publication_year, year)
+
+    if earliest_pre_publication_year is None:
+        return ""
+    if earliest_pre_publication_year <= publication_year - 2:
+        return "citations-before-publication-window"
+    if pre_publication_count >= max(25, int(citation_count * 0.1)):
+        return "citations-before-publication-volume"
+    return ""
+
+
+def safe_openalex_citation_count(work: dict) -> tuple[int | None, str]:
+    count = parse_int(work.get("cited_by_count"))
+    if count is None:
+        return None, ""
+    reason = openalex_citation_rejection_reason(work)
+    if reason:
+        return None, reason
+    return max(0, count), ""
+
+
+def fetch_crossref_citation_count(doi: str, mailto: str, user_agent: str) -> int | None:
+    clean_doi = normalize_doi(doi)
+    if not clean_doi:
+        return None
+    params = {"mailto": mailto} if mailto else {}
+    suffix = urllib.parse.quote(clean_doi, safe="")
+    query = f"?{urllib.parse.urlencode(params)}" if params else ""
+    url = f"{CROSSREF_WORKS_API}/{suffix}{query}"
+    cmd = [
+        "curl",
+        "-sS",
+        "--retry",
+        "3",
+        "--retry-all-errors",
+        "--connect-timeout",
+        "20",
+        "--max-time",
+        "60",
+        "-A",
+        user_agent,
+        url,
+    ]
+    try:
+        proc = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        payload = json.loads(proc.stdout)
+    except Exception:
+        return None
+    message = payload.get("message") if isinstance(payload, dict) else None
+    if not isinstance(message, dict):
+        return None
+    count = parse_int(message.get("is-referenced-by-count"))
+    if count is None:
+        return None
+    return max(0, count)
 
 
 def _clean_meta_value(value: str) -> str:
@@ -1563,7 +1641,7 @@ def fetch_openalex_works(
         params = {
             "filter": f"openalex:{'|'.join(batch)}",
             "per-page": str(len(batch)),
-            "select": "id,updated_date,title,type,doi,publication_year,abstract_inverted_index,authorships,cited_by_count,primary_location,best_oa_location,open_access,locations,biblio",
+            "select": "id,updated_date,title,type,doi,publication_year,abstract_inverted_index,authorships,cited_by_count,counts_by_year,primary_location,best_oa_location,open_access,locations,biblio",
         }
         if mailto:
             params["mailto"] = mailto
@@ -1686,15 +1764,19 @@ def apply_openalex_refresh(
     works_by_id: dict[str, dict],
     landing_cache: dict,
     landing_timeout_s: int,
+    mailto: str,
     user_agent: str,
     enable_landing_fallback: bool,
     landing_max_probes: int,
     landing_miss_recheck_days: int,
-) -> tuple[int, int, int, int]:
+) -> tuple[int, int, int, int, int, int]:
     refreshed = 0
     fallback_hits = 0
     landing_probes = 0
     landing_skipped_budget = 0
+    citation_rejections = 0
+    citation_crossref_fallbacks = 0
+    crossref_count_cache: dict[str, int | None] = {}
 
     for paper in papers:
         short_id = normalize_openalex_short_id(str(paper.get("openalexId", "")))
@@ -1717,7 +1799,7 @@ def apply_openalex_refresh(
         publication, venue = pick_publication_and_venue(work)
         paper_url, source_url = pick_urls(work)
         doi = normalize_doi(str(work.get("doi", "")))
-        citation_count = parse_int(work.get("cited_by_count"))
+        citation_count, citation_rejection_reason = safe_openalex_citation_count(work)
         paper_type = classify_type(str(work.get("type", "")), str(paper.get("type", "")))
 
         current_title = collapse_ws(str(paper.get("title", "")))
@@ -1781,6 +1863,30 @@ def apply_openalex_refresh(
 
         if citation_count is not None:
             paper["citationCount"] = max(0, citation_count)
+            paper["citationCountSource"] = "openalex"
+            paper.pop("citationCountStatus", None)
+        elif citation_rejection_reason:
+            citation_rejections += 1
+            fallback_doi = doi or normalize_doi(str(paper.get("doi", "")))
+            crossref_count = None
+            if fallback_doi:
+                if fallback_doi not in crossref_count_cache:
+                    crossref_count_cache[fallback_doi] = fetch_crossref_citation_count(
+                        fallback_doi,
+                        mailto=mailto,
+                        user_agent=user_agent,
+                    )
+                    time.sleep(0.05)
+                crossref_count = crossref_count_cache.get(fallback_doi)
+            if crossref_count is not None:
+                paper["citationCount"] = crossref_count
+                paper["citationCountSource"] = "crossref"
+                paper["citationCountStatus"] = f"openalex-rejected:{citation_rejection_reason}"
+                citation_crossref_fallbacks += 1
+            else:
+                paper["citationCount"] = 0
+                paper["citationCountSource"] = "rejected-openalex"
+                paper["citationCountStatus"] = f"openalex-rejected:{citation_rejection_reason}"
 
         if paper_type and (not protect_existing or not collapse_ws(str(paper.get("type", "")))):
             paper["type"] = paper_type
@@ -1850,7 +1956,14 @@ def apply_openalex_refresh(
                 paper["abstract"] = fallback_abstract
                 fallback_hits += 1
 
-    return refreshed, fallback_hits, landing_probes, landing_skipped_budget
+    return (
+        refreshed,
+        fallback_hits,
+        landing_probes,
+        landing_skipped_budget,
+        citation_rejections,
+        citation_crossref_fallbacks,
+    )
 
 
 def ensure_unique_ids(papers: list[dict]):
@@ -2112,17 +2225,27 @@ def main() -> int:
         print("Skipping OpenAlex network fetch (--skip-network)", flush=True)
 
     landing_cache = load_landing_cache(landing_cache_path)
-    refreshed_count, fallback_hits, landing_probes, landing_skipped_budget = apply_openalex_refresh(
+    (
+        refreshed_count,
+        fallback_hits,
+        landing_probes,
+        landing_skipped_budget,
+        citation_rejections,
+        citation_crossref_fallbacks,
+    ) = apply_openalex_refresh(
         papers=deduped,
         works_by_id=works_by_id,
         landing_cache=landing_cache,
         landing_timeout_s=max(5, int(args.landing_timeout)),
+        mailto=args.mailto.strip(),
         user_agent=args.user_agent,
         enable_landing_fallback=not args.skip_landing_fallback and not args.skip_network,
         landing_max_probes=max(0, int(args.landing_max_probes)),
         landing_miss_recheck_days=max(0, int(args.landing_miss_recheck_days)),
     )
     print(f"OpenAlex records refreshed: {refreshed_count}", flush=True)
+    print(f"OpenAlex citation counts rejected by sanity checks: {citation_rejections}", flush=True)
+    print(f"Crossref citation fallback counts applied: {citation_crossref_fallbacks}", flush=True)
     print(f"Landing-page English fallback probes: {landing_probes}", flush=True)
     print(f"Landing-page English fallback hits: {fallback_hits}", flush=True)
     if landing_skipped_budget:

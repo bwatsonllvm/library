@@ -33,6 +33,7 @@ Environment:
   PAPER_JSON                      Manual-paper JSON payload.
   PAPER_JSON_FILE                 Manual-paper JSON payload file.
   OVERRIDES_JSON                  Manual-paper JSON overrides.
+  SEMANTIC_SCHOLAR_API_KEY        Optional key used for citation reconciliation.
 EOF
 }
 
@@ -204,6 +205,13 @@ run_papers_sync() {
     --landing-timeout 5 \
     --landing-max-probes 120 \
     --landing-miss-recheck-days 30 \
+    --mailto "$BOT_MAILTO"
+
+  run python3 scripts/reconcile-citation-counts.py \
+    --bundle papers/combined-all-papers-deduped.json \
+    --manifest papers/index.json \
+    --max-records 250 \
+    --min-existing-count 100 \
     --mailto "$BOT_MAILTO"
 
   run python3 scripts/backfill-openalex-unpaywall-pdfs.py \

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-6802ad882199",
+  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7118082668": {
@@ -5034,7 +5034,14 @@
           "runtimes"
         ],
         "id": "openalex-w2807403537",
-        "citationCount": 303,
+        "citationCount": 191,
+        "citationCountSource": "crossref",
+        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
+        "citationCountStatus": "openalex-rejected:citations-before-publication-window",
+        "citationCountProviderCounts": {
+          "openalex": 303,
+          "crossref": 191
+        },
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -5042,7 +5049,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 303,
+        "_citationCount": 191,
         "_titleLower": "sgxpectre: stealing intel secrets from sgx enclaves via speculative execution",
         "_authorLower": "guoxing chen the ohio state university sanchuan chen the ohio state university yuan xiao the ohio state university yinqian zhang the ohio state university zhiqiang lin the ohio state university ten h. lai the ohio state university",
         "_authorsLower": "guoxing chen the ohio state university sanchuan chen the ohio state university yuan xiao the ohio state university yinqian zhang the ohio state university zhiqiang lin the ohio state university ten h. lai the ohio state university",
@@ -5429,7 +5436,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 303
+          "citationCount": 191
         },
         "_searchBlob": "sgxpectre stealing intel secrets from sgx enclaves via speculative execution this paper presents sgxpectre attacks that exploit the recently disclosed cpu bugs to subvert the confidentiality and integrity of sgx enclaves. particularly we show that when branch prediction of the enclave code can be influenced by programs outside the enclave the control flow of the enclave program can be temporarily altered to execute instructions that lead to observable cache-state changes. an adversary observing such changes can learn secrets inside the enclave memory or its internal registers thus completely defeating the confidentiality guarantee offered by sgx. to demonstrate the practicality of our sgxpectre attacks we have systematically explored the possible attack vectors of branch target injection approaches to win the race condition during enclaves speculative execution and techniques to automatically search for code patterns required for launching the attacks. our study suggests that any enclave program could be vulnerable to sgxpectre attacks since the desired code patterns are available in most sgx runtimes e.g. intel sgx sdk rust-sgx and graphene-sgx . most importantly we have applied sgxpectre attacks to steal seal keys and attestation keys from intel signed quoting enclaves. the seal key can be used to decrypt sealed storage outside the enclaves and forge valid sealed data the attestation key can be used to forge attestation signatures. for these reasons sgxpectre attacks practically defeat sgxs security protection. this paper also systematically evaluates intels existing countermeasures against sgxpectre attacks and discusses the security implications. 2019 ieee european symposium on security and privacy euros and p 2019 ieee european symposium on security and privacy euros and p 2019 research-paper guoxing chen the ohio state university sanchuan chen the ohio state university yuan xiao the ohio state university yinqian zhang the ohio state university zhiqiang lin the ohio state university ten h. lai the ohio state university runtimes security rust runtimes security rust sgxpectre attacks sgx enclaves speculative execution attestation enclave program sgxpectre stealing intel stealing intel secrets runtimes",
         "addedAt": "2026-02-26T00:55:34.000Z",

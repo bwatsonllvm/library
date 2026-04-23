@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-6802ad882199",
+  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4409683945": {
@@ -2171,7 +2171,14 @@
           "openmp"
         ],
         "id": "openalex-w4381304672",
-        "citationCount": 12930,
+        "citationCount": 1,
+        "citationCountSource": "crossref",
+        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
+        "citationCountStatus": "openalex-rejected:citations-before-publication-window",
+        "citationCountProviderCounts": {
+          "openalex": 12930,
+          "crossref": 1
+        },
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -2179,7 +2186,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12930,
+        "_citationCount": 1,
         "_titleLower": "suspending openmp tasks on asynchronous events: extending the taskwait construct",
         "_authorLower": "romain pereira école normale supérieure de lyon m. n. martin commissariat à l'énergie atomique et aux énergies alternatives adrien roussel commissariat à l'énergie atomique et aux énergies alternatives patrick carribault commissariat à l'énergie atomique et aux énergies alternatives thierry gautier école normale supérieure de lyon",
         "_authorsLower": "romain pereira école normale supérieure de lyon m. n. martin commissariat à l'énergie atomique et aux énergies alternatives adrien roussel commissariat à l'énergie atomique et aux énergies alternatives patrick carribault commissariat à l'énergie atomique et aux énergies alternatives thierry gautier école normale supérieure de lyon",
@@ -2448,7 +2455,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 12930
+          "citationCount": 1
         },
         "_searchBlob": "suspending openmp tasks on asynchronous events extending the taskwait construct many-core and heterogeneous architectures now require programmers to compose multiple asynchronous programming model to fully exploit hardware capabilities. as a shared-memory parallel programming model openmp has the responsibility of orchestrating the suspension and progression of asynchronous operations occurring on a compute node such as mpi communications or cuda hip streams. yet specifications only come with the task detach event api to suspend tasks until an asynchronous operation is completed which presents a few drawbacks. in this paper we introduce the design and implementation of an extension on the taskwait construct to suspend a task until an asynchronous event completion. it aims to reduce runtime costs induced by the current solution and to provide a standard api to automate portable task suspension solutions. the results show twice less overheads compared to the existing task detach clause. lecture notes in computer science lecture notes in computer science 2023 research-paper romain pereira ecole normale superieure de lyon m. n. martin commissariat a lenergie atomique et aux energies alternatives adrien roussel commissariat a lenergie atomique et aux energies alternatives patrick carribault commissariat a lenergie atomique et aux energies alternatives thierry gautier ecole normale superieure de lyon openmp openmp asynchronous events extending suspending openmp tasks taskwait construct openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -14465,6 +14472,8 @@
         "openalexId": "https://openalex.org/W2115526539",
         "doi": "10.1145/2018436.2018470",
         "citationCount": 373,
+        "citationCountSource": "openalex",
+        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "sourceUrl": "",
         "contentFormat": "",
