@@ -45,6 +45,79 @@ function initHomeHeroSearch() {
   syncClear();
 }
 
+function formatCompactNumber(value) {
+  const number = Number(value || 0);
+  if (!Number.isFinite(number) || number < 0) return '';
+  return number.toLocaleString();
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function fetchJson(path) {
+  const response = await fetch(path, { cache: 'default' });
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  return response.json();
+}
+
+async function loadViewerFile(key, fallbackPath) {
+  try {
+    const manifest = await fetchJson('js/data/viewer-artifacts.json');
+    const ref = manifest && manifest.files ? manifest.files[key] : '';
+    return fetchJson(ref || fallbackPath);
+  } catch {
+    return fetchJson(fallbackPath);
+  }
+}
+
+async function hydrateHomeStats() {
+  const statNodes = [...document.querySelectorAll('[data-home-stat]')];
+  if (!statNodes.length) return;
+
+  try {
+    const stats = await loadViewerFile('siteStats', 'js/data/site-stats.json');
+    for (const node of statNodes) {
+      const key = node.getAttribute('data-home-stat');
+      const value = Number(stats && stats[key]);
+      const text = Number.isFinite(value) && value > 0 ? formatCompactNumber(value) : '';
+      if (text) node.textContent = text;
+    }
+  } catch {
+    // Keep the server-rendered fallback counts.
+  }
+}
+
+async function hydratePopularTopics() {
+  const container = document.getElementById('home-topic-list');
+  if (!container) return;
+
+  try {
+    const index = await loadViewerFile('autocompleteIndex', 'js/data/autocomplete-index.json');
+    const topics = Array.isArray(index && index.topics) ? index.topics : [];
+    const shown = topics
+      .filter((topic) => topic && topic.label)
+      .slice(0, 8);
+    if (!shown.length) return;
+
+    container.innerHTML = shown
+      .map((topic) => {
+        const label = String(topic.label || '').trim();
+        const count = Number(topic.count || 0);
+        const countText = count > 0 ? formatCompactNumber(count) : '';
+        const href = `work.html?mode=entity&kind=topic&value=${encodeURIComponent(label)}&from=work`;
+        return `<a class="home-topic-chip" href="${escapeHtml(href)}">${escapeHtml(label)}${countText ? `<span aria-hidden="true">${escapeHtml(countText)}</span>` : ''}</a>`;
+      })
+      .join('');
+  } catch {
+    // Keep the curated fallback topic list.
+  }
+}
+
 function init() {
   initTheme();
   initTextSize();
@@ -52,6 +125,8 @@ function init() {
   initMobileNavMenu();
   initShareMenu();
   initHomeHeroSearch();
+  hydrateHomeStats();
+  hydratePopularTopics();
 }
 
 init();

@@ -54,12 +54,20 @@
       align-items: center;
       justify-content: center;
       gap: 0.6rem;
+      max-width: 100%;
+      flex-wrap: wrap;
+      line-height: var(--line-height-tight);
     }
 
     .home-title-logo {
       width: clamp(28px, 3vw, 40px);
       height: auto;
       flex: 0 0 auto;
+    }
+
+    .home-title-text {
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
 
     .home-hero-search.global-search-form {
@@ -69,54 +77,135 @@
     }
 
     .home-main {
-      width: min(860px, calc(100vw - 2rem));
-      margin: 0 auto 2rem;
-      text-align: center;
+      width: min(1120px, calc(100vw - 2rem));
+      margin: 0 auto 3rem;
+      text-align: left;
     }
 
     .home-main-inner {
-      width: min(760px, 100%);
-      margin: 0 auto;
-    }
-
-    .home-main p {
-      color: var(--color-text-muted);
-      margin: 0;
-      font-size: var(--font-size-base);
-      line-height: var(--line-height-base);
-    }
-
-    .home-links {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      justify-content: center;
-    }
-
-    .home-divider {
-      margin: 1.15rem auto 0.95rem;
-      border: 0;
-      border-top: 1px solid var(--color-border);
-      width: 100%;
-    }
-
-    .home-project-note {
       width: 100%;
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .home-section-heading {
+      margin: 0 0 0.7rem;
+      color: var(--color-text);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semi);
+      line-height: var(--line-height-tight);
+    }
+
+    .home-section-kicker {
+      margin: 0 0 0.7rem;
       color: var(--color-text-muted);
       font-size: var(--font-size-sm);
       line-height: var(--line-height-base);
     }
 
-    .home-project-note a {
-      color: var(--color-link);
-      text-decoration: underline;
-      text-underline-offset: 2px;
+    .home-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: var(--space-3);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) 0;
     }
 
-    .home-link-chip {
+    .home-stat {
+      min-width: 0;
+      color: var(--color-text);
+      text-decoration: none;
+      display: grid;
+      gap: 0.15rem;
+      padding: 0 var(--space-3);
+      border-left: 1px solid var(--color-border);
+    }
+
+    .home-stat:first-child {
+      border-left: 0;
+      padding-left: 0;
+    }
+
+    .home-stat:hover .home-stat-label {
+      color: var(--color-text);
+    }
+
+    .home-stat-value {
+      color: var(--color-text);
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .home-stat-label {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      transition: color var(--transition-fast);
+    }
+
+    .home-discovery-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    .home-path-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .home-path-link {
+      min-width: 0;
+      min-height: 104px;
+      display: grid;
+      align-content: start;
+      gap: 0.35rem;
+      padding: var(--space-4);
+      color: var(--color-text);
+      text-decoration: none;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .home-path-link:hover {
+      border-color: var(--color-border-focus);
+      background: var(--color-surface-hover);
+      transform: translateY(-1px);
+    }
+
+    .home-path-title {
+      font-size: var(--font-size-md);
+      font-weight: var(--font-weight-semi);
+      line-height: var(--line-height-tight);
+    }
+
+    .home-path-meta {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-snug);
+    }
+
+    .home-topic-list,
+    .home-link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .home-topic-list {
+      margin-bottom: var(--space-5);
+    }
+
+    .home-link-chip,
+    .home-topic-chip {
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
@@ -130,10 +219,82 @@
       transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
     }
 
-    .home-link-chip:hover {
+    .home-link-chip:hover,
+    .home-topic-chip:hover {
       border-color: var(--color-border-focus);
       background: var(--color-surface-hover);
       color: var(--color-text);
+    }
+
+    .home-topic-chip span {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .home-project-note {
+      width: min(820px, 100%);
+      margin: 0;
+      padding-top: var(--space-2);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .home-project-note a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    @media (max-width: 820px) {
+      .home-stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-stat {
+        border-left: 0;
+        padding: var(--space-2) 0;
+        border-top: 1px solid var(--color-border);
+      }
+
+      .home-stat:nth-child(-n + 2) {
+        border-top: 0;
+      }
+
+      .home-discovery-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .home-path-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .home-hero-shell {
+        align-items: stretch;
+        text-align: left;
+      }
+
+      .home-title {
+        font-size: var(--font-size-lg);
+        gap: 0.4rem;
+        justify-content: flex-start;
+      }
+
+      .home-title-logo {
+        width: 24px;
+      }
+
+      .home-stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .home-stat:nth-child(2) {
+        border-top: 1px solid var(--color-border);
+      }
     }
   </style>
   <title>LLVM Research Library</title>
@@ -141,7 +302,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=736cee9379bd">
+  <link rel="stylesheet" href="css/style.css?v=1163fa1ce00f">
 </head>
 <body>
 
@@ -276,7 +437,7 @@
     <div class="search-hero-shell home-hero-shell">
       <h1 class="home-title">
         <img src="images/llvm-logo.png" alt="" aria-hidden="true" class="home-title-logo">
-        LLVM Research Library
+        <span class="home-title-text">LLVM Research Library</span>
       </h1>
       <p class="subtitle">A research library for LLVM talks, papers, blogs, and people.</p>
       <form id="home-global-search-form" class="search-box global-search-form home-hero-search" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
@@ -307,17 +468,78 @@
 
   <main class="home-main" id="home-root" tabindex="-1">
     <div class="home-main-inner">
-      <p>Start typing to search or browse directly:</p>
-      <div class="home-links" aria-label="Browse sections">
-        <a class="home-link-chip" href="talks/">Talks</a>
-        <a class="home-link-chip" href="talks/events.html">Events</a>
-        <a class="home-link-chip" href="papers/">Papers</a>
-        <a class="home-link-chip" href="blogs/">Blogs</a>
-        <a class="home-link-chip" href="people/">People</a>
-        <a class="home-link-chip" href="updates/">Updates</a>
-        <a class="home-link-chip" href="about/">About</a>
-      </div>
-      <hr class="home-divider" aria-hidden="true">
+      <section class="home-overview" aria-label="Library collection counts">
+        <div class="home-stat-grid" id="home-stat-grid" aria-live="polite">
+          <a class="home-stat" href="talks/">
+            <span class="home-stat-value" data-home-stat="talks">1,845</span>
+            <span class="home-stat-label">Talks</span>
+          </a>
+          <a class="home-stat" href="papers/">
+            <span class="home-stat-value" data-home-stat="papers">3,509</span>
+            <span class="home-stat-label">Papers</span>
+          </a>
+          <a class="home-stat" href="blogs/">
+            <span class="home-stat-value" data-home-stat="blogs">293</span>
+            <span class="home-stat-label">Blog posts</span>
+          </a>
+          <a class="home-stat" href="people/">
+            <span class="home-stat-value" data-home-stat="people">8,452</span>
+            <span class="home-stat-label">People</span>
+          </a>
+          <a class="home-stat" href="talks/events.html">
+            <span class="home-stat-value" data-home-stat="meetings">35</span>
+            <span class="home-stat-label">Events</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-discovery-grid" aria-label="Browse research library">
+        <div>
+          <h2 class="home-section-heading">Core Collections</h2>
+          <div class="home-path-grid">
+            <a class="home-path-link" href="work.html?mode=search">
+              <span class="home-path-title">Search All</span>
+              <span class="home-path-meta">Talks, papers, blog posts, people, and key topics in one ranked view</span>
+            </a>
+            <a class="home-path-link" href="papers/?sort=citations">
+              <span class="home-path-title">Influential Papers</span>
+              <span class="home-path-meta">Research ordered by citation count with venue and author filters</span>
+            </a>
+            <a class="home-path-link" href="work.html?mode=search&amp;time=since-2026&amp;sort=newest">
+              <span class="home-path-title">Latest Work</span>
+              <span class="home-path-meta">New talks, papers, posts, and contributors from 2026 onward</span>
+            </a>
+            <a class="home-path-link" href="people/">
+              <span class="home-path-title">People Index</span>
+              <span class="home-path-meta">Speaker and author records merged across every collection</span>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="home-section-heading">Popular Topics</h2>
+          <p class="home-section-kicker">High-signal entry points from the current catalog.</p>
+          <div class="home-topic-list" id="home-topic-list" aria-label="Popular topics">
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=MLIR&amp;from=work">MLIR</a>
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=GPU&amp;from=work">GPU</a>
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Optimizations&amp;from=work">Optimizations</a>
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Clang&amp;from=work">Clang</a>
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Security&amp;from=work">Security</a>
+            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Static%20Analysis&amp;from=work">Static Analysis</a>
+          </div>
+          <h2 class="home-section-heading">Browse</h2>
+          <div class="home-link-list" aria-label="Browse sections">
+            <a class="home-link-chip" href="talks/">Talks</a>
+            <a class="home-link-chip" href="talks/events.html">Events</a>
+            <a class="home-link-chip" href="papers/">Papers</a>
+            <a class="home-link-chip" href="blogs/">Blogs</a>
+            <a class="home-link-chip" href="people/">People</a>
+            <a class="home-link-chip" href="updates/">Updates</a>
+            <a class="home-link-chip" href="about/">About</a>
+          </div>
+        </div>
+      </section>
+
       <p class="home-project-note">The LLVM Research Library is an experimental project by the <a href="https://foundation.llvm.org">LLVM Foundation</a> to collect and organize talks, research, and other materials to support education and advancement in the field of compilers.</p>
     </div>
   </main>
@@ -325,6 +547,6 @@
   <script src="js/shared/library-utils.js?v=f0ee78f88a59"></script>
 
   <script src="js/shared/global-search.js?v=101b3dc948ea"></script>
-  <script src="js/home.js?v=80f545052201"></script>
+  <script src="js/home.js?v=4be38c04e808"></script>
 </body>
 </html>

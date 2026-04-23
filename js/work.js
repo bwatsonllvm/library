@@ -351,8 +351,12 @@ function buildSearchDisplayValue() {
   if (state.advanced.exactPhrase) parts.push(`"${state.advanced.exactPhrase}"`);
   if (state.advanced.allWords) parts.push(`all: ${state.advanced.allWords}`);
   if (state.advanced.anyWords) parts.push(`any: ${state.advanced.anyWords}`);
+  if (state.advanced.withoutWords) parts.push(`without: ${state.advanced.withoutWords}`);
+  if (state.advanced.where !== 'anywhere') parts.push(state.advanced.where === 'title' ? 'in title' : 'in abstract/content');
   if (state.advanced.author) parts.push(`author: ${state.advanced.author}`);
   if (state.advanced.publication) parts.push(`publication: ${state.advanced.publication}`);
+  const timeItem = getActiveFilterItems().find((item) => item.id === 'time');
+  if (timeItem) parts.push(timeItem.label);
   return parts.join(' · ');
 }
 
@@ -789,32 +793,109 @@ function getSearchScopeLabel(scope) {
   return 'All';
 }
 
-function getActiveFilterLabels() {
+function getActiveFilterItems() {
   if (state.mode !== 'search') return [];
-  const labels = [];
-  if (state.timeFilter === 'since-2026') labels.push('Since 2026');
-  else if (state.timeFilter === 'since-2025') labels.push('Since 2025');
-  else if (state.timeFilter === 'since-2022') labels.push('Since 2022');
+  const items = [];
+  if (state.timeFilter === 'since-2026') items.push({ id: 'time', type: 'Time', label: 'Since 2026' });
+  else if (state.timeFilter === 'since-2025') items.push({ id: 'time', type: 'Time', label: 'Since 2025' });
+  else if (state.timeFilter === 'since-2022') items.push({ id: 'time', type: 'Time', label: 'Since 2022' });
   else if (state.timeFilter === 'custom') {
     const years = normalizeYearRange(state.yearFrom, state.yearTo);
     if (years.from > 0 || years.to > 0) {
-      if (years.from > 0 && years.to > 0) labels.push(`Years ${years.from}-${years.to}`);
-      else if (years.from > 0) labels.push(`Since ${years.from}`);
-      else labels.push(`Up to ${years.to}`);
+      if (years.from > 0 && years.to > 0) items.push({ id: 'time', type: 'Time', label: `Years ${years.from}-${years.to}` });
+      else if (years.from > 0) items.push({ id: 'time', type: 'Time', label: `Since ${years.from}` });
+      else items.push({ id: 'time', type: 'Time', label: `Up to ${years.to}` });
     } else {
-      labels.push('Custom range');
+      items.push({ id: 'time', type: 'Time', label: 'Custom range' });
     }
   }
-  if (state.advanced.allWords) labels.push(`All words: ${state.advanced.allWords}`);
-  if (state.advanced.exactPhrase) labels.push(`Exact phrase: "${state.advanced.exactPhrase}"`);
-  if (state.advanced.anyWords) labels.push(`Any words: ${state.advanced.anyWords}`);
-  if (state.advanced.withoutWords) labels.push(`Without: ${state.advanced.withoutWords}`);
+  if (state.advanced.allWords) items.push({ id: 'allWords', type: 'All', label: state.advanced.allWords });
+  if (state.advanced.exactPhrase) items.push({ id: 'exactPhrase', type: 'Exact', label: `"${state.advanced.exactPhrase}"` });
+  if (state.advanced.anyWords) items.push({ id: 'anyWords', type: 'Any', label: state.advanced.anyWords });
+  if (state.advanced.withoutWords) items.push({ id: 'withoutWords', type: 'Without', label: state.advanced.withoutWords });
   if (state.advanced.where !== 'anywhere') {
-    labels.push(state.advanced.where === 'title' ? 'Words in title' : 'Words in abstract/content');
+    items.push({
+      id: 'where',
+      type: 'Where',
+      label: state.advanced.where === 'title' ? 'Title' : 'Abstract/content',
+    });
   }
-  if (state.advanced.author) labels.push(`Author: ${state.advanced.author}`);
-  if (state.advanced.publication) labels.push(`Publication: ${state.advanced.publication}`);
-  return labels;
+  if (state.advanced.author) items.push({ id: 'author', type: 'Author', label: state.advanced.author });
+  if (state.advanced.publication) items.push({ id: 'publication', type: 'Publication', label: state.advanced.publication });
+  return items;
+}
+
+function getActiveFilterLabels() {
+  return getActiveFilterItems().map((item) => {
+    if (!item || !item.type) return String(item && item.label || '');
+    return `${item.type}: ${item.label}`;
+  });
+}
+
+function resetAdvancedFilterState() {
+  state.advanced = {
+    allWords: '',
+    exactPhrase: '',
+    anyWords: '',
+    withoutWords: '',
+    where: 'anywhere',
+    author: '',
+    publication: '',
+  };
+  state.timeFilter = 'any';
+  state.yearFrom = 0;
+  state.yearTo = 0;
+}
+
+function removeActiveSearchFilter(filterId) {
+  if (state.mode !== 'search') return;
+  const id = String(filterId || '').trim();
+  if (!id) return;
+  if (id === 'time') {
+    state.timeFilter = 'any';
+    state.yearFrom = 0;
+    state.yearTo = 0;
+  } else if (id === 'where') {
+    state.advanced.where = 'anywhere';
+  } else if (Object.prototype.hasOwnProperty.call(state.advanced, id)) {
+    state.advanced[id] = '';
+  }
+  if (!countActiveAdvancedFields()) state.advancedOpen = false;
+  applySearchFilterControls();
+}
+
+function clearActiveSearchFilters() {
+  if (state.mode !== 'search') return;
+  resetAdvancedFilterState();
+  state.advancedOpen = false;
+  applySearchFilterControls();
+}
+
+function syncActiveFilterStrip() {
+  const container = getNodeById('work-active-filters');
+  const clearBtn = getNodeById('work-clear-filters');
+  const items = getActiveFilterItems();
+  const hasItems = items.length > 0;
+
+  if (container) {
+    container.classList.toggle('hidden', !hasItems);
+    container.innerHTML = hasItems
+      ? items.map((item) => `
+        <span class="active-filter-pill">
+          <span class="active-filter-pill__type">${escapeHtml(item.type)}</span>
+          <span>${escapeHtml(item.label)}</span>
+          <button class="active-filter-pill__remove" type="button" data-work-filter-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.type)} filter">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </span>`)
+        .join('')
+      : '';
+  }
+
+  if (clearBtn) clearBtn.classList.toggle('hidden', !hasItems);
 }
 
 function syncScopeControlVisibility() {
@@ -900,6 +981,26 @@ function initScopeControl() {
   syncScopeControls();
 }
 
+function initActiveFilterControls() {
+  const container = getNodeById('work-active-filters');
+  const clearBtn = getNodeById('work-clear-filters');
+
+  if (container) {
+    container.addEventListener('click', (event) => {
+      const button = event.target && typeof event.target.closest === 'function'
+        ? event.target.closest('[data-work-filter-remove]')
+        : null;
+      if (!button) return;
+      event.preventDefault();
+      removeActiveSearchFilter(button.getAttribute('data-work-filter-remove'));
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => clearActiveSearchFilters());
+  }
+}
+
 function countActiveAdvancedFields() {
   let count = 0;
   if (state.advanced.allWords) count += 1;
@@ -919,6 +1020,7 @@ function syncAdvancedFilterControlVisibility() {
   const timeLabel = document.querySelector('label[for="work-time-select"]');
   const customRange = getNodeById('work-custom-range');
   const advancedToggle = getNodeById('work-advanced-toggle');
+  const advancedCountEl = getNodeById('work-advanced-count');
   const advancedPanel = getNodeById('work-advanced-panel');
   const customVisible = searchMode && state.timeFilter === 'custom';
   const activeAdvancedCount = countActiveAdvancedFields();
@@ -938,7 +1040,16 @@ function syncAdvancedFilterControlVisibility() {
     advancedToggle.setAttribute('data-advanced-open', searchMode && state.advancedOpen ? 'true' : 'false');
     advancedToggle.setAttribute('aria-expanded', searchMode && state.advancedOpen ? 'true' : 'false');
     advancedToggle.setAttribute('aria-pressed', searchMode && state.advancedOpen ? 'true' : 'false');
-    advancedToggle.setAttribute('aria-label', 'Advanced search tools');
+    advancedToggle.setAttribute(
+      'aria-label',
+      activeAdvancedCount > 0
+        ? `Advanced search tools, ${activeAdvancedCount} active filter${activeAdvancedCount === 1 ? '' : 's'}`
+        : 'Advanced search tools'
+    );
+  }
+  if (advancedCountEl) {
+    advancedCountEl.textContent = String(activeAdvancedCount);
+    advancedCountEl.hidden = activeAdvancedCount <= 0;
   }
   if (advancedPanel) {
     const showPanel = searchMode && state.advancedOpen;
@@ -1095,18 +1206,8 @@ function initAdvancedFilterControls() {
 
   if (advancedClearBtn) {
     advancedClearBtn.addEventListener('click', () => {
-      state.advanced = {
-        allWords: '',
-        exactPhrase: '',
-        anyWords: '',
-        withoutWords: '',
-        where: 'anywhere',
-        author: '',
-        publication: '',
-      };
-      state.yearFrom = 0;
-      state.yearTo = 0;
-      if (state.timeFilter === 'custom') state.timeFilter = 'any';
+      resetAdvancedFilterState();
+      state.advancedOpen = false;
       applySearchFilterControls();
     });
   }
@@ -2842,6 +2943,8 @@ function applyHeaderState() {
     backLink.hidden = !showBackLink;
   }
 
+  syncActiveFilterStrip();
+
   if (state.mode === 'search') {
     const searchLabel = buildSearchDisplayValue() || state.query;
     if (!hasActiveSearchCriteria()) {
@@ -2859,10 +2962,11 @@ function applyHeaderState() {
 
     if (titleEl) titleEl.textContent = 'Search All';
     if (subtitleEl) {
+      const subtitleLabel = state.query || searchLabel || 'advanced search';
       if (state.scope === 'all') {
-        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(searchLabel || 'advanced search')}</strong>, ranked across talks, papers, blogs, and people`;
+        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong>`;
       } else {
-        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(searchLabel || 'advanced search')}</strong> in <strong>${escapeHtml(getSearchScopeLabel(state.scope))}</strong>`;
+        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong> in <strong>${escapeHtml(getSearchScopeLabel(state.scope))}</strong>`;
       }
     }
     setWorkDocumentTitle(`Search All: ${searchLabel || 'Advanced search'}${state.scope === 'all' ? '' : ` (${getSearchScopeLabel(state.scope)})`}`);
@@ -3209,6 +3313,7 @@ async function init() {
   initWorkHeroSearch();
   parseStateFromUrl();
   initScopeControl();
+  initActiveFilterControls();
   initAdvancedFilterControls();
   applySearchFilterControls({ normalizeOnly: true });
   initSortControl();
