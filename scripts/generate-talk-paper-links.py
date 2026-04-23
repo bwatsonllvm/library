@@ -105,6 +105,14 @@ REFERENCE_URL_RE = re.compile(
     flags=re.IGNORECASE,
 )
 GITHUB_PATH_SEGMENT_RE = re.compile(r"[A-Za-z0-9_.-]+")
+GITHUB_REPO_SHORTHAND_RE = re.compile(
+    r"\b([A-Za-z0-9_.-]{1,100}/[A-Za-z0-9_.-]{1,100})\b",
+    flags=re.IGNORECASE,
+)
+GITHUB_SHORTHAND_CONTEXT_RE = re.compile(
+    r"\b(?:github|repo|repository|source(?:\s+code)?|code)\b",
+    flags=re.IGNORECASE,
+)
 GENERIC_REFERENCE_CONTEXT_RE = re.compile(
     r"^(?:github|repo|repository|source|link|links|code|upstreaming|upstream|implementation|"
     r"discussion|discussions|thread|threads|discourse|review|reviews)$",
