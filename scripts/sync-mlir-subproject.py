@@ -1504,9 +1504,38 @@ def build_payload(*, title: str, source_url: str, source_path: str, sections: li
     }
 
 
+def comparable_payload(payload: dict) -> dict:
+    return {
+        key: value
+        for key, value in payload.items()
+        if key not in {"dataVersion", "generatedAt"}
+    }
+
+
+def preserve_metadata_when_content_matches(path: Path, payload: dict) -> dict:
+    if not path.exists():
+        return payload
+    existing = load_json_file(path)
+    if not isinstance(existing, dict):
+        return payload
+    if comparable_payload(existing) != comparable_payload(payload):
+        return payload
+
+    stable_payload = dict(payload)
+    for key in ("dataVersion", "generatedAt"):
+        existing_value = collapse_ws(str(existing.get(key, "")))
+        if existing_value:
+            stable_payload[key] = existing_value
+    return stable_payload
+
+
 def write_json(path: Path, payload: dict) -> None:
+    payload = preserve_metadata_when_content_matches(path, payload)
+    content = json.dumps(payload, indent=2, sort_keys=False) + "\n"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=False) + "\n", encoding="utf-8")
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return
+    path.write_text(content, encoding="utf-8")
 
 
 def main() -> int:

@@ -4,6 +4,16 @@ run-name: Sync llvm-www/devmtg talks
 
 on:
   workflow_dispatch:
+    inputs:
+      llvm_www_ref:
+        description: "llvm-www ref to sync."
+        required: false
+        default: "main"
+        type: string
+      meeting_slug:
+        description: "Optional devmtg meeting slug to sync, for example 2026-04."
+        required: false
+        type: string
   repository_dispatch:
     types:
       - llvm-www-pr-approved
@@ -24,6 +34,9 @@ jobs:
     timeout-minutes: 30
     env:
       PYTHONDONTWRITEBYTECODE: "1"
+      LLVM_WWW_REPO: ${{ github.event.client_payload.repo || 'llvm/llvm-www' }}
+      LLVM_WWW_REF: ${{ github.event.inputs.llvm_www_ref || github.event.client_payload.ref || github.event.client_payload.head_sha || 'main' }}
+      DEVMTG_ONLY_SLUG: ${{ github.event.inputs.meeting_slug || github.event.client_payload.meeting_slug || '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -35,63 +48,16 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Sync talks/slides/videos from llvm-www/devmtg
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+
+      - name: Run talks automation
+        id: content
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python3 scripts/sync-devmtg-from-llvm-www.py \
-            --events-dir devmtg/events \
-            --manifest devmtg/events/index.json \
-            --github-token "${GITHUB_TOKEN}"
-
-      - name: Sanitize URL-bearing fields
-        run: |
-          python3 scripts/sanitize-library-urls.py --repo-root .
-
-      - name: Refresh slide-derived references for changed meetings
-        run: |
-          set -euo pipefail
-          meetings="$(git diff --name-only -- devmtg/events/*.json | sed -n 's#^devmtg/events/\([0-9]\{4\}-[0-9]\{2\}\)\.json$#\1#p' | sort -u)"
-          if [[ -z "${meetings}" ]]; then
-            exit 0
-          fi
-          args=()
-          while IFS= read -r meeting; do
-            [[ -n "${meeting}" ]] || continue
-            args+=(--meeting "${meeting}")
-          done <<< "${meetings}"
-          python3 scripts/generate-talk-paper-links.py \
-            --repo-root . \
-            --output js/data/talk-paper-links.json \
-            --fetch-pdf-references \
-            "${args[@]}"
-
-      - name: Detect content changes
-        id: content
-        run: |
-          set -euo pipefail
-          if [[ -z "$(git status --porcelain)" ]]; then
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
-
-      - name: Build updates log
-        if: steps.content.outputs.has_changes == 'true'
-        run: |
-          python3 scripts/build-update-log.py \
-            --repo-root . \
-            --log-json updates/index.json
-
-      - name: Build viewer artifacts
-        if: steps.content.outputs.has_changes == 'true'
-        run: |
-          scripts/build-viewer-artifacts.sh
-
-      - name: Validate bundle
-        if: steps.content.outputs.has_changes == 'true'
-        run: |
-          scripts/validate-library-bundle.sh
+        run: scripts/run-library-automation.sh talks-sync
 
       - name: Create Pull Request
         if: steps.content.outputs.has_changes == 'true'
@@ -111,9 +77,12 @@ jobs:
             - source repo: `${{ github.event.client_payload.repo }}`
             - llvm-www PR: `${{ github.event.client_payload.pr_number }}`
             - review state: `${{ github.event.client_payload.review_state }}`
+            - source ref: `${{ env.LLVM_WWW_REF }}`
+            - meeting slug: `${{ env.DEVMTG_ONLY_SLUG }}`
 
             This PR:
             - syncs talks, slides, and video metadata from `llvm-www/devmtg`
+            - syncs MLIR subproject talks/publications used by shared views
             - rebuilds `updates/index.json`
             - regenerates viewer artifacts
             - validates the library bundle

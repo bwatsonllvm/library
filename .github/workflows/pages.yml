@@ -33,10 +33,8 @@ jobs:
           node-version: "20"
       - name: Install quality tooling
         run: python3 -m pip install --upgrade pip ruff
-      - name: Run code quality checks
-        run: bash scripts/validate-code-quality.sh
-      - name: Validate bundle
-        run: scripts/validate-library-bundle.sh
+      - name: Run library validation
+        run: scripts/run-library-automation.sh validate
       - name: Install Playwright (Chromium)
         run: |
           npm install --no-save playwright
@@ -46,19 +44,7 @@ jobs:
           REQUIRE_DETAIL_SMOKE: "1"
         run: node --test tests/detail-pages-smoke.test.cjs
       - name: Prepare site bundle
-        run: |
-          rm -rf _site
-          mkdir -p _site/papers _site/devmtg
-          cp index.html work.html _site/
-          cp -R talks blogs people mlir sub-projects about updates css js images _site/
-          rsync -a --exclude '.cache/' papers/ _site/papers/
-          cp -R devmtg/events _site/devmtg/
-          test -f _site/mlir/index.html
-          test -f _site/mlir/talks/index.html
-          test -f _site/mlir/talks/talk.html
-          test -f _site/mlir/pubs/index.html
-          test -f _site/sub-projects/index.html
-          test -f _site/sub-projects/mlir/index.html
+        run: scripts/run-library-automation.sh prepare-pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

@@ -208,14 +208,15 @@
       }
       if (cliEl) {
         const sourceUrl = value('mp-source-url');
-        const lines = ['GitHub CLI trigger (URL-only workflow):'];
+        const lines = ['GitHub CLI triggers:'];
         if (isHttpUrl(sourceUrl)) {
           lines.push(`gh workflow run manual-paper-pr.yml --repo ${repoSlug} --ref main -f source_url='${shellSingleQuote(sourceUrl)}'`);
         } else {
-          lines.push("Set a valid Source URL field to generate the workflow command.");
+          lines.push("Set a valid Source URL field to generate the source_url workflow command.");
         }
+        lines.push(`gh workflow run manual-paper-pr.yml --repo ${repoSlug} --ref main -f paper_json='${shellSingleQuote(minified)}'`);
         lines.push('');
-        lines.push('Optional local fallback (manual payload):');
+        lines.push('Optional local fallback:');
         lines.push(`python3 scripts/add-manual-paper.py --paper-json '${shellSingleQuote(minified)}'`);
         lines.push('');
         lines.push(`Workflow URL: ${workflowUrl}`);
@@ -223,7 +224,7 @@
           ...lines,
         ].join('\n');
       }
-      setStatus('Payload generated. For GitHub Action, run URL-only workflow input using Source URL.', 'success');
+      setStatus('Payload generated. Run the workflow with source_url for extraction or paper_json for the curated record.', 'success');
     } catch (err) {
       setStatus(err && err.message ? err.message : 'Failed to generate payload.', 'error');
     }

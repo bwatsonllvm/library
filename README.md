@@ -237,27 +237,33 @@ For canonical meeting schedules and announcements, use the official archive: htt
 
 ## Automation
 
-Automation is split across two automated PR workflows:
+Workflow logic is centralized in `scripts/run-library-automation.sh` so GitHub Actions and local maintenance use the same program pipeline.
+
+Automated PR workflows:
 
 1. Talks sync (`.github/workflows/library-umbrella-sync.yml`)
    - runs on demand or via cross-repo `repository_dispatch`
    - expected dispatch type: `llvm-www-pr-approved`
    - intended source repo: `llvm/llvm-www`
    - syncs talks/slides/videos from `llvm-www/devmtg`
-   - rebuilds the updates log and viewer artifacts
+   - syncs MLIR subproject talk/publication data used by shared views
+   - refreshes slide-derived talk/paper references for changed talk bundles
+   - rebuilds the updates log and viewer artifacts when content changed
 
 2. Papers sync (`.github/workflows/library-papers-sync.yml`)
-   - runs nightly
+   - runs nightly or on demand
    - syncs LLVM blog posts from `llvm-blog-www`
+   - syncs MLIR subproject talk/publication data used by shared views
    - refreshes OpenAlex-discovered papers
    - rebuilds the canonical papers collation
    - backfills direct paper PDF links via OpenAlex + Unpaywall
-   - rebuilds the updates log and viewer artifacts
+   - rebuilds the updates log and viewer artifacts when content changed
 
-There is one separate manual intake workflow:
+Manual intake workflow:
 
 1. Manual paper intake (`.github/workflows/manual-paper-pr.yml`)
-   - appends a user-supplied paper URL into `papers/manual-added-papers.json`
+   - accepts `source_url`, full `paper_json`, or both with `overrides_json`
+   - appends one normalized record into `papers/manual-added-papers.json`
    - rebuilds the updates log and viewer artifacts
 
 ## Validation And Test Gates
@@ -275,12 +281,11 @@ CI now runs two validation layers before merge/deploy:
 Search relevance behavior is covered by deterministic regression tests in:
 - `tests/search-ranking.test.cjs`
 
-These checks run in:
+The full validation pair runs in:
 - `.github/workflows/library-validate.yml` (PR validation)
 - `.github/workflows/pages.yml` (deploy gate)
-- `.github/workflows/library-umbrella-sync.yml` (automated talks-sync PRs)
-- `.github/workflows/library-papers-sync.yml` (automated papers-sync PRs)
-- `.github/workflows/manual-paper-pr.yml` (manual paper-intake PRs)
+
+Automated PR workflows (`library-umbrella-sync.yml`, `library-papers-sync.yml`, and `manual-paper-pr.yml`) run bundle validation after regenerating content; the resulting PR then goes through the full PR validation workflow before merge.
 
 The talks sync workflow is a receiver only. To trigger it automatically from `llvm/llvm-www`, that repository must send a `repository_dispatch` event with type `llvm-www-pr-approved` to this repository.
 

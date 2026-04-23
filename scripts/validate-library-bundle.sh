@@ -70,6 +70,7 @@ for f in \
   scripts/sync-site-header.py \
   scripts/generate-autocomplete-index.py \
   scripts/generate-talk-paper-links.py \
+  scripts/run-library-automation.sh \
   scripts/sync-mlir-subproject.py \
   scripts/apply-asset-versions.py \
   images/llvm-logo.png \
