@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-050": {
@@ -3967,6 +3967,350 @@
         "canceled": false,
         "talkCount": 16
       }
+    },
+    "mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides",
+        "title": "PyDSL, a small subset of Python for constructing affine & transform dialects",
+        "abstract": "Kai Ting Wang and Kevin Lee present PyDSL: a small subset of the Python language aiming to assist users in constructing MLIR particularly in the affine and transform dialects. They have developed several in-house optimizations in the affine dialect, and they wish to expose these optimizations to the kernel developers via usage of the transform ops. Programming in MLIR’s Python binding is quite verbose which gives birth to this fun project. They designed a light-weight wrapper-like language utilizing Python’s AST package and the decorator syntax to allow kernel developers to construct MLIR.",
+        "speakers": [
+          {
+            "name": "Kevin Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-12-21-PyDSL.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/nmtHeRkl850"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-12-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-12-22",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/nmtHeRkl850",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-12-21-PyDSL.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "nmtHeRkl850",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "pydsl, a small subset of python for constructing affine & transform dialects",
+        "_speakerLower": "kevin lee",
+        "_abstractLower": "kai ting wang and kevin lee present pydsl: a small subset of the python language aiming to assist users in constructing mlir particularly in the affine and transform dialects. they have developed several in-house optimizations in the affine dialect, and they wish to expose these optimizations to the kernel developers via usage of the transform ops. programming in mlir’s python binding is quite verbose which gives birth to this fun project. they designed a light-weight wrapper-like language utilizing python’s ast package and the decorator syntax to allow kernel developers to construct mlir.",
+        "_tagsLower": "mlir optimizations",
+        "_meetingLower": "mlir open design meeting  2023-12-22",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "pydsl a small subset of python for constructing affine and transform dialects",
+              "words": [
+                "pydsl",
+                "small",
+                "subset",
+                "of",
+                "python",
+                "for",
+                "constructing",
+                "affine",
+                "and",
+                "transform",
+                "dialects"
+              ]
+            },
+            "speakers": {
+              "text": "kevin lee",
+              "words": [
+                "kevin",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "mlir optimizations",
+              "words": [
+                "mlir",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-12-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-12-22"
+              ]
+            },
+            "abstract": {
+              "text": "kai ting wang and kevin lee present pydsl a small subset of the python language aiming to assist users in constructing mlir particularly in the affine and transform dialects. they have developed several in-house optimizations in the affine dialect and they wish to expose these optimizations to the kernel developers via usage of the transform ops. programming in mlirs python binding is quite verbose which gives birth to this fun project. they designed a light-weight wrapper-like language utilizing pythons ast package and the decorator syntax to allow kernel developers to construct mlir.",
+              "words": [
+                "kai",
+                "ting",
+                "wang",
+                "and",
+                "kevin",
+                "lee",
+                "present",
+                "pydsl",
+                "small",
+                "subset",
+                "of",
+                "the",
+                "python",
+                "language",
+                "aiming",
+                "to",
+                "assist",
+                "users",
+                "in",
+                "constructing",
+                "mlir",
+                "particularly",
+                "in",
+                "the",
+                "affine",
+                "and",
+                "transform",
+                "dialects.",
+                "they",
+                "have",
+                "developed",
+                "several",
+                "in-house",
+                "optimizations",
+                "in",
+                "the",
+                "affine",
+                "dialect",
+                "and",
+                "they",
+                "wish",
+                "to",
+                "expose",
+                "these",
+                "optimizations",
+                "to",
+                "the",
+                "kernel",
+                "developers",
+                "via",
+                "usage",
+                "of",
+                "the",
+                "transform",
+                "ops.",
+                "programming",
+                "in",
+                "mlirs",
+                "python",
+                "binding",
+                "is",
+                "quite",
+                "verbose",
+                "which",
+                "gives",
+                "birth",
+                "to",
+                "this",
+                "fun",
+                "project.",
+                "they",
+                "designed",
+                "light-weight",
+                "wrapper-like",
+                "language",
+                "utilizing",
+                "pythons",
+                "ast",
+                "package",
+                "and",
+                "the",
+                "decorator",
+                "syntax",
+                "to",
+                "allow",
+                "kernel",
+                "developers",
+                "to",
+                "construct",
+                "mlir."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "pydsl a small subset of python for constructing affine and transform dialects kai ting wang and kevin lee present pydsl a small subset of the python language aiming to assist users in constructing mlir particularly in the affine and transform dialects. they have developed several in-house optimizations in the affine dialect and they wish to expose these optimizations to the kernel developers via usage of the transform ops. programming in mlirs python binding is quite verbose which gives birth to this fun project. they designed a light-weight wrapper-like language utilizing pythons ast package and the decorator syntax to allow kernel developers to construct mlir. mlir open design meeting 2023-12-22 2023-12-22-mlir-open-design-meeting open-design-meeting kevin lee mlir optimizations"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-04-23-llhd-a-multi-level-intermediate-representation-for-hardware-description": {
+      "talk": {
+        "id": "mlir-talk-2020-04-23-llhd-a-multi-level-intermediate-representation-for-hardware-description",
+        "title": "LLHD: A Multi-level Intermediate Representation for Hardware Description",
+        "abstract": "2020 04 23 LLHD A Multi level Intermediate Representation for Hardware Description",
+        "speakers": [
+          {
+            "name": "Additional Slides",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/open?id=1t4wh2lcEdH_6z61a9rEn5EyvBAzGF7FB"
+          },
+          {
+            "kind": "slides",
+            "label": "Additional Slides",
+            "url": "https://drive.google.com/open?id=16X6UMZLRtcCqvYQ1FyTk-xaxei0Fxo50"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/open?id=1x7B0IRdcJ5JBQvfHbPUBcShbTFCMlrbe"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-04-23-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-04-23",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/open?id=1x7B0IRdcJ5JBQvfHbPUBcShbTFCMlrbe",
+        "slidesUrl": "https://drive.google.com/open?id=1t4wh2lcEdH_6z61a9rEn5EyvBAzGF7FB",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-04-23-llhd-a-multi-level-intermediate-representation-for-hardware-description",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "llhd: a multi-level intermediate representation for hardware description",
+        "_speakerLower": "additional slides",
+        "_abstractLower": "2020 04 23 llhd a multi level intermediate representation for hardware description",
+        "_tagsLower": "mlir ir",
+        "_meetingLower": "mlir open design meeting  2020-04-23",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "llhd a multi-level intermediate representation for hardware description",
+              "words": [
+                "llhd",
+                "multi-level",
+                "intermediate",
+                "representation",
+                "for",
+                "hardware",
+                "description"
+              ]
+            },
+            "speakers": {
+              "text": "additional slides",
+              "words": [
+                "additional",
+                "slides"
+              ]
+            },
+            "tags": {
+              "text": "mlir ir",
+              "words": [
+                "mlir",
+                "ir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-04-23",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-04-23"
+              ]
+            },
+            "abstract": {
+              "text": "2020 04 23 llhd a multi level intermediate representation for hardware description",
+              "words": [
+                "2020",
+                "04",
+                "23",
+                "llhd",
+                "multi",
+                "level",
+                "intermediate",
+                "representation",
+                "for",
+                "hardware",
+                "description"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "llhd a multi-level intermediate representation for hardware description 2020 04 23 llhd a multi level intermediate representation for hardware description mlir open design meeting 2020-04-23 2020-04-23-mlir-open-design-meeting open-design-meeting additional slides mlir ir"
+      },
+      "meeting": null
     }
   }
 }

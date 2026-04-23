@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7131219291": {
@@ -8085,6 +8085,7 @@
           "citationCount": 2
         },
         "_searchBlob": "tinyiree an ml execution environment for embedded systems from compilation to deployment machine learning model deployment for training and execution has been an important topic for industry and academic research in the last decade. much of the attention has been focused on developing specific toolchains to support acceleration hardware. in this paper we present iree a unified compiler and runtime stack with the explicit goal to scale down machine learning programs to the smallest footprints for mobile and edge devices while maintaining the ability to scale up to larger deployment targets. iree adopts a compiler-based approach and optimizes for heterogeneous hardware accelerators through the use of the mlir compiler infrastructure which provides the means to quickly design and implement multi-level compiler intermediate representations ir . more specifically this paper is focused on tinyiree which is a set of deployment options in iree that accommodate the limited memory and computation resources in embedded systems and bare-metal platforms while also demonstrating irees intuitive workflow that generates workloads for different isa extensions and abis through llvm. arxiv arxiv 2022 research-paper hsin-i cindy liu marius brehler m. ravishankar nicolas vasilache ben vanik stella laurenzo llvm mlir ir infrastructure embedded ml llvm mlir infrastructure embedded intermediate representation deployment machine learning hardware ml execution environment compilation llvm mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -11565,6 +11566,7 @@
           "citationCount": 9
         },
         "_searchBlob": "domain-specific multi-level ir rewriting for gpu most compilers have a single core intermediate representation ir e.g. llvm sometimes complemented with vaguely defined ir-like data structures. this ir is commonly low-level and close to machine instructions. as a result optimizations relying on domain-specific information are either not possible or require complex analysis to recover the missing information. in contrast multi-level rewriting instantiates a hierarchy of dialects irs lowers programs level-by-level and performs code transformations at the most suitable level. we demonstrate the effectiveness of this approach for the weather and climate domain. in particular we develop a prototype compiler and design stencil- and gpu-specific dialects based on a set of newly introduced design principles. we find that two domain-specific optimizations 500 lines of code realized on top of llvms extensible mlir compiler infrastructure suffice to outperform state-of-the-art solutions. in essence multi-level rewriting promises to herald the age of specialized compilers composed from domain- and target-specific dialects implemented on top of a shared infrastructure. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 18 issue 4 2021 research-paper tobias gysi eth zurich christoph muller eth zurich alex zinenko stephan herhut eddie c. davis vulcan tobias wicky vulcan oliver fuhrer vulcan torsten hoefler eth zurich tobias grosser university of edinburgh llvm mlir ir optimizations infrastructure gpu llvm mlir optimizations infrastructure gpu intermediate representation domain domain specific multi ir rewriting specific dialects llvm mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -22410,14 +22412,16 @@
           "MLIR",
           "Homomorphic Encryption"
         ],
-        "abstract": "",
+        "abstract": "SyFER-MLIR: Integrating Fully Homomorphic Encryption Into the MLIR Compiler Framework",
         "publishedDate": "",
         "publication": "",
         "venue": "",
         "contentFormat": "",
         "content": "",
         "matchedAuthors": [],
-        "matchedSubprojects": [],
+        "matchedSubprojects": [
+          "MLIR"
+        ],
         "doi": "",
         "openalexId": "",
         "bodyText": "",
@@ -22428,10 +22432,10 @@
         "_titleLower": "syfer-mlir: integrating fully homomorphic encryption into the mlir compiler framework",
         "_authorLower": "kshitij govindarajan william s moses",
         "_authorsLower": "kshitij govindarajan william s moses",
-        "_abstractLower": "",
+        "_abstractLower": "syfer-mlir: integrating fully homomorphic encryption into the mlir compiler framework",
         "_tagsLower": "mlir",
         "_keywordsLower": "mlir homomorphic encryption",
-        "_topicsLower": "mlir mlir homomorphic encryption",
+        "_topicsLower": "mlir mlir homomorphic encryption mlir",
         "_contentLower": "",
         "_publicationLower": "",
         "_venueLower": "",
@@ -22466,12 +22470,13 @@
               ]
             },
             "topics": {
-              "text": "mlir mlir homomorphic encryption",
+              "text": "mlir mlir homomorphic encryption mlir",
               "words": [
                 "mlir",
                 "mlir",
                 "homomorphic",
-                "encryption"
+                "encryption",
+                "mlir"
               ]
             },
             "type": {
@@ -22482,8 +22487,19 @@
               ]
             },
             "abstract": {
-              "text": "",
-              "words": []
+              "text": "syfer-mlir integrating fully homomorphic encryption into the mlir compiler framework",
+              "words": [
+                "syfer-mlir",
+                "integrating",
+                "fully",
+                "homomorphic",
+                "encryption",
+                "into",
+                "the",
+                "mlir",
+                "compiler",
+                "framework"
+              ]
             },
             "content": {
               "text": "",
@@ -22507,7 +22523,8 @@
           "year": 2020,
           "citationCount": 0
         },
-        "_searchBlob": "syfer-mlir integrating fully homomorphic encryption into the mlir compiler framework 2020 research-paper kshitij govindarajan william s moses mlir mlir homomorphic encryption"
+        "_searchBlob": "syfer-mlir integrating fully homomorphic encryption into the mlir compiler framework syfer-mlir integrating fully homomorphic encryption into the mlir compiler framework 2020 research-paper kshitij govindarajan william s moses mlir mlir homomorphic encryption mlir",
+        "_mlirSourceUpstream": true
       },
       "source": "manual-added"
     }

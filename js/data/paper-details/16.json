@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7118996119": {
@@ -627,7 +627,7 @@
         "id": "openalex-w4412605608",
         "citationCount": 0,
         "publishedDate": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -1023,6 +1023,7 @@
           "citationCount": 0
         },
         "_searchBlob": "polymorphous an mlir-based polyhedral compiler with loop transformation primitives we present polymorphous an mlir-based polyhedral compiler that exposes a set of loop-based scheduling primitives providing users with ample control over optimizations for input code. the primitives are expressed in a new schedule dialect that is based on mlirs transform dialect. polymorphous polyhedral engine collapses the primitives into a polyhedral schedule and checks for its legality. if necessary and possible the engine corrects an illegal schedule into a legal one. polymorphous is evaluated using the polybench suite. the evaluation validates polymorphous approach in two ways. first it shows that polymorphous enables users to explore the optimization space and that it results in well-optimized code. second it shows that polymorphous correction of illegal schedules enables users to optimize code with fewer primitives and improves their productivity by alleviating the need for manual correction. specifically the evaluation shows that polymorphous optimized code performs as well as code optimized by pluto+ with its optimization flags tuned to achieve the best performance for each benchmark. further for several benchmarks polymorphous optimized code performs better confirming the value of providing users with control over optimizations. averaged over all the benchmarks polymorphous optimized code has a speedup of tex xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink 1.24 mathrm x 1.25 mathrm x tex over that optimized by pluto+ on arm x86 systems. polymorphous brings the approach of empowering users of polyhedral compilers with control over optimizations to a community-developed infrastructure promoting the approachs adoptability. it does so while delivering performant code. 2025 ieee international parallel and distributed processing symposium ipdps 2025 ieee international parallel and distributed processing symposium ipdps 2025 research-paper jinman zhao huawei technologies seyed aryan vahabpour huawei technologies xinru yue huawei technologies kai-ting amy wang huawei technologies tarek s. abdelrahman university of toronto mlir optimizations loop transformations performance infrastructure mlir optimizations loop transformations performance infrastructure loop optimization polymorphous optimized polyhedral compiler loop transformation primitives control schedule providing users mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -11389,7 +11390,7 @@
           }
         ],
         "year": "2021",
-        "publication": "2021 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)",
+        "publication": "In proceedings of 2021 IEEE/ACM International Symposium on Code Generation and Optimization (CGO) - pp. 2-14 - A preprint is available on arXiv, see FAQ for citation how-to.",
         "venue": "2021 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)",
         "type": "research-paper",
         "abstract": "This work presents MLIR, a novel approach to building reusable and extensible compiler infrastructure. MLIR addresses software fragmentation, compilation for heterogeneous hardware, significantly reducing the cost of building domain specific compilers, and connecting existing compilers together. MLIR facilitates the design and implementation of code generators, translators and optimizers at different levels of abstraction and across application domains, hardware targets and execution environments. The contribution of this work includes (1) discussion of MLIR as a research artifact, built for extension and evolution, while identifying the challenges and opportunities posed by this novel design, semantics, optimization specification, system, and engineering. (2) evaluation of MLIR as a generalized infrastructure that reduces the cost of building compilers-describing diverse use-cases to show research and educational opportunities for future programming languages, compilers, execution environments, and computer architecture. The paper also presents the rationale for MLIR, its original design principles, structures and semantics.",
@@ -11436,7 +11437,7 @@
         "id": "openalex-w3122286897",
         "citationCount": 477,
         "publishedDate": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -11452,7 +11453,7 @@
         "_keywordsLower": "mlir backend code generation optimizations infrastructure programming languages mlir scaling compiler scaling compiler infrastructure domain specific computation execution environments hardware semantics",
         "_topicsLower": "mlir backend code generation optimizations infrastructure programming languages mlir backend code generation optimizations infrastructure programming languages mlir scaling compiler scaling compiler infrastructure domain specific computation execution environments hardware semantics mlir",
         "_contentLower": "",
-        "_publicationLower": "2021 ieee/acm international symposium on code generation and optimization (cgo)",
+        "_publicationLower": "in proceedings of 2021 ieee/acm international symposium on code generation and optimization (cgo) - pp. 2-14 - a preprint is available on arxiv, see faq for citation how-to.",
         "_venueLower": "2021 ieee/acm international symposium on code generation and optimization (cgo)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
@@ -11704,8 +11705,11 @@
               "words": []
             },
             "publication": {
-              "text": "2021 ieee acm international symposium on code generation and optimization cgo",
+              "text": "in proceedings of 2021 ieee acm international symposium on code generation and optimization cgo - pp. 2-14 - a preprint is available on arxiv see faq for citation how-to.",
               "words": [
+                "in",
+                "proceedings",
+                "of",
                 "2021",
                 "ieee",
                 "acm",
@@ -11716,7 +11720,19 @@
                 "generation",
                 "and",
                 "optimization",
-                "cgo"
+                "cgo",
+                "pp.",
+                "2-14",
+                "preprint",
+                "is",
+                "available",
+                "on",
+                "arxiv",
+                "see",
+                "faq",
+                "for",
+                "citation",
+                "how-to."
               ]
             },
             "venue": {
@@ -11745,7 +11761,8 @@
           "year": 2021,
           "citationCount": 477
         },
-        "_searchBlob": "mlir scaling compiler infrastructure for domain specific computation this work presents mlir a novel approach to building reusable and extensible compiler infrastructure. mlir addresses software fragmentation compilation for heterogeneous hardware significantly reducing the cost of building domain specific compilers and connecting existing compilers together. mlir facilitates the design and implementation of code generators translators and optimizers at different levels of abstraction and across application domains hardware targets and execution environments. the contribution of this work includes 1 discussion of mlir as a research artifact built for extension and evolution while identifying the challenges and opportunities posed by this novel design semantics optimization specification system and engineering. 2 evaluation of mlir as a generalized infrastructure that reduces the cost of building compilers-describing diverse use-cases to show research and educational opportunities for future programming languages compilers execution environments and computer architecture. the paper also presents the rationale for mlir its original design principles structures and semantics. 2021 ieee acm international symposium on code generation and optimization cgo 2021 ieee acm international symposium on code generation and optimization cgo 2021 research-paper chris lattner google mehdi amini google uday bondhugula indian institute of science bangalore albert cohen andy davis google jacques a. pienaar google river riddle google tatiana shpeisman google nicolas vasilache google alex zinenko mlir backend code generation optimizations infrastructure programming languages mlir backend code generation optimizations infrastructure programming languages mlir scaling compiler scaling compiler infrastructure domain specific computation execution environments hardware semantics mlir",
+        "_searchBlob": "mlir scaling compiler infrastructure for domain specific computation this work presents mlir a novel approach to building reusable and extensible compiler infrastructure. mlir addresses software fragmentation compilation for heterogeneous hardware significantly reducing the cost of building domain specific compilers and connecting existing compilers together. mlir facilitates the design and implementation of code generators translators and optimizers at different levels of abstraction and across application domains hardware targets and execution environments. the contribution of this work includes 1 discussion of mlir as a research artifact built for extension and evolution while identifying the challenges and opportunities posed by this novel design semantics optimization specification system and engineering. 2 evaluation of mlir as a generalized infrastructure that reduces the cost of building compilers-describing diverse use-cases to show research and educational opportunities for future programming languages compilers execution environments and computer architecture. the paper also presents the rationale for mlir its original design principles structures and semantics. in proceedings of 2021 ieee acm international symposium on code generation and optimization cgo - pp. 2-14 - a preprint is available on arxiv see faq for citation how-to. 2021 ieee acm international symposium on code generation and optimization cgo 2021 research-paper chris lattner google mehdi amini google uday bondhugula indian institute of science bangalore albert cohen andy davis google jacques a. pienaar google river riddle google tatiana shpeisman google nicolas vasilache google alex zinenko mlir backend code generation optimizations infrastructure programming languages mlir backend code generation optimizations infrastructure programming languages mlir scaling compiler scaling compiler infrastructure domain specific computation execution environments hardware semantics mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000

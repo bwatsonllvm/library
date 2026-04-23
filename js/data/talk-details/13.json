@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-001": {
@@ -11320,6 +11320,259 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
+        "title": "An MPI Dialect for MLIR",
+        "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. This presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
+        "speakers": [
+          {
+            "name": "Anton Lydike",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tobias Grosser",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Nick Brown",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-11-02-MPI-Dialect.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/VB6Ec3RnMEE"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-11-02-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-11-02",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/VB6Ec3RnMEE",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-11-02-MPI-Dialect.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "VB6Ec3RnMEE",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "an mpi dialect for mlir",
+        "_speakerLower": "anton lydike tobias grosser nick brown",
+        "_abstractLower": "mpi is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
+        "_tagsLower": "mlir performance",
+        "_meetingLower": "mlir open design meeting  2023-11-02",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an mpi dialect for mlir",
+              "words": [
+                "an",
+                "mpi",
+                "dialect",
+                "for",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "anton lydike tobias grosser nick brown",
+              "words": [
+                "anton",
+                "lydike",
+                "tobias",
+                "grosser",
+                "nick",
+                "brown"
+              ]
+            },
+            "tags": {
+              "text": "mlir performance",
+              "words": [
+                "mlir",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-11-02",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-11-02"
+              ]
+            },
+            "abstract": {
+              "text": "mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
+              "words": [
+                "mpi",
+                "is",
+                "at",
+                "the",
+                "heart",
+                "of",
+                "most",
+                "modern",
+                "massively",
+                "parallel",
+                "workloads",
+                "serving",
+                "as",
+                "the",
+                "fundamental",
+                "building",
+                "blocks",
+                "on",
+                "which",
+                "high-performance",
+                "codes",
+                "are",
+                "built.",
+                "with",
+                "mlir",
+                "having",
+                "proven",
+                "itself",
+                "well",
+                "as",
+                "compiler",
+                "for",
+                "single-node",
+                "workloads",
+                "already",
+                "there",
+                "is",
+                "lot",
+                "interest",
+                "in",
+                "seeing",
+                "mlir",
+                "scale",
+                "up",
+                "as",
+                "compiler",
+                "for",
+                "more",
+                "massively",
+                "parallel",
+                "workloads.",
+                "we",
+                "are",
+                "interested",
+                "in",
+                "bringing",
+                "an",
+                "mpi",
+                "dialect",
+                "into",
+                "mlir",
+                "to",
+                "serve",
+                "as",
+                "the",
+                "foundation",
+                "for",
+                "robust",
+                "and",
+                "efficient",
+                "stack",
+                "of",
+                "dialects",
+                "for",
+                "distributed",
+                "and",
+                "even",
+                "massively",
+                "parallel",
+                "workloads.",
+                "this",
+                "presentation",
+                "proposes",
+                "first",
+                "patch",
+                "that",
+                "introduces",
+                "small",
+                "subset",
+                "of",
+                "the",
+                "mpi",
+                "dialect.",
+                "we",
+                "want",
+                "to",
+                "discuss",
+                "and",
+                "review",
+                "the",
+                "design",
+                "decisions",
+                "made",
+                "while",
+                "creating",
+                "this",
+                "patch",
+                "with",
+                "the",
+                "community",
+                "and",
+                "talk",
+                "about",
+                "the",
+                "direction",
+                "and",
+                "scope",
+                "of",
+                "further",
+                "development."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "an mpi dialect for mlir mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting anton lydike tobias grosser nick brown mlir performance"
+      },
+      "meeting": null
     }
   }
 }

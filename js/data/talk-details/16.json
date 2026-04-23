@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-004": {
@@ -10005,6 +10005,391 @@
         "canceled": false,
         "talkCount": 13
       }
+    },
+    "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides": {
+      "talk": {
+        "id": "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides",
+        "title": "End-to-end flow for ML Compilation",
+        "abstract": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf At the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We’ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.",
+        "speakers": [
+          {
+            "name": "Stephen Neuendorffer",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/NCMme4H_HYQ"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/google/iree-samples/tree/main/iree-torch"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-12-02-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-12-02",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/NCMme4H_HYQ",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/google/iree-samples/tree/main/iree-torch",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/google/iree-samples/tree/main/iree-torch"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/google/iree-samples/tree/main/iree-torch",
+            "source": "slides",
+            "label": "© Copyright 2021 Xilinx Existing progress 7",
+            "context": "© Copyright 2021 Xilinx Existing progress 7",
+            "library": "iree-samples",
+            "repository": "google/iree-samples",
+            "fileName": "iree-torch",
+            "filePath": "iree-torch",
+            "referencePath": "iree-torch"
+          }
+        ],
+        "videoId": "NCMme4H_HYQ",
+        "keywords": [],
+        "_titleLower": "end-to-end flow for ml compilation",
+        "_speakerLower": "stephen neuendorffer",
+        "_abstractLower": "this was a discussion about how to achieve upstream an end-to-end flow for ml compilation, intro slides are here: https://mlir.llvm.org/openmeetings/2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. compared to other ml frameworks (like xla or tvm), mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently, several projects in-tree (tosa) and out-of-tree (torch-mlir, iree) have made significant progress and we seem to have most of the pieces to build a complete flow. we’ll discuss what might a community end-to-end ml flow would look like and strategize about how to build it.",
+        "_tagsLower": "mlir llvm ml",
+        "_meetingLower": "mlir open design meeting  2021-12-02",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "end-to-end flow for ml compilation",
+              "words": [
+                "end-to-end",
+                "flow",
+                "for",
+                "ml",
+                "compilation"
+              ]
+            },
+            "speakers": {
+              "text": "stephen neuendorffer",
+              "words": [
+                "stephen",
+                "neuendorffer"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm ml",
+              "words": [
+                "mlir",
+                "llvm",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-12-02",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-12-02"
+              ]
+            },
+            "abstract": {
+              "text": "this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it.",
+              "words": [
+                "this",
+                "was",
+                "discussion",
+                "about",
+                "how",
+                "to",
+                "achieve",
+                "upstream",
+                "an",
+                "end-to-end",
+                "flow",
+                "for",
+                "ml",
+                "compilation",
+                "intro",
+                "slides",
+                "are",
+                "here",
+                "https",
+                "mlir.llvm.org",
+                "openmeetings",
+                "2021-12-02-end2end-ml-compiler-flow.pdf",
+                "at",
+                "the",
+                "moment",
+                "there",
+                "exists",
+                "no",
+                "end-to-end",
+                "machine",
+                "learning",
+                "flow",
+                "upstream",
+                "at",
+                "least",
+                "not",
+                "in",
+                "packaged",
+                "and",
+                "ready-to-use",
+                "way.",
+                "compared",
+                "to",
+                "other",
+                "ml",
+                "frameworks",
+                "like",
+                "xla",
+                "or",
+                "tvm",
+                "mlir",
+                "has",
+                "primarily",
+                "focused",
+                "on",
+                "compiler",
+                "building",
+                "blocks.",
+                "the",
+                "lack",
+                "of",
+                "an",
+                "in-tree",
+                "flow",
+                "is",
+                "also",
+                "significant",
+                "barrier",
+                "to",
+                "entry",
+                "for",
+                "compiler",
+                "builders",
+                "because",
+                "we",
+                "each",
+                "have",
+                "to",
+                "figure",
+                "out",
+                "how",
+                "all",
+                "the",
+                "pieces",
+                "together",
+                "to",
+                "make",
+                "working",
+                "system.",
+                "recently",
+                "several",
+                "projects",
+                "in-tree",
+                "tosa",
+                "and",
+                "out-of-tree",
+                "torch-mlir",
+                "iree",
+                "have",
+                "made",
+                "significant",
+                "progress",
+                "and",
+                "we",
+                "seem",
+                "to",
+                "have",
+                "most",
+                "of",
+                "the",
+                "pieces",
+                "to",
+                "build",
+                "complete",
+                "flow.",
+                "well",
+                "discuss",
+                "what",
+                "might",
+                "community",
+                "end-to-end",
+                "ml",
+                "flow",
+                "would",
+                "look",
+                "like",
+                "and",
+                "strategize",
+                "about",
+                "how",
+                "to",
+                "build",
+                "it."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "end-to-end flow for ml compilation this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it. mlir open design meeting 2021-12-02 2021-12-02-mlir-open-design-meeting open-design-meeting stephen neuendorffer mlir llvm ml"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-01-24-thoughts-on-tensor-code-generation-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2020-01-24-thoughts-on-tensor-code-generation-in-mlir",
+        "title": "Thoughts on Tensor Code Generation in MLIR",
+        "abstract": "2020 01 24 Thoughts on Tensor Code Generation in MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://docs.google.com/presentation/d/1M44If0Lw2lnrlyE_xNU1WOmXWxLo9FibMwdUbrAhOhU/edit#slide=id.g5fd22bdf8c_0_0"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/open?id=1PKY5yVEL0Dl5UHaok4NgpxnbwXbi5pxS"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-01-24-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-01-24",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/open?id=1PKY5yVEL0Dl5UHaok4NgpxnbwXbi5pxS",
+        "slidesUrl": "https://docs.google.com/presentation/d/1M44If0Lw2lnrlyE_xNU1WOmXWxLo9FibMwdUbrAhOhU/edit#slide=id.g5fd22bdf8c_0_0",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-01-24-thoughts-on-tensor-code-generation-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "thoughts on tensor code generation in mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2020 01 24 thoughts on tensor code generation in mlir",
+        "_tagsLower": "mlir code generation",
+        "_meetingLower": "mlir open design meeting  2020-01-24",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "thoughts on tensor code generation in mlir",
+              "words": [
+                "thoughts",
+                "on",
+                "tensor",
+                "code",
+                "generation",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir code generation",
+              "words": [
+                "mlir",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-01-24",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-01-24"
+              ]
+            },
+            "abstract": {
+              "text": "2020 01 24 thoughts on tensor code generation in mlir",
+              "words": [
+                "2020",
+                "01",
+                "24",
+                "thoughts",
+                "on",
+                "tensor",
+                "code",
+                "generation",
+                "in",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "thoughts on tensor code generation in mlir 2020 01 24 thoughts on tensor code generation in mlir mlir open design meeting 2020-01-24 2020-01-24-mlir-open-design-meeting open-design-meeting mlir code generation"
+      },
+      "meeting": null
     }
   }
 }

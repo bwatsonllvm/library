@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-06-009": {
@@ -1419,6 +1419,414 @@
         "canceled": true,
         "talkCount": 68
       }
+    },
+    "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree": {
+      "talk": {
+        "id": "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree",
+        "title": "From MHLO to Linalg on tensors Learnings from transitioning to Linalg on tensors",
+        "abstract": "Initially IREE used MHLO dialect as the input dialect for its compilation stack. Over time it became apparent that MHLO is at a higher level abstraction than what is needed within IREEs core compilation stack. As a result, the IREE core compilation stack was moved to use Linalg on Tensors as its input dialect. In this talk, Mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in IREE as well as Linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-07-15-From-MHLO-To-Linalg-in-IREE.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/GkorNMHPFPI"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-07-15-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-07-15",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/GkorNMHPFPI",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-07-15-From-MHLO-To-Linalg-in-IREE.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "GkorNMHPFPI",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+        "_speakerLower": "",
+        "_abstractLower": "initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result, the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk, mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-07-15",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+              "words": [
+                "from",
+                "mhlo",
+                "to",
+                "linalg",
+                "on",
+                "tensors",
+                "learnings",
+                "from",
+                "transitioning",
+                "to",
+                "linalg",
+                "on",
+                "tensors"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-07-15",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-07-15"
+              ]
+            },
+            "abstract": {
+              "text": "initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
+              "words": [
+                "initially",
+                "iree",
+                "used",
+                "mhlo",
+                "dialect",
+                "as",
+                "the",
+                "input",
+                "dialect",
+                "for",
+                "its",
+                "compilation",
+                "stack.",
+                "over",
+                "time",
+                "it",
+                "became",
+                "apparent",
+                "that",
+                "mhlo",
+                "is",
+                "at",
+                "higher",
+                "level",
+                "abstraction",
+                "than",
+                "what",
+                "is",
+                "needed",
+                "within",
+                "irees",
+                "core",
+                "compilation",
+                "stack.",
+                "as",
+                "result",
+                "the",
+                "iree",
+                "core",
+                "compilation",
+                "stack",
+                "was",
+                "moved",
+                "to",
+                "use",
+                "linalg",
+                "on",
+                "tensors",
+                "as",
+                "its",
+                "input",
+                "dialect.",
+                "in",
+                "this",
+                "talk",
+                "mahesh",
+                "will",
+                "walk",
+                "through",
+                "the",
+                "issues",
+                "that",
+                "this",
+                "move",
+                "helped",
+                "us",
+                "resolve",
+                "and",
+                "also",
+                "do",
+                "deep",
+                "dive",
+                "into",
+                "the",
+                "changes",
+                "in",
+                "iree",
+                "as",
+                "well",
+                "as",
+                "linalg-on-tensors",
+                "that",
+                "were",
+                "needed",
+                "to",
+                "bridge",
+                "several",
+                "abstraction",
+                "gaps",
+                "to",
+                "make",
+                "this",
+                "all",
+                "work",
+                "cohesively."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively. mlir open design meeting 2021-07-15 2021-07-15-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2023-05-04-catalyst-an-aot-jit-compiler-for-hybrid-quantum-programs": {
+      "talk": {
+        "id": "mlir-talk-2023-05-04-catalyst-an-aot-jit-compiler-for-hybrid-quantum-programs",
+        "title": "Catalyst, an AOT/JIT compiler for hybrid quantum programs",
+        "abstract": "In this presentation, David Ittah presents Catalyst: an AOT/JIT compiler for hybrid classical-quantum programs, with integration into the Python ML ecosystem and the PennyLane quantum programming framework. A new quantum MLIR dialect (on top of existing MLIR dialects) provides the core IR for the compiler, and enables classical and quantum optimization, code generation, and automatic differentiation at the IR level.",
+        "speakers": [
+          {
+            "name": "David Ittah",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-05-04-Catalyst-compiler-for-hybrid-quantum-programs.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/VY-Rsi5SFB8"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/PennyLaneAI/catalyst"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-05-04-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-05-04",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/VY-Rsi5SFB8",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-05-04-Catalyst-compiler-for-hybrid-quantum-programs.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/PennyLaneAI/catalyst",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-05-04-catalyst-an-aot-jit-compiler-for-hybrid-quantum-programs",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/PennyLaneAI/catalyst"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/PennyLaneAI/catalyst",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "catalyst",
+            "repository": "PennyLaneAI/catalyst",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "videoId": "VY-Rsi5SFB8",
+        "keywords": [],
+        "_titleLower": "catalyst, an aot/jit compiler for hybrid quantum programs",
+        "_speakerLower": "david ittah",
+        "_abstractLower": "in this presentation, david ittah presents catalyst: an aot/jit compiler for hybrid classical-quantum programs, with integration into the python ml ecosystem and the pennylane quantum programming framework. a new quantum mlir dialect (on top of existing mlir dialects) provides the core ir for the compiler, and enables classical and quantum optimization, code generation, and automatic differentiation at the ir level.",
+        "_tagsLower": "mlir jit code generation optimizations ml",
+        "_meetingLower": "mlir open design meeting  2023-05-04",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "catalyst an aot jit compiler for hybrid quantum programs",
+              "words": [
+                "catalyst",
+                "an",
+                "aot",
+                "jit",
+                "compiler",
+                "for",
+                "hybrid",
+                "quantum",
+                "programs"
+              ]
+            },
+            "speakers": {
+              "text": "david ittah",
+              "words": [
+                "david",
+                "ittah"
+              ]
+            },
+            "tags": {
+              "text": "mlir jit code generation optimizations ml",
+              "words": [
+                "mlir",
+                "jit",
+                "code",
+                "generation",
+                "optimizations",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-05-04",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-05-04"
+              ]
+            },
+            "abstract": {
+              "text": "in this presentation david ittah presents catalyst an aot jit compiler for hybrid classical-quantum programs with integration into the python ml ecosystem and the pennylane quantum programming framework. a new quantum mlir dialect on top of existing mlir dialects provides the core ir for the compiler and enables classical and quantum optimization code generation and automatic differentiation at the ir level.",
+              "words": [
+                "in",
+                "this",
+                "presentation",
+                "david",
+                "ittah",
+                "presents",
+                "catalyst",
+                "an",
+                "aot",
+                "jit",
+                "compiler",
+                "for",
+                "hybrid",
+                "classical-quantum",
+                "programs",
+                "with",
+                "integration",
+                "into",
+                "the",
+                "python",
+                "ml",
+                "ecosystem",
+                "and",
+                "the",
+                "pennylane",
+                "quantum",
+                "programming",
+                "framework.",
+                "new",
+                "quantum",
+                "mlir",
+                "dialect",
+                "on",
+                "top",
+                "of",
+                "existing",
+                "mlir",
+                "dialects",
+                "provides",
+                "the",
+                "core",
+                "ir",
+                "for",
+                "the",
+                "compiler",
+                "and",
+                "enables",
+                "classical",
+                "and",
+                "quantum",
+                "optimization",
+                "code",
+                "generation",
+                "and",
+                "automatic",
+                "differentiation",
+                "at",
+                "the",
+                "ir",
+                "level."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "catalyst an aot jit compiler for hybrid quantum programs in this presentation david ittah presents catalyst an aot jit compiler for hybrid classical-quantum programs with integration into the python ml ecosystem and the pennylane quantum programming framework. a new quantum mlir dialect on top of existing mlir dialects provides the core ir for the compiler and enables classical and quantum optimization code generation and automatic differentiation at the ir level. mlir open design meeting 2023-05-04 2023-05-04-mlir-open-design-meeting open-design-meeting david ittah mlir jit code generation optimizations ml"
+      },
+      "meeting": null
     }
   }
 }

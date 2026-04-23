@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-002": {
@@ -6234,7 +6234,7 @@
     "2020-04-062": {
       "talk": {
         "id": "2020-04-062",
-        "meeting": "2020-04",
+        "meeting": "2020-08-06-mlir-open-design-meeting",
         "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
@@ -6294,15 +6294,35 @@
         "abstract": "We propose MultiLevel Tactics, or ML Tactics for short, an extension to MLIR that recognizes patterns of high-level abstractions (e.g., linear algebra operations) in low-level dialects and replaces them with the corresponding operations of an appropriate high-level dialect. Our current prototype recognizes matrix multiplications in loop nests of the Affine dialect and lifts these to the Linalg dialect. The pattern recognition and replacement scheme are designed as reusable building blocks for transformations between arbitrary dialects and can be used to recognize commonly recurrent patterns in HPC applications.",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/poster_Poster_52.pdf",
-        "tags": [],
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2020-04/slides/poster_Poster_52.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1pyBANtcAFgSC0c0Jz85a9ZT794lE9XJY"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1mfvAiJck4WDDcSPaWbc3D_Dvh86pp3MD"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
-        "videoUrl": "",
+        "videoUrl": "https://drive.google.com/file/d/1mfvAiJck4WDDcSPaWbc3D_Dvh86pp3MD",
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
         "_titleLower": "multilevel tactics: lifting loops in mlir",
         "_speakerLower": "lorenzo chelini andi drebes alex zinenko albert cohen henk corporaal tobias grosser nicolas vasilache",
         "_abstractLower": "we propose multilevel tactics, or ml tactics for short, an extension to mlir that recognizes patterns of high-level abstractions (e.g., linear algebra operations) in low-level dialects and replaces them with the corresponding operations of an appropriate high-level dialect. our current prototype recognizes matrix multiplications in loop nests of the affine dialect and lifts these to the linalg dialect. the pattern recognition and replacement scheme are designed as reusable building blocks for transformations between arbitrary dialects and can be used to recognize commonly recurrent patterns in hpc applications.",
@@ -6470,16 +6490,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "multilevel tactics lifting loops in mlir we propose multilevel tactics or ml tactics for short an extension to mlir that recognizes patterns of high-level abstractions e.g. linear algebra operations in low-level dialects and replaces them with the corresponding operations of an appropriate high-level dialect. our current prototype recognizes matrix multiplications in loop nests of the affine dialect and lifts these to the linalg dialect. the pattern recognition and replacement scheme are designed as reusable building blocks for transformations between arbitrary dialects and can be used to recognize commonly recurrent patterns in hpc applications. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 poster lorenzo chelini andi drebes alex zinenko albert cohen henk corporaal tobias grosser nicolas vasilache mlir ml"
+        "_searchBlob": "multilevel tactics lifting loops in mlir we propose multilevel tactics or ml tactics for short an extension to mlir that recognizes patterns of high-level abstractions e.g. linear algebra operations in low-level dialects and replaces them with the corresponding operations of an appropriate high-level dialect. our current prototype recognizes matrix multiplications in loop nests of the affine dialect and lifts these to the linalg dialect. the pattern recognition and replacement scheme are designed as reusable building blocks for transformations between arbitrary dialects and can be used to recognize commonly recurrent patterns in hpc applications. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-08-06-mlir-open-design-meeting poster lorenzo chelini andi drebes alex zinenko albert cohen henk corporaal tobias grosser nicolas vasilache mlir ml",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-08-06-multilevel-tactics-lifting-loops-in-mlir",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2020-04",
-        "name": "2020 EuroLLVM Developers' Meeting",
-        "date": "April 6-7, 2020",
-        "location": "Paris, France - Canceled",
-        "canceled": true,
-        "talkCount": 68
-      }
+      "meeting": null
     },
     "2019-04-017": {
       "talk": {
@@ -11952,6 +11967,674 @@
         "canceled": false,
         "talkCount": 13
       }
+    },
+    "mlir-talk-2024-08-22-upstream-spir-v-conversion-slides": {
+      "talk": {
+        "id": "mlir-talk-2024-08-22-upstream-spir-v-conversion-slides",
+        "title": "Upstream SPIR-V Conversion",
+        "abstract": "This is a presention about a generic MLIR lowering pass to SPIR-V, with the goal of having a better test coverage of SPIR-V compilation upstream, and enabling writing simple kernels by hand. The presentation includes a breakdown of the stages (i.e., function signature conversion, vector unrolling, dialect conversions, etc.), IR examples, limitations and future plans.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2024-08-22-Upstream-SPIRV-Conversion.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/-qoMMrlYvGs"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2024-08-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2024-08-22",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/-qoMMrlYvGs",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2024-08-22-Upstream-SPIRV-Conversion.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2024-08-22-upstream-spir-v-conversion-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "-qoMMrlYvGs",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "upstream spir-v conversion",
+        "_speakerLower": "",
+        "_abstractLower": "this is a presention about a generic mlir lowering pass to spir-v, with the goal of having a better test coverage of spir-v compilation upstream, and enabling writing simple kernels by hand. the presentation includes a breakdown of the stages (i.e., function signature conversion, vector unrolling, dialect conversions, etc.), ir examples, limitations and future plans.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2024-08-22",
+        "_year": "2024",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "upstream spir-v conversion",
+              "words": [
+                "upstream",
+                "spir-v",
+                "conversion"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2024-08-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2024-08-22"
+              ]
+            },
+            "abstract": {
+              "text": "this is a presention about a generic mlir lowering pass to spir-v with the goal of having a better test coverage of spir-v compilation upstream and enabling writing simple kernels by hand. the presentation includes a breakdown of the stages i.e. function signature conversion vector unrolling dialect conversions etc. ir examples limitations and future plans.",
+              "words": [
+                "this",
+                "is",
+                "presention",
+                "about",
+                "generic",
+                "mlir",
+                "lowering",
+                "pass",
+                "to",
+                "spir-v",
+                "with",
+                "the",
+                "goal",
+                "of",
+                "having",
+                "better",
+                "test",
+                "coverage",
+                "of",
+                "spir-v",
+                "compilation",
+                "upstream",
+                "and",
+                "enabling",
+                "writing",
+                "simple",
+                "kernels",
+                "by",
+                "hand.",
+                "the",
+                "presentation",
+                "includes",
+                "breakdown",
+                "of",
+                "the",
+                "stages",
+                "i.e.",
+                "function",
+                "signature",
+                "conversion",
+                "vector",
+                "unrolling",
+                "dialect",
+                "conversions",
+                "etc.",
+                "ir",
+                "examples",
+                "limitations",
+                "and",
+                "future",
+                "plans."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024
+        },
+        "_searchBlob": "upstream spir-v conversion this is a presention about a generic mlir lowering pass to spir-v with the goal of having a better test coverage of spir-v compilation upstream and enabling writing simple kernels by hand. the presentation includes a breakdown of the stages i.e. function signature conversion vector unrolling dialect conversions etc. ir examples limitations and future plans. mlir open design meeting 2024-08-22 2024-08-22-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files": {
+      "talk": {
+        "id": "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files",
+        "title": "MLIR Language Server (Modern IDE features for .mlir files",
+        "abstract": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.",
+        "speakers": [
+          {
+            "name": "Language Server River Riddle",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-06-10-Language-Server.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/HZx1Wal3loA"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-06-10-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-06-10",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/HZx1Wal3loA",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-06-10-Language-Server.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "HZx1Wal3loA",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "mlir language server (modern ide features for .mlir files",
+        "_speakerLower": "language server river riddle",
+        "_abstractLower": "language servers such as clangd provide powerful ide features, such as goto-definition/find-references, to developers. in this talk, river riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with visual studio code.",
+        "_tagsLower": "mlir clang",
+        "_meetingLower": "mlir open design meeting  2021-06-10",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir language server modern ide features for .mlir files",
+              "words": [
+                "mlir",
+                "language",
+                "server",
+                "modern",
+                "ide",
+                "features",
+                "for",
+                ".mlir",
+                "files"
+              ]
+            },
+            "speakers": {
+              "text": "language server river riddle",
+              "words": [
+                "language",
+                "server",
+                "river",
+                "riddle"
+              ]
+            },
+            "tags": {
+              "text": "mlir clang",
+              "words": [
+                "mlir",
+                "clang"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-06-10",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-06-10"
+              ]
+            },
+            "abstract": {
+              "text": "language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code.",
+              "words": [
+                "language",
+                "servers",
+                "such",
+                "as",
+                "clangd",
+                "provide",
+                "powerful",
+                "ide",
+                "features",
+                "such",
+                "as",
+                "goto-definition",
+                "find-references",
+                "to",
+                "developers.",
+                "in",
+                "this",
+                "talk",
+                "river",
+                "riddle",
+                "details",
+                "how",
+                "we",
+                "are",
+                "bringing",
+                "some",
+                "of",
+                "these",
+                "features",
+                "to",
+                ".mlir",
+                "files",
+                "how",
+                "you",
+                "can",
+                "hook",
+                "your",
+                "dialect",
+                "into",
+                "them",
+                "and",
+                "live",
+                "demo",
+                "of",
+                "these",
+                "features",
+                "in",
+                "action",
+                "with",
+                "visual",
+                "studio",
+                "code."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "mlir language server modern ide features for .mlir files language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code. mlir open design meeting 2021-06-10 2021-06-10-mlir-open-design-meeting open-design-meeting language server river riddle mlir clang"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-04-01-discussion-about-mlir-bindings-c-api-python-bindings-other-languages-status": {
+      "talk": {
+        "id": "mlir-talk-2021-04-01-discussion-about-mlir-bindings-c-api-python-bindings-other-languages-status",
+        "title": "Discussion about MLIR Bindings (C API, Python Bindings, other languages) status",
+        "abstract": "2021 04 01 Discussion about MLIR Bindings (C API Python Bindings other languages) status",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/12xQjdaYuFoGQCzt2DhJUPPZMwdwzjU5o/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1OJodjsSkvGlDjzsnGr4FSba1BdU-WOR1/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-04-01-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-04-01",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1OJodjsSkvGlDjzsnGr4FSba1BdU-WOR1/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/12xQjdaYuFoGQCzt2DhJUPPZMwdwzjU5o/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-04-01-discussion-about-mlir-bindings-c-api-python-bindings-other-languages-status",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "discussion about mlir bindings (c api, python bindings, other languages) status",
+        "_speakerLower": "",
+        "_abstractLower": "2021 04 01 discussion about mlir bindings (c api python bindings other languages) status",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-04-01",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "discussion about mlir bindings c api python bindings other languages status",
+              "words": [
+                "discussion",
+                "about",
+                "mlir",
+                "bindings",
+                "api",
+                "python",
+                "bindings",
+                "other",
+                "languages",
+                "status"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-04-01",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-04-01"
+              ]
+            },
+            "abstract": {
+              "text": "2021 04 01 discussion about mlir bindings c api python bindings other languages status",
+              "words": [
+                "2021",
+                "04",
+                "01",
+                "discussion",
+                "about",
+                "mlir",
+                "bindings",
+                "api",
+                "python",
+                "bindings",
+                "other",
+                "languages",
+                "status"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "discussion about mlir bindings c api python bindings other languages status 2021 04 01 discussion about mlir bindings c api python bindings other languages status mlir open design meeting 2021-04-01 2021-04-01-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-09-24-buffer-allocation-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2020-09-24-buffer-allocation-in-mlir",
+        "title": "Buffer Allocation in MLIR",
+        "abstract": "2020 09 24 Buffer Allocation in MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1SMp7fc3qiliwxcOViyUZDoG8KtajJd_d/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1HCJ5WMmQYmx1w9Ervg2n6eKIo0Y9qQi2/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-09-24-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-09-24",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1HCJ5WMmQYmx1w9Ervg2n6eKIo0Y9qQi2/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1SMp7fc3qiliwxcOViyUZDoG8KtajJd_d/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-09-24-buffer-allocation-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "buffer allocation in mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2020 09 24 buffer allocation in mlir",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2020-09-24",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "buffer allocation in mlir",
+              "words": [
+                "buffer",
+                "allocation",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-09-24",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-09-24"
+              ]
+            },
+            "abstract": {
+              "text": "2020 09 24 buffer allocation in mlir",
+              "words": [
+                "2020",
+                "09",
+                "24",
+                "buffer",
+                "allocation",
+                "in",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "buffer allocation in mlir 2020 09 24 buffer allocation in mlir mlir open design meeting 2020-09-24 2020-09-24-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2019-08-15-building-tensorflow-converter-tools-with-mlir": {
+      "talk": {
+        "id": "mlir-talk-2019-08-15-building-tensorflow-converter-tools-with-mlir",
+        "title": "Building TensorFlow Converter Tools with MLIR",
+        "abstract": "2019 08 15 Building TensorFlow Converter Tools with MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/a/google.com/file/d/1ZCLTiEm5cVON34JrnUTvm5XdhjYz3DXV/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/a/google.com/file/d/1Rj_7bJ6CUPDQI8O2E9cz6FULuY-y9Qx1/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2019-08-15-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2019-08-15",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/a/google.com/file/d/1Rj_7bJ6CUPDQI8O2E9cz6FULuY-y9Qx1/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/a/google.com/file/d/1ZCLTiEm5cVON34JrnUTvm5XdhjYz3DXV/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2019-08-15-building-tensorflow-converter-tools-with-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "building tensorflow converter tools with mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2019 08 15 building tensorflow converter tools with mlir",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2019-08-15",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "building tensorflow converter tools with mlir",
+              "words": [
+                "building",
+                "tensorflow",
+                "converter",
+                "tools",
+                "with",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2019-08-15",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2019-08-15"
+              ]
+            },
+            "abstract": {
+              "text": "2019 08 15 building tensorflow converter tools with mlir",
+              "words": [
+                "2019",
+                "08",
+                "15",
+                "building",
+                "tensorflow",
+                "converter",
+                "tools",
+                "with",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "building tensorflow converter tools with mlir 2019 08 15 building tensorflow converter tools with mlir mlir open design meeting 2019-08-15 2019-08-15-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

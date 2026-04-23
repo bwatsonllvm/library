@@ -46,6 +46,38 @@ const MAX_AUTOCOMPLETE_TOPICS = 800;
 const MAX_AUTOCOMPLETE_PEOPLE = 6000;
 const MAX_AUTOCOMPLETE_TALKS = 5000;
 const MAX_AUTOCOMPLETE_PAPERS = 8000;
+const MLIR_TOPIC_TAG = 'MLIR';
+const MLIR_MONTH_LOOKUP = Object.freeze({
+  jan: '01', january: '01',
+  feb: '02', february: '02',
+  mar: '03', march: '03',
+  apr: '04', april: '04',
+  may: '05',
+  jun: '06', june: '06',
+  jul: '07', july: '07',
+  aug: '08', august: '08',
+  sep: '09', sept: '09', september: '09',
+  oct: '10', october: '10',
+  nov: '11', november: '11',
+  dec: '12', december: '12',
+});
+const MLIR_TALK_SECTION_CATEGORY_MAP = Object.freeze({
+  tutorials: 'tutorial',
+  'tech-talks': 'technical-talk',
+  'open-design-meeting-presentations': 'open-design-meeting',
+  'upcoming-talks-or-presentations': 'technical-talk',
+  'past-conferences-and-workshops': 'workshop',
+});
+const MLIR_EXCLUDED_TALK_SECTION_KEYS = new Set([
+  'upcoming-talks-or-presentations',
+  'past-conferences-and-workshops',
+]);
+const MLIR_GENERIC_GROUP_KEYS = new Set([
+  '',
+  'past-editions',
+  'past-editions:',
+]);
+const MLIR_RESOURCE_ONLY_RE = /\b(?:slides?|recordings?|recording|transcript|talk|talks|event|events|part\s+\d+|additional slides?)\b/gi;
 
 function readJson(pathname) {
   return JSON.parse(fs.readFileSync(pathname, 'utf8'));
@@ -546,6 +578,747 @@ function createPaperSummary(paper) {
     if (field !== 'bodyText') delete summary[field];
   }
   return summary;
+}
+
+function uniqueStrings(values) {
+  const out = [];
+  const seen = new Set();
+  for (const value of (Array.isArray(values) ? values : [])) {
+    const text = collapseWhitespace(value);
+    const key = text.toLowerCase();
+    if (!text || seen.has(key)) continue;
+    seen.add(key);
+    out.push(text);
+  }
+  return out;
+}
+
+function slugify(value) {
+  return collapseWhitespace(value)
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function normalizeTitleKey(value) {
+  return collapseWhitespace(String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' '));
+}
+
+function choosePreferredText(primary, secondary) {
+  const first = collapseWhitespace(primary);
+  const second = collapseWhitespace(secondary);
+  if (!first) return second;
+  if (!second) return first;
+  return first.length >= second.length ? first : second;
+}
+
+function mergeSpeakerLists(baseSpeakers, extraSpeakers) {
+  const merged = [];
+  const seen = new Map();
+  for (const rawSpeaker of [...(Array.isArray(baseSpeakers) ? baseSpeakers : []), ...(Array.isArray(extraSpeakers) ? extraSpeakers : [])]) {
+    const speaker = normalizeSpeakerRecord(rawSpeaker);
+    const key = HubUtils.normalizePersonKey(speaker && speaker.name);
+    if (!speaker || !key) continue;
+    if (seen.has(key)) {
+      const existing = seen.get(key);
+      existing.affiliation = choosePreferredText(existing.affiliation, speaker.affiliation);
+      existing.github = sanitizeExternalUrl(existing.github) || sanitizeExternalUrl(speaker.github);
+      existing.linkedin = sanitizeExternalUrl(existing.linkedin) || sanitizeExternalUrl(speaker.linkedin);
+      existing.twitter = sanitizeExternalUrl(existing.twitter) || sanitizeExternalUrl(speaker.twitter);
+      continue;
+    }
+    const next = {
+      name: speaker.name,
+      affiliation: speaker.affiliation,
+      github: sanitizeExternalUrl(speaker.github),
+      linkedin: sanitizeExternalUrl(speaker.linkedin),
+      twitter: sanitizeExternalUrl(speaker.twitter),
+    };
+    seen.set(key, next);
+    merged.push(next);
+  }
+  return merged;
+}
+
+function mergeActionLists(actionsA, actionsB) {
+  const merged = [];
+  const byUrl = new Map();
+  for (const rawAction of [...(Array.isArray(actionsA) ? actionsA : []), ...(Array.isArray(actionsB) ? actionsB : [])]) {
+    const url = sanitizeExternalUrl(rawAction && rawAction.url);
+    if (!url) continue;
+    const kind = collapseWhitespace(rawAction && rawAction.kind).toLowerCase();
+    const label = collapseWhitespace(rawAction && rawAction.label);
+    const existing = byUrl.get(url);
+    if (existing) {
+      if (!existing.kind && kind) existing.kind = kind;
+      if (!existing.label && label) existing.label = label;
+      continue;
+    }
+    const action = { kind, label, url };
+    byUrl.set(url, action);
+    merged.push(action);
+  }
+  return merged;
+}
+
+function mergeUrlLists(valuesA, valuesB) {
+  return [...new Set([
+    ...(Array.isArray(valuesA) ? valuesA : []),
+    ...(Array.isArray(valuesB) ? valuesB : []),
+  ].map((value) => normalizeHttpUrl(value)).filter(Boolean))];
+}
+
+function mergeGithubReferenceItemLists(itemsA, itemsB) {
+  const merged = [];
+  const byUrl = new Map();
+  for (const rawItem of [...(Array.isArray(itemsA) ? itemsA : []), ...(Array.isArray(itemsB) ? itemsB : [])]) {
+    const url = normalizeHttpUrl(rawItem && rawItem.url);
+    if (!url) continue;
+    const existing = byUrl.get(url);
+    if (existing) {
+      existing.source = choosePreferredText(existing.source, rawItem && rawItem.source);
+      existing.label = choosePreferredText(existing.label, rawItem && rawItem.label);
+      existing.context = choosePreferredText(existing.context, rawItem && rawItem.context);
+      existing.library = choosePreferredText(existing.library, rawItem && rawItem.library);
+      existing.repository = choosePreferredText(existing.repository, rawItem && rawItem.repository);
+      existing.fileName = choosePreferredText(existing.fileName, rawItem && rawItem.fileName);
+      existing.filePath = choosePreferredText(existing.filePath, rawItem && rawItem.filePath);
+      existing.referencePath = choosePreferredText(existing.referencePath, rawItem && rawItem.referencePath);
+      continue;
+    }
+    const item = {
+      url,
+      source: collapseWhitespace(rawItem && rawItem.source),
+      label: collapseWhitespace(rawItem && rawItem.label),
+      context: collapseWhitespace(rawItem && rawItem.context),
+      library: collapseWhitespace(rawItem && rawItem.library),
+      repository: collapseWhitespace(rawItem && rawItem.repository),
+      fileName: collapseWhitespace(rawItem && rawItem.fileName),
+      filePath: collapseWhitespace(rawItem && rawItem.filePath),
+      referencePath: collapseWhitespace(rawItem && rawItem.referencePath),
+    };
+    byUrl.set(url, item);
+    merged.push(item);
+  }
+  return merged;
+}
+
+function cleanMlirTopicLabel(value) {
+  const text = collapseWhitespace(value).replace(/:$/, '');
+  const key = slugify(text);
+  if (!text || MLIR_GENERIC_GROUP_KEYS.has(key)) return '';
+  return text;
+}
+
+function cleanMlirTalkTitle(value) {
+  let title = collapseWhitespace(value);
+  if (!title) return '';
+
+  title = title
+    .replace(/^\d{4}-\d{2}(?:-\d{2}(?:\/\d{2})?)?(?:\s*&\s*\d{4}-\d{2}(?:-\d{2})?)?\s*:\s*/i, '')
+    .trim();
+
+  title = title
+    .replace(/\s*\((?:slides?|recordings?|recording|transcript)\s*$/i, '')
+    .replace(/\s*[-;:]\s*(?:slides?|recordings?|recording|transcript|additional slides?)\s*$/i, '')
+    .replace(/\s+(?:slides?|recordings?|recording|transcript)\s*$/i, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/[(:;\-]+$/g, '')
+    .trim();
+
+  return title;
+}
+
+function pad2(value) {
+  return String(value || '').padStart(2, '0');
+}
+
+function parseMlirDateFromTitle(title) {
+  const match = collapseWhitespace(title).match(/^(\d{4})-(\d{2})-(\d{2})(?:\b|[:\s-])/);
+  if (!match) return null;
+  return {
+    sortKey: `${match[1]}-${match[2]}-${match[3]}`,
+    label: `${match[1]}-${match[2]}-${match[3]}`,
+    year: match[1],
+  };
+}
+
+function parseMlirDateFromText(text) {
+  const match = collapseWhitespace(text).match(
+    /\b(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun|July|Jul|August|Aug|September|Sept|Sep|October|Oct|November|Nov|December|Dec)\s+(\d{1,2})(?:\s*[-/]\s*(\d{1,2}))?,?\s+((?:19|20)\d{2})\b/i
+  );
+  if (!match) return null;
+  const month = MLIR_MONTH_LOOKUP[String(match[1] || '').toLowerCase()];
+  if (!month) return null;
+  return {
+    sortKey: `${match[4]}-${month}-${pad2(match[2])}`,
+    label: collapseWhitespace(match[0]),
+    year: String(match[4]),
+  };
+}
+
+function parseMlirDateFromUrls(urls) {
+  for (const url of (Array.isArray(urls) ? urls : [])) {
+    const text = String(url || '');
+    const exact = text.match(/\/((?:19|20)\d{2})-(\d{2})-(\d{2})(?:[^\d]|$)/);
+    if (exact) {
+      return {
+        sortKey: `${exact[1]}-${exact[2]}-${exact[3]}`,
+        label: `${exact[1]}-${exact[2]}-${exact[3]}`,
+        year: exact[1],
+      };
+    }
+    const monthMatch = text.match(/\/((?:19|20)\d{2})-(\d{2})(?:[^\d]|$)/);
+    if (monthMatch) {
+      return {
+        sortKey: `${monthMatch[1]}-${monthMatch[2]}-00`,
+        label: `${monthMatch[1]}-${monthMatch[2]}`,
+        year: monthMatch[1],
+      };
+    }
+    const yearMatch = text.match(/\/((?:19|20)\d{2})(?:[^\d]|$)/);
+    if (yearMatch) {
+      return {
+        sortKey: `${yearMatch[1]}-00-00`,
+        label: yearMatch[1],
+        year: yearMatch[1],
+      };
+    }
+  }
+  return null;
+}
+
+function parseMlirTalkDateInfo(entry, actions) {
+  const fromTitle = parseMlirDateFromTitle(entry && entry.title);
+  if (fromTitle) return fromTitle;
+
+  const fromText = parseMlirDateFromText(entry && (entry.summary || entry.text));
+  if (fromText) return fromText;
+
+  const fromUrls = parseMlirDateFromUrls((actions || []).map((action) => action && action.url));
+  if (fromUrls) return fromUrls;
+
+  const fallbackYearMatch = collapseWhitespace(entry && (entry.summary || entry.text || entry.title)).match(/\b((?:19|20)\d{2})\b/);
+  if (fallbackYearMatch) {
+    return {
+      sortKey: `${fallbackYearMatch[1]}-00-00`,
+      label: fallbackYearMatch[1],
+      year: fallbackYearMatch[1],
+    };
+  }
+
+  return {
+    sortKey: '0000-00-00',
+    label: '',
+    year: '',
+  };
+}
+
+function cleanMlirEventName(value) {
+  return collapseWhitespace(value)
+    .replace(/\.$/, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function inferMlirMeetingName(entry, sectionTitle, groupTitle, actions) {
+  const summary = collapseWhitespace(entry && entry.summary);
+  const text = collapseWhitespace(entry && entry.text);
+  const title = collapseWhitespace(entry && entry.title);
+
+  if (summary.includes(' @ ')) {
+    return cleanMlirEventName(summary.split(' @ ').pop());
+  }
+  if (text.includes(' @ ')) {
+    return cleanMlirEventName(text.split(' @ ').pop());
+  }
+
+  const prefixMatch = title.match(/^([^:]+):/);
+  if (prefixMatch && /\b((?:19|20)\d{2})\b/.test(prefixMatch[1])) {
+    return cleanMlirEventName(
+      prefixMatch[1]
+        .replace(/\b(Keynote|Talk|Tutorial|Presentation|Workshop)\b/gi, '')
+        .replace(/\s{2,}/g, ' ')
+    );
+  }
+
+  if (slugify(sectionTitle) === 'open-design-meeting-presentations') {
+    return 'MLIR Open Design Meeting';
+  }
+
+  const eventAction = (actions || []).find((action) => action && action.kind === 'event' && collapseWhitespace(action.label).toLowerCase() !== 'event');
+  if (eventAction) return cleanMlirEventName(eventAction.label);
+
+  return cleanMlirTopicLabel(groupTitle) || collapseWhitespace(sectionTitle) || 'MLIR Talk';
+}
+
+function normalizeMlirSpeakerName(value) {
+  const normalized = HubUtils.normalizePersonRecord({ name: value });
+  const name = collapseWhitespace(normalized && normalized.name ? normalized.name : value);
+  return name
+    .replace(/\((?:filling in for|moderator|host)[^)]+\)/gi, '')
+    .replace(/\b(?:filling in for|moderator|host)\b.*$/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/^[,;:]+|[,;:]+$/g, '')
+    .trim();
+}
+
+function looksLikeMlirPersonName(value) {
+  const text = normalizeMlirSpeakerName(value);
+  if (!text || /\d/.test(text)) return false;
+  const tokens = text.split(/\s+/).filter(Boolean);
+  if (tokens.length < 2 || tokens.length > 6) return false;
+  if (tokens.some((token) => ['by', 'of', 'for', 'in', 'to'].includes(token.toLowerCase()))) return false;
+  return tokens.every((token) => {
+    const cleaned = token.replace(/^[.'’()-]+|[.'’()-]+$/g, '');
+    if (!cleaned) return false;
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[.'’-][A-Za-zÀ-ÖØ-öø-ÿ]+)*$/.test(cleaned);
+  });
+}
+
+function looksLikeMlirSpeakerList(value) {
+  const text = collapseWhitespace(value);
+  if (!text) return false;
+  const parts = text.split(/\s*(?:,| and |\/|;)\s*/i).map((part) => normalizeMlirSpeakerName(part)).filter(Boolean);
+  if (!parts.length || parts.length > 6) return false;
+  return parts.every((part) => looksLikeMlirPersonName(part));
+}
+
+function extractMlirTalkSpeakers(entry, actions) {
+  if (Array.isArray(entry && entry.speakers) && entry.speakers.length) {
+    return entry.speakers
+      .map((speaker) => ({
+        name: normalizeMlirSpeakerName(speaker && speaker.name),
+        affiliation: collapseWhitespace(speaker && speaker.affiliation),
+      }))
+      .filter((speaker) => looksLikeMlirPersonName(speaker.name));
+  }
+
+  const rawCandidates = [];
+  for (const source of [entry && entry.summary, entry && entry.text]) {
+    let candidate = collapseWhitespace(source);
+    if (!candidate) continue;
+    if (candidate.includes(' @ ')) candidate = candidate.split(' @ ')[0];
+    if (candidate.includes(';')) candidate = candidate.split(';').pop();
+    candidate = candidate
+      .replace(/\b(?:slides?|recordings?|recording|transcript|event|talk|part\s+\d+|additional slides?)\b/gi, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    if (candidate) rawCandidates.push(candidate);
+  }
+  for (const action of (Array.isArray(actions) ? actions : [])) {
+    const label = normalizeMlirSpeakerName(action && action.label);
+    if (looksLikeMlirPersonName(label)) rawCandidates.push(label);
+  }
+
+  const speakers = [];
+  const seen = new Set();
+  for (const candidate of rawCandidates) {
+    const names = candidate.split(/\s*(?:,| and |\/)\s*/i);
+    for (const rawName of names) {
+      const name = normalizeMlirSpeakerName(rawName);
+      const key = name.toLowerCase();
+      if (!looksLikeMlirPersonName(name) || seen.has(key)) continue;
+      seen.add(key);
+      speakers.push({ name, affiliation: '' });
+    }
+    if (speakers.length) break;
+  }
+
+  return speakers;
+}
+
+function stripMlirTalkMetadata(value) {
+  return collapseWhitespace(value)
+    .replace(/\s+@\s+.+$/, '')
+    .replace(MLIR_RESOURCE_ONLY_RE, ' ')
+    .replace(/\s*[-;:,/]\s*/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function buildMlirTalkAbstract(entry, speakers) {
+  const explicit = collapseWhitespace(entry && entry.abstract);
+  if (explicit) return explicit;
+
+  const title = cleanMlirTalkTitle(entry && entry.title);
+  const titleLower = title.toLowerCase();
+  const rawCandidates = [
+    collapseWhitespace(entry && entry.summary),
+    collapseWhitespace(entry && entry.text),
+  ];
+
+  for (const raw of rawCandidates) {
+    if (!raw) continue;
+    let candidate = raw;
+    if (title && candidate.toLowerCase().startsWith(titleLower)) {
+      candidate = candidate.slice(title.length).trim();
+    }
+    candidate = stripMlirTalkMetadata(candidate);
+    if (!candidate) continue;
+    if (looksLikeMlirSpeakerList(candidate)) continue;
+    if (Array.isArray(speakers) && speakers.length) {
+      const speakerNames = speakers.map((speaker) => normalizeMlirSpeakerName(speaker && speaker.name).toLowerCase());
+      if (speakerNames.includes(candidate.toLowerCase())) continue;
+    }
+    if (candidate.split(/\s+/).length < 4) continue;
+    return candidate;
+  }
+
+  return '';
+}
+
+function pickAction(actions, predicate) {
+  return (Array.isArray(actions) ? actions : []).find((action) => action && predicate(action)) || null;
+}
+
+function buildSharedTalkDetailUrl(talkId) {
+  const id = collapseWhitespace(talkId);
+  if (!id) return 'talks/talk.html';
+  return `talks/talk.html?id=${encodeURIComponent(id)}`;
+}
+
+function pickMlirTalkSourceUrl(actions, fallbackUrl, blockedUrls) {
+  const blocked = blockedUrls instanceof Set ? blockedUrls : new Set();
+  const candidates = Array.isArray(actions)
+    ? actions.filter((action) => action && ['primary', 'link', 'event'].includes(action.kind))
+    : [];
+
+  for (const action of candidates) {
+    const url = collapseWhitespace(action && action.url);
+    if (!url || blocked.has(url)) continue;
+    return url;
+  }
+
+  const fallback = collapseWhitespace(fallbackUrl);
+  if (fallback && !blocked.has(fallback)) return fallback;
+  return '';
+}
+
+function buildMlirTalkRecord(entry, sectionTitle, groupTitle, fallbackUrl) {
+  const actions = Array.isArray(entry && entry.actions)
+    ? entry.actions
+        .map((action) => ({
+          kind: collapseWhitespace(action && action.kind).toLowerCase(),
+          label: collapseWhitespace(action && action.label),
+          url: sanitizeExternalUrl(action && action.url),
+        }))
+        .filter((action) => action.url)
+    : [];
+
+  const primaryAction = pickAction(actions, (action) => action.kind === 'primary')
+    || pickAction(actions, (action) => action.kind === 'slides')
+    || pickAction(actions, (action) => action.kind === 'recording')
+    || pickAction(actions, (action) => action.kind === 'event')
+    || pickAction(actions, (action) => action.kind === 'link')
+    || actions[0]
+    || null;
+
+  const talkId = collapseWhitespace(entry && entry.id)
+    || slugify(entry && entry.title)
+    || slugify(collapseWhitespace(primaryAction && primaryAction.url) || fallbackUrl);
+  const videoAction = pickAction(actions, (action) => action.kind === 'recording')
+    || (primaryAction && (primaryAction.kind === 'recording' || (typeof HubUtils.extractYouTubeId === 'function' && HubUtils.extractYouTubeId(primaryAction.url)))
+      ? primaryAction
+      : null);
+  const slidesAction = pickAction(actions, (action) => action.kind === 'slides');
+  const posterAction = pickAction(actions, (action) => action.kind === 'poster');
+  const githubAction = pickAction(actions, (action) => /github\.com/i.test(action.url));
+  const videoUrl = collapseWhitespace(videoAction && videoAction.url);
+  const slidesUrl = collapseWhitespace(slidesAction && slidesAction.url);
+  const posterUrl = collapseWhitespace(posterAction && posterAction.url);
+  const sourceUrl = pickMlirTalkSourceUrl(actions, fallbackUrl, new Set([videoUrl, slidesUrl, posterUrl].filter(Boolean)));
+  const detailUrl = buildSharedTalkDetailUrl(talkId);
+
+  const cleanedTitle = collapseWhitespace(entry && entry.displayTitle) || cleanMlirTalkTitle(entry && entry.title) || 'Untitled MLIR Talk';
+  const speakers = extractMlirTalkSpeakers(entry, actions);
+  const abstract = buildMlirTalkAbstract({ ...entry, title: cleanedTitle }, speakers);
+  const meetingName = inferMlirMeetingName({ ...entry, title: cleanedTitle }, sectionTitle, groupTitle, actions);
+  const dateInfo = parseMlirTalkDateInfo(entry, actions);
+  const sortSuffix = slugify(meetingName || cleanedTitle || talkId).slice(0, 48);
+  const meeting = sortSuffix
+    ? `${dateInfo.sortKey}-${sortSuffix}`
+    : dateInfo.sortKey;
+
+  const tags = uniqueStrings([
+    MLIR_TOPIC_TAG,
+    cleanMlirTopicLabel(groupTitle),
+    ...(slugify(sectionTitle) === 'open-design-meeting-presentations' ? ['Open Design Meeting'] : []),
+  ]);
+
+  return {
+    id: talkId,
+    title: cleanedTitle,
+    abstract,
+    speakers,
+    resourceActions: actions,
+    category: MLIR_TALK_SECTION_CATEGORY_MAP[slugify(sectionTitle)] || 'other',
+    tags,
+    meeting,
+    meetingName,
+    meetingDate: dateInfo.label,
+    meetingLocation: '',
+    videoUrl,
+    slidesUrl,
+    posterUrl,
+    projectGithub: collapseWhitespace(githubAction && githubAction.url),
+    sourceUrl,
+    detailUrl,
+    mlirSection: collapseWhitespace(sectionTitle),
+    mlirGroup: cleanMlirTopicLabel(groupTitle),
+    _mlirSourceUpstream: true,
+  };
+}
+
+function extractMlirTalks(payload) {
+  const fallbackUrl = sanitizeExternalUrl(payload && payload.sourceUrl);
+  const talks = [];
+
+  for (const section of (Array.isArray(payload && payload.sections) ? payload.sections : [])) {
+    const sectionTitle = collapseWhitespace(section && section.title);
+    const sectionKey = slugify(sectionTitle);
+    if (MLIR_EXCLUDED_TALK_SECTION_KEYS.has(sectionKey)) continue;
+    for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
+      const groupTitle = collapseWhitespace(group && group.title);
+      for (const entry of (Array.isArray(group && group.entries) ? group.entries : [])) {
+        if (!entry || typeof entry !== 'object') continue;
+        talks.push(buildMlirTalkRecord(entry, sectionTitle, groupTitle, fallbackUrl));
+      }
+    }
+  }
+
+  return talks.filter((talk) => talk.id && talk.title);
+}
+
+function talkYear(talk) {
+  return String(
+    parseYearNumber(
+      talk && (
+        talk.meetingDate
+        || talk.meeting
+        || talk.meetingName
+        || talk.title
+      )
+    ) || ''
+  );
+}
+
+function buildTalkMatchIndex(talks) {
+  const index = {
+    byExact: new Map(),
+    byTitle: new Map(),
+  };
+  for (const talk of (Array.isArray(talks) ? talks : [])) {
+    addTalkToMatchIndex(index, talk);
+  }
+  return index;
+}
+
+function addTalkToMatchIndex(index, talk) {
+  if (!index || !talk) return;
+  const titleKey = normalizeTitleKey(talk && talk.title);
+  const year = talkYear(talk);
+  if (!titleKey) return;
+  if (year) index.byExact.set(`${titleKey}|${year}`, talk);
+  if (!index.byTitle.has(titleKey)) index.byTitle.set(titleKey, []);
+  index.byTitle.get(titleKey).push(talk);
+}
+
+function findMatchingTalkRecord(candidateTalk, index) {
+  const titleKey = normalizeTitleKey(candidateTalk && candidateTalk.title);
+  if (!titleKey || !index) return null;
+
+  const year = talkYear(candidateTalk);
+  if (year) {
+    const exact = index.byExact.get(`${titleKey}|${year}`);
+    if (exact) return exact;
+  }
+
+  const candidates = index.byTitle.get(titleKey) || [];
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function mergeTalkRecords(baseTalk, extraTalk) {
+  const merged = { ...baseTalk };
+  merged.title = choosePreferredText(baseTalk && baseTalk.title, extraTalk && extraTalk.title);
+  merged.abstract = choosePreferredText(baseTalk && baseTalk.abstract, extraTalk && extraTalk.abstract);
+  merged.meeting = choosePreferredText(baseTalk && baseTalk.meeting, extraTalk && extraTalk.meeting);
+  merged.meetingName = choosePreferredText(baseTalk && baseTalk.meetingName, extraTalk && extraTalk.meetingName);
+  merged.meetingDate = choosePreferredText(baseTalk && baseTalk.meetingDate, extraTalk && extraTalk.meetingDate);
+  merged.meetingLocation = choosePreferredText(baseTalk && baseTalk.meetingLocation, extraTalk && extraTalk.meetingLocation);
+  merged.videoUrl = sanitizeExternalUrl(baseTalk && baseTalk.videoUrl) || sanitizeExternalUrl(extraTalk && extraTalk.videoUrl);
+  merged.videoId = collapseWhitespace(baseTalk && baseTalk.videoId) || collapseWhitespace(extraTalk && extraTalk.videoId);
+  merged.slidesUrl = sanitizeExternalUrl(baseTalk && baseTalk.slidesUrl) || sanitizeExternalUrl(extraTalk && extraTalk.slidesUrl);
+  merged.posterUrl = sanitizeExternalUrl(baseTalk && baseTalk.posterUrl) || sanitizeExternalUrl(extraTalk && extraTalk.posterUrl);
+  const mergedResourceActions = mergeActionLists(baseTalk && baseTalk.resourceActions, extraTalk && extraTalk.resourceActions);
+  merged.resourceActions = mergedResourceActions;
+  merged.projectGithub = selectPrimaryGithubUrl(
+    sanitizeExternalUrl(baseTalk && baseTalk.projectGithub) || sanitizeExternalUrl(extraTalk && extraTalk.projectGithub),
+    [
+      baseTalk && baseTalk.projectGithub,
+      extraTalk && extraTalk.projectGithub,
+      ...(Array.isArray(baseTalk && baseTalk.githubReferences) ? baseTalk.githubReferences : []),
+      ...(Array.isArray(extraTalk && extraTalk.githubReferences) ? extraTalk.githubReferences : []),
+    ],
+    mergedResourceActions
+  );
+  merged.sourceUrl = sanitizeExternalUrl(baseTalk && baseTalk.sourceUrl) || sanitizeExternalUrl(extraTalk && extraTalk.sourceUrl);
+  merged.detailUrl = collapseWhitespace(baseTalk && baseTalk.detailUrl) || collapseWhitespace(extraTalk && extraTalk.detailUrl);
+  merged.tags = uniqueStrings([...(Array.isArray(baseTalk && baseTalk.tags) ? baseTalk.tags : []), ...(Array.isArray(extraTalk && extraTalk.tags) ? extraTalk.tags : [])]);
+  merged.keywords = uniqueStrings([...(Array.isArray(baseTalk && baseTalk.keywords) ? baseTalk.keywords : []), ...(Array.isArray(extraTalk && extraTalk.keywords) ? extraTalk.keywords : [])]);
+  merged.speakers = mergeSpeakerLists(baseTalk && baseTalk.speakers, extraTalk && extraTalk.speakers);
+  merged.githubReferences = mergeUrlLists(baseTalk && baseTalk.githubReferences, extraTalk && extraTalk.githubReferences);
+  merged.githubReferenceItems = mergeGithubReferenceItemLists(baseTalk && baseTalk.githubReferenceItems, extraTalk && extraTalk.githubReferenceItems);
+  merged._mlirSourceUpstream = !!(baseTalk && baseTalk._mlirSourceUpstream) || !!(extraTalk && extraTalk._mlirSourceUpstream);
+  return merged;
+}
+
+function normalizeMlirPublicationActions(entry) {
+  return Array.isArray(entry && entry.actions)
+    ? entry.actions
+        .map((action) => ({
+          kind: collapseWhitespace(action && action.kind).toLowerCase(),
+          label: collapseWhitespace(action && action.label),
+          url: sanitizeExternalUrl(action && action.url),
+        }))
+        .filter((action) => action.label && action.url)
+    : [];
+}
+
+function buildMlirPublicationPrimaryHref(actions, fallbackUrl) {
+  const primaryAction = actions.find((action) => action.kind === 'primary')
+    || actions.find((action) => action.kind === 'preprint')
+    || actions[0]
+    || null;
+  return collapseWhitespace(primaryAction && primaryAction.url) || sanitizeExternalUrl(fallbackUrl);
+}
+
+function extractMlirPublicationYear(entry) {
+  const match = collapseWhitespace([
+    entry && entry.title,
+    entry && entry.summary,
+    entry && entry.text,
+  ].join(' ')).match(/\b((?:19|20)\d{2})\b/);
+  return match ? match[1] : '';
+}
+
+function extractMlirPublicationAuthors(entry) {
+  const summary = collapseWhitespace(entry && entry.summary);
+  const authorSegment = summary.split(' - ')[0] || summary;
+  return uniqueStrings(
+    authorSegment
+      .split(/\s*,\s*|\s+and\s+/i)
+      .map((value) => collapseWhitespace(value))
+      .filter((value) => value && !/\bproceedings\b/i.test(value))
+  );
+}
+
+function extractMlirPublicationVenue(entry) {
+  const summary = collapseWhitespace(entry && entry.summary);
+  const segments = summary.split(' - ').map((value) => collapseWhitespace(value)).filter(Boolean);
+  if (segments.length <= 1) return '';
+  return segments.slice(1).join(' - ');
+}
+
+function buildPaperLookupIndex(papers) {
+  const index = {
+    byTitle: new Map(),
+    byDoi: new Map(),
+    byUrl: new Map(),
+  };
+  for (const paper of (Array.isArray(papers) ? papers : [])) {
+    addPaperToLookupIndex(index, paper);
+  }
+  return index;
+}
+
+function addPaperToLookupIndex(index, paper) {
+  if (!index || !paper) return;
+  const titleKey = normalizeTitleKey(paper && paper.title);
+  if (titleKey && !index.byTitle.has(titleKey)) {
+    index.byTitle.set(titleKey, paper);
+  }
+  const doi = extractDoi(paper && (paper.doi || paper.paperUrl || paper.sourceUrl)).toLowerCase();
+  if (doi && !index.byDoi.has(doi)) {
+    index.byDoi.set(doi, paper);
+  }
+  for (const url of [paper && paper.paperUrl, paper && paper.sourceUrl]) {
+    const normalizedUrl = sanitizeExternalUrl(url);
+    if (normalizedUrl && !index.byUrl.has(normalizedUrl)) {
+      index.byUrl.set(normalizedUrl, paper);
+    }
+  }
+}
+
+function findMatchingPaperForMlirEntry(entry, paperIndex) {
+  if (!paperIndex) return null;
+  const actions = normalizeMlirPublicationActions(entry);
+
+  for (const action of actions) {
+    const doi = extractDoi(action.url).toLowerCase();
+    if (doi && paperIndex.byDoi.has(doi)) return paperIndex.byDoi.get(doi) || null;
+  }
+
+  const titleKey = normalizeTitleKey(entry && entry.title);
+  if (titleKey && paperIndex.byTitle.has(titleKey)) {
+    return paperIndex.byTitle.get(titleKey) || null;
+  }
+
+  for (const action of actions) {
+    const url = sanitizeExternalUrl(action.url);
+    if (url && paperIndex.byUrl.has(url)) return paperIndex.byUrl.get(url) || null;
+  }
+
+  return null;
+}
+
+function mergePaperWithMlirEntry(paper, entry, fallbackUrl) {
+  const actions = normalizeMlirPublicationActions(entry);
+  const primaryUrl = buildMlirPublicationPrimaryHref(actions, fallbackUrl);
+  const merged = {
+    ...paper,
+    abstract: choosePreferredText(paper && paper.abstract, entry && entry.summary),
+    year: collapseWhitespace(paper && paper.year) || extractMlirPublicationYear(entry),
+    publication: choosePreferredText(paper && paper.publication, extractMlirPublicationVenue(entry)),
+    paperUrl: sanitizeExternalUrl(paper && paper.paperUrl) || primaryUrl,
+    sourceUrl: sanitizeExternalUrl(paper && paper.sourceUrl) || sanitizeExternalUrl(fallbackUrl),
+    type: collapseWhitespace(paper && paper.type) || 'paper',
+    tags: uniqueStrings([...(Array.isArray(paper && paper.tags) ? paper.tags : []), MLIR_TOPIC_TAG]),
+    keywords: uniqueStrings([...(Array.isArray(paper && paper.keywords) ? paper.keywords : []), MLIR_TOPIC_TAG]),
+    matchedSubprojects: uniqueStrings([...(Array.isArray(paper && paper.matchedSubprojects) ? paper.matchedSubprojects : []), MLIR_TOPIC_TAG]),
+    authors: (Array.isArray(paper && paper.authors) && paper.authors.length)
+      ? paper.authors
+      : extractMlirPublicationAuthors(entry).map((name) => ({ name })),
+    _mlirSourceUpstream: true,
+  };
+  return normalizePaperRecord(merged);
+}
+
+function buildSyntheticPaperFromMlirEntry(entry, fallbackUrl) {
+  const actions = normalizeMlirPublicationActions(entry);
+  const title = collapseWhitespace(entry && entry.title) || 'Untitled MLIR Publication';
+  const year = extractMlirPublicationYear(entry);
+  const venue = extractMlirPublicationVenue(entry);
+  return normalizePaperRecord({
+    id: collapseWhitespace(entry && entry.id) || `mlir-pub-${slugify(title)}`,
+    title,
+    abstract: collapseWhitespace(entry && entry.summary),
+    year,
+    publication: venue,
+    type: 'paper',
+    source: 'mlir-publications',
+    sourceName: 'MLIR Publications',
+    authors: extractMlirPublicationAuthors(entry).map((name) => ({ name })),
+    paperUrl: buildMlirPublicationPrimaryHref(actions, fallbackUrl),
+    sourceUrl: sanitizeExternalUrl(fallbackUrl),
+    tags: [MLIR_TOPIC_TAG],
+    keywords: [MLIR_TOPIC_TAG],
+    matchedSubprojects: [MLIR_TOPIC_TAG],
+    citationCount: 0,
+    _mlirSourceUpstream: true,
+  });
 }
 
 function getPaperIdFromUpdateEntry(entry) {
@@ -1165,13 +1938,14 @@ function loadEventManifestData() {
   const manifest = readJson(manifestPath);
   const referencePath = path.join(repoRoot, 'js', 'data', 'talk-paper-links.json');
   const referencePayload = readJson(referencePath);
+  const mlirTalksPath = path.join(repoRoot, 'sub-projects', 'mlir', 'data', 'talks.json');
   const referenceIndex = referencePayload && referencePayload.talks && typeof referencePayload.talks === 'object'
     ? referencePayload.talks
     : {};
 
   const talks = [];
   const meetings = [];
-  const inputFiles = [manifestPath, referencePath];
+  const inputFiles = [manifestPath, referencePath, mlirTalksPath];
 
   for (const rel of (Array.isArray(manifest.eventFiles) ? manifest.eventFiles : [])) {
     const bundlePath = path.join(repoRoot, 'devmtg', 'events', rel);
@@ -1184,13 +1958,28 @@ function loadEventManifestData() {
     }
   }
 
+  const mergedTalks = talks.map((talk) => ({ ...talk }));
+  const talkMatchIndex = buildTalkMatchIndex(mergedTalks);
+  const mlirTalksPayload = readJson(mlirTalksPath);
+  for (const upstreamTalk of extractMlirTalks(mlirTalksPayload)) {
+    const match = findMatchingTalkRecord(upstreamTalk, talkMatchIndex);
+    if (match) {
+      Object.assign(match, mergeTalkRecords(match, upstreamTalk));
+      continue;
+    }
+    const syntheticTalk = { ...upstreamTalk };
+    mergedTalks.push(syntheticTalk);
+    addTalkToMatchIndex(talkMatchIndex, syntheticTalk);
+  }
+  const normalizedTalks = mergedTalks.map((talk) => normalizeTalkRecord(applyReferenceMetadataToTalk(talk, referenceIndex)));
+
   return {
-    talks,
+    talks: normalizedTalks,
     meetings,
     referencePayload,
     inputFiles,
     dataVersion: collapseWhitespace(manifest.dataVersion),
-    generatedAt: maxIsoDate([referencePayload && referencePayload.generatedAt]),
+    generatedAt: maxIsoDate([referencePayload && referencePayload.generatedAt, mlirTalksPayload && mlirTalksPayload.generatedAt]),
   };
 }
 
@@ -1200,7 +1989,8 @@ function loadPaperManifestData() {
   const papers = [];
   const sources = [];
   const updatesPath = path.join(repoRoot, 'updates', 'index.json');
-  const inputFiles = [manifestPath, updatesPath];
+  const mlirPublicationsPath = path.join(repoRoot, 'sub-projects', 'mlir', 'data', 'publications.json');
+  const inputFiles = [manifestPath, updatesPath, mlirPublicationsPath];
 
   for (const rel of (Array.isArray(manifest.paperFiles) ? manifest.paperFiles : [])) {
     const bundlePath = path.join(repoRoot, 'papers', rel);
@@ -1213,16 +2003,44 @@ function loadPaperManifestData() {
     }
   }
 
+  const mlirPublicationsPayload = readJson(mlirPublicationsPath);
+  const fallbackMlirPublicationsUrl = sanitizeExternalUrl(mlirPublicationsPayload && mlirPublicationsPayload.sourceUrl);
+  const mergedPapers = papers.map((paper) => ({ ...paper }));
+  const paperLookupIndex = buildPaperLookupIndex(mergedPapers);
+  let addedSyntheticMlirPaper = false;
+
+  for (const section of (Array.isArray(mlirPublicationsPayload && mlirPublicationsPayload.sections) ? mlirPublicationsPayload.sections : [])) {
+    for (const group of (Array.isArray(section && section.groups) ? section.groups : [])) {
+      for (const entry of (Array.isArray(group && group.entries) ? group.entries : [])) {
+        if (!entry || typeof entry !== 'object') continue;
+        const linkedPaper = findMatchingPaperForMlirEntry(entry, paperLookupIndex);
+        if (linkedPaper) {
+          const mergedPaper = mergePaperWithMlirEntry(linkedPaper, entry, fallbackMlirPublicationsUrl);
+          Object.assign(linkedPaper, mergedPaper);
+          addPaperToLookupIndex(paperLookupIndex, linkedPaper);
+          continue;
+        }
+        const syntheticPaper = buildSyntheticPaperFromMlirEntry(entry, fallbackMlirPublicationsUrl);
+        if (!syntheticPaper) continue;
+        mergedPapers.push(syntheticPaper);
+        addPaperToLookupIndex(paperLookupIndex, syntheticPaper);
+        addedSyntheticMlirPaper = true;
+      }
+    }
+  }
+
+  if (addedSyntheticMlirPaper) sources.push('mlir-publications');
+
   const updatesPayload = readJson(updatesPath);
   const addedAtById = buildAddedAtMap(updatesPayload && updatesPayload.entries);
-  applyAddedAtMap(papers, addedAtById);
+  applyAddedAtMap(mergedPapers, addedAtById);
   return {
-    papers,
+    papers: mergedPapers,
     sources: collectPaperSources(sources),
     addedAtById,
     inputFiles,
     dataVersion: collapseWhitespace(manifest.dataVersion),
-    generatedAt: maxIsoDate([updatesPayload && updatesPayload.generatedAt]),
+    generatedAt: maxIsoDate([updatesPayload && updatesPayload.generatedAt, mlirPublicationsPayload && mlirPublicationsPayload.generatedAt]),
   };
 }
 

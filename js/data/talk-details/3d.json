@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-06-008": {
@@ -2088,6 +2088,302 @@
         "canceled": false,
         "talkCount": 30
       }
+    },
+    "mlir-talk-2023-12-14-vector-dialect-reshape-and-handling-of-unit-dimensions-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-12-14-vector-dialect-reshape-and-handling-of-unit-dimensions-slides",
+        "title": "Vector dialect, reshape, and handling of unit dimensions",
+        "abstract": "This is a design discussion on the topic of handling reshapes in the vector dialect. Formalizing the definition of a virtual vector How to position various reshape operations (collapse/expand/squeeze/unsqueeze/shape_cast) within the dialect How do we expect to target SPIR-V/LLVM/Scalable Vectors without each being so sensitive to small canonicalization/pattern changes How does this all relate to vector layouts and/or SIMT",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-12-14-Vector-reshapes.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/csWPOQfgLMo"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/openai/triton/blob/main/test/TritonGPU/combine.mlir"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-12-14-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-12-14",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/csWPOQfgLMo",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-12-14-Vector-reshapes.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/openai/triton/blob/main/test/TritonGPU/combine.mlir",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-12-14-vector-dialect-reshape-and-handling-of-unit-dimensions-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/openai/triton/blob/main/test/TritonGPU/combine.mlir"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/openai/triton/blob/main/test/TritonGPU/combine.mlir",
+            "source": "slides",
+            "label": "how the underlying elements are held across threads, before explicitly converting to SIMT ■",
+            "context": "how the underlying elements are held across threads, before explicitly converting to SIMT ■",
+            "library": "triton",
+            "repository": "openai/triton",
+            "fileName": "combine.mlir",
+            "filePath": "test/TritonGPU/combine.mlir",
+            "referencePath": "test/TritonGPU/combine.mlir"
+          }
+        ],
+        "videoId": "csWPOQfgLMo",
+        "keywords": [],
+        "_titleLower": "vector dialect, reshape, and handling of unit dimensions",
+        "_speakerLower": "",
+        "_abstractLower": "this is a design discussion on the topic of handling reshapes in the vector dialect. formalizing the definition of a virtual vector how to position various reshape operations (collapse/expand/squeeze/unsqueeze/shape_cast) within the dialect how do we expect to target spir-v/llvm/scalable vectors without each being so sensitive to small canonicalization/pattern changes how does this all relate to vector layouts and/or simt",
+        "_tagsLower": "mlir llvm",
+        "_meetingLower": "mlir open design meeting  2023-12-14",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "vector dialect reshape and handling of unit dimensions",
+              "words": [
+                "vector",
+                "dialect",
+                "reshape",
+                "and",
+                "handling",
+                "of",
+                "unit",
+                "dimensions"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir llvm",
+              "words": [
+                "mlir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-12-14",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-12-14"
+              ]
+            },
+            "abstract": {
+              "text": "this is a design discussion on the topic of handling reshapes in the vector dialect. formalizing the definition of a virtual vector how to position various reshape operations collapse expand squeeze unsqueeze shape cast within the dialect how do we expect to target spir-v llvm scalable vectors without each being so sensitive to small canonicalization pattern changes how does this all relate to vector layouts and or simt",
+              "words": [
+                "this",
+                "is",
+                "design",
+                "discussion",
+                "on",
+                "the",
+                "topic",
+                "of",
+                "handling",
+                "reshapes",
+                "in",
+                "the",
+                "vector",
+                "dialect.",
+                "formalizing",
+                "the",
+                "definition",
+                "of",
+                "virtual",
+                "vector",
+                "how",
+                "to",
+                "position",
+                "various",
+                "reshape",
+                "operations",
+                "collapse",
+                "expand",
+                "squeeze",
+                "unsqueeze",
+                "shape",
+                "cast",
+                "within",
+                "the",
+                "dialect",
+                "how",
+                "do",
+                "we",
+                "expect",
+                "to",
+                "target",
+                "spir-v",
+                "llvm",
+                "scalable",
+                "vectors",
+                "without",
+                "each",
+                "being",
+                "so",
+                "sensitive",
+                "to",
+                "small",
+                "canonicalization",
+                "pattern",
+                "changes",
+                "how",
+                "does",
+                "this",
+                "all",
+                "relate",
+                "to",
+                "vector",
+                "layouts",
+                "and",
+                "or",
+                "simt"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "vector dialect reshape and handling of unit dimensions this is a design discussion on the topic of handling reshapes in the vector dialect. formalizing the definition of a virtual vector how to position various reshape operations collapse expand squeeze unsqueeze shape cast within the dialect how do we expect to target spir-v llvm scalable vectors without each being so sensitive to small canonicalization pattern changes how does this all relate to vector layouts and or simt mlir open design meeting 2023-12-14 2023-12-14-mlir-open-design-meeting open-design-meeting mlir llvm"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-03-11-sparse-tensor-type-discussion": {
+      "talk": {
+        "id": "mlir-talk-2021-03-11-sparse-tensor-type-discussion",
+        "title": "Sparse Tensor Type Discussion",
+        "abstract": "2021 03 11 Sparse Tensor Type Discussion",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1D9D5x-1O4oDrNxVg_Vg7CyJQDjSw28z5/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-03-11-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-03-11",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1D9D5x-1O4oDrNxVg_Vg7CyJQDjSw28z5/view?usp=sharing",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-03-11-sparse-tensor-type-discussion",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "sparse tensor type discussion",
+        "_speakerLower": "",
+        "_abstractLower": "2021 03 11 sparse tensor type discussion",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-03-11",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "sparse tensor type discussion",
+              "words": [
+                "sparse",
+                "tensor",
+                "type",
+                "discussion"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-03-11",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-03-11"
+              ]
+            },
+            "abstract": {
+              "text": "2021 03 11 sparse tensor type discussion",
+              "words": [
+                "2021",
+                "03",
+                "11",
+                "sparse",
+                "tensor",
+                "type",
+                "discussion"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "sparse tensor type discussion 2021 03 11 sparse tensor type discussion mlir open design meeting 2021-03-11 2021-03-11-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-031": {
@@ -10999,6 +10999,226 @@
         "canceled": false,
         "talkCount": 34
       }
+    },
+    "mlir-talk-2023-07-06-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-07-06-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting-slides",
+        "title": "RFC on Pattern Matching for Library and Acceleration Instruction Rewriting",
+        "abstract": "In this presentation, Vinicius Espindola presents an approach to Pattern Matching for Library and Acceleration Instruction Rewriting. The motivation for this work is to support modern ISA extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. Although recent works have proposed different ways of raising code abstraction, they rely on specialized languages, compiler recompilation, or in-depth dialect knowledge. With this in mind, we developed Source-based Matching and Rewriting (SMR), an MLIR based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.",
+        "speakers": [
+          {
+            "name": "Acceleration Instruction Rewriting",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-07-06-SMR.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/0Uc4RTJ8QI4"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-07-06-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-07-06",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/0Uc4RTJ8QI4",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-07-06-SMR.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-07-06-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "0Uc4RTJ8QI4",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "rfc on pattern matching for library and acceleration instruction rewriting",
+        "_speakerLower": "acceleration instruction rewriting",
+        "_abstractLower": "in this presentation, vinicius espindola presents an approach to pattern matching for library and acceleration instruction rewriting. the motivation for this work is to support modern isa extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. although recent works have proposed different ways of raising code abstraction, they rely on specialized languages, compiler recompilation, or in-depth dialect knowledge. with this in mind, we developed source-based matching and rewriting (smr), an mlir based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2023-07-06",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "rfc on pattern matching for library and acceleration instruction rewriting",
+              "words": [
+                "rfc",
+                "on",
+                "pattern",
+                "matching",
+                "for",
+                "library",
+                "and",
+                "acceleration",
+                "instruction",
+                "rewriting"
+              ]
+            },
+            "speakers": {
+              "text": "acceleration instruction rewriting",
+              "words": [
+                "acceleration",
+                "instruction",
+                "rewriting"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-07-06",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-07-06"
+              ]
+            },
+            "abstract": {
+              "text": "in this presentation vinicius espindola presents an approach to pattern matching for library and acceleration instruction rewriting. the motivation for this work is to support modern isa extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. although recent works have proposed different ways of raising code abstraction they rely on specialized languages compiler recompilation or in-depth dialect knowledge. with this in mind we developed source-based matching and rewriting smr an mlir based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.",
+              "words": [
+                "in",
+                "this",
+                "presentation",
+                "vinicius",
+                "espindola",
+                "presents",
+                "an",
+                "approach",
+                "to",
+                "pattern",
+                "matching",
+                "for",
+                "library",
+                "and",
+                "acceleration",
+                "instruction",
+                "rewriting.",
+                "the",
+                "motivation",
+                "for",
+                "this",
+                "work",
+                "is",
+                "to",
+                "support",
+                "modern",
+                "isa",
+                "extensions",
+                "and",
+                "hardware",
+                "accelerators",
+                "which",
+                "created",
+                "the",
+                "demand",
+                "for",
+                "raising",
+                "program",
+                "idioms",
+                "to",
+                "acceleration",
+                "instructions",
+                "or",
+                "optimized",
+                "library",
+                "calls.",
+                "although",
+                "recent",
+                "works",
+                "have",
+                "proposed",
+                "different",
+                "ways",
+                "of",
+                "raising",
+                "code",
+                "abstraction",
+                "they",
+                "rely",
+                "on",
+                "specialized",
+                "languages",
+                "compiler",
+                "recompilation",
+                "or",
+                "in-depth",
+                "dialect",
+                "knowledge.",
+                "with",
+                "this",
+                "in",
+                "mind",
+                "we",
+                "developed",
+                "source-based",
+                "matching",
+                "and",
+                "rewriting",
+                "smr",
+                "an",
+                "mlir",
+                "based",
+                "user-oriented",
+                "tool",
+                "for",
+                "pattern",
+                "matching",
+                "and",
+                "rewriting",
+                "that",
+                "relies",
+                "on",
+                "source",
+                "code",
+                "to",
+                "simplify",
+                "pattern",
+                "and",
+                "replacement",
+                "specifications."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "rfc on pattern matching for library and acceleration instruction rewriting in this presentation vinicius espindola presents an approach to pattern matching for library and acceleration instruction rewriting. the motivation for this work is to support modern isa extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. although recent works have proposed different ways of raising code abstraction they rely on specialized languages compiler recompilation or in-depth dialect knowledge. with this in mind we developed source-based matching and rewriting smr an mlir based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications. mlir open design meeting 2023-07-06 2023-07-06-mlir-open-design-meeting open-design-meeting acceleration instruction rewriting mlir"
+      },
+      "meeting": null
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-014": {
@@ -11327,6 +11327,630 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-mlir-in-the-tensorflow-ecosystem": {
+      "talk": {
+        "id": "mlir-talk-mlir-in-the-tensorflow-ecosystem",
+        "title": "MLIR in the TensorFlow ecosystem",
+        "abstract": "",
+        "speakers": [
+          {
+            "name": "Jacques Pienaar",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://research.google/pubs/pub48996.pdf"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://www.c4ml.org/c4ml2020"
+          }
+        ],
+        "category": "technical-talk",
+        "tags": [
+          "MLIR",
+          "Using MLIR"
+        ],
+        "meeting": "2020-00-00-compilers-for-machine-learning-2020",
+        "meetingName": "Compilers for Machine Learning 2020",
+        "meetingDate": "2020",
+        "meetingLocation": "",
+        "videoUrl": "",
+        "slidesUrl": "https://research.google/pubs/pub48996.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://www.c4ml.org/c4ml2020",
+        "detailUrl": "talks/talk.html?id=mlir-talk-mlir-in-the-tensorflow-ecosystem",
+        "mlirSection": "Tech talks",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "mlir in the tensorflow ecosystem",
+        "_speakerLower": "jacques pienaar",
+        "_abstractLower": "",
+        "_tagsLower": "mlir",
+        "_meetingLower": "compilers for machine learning 2020  2020",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir in the tensorflow ecosystem",
+              "words": [
+                "mlir",
+                "in",
+                "the",
+                "tensorflow",
+                "ecosystem"
+              ]
+            },
+            "speakers": {
+              "text": "jacques pienaar",
+              "words": [
+                "jacques",
+                "pienaar"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "compilers for machine learning 2020 2020",
+              "words": [
+                "compilers",
+                "for",
+                "machine",
+                "learning",
+                "2020",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "mlir in the tensorflow ecosystem compilers for machine learning 2020 2020 2020-00-00-compilers-for-machine-learning-2020 technical-talk jacques pienaar mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-swift-as-syntactic-sugar-for-mlir": {
+      "talk": {
+        "id": "mlir-talk-swift-as-syntactic-sugar-for-mlir",
+        "title": "Swift as syntactic sugar for MLIR",
+        "abstract": "Swift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. The two options today are LLVM (there's a running joke that Swift is just syntactic sugar for LLVM) and TensorFlow graphs (which is the contribution of early versions of Swift for TensorFlow). Multi-Level Intermediate Representation (MLIR) is a generalization of both the LLVM IR and TensorFlow graphs to represent arbitrary computations at multiple levels of abstraction. This enables domain-specific optimizations and code generation (e.g. for CPUs, GPUs, TPUs, and other hardware targets).",
+        "speakers": [
+          {
+            "name": "Eugene Burmako",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Alex Suhan",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/1VOWzfULX2w"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://www.scale.bythebay.io/"
+          }
+        ],
+        "category": "technical-talk",
+        "tags": [
+          "MLIR",
+          "Using MLIR"
+        ],
+        "meeting": "2019-00-00-scale-by-the-bay-2019",
+        "meetingName": "Scale By the Bay 2019",
+        "meetingDate": "2019",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/1VOWzfULX2w",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://www.scale.bythebay.io/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-swift-as-syntactic-sugar-for-mlir",
+        "mlirSection": "Tech talks",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "1VOWzfULX2w",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "swift as syntactic sugar for mlir",
+        "_speakerLower": "eugene burmako alex suhan",
+        "_abstractLower": "swift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. the two options today are llvm (there's a running joke that swift is just syntactic sugar for llvm) and tensorflow graphs (which is the contribution of early versions of swift for tensorflow). multi-level intermediate representation (mlir) is a generalization of both the llvm ir and tensorflow graphs to represent arbitrary computations at multiple levels of abstraction. this enables domain-specific optimizations and code generation (e.g. for cpus, gpus, tpus, and other hardware targets).",
+        "_tagsLower": "mlir llvm ir code generation optimizations gpu swift",
+        "_meetingLower": "scale by the bay 2019  2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "swift as syntactic sugar for mlir",
+              "words": [
+                "swift",
+                "as",
+                "syntactic",
+                "sugar",
+                "for",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "eugene burmako alex suhan",
+              "words": [
+                "eugene",
+                "burmako",
+                "alex",
+                "suhan"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm ir code generation optimizations gpu swift",
+              "words": [
+                "mlir",
+                "llvm",
+                "ir",
+                "code",
+                "generation",
+                "optimizations",
+                "gpu",
+                "swift"
+              ]
+            },
+            "meeting": {
+              "text": "scale by the bay 2019 2019",
+              "words": [
+                "scale",
+                "by",
+                "the",
+                "bay",
+                "2019",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "swift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. the two options today are llvm theres a running joke that swift is just syntactic sugar for llvm and tensorflow graphs which is the contribution of early versions of swift for tensorflow . multi-level intermediate representation mlir is a generalization of both the llvm ir and tensorflow graphs to represent arbitrary computations at multiple levels of abstraction. this enables domain-specific optimizations and code generation e.g. for cpus gpus tpus and other hardware targets .",
+              "words": [
+                "swift",
+                "works",
+                "great",
+                "as",
+                "an",
+                "infinitely",
+                "hackable",
+                "syntactic",
+                "interface",
+                "to",
+                "semantics",
+                "that",
+                "are",
+                "defined",
+                "by",
+                "the",
+                "compiler",
+                "underneath",
+                "it.",
+                "the",
+                "two",
+                "options",
+                "today",
+                "are",
+                "llvm",
+                "theres",
+                "running",
+                "joke",
+                "that",
+                "swift",
+                "is",
+                "just",
+                "syntactic",
+                "sugar",
+                "for",
+                "llvm",
+                "and",
+                "tensorflow",
+                "graphs",
+                "which",
+                "is",
+                "the",
+                "contribution",
+                "of",
+                "early",
+                "versions",
+                "of",
+                "swift",
+                "for",
+                "tensorflow",
+                "multi-level",
+                "intermediate",
+                "representation",
+                "mlir",
+                "is",
+                "generalization",
+                "of",
+                "both",
+                "the",
+                "llvm",
+                "ir",
+                "and",
+                "tensorflow",
+                "graphs",
+                "to",
+                "represent",
+                "arbitrary",
+                "computations",
+                "at",
+                "multiple",
+                "levels",
+                "of",
+                "abstraction.",
+                "this",
+                "enables",
+                "domain-specific",
+                "optimizations",
+                "and",
+                "code",
+                "generation",
+                "e.g.",
+                "for",
+                "cpus",
+                "gpus",
+                "tpus",
+                "and",
+                "other",
+                "hardware",
+                "targets"
+              ]
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "swift as syntactic sugar for mlir swift works great as an infinitely hackable syntactic interface to semantics that are defined by the compiler underneath it. the two options today are llvm theres a running joke that swift is just syntactic sugar for llvm and tensorflow graphs which is the contribution of early versions of swift for tensorflow . multi-level intermediate representation mlir is a generalization of both the llvm ir and tensorflow graphs to represent arbitrary computations at multiple levels of abstraction. this enables domain-specific optimizations and code generation e.g. for cpus gpus tpus and other hardware targets . scale by the bay 2019 2019 2019-00-00-scale-by-the-bay-2019 technical-talk eugene burmako alex suhan mlir llvm ir code generation optimizations gpu swift"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2019-12-12-gpus-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2019-12-12-gpus-in-mlir",
+        "title": "GPUs in MLIR",
+        "abstract": "2019 12 12 GPUs in MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://docs.google.com/presentation/d/1LdFxf7c_2T6eCV4n2poMhophVlz0YV4NPL0E-7_Y5fU/view"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/a/google.com/file/d/1LqxzAf4IDgEsPyBf3lUeOM7hOvc6SXpe/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2019-12-12-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2019-12-12",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/a/google.com/file/d/1LqxzAf4IDgEsPyBf3lUeOM7hOvc6SXpe/view?usp=sharing",
+        "slidesUrl": "https://docs.google.com/presentation/d/1LdFxf7c_2T6eCV4n2poMhophVlz0YV4NPL0E-7_Y5fU/view",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2019-12-12-gpus-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "gpus in mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2019 12 12 gpus in mlir",
+        "_tagsLower": "mlir gpu",
+        "_meetingLower": "mlir open design meeting  2019-12-12",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "gpus in mlir",
+              "words": [
+                "gpus",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir gpu",
+              "words": [
+                "mlir",
+                "gpu"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2019-12-12",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2019-12-12"
+              ]
+            },
+            "abstract": {
+              "text": "2019 12 12 gpus in mlir",
+              "words": [
+                "2019",
+                "12",
+                "12",
+                "gpus",
+                "in",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "gpus in mlir 2019 12 12 gpus in mlir mlir open design meeting 2019-12-12 2019-12-12-mlir-open-design-meeting open-design-meeting mlir gpu"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2023-03-30-representing-dataflow-with-mlir": {
+      "talk": {
+        "id": "mlir-talk-2023-03-30-representing-dataflow-with-mlir",
+        "title": "Representing dataflow with MLIR",
+        "abstract": "In this presentation, Pedro Ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. This talk approaches this problem by creating an IR for static dataflow using MLIR, and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. In this presentation, we’ll focus on the challenges related to the use of MLIR and open the way for feedback and discussion regarding the found solutions.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-03-30-Representing-Dataflow-With-MLIR.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/kEcLBhbncEg"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-03-30-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-03-30",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/kEcLBhbncEg",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-03-30-Representing-Dataflow-With-MLIR.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-03-30-representing-dataflow-with-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "kEcLBhbncEg",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "representing dataflow with mlir",
+        "_speakerLower": "",
+        "_abstractLower": "in this presentation, pedro ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. this talk approaches this problem by creating an ir for static dataflow using mlir, and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. in this presentation, we’ll focus on the challenges related to the use of mlir and open the way for feedback and discussion regarding the found solutions.",
+        "_tagsLower": "mlir optimizations",
+        "_meetingLower": "mlir open design meeting  2023-03-30",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "representing dataflow with mlir",
+              "words": [
+                "representing",
+                "dataflow",
+                "with",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir optimizations",
+              "words": [
+                "mlir",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-03-30",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-03-30"
+              ]
+            },
+            "abstract": {
+              "text": "in this presentation pedro ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. this talk approaches this problem by creating an ir for static dataflow using mlir and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. in this presentation well focus on the challenges related to the use of mlir and open the way for feedback and discussion regarding the found solutions.",
+              "words": [
+                "in",
+                "this",
+                "presentation",
+                "pedro",
+                "ciambra",
+                "explores",
+                "the",
+                "problem",
+                "of",
+                "how",
+                "existing",
+                "dataflow",
+                "tools",
+                "are",
+                "difficult",
+                "to",
+                "integrate",
+                "with",
+                "the",
+                "state-of-the-art",
+                "industrial",
+                "compilers.",
+                "this",
+                "talk",
+                "approaches",
+                "this",
+                "problem",
+                "by",
+                "creating",
+                "an",
+                "ir",
+                "for",
+                "static",
+                "dataflow",
+                "using",
+                "mlir",
+                "and",
+                "demonstrate",
+                "it",
+                "by",
+                "implementing",
+                "novel",
+                "dead",
+                "code",
+                "elimination",
+                "optimization",
+                "that",
+                "relies",
+                "on",
+                "both",
+                "actor",
+                "and",
+                "graph",
+                "information.",
+                "in",
+                "this",
+                "presentation",
+                "well",
+                "focus",
+                "on",
+                "the",
+                "challenges",
+                "related",
+                "to",
+                "the",
+                "use",
+                "of",
+                "mlir",
+                "and",
+                "open",
+                "the",
+                "way",
+                "for",
+                "feedback",
+                "and",
+                "discussion",
+                "regarding",
+                "the",
+                "found",
+                "solutions."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "representing dataflow with mlir in this presentation pedro ciambra explores the problem of how existing dataflow tools are difficult to integrate with the state-of-the-art industrial compilers. this talk approaches this problem by creating an ir for static dataflow using mlir and demonstrate it by implementing a novel dead code elimination optimization that relies on both actor and graph information. in this presentation well focus on the challenges related to the use of mlir and open the way for feedback and discussion regarding the found solutions. mlir open design meeting 2023-03-30 2023-03-30-mlir-open-design-meeting open-design-meeting mlir optimizations"
+      },
+      "meeting": null
     }
   }
 }

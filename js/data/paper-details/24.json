@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7134914542": {
@@ -807,6 +807,7 @@
           "citationCount": 0
         },
         "_searchBlob": "polyblocks a compiler infrastructure for ai chips and programming frameworks we present the design and implementation of polyblocks a modular and reusable mlir-based compiler infrastructure for ai programming frameworks and ai chips. polyblocks is based on pass pipelines that compose transformations on loop nests and ssa primarily relying on lightweight affine access analysis the transformations are stitched together in specialized ways to realize high-performance code automatically by the use of analytical cost models and heuristics. the optimizations in these passes include multi-level tiling fusion on-chip scratchpad usage mapping matmuls and convolutions to matrix units fusing the attention layer and several other transformations for parallelism and locality. they have been developed in a way that makes it easy to build polyblocks-based compilers to target new chips reusing much of the infrastructure. polyblocks design and architecture enable fully automatic code generation from high-level frameworks to low-level target-specific intrinsics. experimental results from evaluating polyblocks-powered just-in-time compilation for pytorch and jax targeting nvidia gpus show that it is able to match or outperform torch inductor and xla in several cases although the latter rely on a combination of vendor libraries and code generation. for individual operators like matmuls and convolutions polyblocks-generated code is competitive with the best vendor-tuned libraries or hand-written kernels. arxiv arxiv 2026 research-paper uday bondhugula akshay baviskar navdeep katel vimal patel anoop js arnab dutta mlir backend code generation optimizations performance infrastructure libraries gpu ai mlir backend code generation optimizations performance infrastructure libraries gpu ai static single assignment polyblocks programming frameworks compiler infrastructure transformations mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000

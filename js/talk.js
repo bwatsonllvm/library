@@ -526,6 +526,7 @@
   function buildResourceLinks(talk) {
     const resourceActions = normalizeTalkResourceActions(talk);
     const videoUrl = sanitizeExternalUrl(talk && talk.videoUrl);
+    const hasEmbeddedYouTubeVideo = !!buildEmbeddedVideoUrl(videoUrl);
     const slidesUrl = sanitizeExternalUrl(talk && talk.slidesUrl);
     const posterUrl = sanitizeExternalUrl(talk && talk.posterUrl);
     const sourceUrl = sanitizeExternalUrl(talk && talk.sourceUrl);
@@ -557,7 +558,7 @@
 
     const primaryGithubRef = githubCandidates.find((ref) => ref.kind !== 'github-repo') || githubCandidates[0] || null;
 
-    if (videoUrl) pushLink(videoUrl, 'Watch Video');
+    if (videoUrl && !hasEmbeddedYouTubeVideo) pushLink(videoUrl, 'Watch Video');
     if (posterUrl && posterUrl !== slidesUrl) pushLink(posterUrl, 'View Poster');
     if (primaryGithubRef && primaryGithubRef.url) pushLink(primaryGithubRef.url, primaryGithubLabel(primaryGithubRef));
     if (sourceUrl) pushLink(sourceUrl, 'Source Listing');
@@ -565,6 +566,7 @@
     for (const action of resourceActions) {
       const kind = String(action && action.kind || '').trim().toLowerCase();
       if (!action.url || kind === 'primary') continue;
+      if (hasEmbeddedYouTubeVideo && kind === 'recording') continue;
       if (kind === 'github') {
         if (primaryGithubRef && sanitizeExternalUrl(action.url) === primaryGithubRef.url) continue;
         continue;
@@ -1361,6 +1363,7 @@
     const title = collapseWhitespace(talk && talk.title) || 'Untitled talk';
     const titleEsc = escapeHtml(title);
     const videoHref = sanitizeExternalUrl(talk && talk.videoUrl);
+    const hasEmbeddedYouTubeVideo = !!buildEmbeddedVideoUrl(videoHref);
     const posterHref = sanitizeExternalUrl(talk && talk.posterUrl);
     const slidesHref = sanitizeExternalUrl(talk && talk.slidesUrl) || posterHref;
     const githubHref = sanitizeExternalUrl(talk && talk.projectGithub);
@@ -1370,7 +1373,7 @@
       : videoMeta.icon === 'tv'
         ? `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2" ry="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="17" x2="12" y2="20"/></svg>`
         : `<svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
-    const videoLinkHtml = videoHref
+    const videoLinkHtml = videoHref && !hasEmbeddedYouTubeVideo
       ? `<a href="${escapeHtml(videoHref)}" class="card-link-btn card-link-btn--video" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(videoMeta.ariaLabel)}">${videoIcon}<span aria-hidden="true">${escapeHtml(videoMeta.text)}</span></a>`
       : '';
     const slidesLabel = collapseWhitespace(talk && talk.category).toLowerCase() === 'poster' || posterHref ? 'Poster' : 'Slides';

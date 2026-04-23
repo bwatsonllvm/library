@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2021-02-28-010": {
@@ -737,6 +737,475 @@
         "canceled": false,
         "talkCount": 7
       }
+    },
+    "mlir-talk-2023-02-09-deep-dive-on-mlir-internals-operation-attribute-towards-properties-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-02-09-deep-dive-on-mlir-internals-operation-attribute-towards-properties-slides",
+        "title": "Deep Dive on MLIR Internals, Operation&Attribute, towards Properties",
+        "abstract": "In this presentation, Mehdi AMINI will introduce some of the nitty-gritty aspects of MLIR internal core data-structures. If you ever wondered what happens when you create an Operation or an Attribute in MLIR, this may be interesting! Then we introduce Operation Properties as a new concept to potentially replace inherent Attributes on Operation. More info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
+        "speakers": [
+          {
+            "name": "Mehdi Amini",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-02-09-Properties.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/7ofnlCFzlqg"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-02-09-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-02-09",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/7ofnlCFzlqg",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-02-09-Properties.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-02-09-deep-dive-on-mlir-internals-operation-attribute-towards-properties-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "7ofnlCFzlqg",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "deep dive on mlir internals, operation&attribute, towards properties",
+        "_speakerLower": "mehdi amini",
+        "_abstractLower": "in this presentation, mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir, this may be interesting! then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
+        "_tagsLower": "mlir llvm",
+        "_meetingLower": "mlir open design meeting  2023-02-09",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "deep dive on mlir internals operation and attribute towards properties",
+              "words": [
+                "deep",
+                "dive",
+                "on",
+                "mlir",
+                "internals",
+                "operation",
+                "and",
+                "attribute",
+                "towards",
+                "properties"
+              ]
+            },
+            "speakers": {
+              "text": "mehdi amini",
+              "words": [
+                "mehdi",
+                "amini"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm",
+              "words": [
+                "mlir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-02-09",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-02-09"
+              ]
+            },
+            "abstract": {
+              "text": "in this presentation mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir this may be interesting then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse https discourse.llvm.org t open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties 68297",
+              "words": [
+                "in",
+                "this",
+                "presentation",
+                "mehdi",
+                "amini",
+                "will",
+                "introduce",
+                "some",
+                "of",
+                "the",
+                "nitty-gritty",
+                "aspects",
+                "of",
+                "mlir",
+                "internal",
+                "core",
+                "data-structures.",
+                "if",
+                "you",
+                "ever",
+                "wondered",
+                "what",
+                "happens",
+                "when",
+                "you",
+                "create",
+                "an",
+                "operation",
+                "or",
+                "an",
+                "attribute",
+                "in",
+                "mlir",
+                "this",
+                "may",
+                "be",
+                "interesting",
+                "then",
+                "we",
+                "introduce",
+                "operation",
+                "properties",
+                "as",
+                "new",
+                "concept",
+                "to",
+                "potentially",
+                "replace",
+                "inherent",
+                "attributes",
+                "on",
+                "operation.",
+                "more",
+                "info",
+                "on",
+                "discourse",
+                "https",
+                "discourse.llvm.org",
+                "open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties",
+                "68297"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "deep dive on mlir internals operation and attribute towards properties in this presentation mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir this may be interesting then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse https discourse.llvm.org t open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties 68297 mlir open design meeting 2023-02-09 2023-02-09-mlir-open-design-meeting open-design-meeting mehdi amini mlir llvm"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-06-24-typedefs-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2021-06-24-typedefs-in-mlir",
+        "title": "Typedefs in MLIR",
+        "abstract": "Mike Urbach explored how to model \"typedef\" in MLIR in the context of emitting nicer and more readable Verilog in CIRCT (https://circt.llvm.org). This meeting combine a presentation and a community discussion on how we could support this better in MLIR.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-06-24-Typedefs-in-MLIR.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://www.youtube.com/watch?v=hqcM6fJWntM"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-06-24-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-06-24",
+        "meetingLocation": "",
+        "videoUrl": "https://www.youtube.com/watch?v=hqcM6fJWntM",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-06-24-Typedefs-in-MLIR.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-06-24-typedefs-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "hqcM6fJWntM",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "typedefs in mlir",
+        "_speakerLower": "",
+        "_abstractLower": "mike urbach explored how to model \"typedef\" in mlir in the context of emitting nicer and more readable verilog in circt (https://circt.llvm.org). this meeting combine a presentation and a community discussion on how we could support this better in mlir.",
+        "_tagsLower": "mlir llvm circt",
+        "_meetingLower": "mlir open design meeting  2021-06-24",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "typedefs in mlir",
+              "words": [
+                "typedefs",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir llvm circt",
+              "words": [
+                "mlir",
+                "llvm",
+                "circt"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-06-24",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-06-24"
+              ]
+            },
+            "abstract": {
+              "text": "mike urbach explored how to model typedef in mlir in the context of emitting nicer and more readable verilog in circt https circt.llvm.org . this meeting combine a presentation and a community discussion on how we could support this better in mlir.",
+              "words": [
+                "mike",
+                "urbach",
+                "explored",
+                "how",
+                "to",
+                "model",
+                "typedef",
+                "in",
+                "mlir",
+                "in",
+                "the",
+                "context",
+                "of",
+                "emitting",
+                "nicer",
+                "and",
+                "more",
+                "readable",
+                "verilog",
+                "in",
+                "circt",
+                "https",
+                "circt.llvm.org",
+                "this",
+                "meeting",
+                "combine",
+                "presentation",
+                "and",
+                "community",
+                "discussion",
+                "on",
+                "how",
+                "we",
+                "could",
+                "support",
+                "this",
+                "better",
+                "in",
+                "mlir."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "typedefs in mlir mike urbach explored how to model typedef in mlir in the context of emitting nicer and more readable verilog in circt https circt.llvm.org . this meeting combine a presentation and a community discussion on how we could support this better in mlir. mlir open design meeting 2021-06-24 2021-06-24-mlir-open-design-meeting open-design-meeting mlir llvm circt"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2022-10-06-coordinate-transformations-in-amd-s-rocmlir": {
+      "talk": {
+        "id": "mlir-talk-2022-10-06-coordinate-transformations-in-amd-s-rocmlir",
+        "title": "Coordinate Transformations in AMD’s rocMLIR",
+        "abstract": "Krzysztof Drewniak presents the coordinate transformations system used by AMD’s high-performance GPU code generator at the core of the rocMLIR project, which is currently focused on convolution and matrix multiplication kernels.",
+        "speakers": [
+          {
+            "name": "Krzysztof Drewniak",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2022-10-06-Rocm-affine.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/xrMJis3Rak0"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2022-10-06-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2022-10-06",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/xrMJis3Rak0",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-10-06-Rocm-affine.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2022-10-06-coordinate-transformations-in-amd-s-rocmlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "xrMJis3Rak0",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "coordinate transformations in amd’s rocmlir",
+        "_speakerLower": "krzysztof drewniak",
+        "_abstractLower": "krzysztof drewniak presents the coordinate transformations system used by amd’s high-performance gpu code generator at the core of the rocmlir project, which is currently focused on convolution and matrix multiplication kernels.",
+        "_tagsLower": "mlir performance gpu",
+        "_meetingLower": "mlir open design meeting  2022-10-06",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "coordinate transformations in amds rocmlir",
+              "words": [
+                "coordinate",
+                "transformations",
+                "in",
+                "amds",
+                "rocmlir"
+              ]
+            },
+            "speakers": {
+              "text": "krzysztof drewniak",
+              "words": [
+                "krzysztof",
+                "drewniak"
+              ]
+            },
+            "tags": {
+              "text": "mlir performance gpu",
+              "words": [
+                "mlir",
+                "performance",
+                "gpu"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2022-10-06",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2022-10-06"
+              ]
+            },
+            "abstract": {
+              "text": "krzysztof drewniak presents the coordinate transformations system used by amds high-performance gpu code generator at the core of the rocmlir project which is currently focused on convolution and matrix multiplication kernels.",
+              "words": [
+                "krzysztof",
+                "drewniak",
+                "presents",
+                "the",
+                "coordinate",
+                "transformations",
+                "system",
+                "used",
+                "by",
+                "amds",
+                "high-performance",
+                "gpu",
+                "code",
+                "generator",
+                "at",
+                "the",
+                "core",
+                "of",
+                "the",
+                "rocmlir",
+                "project",
+                "which",
+                "is",
+                "currently",
+                "focused",
+                "on",
+                "convolution",
+                "and",
+                "matrix",
+                "multiplication",
+                "kernels."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "coordinate transformations in amds rocmlir krzysztof drewniak presents the coordinate transformations system used by amds high-performance gpu code generator at the core of the rocmlir project which is currently focused on convolution and matrix multiplication kernels. mlir open design meeting 2022-10-06 2022-10-06-mlir-open-design-meeting open-design-meeting krzysztof drewniak mlir performance gpu"
+      },
+      "meeting": null
     }
   }
 }

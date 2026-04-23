@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-008": {
@@ -1589,7 +1589,7 @@
     "2023-05-015": {
       "talk": {
         "id": "2023-05-015",
-        "meeting": "2023-05",
+        "meeting": "2023-05-00-llvm-social-berlin-20",
         "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
@@ -1612,7 +1612,8 @@
           "Beginner",
           "IR",
           "MLIR",
-          "Programming Languages"
+          "Programming Languages",
+          "Using MLIR"
         ],
         "projectGithub": "https://github.com/mull-project/mull",
         "githubReferences": [
@@ -1636,11 +1637,31 @@
             "kind": "github",
             "label": "GitHub",
             "url": "https://github.com/mull-project/mull"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/NfMX-dFMSr0"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2023-05/slides/TechnicalTalks-May11/06-Denisov-CompilingRubyWithMLIR.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/Cl5SgDxvZ8w"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://www.meetup.com/llvm-social-berlin/events/287586655/"
           }
         ],
         "keywords": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://www.meetup.com/llvm-social-berlin/events/287586655/",
         "_titleLower": "compiling ruby (with mlir)",
         "_speakerLower": "alex denisov",
         "_abstractLower": "ever wondered how to build an ahead-of-time (aot) compiler for a dynamic, interpreted language? then this talk is a good starting point. in this presentation, you'll learn how a typical interpreter works, how to map it onto an intermediate representation (mlir in this case), and how to produce an executable at the end of the compilation pipeline. by the end of this talk, we hope to inspire you to take on the challenge of building a compiler for your favorite interpreted language.",
@@ -1787,16 +1808,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "compiling ruby with mlir ever wondered how to build an ahead-of-time aot compiler for a dynamic interpreted language then this talk is a good starting point. in this presentation youll learn how a typical interpreter works how to map it onto an intermediate representation mlir in this case and how to produce an executable at the end of the compilation pipeline. by the end of this talk we hope to inspire you to take on the challenge of building a compiler for your favorite interpreted language. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk alex denisov beginner ir mlir programming languages"
+        "_searchBlob": "compiling ruby with mlir ever wondered how to build an ahead-of-time aot compiler for a dynamic interpreted language then this talk is a good starting point. in this presentation youll learn how a typical interpreter works how to map it onto an intermediate representation mlir in this case and how to produce an executable at the end of the compilation pipeline. by the end of this talk we hope to inspire you to take on the challenge of building a compiler for your favorite interpreted language. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05-00-llvm-social-berlin-20 technical-talk alex denisov beginner ir mlir programming languages",
+        "detailUrl": "talks/talk.html?id=mlir-talk-compiling-ruby-with-mlir",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2023-05",
-        "name": "2023 EuroLLVM Developers' Meeting",
-        "date": "May 10-11, 2023",
-        "location": "Glasgow, Scotland",
-        "canceled": false,
-        "talkCount": 60
-      }
+      "meeting": null
     },
     "2023-05-037": {
       "talk": {
@@ -3707,7 +3723,7 @@
     "2020-04-024": {
       "talk": {
         "id": "2020-04-024",
-        "meeting": "2020-04",
+        "meeting": "2020-05-14-mlir-open-design-meeting",
         "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
@@ -3740,14 +3756,39 @@
         "videoUrl": "https://www.youtube.com/watch?v=ytv_SRC_96",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_SRC_96.pdf",
-        "tags": [],
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://www.youtube.com/watch?v=ytv_SRC_96"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2020-04/slides/slides_SRC_96.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/open?id=1curA4skh2DsJ2kVHynoJqQyUaJr74xkI"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/open?id=18DNvegfHcEQfkKktkBhmhUecyNunfy2s"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
         "_titleLower": "rise: a functional pattern-based dialect in mlir",
         "_speakerLower": "martin lücke michael steuwer aaron smith",
         "_abstractLower": "machine learning systems are stuck in a rut. paul barham and michael isard, two of the original authors of tensorflow, come to this conclusion in their recent hotos paper. they argue that while tensorflow and similar frameworks have enabled great advances in machine learning, their current design and implementations focus on a fixed set of monolithic and inflexible kernels. we present our work on the mlir dialect rise, a compiler intermediate representation inspired by pattern-based program representations like lift. a set of small generic patterns is provided, which can be composed to represent complex computations. we argue that this approach of using simple reusable patterns to break up large monolithic kernels will enable easier exploration of different novel optimizations for machine learning workloads. rise is a spiritual successor to lift and developed at the university of edinburgh, university of glasgow and university of münster. martin lücke is a phd student from edinburgh and works on the mlir implementation of rise. this work is mainly focused on the representation of the high-level rise patterns in mlir, but we will also talk about the challenges of introducing low-level patterns and a rewriting system in the future.",
@@ -4009,16 +4050,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "rise a functional pattern-based dialect in mlir machine learning systems are stuck in a rut. paul barham and michael isard two of the original authors of tensorflow come to this conclusion in their recent hotos paper. they argue that while tensorflow and similar frameworks have enabled great advances in machine learning their current design and implementations focus on a fixed set of monolithic and inflexible kernels. we present our work on the mlir dialect rise a compiler intermediate representation inspired by pattern-based program representations like lift. a set of small generic patterns is provided which can be composed to represent complex computations. we argue that this approach of using simple reusable patterns to break up large monolithic kernels will enable easier exploration of different novel optimizations for machine learning workloads. rise is a spiritual successor to lift and developed at the university of edinburgh university of glasgow and university of munster. martin lucke is a phd student from edinburgh and works on the mlir implementation of rise. this work is mainly focused on the representation of the high-level rise patterns in mlir but we will also talk about the challenges of introducing low-level patterns and a rewriting system in the future. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 student-talk martin lucke michael steuwer aaron smith mlir ir optimizations ml"
+        "_searchBlob": "rise a functional pattern-based dialect in mlir machine learning systems are stuck in a rut. paul barham and michael isard two of the original authors of tensorflow come to this conclusion in their recent hotos paper. they argue that while tensorflow and similar frameworks have enabled great advances in machine learning their current design and implementations focus on a fixed set of monolithic and inflexible kernels. we present our work on the mlir dialect rise a compiler intermediate representation inspired by pattern-based program representations like lift. a set of small generic patterns is provided which can be composed to represent complex computations. we argue that this approach of using simple reusable patterns to break up large monolithic kernels will enable easier exploration of different novel optimizations for machine learning workloads. rise is a spiritual successor to lift and developed at the university of edinburgh university of glasgow and university of munster. martin lucke is a phd student from edinburgh and works on the mlir implementation of rise. this work is mainly focused on the representation of the high-level rise patterns in mlir but we will also talk about the challenges of introducing low-level patterns and a rewriting system in the future. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-05-14-mlir-open-design-meeting student-talk martin lucke michael steuwer aaron smith mlir ir optimizations ml",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-05-14-rise-a-functional-pattern-based-dialect-in-mlir",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2020-04",
-        "name": "2020 EuroLLVM Developers' Meeting",
-        "date": "April 6-7, 2020",
-        "location": "Paris, France - Canceled",
-        "canceled": true,
-        "talkCount": 68
-      }
+      "meeting": null
     },
     "2020-04-046": {
       "talk": {
@@ -5496,6 +5532,121 @@
         "canceled": false,
         "talkCount": 13
       }
+    },
+    "mlir-talk-2020-01-30-iree-mlir-based-end-to-end-ml-tooling": {
+      "talk": {
+        "id": "mlir-talk-2020-01-30-iree-mlir-based-end-to-end-ml-tooling",
+        "title": "IREE: MLIR-based End-to-End ML Tooling",
+        "abstract": "2020 01 30 IREE MLIR based End to End ML Tooling",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/open?id=1RCQ4ZPQFK9cVgu3IH1e5xbrBcqy7d_cEZ578j84OvYI"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/open?id=1os9FaPodPI59uj7JJI3aXnTzkuttuVkR"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-01-30-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-01-30",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/open?id=1os9FaPodPI59uj7JJI3aXnTzkuttuVkR",
+        "slidesUrl": "https://drive.google.com/open?id=1RCQ4ZPQFK9cVgu3IH1e5xbrBcqy7d_cEZ578j84OvYI",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-01-30-iree-mlir-based-end-to-end-ml-tooling",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "iree: mlir-based end-to-end ml tooling",
+        "_speakerLower": "",
+        "_abstractLower": "2020 01 30 iree mlir based end to end ml tooling",
+        "_tagsLower": "mlir ml",
+        "_meetingLower": "mlir open design meeting  2020-01-30",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "iree mlir-based end-to-end ml tooling",
+              "words": [
+                "iree",
+                "mlir-based",
+                "end-to-end",
+                "ml",
+                "tooling"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir ml",
+              "words": [
+                "mlir",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-01-30",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-01-30"
+              ]
+            },
+            "abstract": {
+              "text": "2020 01 30 iree mlir based end to end ml tooling",
+              "words": [
+                "2020",
+                "01",
+                "30",
+                "iree",
+                "mlir",
+                "based",
+                "end",
+                "to",
+                "end",
+                "ml",
+                "tooling"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "iree mlir-based end-to-end ml tooling 2020 01 30 iree mlir based end to end ml tooling mlir open design meeting 2020-01-30 2020-01-30-mlir-open-design-meeting open-design-meeting mlir ml"
+      },
+      "meeting": null
     }
   }
 }

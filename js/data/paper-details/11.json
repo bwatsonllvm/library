@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7141772604": {
@@ -16429,7 +16429,7 @@
         "citationCount": 78,
         "doi": "10.1109/pact52795.2021.00011",
         "publishedDate": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16443,7 +16443,9 @@
           "Polly"
         ],
         "matchedAuthors": [],
-        "matchedSubprojects": [],
+        "matchedSubprojects": [
+          "MLIR"
+        ],
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
@@ -16455,7 +16457,7 @@
         "_abstractLower": "we present polygeist, a new compilation flow that connects the mlir compiler infrastructure to cutting edge polyhedral optimization tools. it consists of a c and c++ frontend capable of converting a broad range of existing codes into mlir suitable for polyhedral transformation and a bi-directional conversion between mlir and openscop exchange format. the polygeist/mlir intermediate representation featuring high-level (affine) loop constructs and n-d arrays embedded into a single static assignment (ssa) substrate enables an unprecedented combination of ssa-based and polyhedral optimizations. we illustrate this by proposing and implementing two extra transformations: statement splitting and reduction parallelization. our evaluation demonstrates that polygeist outperforms on average both an llvm ir-level optimizer (polly) and a source-to-source state-of-the-art polyhedral compiler (pluto) when exercised on the polybench/c benchmark suite in sequential (2.53x vs 1.41x, 2.34x) and parallel mode (9.47x vs 3.26x, 7.54x) thanks to the new representation and transformations.",
         "_tagsLower": "c++ embedded frontend infrastructure ir mlir optimizations polly",
         "_keywordsLower": "c++ embedded frontend infrastructure ir mlir optimizations polly",
-        "_topicsLower": "c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly",
+        "_topicsLower": "c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly mlir",
         "_contentLower": "",
         "_publicationLower": "2021 30th international conference on parallel architectures and compilation techniques (pact)",
         "_venueLower": "2021 30th international conference on parallel architectures and compilation techniques (pact)",
@@ -16498,7 +16500,7 @@
               ]
             },
             "topics": {
-              "text": "c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly",
+              "text": "c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly mlir",
               "words": [
                 "c++",
                 "embedded",
@@ -16515,7 +16517,8 @@
                 "ir",
                 "mlir",
                 "optimizations",
-                "polly"
+                "polly",
+                "mlir"
               ]
             },
             "type": {
@@ -16714,7 +16717,8 @@
           "year": 2021,
           "citationCount": 78
         },
-        "_searchBlob": "polygeist raising c to polyhedral mlir we present polygeist a new compilation flow that connects the mlir compiler infrastructure to cutting edge polyhedral optimization tools. it consists of a c and c++ frontend capable of converting a broad range of existing codes into mlir suitable for polyhedral transformation and a bi-directional conversion between mlir and openscop exchange format. the polygeist mlir intermediate representation featuring high-level affine loop constructs and n-d arrays embedded into a single static assignment ssa substrate enables an unprecedented combination of ssa-based and polyhedral optimizations. we illustrate this by proposing and implementing two extra transformations statement splitting and reduction parallelization. our evaluation demonstrates that polygeist outperforms on average both an llvm ir-level optimizer polly and a source-to-source state-of-the-art polyhedral compiler pluto when exercised on the polybench c benchmark suite in sequential 2.53x vs 1.41x 2.34x and parallel mode 9.47x vs 3.26x 7.54x thanks to the new representation and transformations. 2021 30th international conference on parallel architectures and compilation techniques pact 2021 30th international conference on parallel architectures and compilation techniques pact 2021 research-paper william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly",
+        "_searchBlob": "polygeist raising c to polyhedral mlir we present polygeist a new compilation flow that connects the mlir compiler infrastructure to cutting edge polyhedral optimization tools. it consists of a c and c++ frontend capable of converting a broad range of existing codes into mlir suitable for polyhedral transformation and a bi-directional conversion between mlir and openscop exchange format. the polygeist mlir intermediate representation featuring high-level affine loop constructs and n-d arrays embedded into a single static assignment ssa substrate enables an unprecedented combination of ssa-based and polyhedral optimizations. we illustrate this by proposing and implementing two extra transformations statement splitting and reduction parallelization. our evaluation demonstrates that polygeist outperforms on average both an llvm ir-level optimizer polly and a source-to-source state-of-the-art polyhedral compiler pluto when exercised on the polybench c benchmark suite in sequential 2.53x vs 1.41x 2.34x and parallel mode 9.47x vs 3.26x 7.54x thanks to the new representation and transformations. 2021 30th international conference on parallel architectures and compilation techniques pact 2021 30th international conference on parallel architectures and compilation techniques pact 2021 research-paper william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000

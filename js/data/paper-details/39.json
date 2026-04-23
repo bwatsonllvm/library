@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4415159921": {
@@ -278,7 +278,7 @@
           }
         ],
         "year": "2025",
-        "publication": "Proceedings of 23rd ACM/IEEE International Symposium on Code Generation and Optimization",
+        "publication": "In Proceedings of the 23rd ACM/IEEE International Symposium on Code Generation and Optimization - pp. 241-254 - March 3, 2025.",
         "venue": "Proceedings of 23rd ACM/IEEE International Symposium on Code Generation and Optimization",
         "type": "research-paper",
         "abstract": "To take full advantage of a specific hardware target, performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. Yet, modern compilers are poorly controlled, usually by configuring a sequence of coarse-grained monolithic black-box passes, or by means of predefined compiler annotations/pragmas. These can be effective, but often do not let users precisely optimize their varying compute loads. As a consequence, performance engineers have to resort to implementing custom passes for a specific optimization heuristic, requiring compiler engineering expert knowledge. In this paper, we present a technique that provides fine-grained control of general-purpose compilers by introducing the Transform dialect, a controllable IR-based transformation system implemented in MLIR. The Transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. We demonstrate in five case studies that the Transform dialect enables precise, safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods.",
@@ -319,7 +319,7 @@
         "id": "openalex-w4407848518",
         "citationCount": 6,
         "publishedDate": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -335,7 +335,7 @@
         "_keywordsLower": "mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware",
         "_topicsLower": "mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 23rd acm/ieee international symposium on code generation and optimization",
+        "_publicationLower": "in proceedings of the 23rd acm/ieee international symposium on code generation and optimization - pp. 241-254 - march 3, 2025.",
         "_venueLower": "proceedings of 23rd acm/ieee international symposium on code generation and optimization",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
@@ -596,10 +596,12 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 23rd acm ieee international symposium on code generation and optimization",
+              "text": "in proceedings of the 23rd acm ieee international symposium on code generation and optimization - pp. 241-254 - march 3 2025.",
               "words": [
+                "in",
                 "proceedings",
                 "of",
+                "the",
                 "23rd",
                 "acm",
                 "ieee",
@@ -609,7 +611,11 @@
                 "code",
                 "generation",
                 "and",
-                "optimization"
+                "optimization",
+                "pp.",
+                "241-254",
+                "march",
+                "2025."
               ]
             },
             "venue": {
@@ -639,7 +645,8 @@
           "year": 2025,
           "citationCount": 6
         },
-        "_searchBlob": "the mlir transform dialect to take full advantage of a specific hardware target performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. yet modern compilers are poorly controlled usually by configuring a sequence of coarse-grained monolithic black-box passes or by means of predefined compiler annotations pragmas. these can be effective but often do not let users precisely optimize their varying compute loads. as a consequence performance engineers have to resort to implementing custom passes for a specific optimization heuristic requiring compiler engineering expert knowledge. in this paper we present a technique that provides fine-grained control of general-purpose compilers by introducing the transform dialect a controllable ir-based transformation system implemented in mlir. the transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. we demonstrate in five case studies that the transform dialect enables precise safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods. proceedings of 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper martin paul lucke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universitat berlin albert cohen mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
+        "_searchBlob": "the mlir transform dialect to take full advantage of a specific hardware target performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. yet modern compilers are poorly controlled usually by configuring a sequence of coarse-grained monolithic black-box passes or by means of predefined compiler annotations pragmas. these can be effective but often do not let users precisely optimize their varying compute loads. as a consequence performance engineers have to resort to implementing custom passes for a specific optimization heuristic requiring compiler engineering expert knowledge. in this paper we present a technique that provides fine-grained control of general-purpose compilers by introducing the transform dialect a controllable ir-based transformation system implemented in mlir. the transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. we demonstrate in five case studies that the transform dialect enables precise safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods. in proceedings of the 23rd acm ieee international symposium on code generation and optimization - pp. 241-254 - march 3 2025. proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper martin paul lucke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universitat berlin albert cohen mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000

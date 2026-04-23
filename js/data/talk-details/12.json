@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-022": {
@@ -12400,6 +12400,484 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2": {
+      "talk": {
+        "id": "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2",
+        "title": "Discussion on the next steps on Properties",
+        "abstract": "In this meeting we're discussing the next steps on the migration to properties.",
+        "speakers": [
+          {
+            "name": "Krzysztof Drewniak",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Fabian Mora Cordero",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides 1",
+            "url": "https://mlir.llvm.org/OpenMeetings/2025-08-14-Properties1.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides 2",
+            "url": "https://mlir.llvm.org/OpenMeetings/2025-08-14-Properties2.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/PqlnAZRnlI0"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2025-08-14-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2025-08-14",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/PqlnAZRnlI0",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2025-08-14-Properties1.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "PqlnAZRnlI0",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "discussion on the next steps on properties",
+        "_speakerLower": "krzysztof drewniak fabian mora cordero",
+        "_abstractLower": "in this meeting we're discussing the next steps on the migration to properties.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2025-08-14",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "discussion on the next steps on properties",
+              "words": [
+                "discussion",
+                "on",
+                "the",
+                "next",
+                "steps",
+                "on",
+                "properties"
+              ]
+            },
+            "speakers": {
+              "text": "krzysztof drewniak fabian mora cordero",
+              "words": [
+                "krzysztof",
+                "drewniak",
+                "fabian",
+                "mora",
+                "cordero"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2025-08-14",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2025-08-14"
+              ]
+            },
+            "abstract": {
+              "text": "in this meeting were discussing the next steps on the migration to properties.",
+              "words": [
+                "in",
+                "this",
+                "meeting",
+                "were",
+                "discussing",
+                "the",
+                "next",
+                "steps",
+                "on",
+                "the",
+                "migration",
+                "to",
+                "properties."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "discussion on the next steps on properties in this meeting were discussing the next steps on the migration to properties. mlir open design meeting 2025-08-14 2025-08-14-mlir-open-design-meeting open-design-meeting krzysztof drewniak fabian mora cordero mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2023-09-28-sharding-framework-for-device-mesh-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-09-28-sharding-framework-for-device-mesh-slides",
+        "title": "Sharding Framework for Device Mesh",
+        "abstract": "Nowadays, a robust sharding infrastructure is imperative for distributed computing, in particular for ML and Large Language Models, regardless of whether sharding is determined manually or automatically. Meanwhile, mesh-like deep learning clusters are being extensively employed. For instance, the TPU 3D torus is explicitly defined as a mesh-like cluster, and several DGX boxes could be regarded as a 2-D mesh-like cluster. The motivation of this presentation is to propose the design of the Mesh dialect, aiming to represent the mesh cluster and the sharding, along with collective communication operations on it. Additionally, it will outline a typical workflow for undertaking sharding annotation from frontends, performing sharding propagation and optimization, and converting the IR to SPMD format.",
+        "speakers": [
+          {
+            "name": "Device Mesh",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-09-28-Sharding-Framework-Design-for-Device-Mesh.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/vL6VNbJkc6Q"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-09-28-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-09-28",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/vL6VNbJkc6Q",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-09-28-Sharding-Framework-Design-for-Device-Mesh.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-09-28-sharding-framework-for-device-mesh-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "vL6VNbJkc6Q",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "sharding framework for device mesh",
+        "_speakerLower": "device mesh",
+        "_abstractLower": "nowadays, a robust sharding infrastructure is imperative for distributed computing, in particular for ml and large language models, regardless of whether sharding is determined manually or automatically. meanwhile, mesh-like deep learning clusters are being extensively employed. for instance, the tpu 3d torus is explicitly defined as a mesh-like cluster, and several dgx boxes could be regarded as a 2-d mesh-like cluster. the motivation of this presentation is to propose the design of the mesh dialect, aiming to represent the mesh cluster and the sharding, along with collective communication operations on it. additionally, it will outline a typical workflow for undertaking sharding annotation from frontends, performing sharding propagation and optimization, and converting the ir to spmd format.",
+        "_tagsLower": "mlir optimizations infrastructure ml",
+        "_meetingLower": "mlir open design meeting  2023-09-28",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "sharding framework for device mesh",
+              "words": [
+                "sharding",
+                "framework",
+                "for",
+                "device",
+                "mesh"
+              ]
+            },
+            "speakers": {
+              "text": "device mesh",
+              "words": [
+                "device",
+                "mesh"
+              ]
+            },
+            "tags": {
+              "text": "mlir optimizations infrastructure ml",
+              "words": [
+                "mlir",
+                "optimizations",
+                "infrastructure",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-09-28",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-09-28"
+              ]
+            },
+            "abstract": {
+              "text": "nowadays a robust sharding infrastructure is imperative for distributed computing in particular for ml and large language models regardless of whether sharding is determined manually or automatically. meanwhile mesh-like deep learning clusters are being extensively employed. for instance the tpu 3d torus is explicitly defined as a mesh-like cluster and several dgx boxes could be regarded as a 2-d mesh-like cluster. the motivation of this presentation is to propose the design of the mesh dialect aiming to represent the mesh cluster and the sharding along with collective communication operations on it. additionally it will outline a typical workflow for undertaking sharding annotation from frontends performing sharding propagation and optimization and converting the ir to spmd format.",
+              "words": [
+                "nowadays",
+                "robust",
+                "sharding",
+                "infrastructure",
+                "is",
+                "imperative",
+                "for",
+                "distributed",
+                "computing",
+                "in",
+                "particular",
+                "for",
+                "ml",
+                "and",
+                "large",
+                "language",
+                "models",
+                "regardless",
+                "of",
+                "whether",
+                "sharding",
+                "is",
+                "determined",
+                "manually",
+                "or",
+                "automatically.",
+                "meanwhile",
+                "mesh-like",
+                "deep",
+                "learning",
+                "clusters",
+                "are",
+                "being",
+                "extensively",
+                "employed.",
+                "for",
+                "instance",
+                "the",
+                "tpu",
+                "3d",
+                "torus",
+                "is",
+                "explicitly",
+                "defined",
+                "as",
+                "mesh-like",
+                "cluster",
+                "and",
+                "several",
+                "dgx",
+                "boxes",
+                "could",
+                "be",
+                "regarded",
+                "as",
+                "2-d",
+                "mesh-like",
+                "cluster.",
+                "the",
+                "motivation",
+                "of",
+                "this",
+                "presentation",
+                "is",
+                "to",
+                "propose",
+                "the",
+                "design",
+                "of",
+                "the",
+                "mesh",
+                "dialect",
+                "aiming",
+                "to",
+                "represent",
+                "the",
+                "mesh",
+                "cluster",
+                "and",
+                "the",
+                "sharding",
+                "along",
+                "with",
+                "collective",
+                "communication",
+                "operations",
+                "on",
+                "it.",
+                "additionally",
+                "it",
+                "will",
+                "outline",
+                "typical",
+                "workflow",
+                "for",
+                "undertaking",
+                "sharding",
+                "annotation",
+                "from",
+                "frontends",
+                "performing",
+                "sharding",
+                "propagation",
+                "and",
+                "optimization",
+                "and",
+                "converting",
+                "the",
+                "ir",
+                "to",
+                "spmd",
+                "format."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "sharding framework for device mesh nowadays a robust sharding infrastructure is imperative for distributed computing in particular for ml and large language models regardless of whether sharding is determined manually or automatically. meanwhile mesh-like deep learning clusters are being extensively employed. for instance the tpu 3d torus is explicitly defined as a mesh-like cluster and several dgx boxes could be regarded as a 2-d mesh-like cluster. the motivation of this presentation is to propose the design of the mesh dialect aiming to represent the mesh cluster and the sharding along with collective communication operations on it. additionally it will outline a typical workflow for undertaking sharding annotation from frontends performing sharding propagation and optimization and converting the ir to spmd format. mlir open design meeting 2023-09-28 2023-09-28-mlir-open-design-meeting open-design-meeting device mesh mlir optimizations infrastructure ml"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-10-01-npcomp-update": {
+      "talk": {
+        "id": "mlir-talk-2020-10-01-npcomp-update",
+        "title": "NPComp update",
+        "abstract": "2020 10 01 NPComp update",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1YIO7CfZOobPZTxowr8gs1BOQMgUKXH_G/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1EsOc-4ZtBEK9h6VENaO0qeGsm5FZhrSr/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-10-01-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-10-01",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1EsOc-4ZtBEK9h6VENaO0qeGsm5FZhrSr/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1YIO7CfZOobPZTxowr8gs1BOQMgUKXH_G/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-10-01-npcomp-update",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "npcomp update",
+        "_speakerLower": "",
+        "_abstractLower": "2020 10 01 npcomp update",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2020-10-01",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "npcomp update",
+              "words": [
+                "npcomp",
+                "update"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-10-01",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-10-01"
+              ]
+            },
+            "abstract": {
+              "text": "2020 10 01 npcomp update",
+              "words": [
+                "2020",
+                "10",
+                "01",
+                "npcomp",
+                "update"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "npcomp update 2020 10 01 npcomp update mlir open design meeting 2020-10-01 2020-10-01-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

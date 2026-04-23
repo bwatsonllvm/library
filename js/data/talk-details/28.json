@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-071": {
@@ -3096,6 +3096,361 @@
         "canceled": false,
         "talkCount": 16
       }
+    },
+    "mlir-talk-2025-06-12-rank-0-vectors-slides": {
+      "talk": {
+        "id": "mlir-talk-2025-06-12-rank-0-vectors-slides",
+        "title": "Rank-0 Vectors",
+        "abstract": "An open design meeting on Rank-0 vector design in MLIR.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2025-06-12-Rank0-Vectors.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/CyOtFU6kzDs"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2025-06-12-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2025-06-12",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/CyOtFU6kzDs",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2025-06-12-Rank0-Vectors.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2025-06-12-rank-0-vectors-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "CyOtFU6kzDs",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "rank-0 vectors",
+        "_speakerLower": "",
+        "_abstractLower": "an open design meeting on rank-0 vector design in mlir.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2025-06-12",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "rank-0 vectors",
+              "words": [
+                "rank-0",
+                "vectors"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2025-06-12",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2025-06-12"
+              ]
+            },
+            "abstract": {
+              "text": "an open design meeting on rank-0 vector design in mlir.",
+              "words": [
+                "an",
+                "open",
+                "design",
+                "meeting",
+                "on",
+                "rank-0",
+                "vector",
+                "design",
+                "in",
+                "mlir."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "rank-0 vectors an open design meeting on rank-0 vector design in mlir. mlir open design meeting 2025-06-12 2025-06-12-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides",
+        "title": "Integrating Convolution Optimization into MLIR to Improve Performance Beyond Im2Col+GEMM",
+        "abstract": "Convolution is one of the most common linear algebra operations for machine-learning applications. With the increasingly important compiler integration into such frameworks, improving performance in code-generated implementations of convolution is key for the future. In this talk, Victor Ferrari (UNICAMP) presents a new convolution approach for MLIR which improves performance when compared to the traditional Im2Col + GEMM method used in the linalg dialect and many other places. 0:00 Introduction 4:41 Model Inference Results 10:35 Optimizing Convolutions for CPUs 14:05 Optimizing Convolutions in MLIR 16:30 Current Compilation Flow 23:57 Convolution Slicing Analysis (CSA) 32:12 Optimized Micro-Kernel 35:47 Micro-Kernel: access pattern 40:02 Useful Observation 46:03 Experimental Setup 49:07 Packing Improvements 49:46 Next Steps (Macro-Kernel Lowering) 51:56 A little bit of code navigation 58:05 Next Steps (Micro-Kernel Lowering)",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-03-09-Convolution-Optimization.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/4qJanPAMUBs"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-03-09-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-03-09",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/4qJanPAMUBs",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-03-09-Convolution-Optimization.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "4qJanPAMUBs",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "integrating convolution optimization into mlir to improve performance beyond im2col+gemm",
+        "_speakerLower": "",
+        "_abstractLower": "convolution is one of the most common linear algebra operations for machine-learning applications. with the increasingly important compiler integration into such frameworks, improving performance in code-generated implementations of convolution is key for the future. in this talk, victor ferrari (unicamp) presents a new convolution approach for mlir which improves performance when compared to the traditional im2col + gemm method used in the linalg dialect and many other places. 0:00 introduction 4:41 model inference results 10:35 optimizing convolutions for cpus 14:05 optimizing convolutions in mlir 16:30 current compilation flow 23:57 convolution slicing analysis (csa) 32:12 optimized micro-kernel 35:47 micro-kernel: access pattern 40:02 useful observation 46:03 experimental setup 49:07 packing improvements 49:46 next steps (macro-kernel lowering) 51:56 a little bit of code navigation 58:05 next steps (micro-kernel lowering)",
+        "_tagsLower": "mlir performance optimizations",
+        "_meetingLower": "mlir open design meeting  2023-03-09",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "integrating convolution optimization into mlir to improve performance beyond im2col+gemm",
+              "words": [
+                "integrating",
+                "convolution",
+                "optimization",
+                "into",
+                "mlir",
+                "to",
+                "improve",
+                "performance",
+                "beyond",
+                "im2col+gemm"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir performance optimizations",
+              "words": [
+                "mlir",
+                "performance",
+                "optimizations"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-03-09",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-03-09"
+              ]
+            },
+            "abstract": {
+              "text": "convolution is one of the most common linear algebra operations for machine-learning applications. with the increasingly important compiler integration into such frameworks improving performance in code-generated implementations of convolution is key for the future. in this talk victor ferrari unicamp presents a new convolution approach for mlir which improves performance when compared to the traditional im2col + gemm method used in the linalg dialect and many other places. 0 00 introduction 4 41 model inference results 10 35 optimizing convolutions for cpus 14 05 optimizing convolutions in mlir 16 30 current compilation flow 23 57 convolution slicing analysis csa 32 12 optimized micro-kernel 35 47 micro-kernel access pattern 40 02 useful observation 46 03 experimental setup 49 07 packing improvements 49 46 next steps macro-kernel lowering 51 56 a little bit of code navigation 58 05 next steps micro-kernel lowering",
+              "words": [
+                "convolution",
+                "is",
+                "one",
+                "of",
+                "the",
+                "most",
+                "common",
+                "linear",
+                "algebra",
+                "operations",
+                "for",
+                "machine-learning",
+                "applications.",
+                "with",
+                "the",
+                "increasingly",
+                "important",
+                "compiler",
+                "integration",
+                "into",
+                "such",
+                "frameworks",
+                "improving",
+                "performance",
+                "in",
+                "code-generated",
+                "implementations",
+                "of",
+                "convolution",
+                "is",
+                "key",
+                "for",
+                "the",
+                "future.",
+                "in",
+                "this",
+                "talk",
+                "victor",
+                "ferrari",
+                "unicamp",
+                "presents",
+                "new",
+                "convolution",
+                "approach",
+                "for",
+                "mlir",
+                "which",
+                "improves",
+                "performance",
+                "when",
+                "compared",
+                "to",
+                "the",
+                "traditional",
+                "im2col",
+                "gemm",
+                "method",
+                "used",
+                "in",
+                "the",
+                "linalg",
+                "dialect",
+                "and",
+                "many",
+                "other",
+                "places.",
+                "00",
+                "introduction",
+                "41",
+                "model",
+                "inference",
+                "results",
+                "10",
+                "35",
+                "optimizing",
+                "convolutions",
+                "for",
+                "cpus",
+                "14",
+                "05",
+                "optimizing",
+                "convolutions",
+                "in",
+                "mlir",
+                "16",
+                "30",
+                "current",
+                "compilation",
+                "flow",
+                "23",
+                "57",
+                "convolution",
+                "slicing",
+                "analysis",
+                "csa",
+                "32",
+                "12",
+                "optimized",
+                "micro-kernel",
+                "35",
+                "47",
+                "micro-kernel",
+                "access",
+                "pattern",
+                "40",
+                "02",
+                "useful",
+                "observation",
+                "46",
+                "03",
+                "experimental",
+                "setup",
+                "49",
+                "07",
+                "packing",
+                "improvements",
+                "49",
+                "46",
+                "next",
+                "steps",
+                "macro-kernel",
+                "lowering",
+                "51",
+                "56",
+                "little",
+                "bit",
+                "of",
+                "code",
+                "navigation",
+                "58",
+                "05",
+                "next",
+                "steps",
+                "micro-kernel",
+                "lowering"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "integrating convolution optimization into mlir to improve performance beyond im2col+gemm convolution is one of the most common linear algebra operations for machine-learning applications. with the increasingly important compiler integration into such frameworks improving performance in code-generated implementations of convolution is key for the future. in this talk victor ferrari unicamp presents a new convolution approach for mlir which improves performance when compared to the traditional im2col + gemm method used in the linalg dialect and many other places. 0 00 introduction 4 41 model inference results 10 35 optimizing convolutions for cpus 14 05 optimizing convolutions in mlir 16 30 current compilation flow 23 57 convolution slicing analysis csa 32 12 optimized micro-kernel 35 47 micro-kernel access pattern 40 02 useful observation 46 03 experimental setup 49 07 packing improvements 49 46 next steps macro-kernel lowering 51 56 a little bit of code navigation 58 05 next steps micro-kernel lowering mlir open design meeting 2023-03-09 2023-03-09-mlir-open-design-meeting open-design-meeting mlir performance optimizations"
+      },
+      "meeting": null
     }
   }
 }

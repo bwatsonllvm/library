@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7131102593": {
@@ -12716,6 +12716,7 @@
           "citationCount": 4
         },
         "_searchBlob": "high-performance gpu-to-cpu transpilation and optimization via high-level parallel constructs while parallelism remains the main source of performance architectural implementations and programming models change with each new hardware generation often leading to costly application re-engineering. most tools for performance portability require manual and costly application porting to yet another programming model. we propose an alternative approach that automatically translates programs written in one programming model cuda into another cpu threads based on polygeist mlir. our approach includes a representation of parallel constructs that allows conventional compiler transformations to apply transparently and without modification and enables parallelism-specific optimizations. we evaluate our framework by transpiling and optimizing the cuda rodinia benchmark suite for a multi-core cpu and achieve a 76 geomean speedup over handwritten openmp code. further we show how cuda kernels from pytorch can efficiently run and scale on the cpu-only supercomputer fugaku without user intervention. our pytorch compatibility layer making use of transpiled cuda pytorch kernels outperforms the pytorch cpu native backend by 2.7 times . arxiv arxiv 2022 research-paper william s. moses ivan r. ivanov jens domke toshio endo johannes doerfert mlir openmp backend optimizations performance gpu cuda mlir openmp backend optimizations performance gpu cuda cpu transpilation pytorch performance gpu parallel constructs kernels parallelism mlir openmp",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000

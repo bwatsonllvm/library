@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-019": {
@@ -5237,6 +5237,311 @@
         "canceled": false,
         "talkCount": 17
       }
+    },
+    "mlir-talk-2023-06-22-targeting-arm-sme-from-mlir-and-sme-dialect-slides-part-1": {
+      "talk": {
+        "id": "mlir-talk-2023-06-22-targeting-arm-sme-from-mlir-and-sme-dialect-slides-part-1",
+        "title": "Targeting ARM SME from MLIR and SME Dialect",
+        "abstract": "This is a review and discussion of the RFC on creating a ArmSME Dialect. We will first have an introduction into Arm’s Scalable Matrix Extension, including the MLIR codegen perspective, the work done so far to target SME from MLIR, and discuss what’s the best way to target “CPU accelerators” from MLIR. Then we will have a second part to detail the proposal for this dialect.",
+        "speakers": [
+          {
+            "name": "Frank Fang Gao",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides 1",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-06-22-Targeting-SME.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides 2",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-06-22-SME-Dialect.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/jrniGW_Hzno"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-06-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-06-22",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/jrniGW_Hzno",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-06-22-Targeting-SME.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-06-22-targeting-arm-sme-from-mlir-and-sme-dialect-slides-part-1",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "jrniGW_Hzno",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "targeting arm sme from mlir and sme dialect",
+        "_speakerLower": "frank fang gao",
+        "_abstractLower": "this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arm’s scalable matrix extension, including the mlir codegen perspective, the work done so far to target sme from mlir, and discuss what’s the best way to target “cpu accelerators” from mlir. then we will have a second part to detail the proposal for this dialect.",
+        "_tagsLower": "mlir code generation",
+        "_meetingLower": "mlir open design meeting  2023-06-22",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "targeting arm sme from mlir and sme dialect",
+              "words": [
+                "targeting",
+                "arm",
+                "sme",
+                "from",
+                "mlir",
+                "and",
+                "sme",
+                "dialect"
+              ]
+            },
+            "speakers": {
+              "text": "frank fang gao",
+              "words": [
+                "frank",
+                "fang",
+                "gao"
+              ]
+            },
+            "tags": {
+              "text": "mlir code generation",
+              "words": [
+                "mlir",
+                "code",
+                "generation"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-06-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-06-22"
+              ]
+            },
+            "abstract": {
+              "text": "this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arms scalable matrix extension including the mlir codegen perspective the work done so far to target sme from mlir and discuss whats the best way to target cpu accelerators from mlir. then we will have a second part to detail the proposal for this dialect.",
+              "words": [
+                "this",
+                "is",
+                "review",
+                "and",
+                "discussion",
+                "of",
+                "the",
+                "rfc",
+                "on",
+                "creating",
+                "armsme",
+                "dialect.",
+                "we",
+                "will",
+                "first",
+                "have",
+                "an",
+                "introduction",
+                "into",
+                "arms",
+                "scalable",
+                "matrix",
+                "extension",
+                "including",
+                "the",
+                "mlir",
+                "codegen",
+                "perspective",
+                "the",
+                "work",
+                "done",
+                "so",
+                "far",
+                "to",
+                "target",
+                "sme",
+                "from",
+                "mlir",
+                "and",
+                "discuss",
+                "whats",
+                "the",
+                "best",
+                "way",
+                "to",
+                "target",
+                "cpu",
+                "accelerators",
+                "from",
+                "mlir.",
+                "then",
+                "we",
+                "will",
+                "have",
+                "second",
+                "part",
+                "to",
+                "detail",
+                "the",
+                "proposal",
+                "for",
+                "this",
+                "dialect."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "targeting arm sme from mlir and sme dialect this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arms scalable matrix extension including the mlir codegen perspective the work done so far to target sme from mlir and discuss whats the best way to target cpu accelerators from mlir. then we will have a second part to detail the proposal for this dialect. mlir open design meeting 2023-06-22 2023-06-22-mlir-open-design-meeting open-design-meeting frank fang gao mlir code generation"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-10-22-fusion-of-elementwise-operations-with-linalg-on-tensors": {
+      "talk": {
+        "id": "mlir-talk-2020-10-22-fusion-of-elementwise-operations-with-linalg-on-tensors",
+        "title": "Fusion of Elementwise operations with Linalg on tensors",
+        "abstract": "2020 10 22 Fusion of Elementwise operations with Linalg on tensors",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1n6mDw3XlNB8qmltbVgdCzrgpED25KHEF/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1hNulnBUAaXmLJG30UgUAJgkQWupXd7T7/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-10-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-10-22",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1hNulnBUAaXmLJG30UgUAJgkQWupXd7T7/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1n6mDw3XlNB8qmltbVgdCzrgpED25KHEF/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-10-22-fusion-of-elementwise-operations-with-linalg-on-tensors",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "fusion of elementwise operations with linalg on tensors",
+        "_speakerLower": "",
+        "_abstractLower": "2020 10 22 fusion of elementwise operations with linalg on tensors",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2020-10-22",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "fusion of elementwise operations with linalg on tensors",
+              "words": [
+                "fusion",
+                "of",
+                "elementwise",
+                "operations",
+                "with",
+                "linalg",
+                "on",
+                "tensors"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-10-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-10-22"
+              ]
+            },
+            "abstract": {
+              "text": "2020 10 22 fusion of elementwise operations with linalg on tensors",
+              "words": [
+                "2020",
+                "10",
+                "22",
+                "fusion",
+                "of",
+                "elementwise",
+                "operations",
+                "with",
+                "linalg",
+                "on",
+                "tensors"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "fusion of elementwise operations with linalg on tensors 2020 10 22 fusion of elementwise operations with linalg on tensors mlir open design meeting 2020-10-22 2020-10-22-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

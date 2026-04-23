@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7128049088": {
@@ -13230,6 +13230,7 @@
           "citationCount": 39
         },
         "_searchBlob": "compiling onnx neural network models using mlir deep neural network models are becoming increasingly popular and have been used in various tasks such as computer vision speech recognition and natural language processing. machine learning models are commonly trained in a resource-rich environment and then deployed in a distinct environment such as high availability machines or edge devices. to assist the portability of models the open-source community has proposed the open neural network exchange onnx standard. in this paper we present a high-level preliminary report on our onnx-mlir compiler which generates code for the inference of deep neural network models described in the onnx format. onnx-mlir is an open-source compiler implemented using the multi-level intermediate representation mlir infrastructure recently integrated in the llvm project. onnx-mlir relies on the mlir concept of dialects to implement its functionality. we propose here two new dialects 1 an onnx specific dialect that encodes the onnx standard semantics and 2 a loop-based dialect to provide for a common lowering point for all onnx dialect operations. each intermediate representation facilitates its own characteristic set of graph-level and loop-based optimizations respectively. we illustrate our approach by following several models through the proposed representations and we include some early optimization work and performance results. arxiv arxiv 2020 research-paper jin tian gheorghe-teodor bercea tung d. le tong chen gong su haruki imai yasushi negishi anh leu kevin obrien kiyokuni kawachiya alexandre e. eichenberger llvm mlir ir optimizations performance infrastructure ml llvm mlir optimizations performance infrastructure intermediate representation onnx mlir deep neural network dialect onnx standard compiling onnx neural onnx neural network llvm mlir",
+        "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000

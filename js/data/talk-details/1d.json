@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-06-019": {
@@ -1374,7 +1374,7 @@
     "2020-04-027": {
       "talk": {
         "id": "2020-04-027",
-        "meeting": "2020-04",
+        "meeting": "2020-09-00-2020-virtual-llvm-developers",
         "meetingName": "2020 EuroLLVM Developers' Meeting",
         "meetingLocation": "Paris, France - Canceled",
         "meetingDate": "April 6-7, 2020",
@@ -1394,24 +1394,49 @@
             "github": "",
             "linkedin": "",
             "twitter": ""
+          },
+          {
+            "name": "River Riddle",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
           }
         ],
         "abstract": "MLIR is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to LLVM. It aims at generalizing the success of LLVM’s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning. In this tutorial, we will explain how the few core concepts present in MLIR can be combined to represent and transform various IRs, including LLVM IR itself, by demonstrating the development of an optimizing compiler for a custom DSL step by step. The tutorial should be sufficient for the developers of compilers, IRs and similar tools to start using MLIR to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. We will provide an overview of MLIR ecosystem and related efforts, building the analogy with existing LLVM subsystems and frequently discussed LLVM extension proposals, e.g. loop optimizations or GPU-specific abstractions.",
         "videoUrl": "https://www.youtube.com/watch?v=ytv_Tutorial_34",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2020-04/slides/slides_Tutorial_34.pdf",
-        "tags": [],
+        "tags": [
+          "MLIR"
+        ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://www.youtube.com/watch?v=Y4SvqTtOIDk"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://llvm.org/devmtg/2020-09/"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://llvm.org/devmtg/2020-09/",
         "_titleLower": "mlir tutorial",
-        "_speakerLower": "alex zinenko mehdi amini",
+        "_speakerLower": "alex zinenko mehdi amini river riddle",
         "_abstractLower": "mlir is a flexible infrastructure for defining custom compiler abstractions and transformations, recently introduced to llvm. it aims at generalizing the success of llvm’s intermediate representation to new domains, ranging from device instruction sets, to loop abstractions, to graphs of operators used in machine learning. in this tutorial, we will explain how the few core concepts present in mlir can be combined to represent and transform various irs, including llvm ir itself, by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers, irs and similar tools to start using mlir to implement custom operations with parsing and printing, define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts, building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals, e.g. loop optimizations or gpu-specific abstractions.",
-        "_tagsLower": "llvm mlir ir optimizations infrastructure gpu ml",
+        "_tagsLower": "mlir llvm ir optimizations infrastructure gpu ml",
         "_meetingLower": "2020 eurollvm developers' meeting paris, france - canceled april 6-7, 2020",
         "_year": "2020",
         "_searchDoc": {
@@ -1424,19 +1449,21 @@
               ]
             },
             "speakers": {
-              "text": "alex zinenko mehdi amini",
+              "text": "alex zinenko mehdi amini river riddle",
               "words": [
                 "alex",
                 "zinenko",
                 "mehdi",
-                "amini"
+                "amini",
+                "river",
+                "riddle"
               ]
             },
             "tags": {
-              "text": "llvm mlir ir optimizations infrastructure gpu ml",
+              "text": "mlir llvm ir optimizations infrastructure gpu ml",
               "words": [
-                "llvm",
                 "mlir",
+                "llvm",
                 "ir",
                 "optimizations",
                 "infrastructure",
@@ -1633,16 +1660,11 @@
           },
           "year": 2020
         },
-        "_searchBlob": "mlir tutorial mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-04 tutorial alex zinenko mehdi amini llvm mlir ir optimizations infrastructure gpu ml"
+        "_searchBlob": "mlir tutorial mlir is a flexible infrastructure for defining custom compiler abstractions and transformations recently introduced to llvm. it aims at generalizing the success of llvms intermediate representation to new domains ranging from device instruction sets to loop abstractions to graphs of operators used in machine learning. in this tutorial we will explain how the few core concepts present in mlir can be combined to represent and transform various irs including llvm ir itself by demonstrating the development of an optimizing compiler for a custom dsl step by step. the tutorial should be sufficient for the developers of compilers irs and similar tools to start using mlir to implement custom operations with parsing and printing define custom type systems and implement generic passes over the combination of those. we will provide an overview of mlir ecosystem and related efforts building the analogy with existing llvm subsystems and frequently discussed llvm extension proposals e.g. loop optimizations or gpu-specific abstractions. 2020 eurollvm developers meeting paris france - canceled april 6-7 2020 2020-09-00-2020-virtual-llvm-developers tutorial alex zinenko mehdi amini river riddle mlir llvm ir optimizations infrastructure gpu ml",
+        "detailUrl": "talks/talk.html?id=mlir-talk-mlir-tutorial",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2020-04",
-        "name": "2020 EuroLLVM Developers' Meeting",
-        "date": "April 6-7, 2020",
-        "location": "Paris, France - Canceled",
-        "canceled": true,
-        "talkCount": 68
-      }
+      "meeting": null
     },
     "2020-04-049": {
       "talk": {
@@ -2115,6 +2137,111 @@
         "canceled": false,
         "talkCount": 13
       }
+    },
+    "mlir-talk-2019-12-05-structured-ops": {
+      "talk": {
+        "id": "mlir-talk-2019-12-05-structured-ops",
+        "title": "Structured Ops",
+        "abstract": "2019 12 05 Structured Ops",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://docs.google.com/presentation/d/1P-j1GrH6Q5gLBjao0afQ-GfvcAeF-QU4GXXeSy0eJ9I/edit?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/a/google.com/file/d/1SXsHWpnmMYH08g9Mx7vbGFWdF1s0yF6t/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2019-12-05-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2019-12-05",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/a/google.com/file/d/1SXsHWpnmMYH08g9Mx7vbGFWdF1s0yF6t/view?usp=sharing",
+        "slidesUrl": "https://docs.google.com/presentation/d/1P-j1GrH6Q5gLBjao0afQ-GfvcAeF-QU4GXXeSy0eJ9I/edit?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2019-12-05-structured-ops",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "structured ops",
+        "_speakerLower": "",
+        "_abstractLower": "2019 12 05 structured ops",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2019-12-05",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "structured ops",
+              "words": [
+                "structured",
+                "ops"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2019-12-05",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2019-12-05"
+              ]
+            },
+            "abstract": {
+              "text": "2019 12 05 structured ops",
+              "words": [
+                "2019",
+                "12",
+                "05",
+                "structured",
+                "ops"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "structured ops 2019 12 05 structured ops mlir open design meeting 2019-12-05 2019-12-05-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

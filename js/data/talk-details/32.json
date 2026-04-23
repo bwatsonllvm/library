@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-011": {
@@ -5212,7 +5212,7 @@
     "2019-04-026": {
       "talk": {
         "id": "2019-04-026",
-        "meeting": "2019-04",
+        "meeting": "2019-04-00-eurollvm-2019",
         "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
@@ -5228,6 +5228,20 @@
           },
           {
             "name": "Alex Zinenko",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Mehdi Amini",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Nicolas Vasilache",
             "affiliation": "",
             "github": "",
             "linkedin": "",
@@ -5621,13 +5635,33 @@
             "kind": "github",
             "label": "GitHub 22",
             "url": "https://github.com/tensorflow/mlir"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/cyICUIZ56wQ"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2019-04/slides/Tutorial-AminiVasilacheZinenko-MLIR.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://llvm.org/devmtg/2019-04/talks.html#Tutorial_1"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://llvm.org/devmtg/2019-04"
           }
         ],
         "keywords": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://llvm.org/devmtg/2019-04",
         "_titleLower": "tutorial: building a compiler with mlir",
-        "_speakerLower": "amini mehdi alex zinenko",
+        "_speakerLower": "amini mehdi alex zinenko mehdi amini nicolas vasilache",
         "_abstractLower": "this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl, and target llvm for lower level optimizations and code generation or jit execution.",
         "_tagsLower": "beginner mlir llvm jit code generation optimizations",
         "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
@@ -5645,12 +5679,16 @@
               ]
             },
             "speakers": {
-              "text": "amini mehdi alex zinenko",
+              "text": "amini mehdi alex zinenko mehdi amini nicolas vasilache",
               "words": [
                 "amini",
                 "mehdi",
                 "alex",
-                "zinenko"
+                "zinenko",
+                "mehdi",
+                "amini",
+                "nicolas",
+                "vasilache"
               ]
             },
             "tags": {
@@ -5749,16 +5787,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "tutorial building a compiler with mlir this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl and target llvm for lower level optimizations and code generation or jit execution. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 tutorial amini mehdi alex zinenko beginner mlir llvm jit code generation optimizations"
+        "_searchBlob": "tutorial building a compiler with mlir this tutorial will complement the technical talk about mlir. we will implement a custom dsl for numerical processing and walk the audience step-by-step through the use of mlir to support the lowering and the optimization of such dsl and target llvm for lower level optimizations and code generation or jit execution. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04-00-eurollvm-2019 tutorial amini mehdi alex zinenko mehdi amini nicolas vasilache beginner mlir llvm jit code generation optimizations",
+        "detailUrl": "talks/talk.html?id=mlir-talk-tutorial-building-a-compiler-with-mlir",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2019-04",
-        "name": "2019 EuroLLVM Developers' Meeting",
-        "date": "April 8-9, 2019",
-        "location": "Brussels, Belgium",
-        "canceled": false,
-        "talkCount": 75
-      }
+      "meeting": null
     },
     "2019-04-048": {
       "talk": {
@@ -10886,6 +10919,376 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-mlir-accelerating-ai": {
+      "talk": {
+        "id": "mlir-talk-mlir-accelerating-ai",
+        "title": "MLIR: Accelerating AI",
+        "abstract": "",
+        "speakers": [
+          {
+            "name": "Chris Lattner",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tatiana Shpeisman",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/QYV0Se167hM"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://conferences.oreilly.com/tensorflow/tf-ca"
+          }
+        ],
+        "category": "technical-talk",
+        "tags": [
+          "MLIR",
+          "Using MLIR"
+        ],
+        "meeting": "2019-00-00-o-reilly-tensorflow-world-2019",
+        "meetingName": "O'Reilly TensorFlow World 2019",
+        "meetingDate": "2019",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/QYV0Se167hM",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://conferences.oreilly.com/tensorflow/tf-ca",
+        "detailUrl": "talks/talk.html?id=mlir-talk-mlir-accelerating-ai",
+        "mlirSection": "Tech talks",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "QYV0Se167hM",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "mlir: accelerating ai",
+        "_speakerLower": "chris lattner tatiana shpeisman",
+        "_abstractLower": "",
+        "_tagsLower": "mlir ai",
+        "_meetingLower": "o'reilly tensorflow world 2019  2019",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir accelerating ai",
+              "words": [
+                "mlir",
+                "accelerating",
+                "ai"
+              ]
+            },
+            "speakers": {
+              "text": "chris lattner tatiana shpeisman",
+              "words": [
+                "chris",
+                "lattner",
+                "tatiana",
+                "shpeisman"
+              ]
+            },
+            "tags": {
+              "text": "mlir ai",
+              "words": [
+                "mlir",
+                "ai"
+              ]
+            },
+            "meeting": {
+              "text": "oreilly tensorflow world 2019 2019",
+              "words": [
+                "oreilly",
+                "tensorflow",
+                "world",
+                "2019",
+                "2019"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "mlir accelerating ai oreilly tensorflow world 2019 2019 2019-00-00-o-reilly-tensorflow-world-2019 technical-talk chris lattner tatiana shpeisman mlir ai"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-07-22-mlir-data-visualization-using-passinstrumentation": {
+      "talk": {
+        "id": "mlir-talk-2021-07-22-mlir-data-visualization-using-passinstrumentation",
+        "title": "MLIR data visualization using PassInstrumentation",
+        "abstract": "In this talk, Scott Todd presents his work on MLIR data visualization using PassInstrumentation and discuss possible integration upstream and future direction for this kind of tooling.",
+        "speakers": [
+          {
+            "name": "Scott Todd",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-07-22-MLIR-data-visualization.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/FEXab1sgZLA"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-07-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-07-22",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/FEXab1sgZLA",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-07-22-MLIR-data-visualization.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-07-22-mlir-data-visualization-using-passinstrumentation",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": "FEXab1sgZLA",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "mlir data visualization using passinstrumentation",
+        "_speakerLower": "scott todd",
+        "_abstractLower": "in this talk, scott todd presents his work on mlir data visualization using passinstrumentation and discuss possible integration upstream and future direction for this kind of tooling.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-07-22",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir data visualization using passinstrumentation",
+              "words": [
+                "mlir",
+                "data",
+                "visualization",
+                "using",
+                "passinstrumentation"
+              ]
+            },
+            "speakers": {
+              "text": "scott todd",
+              "words": [
+                "scott",
+                "todd"
+              ]
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-07-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-07-22"
+              ]
+            },
+            "abstract": {
+              "text": "in this talk scott todd presents his work on mlir data visualization using passinstrumentation and discuss possible integration upstream and future direction for this kind of tooling.",
+              "words": [
+                "in",
+                "this",
+                "talk",
+                "scott",
+                "todd",
+                "presents",
+                "his",
+                "work",
+                "on",
+                "mlir",
+                "data",
+                "visualization",
+                "using",
+                "passinstrumentation",
+                "and",
+                "discuss",
+                "possible",
+                "integration",
+                "upstream",
+                "and",
+                "future",
+                "direction",
+                "for",
+                "this",
+                "kind",
+                "of",
+                "tooling."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "mlir data visualization using passinstrumentation in this talk scott todd presents his work on mlir data visualization using passinstrumentation and discuss possible integration upstream and future direction for this kind of tooling. mlir open design meeting 2021-07-22 2021-07-22-mlir-open-design-meeting open-design-meeting scott todd mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-03-18-mlir-amx-vector-dialect": {
+      "talk": {
+        "id": "mlir-talk-2021-03-18-mlir-amx-vector-dialect",
+        "title": "MLIR AMX Vector Dialect",
+        "abstract": "2021 03 18 MLIR AMX Vector Dialect",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1uXZjudK9IN3ogE2U7uuSWFLibbuJotvW/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1s7YLDgJA8bQyUkcAvYGVDAh8Wg9UkaUH/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-03-18-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-03-18",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1s7YLDgJA8bQyUkcAvYGVDAh8Wg9UkaUH/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1uXZjudK9IN3ogE2U7uuSWFLibbuJotvW/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-03-18-mlir-amx-vector-dialect",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "mlir amx vector dialect",
+        "_speakerLower": "",
+        "_abstractLower": "2021 03 18 mlir amx vector dialect",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-03-18",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir amx vector dialect",
+              "words": [
+                "mlir",
+                "amx",
+                "vector",
+                "dialect"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-03-18",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-03-18"
+              ]
+            },
+            "abstract": {
+              "text": "2021 03 18 mlir amx vector dialect",
+              "words": [
+                "2021",
+                "03",
+                "18",
+                "mlir",
+                "amx",
+                "vector",
+                "dialect"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "mlir amx vector dialect 2021 03 18 mlir amx vector dialect mlir open design meeting 2021-03-18 2021-03-18-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

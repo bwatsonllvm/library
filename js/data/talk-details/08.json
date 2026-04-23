@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-10-060": {
@@ -1490,8 +1490,8 @@
     "2019-10-021": {
       "talk": {
         "id": "2019-10-021",
-        "meeting": "2019-10",
-        "meetingName": "2019 US LLVM Developers' Meeting",
+        "meeting": "2019-10-00-2019-llvm-developers-meeting-bay-area",
+        "meetingName": "2019 LLVM Developers' Meeting - Bay Area",
         "meetingLocation": "San Jose, CA, USA",
         "meetingDate": "October 22-23, 2019",
         "category": "technical-talk",
@@ -1505,7 +1505,7 @@
             "twitter": ""
           }
         ],
-        "abstract": "Flang project is actively developing a standards-compliant compiler for Fortran—the world’s first high-level programming language and still an important language for science and engineering today. While Fortran’s core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. The Flang project has been exploring the use of MLIR, specifically the definition of Flang’s Fortran IR (FIR) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of Flang. This talk will explore what the FIR dialect is, how it is built upon and uses other aspects of MLIR, as well as some of the high-level optimizations achieved.",
+        "abstract": "The LLVM-based Flang project is actively developing a standards-compliant compiler for Fortran's ”the world's™s first high-level programming language and still an important language for science and engineering today. While Fortran's core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. The Flang project has been exploring the use of MLIR, specifically the definition of Flang's Fortran IR (FIR) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of Flang. This talk will explore what the FIR dialect is, how it is built upon and uses other aspects of MLIR, as well as some of the high-level optimizations achieved.",
         "videoUrl": "https://youtu.be/ff3ngdvUang",
         "videoId": "ff3ngdvUang",
         "tags": [
@@ -1514,21 +1514,33 @@
           "MLIR",
           "Optimizations",
           "Performance",
-          "Programming Languages"
+          "Programming Languages",
+          "Using MLIR"
         ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/ff3ngdvUang"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "http://llvm.org/devmtg/2019-10/"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
         "slidesUrl": "",
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "http://llvm.org/devmtg/2019-10/",
         "_titleLower": "an mlir dialect for high-level optimization of fortran",
         "_speakerLower": "eric schweitz",
-        "_abstractLower": "flang project is actively developing a standards-compliant compiler for fortran—the world’s first high-level programming language and still an important language for science and engineering today. while fortran’s core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir, specifically the definition of flang’s fortran ir (fir) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is, how it is built upon and uses other aspects of mlir, as well as some of the high-level optimizations achieved.",
-        "_tagsLower": "flang ir mlir optimizations performance programming languages",
-        "_meetingLower": "2019 us llvm developers' meeting san jose, ca, usa october 22-23, 2019",
+        "_abstractLower": "the llvm-based flang project is actively developing a standards-compliant compiler for fortran's ”the world's™s first high-level programming language and still an important language for science and engineering today. while fortran's core strength of writing computations on arrays remains, the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir, specifically the definition of flang's fortran ir (fir) as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is, how it is built upon and uses other aspects of mlir, as well as some of the high-level optimizations achieved.",
+        "_tagsLower": "flang ir mlir optimizations performance programming languages llvm",
+        "_meetingLower": "2019 llvm developers' meeting - bay area san jose, ca, usa october 22-23, 2019",
         "_year": "2019",
         "_searchDoc": {
           "fields": {
@@ -1553,7 +1565,7 @@
               ]
             },
             "tags": {
-              "text": "flang ir mlir optimizations performance programming languages",
+              "text": "flang ir mlir optimizations performance programming languages llvm",
               "words": [
                 "flang",
                 "ir",
@@ -1561,17 +1573,19 @@
                 "optimizations",
                 "performance",
                 "programming",
-                "languages"
+                "languages",
+                "llvm"
               ]
             },
             "meeting": {
-              "text": "2019 us llvm developers meeting san jose ca usa october 22-23 2019",
+              "text": "2019 llvm developers meeting - bay area san jose ca usa october 22-23 2019",
               "words": [
                 "2019",
-                "us",
                 "llvm",
                 "developers",
                 "meeting",
+                "bay",
+                "area",
                 "san",
                 "jose",
                 "ca",
@@ -1582,8 +1596,10 @@
               ]
             },
             "abstract": {
-              "text": "flang project is actively developing a standards-compliant compiler for fortran the worlds first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved.",
+              "text": "the llvm-based flang project is actively developing a standards-compliant compiler for fortrans the worldstms first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved.",
               "words": [
+                "the",
+                "llvm-based",
                 "flang",
                 "project",
                 "is",
@@ -1592,9 +1608,9 @@
                 "standards-compliant",
                 "compiler",
                 "for",
-                "fortran",
+                "fortrans",
                 "the",
-                "worlds",
+                "worldstms",
                 "first",
                 "high-level",
                 "programming",
@@ -1717,16 +1733,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "an mlir dialect for high-level optimization of fortran flang project is actively developing a standards-compliant compiler for fortran the worlds first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved. 2019 us llvm developers meeting san jose ca usa october 22-23 2019 2019-10 technical-talk eric schweitz flang ir mlir optimizations performance programming languages"
+        "_searchBlob": "an mlir dialect for high-level optimization of fortran the llvm-based flang project is actively developing a standards-compliant compiler for fortrans the worldstms first high-level programming language and still an important language for science and engineering today. while fortrans core strength of writing computations on arrays remains the standard language continues to add new facilities such as object-oriented programming. the flang project has been exploring the use of mlir specifically the definition of flangs fortran ir fir as a framework upon which to build a more comprehensive and regular set of optimizations for both better performance and overall reliability of flang. this talk will explore what the fir dialect is how it is built upon and uses other aspects of mlir as well as some of the high-level optimizations achieved. 2019 llvm developers meeting - bay area san jose ca usa october 22-23 2019 2019-10-00-2019-llvm-developers-meeting-bay-area technical-talk eric schweitz flang ir mlir optimizations performance programming languages llvm",
+        "detailUrl": "talks/talk.html?id=mlir-talk-an-mlir-dialect-for-high-level-optimization-of-fortran",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2019-10",
-        "name": "2019 US LLVM Developers' Meeting",
-        "date": "October 22-23, 2019",
-        "location": "San Jose, CA, USA",
-        "canceled": false,
-        "talkCount": 85
-      }
+      "meeting": null
     },
     "2019-10-043": {
       "talk": {
@@ -3674,6 +3685,236 @@
         "canceled": false,
         "talkCount": 8
       }
+    },
+    "mlir-talk-2019-10-10-interfaces-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2019-10-10-interfaces-in-mlir",
+        "title": "Interfaces in MLIR",
+        "abstract": "2019 10 10 Interfaces in MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://docs.google.com/presentation/d/1sOh0hYzK7rpXTqd1BwZVe2FmdROpw6lxxkYVJ5D2UVQ/view"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/a/google.com/file/d/19DLG5edB7YYkB9hI27t1oC_2kQa23qG4/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2019-10-10-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2019-10-10",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/a/google.com/file/d/19DLG5edB7YYkB9hI27t1oC_2kQa23qG4/view?usp=sharing",
+        "slidesUrl": "https://docs.google.com/presentation/d/1sOh0hYzK7rpXTqd1BwZVe2FmdROpw6lxxkYVJ5D2UVQ/view",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2019-10-10-interfaces-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "interfaces in mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2019 10 10 interfaces in mlir",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2019-10-10",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "interfaces in mlir",
+              "words": [
+                "interfaces",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2019-10-10",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2019-10-10"
+              ]
+            },
+            "abstract": {
+              "text": "2019 10 10 interfaces in mlir",
+              "words": [
+                "2019",
+                "10",
+                "10",
+                "interfaces",
+                "in",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "interfaces in mlir 2019 10 10 interfaces in mlir mlir open design meeting 2019-10-10 2019-10-10-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2025-04-10-inet-interaction-network-dialect": {
+      "talk": {
+        "id": "mlir-talk-2025-04-10-inet-interaction-network-dialect",
+        "title": "Inet: Interaction Network Dialect",
+        "abstract": "An open design meeting on the Inet Dialect for modeling Interaction Networks paradigm, adopted among others by HVM2 and Vine IVM.",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2025-04-10-Inet-Dialect.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/XKY4LLBwmmg"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2025-04-10-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2025-04-10",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/XKY4LLBwmmg",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2025-04-10-Inet-Dialect.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2025-04-10-inet-interaction-network-dialect",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "XKY4LLBwmmg",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "inet: interaction network dialect",
+        "_speakerLower": "",
+        "_abstractLower": "an open design meeting on the inet dialect for modeling interaction networks paradigm, adopted among others by hvm2 and vine ivm.",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2025-04-10",
+        "_year": "2025",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "inet interaction network dialect",
+              "words": [
+                "inet",
+                "interaction",
+                "network",
+                "dialect"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2025-04-10",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2025-04-10"
+              ]
+            },
+            "abstract": {
+              "text": "an open design meeting on the inet dialect for modeling interaction networks paradigm adopted among others by hvm2 and vine ivm.",
+              "words": [
+                "an",
+                "open",
+                "design",
+                "meeting",
+                "on",
+                "the",
+                "inet",
+                "dialect",
+                "for",
+                "modeling",
+                "interaction",
+                "networks",
+                "paradigm",
+                "adopted",
+                "among",
+                "others",
+                "by",
+                "hvm2",
+                "and",
+                "vine",
+                "ivm."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025
+        },
+        "_searchBlob": "inet interaction network dialect an open design meeting on the inet dialect for modeling interaction networks paradigm adopted among others by hvm2 and vine ivm. mlir open design meeting 2025-04-10 2025-04-10-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

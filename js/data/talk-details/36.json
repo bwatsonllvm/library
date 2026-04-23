@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-015": {
@@ -4643,8 +4643,8 @@
     "2021-11-014": {
       "talk": {
         "id": "2021-11-014",
-        "meeting": "2021-11",
-        "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+        "meeting": "2021-11-16-2021-llvm-developers-meeting-november-16-19-2021",
+        "meetingName": "2021 LLVM Developers' Meeting November 16-19, 2021",
         "meetingLocation": "virtual",
         "meetingDate": "November 16-19, 2021",
         "category": "technical-talk",
@@ -4663,20 +4663,42 @@
         "videoId": "x-nHc3hBxHM",
         "slidesUrl": "https://llvm.org/devmtg/2021-11/slides/2021-CompilerSupportforSparseTensorComputationsinMLIR.pdf",
         "tags": [
-          "MLIR"
+          "MLIR",
+          "About MLIR and MLIR Components"
         ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2021-11/slides/2021-CompilerSupportforSparseTensorComputationsinMLIR.pdf"
+          },
+          {
+            "kind": "primary",
+            "label": "Talk",
+            "url": "https://youtu.be/x-nHc3hBxHM"
+          },
+          {
+            "kind": "link",
+            "label": "Aart Bik",
+            "url": "https://www.aartbik.com/"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://llvm.swoogo.com/2021devmtg/"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://www.aartbik.com/",
         "_titleLower": "compiler support for sparse tensor computations in mlir",
         "_speakerLower": "aart bik",
         "_abstractLower": "in this technical talk, we discuss how compiler support for sparse tensor computations was added to mlir (llvm’s extensible infrastructure for building domain specific compilers). we discuss the concept of sparse tensor types as first class citizens and show how this simplifies the introduction of new front-ends and back-ends for systems that want to add sparse tensor support. we also show how mlir can be used for rapid sparse library development, driven by either exhaustively searching for suitable sparse storage formats or using ml to find such formats quicker, or even for end-to-end solutions mapping sparse agnostic specification of kernels to efficient sparse code at runtime. finally, we discuss how you can contribute to this new sparse tensor support in mlir.",
         "_tagsLower": "mlir llvm infrastructure ml",
-        "_meetingLower": "2021 llvm developers' meeting (virtual) virtual november 16-19, 2021",
+        "_meetingLower": "2021 llvm developers' meeting november 16-19, 2021 virtual november 16-19, 2021",
         "_year": "2021",
         "_searchDoc": {
           "fields": {
@@ -4710,13 +4732,15 @@
               ]
             },
             "meeting": {
-              "text": "2021 llvm developers meeting virtual virtual november 16-19 2021",
+              "text": "2021 llvm developers meeting november 16-19 2021 virtual november 16-19 2021",
               "words": [
                 "2021",
                 "llvm",
                 "developers",
                 "meeting",
-                "virtual",
+                "november",
+                "16-19",
+                "2021",
                 "virtual",
                 "november",
                 "16-19",
@@ -4864,16 +4888,11 @@
           },
           "year": 2021
         },
-        "_searchBlob": "compiler support for sparse tensor computations in mlir in this technical talk we discuss how compiler support for sparse tensor computations was added to mlir llvms extensible infrastructure for building domain specific compilers . we discuss the concept of sparse tensor types as first class citizens and show how this simplifies the introduction of new front-ends and back-ends for systems that want to add sparse tensor support. we also show how mlir can be used for rapid sparse library development driven by either exhaustively searching for suitable sparse storage formats or using ml to find such formats quicker or even for end-to-end solutions mapping sparse agnostic specification of kernels to efficient sparse code at runtime. finally we discuss how you can contribute to this new sparse tensor support in mlir. 2021 llvm developers meeting virtual virtual november 16-19 2021 2021-11 technical-talk aart bik mlir llvm infrastructure ml"
+        "_searchBlob": "compiler support for sparse tensor computations in mlir in this technical talk we discuss how compiler support for sparse tensor computations was added to mlir llvms extensible infrastructure for building domain specific compilers . we discuss the concept of sparse tensor types as first class citizens and show how this simplifies the introduction of new front-ends and back-ends for systems that want to add sparse tensor support. we also show how mlir can be used for rapid sparse library development driven by either exhaustively searching for suitable sparse storage formats or using ml to find such formats quicker or even for end-to-end solutions mapping sparse agnostic specification of kernels to efficient sparse code at runtime. finally we discuss how you can contribute to this new sparse tensor support in mlir. 2021 llvm developers meeting november 16-19 2021 virtual november 16-19 2021 2021-11-16-2021-llvm-developers-meeting-november-16-19-2021 technical-talk aart bik mlir llvm infrastructure ml",
+        "detailUrl": "talks/talk.html?id=mlir-talk-compiler-support-for-sparse-tensor-computations-in-mlir",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2021-11",
-        "name": "2021 LLVM Developers' Meeting (Virtual)",
-        "date": "November 16-19, 2021",
-        "location": "virtual",
-        "canceled": false,
-        "talkCount": 67
-      }
+      "meeting": null
     },
     "2021-11-036": {
       "talk": {
@@ -9800,6 +9819,398 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides": {
+      "talk": {
+        "id": "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides",
+        "title": "A Polynomial Dialect Proposal",
+        "abstract": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
+        "speakers": [
+          {
+            "name": "Alexander Viand",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Intel Jeremy Kun",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-10-26-Polynomial-dialect.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/wsKP-guEB5s"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/heir-compiler/heir"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/MarbleHE/HECO"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 3",
+            "url": "https://github.com/corelab-src/elasm"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 4",
+            "url": "https://github.com/zama-ai/concrete"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 5",
+            "url": "https://github.com/google/heir"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2023-10-26-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2023-10-26",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/wsKP-guEB5s",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-10-26-Polynomial-dialect.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/heir-compiler/heir",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/heir-compiler/heir",
+          "https://github.com/MarbleHE/HECO",
+          "https://github.com/corelab-src/elasm",
+          "https://github.com/zama-ai/concrete",
+          "https://github.com/google/heir"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/heir-compiler/heir",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "heir",
+            "repository": "heir-compiler/heir",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/MarbleHE/HECO",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "HECO",
+            "repository": "MarbleHE/HECO",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/corelab-src/elasm",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "elasm",
+            "repository": "corelab-src/elasm",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/zama-ai/concrete",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "concrete",
+            "repository": "zama-ai/concrete",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/google/heir",
+            "source": "slides",
+            "label": "+ computation dialect No new MLIR infrastructure Lowers to existing dialects Prototype implementation at",
+            "context": "+ computation dialect No new MLIR infrastructure Lowers to existing dialects Prototype implementation at",
+            "library": "heir",
+            "repository": "google/heir",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "videoId": "wsKP-guEB5s",
+        "keywords": [],
+        "_titleLower": "a polynomial dialect proposal",
+        "_speakerLower": "alexander viand intel jeremy kun",
+        "_abstractLower": "this is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. this is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including fully homomorphic encryption (fhe). at a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. more details in the rfc thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
+        "_tagsLower": "mlir llvm",
+        "_meetingLower": "mlir open design meeting  2023-10-26",
+        "_year": "2023",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "a polynomial dialect proposal",
+              "words": [
+                "polynomial",
+                "dialect",
+                "proposal"
+              ]
+            },
+            "speakers": {
+              "text": "alexander viand intel jeremy kun",
+              "words": [
+                "alexander",
+                "viand",
+                "intel",
+                "jeremy",
+                "kun"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm",
+              "words": [
+                "mlir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2023-10-26",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2023-10-26"
+              ]
+            },
+            "abstract": {
+              "text": "this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891",
+              "words": [
+                "this",
+                "is",
+                "presentation",
+                "of",
+                "the",
+                "proposal",
+                "for",
+                "poly",
+                "dialect",
+                "for",
+                "polynomial",
+                "arithmetic.",
+                "this",
+                "is",
+                "motivated",
+                "by",
+                "the",
+                "use",
+                "of",
+                "such",
+                "high-degree",
+                "polynomials",
+                "in",
+                "variety",
+                "of",
+                "post-quantum",
+                "cryptography",
+                "including",
+                "fully",
+                "homomorphic",
+                "encryption",
+                "fhe",
+                "at",
+                "high",
+                "level",
+                "poly",
+                "will",
+                "contain",
+                "type",
+                "representing",
+                "polynomial",
+                "attributes",
+                "specifying",
+                "the",
+                "domain",
+                "of",
+                "the",
+                "polynomials",
+                "e.g.",
+                "integer",
+                "or",
+                "real",
+                "coefficients",
+                "and",
+                "ops",
+                "representing",
+                "addition",
+                "multiplication",
+                "division",
+                "remainder",
+                "polynomial",
+                "evaluation",
+                "etc.",
+                "more",
+                "details",
+                "in",
+                "the",
+                "rfc",
+                "thread",
+                "https",
+                "discourse.llvm.org",
+                "rfc-a-poly-dialect-for-polynomial-arithmetic",
+                "73891"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2023",
+              "words": [
+                "2023"
+              ]
+            }
+          },
+          "year": 2023
+        },
+        "_searchBlob": "a polynomial dialect proposal this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891 mlir open design meeting 2023-10-26 2023-10-26-mlir-open-design-meeting open-design-meeting alexander viand intel jeremy kun mlir llvm"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2020-07-30-spir-v-dialect-and-lowerings": {
+      "talk": {
+        "id": "mlir-talk-2020-07-30-spir-v-dialect-and-lowerings",
+        "title": "SPIR-V dialect and lowerings",
+        "abstract": "2020 07 30 SPIR V dialect and lowerings",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1WInMmnqvFpspHY5dYdiCok4fbfZkt23k/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1I71ze0dkvWiS6QADe2uRGO5MUYIGL7wn/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2020-07-30-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2020-07-30",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1I71ze0dkvWiS6QADe2uRGO5MUYIGL7wn/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1WInMmnqvFpspHY5dYdiCok4fbfZkt23k/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2020-07-30-spir-v-dialect-and-lowerings",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "spir-v dialect and lowerings",
+        "_speakerLower": "",
+        "_abstractLower": "2020 07 30 spir v dialect and lowerings",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2020-07-30",
+        "_year": "2020",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "spir-v dialect and lowerings",
+              "words": [
+                "spir-v",
+                "dialect",
+                "and",
+                "lowerings"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2020-07-30",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2020-07-30"
+              ]
+            },
+            "abstract": {
+              "text": "2020 07 30 spir v dialect and lowerings",
+              "words": [
+                "2020",
+                "07",
+                "30",
+                "spir",
+                "dialect",
+                "and",
+                "lowerings"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2020",
+              "words": [
+                "2020"
+              ]
+            }
+          },
+          "year": 2020
+        },
+        "_searchBlob": "spir-v dialect and lowerings 2020 07 30 spir v dialect and lowerings mlir open design meeting 2020-07-30 2020-07-30-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2025-06-006": {
@@ -1207,7 +1207,7 @@
     "2023-05-049": {
       "talk": {
         "id": "2023-05-049",
-        "meeting": "2023-05",
+        "meeting": "2023-07-13-mlir-open-design-meeting",
         "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
@@ -1222,13 +1222,15 @@
             "twitter": ""
           }
         ],
-        "abstract": "This talk will introduce mlir-query, a query language tool designed to simplify the exploration of the Intermediate Representation (IR) of code in MLIR. mlir-query aims to provide a more efficient means of understanding and debugging the IR, which can be challenging without a query language. The presentation will showcase the tool's basic queries, such as operation, hasName, resultOf, and constant queries, along with a demo of its usefulness.",
+        "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as “isConstant”. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
         "videoUrl": "https://youtu.be/3ELHZARBmYs",
         "videoId": "3ELHZARBmYs",
         "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf",
         "tags": [
           "IR",
-          "MLIR"
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
         ],
         "projectGithub": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
         "githubReferences": [
@@ -1252,15 +1254,35 @@
             "kind": "github",
             "label": "GitHub",
             "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/3ELHZARBmYs"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/eFNS4ubazO4"
           }
         ],
         "keywords": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
         "_titleLower": "mlir query tool for easier exploration of the ir",
         "_speakerLower": "devajith valaparambil sreeramaswamy",
-        "_abstractLower": "this talk will introduce mlir-query, a query language tool designed to simplify the exploration of the intermediate representation (ir) of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir, which can be challenging without a query language. the presentation will showcase the tool's basic queries, such as operation, hasname, resultof, and constant queries, along with a demo of its usefulness.",
-        "_tagsLower": "ir mlir",
+        "_abstractLower": "in this presentation devajith introduces mlir-query: a tool to query mlir ir dynamically. the tool has a repl (or command-line) interface to enable users to query various properties of mlir code, such as “isconstant”. the tool is intended to be similar to clang-query, which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
+        "_tagsLower": "ir mlir clang clang-tools-extra",
         "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
@@ -1288,10 +1310,12 @@
               ]
             },
             "tags": {
-              "text": "ir mlir",
+              "text": "ir mlir clang clang-tools-extra",
               "words": [
                 "ir",
-                "mlir"
+                "mlir",
+                "clang",
+                "clang-tools-extra"
               ]
             },
             "meeting": {
@@ -1309,72 +1333,78 @@
               ]
             },
             "abstract": {
-              "text": "this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness.",
+              "text": "in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
               "words": [
-                "this",
-                "talk",
-                "will",
-                "introduce",
-                "mlir-query",
-                "query",
-                "language",
-                "tool",
-                "designed",
-                "to",
-                "simplify",
-                "the",
-                "exploration",
-                "of",
-                "the",
-                "intermediate",
-                "representation",
-                "ir",
-                "of",
-                "code",
                 "in",
-                "mlir.",
+                "this",
+                "presentation",
+                "devajith",
+                "introduces",
                 "mlir-query",
-                "aims",
+                "tool",
                 "to",
-                "provide",
-                "more",
-                "efficient",
-                "means",
-                "of",
-                "understanding",
-                "and",
-                "debugging",
-                "the",
-                "ir",
-                "which",
-                "can",
-                "be",
-                "challenging",
-                "without",
                 "query",
-                "language.",
+                "mlir",
+                "ir",
+                "dynamically.",
+                "the",
+                "tool",
+                "has",
+                "repl",
+                "or",
+                "command-line",
+                "interface",
+                "to",
+                "enable",
+                "users",
+                "to",
+                "query",
+                "various",
+                "properties",
+                "of",
+                "mlir",
+                "code",
+                "such",
+                "as",
+                "isconstant",
+                "the",
+                "tool",
+                "is",
+                "intended",
+                "to",
+                "be",
+                "similar",
+                "to",
+                "clang-query",
+                "which",
+                "allows",
+                "developers",
+                "to",
+                "match",
+                "ast",
+                "expressions",
+                "in",
+                "c++",
+                "code",
+                "using",
+                "tui",
+                "with",
+                "autocomplete",
+                "and",
+                "other",
+                "features.",
                 "the",
                 "presentation",
                 "will",
-                "showcase",
+                "cover",
                 "the",
-                "tools",
-                "basic",
-                "queries",
-                "such",
-                "as",
-                "operation",
-                "hasname",
-                "resultof",
+                "progress",
+                "so",
+                "far",
                 "and",
-                "constant",
-                "queries",
-                "along",
-                "with",
-                "demo",
-                "of",
-                "its",
-                "usefulness."
+                "the",
+                "implementation",
+                "details."
               ]
             },
             "category": {
@@ -1392,16 +1422,11 @@
           },
           "year": 2023
         },
-        "_searchBlob": "mlir query tool for easier exploration of the ir this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk devajith valaparambil sreeramaswamy ir mlir"
+        "_searchBlob": "mlir query tool for easier exploration of the ir in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-07-13-mlir-open-design-meeting technical-talk devajith valaparambil sreeramaswamy ir mlir clang clang-tools-extra",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2023-05",
-        "name": "2023 EuroLLVM Developers' Meeting",
-        "date": "May 10-11, 2023",
-        "location": "Glasgow, Scotland",
-        "canceled": false,
-        "talkCount": 60
-      }
+      "meeting": null
     },
     "2022-11-009": {
       "talk": {
@@ -3944,6 +3969,640 @@
         "canceled": false,
         "talkCount": 17
       }
+    },
+    "mlir-talk-cgo-2020-keynote-mlir-compiler-infrastructure": {
+      "talk": {
+        "id": "mlir-talk-cgo-2020-keynote-mlir-compiler-infrastructure",
+        "title": "CGO 2020 Keynote: MLIR Compiler Infrastructure",
+        "abstract": "",
+        "speakers": [
+          {
+            "name": "Chris Lattner",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tatiana Shpeisman",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "link",
+            "label": "Keynote: MLIR Compiler Infrastructure",
+            "url": "https://docs.google.com/presentation/d/11-VjSNNNJoRhPlLxFgvtb909it1WNdxTnQFipryfAPU/edit#slide=id.g7d334b12e5_0_4"
+          }
+        ],
+        "category": "technical-talk",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components"
+        ],
+        "meeting": "0000-00-00-cgo-2020",
+        "meetingName": "CGO 2020",
+        "meetingDate": "",
+        "meetingLocation": "",
+        "videoUrl": "",
+        "slidesUrl": "",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://docs.google.com/presentation/d/11-VjSNNNJoRhPlLxFgvtb909it1WNdxTnQFipryfAPU/edit#slide=id.g7d334b12e5_0_4",
+        "detailUrl": "talks/talk.html?id=mlir-talk-cgo-2020-keynote-mlir-compiler-infrastructure",
+        "mlirSection": "Tech talks",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "cgo 2020 keynote: mlir compiler infrastructure",
+        "_speakerLower": "chris lattner tatiana shpeisman",
+        "_abstractLower": "",
+        "_tagsLower": "mlir infrastructure",
+        "_meetingLower": "cgo 2020  ",
+        "_year": "0000",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "cgo 2020 keynote mlir compiler infrastructure",
+              "words": [
+                "cgo",
+                "2020",
+                "keynote",
+                "mlir",
+                "compiler",
+                "infrastructure"
+              ]
+            },
+            "speakers": {
+              "text": "chris lattner tatiana shpeisman",
+              "words": [
+                "chris",
+                "lattner",
+                "tatiana",
+                "shpeisman"
+              ]
+            },
+            "tags": {
+              "text": "mlir infrastructure",
+              "words": [
+                "mlir",
+                "infrastructure"
+              ]
+            },
+            "meeting": {
+              "text": "cgo 2020",
+              "words": [
+                "cgo",
+                "2020"
+              ]
+            },
+            "abstract": {
+              "text": "",
+              "words": []
+            },
+            "category": {
+              "text": "technical-talk",
+              "words": [
+                "technical-talk"
+              ]
+            },
+            "year": {
+              "text": "0000",
+              "words": [
+                "0000"
+              ]
+            }
+          },
+          "year": 0
+        },
+        "_searchBlob": "cgo 2020 keynote mlir compiler infrastructure cgo 2020 0000-00-00-cgo-2020 technical-talk chris lattner tatiana shpeisman mlir infrastructure"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2019-10-03-layout-changes-to-mlir-tensor-and-memref-types": {
+      "talk": {
+        "id": "mlir-talk-2019-10-03-layout-changes-to-mlir-tensor-and-memref-types",
+        "title": "Layout changes to MLIR Tensor and MemRef Types",
+        "abstract": "2019 10 03 Layout changes to MLIR Tensor and MemRef Types",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://docs.google.com/presentation/d/1C6Ypldo7EtiR5V2rLlTO_k2cHAQk2S_IN2FXTuxuNx8/edit?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/a/google.com/file/d/1sPv8BqhoWq0lTFJW9yLRWEELY0j6jRDR/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2019-10-03-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2019-10-03",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/a/google.com/file/d/1sPv8BqhoWq0lTFJW9yLRWEELY0j6jRDR/view?usp=sharing",
+        "slidesUrl": "https://docs.google.com/presentation/d/1C6Ypldo7EtiR5V2rLlTO_k2cHAQk2S_IN2FXTuxuNx8/edit?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2019-10-03-layout-changes-to-mlir-tensor-and-memref-types",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "layout changes to mlir tensor and memref types",
+        "_speakerLower": "",
+        "_abstractLower": "2019 10 03 layout changes to mlir tensor and memref types",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2019-10-03",
+        "_year": "2019",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "layout changes to mlir tensor and memref types",
+              "words": [
+                "layout",
+                "changes",
+                "to",
+                "mlir",
+                "tensor",
+                "and",
+                "memref",
+                "types"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2019-10-03",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2019-10-03"
+              ]
+            },
+            "abstract": {
+              "text": "2019 10 03 layout changes to mlir tensor and memref types",
+              "words": [
+                "2019",
+                "10",
+                "03",
+                "layout",
+                "changes",
+                "to",
+                "mlir",
+                "tensor",
+                "and",
+                "memref",
+                "types"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2019",
+              "words": [
+                "2019"
+              ]
+            }
+          },
+          "year": 2019
+        },
+        "_searchBlob": "layout changes to mlir tensor and memref types 2019 10 03 layout changes to mlir tensor and memref types mlir open design meeting 2019-10-03 2019-10-03-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2022-12-15-embedded-reactive-programming-in-mlir": {
+      "talk": {
+        "id": "mlir-talk-2022-12-15-embedded-reactive-programming-in-mlir",
+        "title": "Embedded reactive programming in MLIR",
+        "abstract": "In this MLIR Open Meeting, Dumitru Potop-Butucaru presents their work on Embedded Reactive Programming in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 Today’s machine learning (ML) frameworks (TensorFlow, PyTorch…) and compilers (MLIR, Glow…) allow the specification and efficient implementation of deep neural networks (DNNs) that have ever-increasing precision when applied to Big Data that is already stored in large databases. By contrast, in various applications, a clear need emerges for reactive ML applications that operate in a stateful fashion on streams of data, in time (in RNNs, attention-based approaches, reinforcement learning - RL - or even when scheduling convolutional networks in time to reduce memory requirements). Beyond this view focused on ML algorithmic design, the field of embedded ML, where ML components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. Existing ML frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. The situation has reached a point where ML algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - RL- or in transformers) is largely distinct from embedded ML engineering, the latter focusing on simpler (often stateless) network architectures. Ad hoc remedies are proposed in the literature for specific and limited cases. For instance, the time dimension of RL applications is traversed using (interpreted) Python code unsuitable for an embedded implementation. Modifications to the Python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
+        "speakers": [
+          {
+            "name": "Hugo Pompougnac",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Dumitru Potop-Butucaru",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Albert Cohen",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2022-12-15-Reactive-Programming.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/euws5GvM3oo"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/dpotop/mlir"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2022-12-15-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2022-12-15",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/euws5GvM3oo",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-12-15-Reactive-Programming.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/dpotop/mlir",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2022-12-15-embedded-reactive-programming-in-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/dpotop/mlir"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/dpotop/mlir",
+            "source": "slides",
+            "label": "public version of the SW 11lus.node@model(%data:tensor<40xf32>)->(tensor<4x1xf32>) {%rst= lus.inst@counter()%x = lus.inst",
+            "context": "public version of the SW 11lus.node@model(%data:tensor<40xf32>)->(tensor<4x1xf32>) {%rst= lus.inst@counter()%x = lus.inst",
+            "library": "mlir",
+            "repository": "dpotop/mlir",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "videoId": "euws5GvM3oo",
+        "keywords": [],
+        "_titleLower": "embedded reactive programming in mlir",
+        "_speakerLower": "hugo pompougnac dumitru potop-butucaru albert cohen",
+        "_abstractLower": "in this mlir open meeting, dumitru potop-butucaru presents their work on embedded reactive programming in mlir: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 today’s machine learning (ml) frameworks (tensorflow, pytorch…) and compilers (mlir, glow…) allow the specification and efficient implementation of deep neural networks (dnns) that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast, in various applications, a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data, in time (in rnns, attention-based approaches, reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements). beyond this view focused on ml algorithmic design, the field of embedded ml, where ml components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - rl- or in transformers) is largely distinct from embedded ml engineering, the latter focusing on simpler (often stateless) network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance, the time dimension of rl applications is traversed using (interpreted) python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
+        "_tagsLower": "mlir llvm embedded ml",
+        "_meetingLower": "mlir open design meeting  2022-12-15",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "embedded reactive programming in mlir",
+              "words": [
+                "embedded",
+                "reactive",
+                "programming",
+                "in",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "hugo pompougnac dumitru potop-butucaru albert cohen",
+              "words": [
+                "hugo",
+                "pompougnac",
+                "dumitru",
+                "potop-butucaru",
+                "albert",
+                "cohen"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm embedded ml",
+              "words": [
+                "mlir",
+                "llvm",
+                "embedded",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2022-12-15",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2022-12-15"
+              ]
+            },
+            "abstract": {
+              "text": "in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness .",
+              "words": [
+                "in",
+                "this",
+                "mlir",
+                "open",
+                "meeting",
+                "dumitru",
+                "potop-butucaru",
+                "presents",
+                "their",
+                "work",
+                "on",
+                "embedded",
+                "reactive",
+                "programming",
+                "in",
+                "mlir",
+                "https",
+                "discourse.llvm.org",
+                "open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc",
+                "66317",
+                "todays",
+                "machine",
+                "learning",
+                "ml",
+                "frameworks",
+                "tensorflow",
+                "pytorch...",
+                "and",
+                "compilers",
+                "mlir",
+                "glow...",
+                "allow",
+                "the",
+                "specification",
+                "and",
+                "efficient",
+                "implementation",
+                "of",
+                "deep",
+                "neural",
+                "networks",
+                "dnns",
+                "that",
+                "have",
+                "ever-increasing",
+                "precision",
+                "when",
+                "applied",
+                "to",
+                "big",
+                "data",
+                "that",
+                "is",
+                "already",
+                "stored",
+                "in",
+                "large",
+                "databases.",
+                "by",
+                "contrast",
+                "in",
+                "various",
+                "applications",
+                "clear",
+                "need",
+                "emerges",
+                "for",
+                "reactive",
+                "ml",
+                "applications",
+                "that",
+                "operate",
+                "in",
+                "stateful",
+                "fashion",
+                "on",
+                "streams",
+                "of",
+                "data",
+                "in",
+                "time",
+                "in",
+                "rnns",
+                "attention-based",
+                "approaches",
+                "reinforcement",
+                "learning",
+                "rl",
+                "or",
+                "even",
+                "when",
+                "scheduling",
+                "convolutional",
+                "networks",
+                "in",
+                "time",
+                "to",
+                "reduce",
+                "memory",
+                "requirements",
+                "beyond",
+                "this",
+                "view",
+                "focused",
+                "on",
+                "ml",
+                "algorithmic",
+                "design",
+                "the",
+                "field",
+                "of",
+                "embedded",
+                "ml",
+                "where",
+                "ml",
+                "components",
+                "are",
+                "placed",
+                "in",
+                "the",
+                "feedback",
+                "loop",
+                "of",
+                "real-time",
+                "embedded",
+                "control",
+                "applications",
+                "along",
+                "with",
+                "data",
+                "pre-",
+                "and",
+                "post-processing",
+                "routines",
+                "is",
+                "becoming",
+                "both",
+                "reality",
+                "and",
+                "an",
+                "industrial",
+                "necessity.",
+                "existing",
+                "ml",
+                "frameworks",
+                "and",
+                "compilers",
+                "cannot",
+                "adequately",
+                "handle",
+                "the",
+                "specification",
+                "and",
+                "the",
+                "implementation",
+                "of",
+                "reactive",
+                "aspects.",
+                "the",
+                "situation",
+                "has",
+                "reached",
+                "point",
+                "where",
+                "ml",
+                "algorithmic",
+                "innovation",
+                "which",
+                "largely",
+                "embraces",
+                "approaches",
+                "that",
+                "process",
+                "data",
+                "in",
+                "time",
+                "like",
+                "in",
+                "reinforcement",
+                "learning",
+                "rl-",
+                "or",
+                "in",
+                "transformers",
+                "is",
+                "largely",
+                "distinct",
+                "from",
+                "embedded",
+                "ml",
+                "engineering",
+                "the",
+                "latter",
+                "focusing",
+                "on",
+                "simpler",
+                "often",
+                "stateless",
+                "network",
+                "architectures.",
+                "ad",
+                "hoc",
+                "remedies",
+                "are",
+                "proposed",
+                "in",
+                "the",
+                "literature",
+                "for",
+                "specific",
+                "and",
+                "limited",
+                "cases.",
+                "for",
+                "instance",
+                "the",
+                "time",
+                "dimension",
+                "of",
+                "rl",
+                "applications",
+                "is",
+                "traversed",
+                "using",
+                "interpreted",
+                "python",
+                "code",
+                "unsuitable",
+                "for",
+                "an",
+                "embedded",
+                "implementation.",
+                "modifications",
+                "to",
+                "the",
+                "python",
+                "front-end",
+                "also",
+                "provide",
+                "the",
+                "solution",
+                "to",
+                "streaming",
+                "applications",
+                "sub-case",
+                "of",
+                "general-purpose",
+                "reactiveness"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "embedded reactive programming in mlir in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness . mlir open design meeting 2022-12-15 2022-12-15-mlir-open-design-meeting open-design-meeting hugo pompougnac dumitru potop-butucaru albert cohen mlir llvm embedded ml"
+      },
+      "meeting": null
     }
   }
 }

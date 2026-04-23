@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-030": {
@@ -4566,7 +4566,7 @@
     "2019-04-001": {
       "talk": {
         "id": "2019-04-001",
-        "meeting": "2019-04",
+        "meeting": "2019-04-00-eurollvm-2019",
         "meetingName": "2019 EuroLLVM Developers' Meeting",
         "meetingLocation": "Brussels, Belgium",
         "meetingDate": "April 8-9, 2019",
@@ -4579,6 +4579,13 @@
             "github": "",
             "linkedin": "",
             "twitter": ""
+          },
+          {
+            "name": "Chris Lattner",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
           }
         ],
         "abstract": "This talk will give an overview of Multi-Level Intermediate Representation - a new intermediate representation designed to provide a unified, flexible and extensible intermediate representation that is language-agnostic and can be used as a base compiler infrastructure. MLIR shares similarities with traditional CFG-based three-address SSA representations (including LLVM IR or SIL), but it also introduces notions from the polyhedral domain as first class concepts. The notion of dialects is a core concept of MLIR extensibility, allowing multiple levels in a single representation. MLIR supports the continuous lowering from dataflow graphs to high-performance target specific code through partial specialization between dialects. We will illustrate in this talk how MLIR can be used to build an optimizing compiler infrastructure for deep learning applications. MLIR supports multiple front- and back-ends and uses LLVM IR as one of its primary code generation targets. MLIR also relies heavily on design principles and practices developed by the LLVM community. For example, it depends on LLVM APIs and programming idioms to minimize IR size and maximize optimization efficiency. MLIR uses LLVM testing utilities such as FileCheck to ensure robust functionality at every level of the compilation stack, TableGen to express IR invariants, and it leverages LLVM infrastructure such as dominance analysis to avoid implementing all the necessary compiler functionalities from scratch. At the same time, it is a brand new IR, both more restrictive and more general than LLVM IR in different aspects of its design. We believe that the LLVM community will find in MLIR a useful tool for developing new compilers, especially in machine learning and other high-performance domains.",
@@ -4587,17 +4594,39 @@
         "slidesUrl": "https://llvm.org/devmtg/2019-04/slides/Keynote-ShpeismanLattner-MLIR.pdf",
         "tags": [
           "IR",
-          "MLIR"
+          "MLIR",
+          "About MLIR and MLIR Components"
         ],
         "keywords": [],
-        "resourceActions": [],
+        "resourceActions": [
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/qzljG6DKgic"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2019-04/slides/Keynote-ShpeismanLattner-MLIR.pdf"
+          },
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://llvm.org/devmtg/2019-04/talks.html#Keynote_1"
+          },
+          {
+            "kind": "event",
+            "label": "Event",
+            "url": "https://llvm.org/devmtg/2019-04"
+          }
+        ],
         "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
         "posterUrl": "",
-        "sourceUrl": "",
+        "sourceUrl": "https://llvm.org/devmtg/2019-04",
         "_titleLower": "mlir: multi-level intermediate representation for compiler infrastructure",
-        "_speakerLower": "tatiana shpeisman",
+        "_speakerLower": "tatiana shpeisman chris lattner",
         "_abstractLower": "this talk will give an overview of multi-level intermediate representation - a new intermediate representation designed to provide a unified, flexible and extensible intermediate representation that is language-agnostic and can be used as a base compiler infrastructure. mlir shares similarities with traditional cfg-based three-address ssa representations (including llvm ir or sil), but it also introduces notions from the polyhedral domain as first class concepts. the notion of dialects is a core concept of mlir extensibility, allowing multiple levels in a single representation. mlir supports the continuous lowering from dataflow graphs to high-performance target specific code through partial specialization between dialects. we will illustrate in this talk how mlir can be used to build an optimizing compiler infrastructure for deep learning applications. mlir supports multiple front- and back-ends and uses llvm ir as one of its primary code generation targets. mlir also relies heavily on design principles and practices developed by the llvm community. for example, it depends on llvm apis and programming idioms to minimize ir size and maximize optimization efficiency. mlir uses llvm testing utilities such as filecheck to ensure robust functionality at every level of the compilation stack, tablegen to express ir invariants, and it leverages llvm infrastructure such as dominance analysis to avoid implementing all the necessary compiler functionalities from scratch. at the same time, it is a brand new ir, both more restrictive and more general than llvm ir in different aspects of its design. we believe that the llvm community will find in mlir a useful tool for developing new compilers, especially in machine learning and other high-performance domains.",
         "_tagsLower": "ir mlir llvm code generation testing performance optimizations infrastructure ml",
         "_meetingLower": "2019 eurollvm developers' meeting brussels, belgium april 8-9, 2019",
@@ -4617,10 +4646,12 @@
               ]
             },
             "speakers": {
-              "text": "tatiana shpeisman",
+              "text": "tatiana shpeisman chris lattner",
               "words": [
                 "tatiana",
-                "shpeisman"
+                "shpeisman",
+                "chris",
+                "lattner"
               ]
             },
             "tags": {
@@ -4928,16 +4959,11 @@
           },
           "year": 2019
         },
-        "_searchBlob": "mlir multi-level intermediate representation for compiler infrastructure this talk will give an overview of multi-level intermediate representation - a new intermediate representation designed to provide a unified flexible and extensible intermediate representation that is language-agnostic and can be used as a base compiler infrastructure. mlir shares similarities with traditional cfg-based three-address ssa representations including llvm ir or sil but it also introduces notions from the polyhedral domain as first class concepts. the notion of dialects is a core concept of mlir extensibility allowing multiple levels in a single representation. mlir supports the continuous lowering from dataflow graphs to high-performance target specific code through partial specialization between dialects. we will illustrate in this talk how mlir can be used to build an optimizing compiler infrastructure for deep learning applications. mlir supports multiple front- and back-ends and uses llvm ir as one of its primary code generation targets. mlir also relies heavily on design principles and practices developed by the llvm community. for example it depends on llvm apis and programming idioms to minimize ir size and maximize optimization efficiency. mlir uses llvm testing utilities such as filecheck to ensure robust functionality at every level of the compilation stack tablegen to express ir invariants and it leverages llvm infrastructure such as dominance analysis to avoid implementing all the necessary compiler functionalities from scratch. at the same time it is a brand new ir both more restrictive and more general than llvm ir in different aspects of its design. we believe that the llvm community will find in mlir a useful tool for developing new compilers especially in machine learning and other high-performance domains. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04 keynote tatiana shpeisman ir mlir llvm code generation testing performance optimizations infrastructure ml"
+        "_searchBlob": "mlir multi-level intermediate representation for compiler infrastructure this talk will give an overview of multi-level intermediate representation - a new intermediate representation designed to provide a unified flexible and extensible intermediate representation that is language-agnostic and can be used as a base compiler infrastructure. mlir shares similarities with traditional cfg-based three-address ssa representations including llvm ir or sil but it also introduces notions from the polyhedral domain as first class concepts. the notion of dialects is a core concept of mlir extensibility allowing multiple levels in a single representation. mlir supports the continuous lowering from dataflow graphs to high-performance target specific code through partial specialization between dialects. we will illustrate in this talk how mlir can be used to build an optimizing compiler infrastructure for deep learning applications. mlir supports multiple front- and back-ends and uses llvm ir as one of its primary code generation targets. mlir also relies heavily on design principles and practices developed by the llvm community. for example it depends on llvm apis and programming idioms to minimize ir size and maximize optimization efficiency. mlir uses llvm testing utilities such as filecheck to ensure robust functionality at every level of the compilation stack tablegen to express ir invariants and it leverages llvm infrastructure such as dominance analysis to avoid implementing all the necessary compiler functionalities from scratch. at the same time it is a brand new ir both more restrictive and more general than llvm ir in different aspects of its design. we believe that the llvm community will find in mlir a useful tool for developing new compilers especially in machine learning and other high-performance domains. 2019 eurollvm developers meeting brussels belgium april 8-9 2019 2019-04-00-eurollvm-2019 keynote tatiana shpeisman chris lattner ir mlir llvm code generation testing performance optimizations infrastructure ml",
+        "detailUrl": "talks/talk.html?id=mlir-talk-mlir-multi-level-intermediate-representation-for-compiler-infrastructure",
+        "_mlirSourceUpstream": true
       },
-      "meeting": {
-        "slug": "2019-04",
-        "name": "2019 EuroLLVM Developers' Meeting",
-        "date": "April 8-9, 2019",
-        "location": "Brussels, Belgium",
-        "canceled": false,
-        "talkCount": 75
-      }
+      "meeting": null
     },
     "2019-04-023": {
       "talk": {
@@ -10307,6 +10333,192 @@
         "canceled": false,
         "talkCount": 34
       }
+    },
+    "mlir-talk-2022-02-17-iree-s-ml-input-dialects": {
+      "talk": {
+        "id": "mlir-talk-2022-02-17-iree-s-ml-input-dialects",
+        "title": "IREE's ML input dialects",
+        "abstract": "Stella Laurenzo talks about IREE’s input dialect and what we have converged on for representing programs from current ML frontends. She'll be covering the current status of frontend support in the MLIR ecosystem (using our work on IREE as a case to look at), the contents of the dialect to give an overview of the gaps/goals IREE had, and some ideas on what can be done upstream to make this more common.",
+        "speakers": [
+          {
+            "name": "Stella Laurenzo",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2022-02-17-IREE_Input_Dialect.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/mhyz5S7uYJE"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2022-02-17-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2022-02-17",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/mhyz5S7uYJE",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-02-17-IREE_Input_Dialect.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2022-02-17-iree-s-ml-input-dialects",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "mhyz5S7uYJE",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "iree's ml input dialects",
+        "_speakerLower": "stella laurenzo",
+        "_abstractLower": "stella laurenzo talks about iree’s input dialect and what we have converged on for representing programs from current ml frontends. she'll be covering the current status of frontend support in the mlir ecosystem (using our work on iree as a case to look at), the contents of the dialect to give an overview of the gaps/goals iree had, and some ideas on what can be done upstream to make this more common.",
+        "_tagsLower": "mlir ml",
+        "_meetingLower": "mlir open design meeting  2022-02-17",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "irees ml input dialects",
+              "words": [
+                "irees",
+                "ml",
+                "input",
+                "dialects"
+              ]
+            },
+            "speakers": {
+              "text": "stella laurenzo",
+              "words": [
+                "stella",
+                "laurenzo"
+              ]
+            },
+            "tags": {
+              "text": "mlir ml",
+              "words": [
+                "mlir",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2022-02-17",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2022-02-17"
+              ]
+            },
+            "abstract": {
+              "text": "stella laurenzo talks about irees input dialect and what we have converged on for representing programs from current ml frontends. shell be covering the current status of frontend support in the mlir ecosystem using our work on iree as a case to look at the contents of the dialect to give an overview of the gaps goals iree had and some ideas on what can be done upstream to make this more common.",
+              "words": [
+                "stella",
+                "laurenzo",
+                "talks",
+                "about",
+                "irees",
+                "input",
+                "dialect",
+                "and",
+                "what",
+                "we",
+                "have",
+                "converged",
+                "on",
+                "for",
+                "representing",
+                "programs",
+                "from",
+                "current",
+                "ml",
+                "frontends.",
+                "shell",
+                "be",
+                "covering",
+                "the",
+                "current",
+                "status",
+                "of",
+                "frontend",
+                "support",
+                "in",
+                "the",
+                "mlir",
+                "ecosystem",
+                "using",
+                "our",
+                "work",
+                "on",
+                "iree",
+                "as",
+                "case",
+                "to",
+                "look",
+                "at",
+                "the",
+                "contents",
+                "of",
+                "the",
+                "dialect",
+                "to",
+                "give",
+                "an",
+                "overview",
+                "of",
+                "the",
+                "gaps",
+                "goals",
+                "iree",
+                "had",
+                "and",
+                "some",
+                "ideas",
+                "on",
+                "what",
+                "can",
+                "be",
+                "done",
+                "upstream",
+                "to",
+                "make",
+                "this",
+                "more",
+                "common."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "irees ml input dialects stella laurenzo talks about irees input dialect and what we have converged on for representing programs from current ml frontends. shell be covering the current status of frontend support in the mlir ecosystem using our work on iree as a case to look at the contents of the dialect to give an overview of the gaps goals iree had and some ideas on what can be done upstream to make this more common. mlir open design meeting 2022-02-17 2022-02-17-mlir-open-design-meeting open-design-meeting stella laurenzo mlir ml"
+      },
+      "meeting": null
     }
   }
 }

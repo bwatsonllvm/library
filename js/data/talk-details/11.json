@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-dec857809d02",
+  "dataVersion": "viewer-precomputed-v1-6802ad882199",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "talks": {
     "2026-04-021": {
@@ -11434,6 +11434,642 @@
         "canceled": false,
         "talkCount": 14
       }
+    },
+    "mlir-talk-2022-01-27-pytaco": {
+      "talk": {
+        "id": "mlir-talk-2022-01-27-pytaco",
+        "title": "PyTACO",
+        "abstract": "Bixia Zheng will talk about the MLIR-PyTACO bridge, which connects the PyTACO DSL to the MLIR sparse compiler. See the earlier 2021 LLVM Dev Presentation for some background on the topic: https://youtu.be/x-nHc3hBxHM",
+        "speakers": [
+          {
+            "name": "Bixia Zheng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2022-02-10-PyTACO.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/koxh9NuxIDM"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/llvm-project/tree/main/mlir/test/Integration/Dialect/SparseTensor/taco"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2022-01-27-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2022-01-27",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/koxh9NuxIDM",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-02-10-PyTACO.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/llvm/llvm-project/tree/main/mlir/test/Integration/Dialect/SparseTensor/taco",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2022-01-27-pytaco",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/llvm/llvm-project/tree/main/mlir/test/Integration/Dialect/SparseTensor/taco"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/llvm-project/tree/main/mlir/test/Integration/Dialect/SparseTensor/taco",
+            "source": "slides",
+            "label": "",
+            "context": "",
+            "library": "llvm-project",
+            "repository": "llvm/llvm-project",
+            "fileName": "taco",
+            "filePath": "mlir/test/Integration/Dialect/SparseTensor/taco",
+            "referencePath": "mlir/test/Integration/Dialect/SparseTensor/taco"
+          }
+        ],
+        "videoId": "koxh9NuxIDM",
+        "keywords": [],
+        "_titleLower": "pytaco",
+        "_speakerLower": "bixia zheng",
+        "_abstractLower": "bixia zheng will talk about the mlir-pytaco bridge, which connects the pytaco dsl to the mlir sparse compiler. see the earlier 2021 llvm dev presentation for some background on the topic: https://youtu.be/x-nhc3hbxhm",
+        "_tagsLower": "mlir llvm",
+        "_meetingLower": "mlir open design meeting  2022-01-27",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "pytaco",
+              "words": [
+                "pytaco"
+              ]
+            },
+            "speakers": {
+              "text": "bixia zheng",
+              "words": [
+                "bixia",
+                "zheng"
+              ]
+            },
+            "tags": {
+              "text": "mlir llvm",
+              "words": [
+                "mlir",
+                "llvm"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2022-01-27",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2022-01-27"
+              ]
+            },
+            "abstract": {
+              "text": "bixia zheng will talk about the mlir-pytaco bridge which connects the pytaco dsl to the mlir sparse compiler. see the earlier 2021 llvm dev presentation for some background on the topic https youtu.be x-nhc3hbxhm",
+              "words": [
+                "bixia",
+                "zheng",
+                "will",
+                "talk",
+                "about",
+                "the",
+                "mlir-pytaco",
+                "bridge",
+                "which",
+                "connects",
+                "the",
+                "pytaco",
+                "dsl",
+                "to",
+                "the",
+                "mlir",
+                "sparse",
+                "compiler.",
+                "see",
+                "the",
+                "earlier",
+                "2021",
+                "llvm",
+                "dev",
+                "presentation",
+                "for",
+                "some",
+                "background",
+                "on",
+                "the",
+                "topic",
+                "https",
+                "youtu.be",
+                "x-nhc3hbxhm"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "pytaco bixia zheng will talk about the mlir-pytaco bridge which connects the pytaco dsl to the mlir sparse compiler. see the earlier 2021 llvm dev presentation for some background on the topic https youtu.be x-nhc3hbxhm mlir open design meeting 2022-01-27 2022-01-27-mlir-open-design-meeting open-design-meeting bixia zheng mlir llvm"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-04-22-emitc-generating-c-c-from-mlir": {
+      "talk": {
+        "id": "mlir-talk-2021-04-22-emitc-generating-c-c-from-mlir",
+        "title": "EmitC: Generating C/C++ from MLIR",
+        "abstract": "2021 04 22 EmitC Generating C C++ from MLIR",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://drive.google.com/file/d/1p2AM7B1beb5oVf_tlTyinnVQoWuodoxl/view?usp=sharing"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://drive.google.com/file/d/1qHw_gZFytXRtO2EGSnnT3s0iyJ9HdWWs/view?usp=sharing"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "About MLIR and MLIR Components",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-04-22-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2021-04-22",
+        "meetingLocation": "",
+        "videoUrl": "https://drive.google.com/file/d/1qHw_gZFytXRtO2EGSnnT3s0iyJ9HdWWs/view?usp=sharing",
+        "slidesUrl": "https://drive.google.com/file/d/1p2AM7B1beb5oVf_tlTyinnVQoWuodoxl/view?usp=sharing",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-04-22-emitc-generating-c-c-from-mlir",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "About MLIR and MLIR Components",
+        "_mlirSourceUpstream": true,
+        "videoId": null,
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "emitc: generating c/c++ from mlir",
+        "_speakerLower": "",
+        "_abstractLower": "2021 04 22 emitc generating c c++ from mlir",
+        "_tagsLower": "mlir",
+        "_meetingLower": "mlir open design meeting  2021-04-22",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "emitc generating c c++ from mlir",
+              "words": [
+                "emitc",
+                "generating",
+                "c++",
+                "from",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir",
+              "words": [
+                "mlir"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2021-04-22",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2021-04-22"
+              ]
+            },
+            "abstract": {
+              "text": "2021 04 22 emitc generating c c++ from mlir",
+              "words": [
+                "2021",
+                "04",
+                "22",
+                "emitc",
+                "generating",
+                "c++",
+                "from",
+                "mlir"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "emitc generating c c++ from mlir 2021 04 22 emitc generating c c++ from mlir mlir open design meeting 2021-04-22 2021-04-22-mlir-open-design-meeting open-design-meeting mlir"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations": {
+      "talk": {
+        "id": "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
+        "title": "HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
+        "abstract": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations. With the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
+        "speakers": [
+          {
+            "name": "Shaojie Xiang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2022-08-11-HeteroCL.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/yOk63LWbkqk"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2022-08-11-mlir-open-design-meeting",
+        "meetingName": "MLIR Open Design Meeting",
+        "meetingDate": "2022-08-11",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/yOk63LWbkqk",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-08-11-HeteroCL.pdf",
+        "posterUrl": "",
+        "projectGithub": "",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "videoId": "yOk63LWbkqk",
+        "keywords": [],
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "_titleLower": "heterocl, an mlir-based intermediate representation for accelerator design with decoupled customizations",
+        "_speakerLower": "shaojie xiang",
+        "_abstractLower": "hongzheng chen & niansong zhang (cornell) will present heterocl: an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as gpus and fpgas. however, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with fpgas. as a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
+        "_tagsLower": "mlir ir performance gpu",
+        "_meetingLower": "mlir open design meeting  2022-08-11",
+        "_year": "2022",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations",
+              "words": [
+                "heterocl",
+                "an",
+                "mlir-based",
+                "intermediate",
+                "representation",
+                "for",
+                "accelerator",
+                "design",
+                "with",
+                "decoupled",
+                "customizations"
+              ]
+            },
+            "speakers": {
+              "text": "shaojie xiang",
+              "words": [
+                "shaojie",
+                "xiang"
+              ]
+            },
+            "tags": {
+              "text": "mlir ir performance gpu",
+              "words": [
+                "mlir",
+                "ir",
+                "performance",
+                "gpu"
+              ]
+            },
+            "meeting": {
+              "text": "mlir open design meeting 2022-08-11",
+              "words": [
+                "mlir",
+                "open",
+                "design",
+                "meeting",
+                "2022-08-11"
+              ]
+            },
+            "abstract": {
+              "text": "hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
+              "words": [
+                "hongzheng",
+                "chen",
+                "and",
+                "niansong",
+                "zhang",
+                "cornell",
+                "will",
+                "present",
+                "heterocl",
+                "an",
+                "milr-based",
+                "intermediate",
+                "representation",
+                "for",
+                "accelerator",
+                "design",
+                "with",
+                "decoupled",
+                "customizations.",
+                "with",
+                "the",
+                "pursuit",
+                "of",
+                "improving",
+                "compute",
+                "performance",
+                "under",
+                "strict",
+                "power",
+                "constraints",
+                "there",
+                "is",
+                "an",
+                "increasing",
+                "need",
+                "for",
+                "deploying",
+                "applications",
+                "to",
+                "heterogeneous",
+                "hardware",
+                "architectures",
+                "with",
+                "accelerators",
+                "such",
+                "as",
+                "gpus",
+                "and",
+                "fpgas.",
+                "however",
+                "although",
+                "these",
+                "heterogeneous",
+                "computing",
+                "platforms",
+                "are",
+                "becoming",
+                "widely",
+                "available",
+                "they",
+                "are",
+                "very",
+                "difficult",
+                "to",
+                "program",
+                "especially",
+                "with",
+                "fpgas.",
+                "as",
+                "result",
+                "the",
+                "use",
+                "of",
+                "such",
+                "platforms",
+                "has",
+                "been",
+                "limited",
+                "to",
+                "small",
+                "subset",
+                "of",
+                "programmers",
+                "with",
+                "specialized",
+                "hardware",
+                "knowledge."
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2022",
+              "words": [
+                "2022"
+              ]
+            }
+          },
+          "year": 2022
+        },
+        "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting shaojie xiang mlir ir performance gpu"
+      },
+      "meeting": null
+    },
+    "mlir-talk-2021-10-7-the-torch-mlir-project": {
+      "talk": {
+        "id": "mlir-talk-2021-10-7-the-torch-mlir-project",
+        "title": "2021-10-7: The Torch MLIR Project",
+        "abstract": "Anush Elangovan (Nod.ai) and Sean Silva (Google) present the Torch MLIR project (formerly mlir-npcomp).",
+        "speakers": [],
+        "resourceActions": [
+          {
+            "kind": "slides",
+            "label": "Slides",
+            "url": "https://mlir.llvm.org/OpenMeetings/2021-10-07-The-Torch-MLIR-project.pdf"
+          },
+          {
+            "kind": "recording",
+            "label": "Recording",
+            "url": "https://youtu.be/QbNkex-gizs"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/torch-mlir"
+          },
+          {
+            "kind": "github",
+            "label": "GitHub 2",
+            "url": "https://github.com/pytorch/pytorch/pull/65880"
+          }
+        ],
+        "category": "open-design-meeting",
+        "tags": [
+          "MLIR",
+          "Using MLIR",
+          "Open Design Meeting"
+        ],
+        "meeting": "2021-10-07-2021-10-7",
+        "meetingName": "2021-10-7",
+        "meetingDate": "2021-10-07",
+        "meetingLocation": "",
+        "videoUrl": "https://youtu.be/QbNkex-gizs",
+        "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2021-10-07-The-Torch-MLIR-project.pdf",
+        "posterUrl": "",
+        "projectGithub": "https://github.com/pytorch/pytorch/pull/65880",
+        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "detailUrl": "talks/talk.html?id=mlir-talk-2021-10-7-the-torch-mlir-project",
+        "mlirSection": "Open design meeting presentations",
+        "mlirGroup": "Using MLIR",
+        "_mlirSourceUpstream": true,
+        "githubReferences": [
+          "https://github.com/llvm/torch-mlir",
+          "https://github.com/pytorch/pytorch/pull/65880"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/torch-mlir",
+            "source": "slides",
+            "label": "Join us: #torch-mlir on LLVM discord",
+            "context": "Join us: #torch-mlir on LLVM discord",
+            "library": "torch-mlir",
+            "repository": "llvm/torch-mlir",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          },
+          {
+            "url": "https://github.com/pytorch/pytorch/pull/65880",
+            "source": "slides",
+            "label": "upstream - or #torch-mlir on LLVM discord - RFC to build with PyTorch Upstream",
+            "context": "upstream - or #torch-mlir on LLVM discord - RFC to build with PyTorch Upstream",
+            "library": "pytorch",
+            "repository": "pytorch/pytorch",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": "pull/65880"
+          }
+        ],
+        "videoId": "QbNkex-gizs",
+        "keywords": [],
+        "_titleLower": "2021-10-7: the torch mlir project",
+        "_speakerLower": "",
+        "_abstractLower": "anush elangovan (nod.ai) and sean silva (google) present the torch mlir project (formerly mlir-npcomp).",
+        "_tagsLower": "mlir ai",
+        "_meetingLower": "2021-10-7  2021-10-07",
+        "_year": "2021",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "2021-10-7 the torch mlir project",
+              "words": [
+                "2021-10-7",
+                "the",
+                "torch",
+                "mlir",
+                "project"
+              ]
+            },
+            "speakers": {
+              "text": "",
+              "words": []
+            },
+            "tags": {
+              "text": "mlir ai",
+              "words": [
+                "mlir",
+                "ai"
+              ]
+            },
+            "meeting": {
+              "text": "2021-10-7 2021-10-07",
+              "words": [
+                "2021-10-7",
+                "2021-10-07"
+              ]
+            },
+            "abstract": {
+              "text": "anush elangovan nod.ai and sean silva google present the torch mlir project formerly mlir-npcomp .",
+              "words": [
+                "anush",
+                "elangovan",
+                "nod.ai",
+                "and",
+                "sean",
+                "silva",
+                "google",
+                "present",
+                "the",
+                "torch",
+                "mlir",
+                "project",
+                "formerly",
+                "mlir-npcomp"
+              ]
+            },
+            "category": {
+              "text": "open-design-meeting",
+              "words": [
+                "open-design-meeting"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021
+        },
+        "_searchBlob": "2021-10-7 the torch mlir project anush elangovan nod.ai and sean silva google present the torch mlir project formerly mlir-npcomp . 2021-10-7 2021-10-07 2021-10-07-2021-10-7 open-design-meeting mlir ai"
+      },
+      "meeting": null
     }
   }
 }
