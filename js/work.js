@@ -2410,23 +2410,6 @@ function matchesAdvancedTextConstraint(value, blob, mode = 'all') {
 
 function recomputeFilteredResults() {
   if (state.mode === 'search') {
-    if (!hasActiveSearchCriteria()) {
-      filteredTalks = [];
-      filteredPapers = [];
-      filteredBlogs = [];
-      filteredPeople = [];
-      filteredUniversal = [];
-      searchResultCounts = {
-        all: 0,
-        talks: 0,
-        papers: 0,
-        blogs: 0,
-        people: 0,
-      };
-      syncScopeControlCounts();
-      return;
-    }
-
     const filterWindow = resolveTimeFilterWindow();
     const advancedOptions = buildAdvancedSearchOptions();
     const rankedTalks = rankTalksForQuery(allTalkRecords, state.query, advancedOptions);
@@ -2952,27 +2935,20 @@ function applyHeaderState() {
     const searchLabel = buildSearchDisplayValue() || state.query;
     if (!hasActiveSearchCriteria()) {
       if (titleEl) titleEl.textContent = 'Search All';
-      if (subtitleEl) subtitleEl.textContent = 'Use Search All across talks, papers, blogs, and people from one place.';
-      if (summaryEl) summaryEl.textContent = 'No search query provided';
-      if (universalCountEl) universalCountEl.textContent = '';
-      if (talksCountEl) talksCountEl.textContent = '';
-      if (papersCountEl) papersCountEl.textContent = '';
-      if (blogsCountEl) blogsCountEl.textContent = '';
-      if (peopleCountEl) peopleCountEl.textContent = '';
+      if (subtitleEl) subtitleEl.textContent = 'Browse all talks, papers, blogs, people, and key topics in one ranked view.';
       setWorkDocumentTitle('Search All');
-      return;
-    }
-
-    if (titleEl) titleEl.textContent = 'Search All';
-    if (subtitleEl) {
+    } else {
+      if (titleEl) titleEl.textContent = 'Search All';
       const subtitleLabel = state.query || searchLabel || 'advanced search';
-      if (state.scope === 'all') {
-        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong>`;
-      } else {
-        subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong> in <strong>${escapeHtml(getSearchScopeLabel(state.scope))}</strong>`;
+      if (subtitleEl) {
+        if (state.scope === 'all') {
+          subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong>`;
+        } else {
+          subtitleEl.innerHTML = `Results for <strong>${escapeHtml(subtitleLabel)}</strong> in <strong>${escapeHtml(getSearchScopeLabel(state.scope))}</strong>`;
+        }
       }
+      setWorkDocumentTitle(`Search All: ${searchLabel || 'Advanced search'}${state.scope === 'all' ? '' : ` (${getSearchScopeLabel(state.scope)})`}`);
     }
-    setWorkDocumentTitle(`Search All: ${searchLabel || 'Advanced search'}${state.scope === 'all' ? '' : ` (${getSearchScopeLabel(state.scope)})`}`);
   } else {
     if (!state.value) {
       if (titleEl) titleEl.textContent = 'All Work';
@@ -3326,16 +3302,6 @@ async function init() {
   syncSearchSectionVisibility();
   updateIssueContextForWork();
   syncGlobalSearchInput();
-
-  if (state.mode === 'search' && !hasActiveSearchCriteria()) {
-    applyHeaderState();
-    setEmptyState('work-universal-grid', 'results');
-    setEmptyState('work-talks-grid', 'talks');
-    setEmptyState('work-papers-grid', 'papers');
-    setEmptyState('work-blogs-grid', 'blogs');
-    setEmptyState('work-people-grid', 'people');
-    return;
-  }
 
   if (state.mode === 'entity' && !state.value) {
     applyHeaderState();
