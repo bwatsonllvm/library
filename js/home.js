@@ -110,7 +110,14 @@ async function hydratePopularTopics() {
         const count = Number(topic.count || 0);
         const countText = count > 0 ? formatCompactNumber(count) : '';
         const href = `work.html?mode=entity&kind=topic&value=${encodeURIComponent(label)}&from=work`;
-        return `<a class="home-topic-chip" href="${escapeHtml(href)}">${escapeHtml(label)}${countText ? `<span aria-hidden="true">${escapeHtml(countText)}</span>` : ''}</a>`;
+        const isMlirTopic = label.toLowerCase() === 'mlir';
+        const labelHtml = isMlirTopic
+          ? '<span class="home-topic-logo home-topic-logo--mlir" aria-hidden="true"></span><span class="sr-only">MLIR</span>'
+          : escapeHtml(label);
+        const countHtml = countText
+          ? `<span class="home-topic-count" aria-hidden="true">${escapeHtml(countText)}</span>`
+          : '';
+        return `<a class="home-topic-chip${isMlirTopic ? ' home-topic-chip--mlir' : ''}" href="${escapeHtml(href)}" aria-label="${escapeHtml(label)}">${labelHtml}${countHtml}</a>`;
       })
       .join('');
   } catch {

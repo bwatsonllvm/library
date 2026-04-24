@@ -812,6 +812,24 @@
     return markdown || renderAbstract(paper && paper.abstract);
   }
 
+  function renderLearningContext(paper) {
+    const content = String((paper && (paper.learningContext || paper.curatorNote || paper.context)) || '').trim();
+    if (!content) return '';
+
+    const siteRoot = window.location && window.location.origin ? `${window.location.origin}/` : window.location.href;
+    const contextPaper = { ...paper, sourceUrl: siteRoot, paperUrl: siteRoot };
+    const html = renderMarkdownContent(content, contextPaper) || renderAbstract(content);
+    if (!html) return '';
+
+    return `
+        <section class="abstract-section paper-context-section" aria-label="Reading context">
+          <div class="section-label" aria-hidden="true">Reading Context</div>
+          <div class="abstract-body">
+            ${html}
+          </div>
+        </section>`;
+  }
+
   function renderAuthors(authors, paper) {
     const values = Array.isArray(authors) ? authors : [];
     if (!values.length) {
@@ -1137,6 +1155,7 @@
     const related = Array.isArray(relatedContext && relatedContext.relatedPapers) && relatedContext.relatedPapers.length
       ? relatedContext.relatedPapers
       : getRelatedPapers(paper, relatedPool);
+    const learningContextHtml = !blogEntry ? renderLearningContext(paper) : '';
 
     root.innerHTML = `
       <div class="talk-detail">
@@ -1166,6 +1185,8 @@
             ${blogEntry ? renderBlogContent(paper) : renderAbstract(paper.abstract)}
           </div>
         </section>
+
+        ${learningContextHtml}
 
         ${!blogEntry ? `
         <section class="paper-talk-links-section" id="paper-featured-talks-section" aria-label="Featured talks" aria-busy="true">

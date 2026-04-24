@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <base href="../">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
+          ? storedTheme
+          : 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
+        var storedTextSize = localStorage.getItem('llvm-hub-text-size');
+        var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
+
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.setAttribute('data-theme-preference', themePreference);
+        if (textSize === 'default') {
+          document.documentElement.removeAttribute('data-text-size');
+        } else {
+          document.documentElement.setAttribute('data-text-size', textSize);
+        }
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
+      } catch (_) {
+        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var fallbackTheme = fallbackDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', fallbackTheme);
+        document.documentElement.setAttribute('data-theme-preference', 'system');
+        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
+      }
+    })();
+  </script>
+  <style>
+    html { background: #f5f5f5; }
+    html[data-theme="dark"] { background: #000000; }
+    body { background: transparent; }
+
+    .mission-main {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100vw - 2rem));
+      margin: 0 auto 3rem;
+      color: var(--color-text);
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    .mission-hero-copy {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+    }
+
+    .mission-section {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .mission-section-header {
+      display: grid;
+      gap: var(--space-2);
+      max-width: 860px;
+    }
+
+    .mission-section-header h2 {
+      margin: 0;
+      color: var(--color-text);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-tight);
+    }
+
+    .mission-section-header p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .learning-route-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .learning-route-card,
+    .resource-card {
+      min-width: 0;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      padding: var(--space-4);
+    }
+
+    .learning-route-card {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .learning-route-card h3,
+    .resource-card h3 {
+      margin: 0;
+      color: var(--color-text);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+    }
+
+    .learning-route-card p,
+    .resource-card p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .resource-link {
+      display: grid;
+      gap: 0.1rem;
+      color: var(--color-text);
+      text-decoration: none;
+      border-top: 1px solid var(--color-border);
+      padding-top: 0.55rem;
+      cursor: pointer;
+    }
+
+    .resource-link:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .resource-link:hover .resource-title {
+      color: var(--color-accent-hover);
+    }
+
+    .resource-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .resource-type {
+      display: inline-flex;
+      align-items: center;
+      min-height: 18px;
+      padding: 0 0.42rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-surface-hover);
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .resource-link:hover .resource-type {
+      border-color: var(--color-border-focus);
+      color: var(--color-text);
+    }
+
+    .resource-title {
+      color: var(--color-accent);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semi);
+      line-height: var(--line-height-snug);
+    }
+
+    .resource-meta {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-snug);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .mission-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .mission-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 var(--space-3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      text-decoration: none;
+    }
+
+    .mission-chip:hover {
+      border-color: var(--color-border-focus);
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+    }
+
+    @media (max-width: 820px) {
+      .learning-route-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <title>Learn LLVM — LLVM Research Library</title>
+  <meta name="description" content="Curated LLVM learning paths using official documentation, tutorials, and selected library resources.">
+  <link rel="icon" type="image/png" href="images/llvm-favicon.png">
+  <link rel="shortcut icon" href="images/llvm-favicon.png">
+  <link rel="apple-touch-icon" href="images/llvm-favicon.png">
+  <link rel="stylesheet" href="css/style.css?v=e3500a73763c">
+</head>
+<body>
+
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#learn-main" class="skip-link">Skip to main content</a>
+  </nav>
+
+  <header class="site-header">
+    <a href="index.html" class="site-logo" aria-label="LLVM Research Library home">
+      <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
+      <span>LLVM Research Library</span>
+    </a>
+
+    <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
+      <input type="hidden" name="mode" value="search">
+      <input
+        type="search"
+        class="global-search-input"
+        name="q"
+        placeholder="Search the full library..."
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search All across talks, papers, blogs, people, and key topics"
+      >
+      <button class="global-search-submit" type="submit" aria-label="Run Search All">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+
+<nav class="site-nav" aria-label="Main navigation">
+      <a href="talks/" class="nav-link" aria-label="Talks">
+        <span aria-hidden="true">Talks</span>
+      </a>
+      <a href="talks/events.html" class="nav-link" aria-label="Events">
+        <span aria-hidden="true">Events</span>
+      </a>
+      <a href="papers/" class="nav-link" aria-label="Papers">
+        <span aria-hidden="true">Papers</span>
+      </a>
+      <a href="blogs/" class="nav-link" aria-label="Blogs">
+        <span aria-hidden="true">Blogs</span>
+      </a>
+      <a href="people/" class="nav-link" aria-label="People">
+        <span aria-hidden="true">People</span>
+      </a>
+      <a href="mlir/" class="nav-link nav-link--mlir" aria-label="MLIR">
+        <span aria-hidden="true">MLIR</span>
+        <img src="images/mlir-logo.png" alt="" class="nav-link-logo nav-link-logo--mlir">
+      </a>
+      <span class="site-nav-separator" aria-hidden="true">|</span>
+      <a href="learn/" class="nav-link" aria-label="Learn LLVM">
+        <span aria-hidden="true">Learn</span>
+      </a>
+      <a href="community/" class="nav-link" aria-label="LLVM community">
+        <span aria-hidden="true">Community</span>
+      </a>
+      <span class="site-nav-separator" aria-hidden="true">|</span>
+      <a href="updates/" class="nav-link" aria-label="Update log">
+        <span aria-hidden="true">Updates</span>
+      </a>
+      <a href="about/" class="nav-link" aria-label="About this site">
+        <span aria-hidden="true">About</span>
+      </a>
+    </nav>
+
+
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open navigation menu" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-nav-panel">
+        Browse
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+            <div class="mobile-nav-panel" id="mobile-nav-panel" hidden>
+        <a href="talks/" class="mobile-nav-link">Talks</a>
+        <a href="talks/events.html" class="mobile-nav-link">Events</a>
+        <a href="papers/" class="mobile-nav-link">Papers</a>
+        <a href="blogs/" class="mobile-nav-link">Blogs</a>
+        <a href="people/" class="mobile-nav-link">People</a>
+        <a href="mlir/" class="mobile-nav-link mobile-nav-link--mlir" aria-label="MLIR">
+          <span>MLIR</span>
+          <img src="images/mlir-logo.png" alt="" class="mobile-nav-link-logo">
+        </a>
+        <a href="learn/" class="mobile-nav-link">Learn</a>
+        <a href="community/" class="mobile-nav-link">Community</a>
+        <a href="updates/" class="mobile-nav-link">Updates</a>
+        <a href="about/" class="mobile-nav-link">About</a>
+      </div>
+
+    </div>
+
+    <div class="header-right">
+      <div class="share-menu" id="share-menu">
+        <button class="header-action-btn share-toggle" id="share-btn" aria-label="Share this page" title="Share" aria-haspopup="true" aria-expanded="false" aria-controls="share-panel">
+          Share
+        </button>
+        <div class="share-panel" id="share-panel" hidden>
+          <button class="share-option" id="share-native-share" type="button" hidden>Share via device</button>
+          <button class="share-option" id="share-copy-link" type="button">Copy link</button>
+          <a class="share-option" id="share-email-link" href="#">Email</a>
+          <a class="share-option" id="share-x-link" href="#" target="_blank" rel="noopener noreferrer">Share on X</a>
+          <a class="share-option" id="share-linkedin-link" href="#" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+        </div>
+      </div>
+      <div class="customization-menu" id="customization-menu">
+        <button class="customization-toggle" id="customization-toggle" aria-label="Display settings" title="Display settings" aria-haspopup="true" aria-expanded="false" aria-controls="customization-panel">
+          <svg class="icon-customize" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="18" y1="16" x2="22" y2="16"/>
+          </svg>
+        </button>
+        <div class="customization-panel" id="customization-panel" hidden>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-theme-select">Theme</label>
+            <select class="customization-select" id="custom-theme-select" aria-label="Theme preference">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-text-size-select">Text Size</label>
+            <select class="customization-select" id="custom-text-size-select" aria-label="Text size">
+              <option value="small">Small</option>
+              <option value="default">Default</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <button class="customization-reset" id="custom-reset-display" type="button">Reset display settings</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="search-hero search-hero--compact" aria-label="Learn LLVM">
+    <div class="search-hero-shell">
+      <h1>Learn LLVM</h1>
+      <p class="subtitle">A compact path for getting oriented, building LLVM, and making a first contribution.</p>
+      <p class="mission-hero-copy">These are resources a new user can use directly: official docs, setup guides, first-patch material, and a few durable tutorials from the library. Research talks remain searchable elsewhere, but they are not the backbone of this page.</p>
+      <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
+        <input type="hidden" name="mode" value="search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="search"
+          class="search-input global-search-input"
+          name="q"
+          placeholder="Search the full library..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search All across talks, papers, blogs, people, and key topics"
+        >
+      </form>
+    </div>
+  </section>
+
+  <main class="mission-main" id="learn-main" tabindex="-1">
+    <section class="mission-section" aria-labelledby="learn-routes-heading">
+      <div class="mission-section-header">
+        <h2 id="learn-routes-heading">Start Here</h2>
+        <p>Use these routes in order if you are new to LLVM. The papers are included for durable context, not as a prerequisite for sending a first patch.</p>
+      </div>
+      <div class="learning-route-grid">
+        <article class="learning-route-card">
+          <h3>1. Orient to LLVM</h3>
+          <p>Start with official entry points, then read the core paper for the project's architecture and vocabulary.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/docs/GettingStartedTutorials.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Started / Tutorials</span></span>
+              <span class="resource-meta">Official index for people new to the LLVM system</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/docs/tutorial/">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Tutorial: Table of Contents</span></span>
+              <span class="resource-meta">Canonical hands-on tutorial series for using LLVM</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/pubs/2003-09-30-LifelongOptimizationTR.pdf">
+              <span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">LLVM: A compilation framework for lifelong program analysis &amp; transformation</span></span>
+              <span class="resource-meta">Foundational paper for LLVM IR and the compiler framework</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="learning-route-card">
+          <h3>2. Build and Test Locally</h3>
+          <p>Get a local checkout into a state where experiments are cheap.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/docs/GettingStarted.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Started with the LLVM System</span></span>
+              <span class="resource-meta">Build prerequisites, checkout, configuration, and first commands</span>
+            </a>
+            <a class="resource-link" href="talks/talk.html?id=2023-10-037">
+              <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">Understanding the LLVM build</span></span>
+              <span class="resource-meta">Build layout, options, and common development workflows</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/docs/TestingGuide.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Testing Guide</span></span>
+              <span class="resource-meta">How the test suite is structured and how to run focused tests</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/docs/HowToSubmitABug.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">How to Submit an LLVM Bug Report</span></span>
+              <span class="resource-meta">What maintainers need when something fails</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="learning-route-card">
+          <h3>3. Make a First Contribution</h3>
+          <p>Use a narrow change to learn the review process and project norms.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/docs/MyFirstTypoFix.html">
+              <span class="resource-title-row"><span class="resource-type">Guide</span><span class="resource-title">MyFirstTypoFix</span></span>
+              <span class="resource-meta">Official first contribution walkthrough</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/docs/Contributing.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Contributing to LLVM</span></span>
+              <span class="resource-meta">Project contribution expectations and review flow</span>
+            </a>
+            <a class="resource-link" href="https://llvm.org/docs/GitHub.html">
+              <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM GitHub User Guide</span></span>
+              <span class="resource-meta">GitHub workflow and code review mechanics</span>
+            </a>
+            <a class="resource-link" href="community/">
+              <span class="resource-title-row"><span class="resource-type">Community</span><span class="resource-title">Where to ask project questions</span></span>
+              <span class="resource-meta">Current Discord, Discourse, office hours, and sync-up entry points</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="learning-route-card">
+          <h3>4. Pick a Project Track</h3>
+          <p>After the basics, choose one practical area instead of trying to learn everything at once.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="talks/talk.html?id=2019-10-029">
+              <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">Getting Started With LLVM: Basics</span></span>
+              <span class="resource-meta">Recorded beginner tutorial from the Developers' Meeting archive</span>
+            </a>
+            <a class="resource-link" href="talks/talk.html?id=2026-04-026">
+              <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">Hands-on Using Clang as a library</span></span>
+              <span class="resource-meta">Clang APIs and tooling-oriented workflows</span>
+            </a>
+            <a class="resource-link" href="talks/talk.html?id=2019-04-001">
+              <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">MLIR: Multi-Level Intermediate Representation for Compiler Infrastructure</span></span>
+              <span class="resource-meta">Original EuroLLVM keynote introducing MLIR's design and compiler-infrastructure goals</span>
+            </a>
+            <a class="resource-link" href="papers/paper.html?id=openalex-w3007772124">
+              <span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">MLIR: A Compiler Infrastructure for the End of Moore's Law</span></span>
+              <span class="resource-meta">Architecture paper for reusable dialects, transformations, and lowering</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="learn-papers-heading">
+      <div class="mission-section-header">
+        <h2 id="learn-papers-heading">Foundational Papers</h2>
+        <p>These are the background papers worth surfacing for new users. They explain the major systems without turning the learn page into a research archive.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h3>LLVM Architecture</h3>
+          <p>The best single paper for understanding why LLVM IR and the compiler framework are structured the way they are.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/pubs/2003-09-30-LifelongOptimizationTR.pdf"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">LLVM: A compilation framework for lifelong program analysis &amp; transformation</span></span></a>
+          </div>
+        </article>
+        <article class="resource-card">
+          <h3>Clang Context</h3>
+          <p>A historical report on Clang becoming a practical C/C++ compiler in the LLVM ecosystem.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/pubs/2010-06-06-Clang-LLVM.pdf"><span class="resource-title-row"><span class="resource-type">Report</span><span class="resource-title">Clang/LLVM Maturity Report</span></span></a>
+          </div>
+        </article>
+        <article class="resource-card">
+          <h3>MLIR Context</h3>
+          <p>Start with the infrastructure paper, then use structured operations when moving into tensor compiler work.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="papers/paper.html?id=openalex-w3007772124"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">MLIR: A Compiler Infrastructure for the End of Moore's Law</span></span></a>
+            <a class="resource-link" href="papers/paper.html?id=manual-structured-operations-2022"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">Structured Operations</span></span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="learn-reference-heading">
+      <div class="mission-section-header">
+        <h2 id="learn-reference-heading">Reference Shelf</h2>
+        <p>Keep these close while working through the routes above.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h3>Core Reference</h3>
+          <p>Background for understanding source layout, APIs, and terminology.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://llvm.org/docs/ProgrammersManual.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Programmer's Manual</span></span><span class="resource-meta">Core APIs, source layout, and C++ conventions</span></a>
+            <a class="resource-link" href="https://llvm.org/docs/LangRef.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Language Reference Manual</span></span><span class="resource-meta">Reference for LLVM IR syntax and semantics</span></a>
+          </div>
+        </article>
+        <article class="resource-card">
+          <h3>Ask for Help</h3>
+          <p>Use current channels when you are blocked or unsure where a question belongs.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="community/"><span class="resource-title-row"><span class="resource-type">Community</span><span class="resource-title">Community channels</span></span><span class="resource-meta">Discourse, Discord, office hours, and calendar links</span></a>
+            <a class="resource-link" href="https://llvm.org/docs/GettingInvolved.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Involved</span></span><span class="resource-meta">Official index for forums, Discord, office hours, and sync-ups</span></a>
+          </div>
+        </article>
+        <article class="resource-card">
+          <h3>Foundation Support</h3>
+          <p>Support programs for students, mentors, and community-building work.</p>
+          <div class="resource-list">
+            <a class="resource-link" href="https://foundation.llvm.org/grants-scholarships"><span class="resource-title-row"><span class="resource-type">Program</span><span class="resource-title">Grants, scholarships, and mentorship</span></span><span class="resource-meta">LLVM Foundation support programs</span></a>
+            <a class="resource-link" href="https://foundation.llvm.org/programs"><span class="resource-title-row"><span class="resource-type">Program</span><span class="resource-title">LLVM Foundation Programs</span></span><span class="resource-meta">Education, community health, infrastructure, diversity, and grants</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="learn-more-heading">
+      <div class="mission-section-header">
+        <h2 id="learn-more-heading">Explore Related Library Views</h2>
+      </div>
+      <div class="mission-chip-row">
+        <a class="mission-chip" href="work.html?mode=search&amp;q=beginner%20tutorial">Beginner tutorials</a>
+        <a class="mission-chip" href="work.html?mode=search&amp;q=LLVM%20build">LLVM build</a>
+        <a class="mission-chip" href="work.html?mode=search&amp;q=first%20contribution">First contribution</a>
+        <a class="mission-chip" href="work.html?mode=search&amp;q=Clang%20tooling">Clang tooling</a>
+        <a class="mission-chip" href="work.html?mode=search&amp;q=MLIR%20tutorial">MLIR tutorials</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/library-utils.js?v=d60c85bdd70e"></script>
+  <script src="js/shared/global-search.js?v=8611a6bd3e4d"></script>
+  <script>
+    (function () {
+      var HubUtils = window.LLVMHubUtils || {};
+      var PageShell = typeof HubUtils.createPageShell === 'function'
+        ? HubUtils.createPageShell()
+        : null;
+      if (!PageShell) return;
+      PageShell.initTheme();
+      PageShell.initTextSize();
+      PageShell.initCustomizationMenu();
+      PageShell.initMobileNavMenu();
+      PageShell.initShareMenu();
+    })();
+  </script>
+</body>
+</html>

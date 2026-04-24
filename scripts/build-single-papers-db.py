@@ -1520,6 +1520,25 @@ def dedupe_list(values: Iterable[str]) -> list[str]:
     return out
 
 
+def is_llvm_pubs_url(value: str) -> bool:
+    return bool(re.match(r"^https?://(?:www\.)?llvm\.org/pubs/", collapse_ws(value), flags=re.IGNORECASE))
+
+
+def is_doi_or_openalex_url(value: str) -> bool:
+    clean = collapse_ws(value)
+    return bool(
+        re.match(r"^https?://(?:dx\.)?doi\.org/", clean, flags=re.IGNORECASE)
+        or re.match(r"^doi:", clean, flags=re.IGNORECASE)
+        or re.match(r"^https?://(?:www\.)?openalex\.org/", clean, flags=re.IGNORECASE)
+    )
+
+
+def should_prefer_llvm_pubs_url(current: str, candidate: str) -> bool:
+    if not is_llvm_pubs_url(candidate):
+        return False
+    return not current or is_doi_or_openalex_url(current)
+
+
 def merge_authors(existing_authors, incoming_authors):
     existing = existing_authors if isinstance(existing_authors, list) else []
     incoming = incoming_authors if isinstance(incoming_authors, list) else []
@@ -1576,7 +1595,9 @@ def merge_records(base: dict, incoming: dict) -> dict:
     for field in scalar_fields:
         current = collapse_ws(str(out.get(field, "")))
         candidate = collapse_ws(str(incoming.get(field, "")))
-        if not current and candidate:
+        if field in {"paperUrl", "sourceUrl"} and candidate and should_prefer_llvm_pubs_url(current, candidate):
+            out[field] = incoming.get(field, "")
+        elif not current and candidate:
             out[field] = incoming.get(field, "")
         elif field == "abstract" and is_placeholder_abstract(current) and candidate and not is_placeholder_abstract(candidate):
             out[field] = incoming.get(field, "")
@@ -1628,6 +1649,8 @@ def _copy_scalar_field_from_existing(out: dict, existing: dict, field: str) -> b
         return False
 
     current_text = collapse_ws(str(out.get(field, "")))
+    if field in {"paperUrl", "sourceUrl"} and is_llvm_pubs_url(current_text) and is_doi_or_openalex_url(existing_text):
+        return False
     if field == "abstract" and is_placeholder_abstract(current_text) and not is_placeholder_abstract(existing_text):
         out[field] = existing_value
         return True

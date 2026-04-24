@@ -430,17 +430,32 @@
       ],
       "year": "2022",
       "type": "research-paper",
-      "paperUrl": "https://link.springer.com/chapter/10.1007/978-3-031-31445-2_10",
-      "sourceUrl": "https://doi.org/10.1007/978-3-031-31445-2_10",
+      "paperUrl": "https://storage.googleapis.com/gweb-research2023-media/pubtools/7102.pdf",
+      "sourceUrl": "https://research.google/pubs/structured-operations-modular-design-of-code-generators-for-tensor-compilers/",
       "citationCount": 0,
       "publication": "International Workshop on Languages and Compilers for Parallel Computing",
       "venue": "LCPC 2022",
       "doi": "10.1007/978-3-031-31445-2_10",
+      "abstract": "The performance of machine learning systems heavily relies on code generators tailored to tensor computations. This paper presents a structured-operations approach to designing those code generators in MLIR, using the natural structure of tensor algebra to guide progressive lowering from domain-specific abstractions toward efficient generated code.",
+      "learningContext": "Read this after [MLIR: A Compiler Infrastructure for the End of Moore's Law](papers/paper.html?id=openalex-w3007772124): the MLIR paper explains the general multi-level IR and dialect model, while this paper shows how that model is applied to structured tensor operations and code generation. The related arXiv paper, [Composable and Modular Code Generation in MLIR](papers/paper.html?id=openalex-w4226443139), is the extended version of this line of work rather than a separate prerequisite.",
+      "content": "- DOI: https://doi.org/10.1007/978-3-031-31445-2_10\n- Springer chapter: https://link.springer.com/chapter/10.1007/978-3-031-31445-2_10\n- Extended arXiv version: https://arxiv.org/abs/2202.03293",
+      "contentFormat": "markdown",
       "tags": [
-        "MLIR"
+        "MLIR",
+        "Code Generation",
+        "Infrastructure",
+        "ML",
+        "Optimizations"
       ],
       "keywords": [
-        "MLIR"
+        "MLIR",
+        "Structured operations",
+        "Tensor compilers",
+        "Tensor algebra",
+        "Progressive lowering",
+        "Code generation",
+        "Linalg",
+        "Dialect design"
       ]
     },
     {

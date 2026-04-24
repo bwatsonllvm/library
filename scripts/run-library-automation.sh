@@ -22,6 +22,7 @@ Modes:
 
 Environment:
   GITHUB_TOKEN                    Optional token passed to GitHub-backed sync scripts.
+  YOUTUBE_API_KEY                 Optional YouTube Data API key used to build the deployed view-count endpoint.
   LLVM_WWW_REPO                   llvm-www source repo, default llvm/llvm-www.
   LLVM_WWW_REF                    llvm-www source ref, default main.
   DEVMTG_ONLY_SLUG                Optional single devmtg meeting slug for talks-sync.
@@ -255,11 +256,17 @@ run_validate() {
 
 run_prepare_pages() {
   run rm -rf _site
-  run mkdir -p _site/papers _site/devmtg
+  run mkdir -p _site/papers _site/devmtg _site/api
   run cp index.html work.html _site/
   run cp -R talks blogs people mlir sub-projects about updates css js images _site/
+  run rm -f _site/js/data/youtube-view-counts.json
   run rsync -a --exclude '.cache/' papers/ _site/papers/
   run cp -R devmtg/events _site/devmtg/
+  if [[ -n "${YOUTUBE_API_KEY:-}" ]]; then
+    run node scripts/build-youtube-view-counts-endpoint.mjs --output _site/api/youtube-view-counts.json
+  else
+    log "YOUTUBE_API_KEY not set; skipping deployed YouTube view-count endpoint"
+  fi
   run test -f _site/mlir/index.html
   run test -f _site/mlir/talks/index.html
   run test -f _site/mlir/talks/talk.html

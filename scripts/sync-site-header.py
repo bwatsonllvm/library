@@ -11,6 +11,8 @@ from pathlib import Path
 VIEWER_PAGES = [
     "index.html",
     "work.html",
+    "learn/index.html",
+    "community/index.html",
     "talks/index.html",
     "talks/events.html",
     "talks/talk.html",

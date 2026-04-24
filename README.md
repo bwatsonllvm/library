@@ -119,7 +119,7 @@ Shared ranking helpers in `js/shared/library-utils.js` power core search behavio
 
 ### Results controls across pages
 
-- `talks/`: sort (`relevance`, `newest`, `oldest`, `title`) + `grid/list` view toggle.
+- `talks/`: sort (`relevance`, `views`, `newest`, `oldest`, `title`) + `grid/list` view toggle.
 - `papers/` and `blogs/`: sort (`relevance`, `year`, `citations`) + `grid/list` view toggle.
 - `papers/` adds sidebar filters for:
   - citation buckets
@@ -140,6 +140,15 @@ Shared ranking helpers in `js/shared/library-utils.js` power core search behavio
 - `people/`:
   - sort (`works`, `citations`, `alpha`, `alpha-desc`)
   - `expanded/compact` view toggle
+
+### YouTube view-count sort
+
+The `talks/` **Most views** sort uses YouTube's own `viewCount` statistics when available.
+
+- Production Pages deploys can build `api/youtube-view-counts.json` with `scripts/build-youtube-view-counts-endpoint.mjs` and `YOUTUBE_API_KEY`.
+- The deployed endpoint is generated into `_site/` during `prepare-pages`; it is not committed to the repository.
+- The Pages workflow runs daily so the static endpoint can refresh without browser-side YouTube API calls or exposed API keys.
+- Local prototypes may still use an ignored `js/data/youtube-view-counts.json` fallback for offline testing.
 
 ### URL/state behavior
 

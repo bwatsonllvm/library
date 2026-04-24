@@ -3,6 +3,8 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: "37 8 * * *"
   workflow_dispatch:
 
 permissions:
@@ -44,6 +46,8 @@ jobs:
           REQUIRE_DETAIL_SMOKE: "1"
         run: node --test tests/detail-pages-smoke.test.cjs
       - name: Prepare site bundle
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: scripts/run-library-automation.sh prepare-pages
       - name: Setup Pages
         uses: actions/configure-pages@v5

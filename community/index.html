@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <base href="../">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      try {
+        var storedTheme = localStorage.getItem('llvm-hub-theme-preference');
+        var themePreference = (storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system')
+          ? storedTheme
+          : 'system';
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var resolvedTheme = themePreference === 'system' ? (prefersDark ? 'dark' : 'light') : themePreference;
+        var storedTextSize = localStorage.getItem('llvm-hub-text-size');
+        var textSize = (storedTextSize === 'small' || storedTextSize === 'large') ? storedTextSize : 'default';
+
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
+        document.documentElement.setAttribute('data-theme-preference', themePreference);
+        if (textSize === 'default') {
+          document.documentElement.removeAttribute('data-text-size');
+        } else {
+          document.documentElement.setAttribute('data-text-size', textSize);
+        }
+        document.documentElement.style.backgroundColor = resolvedTheme === 'dark' ? '#000000' : '#f5f5f5';
+      } catch (_) {
+        var fallbackDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var fallbackTheme = fallbackDark ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', fallbackTheme);
+        document.documentElement.setAttribute('data-theme-preference', 'system');
+        document.documentElement.style.backgroundColor = fallbackTheme === 'dark' ? '#000000' : '#f5f5f5';
+      }
+    })();
+  </script>
+  <style>
+    html { background: #f5f5f5; }
+    html[data-theme="dark"] { background: #000000; }
+    body { background: transparent; }
+
+    .mission-main {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100vw - 2rem));
+      margin: 0 auto 3rem;
+      color: var(--color-text);
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    .mission-hero-copy {
+      width: min(860px, 100%);
+      margin: 0 auto;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+    }
+
+    .mission-section {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .mission-section-header {
+      display: grid;
+      gap: var(--space-2);
+      max-width: 860px;
+    }
+
+    .mission-section-header h2 {
+      margin: 0;
+      color: var(--color-text);
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-tight);
+    }
+
+    .mission-section-header p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .channel-card,
+    .archive-card {
+      min-width: 0;
+      display: grid;
+      gap: var(--space-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      padding: var(--space-4);
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    a.channel-card:hover,
+    a.archive-card:hover {
+      border-color: var(--color-border-focus);
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+    }
+
+    .channel-kicker,
+    .archive-kicker {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semi);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .channel-title,
+    .archive-title {
+      color: var(--color-text);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-semi);
+      line-height: var(--line-height-tight);
+    }
+
+    .channel-meta,
+    .archive-meta {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    @media (max-width: 920px) {
+      .channel-grid,
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <title>LLVM Community — LLVM Research Library</title>
+  <meta name="description" content="Official LLVM community channels, support routes, and selected community archive material.">
+  <link rel="icon" type="image/png" href="images/llvm-favicon.png">
+  <link rel="shortcut icon" href="images/llvm-favicon.png">
+  <link rel="apple-touch-icon" href="images/llvm-favicon.png">
+  <link rel="stylesheet" href="css/style.css?v=e3500a73763c">
+</head>
+<body>
+
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#community-main" class="skip-link">Skip to main content</a>
+  </nav>
+
+  <header class="site-header">
+    <a href="index.html" class="site-logo" aria-label="LLVM Research Library home">
+      <img src="images/llvm-logo.png" alt="LLVM Foundation logo" class="site-logo-img">
+      <span>LLVM Research Library</span>
+    </a>
+
+    <form class="global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
+      <input type="hidden" name="mode" value="search">
+      <input
+        type="search"
+        class="global-search-input"
+        name="q"
+        placeholder="Search the full library..."
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search All across talks, papers, blogs, people, and key topics"
+      >
+      <button class="global-search-submit" type="submit" aria-label="Run Search All">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+
+<nav class="site-nav" aria-label="Main navigation">
+      <a href="talks/" class="nav-link" aria-label="Talks">
+        <span aria-hidden="true">Talks</span>
+      </a>
+      <a href="talks/events.html" class="nav-link" aria-label="Events">
+        <span aria-hidden="true">Events</span>
+      </a>
+      <a href="papers/" class="nav-link" aria-label="Papers">
+        <span aria-hidden="true">Papers</span>
+      </a>
+      <a href="blogs/" class="nav-link" aria-label="Blogs">
+        <span aria-hidden="true">Blogs</span>
+      </a>
+      <a href="people/" class="nav-link" aria-label="People">
+        <span aria-hidden="true">People</span>
+      </a>
+      <a href="mlir/" class="nav-link nav-link--mlir" aria-label="MLIR">
+        <span aria-hidden="true">MLIR</span>
+        <img src="images/mlir-logo.png" alt="" class="nav-link-logo nav-link-logo--mlir">
+      </a>
+      <span class="site-nav-separator" aria-hidden="true">|</span>
+      <a href="learn/" class="nav-link" aria-label="Learn LLVM">
+        <span aria-hidden="true">Learn</span>
+      </a>
+      <a href="community/" class="nav-link" aria-label="LLVM community">
+        <span aria-hidden="true">Community</span>
+      </a>
+      <span class="site-nav-separator" aria-hidden="true">|</span>
+      <a href="updates/" class="nav-link" aria-label="Update log">
+        <span aria-hidden="true">Updates</span>
+      </a>
+      <a href="about/" class="nav-link" aria-label="About this site">
+        <span aria-hidden="true">About</span>
+      </a>
+    </nav>
+
+
+    <div class="mobile-nav-menu" id="mobile-nav-menu">
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open navigation menu" aria-haspopup="true" aria-expanded="false" aria-controls="mobile-nav-panel">
+        Browse
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+            <div class="mobile-nav-panel" id="mobile-nav-panel" hidden>
+        <a href="talks/" class="mobile-nav-link">Talks</a>
+        <a href="talks/events.html" class="mobile-nav-link">Events</a>
+        <a href="papers/" class="mobile-nav-link">Papers</a>
+        <a href="blogs/" class="mobile-nav-link">Blogs</a>
+        <a href="people/" class="mobile-nav-link">People</a>
+        <a href="mlir/" class="mobile-nav-link mobile-nav-link--mlir" aria-label="MLIR">
+          <span>MLIR</span>
+          <img src="images/mlir-logo.png" alt="" class="mobile-nav-link-logo">
+        </a>
+        <a href="learn/" class="mobile-nav-link">Learn</a>
+        <a href="community/" class="mobile-nav-link">Community</a>
+        <a href="updates/" class="mobile-nav-link">Updates</a>
+        <a href="about/" class="mobile-nav-link">About</a>
+      </div>
+
+    </div>
+
+    <div class="header-right">
+      <div class="share-menu" id="share-menu">
+        <button class="header-action-btn share-toggle" id="share-btn" aria-label="Share this page" title="Share" aria-haspopup="true" aria-expanded="false" aria-controls="share-panel">
+          Share
+        </button>
+        <div class="share-panel" id="share-panel" hidden>
+          <button class="share-option" id="share-native-share" type="button" hidden>Share via device</button>
+          <button class="share-option" id="share-copy-link" type="button">Copy link</button>
+          <a class="share-option" id="share-email-link" href="#">Email</a>
+          <a class="share-option" id="share-x-link" href="#" target="_blank" rel="noopener noreferrer">Share on X</a>
+          <a class="share-option" id="share-linkedin-link" href="#" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a>
+        </div>
+      </div>
+      <div class="customization-menu" id="customization-menu">
+        <button class="customization-toggle" id="customization-toggle" aria-label="Display settings" title="Display settings" aria-haspopup="true" aria-expanded="false" aria-controls="customization-panel">
+          <svg class="icon-customize" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/>
+            <line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/>
+            <line x1="2" y1="14" x2="6" y2="14"/><line x1="10" y1="8" x2="14" y2="8"/><line x1="18" y1="16" x2="22" y2="16"/>
+          </svg>
+        </button>
+        <div class="customization-panel" id="customization-panel" hidden>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-theme-select">Theme</label>
+            <select class="customization-select" id="custom-theme-select" aria-label="Theme preference">
+              <option value="system">System</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <div class="customization-group">
+            <label class="customization-label" for="custom-text-size-select">Text Size</label>
+            <select class="customization-select" id="custom-text-size-select" aria-label="Text size">
+              <option value="small">Small</option>
+              <option value="default">Default</option>
+              <option value="large">Large</option>
+            </select>
+          </div>
+          <button class="customization-reset" id="custom-reset-display" type="button">Reset display settings</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="search-hero search-hero--compact" aria-label="LLVM community">
+    <div class="search-hero-shell">
+      <h1>LLVM Community</h1>
+      <p class="subtitle">Official channels first, with selected library context for community health and project stewardship.</p>
+      <p class="mission-hero-copy">The library should help people find where the LLVM community already gathers: Discourse, Discord, office hours, sync-ups, events, and Foundation programs.</p>
+      <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
+        <input type="hidden" name="mode" value="search">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="search"
+          class="search-input global-search-input"
+          name="q"
+          placeholder="Search the full library..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search All across talks, papers, blogs, people, and key topics"
+        >
+      </form>
+    </div>
+  </section>
+
+  <main class="mission-main" id="community-main" tabindex="-1">
+    <section class="mission-section" aria-labelledby="official-channels-heading">
+      <div class="mission-section-header">
+        <h2 id="official-channels-heading">Official Channels</h2>
+        <p>Use these for current project discussion, questions, meetings, event participation, and contribution support.</p>
+      </div>
+      <div class="channel-grid">
+        <a class="channel-card" href="https://llvm.org/docs/GettingInvolved.html">
+          <span class="channel-kicker">Overview</span>
+          <span class="channel-title">Getting Involved</span>
+          <span class="channel-meta">Official index for contributing, forums, sync-ups, office hours, Discord, and community calendar.</span>
+        </a>
+        <a class="channel-card" href="https://discourse.llvm.org/">
+          <span class="channel-kicker">Forums</span>
+          <span class="channel-title">LLVM Discourse</span>
+          <span class="channel-meta">Project-wide discussion categories for beginners, subprojects, infrastructure, design, and announcements.</span>
+        </a>
+        <a class="channel-card" href="https://discord.gg/xS7Z362">
+          <span class="channel-kicker">Chat</span>
+          <span class="channel-title">LLVM Discord</span>
+          <span class="channel-meta">Real-time chat for users and developers, including beginners, office hours, and buildbot status channels.</span>
+        </a>
+        <a class="channel-card" href="https://llvm.org/docs/GettingInvolved.html#office-hours">
+          <span class="channel-kicker">Live help</span>
+          <span class="channel-title">Office Hours</span>
+          <span class="channel-meta">Scheduled time with experienced contributors across LLVM, Clang, MLIR, optimization, backend, and research topics.</span>
+        </a>
+        <a class="channel-card" href="https://calendar.google.com/calendar/u/0/embed?src=calendar%40llvm.org">
+          <span class="channel-kicker">Events</span>
+          <span class="channel-title">Community Calendar</span>
+          <span class="channel-meta">Sync-ups, office hours, working groups, social events, and other recurring LLVM community meetings.</span>
+        </a>
+        <a class="channel-card" href="https://llvm.org/docs/CodeOfConduct.html">
+          <span class="channel-kicker">Participation</span>
+          <span class="channel-title">Code of Conduct</span>
+          <span class="channel-meta">The shared standards for LLVM spaces, including events, Discord, mailing lists, and issue trackers.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="support-heading">
+      <div class="mission-section-header">
+        <h2 id="support-heading">Foundation Support</h2>
+        <p>Programs that connect education, diversity, mentorship, and community health to the broader LLVM mission.</p>
+      </div>
+      <div class="channel-grid">
+        <a class="channel-card" href="https://foundation.llvm.org/programs">
+          <span class="channel-kicker">Foundation</span>
+          <span class="channel-title">Programs</span>
+          <span class="channel-meta">Educational outreach, community health and infrastructure, diversity and inclusion, and grants and scholarships.</span>
+        </a>
+        <a class="channel-card" href="https://foundation.llvm.org/grants-scholarships">
+          <span class="channel-kicker">Students</span>
+          <span class="channel-title">Grants, Scholarships, and Mentorship</span>
+          <span class="channel-meta">Student travel grants, mentorship, and support for attending LLVM Developers' Meetings.</span>
+        </a>
+        <a class="channel-card" href="https://community-dot-o.llvm.org/#">
+          <span class="channel-kicker">Diversity and inclusion</span>
+          <span class="channel-title">Community.o</span>
+          <span class="channel-meta">LLVM Foundation initiative to increase diversity and inclusion in LLVM and compilers/tools, remove barriers, and help contributors from all backgrounds feel welcome and empowered.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="archive-heading">
+      <div class="mission-section-header">
+        <h2 id="archive-heading">Selected Library Context</h2>
+        <p>Library records are secondary here: useful background on how the community has discussed health, education, inclusion, governance, and infrastructure.</p>
+      </div>
+      <div class="archive-grid">
+        <a class="archive-card" href="papers/paper.html?id=blog-2022-10-27-office-hours&amp;from=blogs">
+          <span class="archive-kicker">Blog</span>
+          <span class="archive-title">Office hours and the LLVM community calendar</span>
+          <span class="archive-meta">Context for synchronous support and lowering contribution barriers.</span>
+        </a>
+        <a class="archive-card" href="talks/talk.html?id=2025-04-049">
+          <span class="archive-kicker">Quick talk</span>
+          <span class="archive-title">Measuring the health of the LLVM community</span>
+          <span class="archive-meta">A data-oriented look at project activity and community health.</span>
+        </a>
+        <a class="archive-card" href="talks/talk.html?id=2021-11-002">
+          <span class="archive-kicker">Keynote</span>
+          <span class="archive-title">Supporting Diversity and Inclusion in our Community</span>
+          <span class="archive-meta">A direct community-health talk from the Developers' Meeting archive.</span>
+        </a>
+        <a class="archive-card" href="work.html?mode=entity&amp;kind=topic&amp;value=LLVM%20Foundation&amp;from=community">
+          <span class="archive-kicker">Topic</span>
+          <span class="archive-title">LLVM Foundation updates</span>
+          <span class="archive-meta">Foundation sessions, project stewardship, and board-level community updates.</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/shared/library-utils.js?v=d60c85bdd70e"></script>
+  <script src="js/shared/global-search.js?v=8611a6bd3e4d"></script>
+  <script>
+    (function () {
+      var HubUtils = window.LLVMHubUtils || {};
+      var PageShell = typeof HubUtils.createPageShell === 'function'
+        ? HubUtils.createPageShell()
+        : null;
+      if (!PageShell) return;
+      PageShell.initTheme();
+      PageShell.initTextSize();
+      PageShell.initCustomizationMenu();
+      PageShell.initMobileNavMenu();
+      PageShell.initShareMenu();
+    })();
+  </script>
+</body>
+</html>

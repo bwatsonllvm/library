@@ -640,6 +640,27 @@ function choosePreferredText(primary, secondary) {
   return first.length >= second.length ? first : second;
 }
 
+function looksLikeBibliographicSummary(value) {
+  const text = collapseWhitespace(value);
+  if (!text) return false;
+  const separatorCount = (text.match(/\s-\s/g) || []).length;
+  if (separatorCount < 2) return false;
+  return /\b(?:arxiv|conference|journal|proceedings|symposium|workshop|pp\.|pages?)\b/i.test(text);
+}
+
+function choosePreferredAbstract(primary, secondary) {
+  const first = collapseWhitespace(primary);
+  const second = collapseWhitespace(secondary);
+  const firstPlaceholder = !first || /^no abstract available\b/i.test(first);
+  const secondPlaceholder = !second || /^no abstract available\b/i.test(second);
+
+  if (firstPlaceholder) return secondPlaceholder ? '' : second;
+  if (secondPlaceholder) return first;
+  if (looksLikeBibliographicSummary(first) && !looksLikeBibliographicSummary(second)) return second;
+  if (looksLikeBibliographicSummary(second) && !looksLikeBibliographicSummary(first)) return first;
+  return first.length >= second.length ? first : second;
+}
+
 function mergeSpeakerLists(baseSpeakers, extraSpeakers) {
   const merged = [];
   const seen = new Map();
@@ -1305,7 +1326,7 @@ function mergePaperWithMlirEntry(paper, entry, fallbackUrl) {
   const primaryUrl = buildMlirPublicationPrimaryHref(actions, fallbackUrl);
   const merged = {
     ...paper,
-    abstract: choosePreferredText(paper && paper.abstract, entry && entry.summary),
+    abstract: choosePreferredAbstract(paper && paper.abstract, entry && entry.summary),
     year: collapseWhitespace(paper && paper.year) || extractMlirPublicationYear(entry),
     publication: choosePreferredText(paper && paper.publication, extractMlirPublicationVenue(entry)),
     paperUrl: sanitizeExternalUrl(paper && paper.paperUrl) || primaryUrl,

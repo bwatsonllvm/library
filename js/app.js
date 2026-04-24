@@ -22,13 +22,18 @@ let renderedCount = 0;
 let loadMoreObserver = null;
 let loadMoreScrollHandler = null;
 let topicLabelByNormalized = new Map();
+let youtubeViewCounts = new Map();
+const YOUTUBE_VIEW_COUNT_SOURCE_URLS = [
+  'api/youtube-view-counts.json',
+  'js/data/youtube-view-counts.json',
+];
 
 const ALL_WORK_PAGE_PATH = 'work.html';
 const MAX_TOPIC_FILTERS = 220;
 const MIN_TOPIC_FILTER_COUNT = 2;
 const TOPIC_SORT_STORAGE_KEY = 'llvm-hub-topic-sort';
 const TOPIC_SORT_MODES = new Set(['alpha', 'common']);
-const TALK_SORT_MODES = new Set(['relevance', 'newest', 'oldest', 'title']);
+const TALK_SORT_MODES = new Set(['relevance', 'views', 'newest', 'oldest', 'title']);
 const PAGE_REQUIRED_TAGS = String(document.body && document.body.dataset ? document.body.dataset.requiredTags || '' : '')
   .split(',')
   .map((value) => String(value || '').trim())
@@ -132,6 +137,60 @@ function getTalkKeyTopics(talk, limit = Infinity) {
   return getTalkKeyTopicsFromHub(talk, limit);
 }
 
+function getTalkYouTubeId(talk) {
+  const explicit = String(talk && talk.videoId || '').trim();
+  if (typeof HubUtils.isYouTubeVideoId === 'function' && HubUtils.isYouTubeVideoId(explicit)) return explicit;
+  if (typeof HubUtils.extractYouTubeId === 'function') return HubUtils.extractYouTubeId(talk && talk.videoUrl) || '';
+  return '';
+}
+
+function normalizeYouTubeViewCountEntry(entry) {
+  if (typeof entry === 'number' && Number.isFinite(entry)) return Math.max(0, Math.round(entry));
+  if (!entry || typeof entry !== 'object') return 0;
+  return parseTalkViewCount(entry.viewCount || entry.youtubeViewCount || entry.views || entry.count);
+}
+
+function getYouTubeViewCountSourceUrls() {
+  const configured = String(window.LLVM_YOUTUBE_VIEW_COUNTS_ENDPOINT || '').trim();
+  return [...new Set([configured, ...YOUTUBE_VIEW_COUNT_SOURCE_URLS].filter(Boolean))];
+}
+
+async function fetchYouTubeViewCountsFromSource(sourceUrl) {
+  const response = await fetch(sourceUrl, { cache: 'default' });
+  if (!response.ok) return new Map();
+  const payload = await response.json();
+  const counts = payload && payload.counts && typeof payload.counts === 'object' ? payload.counts : {};
+  const map = new Map();
+  Object.entries(counts).forEach(([videoId, entry]) => {
+    const id = String(videoId || '').trim();
+    if (!id) return;
+    const count = normalizeYouTubeViewCountEntry(entry);
+    if (count > 0) map.set(id, count);
+  });
+  return map;
+}
+
+async function loadYouTubeViewCounts() {
+  for (const sourceUrl of getYouTubeViewCountSourceUrls()) {
+    try {
+      const map = await fetchYouTubeViewCountsFromSource(sourceUrl);
+      if (map.size) return map;
+    } catch {
+      // Try the next configured source; view counts are an enhancement.
+    }
+  }
+  return new Map();
+}
+
+function applyYouTubeViewCounts(talks) {
+  if (!youtubeViewCounts.size) return talks;
+  return talks.map((talk) => {
+    const videoId = getTalkYouTubeId(talk);
+    const viewCount = videoId ? youtubeViewCounts.get(videoId) || 0 : 0;
+    return viewCount > 0 ? { ...talk, youtubeViewCount: viewCount } : talk;
+  });
+}
+
 function rebuildTopicLabelLookup() {
   topicLabelByNormalized = new Map();
   for (const talk of allTalks) {
@@ -188,7 +247,8 @@ async function loadData() {
       const loaded = await window.loadEventData();
       talks = Array.isArray(loaded && loaded.talks) ? loaded.talks : [];
     }
-    allTalks = normalizeTalks(talks).filter(talkHasRequiredTags);
+    youtubeViewCounts = await loadYouTubeViewCounts();
+    allTalks = applyYouTubeViewCounts(normalizeTalks(talks)).filter(talkHasRequiredTags);
   } catch (err) {
     showError(`Could not load event JSON data: <code>${escapeHtml(String(err.message || err))}</code>`);
     return false;
@@ -361,7 +421,63 @@ function compareTalksTitle(a, b) {
   return String(a.id || '').localeCompare(String(b.id || ''));
 }
 
+function parseTalkViewCount(value) {
+  if (typeof value === 'number' && Number.isFinite(value)) return Math.max(0, value);
+  const text = String(value || '').trim().toLowerCase().replace(/,/g, '');
+  if (!text) return 0;
+  const match = text.match(/(\d+(?:\.\d+)?)\s*([kmb])?/);
+  if (!match) return 0;
+  const base = Number(match[1]);
+  if (!Number.isFinite(base)) return 0;
+  const suffix = match[2] || '';
+  const multiplier = suffix === 'b' ? 1000000000 : suffix === 'm' ? 1000000 : suffix === 'k' ? 1000 : 1;
+  return Math.max(0, Math.round(base * multiplier));
+}
+
+function getTalkViewCount(talk) {
+  if (!talk || typeof talk !== 'object') return 0;
+  const directFields = ['viewCount', 'views', 'videoViewCount', 'videoViews', 'youtubeViewCount', 'youtubeViews'];
+  for (const field of directFields) {
+    const count = parseTalkViewCount(talk[field]);
+    if (count > 0) return count;
+  }
+
+  const nestedFields = [talk.videoStats, talk.youtubeStats, talk.statistics, talk.stats, talk.videoMeta];
+  for (const stats of nestedFields) {
+    if (!stats || typeof stats !== 'object') continue;
+    for (const field of directFields) {
+      const count = parseTalkViewCount(stats[field]);
+      if (count > 0) return count;
+    }
+  }
+
+  for (const action of talk.resourceActions || []) {
+    if (!action || typeof action !== 'object') continue;
+    const kind = String(action.kind || '').toLowerCase();
+    if (kind && !/recording|video|youtube/.test(kind)) continue;
+    for (const field of directFields) {
+      const count = parseTalkViewCount(action[field]);
+      if (count > 0) return count;
+    }
+  }
+
+  return 0;
+}
+
+function hasTalkVideo(talk) {
+  return !!(talk && (talk.videoUrl || talk.videoId));
+}
+
+function compareTalksMostViewed(a, b) {
+  const viewsDiff = getTalkViewCount(b) - getTalkViewCount(a);
+  if (viewsDiff !== 0) return viewsDiff;
+  const videoDiff = Number(hasTalkVideo(b)) - Number(hasTalkVideo(a));
+  if (videoDiff !== 0) return videoDiff;
+  return compareTalksNewestFirst(a, b);
+}
+
 function sortTalkResults(results, tokens) {
+  if (state.sortBy === 'views') return [...results].sort(compareTalksMostViewed);
   if (state.sortBy === 'newest') return [...results].sort(compareTalksNewestFirst);
   if (state.sortBy === 'oldest') return [...results].sort(compareTalksOldestFirst);
   if (state.sortBy === 'title') return [...results].sort(compareTalksTitle);
@@ -967,7 +1083,8 @@ function renderResultCount(count) {
   parts.push(activeFilterCount > 0
     ? `${activeFilterCount} filter${activeFilterCount === 1 ? '' : 's'} active`
     : 'All results');
-  if (state.sortBy === 'newest') parts.push('Sorted by newest meeting');
+  if (state.sortBy === 'views') parts.push('Sorted by most views');
+  else if (state.sortBy === 'newest') parts.push('Sorted by newest meeting');
   else if (state.sortBy === 'oldest') parts.push('Sorted by oldest meeting');
   else if (state.sortBy === 'title') parts.push('Sorted by title');
   else parts.push(state.query ? 'Sorted by relevance' : 'Sorted by newest meeting');

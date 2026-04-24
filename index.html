@@ -226,10 +226,22 @@
       color: var(--color-text);
     }
 
-    .home-topic-chip span {
+    .home-topic-chip .home-topic-count {
       color: var(--color-text-muted);
       font-size: var(--font-size-xs);
       font-variant-numeric: tabular-nums;
+    }
+
+    .home-topic-chip--mlir {
+      justify-content: center;
+    }
+
+    .home-topic-logo--mlir {
+      display: inline-block;
+      width: 2.85rem;
+      height: 1.14rem;
+      flex: 0 0 auto;
+      background: center / 100% auto no-repeat url("images/mlir-logo.png");
     }
 
     .home-project-note {
@@ -302,7 +314,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=e3500a73763c">
+  <link rel="stylesheet" href="css/style.css?v=37a1cd0f01aa">
 </head>
 <body>
 
@@ -356,6 +368,13 @@
         <img src="images/mlir-logo.png" alt="" class="nav-link-logo nav-link-logo--mlir">
       </a>
       <span class="site-nav-separator" aria-hidden="true">|</span>
+      <a href="learn/" class="nav-link" aria-label="Learn LLVM">
+        <span aria-hidden="true">Learn</span>
+      </a>
+      <a href="community/" class="nav-link" aria-label="LLVM community">
+        <span aria-hidden="true">Community</span>
+      </a>
+      <span class="site-nav-separator" aria-hidden="true">|</span>
       <a href="updates/" class="nav-link" aria-label="Update log">
         <span aria-hidden="true">Updates</span>
       </a>
@@ -382,6 +401,8 @@
           <span>MLIR</span>
           <img src="images/mlir-logo.png" alt="" class="mobile-nav-link-logo">
         </a>
+        <a href="learn/" class="mobile-nav-link">Learn</a>
+        <a href="community/" class="mobile-nav-link">Community</a>
         <a href="updates/" class="mobile-nav-link">Updates</a>
         <a href="about/" class="mobile-nav-link">About</a>
       </div>
@@ -520,7 +541,7 @@
           <h2 class="home-section-heading">Popular Topics</h2>
           <p class="home-section-kicker">High-signal entry points from the current catalog.</p>
           <div class="home-topic-list" id="home-topic-list" aria-label="Popular topics">
-            <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=MLIR&amp;from=work">MLIR</a>
+            <a class="home-topic-chip home-topic-chip--mlir" href="work.html?mode=entity&amp;kind=topic&amp;value=MLIR&amp;from=work" aria-label="MLIR"><span class="home-topic-logo home-topic-logo--mlir" aria-hidden="true"></span><span class="sr-only">MLIR</span></a>
             <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=GPU&amp;from=work">GPU</a>
             <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Optimizations&amp;from=work">Optimizations</a>
             <a class="home-topic-chip" href="work.html?mode=entity&amp;kind=topic&amp;value=Clang&amp;from=work">Clang</a>
@@ -534,6 +555,8 @@
             <a class="home-link-chip" href="papers/">Papers</a>
             <a class="home-link-chip" href="blogs/">Blogs</a>
             <a class="home-link-chip" href="people/">People</a>
+            <a class="home-link-chip" href="learn/">Learn</a>
+            <a class="home-link-chip" href="community/">Community</a>
             <a class="home-link-chip" href="updates/">Updates</a>
             <a class="home-link-chip" href="about/">About</a>
           </div>
@@ -546,7 +569,7 @@
 
   <script src="js/shared/library-utils.js?v=d60c85bdd70e"></script>
 
-  <script src="js/shared/global-search.js?v=8611a6bd3e4d"></script>
-  <script src="js/home.js?v=4be38c04e808"></script>
+  <script src="js/shared/global-search.js?v=35227f2ef52f"></script>
+  <script src="js/home.js?v=03c1a5cc8dd4"></script>
 </body>
 </html>

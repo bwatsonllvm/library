@@ -61,7 +61,7 @@
   }
 
   const LIBRARY_ROOT_PATH = resolveLibraryRootPath();
-  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=48f3a4d7da6b');
+  const AUTOCOMPLETE_INDEX_SRC = resolveAssetUrl('js/data/autocomplete-index.json?v=6c4cbbe23aeb');
   const ADVANCED_FIELDS = [
     'allWords',
     'exactPhrase',
@@ -247,8 +247,8 @@
 
   function renderAuthorPlaceholder(contextScope) {
     if (contextScope === 'talks') return 'Chris Lattner';
-    if (contextScope === 'people') return 'PJ Hayes';
-    return 'PJ Hayes';
+    if (contextScope === 'people') return 'Chris Lattner';
+    return 'Chris Lattner';
   }
 
   function renderPublicationLabel(contextScope) {
@@ -663,8 +663,7 @@
     toggle.setAttribute('aria-label', 'Advanced search');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-pressed', 'false');
-    const toggleLabel = form.classList.contains('search-box') ? 'Advanced' : 'Adv';
-    toggle.innerHTML = `<span class="global-search-advanced-toggle-label">${toggleLabel}</span><span class="global-search-advanced-switch" aria-hidden="true"><span class="global-search-advanced-switch-knob"></span></span>`;
+    toggle.innerHTML = '<span class="global-search-advanced-toggle-label">Advanced</span><span class="global-search-advanced-switch" aria-hidden="true"><span class="global-search-advanced-switch-knob"></span></span>';
 
     const panel = document.createElement('div');
     panel.className = 'global-search-advanced-panel hidden';
