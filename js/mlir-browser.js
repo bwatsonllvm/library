@@ -1251,16 +1251,20 @@
       const value = collapseWhitespace(option && option.value);
       const active = selectedSet.has(value);
       const label = typeof labelFormatter === 'function' ? labelFormatter(value) : value;
+      const isMlirTopic = facetName === 'topic' && normalizeTopicKey(value) === 'mlir';
+      const labelHtml = isMlirTopic
+        ? '<span class="filter-chip-logo-label filter-chip-logo-label--mlir" aria-hidden="true"></span><span class="sr-only">MLIR</span>'
+        : `<span class="${facetName === 'talkType' ? 'filter-chip-type-label' : ''}">${escapeHtml(label)}</span>`;
       return `
         <button
           type="button"
-          class="filter-chip${facetName === 'topic' ? ' filter-chip--tag' : ''}${facetName === 'talkType' ? ' filter-chip--type' : ''}${active ? ' active' : ''}"
+          class="filter-chip${facetName === 'topic' ? ' filter-chip--tag' : ''}${isMlirTopic ? ' filter-chip--mlir-topic' : ''}${facetName === 'talkType' ? ' filter-chip--type' : ''}${active ? ' active' : ''}"
           data-filter-type="${escapeHtml(facetName)}"
           data-value="${escapeHtml(value)}"
           role="switch"
           aria-checked="${active ? 'true' : 'false'}"
         >
-          <span class="${facetName === 'talkType' ? 'filter-chip-type-label' : ''}">${escapeHtml(label)}</span>
+          ${labelHtml}
           <span class="${facetName === 'talkType' ? 'filter-chip-type-count' : 'filter-chip-count'}">${Number(option && option.count || 0).toLocaleString()}</span>
         </button>`;
     }).join('');

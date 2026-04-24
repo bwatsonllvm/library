@@ -2149,10 +2149,14 @@ function renderTopicFilterChips() {
 
   tagContainer.innerHTML = entries.map((entry) => {
     const active = hasTagFilter(entry.label);
+    const isMlirTopic = normalizeFilterValue(entry.label) === 'mlir';
+    const labelHtml = isMlirTopic
+      ? '<span class="filter-chip-logo-label filter-chip-logo-label--mlir" aria-hidden="true"></span><span class="sr-only">MLIR</span>'
+      : escapeHtml(entry.label);
     return `
-      <button class="filter-chip filter-chip--tag${active ? ' active' : ''}" data-type="tag" data-value="${escapeHtml(entry.label)}"
+      <button class="filter-chip filter-chip--tag${isMlirTopic ? ' filter-chip--mlir-topic' : ''}${active ? ' active' : ''}" data-type="tag" data-value="${escapeHtml(entry.label)}"
               role="switch" aria-checked="${active ? 'true' : 'false'}">
-        ${escapeHtml(entry.label)}
+        ${labelHtml}
         <span class="filter-chip-count">${Number(entry.count || 0).toLocaleString()}</span>
       </button>`;
   }).join('');

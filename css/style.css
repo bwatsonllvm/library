@@ -1025,6 +1025,59 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   font-weight: var(--font-weight-medium);
 }
 
+.search-hero--mlir {
+  padding-top: clamp(var(--space-3), 1.8vw, var(--space-6));
+  padding-bottom: clamp(var(--space-4), 2vw, var(--space-7));
+}
+
+.search-hero--mlir .search-hero-shell {
+  display: grid;
+  gap: clamp(var(--space-3), 1.8vw, var(--space-5));
+}
+
+.search-hero--mlir .search-hero-title-row--brand {
+  display: grid;
+  gap: clamp(10px, 1.2vw, 14px);
+  align-items: start;
+}
+
+.search-hero--mlir .subproject-brand-lockup {
+  display: block;
+}
+
+.search-hero--mlir .subproject-brand-mark {
+  display: block;
+  width: clamp(11.5rem, 20vw, 17rem);
+  max-width: 100%;
+}
+
+.search-hero--mlir .search-hero-title-aside {
+  max-width: 34rem;
+  color: var(--color-text-muted);
+  font-size: clamp(var(--font-size-sm), 1.2vw, var(--font-size-lg));
+  font-weight: var(--font-weight-medium);
+  line-height: 1.45;
+}
+
+.search-hero--mlir .subproject-copy--lead {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--color-text);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 1.72;
+}
+
+.search-hero--mlir .subtitle {
+  max-width: 72ch;
+  margin: -4px 0 0;
+  line-height: 1.55;
+}
+
+.search-hero--mlir .search-box.global-search-form {
+  max-width: 72rem;
+  margin-top: clamp(2px, 0.5vw, 8px);
+}
+
 .search-box {
   position: relative;
   max-width: none;
@@ -2984,7 +3037,6 @@ body.filter-collapsed .filter-collapse-btn svg {
 .card-tag[href*="value=MLIR"]::before,
 .detail-tag[href*="tag=MLIR"]::before,
 .detail-tag[href*="value=MLIR"]::before,
-.filter-chip--tag[data-value="MLIR"]::before,
 .suggestion-chip[data-suggestion="MLIR"]::before {
   content: "";
   width: 2.85em;
@@ -2992,6 +3044,19 @@ body.filter-collapsed .filter-collapse-btn svg {
   margin-right: 0.42em;
   flex: 0 0 auto;
   border-radius: 0;
+  background: center / contain no-repeat url("../images/mlir-logo.png");
+}
+
+.filter-chip--mlir-topic {
+  gap: 0.5em;
+  padding-left: 8px !important;
+}
+
+.filter-chip-logo-label--mlir {
+  display: inline-block;
+  width: 4em;
+  height: 1.6em;
+  flex: 0 0 auto;
   background: center / contain no-repeat url("../images/mlir-logo.png");
 }
 
