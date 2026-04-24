@@ -68,6 +68,8 @@ DEFAULT_KEY_TOPIC_CANONICAL = [
     "Performance",
     "Security",
     "WASM",
+    "WiCT",
+    "Community.o",
 ]
 DEFAULT_KEY_TOPIC_ALIASES = {
     "llvm": "LLVM",
@@ -104,6 +106,13 @@ DEFAULT_KEY_TOPIC_ALIASES = {
     "security": "Security",
     "wasm": "WASM",
     "webassembly": "WASM",
+    "wict": "WiCT",
+    "wictmeetup": "WiCT",
+    "wictmeetups": "WiCT",
+    "womenincompilersandtools": "WiCT",
+    "communityo": "Community.o",
+    "communitydoto": "Community.o",
+    "community-dot-o": "Community.o",
 }
 TOPIC_TEXT_RULES: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\bllvm\b", flags=re.IGNORECASE), "LLVM"),
@@ -161,6 +170,8 @@ TOPIC_TEXT_RULES: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\bswift\b", flags=re.IGNORECASE), "Swift"),
     (re.compile(r"\bquantum (?:computing|compiler|compilation)\b", flags=re.IGNORECASE), "Quantum Computing"),
     (re.compile(r"\bllvm foundation\b|\bfoundation update(?:s)?\b", flags=re.IGNORECASE), "LLVM Foundation"),
+    (re.compile(r"\bwict\b|\bwomen in compilers and tools\b", flags=re.IGNORECASE), "WiCT"),
+    (re.compile(r"\bcommunity(?:\.|[- ]?dot[- ]?)?o\b", flags=re.IGNORECASE), "Community.o"),
     (re.compile(r"\bmcp\b", flags=re.IGNORECASE), "MCP"),
     (re.compile(r"\bvplan\b", flags=re.IGNORECASE), "VPlan"),
     (re.compile(r"\bmojo\b", flags=re.IGNORECASE), "Mojo"),

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
+  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "byTalkId": {
     "2026-04-001": {
@@ -11802,6 +11802,246 @@
             "Clang",
             "Static Analysis"
           ]
+        }
+      ]
+    },
+    "2026-03-wict-001": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2026-04-048",
+        "2025-04-022",
+        "2011-11-009",
+        "2014-02-011",
+        "mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures",
+        "2017-10-058"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2026-04-048",
+          "title": "GPU optimizations, and where Rust knows more than LLVM",
+          "abstract": "In this talk we compare the performance of Rust's `std:offload` interface on various benchmarks with C++ OpenMP, CUDA, and ROCm implementations. We show the impact of a new set of LLVM-IR optimizations, and the performance difference between \"safe\" and \"unsafe\" Rust. We briefly introduce two aliasing models that are under consideration in the Rust community, and how higher-level Rust alias info can be combined with our lower-level LLVM-IR opt pass.",
+          "meeting": "2026-04",
+          "meetingName": "2026 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 14-15, 2026",
+          "meetingLocation": "Clayton Hotel Burlington Road , Dublin, Ireland",
+          "category": "student-talk",
+          "speakers": [
+            {
+              "name": "Marcelo Domínguez",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_dominguez.pdf",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": []
+        },
+        {
+          "id": "2025-04-022",
+          "title": "Bridging LLVM and SPIR-V for Heterogeneous Computing",
+          "abstract": "This presentation showcases the key changes to the SPIR-V backend that have solidified its position as a robust, vendor-agnostic alternative to the Khronos LLVM/SPIR-V Translator. We explore recent feature enhancements, translation time optimizations, and quality assurance processes that enabled seamless integration with other projects for heterogeneous computing workflows, including GPU programming for neural networks. Emphasis is placed on bridging the requirements of the SPIR-V standard, relevant execution environment specifications, and LLVM's code-lowering infrastructure. Key topics include technical solutions for the SPIR-V type system, module vs. function scope handling, and managing the logical layout of modules—factors essential to both performance and maintainability. We also discuss our use of TableGen-based register classes, improvements to type deduction passes, and how these strategies ensure formal correctness while expanding support for SPIR-V extensions, built-ins, and intrinsics. Finally, the talk covers insights into introducing the backend into the DPC++ compiler and OpenAI Triton backend for Intel GPUs, along with details on the broader quality assurance and integration efforts that benefit both compute-centric and graphical use cases alike.",
+          "meeting": "2025-04",
+          "meetingName": "2025 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 14-16, 2025",
+          "meetingLocation": "Berlin, Germany",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Vyacheslav Levytskyy",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Michal Paszkowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/technical_talk/levytskyy_bridging.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/WYPqSVT8QBw",
+          "sourceUrl": "",
+          "projectGithub": "https://github.com/KhronosGroup/SPIRV-Headers/issues/487",
+          "tags": [
+            "AI",
+            "Backend",
+            "GPU",
+            "IR",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2011-11-009",
+          "title": "Polly - First successful optimizations - How to proceed?",
+          "abstract": "The poster will describe our research on the subject of verification of OpenCL kernels using symbolic execution. We present an effective technique for crosschecking a C program against an accelerated OpenCL version, as well as a technique for detecting data races in OpenCL programs. Our techniques are implemented in KLEE-CL, a symbolic execution engine based on KLEE and KLEE-FP that supports symbolic reasoning on the equivalence between symbolic values. Our approach is to symbolically model the OpenCL environment using an OpenCL runtime library targeted to symbolic execution. Using this model we are able to run OpenCL programs symbolically, keeping track of memory accesses for the purpose of race detection. We then compare the symbolic result against the plain C program in order to detect mismatches between the two versions. We applied KLEE-CL to the Parboil benchmark suite, the Bullet physics library and the OP2 library, in which we were able to find a total of seven errors: three mismatches between the OpenCL and C implementations, two memory errors, one OpenCL compiler bug and one race condition.",
+          "meeting": "2011-11",
+          "meetingName": "2011 US LLVM Developers' Meeting",
+          "meetingDate": "November 18, 2011",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Tobias Grosser",
+              "affiliation": "ENS/INRIA",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2011-11/Grosser_PollyOptimizations.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2NGYOTteN3A",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "GPU",
+            "JIT",
+            "OpenCL",
+            "Optimizations",
+            "Performance",
+            "Polly"
+          ]
+        },
+        {
+          "id": "2014-02-011",
+          "title": "High Level Loop Optimizations in LLVM",
+          "abstract": "Tobias Grosser For several important program classes (image processing, scientific computing, ...) High Level Loop Optimizations are essential to reach top performance. With Polly, we present a high-level loop optimization framework for LLVM, that provides a flexible infrastructure to develop and describe such high-level loop optimizations. We present Polly as a classical optimizer for a C compiler, but focus on its use as an infrastructure to develop optimizations for domain specific languages and specialized hardware such as GPUs. This talks gives an overview of the overall structure of Polly itself and also insights into the components and tools essential when working with Polly (isl, ppcg, islpy, islplot). Logistics The mailing list llvm-devroom@lists.fosdem.org can be used to discuss issues of general interest related to the conference organization. Registration FOSDEM does not require any registration and is free of charge. However, we advise to arrive early in the devroom in case of important crowd.",
+          "meeting": "2014-02",
+          "meetingName": "2014 LLVM @ FOSDEM",
+          "meetingDate": "February 2, 2014",
+          "meetingLocation": "FOSDEM, Brussels, Belgium",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Tobias Grosser",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "GPU",
+            "Loop transformations",
+            "Optimizations",
+            "Performance",
+            "Polly"
+          ]
+        },
+        {
+          "id": "mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures",
+          "title": "A Data-Centric Model for Performance Portability on Heterogeneous Architectures",
+          "abstract": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR. DaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
+          "meeting": "2022-01-20-mlir-open-design-meeting",
+          "meetingName": "MLIR Open Design Meeting",
+          "meetingDate": "2022-01-20",
+          "meetingLocation": "",
+          "category": "open-design-meeting",
+          "speakers": [
+            {
+              "name": "Fine Licht",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Nikolaos Ziogas",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Timo Schneider",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Philipp Schaad",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Oliver Rausch",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Andrei Ivanov",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Tal Ben",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-01-2001~Data-Centric-Model.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/VxUifMWaHeI",
+          "sourceUrl": "https://mlir.llvm.org/talks/",
+          "detailUrl": "talks/talk.html?id=mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures",
+          "projectGithub": "https://github.com/spcl/npbench",
+          "tags": [
+            "MLIR",
+            "Using MLIR",
+            "Open Design Meeting"
+          ]
+        },
+        {
+          "id": "2017-10-058",
+          "title": "Polyhedral Optimizations and transparent GPU offloading for Julia by Polly",
+          "abstract": "",
+          "meeting": "2017-10",
+          "meetingName": "2017 US LLVM Developers' Meeting",
+          "meetingDate": "October 18-19, 2017",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "Sanjay Srivallabh Singapuram",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": []
         }
       ]
     },
@@ -49220,6 +49460,7 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
+            "Community Building",
             "Beginner"
           ]
         },
@@ -53371,16 +53612,46 @@
       "slidePaperIds": [],
       "slideTalkIds": [],
       "relatedTalkIds": [
+        "2022-01-wict-002",
         "2012-11-034",
         "2023-10-073",
         "2009-10-016",
         "2024-10-044",
-        "2023-05-037",
-        "2012-11-026"
+        "2023-05-037"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
       "relatedTalks": [
+        {
+          "id": "2022-01-wict-002",
+          "title": "Taking the Slang Shading Language from Research to Production",
+          "abstract": "Theresa Foley describes taking language-design and compiler implementation research into production through the Slang shading language and compiler.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Theresa \"Tess\" Foley",
+              "affiliation": "NVIDIA",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/XDJdHKIY06E",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "GPU",
+            "Programming Languages"
+          ]
+        },
         {
           "id": "2012-11-034",
           "title": "Scout: Using Clang/LLVM to Build A Domain-Specific Language for In Situ Data Analysis and Visualization on Emerging Architectures",
@@ -53523,34 +53794,6 @@
           "tags": [
             "CUDA",
             "GPU"
-          ]
-        },
-        {
-          "id": "2012-11-026",
-          "title": "SPIR - A Standard Portable IR for OpenCL Kernel Language",
-          "abstract": "",
-          "meeting": "2012-11",
-          "meetingName": "2012 US LLVM Developers' Meeting",
-          "meetingDate": "November 7-8, 2012",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "bof",
-          "speakers": [
-            {
-              "name": "Boaz Ouriel",
-              "affiliation": "Intel",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "",
-          "posterUrl": "",
-          "videoUrl": "",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "GPU",
-            "OpenCL"
           ]
         }
       ]
@@ -76939,6 +77182,8 @@
       "slidePaperIds": [],
       "slideTalkIds": [],
       "relatedTalkIds": [
+        "2022-01-wict-001",
+        "2018-10-041",
         "2024-10-005",
         "2022-04-03-005",
         "2017-10-040"
@@ -76946,6 +77191,63 @@
       "referencedPapers": [],
       "referencedTalks": [],
       "relatedTalks": [
+        {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2018-10-041",
+          "title": "TWINS - This Workflow is Not Scrum: Adapting Agile for Open Source Interaction",
+          "abstract": "We began the PlayStation(R) 4 life cycle as a small, single site, team working privately on LLVM with an ad-hoc process. As the team and project grew to encompass multiple sites, we adopted the Scrum methodology with success. However, as we began to engage more with the LLVM community directly our process became strained. This talk describes our process, entitled \"TWINS - This Workflow is Not Scrum\", to better accommodate the requirements of developing our products while engaging with the LLVM community.",
+          "meeting": "2018-10",
+          "meetingName": "2018 US LLVM Developers' Meeting",
+          "meetingDate": "October 17-18, 2018",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Joshua Magee",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/JZ2ZXYCBUWU",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
         {
           "id": "2024-10-005",
           "title": "A Beginners’ Guide to SelectionDAG",
@@ -102974,9 +103276,9 @@
         "2022-05-026",
         "2023-10-023",
         "2024-10-003",
+        "2022-01-wict-001",
         "2023-05-013",
-        "2023-10-072",
-        "mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides"
+        "2023-10-072"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -103073,6 +103375,36 @@
           ]
         },
         {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
           "id": "2023-05-013",
           "title": "Prototyping MLIR in Python",
           "abstract": "Sasha Lopoukhine, University of Edinburgh & Mathieu Fehr, University of Edinburgh We present xDSL, a reimplementation of MLIR core features in pure Python with a focus on accessibility. xDSL aims at bridging the Python DSL community with the MLIR one, by being fully compatible with MLIR through the textual format. Dialects can as well be translated from one framework to the other through IRDL. Since xDSL is written in pure Python, it lowers the barrier of entry for newcomers, and allows them to learn about MLIR concepts without having the struggle of installing MLIR, and can even do so directly on a Jupyter notebook hosted on the web. It is also a good option for prototyping dialects, since no recompilation is required in between changes, resulting in faster iteration time.",
@@ -103132,36 +103464,6 @@
           "projectGithub": "",
           "tags": [
             "MLIR"
-          ]
-        },
-        {
-          "id": "mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides",
-          "title": "PyDSL, a small subset of Python for constructing affine & transform dialects",
-          "abstract": "Kai Ting Wang and Kevin Lee present PyDSL: a small subset of the Python language aiming to assist users in constructing MLIR particularly in the affine and transform dialects. They have developed several in-house optimizations in the affine dialect, and they wish to expose these optimizations to the kernel developers via usage of the transform ops. Programming in MLIR’s Python binding is quite verbose which gives birth to this fun project. They designed a light-weight wrapper-like language utilizing Python’s AST package and the decorator syntax to allow kernel developers to construct MLIR.",
-          "meeting": "2023-12-22-mlir-open-design-meeting",
-          "meetingName": "MLIR Open Design Meeting",
-          "meetingDate": "2023-12-22",
-          "meetingLocation": "",
-          "category": "open-design-meeting",
-          "speakers": [
-            {
-              "name": "Kevin Lee",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-12-21-PyDSL.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/nmtHeRkl850",
-          "sourceUrl": "https://mlir.llvm.org/talks/",
-          "detailUrl": "talks/talk.html?id=mlir-talk-2023-12-22-pydsl-a-small-subset-of-python-for-constructing-affine-transform-dialects-slides",
-          "projectGithub": "",
-          "tags": [
-            "MLIR",
-            "Using MLIR",
-            "Open Design Meeting"
           ]
         }
       ]
@@ -103861,6 +104163,144 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
+        }
+      ]
+    },
+    "2023-02-wict-001": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2023-05-043"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2023-05-043",
+          "title": "Using automated tests to tune the -Og pipeline",
+          "abstract": "In clang, the -Og flag is intended to run optimizations that will not significantly reduce the quality of the program's debug information. Rather than making informed decisions about which optimizations will preserve debug info, this flag currently uses the -O1 pipeline, to run a few optimizations and hope that debug info will not be significantly affected. This is due to the lack of useful data about how well the various optimization passes in LLVM preserve debug info. In this talk I explain how we at Sony have attempted to solve this problem using Dexter, a tool for testing debug info quality, in an automated test pipeline to empirically explore different pipeline designs to find a fast and debuggable -Og pipeline.",
+          "meeting": "2023-05",
+          "meetingName": "2023 EuroLLVM Developers' Meeting",
+          "meetingDate": "May 10-11, 2023",
+          "meetingLocation": "Glasgow, Scotland",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Stephen Livermore-Tozer",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/Lightning-Talks/04-Tozer-UsingAutomatedTestsToTuneOgSlides.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/f1uHy-ukucc",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Clang",
+            "Debug Information",
+            "Optimizations",
+            "Testing"
+          ]
+        }
+      ]
+    },
+    "2023-02-wict-002": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2021-03-community-o-002",
+        "2021-11-066"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2021-03-community-o-002",
+          "title": "My Career in Languages and Compilers",
+          "abstract": "Short career talks showing different paths through open source, programming languages, compilers, and toolchains.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Kaya Thomas",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Jessica Paquette",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Anastasia Stulova",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/z7iUHIO2XoQ",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "Community Building",
+            "D&I",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2021-11-066",
+          "title": "Growing your Career in Tech through Mentorship",
+          "abstract": "",
+          "meeting": "2021-11",
+          "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+          "meetingDate": "November 16-19, 2021",
+          "meetingLocation": "virtual",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Monica Sarbu",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Madalina Tepelmann",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/52a1bbHmFhs",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
         }
       ]
     },
@@ -110503,7 +110943,8 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2023-10-077",
-        "2019-10-038"
+        "2019-10-038",
+        "2022-01-wict-003"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -110601,6 +111042,37 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
+        },
+        {
+          "id": "2022-01-wict-003",
+          "title": "Compilers Education and More with Michelle",
+          "abstract": "Michelle Strout answers questions about compiler education, academic paths, technical careers, and balancing career growth with life outside work.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Michelle Strout",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/CQcbNi8LzOo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Beginner",
+            "Programming Languages"
+          ]
         }
       ]
     },
@@ -123201,7 +123673,7 @@
         "2025-04-064",
         "2016-03-019",
         "2026-04-022",
-        "2017-10-035"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -123340,18 +123812,18 @@
           "tags": []
         },
         {
-          "id": "2017-10-035",
-          "title": "LLVM Foundation - Status and Involvement",
-          "abstract": "Board of Directors",
-          "meeting": "2017-10",
-          "meetingName": "2017 US LLVM Developers' Meeting",
-          "meetingDate": "October 18-19, 2017",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "technical-talk",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Foundation Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -123359,11 +123831,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "Community Building"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -125572,6 +126047,962 @@
             "Frontend",
             "MLIR",
             "Performance"
+          ]
+        }
+      ]
+    },
+    "2022-01-wict-001": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2022-01-wict-003",
+        "2021-06-wict-003",
+        "2022-05-026",
+        "2023-10-003",
+        "2018-10-041",
+        "2023-05-060"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2022-01-wict-003",
+          "title": "Compilers Education and More with Michelle",
+          "abstract": "Michelle Strout answers questions about compiler education, academic paths, technical careers, and balancing career growth with life outside work.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Michelle Strout",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/CQcbNi8LzOo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Beginner",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
+          ]
+        },
+        {
+          "id": "2022-05-026",
+          "title": "Extending Sulong (an LLVM bitcode runtime) for cross-language interoperability between C++/Swift and Java, JavaScript or Python",
+          "abstract": "Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.",
+          "meeting": "2022-05",
+          "meetingName": "2022 EuroLLVM Developers' Meeting",
+          "meetingDate": "May 10-11, 2022",
+          "meetingLocation": "London, UK",
+          "category": "student-talk",
+          "speakers": [
+            {
+              "name": "Christoph Pichler",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Linz",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2022-05/slides/2022EuroLLVM-ExtendingSulong.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Z0imCJmfMAk",
+          "sourceUrl": "",
+          "projectGithub": "https://github.com/pichristoph/eurollvm2022",
+          "tags": [
+            "Community Building",
+            "IR",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2023-10-003",
+          "title": "A Technical Guide to Compassion in Open Source",
+          "abstract": "Open source communities offer rich opportunities for innovation, collaboration, and learning. However, contributing to these projects may also require dealing with contentious code reviews, frustrated users, and competing priorities. In this session, you'll learn ways to apply compassion to help navigate these challenges. You'll leave with practical tools for reducing your stress levels, managing conflict more productively, and encouraging newcomers. Compassion isn't just some soft and fuzzy concept, but rather an essential communication skill for creating communities where you and your collaborators can thrive.",
+          "meeting": "2023-10",
+          "meetingName": "2023 US LLVM Developers' Meeting",
+          "meetingDate": "October 10-12, 2023",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "keynote",
+          "speakers": [
+            {
+              "name": "April Wensel",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2023-10/slides/keynote/Wensel-LLVM_Deck.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/4aJdrLBsUL0",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building",
+            "Beginner"
+          ]
+        },
+        {
+          "id": "2018-10-041",
+          "title": "TWINS - This Workflow is Not Scrum: Adapting Agile for Open Source Interaction",
+          "abstract": "We began the PlayStation(R) 4 life cycle as a small, single site, team working privately on LLVM with an ad-hoc process. As the team and project grew to encompass multiple sites, we adopted the Scrum methodology with success. However, as we began to engage more with the LLVM community directly our process became strained. This talk describes our process, entitled \"TWINS - This Workflow is Not Scrum\", to better accommodate the requirements of developing our products while engaging with the LLVM community.",
+          "meeting": "2018-10",
+          "meetingName": "2018 US LLVM Developers' Meeting",
+          "meetingDate": "October 17-18, 2018",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Joshua Magee",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/JZ2ZXYCBUWU",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2023-05-060",
+          "title": "Forcefully Embedding MLIR into Python",
+          "abstract": "Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.",
+          "meeting": "2023-05",
+          "meetingName": "2023 EuroLLVM Developers' Meeting",
+          "meetingDate": "May 10-11, 2023",
+          "meetingLocation": "Glasgow, Scotland",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "George Mitenkov",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building",
+            "MLIR"
+          ]
+        }
+      ]
+    },
+    "2022-01-wict-002": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2024-10-025",
+        "2023-10-073",
+        "2023-05-037",
+        "2009-10-016",
+        "2012-11-026",
+        "2022-11-002"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2024-10-025",
+          "title": "Two Compilers, One Language, No Specification",
+          "abstract": "Language (HLSL) is a popular cross-platform programming language for GPUs focused on realtime graphics applications. Through its over 20 year life HLSL has had two reference compilers, but no specification. As HLSL support in Clang progresses, the implementers are working through challenges caused by the lack of a specification and the language inconsistencies between the reference implementations.",
+          "meeting": "2024-10",
+          "meetingName": "2024 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-24, 2024",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Chris Bieneman",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/techtalk/Bieneman-Two-Compilers-One-Language-NoSpecification.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/sVq5khCXkbw",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Clang",
+            "GPU",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2023-10-073",
+          "title": "OpenMP Kernel Language Extensions for Performance Portable GPU Codes",
+          "abstract": "In this talk, we will introduce extensions to LLVM OpenMP, transforming it into a versatile and performance portable kernel language for GPU programming. We will demonstrate how these extensions allow for the seamless porting of CUDA programs to high-performance OpenMP GPU programs with minimal modifications. Finally, we will present performance results on both NVIDIA and AMD GPUs.",
+          "meeting": "2023-10",
+          "meetingName": "2023 US LLVM Developers' Meeting",
+          "meetingDate": "October 10-12, 2023",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Shilei Tian",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/EhA4ZCDwzfI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "CUDA",
+            "GPU",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2023-05-037",
+          "title": "OpenMP as GPU Kernel Language",
+          "abstract": "In this talk, we discuss the use of OpenMP as a kernel language (think CUDA or HIP). While OpenMP comes with offloading capabilities, the execution model was different and generally associated with overheads. Further, the user did not have the same level of control, at least not without target-specific builtins. With our new OpenMP extensions, we can match native CUDA (and HIP) codes while retaining the portability of OpenMP as well as interoperability with the existing capabilities.",
+          "meeting": "2023-05",
+          "meetingName": "2023 EuroLLVM Developers' Meeting",
+          "meetingDate": "May 10-11, 2023",
+          "meetingLocation": "Glasgow, Scotland",
+          "category": "quick-talk",
+          "speakers": [
+            {
+              "name": "Johannes Doerfert",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/QuickTalks-May10/04%20-%20EuroLLVM%2023%20-%20OpenMP%20Kernel%20Language.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/16cedvl2Ly4",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "CUDA",
+            "GPU"
+          ]
+        },
+        {
+          "id": "2009-10-016",
+          "title": "PLANG: Translating NVIDIA PTX language to LLVM IR Machine",
+          "abstract": "PTX is an abstract ISA, for NVIDIA GPUs, targeted by CUDA and several other tools. PTX is jitted or compiled to a supported GPU for execution. We describe PLANG, a new front-end for PTX that emits LLVM and leverages its analysis, transformation and code generation infrastructure for PTX. Based on PLANG we have built several analysis and translation tools for PTX, e.g. synchronization analysis, visualization and targeting execution of PTX on x86 processors. In this talk we will describe PLANG, and our experiences in building tools based on LLVM.",
+          "meeting": "2009-10",
+          "meetingName": "2009 US LLVM Developers' Meeting",
+          "meetingDate": "October 2, 2009",
+          "meetingLocation": "Cupertino, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Vinod Grover",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2009-10/Grover_PLANG.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/o-T8Dn8WX9E",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Backend",
+            "CUDA",
+            "Frontend",
+            "GPU",
+            "IR"
+          ]
+        },
+        {
+          "id": "2012-11-026",
+          "title": "SPIR - A Standard Portable IR for OpenCL Kernel Language",
+          "abstract": "",
+          "meeting": "2012-11",
+          "meetingName": "2012 US LLVM Developers' Meeting",
+          "meetingDate": "November 7-8, 2012",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "Boaz Ouriel",
+              "affiliation": "Intel",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "GPU",
+            "OpenCL"
+          ]
+        },
+        {
+          "id": "2022-11-002",
+          "title": "Implementing Language Support for ABI-Stable Software Evolution in Swift and LLVM",
+          "abstract": "Unlike its peer languages, Swift has made the deliberate decision to embrace a stable Application Binary Interface (ABI) along with native code compilation, such that separately-compiled software modules can evolve independently without breaking binary compatibility. Come learn about the impact that a stable ABI has on the design of a programming language and its implementation in LLVM.",
+          "meeting": "2022-11",
+          "meetingName": "2022 US LLVM Developers' Meeting",
+          "meetingDate": "November 8-9, 2022",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "keynote",
+          "speakers": [
+            {
+              "name": "Doug Gregor",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2022-11/slides/Keynote2-ImplementingLanguageSupportforABI-Swift.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/MgPBetJWkmc",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Programming Languages"
+          ]
+        }
+      ]
+    },
+    "2022-01-wict-003": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2022-01-wict-001",
+        "2021-06-wict-003",
+        "2022-11-031",
+        "2024-10-026"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
+          ]
+        },
+        {
+          "id": "2022-11-031",
+          "title": "LLVM Education Initiative",
+          "abstract": "Interested in expanding the LLVM community through education? Interested in better documentation, tutorials, and examples? Interested in sharing your knowledge to help other engineers grow? Come learn about the proposal for a new LLVM Education working group!",
+          "meeting": "2022-11",
+          "meetingName": "2022 US LLVM Developers' Meeting",
+          "meetingDate": "November 8-9, 2022",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "quick-talk",
+          "speakers": [
+            {
+              "name": "Chris Bieneman",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Mike Edwards",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Kit Barton",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2022-11/slides/QuckTalk1-EducationEffort.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/u1WoRj9ioxQ",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2024-10-026",
+          "title": "Making upstream MLIR more friendly to programming languages: current upstream limitations, the ptr dialect, and the road ahead",
+          "abstract": "In this talk, we discuss the existing limitations of upstream MLIR for representing generic programming languages and propose solutions to address some of these issues. As part of our proposed solutions, we will discuss the potential modularization of the LLVM dialect. We also present the status of the recently upstreamed ptr dialect as a first step in the modularization of LLVM and the lessons learned from this ongoing upstreaming process. Finally, we discuss the road ahead for making MLIR more attractive for compiler developers for programming languages, like finally standardizing the C/C++ calling convention on MLIR.",
+          "meeting": "2024-10",
+          "meetingName": "2024 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-24, 2024",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Mehdi Amini",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Fabian Mora Cordero",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/techtalk/Amini-Cordero-MakingUpstreamMLIRMoreFriendly.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Bt__BDQivxo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "MLIR",
+            "Programming Languages"
+          ]
+        }
+      ]
+    },
+    "2022-01-wict-004": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2025-03-002",
+        "2024-04-001",
+        "2023-10-075",
+        "2024-04-011",
+        "2024-04-006",
+        "2019-10-043"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2025-03-002",
+          "title": "The Proton Dialect: An MLIR Dialect For AI Compiler GPU Kernel Profiling",
+          "abstract": "Modern machine learning compilers make heavy use of MLIR to generate code optimally for complex AI operators (sophisticated matrix multiplications, flash attention, etc.). To target the latest generation of GPU accelerators with minimal user intervention and make full use of the available hardware and software features (matrix/tensor cores, warp specialization, wave priority and scheduling, loop pipelining), requires specialized compiler passes to make performance critical decisions to map the domain specific algorithms to the underlying hardware resources. This makes performance analysis and profiling tools that integrate directly into the domain-specific language's (DSL) operations critical to achieving performance comparable to handwritten kernels. In this talk we present the Proton Dialect: A compiler-integrated, intra-kernel, MLIR operation set for performance analysis and optimization. The dialect approach integrates profiling and performance analysis features directly into both the upper-level ML compiler language (e.g. Python) operations and the various MLIR ops and lowerings allowing operation aware passes, like loop pipelining, to handle the dialect like any other registered dialect's operations (e.g. loads, stores, control flow, etc.). The dialect has been upstreamed into the popular machine learning compiler Triton with implementation details described. A walkthrough is given of cross platform (Nvidia and AMD) examples of instruction scheduling optimizations made in production grade AI kernels using the dialect interleaved directly with standard (e.g. llvm, arith) and Triton DSL dialects (e.g. Triton IR, Triton AMDGPU IR, Triton Nvidia GPU IR).",
+          "meeting": "2025-03",
+          "meetingName": "Ninth LLVM Performance Workshop at CGO",
+          "meetingDate": "March 1-5, 2025",
+          "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Corbin Robeck",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Yuanwei Fang",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Keren Zhou",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-03/slides/the_proton_dialect.pdf",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "CUDA",
+            "GPU",
+            "IR",
+            "ML",
+            "MLIR",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2024-04-001",
+          "title": "Does LLVM implement security hardenings correctly? A BOLT-based static analyzer to the rescue?",
+          "abstract": "In the past decade, security has become one of the 3 key areas in compiler design and implementation, next to correctly translating to assembly and optimization. In comparison to general correctness and optimization, we're lacking tools to test correct code generation of security hardening features. This presentation shows the results of an experiment to build a prototype binary static analyzer for 2 security hardening features (pac-ret, stack clash) using BOLT. The results are promising and I propose to integrate this into the upstream BOLT project to enable us to implement higher-quality security mitigations in LLVM and other compilers.",
+          "meeting": "2024-04",
+          "meetingName": "2024 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 9-11, 2024",
+          "meetingLocation": "Vienna, Austria",
+          "category": "keynote",
+          "speakers": [
+            {
+              "name": "Kristof Beyls",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/Keynote/Beyls_EuroLLVM2024_security_hardening_keynote.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Sn_Fxa0tdpY",
+          "sourceUrl": "",
+          "projectGithub": "https://github.com/kbeyls/llvm",
+          "tags": [
+            "Backend",
+            "Optimizations",
+            "PGO",
+            "Security"
+          ]
+        },
+        {
+          "id": "2023-10-075",
+          "title": "Profiling the Profiler: New metrics to evaluate and improve profile guided optimization",
+          "abstract": "PGO can have the biggest impact when all compiler passes have accurate profile information, but in practice many parts of the compilation pipeline introduce inaccuracies. Recent PGO evaluations have measured accuracy of imported profiles, ignoring distortion from later optimizations, or looked at aggregate performance, which is often too noisy to correlate with profile accuracy. We propose new metrics that compare end-of-compilation profile data against instruction traces, letting us check the accuracy of profile data end-to-end and decoupling it from performance measurement noise. We share our experience using these new metrics to measure the accuracy of profiles used in PGO, pinpoint areas for improvement, and evaluate new fixes.",
+          "meeting": "2023-10",
+          "meetingName": "2023 US LLVM Developers' Meeting",
+          "meetingDate": "October 10-12, 2023",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "student-talk",
+          "speakers": [
+            {
+              "name": "Micah Weston",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2023-10/slides/student-talks/Weston-ProfilingTheProfiler.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/khnRwNEupvw",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Optimizations",
+            "PGO",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2024-04-011",
+          "title": "Contextual Instrumented-Based Profiling for Datacenter Applications",
+          "abstract": "We present an Instrumentation - Based Profile Guided Optimization (PGO) technique that produces contextual profiles. When applied to a real production binary, it proves competitive when compared to tip-of-tree instrumented PGO in: binary size, runtime and memory overhead, and resulting profile size. We conclude with challenges and possible approaches to incorporating contextual profiles \"wholeheartedly\" in LLVM.",
+          "meeting": "2024-04",
+          "meetingName": "2024 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 9-11, 2024",
+          "meetingLocation": "Vienna, Austria",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Mircea Trofin",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Trofin-ContextualInstrumented-Based%20ProfilingforDatacenter.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/jwkcmS52btI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Optimizations",
+            "PGO",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2024-04-006",
+          "title": "Temporal Profiling and Orderfile Optimization for Mobile Apps",
+          "abstract": "Traditional PGO can improve CPU-bound applications, but it doesn't work well for some mobile applications which are more concerned with startup time and binary size. We recently extended LLVM's IRPGO framework to support Temporal Profiling to measure an app's startup behavior. We've also created a new algorithm to generate orderfiles called Balanced Partitioning which uses temporal profiles to reduce .text section page faults during startup and can even reduce compressed binary size. And finally, we have a tool to measure an iOS app's page faults on a device to showcase our results. This talk will be useful to anyone interested in understanding how IRPGO can order functions to improve start performance and compressed size.",
+          "meeting": "2024-04",
+          "meetingName": "2024 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 9-11, 2024",
+          "meetingLocation": "Vienna, Austria",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Ellis Hoag",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-04/slides/TechnicalTalks/Hoag-TemporalProfiling-and-OrderfileOptimization-forMobileApps.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/yd4pbSTjwuA",
+          "sourceUrl": "",
+          "projectGithub": "https://github.com/mozilla-mobile/firefox-ios",
+          "tags": [
+            "Optimizations",
+            "PGO",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2019-10-043",
+          "title": "Static Analysis of OpenMP Data Mapping for Target Offloading",
+          "abstract": "",
+          "meeting": "2019-10",
+          "meetingName": "2019 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-23, 2019",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "student-talk",
+          "speakers": [
+            {
+              "name": "Prithayan Barua",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Barua-StaticAnalysisofOpenMPPrograms.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/9ZPQpo8QuyI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Clang",
+            "LLD",
+            "LTO",
+            "Optimizations",
+            "Performance",
+            "Static Analysis"
+          ]
+        }
+      ]
+    },
+    "2022-01-wict-005": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2021-03-community-o-003",
+        "2019-10-050",
+        "2017-10-052",
+        "2011-11-020",
+        "2018-04-020",
+        "2025-04-062"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2021-03-community-o-003",
+          "title": "You're NOT Alone: Chasing the Journey of Learning and Belonging",
+          "abstract": "A Community.o Summit talk about question reluctance, isolation, impostor syndrome, and building a stronger sense of belonging in technical communities.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Jubi Taneja",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/JbmR1nEfnh8",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "Community Building",
+            "D&I",
+            "Beginner"
+          ]
+        },
+        {
+          "id": "2019-10-050",
+          "title": "FileCheck: learning arithmetic",
+          "abstract": "This talk introduces the numeric expression matching in FileCheck, feature recently upstreamed by the speaker, which allows to check that two numeric values in the input are linked by a numeric relation. This is useful for testing memory layout or register allocation among other things. The feature also allows the values to be expressed in different radix, thus allowing to relate an address expressed in hex number to an offset expressed in decimal notation.",
+          "meeting": "2019-10",
+          "meetingName": "2019 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-23, 2019",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Thomas Preud'homme",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2019-10/slides/Preudhomme-FileCheck.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/mcrQ5f-mASw",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Backend",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2017-10-052",
+          "title": "DLVM: A Compiler Framework for Deep Learning DSLs",
+          "abstract": "Deep learning software demands performance and reliability. However, many of the current deep learning tools and infrastructures are highly dependent on software libraries that act as a dynamic DSL and a computation graph interpreter. We present DLVM, a design and implementation of a compiler framework that consists of linear algebra operators, automatic differentiation, domain-specific optimizations and a code generator targeting heterogeneous parallel hardware. DLVM is designed to support the development of neural network DSLs, with both AOT and JIT compilation. To demonstrate an end-to-end system from neural network DSL, via DLVM, to parallelized execution, we demonstrate NNKit, a typed tagless-final DSL embedded in the Swift programming language that targets DLVM IR. We argue that the DLVM system enables a form of modular, safe and performant toolkits for deep learning.",
+          "meeting": "2017-10",
+          "meetingName": "2017 US LLVM Developers' Meeting",
+          "meetingDate": "October 18-19, 2017",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "student-talk",
+          "speakers": [
+            {
+              "name": "Richard Wei",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Vikram Adve",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Lane Schwartz",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2017-10/slides/Wei-DLVM.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/9fdFbVBUQGs",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "AI",
+            "Embedded",
+            "JIT",
+            "Optimizations",
+            "Performance",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2011-11-020",
+          "title": "Symbolic Testing of OpenCL Code",
+          "abstract": "The poster will describe our research on the subject of verification of OpenCL kernels using symbolic execution. We present an effective technique for crosschecking a C program against an accelerated OpenCL version, as well as a technique for detecting data races in OpenCL programs. Our techniques are implemented in KLEE-CL, a symbolic execution engine based on KLEE and KLEE-FP that supports symbolic reasoning on the equivalence between symbolic values. Our approach is to symbolically model the OpenCL environment using an OpenCL runtime library targeted to symbolic execution. Using this model we are able to run OpenCL programs symbolically, keeping track of memory accesses for the purpose of race detection. We then compare the symbolic result against the plain C program in order to detect mismatches between the two versions. We applied KLEE-CL to the Parboil benchmark suite, the Bullet physics library and the OP2 library, in which we were able to find a total of seven errors: three mismatches between the OpenCL and C implementations, two memory errors, one OpenCL compiler bug and one race condition.",
+          "meeting": "2011-11",
+          "meetingName": "2011 US LLVM Developers' Meeting",
+          "meetingDate": "November 18, 2011",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "Peter Collingbourne",
+              "affiliation": "Imperial College London",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "GPU",
+            "JIT",
+            "OpenCL",
+            "Performance",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2018-04-020",
+          "title": "Organising benchmarking LLVM-based compiler: Arm experience",
+          "abstract": "The ARM Compiler 6 is a product based on Clang/LLVM projects. Basing your product on Clang/LLVM sources brings challenges in organizing the product development lifecycle. You need to decide how to synchronize downstream and upstream repositories. The decision impacts ways of testing and benchmarking. The Arm compiler team does development of the compiler on the upstream trunk keeping a downstream repository synchronized with the upstream trunk. Upstream public build bots guard us from commits which can break our builds. We also have infrastructure to do additional testing. There are a few public performance tracking bots which run the LLVM test-suite benchmarks. Although the LLVM test-suite covers many use cases, products often have to care about a wider variety of use cases. So you will have to track quality of code generation on other programs too. In this presentation we will explain how we protect the Arm compiler product from code generation quality issues that the public bots don’t catch. We will cover topics like continuous regression tracking, process of fixing regressions, a benchmarking infrastructure. We will show that the most important part of protecting the quality of a LLVM-based product is to be closely involved into development of the upstream LLVM which means detect issues in the upstream LLVM as early as possible and report them as soon as possible. We hope our experience will enable both better LLVM-derived products to be made and for product teams of other companies to contribute to LLVM itself more effectively.",
+          "meeting": "2018-04",
+          "meetingName": "2018 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 16-17, 2018",
+          "meetingLocation": "Bristol, UK",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "E. Astigeevich",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/W8MMTpEkaJQ",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Performance"
+          ]
+        },
+        {
+          "id": "2025-04-062",
+          "title": "Coroutines, reinforcement learning environments, typechecking, MLIR: tying them together.",
+          "abstract": "While machine learning tools become simpler by the day, developing robust environments for those tools to operate in remains an open challenge. Rulebook is an MLIR and coroutine-based DSL aimed at building environments and simplifying their interoperability. This talk describes the issues found at the boundaries between machine learning agents and machine learning environments from a programming language perspective, how Rulebook solves them, what challenges prevent other languages from adopting the same constructs, how the language leverages LLVM and MLIR to achieve its purpose, and various tips and tricks learned from implementing co-routines on top of MLIR.",
+          "meeting": "2025-04",
+          "meetingName": "2025 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 14-16, 2025",
+          "meetingLocation": "Berlin, Germany",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "Massimo Fiorovanti",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/poster/fioravanti_coroutines.pdf",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "C++",
+            "ML",
+            "MLIR",
+            "Programming Languages"
           ]
         }
       ]
@@ -128931,8 +130362,8 @@
         "2023-05-012",
         "2018-10-004",
         "2016-11-012",
-        "2025-10-053",
-        "2018-10-045"
+        "2021-06-wict-003",
+        "2025-10-053"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -129067,6 +130498,37 @@
           ]
         },
         {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
+          ]
+        },
+        {
           "id": "2025-10-053",
           "title": "Extending ThinLTO Support for AMDGPU",
           "abstract": "In this talk, we'll briefly introduce the ongoing effort to support ThinLTO for AMDGPU. We'll start by discussing the motivation for enabling ThinLTO and the current limitations in the AMDGPU ABI that prevent us from using it out of the box. By default, ThinLTO compiles modules from each translation unit in parallel, effectively following a split scheme based on translation units. To work around some of the limitations, we've made targeted modifications to the existing ThinLTO infrastructure. However, not all limitations can be addressed with workarounds. To properly support ThinLTO, we'll introduce a new split scheme that divides the program based on a graph constructed from the module summary. The remaining ThinLTO infrastructure will then compile the resulting splits in parallel, instead of compiling modules per translation unit as ThinLTO does by default. We also expect this new scheme to benefit other GPU targets that don't share the same ABI constraints as AMDGPU.",
@@ -129091,37 +130553,6 @@
           "projectGithub": "",
           "tags": [
             "GPU",
-            "LTO"
-          ]
-        },
-        {
-          "id": "2018-10-045",
-          "title": "ThinLTO Summaries in JIT Compilation",
-          "abstract": "The LLVM ORC library offers great components for putting together specialized JIT compilers. Clang's ThinLTO object files contain the module's bitcode along with ThinLTO module summaries, which provide cross-module call-graph information. We can use this information in a ORC JIT to get both, minimal front-loading and minimal compiler interception overhead.",
-          "meeting": "2018-10",
-          "meetingName": "2018 US LLVM Developers' Meeting",
-          "meetingDate": "October 17-18, 2018",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "lightning-talk",
-          "speakers": [
-            {
-              "name": "Stefan Gränitz",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/ZCnHxRhQmvs",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "C Libs",
-            "Clang",
-            "IR",
-            "JIT",
             "LTO"
           ]
         }
@@ -135257,10 +136688,96 @@
     "2021-11-066": {
       "slidePaperIds": [],
       "slideTalkIds": [],
-      "relatedTalkIds": [],
+      "relatedTalkIds": [
+        "2023-02-wict-002",
+        "2021-03-community-o-002"
+      ],
       "referencedPapers": [],
       "referencedTalks": [],
-      "relatedTalks": []
+      "relatedTalks": [
+        {
+          "id": "2023-02-wict-002",
+          "title": "Career Chat and Tech Talk with Professor Alexa VanHattum",
+          "abstract": "A WiCT meetup combining career discussion with a technical talk from Alexa VanHattum.",
+          "meeting": "2023-02-wict",
+          "meetingName": "2023 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "2023",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Alexa VanHattum",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Qhl6DD8fh78",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "Community.o",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2021-03-community-o-002",
+          "title": "My Career in Languages and Compilers",
+          "abstract": "Short career talks showing different paths through open source, programming languages, compilers, and toolchains.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Kaya Thomas",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Jessica Paquette",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Anastasia Stulova",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/z7iUHIO2XoQ",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "Community Building",
+            "D&I",
+            "Programming Languages"
+          ]
+        }
+      ]
     },
     "2021-11-067": {
       "slidePaperIds": [],
@@ -135586,6 +137103,940 @@
           "projectGithub": "https://github.com/Valloric/YouCompleteMe",
           "tags": [
             "Clang"
+          ]
+        }
+      ]
+    },
+    "2021-06-wict-001": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2021-03-community-o-003",
+        "2019-10-009"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2021-03-community-o-003",
+          "title": "You're NOT Alone: Chasing the Journey of Learning and Belonging",
+          "abstract": "A Community.o Summit talk about question reluctance, isolation, impostor syndrome, and building a stronger sense of belonging in technical communities.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Jubi Taneja",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/JbmR1nEfnh8",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "Community Building",
+            "D&I",
+            "Beginner"
+          ]
+        },
+        {
+          "id": "2019-10-009",
+          "title": "Link Time Optimization For Swift",
+          "abstract": "The code size of iOS apps is critical due to the size limit of apple store. More and more iOS apps are written in Swift. The Swift programming language provides many new language features such as protocol to facilitate software development. In order to support the implementation of these new features, the existing Swift compiler has to generate the protocol related code and data. However, these generated code and data may not be used in the whole project. For example, some protocol definition is used one module as public and not really consumed by any other modules. Preliminary experiment shows the size of some commercial iOS app can be potentially reduced by 9% through aggressive dead code elimination. Those unused code and data cannot be eliminated easily by the compiler optimizations since they are recorded in llvm.used data structure. In addition, the generated code and data might be implicitly used by Swift runtime library. This calls for a smarter, much more advanced static analysis and novel additions to the classic dead code elimination technique. We introduce a novel building pipeline that eliminates the protocol from swift class by leveraging the link time optimization in existing LLVM compiler. In this framework, the swift files are first compiled as LLVM bitcode files and the llvm-link is used to merge all the LLVM bitcode files as one bitcode file. A new LLVM optimization is proposed to eliminate the protocol conformance related variables from the LLVM.used array in this bitcode file. It enables more opportunities for link time optimization to transform global variables into local variables and then identify the dead local variables. The following dead code elimination is extended to update the protocol conformance tables as well as LLVM.used array. The experiment shows that this novel approach reduces the code size of some commercial iOS app by 2%.",
+          "meeting": "2019-10",
+          "meetingName": "2019 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-23, 2019",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Jin Lin",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Si-fWILpORA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "IR",
+            "LLD",
+            "Optimizations",
+            "Programming Languages",
+            "Static Analysis",
+            "Swift"
+          ]
+        }
+      ]
+    },
+    "2021-06-wict-002": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": []
+    },
+    "2021-06-wict-003": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2016-11-012",
+        "2017-02-04-009",
+        "2022-01-wict-003",
+        "2022-01-wict-001",
+        "2015-04-033",
+        "2018-10-004"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2016-11-012",
+          "title": "ThinLTO: Scalable and Incremental LTO",
+          "abstract": "ThinLTO: Scalable and Incremental LTO ThinLTO was first introduced at EuroLLVM 2015 as \"A Fine-Grained Demand-Driven Infrastructure\". The presentation was based on an early prototype made as a proof-of-concept. Taking this original concept, we redesign it from scratch in LLVM by extending the bitcode format, redesigning the high-level workflow to remove the \"demand-driven\" iterative part, and adding new capabilities such as the incremental build support. We added supports in two linkers: Gold on Linux and ld64 on Darwin. We propose in this presentation to go through the final design and how it is implemented in LLVM.",
+          "meeting": "2016-11",
+          "meetingName": "2016 US LLVM Developers' Meeting",
+          "meetingDate": "November 3-4, 2016",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Mehdi Amini",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2016-11/Slides/Amini-Johnson-ThinLTO.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/9OIEZAj243g",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "IR",
+            "LLD",
+            "LTO"
+          ]
+        },
+        {
+          "id": "2017-02-04-009",
+          "title": "LTO/ThinLTO BoF",
+          "abstract": "LTO is an important technique for getting the maximum performance from the compiler. We presented the ThinLTO model and implementation in LLVM at the last LLVM Dev Meeting. This provided the audience with a good overview of the high-level flow of ThinLTO and the 3-phases split involved.\n\nThe proposal for this BoF is to gather and discuss the existing user-experience, the current limitations and what features folks are expecting the most out of ThinLTO. We can go over the current optimizations currently in development upstream.",
+          "meeting": "2017-02-04",
+          "meetingName": "2017 LLVM Performance Workshop @ CGO",
+          "meetingDate": "February 4, 2017",
+          "meetingLocation": "LLVM Performance Workshop at CGO, Austin, Texas, USA",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "Mehdi Amini",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "LTO",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2022-01-wict-003",
+          "title": "Compilers Education and More with Michelle",
+          "abstract": "Michelle Strout answers questions about compiler education, academic paths, technical careers, and balancing career growth with life outside work.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Michelle Strout",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/CQcbNi8LzOo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Beginner",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2015-04-033",
+          "title": "ThinLTO: A Fine-Grained Demand-Driven Infrastructure",
+          "abstract": "",
+          "meeting": "2015-04",
+          "meetingName": "2015 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 13-14, 2015",
+          "meetingLocation": "London, UK",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Xinliang David Li",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2015-04/slides/ThinLTO_EuroLLVM2015.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/aPuNysndtxM",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": []
+        },
+        {
+          "id": "2018-10-004",
+          "title": "Porting Function merging pass to thinlto",
+          "abstract": "In this talk I'll discuss the process of porting the Merge function pass to thinlto infrastructure. Funcion merging (FM) is an interprocedural pass useful for code-size optimization. It deduplicates common parts of similar functions and outlines them to a separate function thus reducing the code size. This is particularly useful for code bases making heavy use of templates which gets instantiated in multiple translation units. Porting FM to thinlto offers leveraging its functionality to dedupe functions across entire program. I'll discuss the engineering effort required to port FM to thinlto. Specifically, functionality to uniquely identify similar functions, augmenting function summary with a hash code, populating module summary index, modifying bitcode reader+writer, and codesize numbers on open source benchmarks.",
+          "meeting": "2018-10",
+          "meetingName": "2018 US LLVM Developers' Meeting",
+          "meetingDate": "October 17-18, 2018",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Aditya Kumar",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2018-10/slides/Kumar-FunctionMergingPortThinLTO.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/GxQmcvYpKYU",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "IR",
+            "LTO",
+            "Optimizations",
+            "Performance"
+          ]
+        }
+      ]
+    },
+    "2021-06-wict-004": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2011-11-015",
+        "2021-02-28-011",
+        "2025-10-031",
+        "2025-03-004",
+        "2013-04-005"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2011-11-015",
+          "title": "Finding races and memory errors with LLVM instrumentation",
+          "abstract": "We will present two dynamic testing tools based on compile-time instrumentation, both tools use the LLVM compiler. AddressSanitizer (ASan) finds memory bugs, such as use-after-free and out-of-bound accesses to heap and stack. This tool could be seen as a partial replacement for Valgrind and similar tools. The major advantages over Valgrind are the speed (less than 2x slowdown on average) and the ability to handle bugs related to stack and globals. ThreadSanitizer (TSan) finds data races. It uses the same race detection algorithm as the Valgrind-based TSan, but compile-time instrumentation allows it to be much faster (2x-4x slowdown). We will also share our experience in deploying theses testing tools in large software projects.",
+          "meeting": "2011-11",
+          "meetingName": "2011 US LLVM Developers' Meeting",
+          "meetingDate": "November 18, 2011",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Konstantin Serebryany",
+              "affiliation": "Google",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2011-11/Serebryany_FindingRacesMemoryErrors.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/sJqQTUtV6GY",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Dynamic Analysis",
+            "Performance",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2021-02-28-011",
+          "title": "Instrew: Fast LLVM-based dynamic Binary Instrumentation and Translation",
+          "abstract": "Dynamic binary instrumentation and dynamic binary translation are two closely related techniques that can be used to analyze, modify and optimize existing binary code. Binary instrumentation is key to many debugging and performance analysis approaches, allowing for the transparent insertion of debugging or performance probes without requiring recompilation, while binary translation is essential to enable transparent porting of code to new architectures with new and/or modified instruction sets, and is also heavily used in computer architecture research. State-of-the-art tools, like Valgrind, DynamoRIO or PIN for binary instrumentation or QEMU for binary translation, however, typically either have a high performance overhead or allow only minor low-level modifications. To address these performance and functionality limitations, the latter --- QEMU --- has been extended to make use of the LLVM framework (HQEMU, DBILL) in order to take advantage of its optimization potential. However, this approach still uses the existing QEMU intermediate format in the translation process and hence inherits many of the imitations of QEMU. Additionally, it relies on a modified LLVM library, reducing portability and maintainability. In the Instrew project we, therefore, go a step further and solely rely on an unmodified LLVM for code instrumentation and translation, shortcutting the translation process, avoiding the limitations of an additional intermediate language with its own limitations (as in QEMU with its TCG representation) and taking full advantage of code generation features of LLVM. In this talk, we describe the general architecture of Instrew and show results comparing the performance to state-of-the-art tools. Additionally, we identify key problems of LLVM in the context of representing machine code in the high-level LLVM-IR.",
+          "meeting": "2021-02-28",
+          "meetingName": "2021 Fifth LLVM Performance Workshop @ CGO",
+          "meetingDate": "February 28, 2021",
+          "meetingLocation": "Fifth LLVM Performance Workshop @ CGO, Virtual",
+          "category": "technical-talk",
+          "speakers": [],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Backend",
+            "Dynamic Analysis",
+            "Libraries",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2025-10-031",
+          "title": "Triton-San: Toward Precise Debugging of Triton Kernels via LLVM Sanitizers",
+          "abstract": "We evaluated Triton-San on both synthetic micro-benchmarks and real-world kernels from the official Triton tutorial and TritonBench. Our results show that Triton-San detected all known bugs with no false positives and introduced acceptable runtime and memory overhead. This talk will present the motivation, design, and implementation of Triton-San, along with key findings from our evaluation. We will also provide guidance on how to use Triton-San and share details about its public release on GitHub.",
+          "meeting": "2025-10",
+          "meetingName": "2025 US LLVM Developers' Meeting",
+          "meetingDate": "October 27-29, 2025",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Tim Lu",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/technical_talks/lu.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Ncvjewv6hZ0",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Dynamic Analysis",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2025-03-004",
+          "title": "Fuzzlang: Leveraging Transformers and LLM Agents for Enhanced Compilation Error Repair",
+          "abstract": "Compilers play a pivotal role in software development, evolving alongside the increasing complexity and diversity of programming languages. However, systematic research on the generation, classification, and reproduction of compilation errors remains sparse. Compiler developers often modify error diagnostics on a best-effort basis to meet user needs and adapt to language evolution, leaving gaps in error handling. To address these challenges, we introduce Fuzzlang, a novel framework for generating extensive datasets of compiler errors, both in isolation and within real-world code contexts. Fuzzlang comprises the Fuzzlang Transformer, which systematically generates diverse compilation errors from existing code, and Fuzzlang Agent, which employs large language models (LLMs) to analyze and isolate complex errors from internal compiler tests. Together, Fuzzlang generates five times more independent error types than the DeepFix database and achieves 83.1% coverage of error conditions triggered by LLVM/Clang's internal testing. Our evaluation demonstrates that fine-tuning LLMs with the Fuzzlang dataset substantially enhances their code repair capabilities. The precision of Llama3-8B improved from 37.22% to 93.97%, and GPT-4o-mini rose from 72.29% to 96.70%. These results highlight Fuzzlang's potential as an effective tool for advancing intelligent code repair and compiler diagnostics research through comprehensive dataset generation.",
+          "meeting": "2025-03",
+          "meetingName": "Ninth LLVM Performance Workshop at CGO",
+          "meetingDate": "March 1-5, 2025",
+          "meetingLocation": "Ninth LLVM Performance Workshop @ CGO2025, Las Vegas, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Baodi Shan",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Barbara Chapman",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Johannes Doerfert",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-03/slides/fuzzlang.pdf",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "AI",
+            "Clang",
+            "Community Building",
+            "Programming Languages",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2013-04-005",
+          "title": "Debug Info - Status and Directions",
+          "abstract": "In the last few years clang and llvm have made great inroads as the default compilers in the open source world and in industry. It is now seeing daily use as the default compiler for all of the Apple ecosystem, FreeBSD, and as one of the compilers at Google. As a compiler matures and its user base expands the quality of the debug information output becomes more important. In the past users of clang and LLVM have had to deal with poor debug information, but in the last couple years the quality of debug information has improved greatly and in some cases we are pushing the boundaries of existing standards. We've made good progress with gdb testing and implementing DWARF4 including the extensions for C++11. Furthermore, we've implemented and are proposing for inclusion in DWARF5 support for split debug information and faster access to named debug entities.",
+          "meeting": "2013-04",
+          "meetingName": "2013 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 29-30, 2013",
+          "meetingLocation": "Paris, France",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Eric Christopher",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2013-04/christopher-slides.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/EpFel-1mpK0",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Debug Information"
+          ]
+        }
+      ]
+    },
+    "2021-03-community-o-001": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2019-04-056",
+        "2017-10-035",
+        "2018-10-037",
+        "2017-03-037",
+        "2018-04-008",
+        "2015-10-001"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2019-04-056",
+          "title": "LLVM Foundation BoF",
+          "abstract": "Ask the LLVM Foundation Board of Directors anything, get program updates.",
+          "meeting": "2019-04",
+          "meetingName": "2019 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 8-9, 2019",
+          "meetingLocation": "Brussels, Belgium",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "LLVM Foundation Board of Directors",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2017-10-035",
+          "title": "LLVM Foundation - Status and Involvement",
+          "abstract": "Board of Directors",
+          "meeting": "2017-10",
+          "meetingName": "2017 US LLVM Developers' Meeting",
+          "meetingDate": "October 18-19, 2017",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "LLVM Foundation Board of Directors",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2018-10-037",
+          "title": "LLVM Foundation BoF",
+          "abstract": "Ask the LLVM Foundation Board of Directors anything, get program updates, and meet the new board members",
+          "meeting": "2018-10",
+          "meetingName": "2018 US LLVM Developers' Meeting",
+          "meetingDate": "October 17-18, 2018",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "LLVM Foundation Board of Directors",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2017-03-037",
+          "title": "LLVM Foundation",
+          "abstract": "EtherpadThis BoF provides an opportunity to the EuroLLVM attendees to discuss with some of the board members of the LLVM Foundation.",
+          "meeting": "2017-03",
+          "meetingName": "2017 EuroLLVM Developers' Meeting",
+          "meetingDate": "March 27-28, 2017",
+          "meetingLocation": "Saarbrücken, Germany",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "LLVM Foundation board of directors",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2018-04-008",
+          "title": "LLVM Foundation BoF",
+          "abstract": "",
+          "meeting": "2018-04",
+          "meetingName": "2018 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 16-17, 2018",
+          "meetingLocation": "Bristol, UK",
+          "category": "bof",
+          "speakers": [
+            {
+              "name": "LLVM Foundation Board of Directors",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2015-10-001",
+          "title": "Welcome",
+          "abstract": "",
+          "meeting": "2015-10",
+          "meetingName": "2015 US LLVM Developers' Meeting",
+          "meetingDate": "October 29-30, 2015",
+          "meetingLocation": "San Jose, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": []
+        }
+      ]
+    },
+    "2021-03-community-o-002": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2023-02-wict-002",
+        "2021-11-066",
+        "2024-10-026"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2023-02-wict-002",
+          "title": "Career Chat and Tech Talk with Professor Alexa VanHattum",
+          "abstract": "A WiCT meetup combining career discussion with a technical talk from Alexa VanHattum.",
+          "meeting": "2023-02-wict",
+          "meetingName": "2023 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "2023",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Alexa VanHattum",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Qhl6DD8fh78",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "Community.o",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2021-11-066",
+          "title": "Growing your Career in Tech through Mentorship",
+          "abstract": "",
+          "meeting": "2021-11",
+          "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
+          "meetingDate": "November 16-19, 2021",
+          "meetingLocation": "virtual",
+          "category": "lightning-talk",
+          "speakers": [
+            {
+              "name": "Monica Sarbu",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Madalina Tepelmann",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/52a1bbHmFhs",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
+          ]
+        },
+        {
+          "id": "2024-10-026",
+          "title": "Making upstream MLIR more friendly to programming languages: current upstream limitations, the ptr dialect, and the road ahead",
+          "abstract": "In this talk, we discuss the existing limitations of upstream MLIR for representing generic programming languages and propose solutions to address some of these issues. As part of our proposed solutions, we will discuss the potential modularization of the LLVM dialect. We also present the status of the recently upstreamed ptr dialect as a first step in the modularization of LLVM and the lessons learned from this ongoing upstreaming process. Finally, we discuss the road ahead for making MLIR more attractive for compiler developers for programming languages, like finally standardizing the C/C++ calling convention on MLIR.",
+          "meeting": "2024-10",
+          "meetingName": "2024 US LLVM Developers' Meeting",
+          "meetingDate": "October 22-24, 2024",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "technical-talk",
+          "speakers": [
+            {
+              "name": "Mehdi Amini",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Fabian Mora Cordero",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2024-10/slides/techtalk/Amini-Cordero-MakingUpstreamMLIRMoreFriendly.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/Bt__BDQivxo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "MLIR",
+            "Programming Languages"
+          ]
+        }
+      ]
+    },
+    "2021-03-community-o-003": {
+      "slidePaperIds": [],
+      "slideTalkIds": [],
+      "relatedTalkIds": [
+        "2021-06-wict-001",
+        "2022-01-wict-005",
+        "2023-02-25-001",
+        "2025-10-050",
+        "2025-10-079",
+        "2024-04-062"
+      ],
+      "referencedPapers": [],
+      "referencedTalks": [],
+      "relatedTalks": [
+        {
+          "id": "2021-06-wict-001",
+          "title": "From Packing Decimals with COBOL to Optimizing Tweets with Scala: A Journey Through Space, Time, and Culture with Compilers",
+          "abstract": "Uma Srinivasan reflects on a long engineering career across industry compilers and related technologies, with lessons for engineers entering the field.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Uma Srinivasan",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://community-dot-o.llvm.org/slides/WiCT_June2021.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/K558YT30AKE",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2022-01-wict-005",
+          "title": "User-Enhanced Learning Experience of Symbolic Logic Solving",
+          "abstract": "Ruanqianqian Huang and Ayana Monroe present the Online Z3 Guide and discuss teaching symbolic logic solving and SMT solver concepts.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Ruanqianqian Huang",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            },
+            {
+              "name": "Ayana Monroe",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/rgygBWn1a_E",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Programming Languages",
+            "Testing"
+          ]
+        },
+        {
+          "id": "2023-02-25-001",
+          "title": "RL4ReAl: Reinforcement Learning for Register Allocation",
+          "abstract": "We aim to automate decades of research and experience in register allocation, leveraging machine learning. We tackle this problem by embedding a multi-agent reinforcement learning algorithm within LLVM, training it with state of the art techniques. We formalize the constraints that precisely define the problem for a given instruction-set architecture, while ensuring that the generated code preserves semantic correctness. We also develop a gRPC based framework providing a modular and efficient compiler interface for training and inference. Our approach is architecture independent: we show experimental results targeting Intel x86 and ARM AArch64. Our results match or out-perform the heavily tuned, production-grade register allocators of LLVM.\n\nWe invite speakers from academia and industry to present their work on the following list of topics (including and not limited to:)\n\nWhile the primary focus of the workshop is on these topics, we welcome any submission related to the LLVM-project, its sub-projects (clang, mlir, lldb, Polly, lld, openmp, pstl, compiler-rt, etc.), as well as their use in industry and academia.\n\nProposals should provide sufficient information for the review committee to be able to judge the quality of the submission. Proposals can be submitted under the form of an extended abstract, full paper, or slides. Accepted presentations will be presented online. The presentations will be publicly available on https://llvm.org/devmtg/, and recordings will be available on LLVM's youtube channel\n\nIn case of any queries please reach out to the workshop organizers: Johannes Doerfert (jdoerfert at llnl.gov), Aditya (hiraditya at msn.com), Jose M Monsalve Diaz (jmonsalvediaz at anl.gov), Shilei Tian (i at tianshilei.me),\n\nThe LLVM Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.\n\nWe also adhere to the Code of Conduct use by CGO",
+          "meeting": "2023-02-25",
+          "meetingName": "2023 Seventh LLVM Performance Workshop @ CGO",
+          "meetingDate": "February 25, 2023",
+          "meetingLocation": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+          "category": "technical-talk",
+          "speakers": [],
+          "slidesUrl": "https://llvm.org/devmtg/2023-02-25/slides/RL4ReAl.pdf",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Backend",
+            "Clang",
+            "Community Building",
+            "LLD",
+            "LLDB",
+            "Libraries",
+            "ML",
+            "MLIR",
+            "Polly"
+          ]
+        },
+        {
+          "id": "2025-10-050",
+          "title": "Optimizing IREE to Match llama.cpp: An Introduction to IREE optimization for newbies through a benchmark journey",
+          "abstract": "Deploying efficient machine learning inference engines often involves rigorous benchmark comparisons to achieve optimal performance. In this talk, we present a benchmark analysis comparing the inference performance of IREE against llama.cpp, focusing specifically on executing open-source llama3 model. Attendees will learn about the performance gaps initially observed between IREE and llama.cpp, and the targeted optimizations we implemented within the iree-compiler to bridge these gaps. The session will introduce common performance bottlenecks faced by new users of iree-compiler and iree-runtime, including typical profiling tips. We will demonstrate practical MLIR optimizations and how to implement them. This talk aims to be especially valuable for newcomers looking to understand and enhance performance when leveraging IREE for model inference tasks.",
+          "meeting": "2025-10",
+          "meetingName": "2025 US LLVM Developers' Meeting",
+          "meetingDate": "October 27-29, 2025",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "quick-talk",
+          "speakers": [
+            {
+              "name": "Uiseop Eom",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/quick_talks/eom.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/yLZW-xWVDT8",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Beginner",
+            "IR",
+            "ML",
+            "MLIR",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2025-10-079",
+          "title": "Optimizing IREE to Match llama.cpp: An Introduction to IREE optimization for newbies through a benchmark journey",
+          "abstract": "Deploying efficient machine learning inference engines often involves rigorous benchmark comparisons to achieve optimal performance. In this talk, we present a benchmark analysis comparing the inference performance of IREE against llama.cpp, focusing specifically on executing open-source llama3 model. Attendees will learn about the performance gaps initially observed between IREE and llama.cpp, and the targeted optimizations we implemented within the iree-compiler to bridge these gaps. The session will introduce common performance bottlenecks faced by new users of iree-compiler and iree-runtime, including typical profiling tips. We will demonstrate practical MLIR optimizations and how to implement them. This talk aims to be especially valuable for newcomers looking to understand and enhance performance when leveraging IREE for model inference tasks.",
+          "meeting": "2025-10",
+          "meetingName": "2025 US LLVM Developers' Meeting",
+          "meetingDate": "October 27-29, 2025",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "poster",
+          "speakers": [
+            {
+              "name": "Uiseop Eom",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Beginner",
+            "IR",
+            "ML",
+            "MLIR",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
+          "id": "2024-04-062",
+          "title": "Solving Phase Ordering with Off-Policy Deep Reinforcement Learning Algorithms",
+          "abstract": "Foundation is dedicated to providing an inclusive and safe experience for everyone. We do not tolerate harassment of participants in any form. By registering for this event, we expect you to have read and agree to the LLVM Code of Conduct.",
+          "meeting": "2024-04",
+          "meetingName": "2024 EuroLLVM Developers' Meeting",
+          "meetingDate": "April 9-11, 2024",
+          "meetingLocation": "Vienna, Austria",
+          "category": "poster",
+          "speakers": [],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building"
           ]
         }
       ]
@@ -152980,9 +155431,9 @@
         "2020-04-021",
         "2020-09-021",
         "2020-04-024",
+        "2021-06-wict-003",
         "2019-04-010",
-        "2018-10-051",
-        "2022-11-065"
+        "2018-10-051"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -153099,6 +155550,37 @@
           ]
         },
         {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
+          ]
+        },
+        {
           "id": "2019-04-010",
           "title": "Testing and Qualification of Optimizing Compilers for Functional Safety",
           "abstract": "In the development of embedded applications, the compiler plays a crucial role in the translation from source to machine code. If the application is safety-critical, functional safety standards such as ISO 26262 for the automotive industry require that the user of the compiler develops confidence in the compilers correct operation. In this presentation we will discuss the requirements of ISO 26262 on tools such as LLVM compilers and how they can be met with a testing procedure that works well with the V-Model of engineering. As the name implies, functional safety standards deal with specified functionality of components. But what about the optimizations that a LLVM-based compiler applies to the program, sometimes even silently? Optimizations are not even mentioned in the language standards for C and C++ - they are \"non-functional\" behavior of the compiler. As we will demonstrate, ignoring optimizations will lead to significant holes in the compiler's test coverage. We will show how we have developed a technique that achieves good results with optimization testing and have some errors in Intel's well-regarded Clang-based compiler to show. To show the completeness of our method for the requirements of functional safety, we have analyzed how the tests match with the various LLVM IR-level transformation passes that they go through.",
@@ -153173,37 +155655,6 @@
             "Clang",
             "Optimizations",
             "Performance"
-          ]
-        },
-        {
-          "id": "2022-11-065",
-          "title": "LAGrad: Leveraging the MLIR Ecosystem for Efficient Differentiable Programming",
-          "abstract": "Automatic differentiation (AD) is a central algorithm in machine learning and optimization. This talk introduces LAGrad, a reverse-mode source-to-source AD system that differentiates tensor operations in the linalg, scf, and tensor dialects of MLIR. LAGrad leverages the value semantics of linalg-on-tensors in MLIR to simplify the analyses required to generate adjoint code that is efficient in terms of both run time and memory consumption. LAGrad also combines AD with MLIR’s type system to exploit structured sparsity patterns such as lower triangular tensors. We compare performance results to Enzyme, a state of the art AD system, on Microsoft’s ADBench suite. Our results show speedups of up to 2x relative to Enzyme and in some cases use 30x less memory.",
-          "meeting": "2022-11",
-          "meetingName": "2022 US LLVM Developers' Meeting",
-          "meetingDate": "November 8-9, 2022",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Mai Jacob Peng",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2022-11/slides/StudentTalk4-LAGradLeveragingMLIRForEfficientDifferentiableProgramming.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/HPv8VUWGAvw",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "ML",
-            "MLIR",
-            "Optimizations",
-            "Performance",
-            "Security"
           ]
         }
       ]
@@ -171400,7 +173851,7 @@
         "2019-02-16-004",
         "2024-10-056",
         "2023-05-008",
-        "2025-04-058"
+        "2022-01-wict-005"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -171559,39 +174010,40 @@
           ]
         },
         {
-          "id": "2025-04-058",
-          "title": "LLVM Support for Sub-FP8 Quantization with RISC-V Extensions for Machine Learning Models",
-          "abstract": "Deep learning computations require substantial computational power, storage, and data transfer bandwidth. To enhance efficiency, model quantization has become essential, driving the evolution of data formats from 32-bit and 16-bit to 8-bit, 6-bit, and 4-bit in both integer and floating-point representations. Previously, at the RISC-V Summit, North America, 2024, we proposed the Sub-FP8 extension for RISC-V, a novel approach to low-precision floating-point computation. In this work, we further provide Sub-FP8 support in the LLVM backend, along with C/C++ intrinsics to facilitate its integration into machine learning workloads. In addition, a reference design of Sub-FP8 is in the on-going work to integrate with CVA6 and FPnew core from open hardware. In our reference design, we also look at the issues to integrate Sub-FP8 with risc-v vector and matrix extensions, respectively. Experiments and simulations with Toolkits such as Spike and Gem5 will be also presented.",
-          "meeting": "2025-04",
-          "meetingName": "2025 EuroLLVM Developers' Meeting",
-          "meetingDate": "April 14-16, 2025",
-          "meetingLocation": "Berlin, Germany",
-          "category": "poster",
+          "id": "2022-01-wict-005",
+          "title": "User-Enhanced Learning Experience of Symbolic Logic Solving",
+          "abstract": "Ruanqianqian Huang and Ayana Monroe present the Online Z3 Guide and discuss teaching symbolic logic solving and SMT solver concepts.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "Kathryn Chapman",
+              "name": "Ruanqianqian Huang",
               "affiliation": "",
               "github": "",
               "linkedin": "",
               "twitter": ""
             },
             {
-              "name": "Fu-Jian Shen",
+              "name": "Ayana Monroe",
               "affiliation": "",
               "github": "",
               "linkedin": "",
               "twitter": ""
             }
           ],
-          "slidesUrl": "https://llvm.org/devmtg/2025-04/slides/poster/chapman_sub_fp8.pdf",
+          "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "",
+          "videoUrl": "https://youtu.be/rgygBWn1a_E",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "AI",
-            "Backend",
-            "ML"
+            "WiCT",
+            "D&I",
+            "Programming Languages",
+            "Testing"
           ]
         }
       ]
@@ -189044,7 +191496,7 @@
         "2017-03-037",
         "2017-10-035",
         "2026-04-022",
-        "2025-10-022"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -189183,18 +191635,18 @@
           "tags": []
         },
         {
-          "id": "2025-10-022",
-          "title": "LLVM Foundation Updates",
-          "abstract": "This talk will provide an update on the latest activities of the LLVM Foundation. We will discuss the foundation's recent work, and we will provide a look at what's in store for the future. We will also discuss how you can get involved with the LLVM Foundation, and how you can help support the LLVM project.",
-          "meeting": "2025-10",
-          "meetingName": "2025 US LLVM Developers' Meeting",
-          "meetingDate": "October 27-29, 2025",
-          "meetingLocation": "Santa Clara, CA, USA",
-          "category": "llvm-foundation",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -189202,11 +191654,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/UVF2EhGS2pY",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LLVM Foundation"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -194236,7 +196691,8 @@
         "2019-10-044",
         "2020-04-037",
         "2022-11-028",
-        "2017-10-038"
+        "2017-10-038",
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -194408,6 +196864,36 @@
           "tags": [
             "Backend",
             "Beginner"
+          ]
+        },
+        {
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -194654,7 +197140,7 @@
         "2021-11-031",
         "2025-04-022",
         "2010-11-002",
-        "mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures"
+        "2026-03-wict-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -194819,75 +197305,34 @@
           ]
         },
         {
-          "id": "mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures",
-          "title": "A Data-Centric Model for Performance Portability on Heterogeneous Architectures",
-          "abstract": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR. DaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
-          "meeting": "2022-01-20-mlir-open-design-meeting",
-          "meetingName": "MLIR Open Design Meeting",
-          "meetingDate": "2022-01-20",
-          "meetingLocation": "",
-          "category": "open-design-meeting",
+          "id": "2026-03-wict-001",
+          "title": "Compiler Optimizations for CPU-GPU Heterogeneous Systems",
+          "abstract": "Jyothi Vedurada presents compiler optimizations for CPU-GPU heterogeneous systems.",
+          "meeting": "2026-03-wict",
+          "meetingName": "2026 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "March 14, 2026",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "Fine Licht",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Nikolaos Ziogas",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Timo Schneider",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Philipp Schaad",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Oliver Rausch",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Andrei Ivanov",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Tal Ben",
-              "affiliation": "",
+              "name": "Jyothi Vedurada",
+              "affiliation": "IIT Hyderabad",
               "github": "",
               "linkedin": "",
               "twitter": ""
             }
           ],
-          "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2022-01-2001~Data-Centric-Model.pdf",
+          "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/VxUifMWaHeI",
-          "sourceUrl": "https://mlir.llvm.org/talks/",
-          "detailUrl": "talks/talk.html?id=mlir-talk-2022-01-20-a-data-centric-model-for-performance-portability-on-heterogeneous-architectures",
-          "projectGithub": "https://github.com/spcl/npbench",
+          "videoUrl": "https://youtu.be/02p4PdSCekk",
+          "sourceUrl": "",
+          "projectGithub": "",
           "tags": [
-            "MLIR",
-            "Using MLIR",
-            "Open Design Meeting"
+            "WiCT",
+            "D&I",
+            "GPU",
+            "Optimizations",
+            "Performance"
           ]
         }
       ]
@@ -201838,7 +204283,7 @@
         "2019-04-056",
         "2017-10-035",
         "2026-04-022",
-        "2016-03-019"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -201977,18 +204422,18 @@
           "tags": []
         },
         {
-          "id": "2016-03-019",
-          "title": "LLVM Foundation BoF",
-          "abstract": "LLVM Foundation BoF session presented by the LLVM Board of Directors.",
-          "meeting": "2016-03",
-          "meetingName": "2016 EuroLLVM Developers' Meeting",
-          "meetingDate": "March 17-18, 2016",
-          "meetingLocation": "Barcelona, Spain",
-          "category": "llvm-foundation",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -201996,11 +204441,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/cmS6Sb5oReE",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LLVM Foundation"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -202510,16 +204958,74 @@
       "slidePaperIds": [],
       "slideTalkIds": [],
       "relatedTalkIds": [
+        "2023-10-003",
+        "2022-01-wict-001",
         "2025-06-010",
         "2021-02-28-013",
         "2018-04-047",
-        "2017-03-007",
-        "2017-03-041",
-        "2014-10-006"
+        "2017-03-007"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
       "relatedTalks": [
+        {
+          "id": "2023-10-003",
+          "title": "A Technical Guide to Compassion in Open Source",
+          "abstract": "Open source communities offer rich opportunities for innovation, collaboration, and learning. However, contributing to these projects may also require dealing with contentious code reviews, frustrated users, and competing priorities. In this session, you'll learn ways to apply compassion to help navigate these challenges. You'll leave with practical tools for reducing your stress levels, managing conflict more productively, and encouraging newcomers. Compassion isn't just some soft and fuzzy concept, but rather an essential communication skill for creating communities where you and your collaborators can thrive.",
+          "meeting": "2023-10",
+          "meetingName": "2023 US LLVM Developers' Meeting",
+          "meetingDate": "October 10-12, 2023",
+          "meetingLocation": "Santa Clara, CA, USA",
+          "category": "keynote",
+          "speakers": [
+            {
+              "name": "April Wensel",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "https://llvm.org/devmtg/2023-10/slides/keynote/Wensel-LLVM_Deck.pdf",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/4aJdrLBsUL0",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community Building",
+            "Beginner"
+          ]
+        },
+        {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
+            "Programming Languages"
+          ]
+        },
         {
           "id": "2025-06-010",
           "title": "LLVM in the Automotive Industry: Bringing Functional Safety to Open Source",
@@ -202647,84 +205153,6 @@
           "tags": [
             "Clang",
             "Static Analysis"
-          ]
-        },
-        {
-          "id": "2017-03-041",
-          "title": "CodeCompass: An Open Software Comprehension Framework",
-          "abstract": "Bugfixing or new feature development requires a confident understanding of all details and consequences of the planned changes. For long existing large telecom systems, where the code base have been developed and maintained for decades by fluctuating teams, original intentions are lost, the documentation is untrustworthy or missing, the only reliable information is the code itself. Code comprehension of such large software systems is an essential, but usually very challenging task. As the method of comprehension is fundamentally different from writing new code, development tools are not performing well. During the years, different programs have been developed with various complexity and feature set for code comprehension but none of them fulfilled all requirements.CodeCompass is an open source LLVM/Clang based tool developed by Ericsson Ltd. and the Eötvös Loránd University, Budapest to help understanding large legacy software systems. Based on the LLVM/Clang compiler infrastructure, CodeCompass gives exact information on complex C/C++ language elements like overloading, inheritance, the (read or write) usage of variables, possible calls on function pointers and the virtual functions -- features that various existing tools support only partially. The wide range of interactive visualizations extends further than the usual class and function call diagrams; architectural, component and interface diagrams are a few of the implemented graphs.To make comprehension more extensive, CodeCompass is not restricted to the source code. It also utilizes build information to explore the system architecture as well as version control information when available: git commit history and blame view are also visualized. Clang based static analysis results are also integrated to CodeCompass. Although the tool focuses mainly on C and C++, it also supports Java and Python languages. Having a web-based. pluginable, extensible architecture, the CodeCompass framework can be an open platform to further code comprehension, static analysis and software metrics efforts.",
-          "meeting": "2017-03",
-          "meetingName": "2017 EuroLLVM Developers' Meeting",
-          "meetingDate": "March 27-28, 2017",
-          "meetingLocation": "Saarbrücken, Germany",
-          "category": "poster",
-          "speakers": [
-            {
-              "name": "Zoltan Porkolab",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Daniel Krupp",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Tibor Brunner",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Márton Csordás",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "",
-          "posterUrl": "",
-          "videoUrl": "",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "Clang",
-            "Static Analysis"
-          ]
-        },
-        {
-          "id": "2014-10-006",
-          "title": "Source Code Analysis for Security through LLVM",
-          "abstract": "We added a new debug mode for the Clang compiler which emits extra metadata in the LLVM bitcode. The metadata has turned the bitcode into a useful vehicle from which an intermediate representation for secure source code analysis can be derived. We have used this approach to find security vulnerabilities in the Objective-C source code.",
-          "meeting": "2014-10",
-          "meetingName": "2014 US LLVM Developers' Meeting",
-          "meetingDate": "October 28-29, 2014",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Lu Zhao",
-              "affiliation": "HP Fortify",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2014-10/Slides/Zhao-SourceCodeAnalysisforSecurity.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/xSN0J_JV06E",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "Clang",
-            "IR",
-            "Security"
           ]
         }
       ]
@@ -203310,8 +205738,8 @@
         "2016-11-012",
         "2018-10-004",
         "2017-02-04-009",
-        "2020-02-23-008",
-        "2025-10-053"
+        "2021-06-wict-003",
+        "2020-02-23-008"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -203444,6 +205872,37 @@
           ]
         },
         {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
+          ]
+        },
+        {
           "id": "2020-02-23-008",
           "title": "Global Machine Outliner for ThinLTO",
           "abstract": "",
@@ -203474,34 +205933,6 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LTO"
-          ]
-        },
-        {
-          "id": "2025-10-053",
-          "title": "Extending ThinLTO Support for AMDGPU",
-          "abstract": "In this talk, we'll briefly introduce the ongoing effort to support ThinLTO for AMDGPU. We'll start by discussing the motivation for enabling ThinLTO and the current limitations in the AMDGPU ABI that prevent us from using it out of the box. By default, ThinLTO compiles modules from each translation unit in parallel, effectively following a split scheme based on translation units. To work around some of the limitations, we've made targeted modifications to the existing ThinLTO infrastructure. However, not all limitations can be addressed with workarounds. To properly support ThinLTO, we'll introduce a new split scheme that divides the program based on a graph constructed from the module summary. The remaining ThinLTO infrastructure will then compile the resulting splits in parallel, instead of compiling modules per translation unit as ThinLTO does by default. We also expect this new scheme to benefit other GPU targets that don't share the same ABI constraints as AMDGPU.",
-          "meeting": "2025-10",
-          "meetingName": "2025 US LLVM Developers' Meeting",
-          "meetingDate": "October 27-29, 2025",
-          "meetingLocation": "Santa Clara, CA, USA",
-          "category": "quick-talk",
-          "speakers": [
-            {
-              "name": "Shilei Tian",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/quick_talks/tian.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/hEnUlpTWnHk",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "GPU",
             "LTO"
           ]
         }
@@ -209416,7 +211847,7 @@
         "2019-04-056",
         "2017-10-035",
         "2026-04-022",
-        "2016-03-019"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -209555,18 +211986,18 @@
           "tags": []
         },
         {
-          "id": "2016-03-019",
-          "title": "LLVM Foundation BoF",
-          "abstract": "LLVM Foundation BoF session presented by the LLVM Board of Directors.",
-          "meeting": "2016-03",
-          "meetingName": "2016 EuroLLVM Developers' Meeting",
-          "meetingDate": "March 17-18, 2016",
-          "meetingLocation": "Barcelona, Spain",
-          "category": "llvm-foundation",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -209574,11 +212005,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/cmS6Sb5oReE",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LLVM Foundation"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -219461,7 +221895,8 @@
         "2019-10-044",
         "2020-04-037",
         "2022-11-028",
-        "2017-10-038"
+        "2017-10-038",
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -219633,6 +222068,36 @@
           "tags": [
             "Backend",
             "Beginner"
+          ]
+        },
+        {
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -227143,7 +229608,7 @@
         "2018-04-008",
         "2019-04-056",
         "2026-04-022",
-        "2016-03-019"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -227282,18 +229747,18 @@
           "tags": []
         },
         {
-          "id": "2016-03-019",
-          "title": "LLVM Foundation BoF",
-          "abstract": "LLVM Foundation BoF session presented by the LLVM Board of Directors.",
-          "meeting": "2016-03",
-          "meetingName": "2016 EuroLLVM Developers' Meeting",
-          "meetingDate": "March 17-18, 2016",
-          "meetingLocation": "Barcelona, Spain",
-          "category": "llvm-foundation",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -227301,11 +229766,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/cmS6Sb5oReE",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LLVM Foundation"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -228212,6 +230680,7 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
+            "Community Building",
             "Beginner"
           ]
         },
@@ -241375,7 +243844,7 @@
         "2019-04-056",
         "2017-10-035",
         "2026-04-022",
-        "2016-03-019"
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -241514,18 +243983,18 @@
           "tags": []
         },
         {
-          "id": "2016-03-019",
-          "title": "LLVM Foundation BoF",
-          "abstract": "LLVM Foundation BoF session presented by the LLVM Board of Directors.",
-          "meeting": "2016-03",
-          "meetingName": "2016 EuroLLVM Developers' Meeting",
-          "meetingDate": "March 17-18, 2016",
-          "meetingLocation": "Barcelona, Spain",
-          "category": "llvm-foundation",
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
           "speakers": [
             {
-              "name": "LLVM Board of Directors",
-              "affiliation": "",
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
               "github": "",
               "linkedin": "",
               "twitter": ""
@@ -241533,11 +244002,14 @@
           ],
           "slidesUrl": "",
           "posterUrl": "",
-          "videoUrl": "https://youtu.be/cmS6Sb5oReE",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
           "sourceUrl": "",
           "projectGithub": "",
           "tags": [
-            "LLVM Foundation"
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
           ]
         }
       ]
@@ -245474,10 +247946,10 @@
       "relatedTalkIds": [
         "2016-11-012",
         "2018-10-004",
+        "2021-06-wict-003",
         "2020-04-016",
         "2018-10-045",
-        "2025-10-053",
-        "2021-11-021"
+        "2025-10-053"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -245546,6 +248018,37 @@
             "LTO",
             "Optimizations",
             "Performance"
+          ]
+        },
+        {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
           ]
         },
         {
@@ -245636,25 +248139,6 @@
           "projectGithub": "",
           "tags": [
             "GPU",
-            "LTO"
-          ]
-        },
-        {
-          "id": "2021-11-021",
-          "title": "Integrated Distributed ThinLTO with Icecream",
-          "abstract": "",
-          "meeting": "2021-11",
-          "meetingName": "2021 LLVM Developers' Meeting (Virtual)",
-          "meetingDate": "November 16-19, 2021",
-          "meetingLocation": "virtual",
-          "category": "technical-talk",
-          "speakers": [],
-          "slidesUrl": "https://llvm.org/devmtg/2021-11/slides/2021-Distributed-ThinLTO-With-Icecream.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/5kLPkUTnqQc",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
             "LTO"
           ]
         }
@@ -248337,11 +250821,11 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2017-02-04-009",
+        "2021-06-wict-003",
         "2015-04-033",
         "2018-10-004",
         "2018-10-045",
-        "2023-05-012",
-        "2016-11-005"
+        "2023-05-012"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -248373,6 +250857,37 @@
             "LTO",
             "Optimizations",
             "Performance"
+          ]
+        },
+        {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
           ]
         },
         {
@@ -248495,41 +251010,6 @@
             "Backend",
             "LLD",
             "LTO"
-          ]
-        },
-        {
-          "id": "2016-11-005",
-          "title": "Scalable Vectorization for LLVM",
-          "abstract": "Scalable Vectorization for LLVM SVE is a new vector ISA extension for AArch64 targeted at HPC applications; one major distinguishing feature is that vector registers do not have a fixed size from a compiler perspective. This talk will cover the changes made to LLVM IR to support vectorizing loops in a vector length agnostic manner, as well as improvements in vectorization enabled by the predication and gather/scatter features of the extension. See https://community.arm.com/groups/processors/blog/2016/08/22/technology-update-the-scalable-vector-extension-sve-for-the-armv8-a-architecture for more details on the architecture.",
-          "meeting": "2016-11",
-          "meetingName": "2016 US LLVM Developers' Meeting",
-          "meetingDate": "November 3-4, 2016",
-          "meetingLocation": "San Jose, CA, USA",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Amara Emerson",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            },
-            {
-              "name": "Graham Hunter",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2016-11/Slides/Emerson-ScalableVectorizationinLLVMIR.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/0up2hJk7k94",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "Autovectorization",
-            "IR"
           ]
         }
       ]
@@ -252404,7 +254884,8 @@
         "2014-02-007",
         "2009-10-017",
         "2023-05-015",
-        "2022-05-026"
+        "2022-05-026",
+        "2022-01-wict-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -252564,6 +255045,36 @@
           "tags": [
             "Community Building",
             "IR",
+            "Programming Languages"
+          ]
+        },
+        {
+          "id": "2022-01-wict-001",
+          "title": "Python in Open Source and More with Anna",
+          "abstract": "Anna Ossowski discusses open-source community work, mentoring, teaching, mental health advocacy, and participation in Python-related communities.",
+          "meeting": "2022-01-wict",
+          "meetingName": "2022 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "January-August 2022",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Anna Ossowski",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/uVKTSiJbIRo",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "Community Building",
             "Programming Languages"
           ]
         }
@@ -257095,7 +259606,8 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2014-10-001",
-        "2013-11-001"
+        "2013-11-001",
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -257149,6 +259661,36 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
+        },
+        {
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
+          ]
         }
       ]
     },
@@ -262130,11 +264672,11 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2016-11-012",
+        "2021-06-wict-003",
         "2015-02-008",
         "2014-10-021",
         "2017-03-018",
-        "2025-10-025",
-        "2025-10-028"
+        "2025-10-025"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -262173,6 +264715,37 @@
             "IR",
             "LLD",
             "LTO"
+          ]
+        },
+        {
+          "id": "2021-06-wict-003",
+          "title": "ThinLTO and More with Teresa",
+          "abstract": "Teresa Johnson shares her compiler career path and discusses open-source work around ThinLTO, the scalable link-time optimization framework.",
+          "meeting": "2021-06-wict",
+          "meetingName": "2021 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "June-December 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Teresa Johnson",
+              "affiliation": "",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/1-H8RTwCpwA",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "LLVM",
+            "LTO",
+            "Optimizations"
           ]
         },
         {
@@ -262289,31 +264862,6 @@
             "GPU",
             "Performance"
           ]
-        },
-        {
-          "id": "2025-10-028",
-          "title": "The LLVM Offloading Infrastructure",
-          "abstract": "The LLVM offloading infrastructure is a new feature in LLVM that allows developers to offload computations to a remote device. In this talk, we will discuss the LLVM offloading infrastructure. We will discuss the challenges we faced, the solutions we came up with, and the lessons we learned. We will also discuss how this work can be used to improve the quality of offloading support in LLVM.",
-          "meeting": "2025-10",
-          "meetingName": "2025 US LLVM Developers' Meeting",
-          "meetingDate": "October 27-29, 2025",
-          "meetingLocation": "Santa Clara, CA, USA",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Joseph Huber",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "https://llvm.org/devmtg/2025-10/slides/technical_talks/huber.pdf",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/pndPwVMouPg",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": []
         }
       ]
     },
@@ -272520,7 +275068,8 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2015-10-001",
-        "2013-11-001"
+        "2013-11-001",
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -272574,6 +275123,36 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
+        },
+        {
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
+          ]
         }
       ]
     },
@@ -285601,7 +288180,8 @@
       "slideTalkIds": [],
       "relatedTalkIds": [
         "2014-10-001",
-        "2015-10-001"
+        "2015-10-001",
+        "2021-03-community-o-001"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -285655,6 +288235,36 @@
           "sourceUrl": "",
           "projectGithub": "",
           "tags": []
+        },
+        {
+          "id": "2021-03-community-o-001",
+          "title": "LLVM Foundation Welcome",
+          "abstract": "Welcome session for the first Community.o Summit, introducing Community.o, the LLVM Foundation, and ways to get involved.",
+          "meeting": "2021-03-community-o",
+          "meetingName": "2021 Community.o Summit",
+          "meetingDate": "March 8-10, 2021",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Tanya Lattner",
+              "affiliation": "LLVM Foundation",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/2PsN3ODutZI",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "Community.o",
+            "LLVM Foundation",
+            "Community Building",
+            "D&I"
+          ]
         }
       ]
     },
@@ -332611,8 +335221,8 @@
         "2022-11-015",
         "2025-04-022",
         "mlir-talk-2021-08-26-high-performance-gpu-tensor-corecode-generation-for-matmul-using-mlir",
-        "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides",
-        "2023-05-021"
+        "2026-03-wict-001",
+        "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides"
       ],
       "referencedPapers": [],
       "referencedTalks": [],
@@ -332752,6 +335362,37 @@
           ]
         },
         {
+          "id": "2026-03-wict-001",
+          "title": "Compiler Optimizations for CPU-GPU Heterogeneous Systems",
+          "abstract": "Jyothi Vedurada presents compiler optimizations for CPU-GPU heterogeneous systems.",
+          "meeting": "2026-03-wict",
+          "meetingName": "2026 Women in Compilers and Tools Meetup Series",
+          "meetingDate": "March 14, 2026",
+          "meetingLocation": "virtual",
+          "category": "workshop",
+          "speakers": [
+            {
+              "name": "Jyothi Vedurada",
+              "affiliation": "IIT Hyderabad",
+              "github": "",
+              "linkedin": "",
+              "twitter": ""
+            }
+          ],
+          "slidesUrl": "",
+          "posterUrl": "",
+          "videoUrl": "https://youtu.be/02p4PdSCekk",
+          "sourceUrl": "",
+          "projectGithub": "",
+          "tags": [
+            "WiCT",
+            "D&I",
+            "GPU",
+            "Optimizations",
+            "Performance"
+          ]
+        },
+        {
           "id": "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides",
           "title": "Integrating Convolution Optimization into MLIR to Improve Performance Beyond Im2Col+GEMM",
           "abstract": "Convolution is one of the most common linear algebra operations for machine-learning applications. With the increasingly important compiler integration into such frameworks, improving performance in code-generated implementations of convolution is key for the future. In this talk, Victor Ferrari (UNICAMP) presents a new convolution approach for MLIR which improves performance when compared to the traditional Im2Col + GEMM method used in the linalg dialect and many other places. 0:00 Introduction 4:41 Model Inference Results 10:35 Optimizing Convolutions for CPUs 14:05 Optimizing Convolutions in MLIR 16:30 Current Compilation Flow 23:57 Convolution Slicing Analysis (CSA) 32:12 Optimized Micro-Kernel 35:47 Micro-Kernel: access pattern 40:02 Useful Observation 46:03 Experimental Setup 49:07 Packing Improvements 49:46 Next Steps (Macro-Kernel Lowering) 51:56 A little bit of code navigation 58:05 Next Steps (Micro-Kernel Lowering)",
@@ -332771,36 +335412,6 @@
             "MLIR",
             "About MLIR and MLIR Components",
             "Open Design Meeting"
-          ]
-        },
-        {
-          "id": "2023-05-021",
-          "title": "mlir-meminfo : A Memory Model for MLIR",
-          "abstract": "Kunwar Grover, IIIT Hyderabad & Arjun Pitchanathan, University of Edinburgh A number of transformations in high-level MLIR dialects like Linalg, SCF and Affine focus on building transformations for optimizing the cache behavior of programs. While building models for the cost of computation for these transformations are easy as it is a local property, data movement on cached architectures depends on the global state and is very hard to predict. Current approaches for memory models for these transformations use transformation-specific cost models, which do not compose from one transformation to another due to the global properties of data movement. We introduce mlir-meminfo, a lightweight, analytical memory model for MLIR. mlir-meminfo accurately predicts the cache behavior of a program, with a particular focus on transformations, updating the cache information almost instantly for modern neural networks like BERT, containing hundreds of memory accesses. With the introduction of mlir-meminfo, we aim to revolutionize transformation memory models for MLIR and improve developer productivity for performance programming.",
-          "meeting": "2023-05",
-          "meetingName": "2023 EuroLLVM Developers' Meeting",
-          "meetingDate": "May 10-11, 2023",
-          "meetingLocation": "Glasgow, Scotland",
-          "category": "technical-talk",
-          "speakers": [
-            {
-              "name": "Kunwar Grover",
-              "affiliation": "",
-              "github": "",
-              "linkedin": "",
-              "twitter": ""
-            }
-          ],
-          "slidesUrl": "",
-          "posterUrl": "",
-          "videoUrl": "https://youtu.be/7p3Vg3yZ29s",
-          "sourceUrl": "",
-          "projectGithub": "",
-          "tags": [
-            "AI",
-            "IR",
-            "MLIR",
-            "Performance"
           ]
         }
       ]

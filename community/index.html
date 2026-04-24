@@ -141,9 +141,100 @@
       gap: var(--space-3);
     }
 
+    .video-collection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .video-collection {
+      min-width: 0;
+      display: grid;
+      gap: var(--space-3);
+      align-content: start;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      padding: var(--space-4);
+    }
+
+    .video-collection h3 {
+      margin: 0;
+      color: var(--color-text);
+      font-size: var(--font-size-lg);
+      line-height: var(--line-height-tight);
+    }
+
+    .video-collection p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: var(--font-size-sm);
+      line-height: var(--line-height-base);
+    }
+
+    .video-playlist-link {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 var(--space-3);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-surface-hover);
+      color: var(--color-text);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      text-decoration: none;
+    }
+
+    .video-playlist-link:hover {
+      border-color: var(--color-border-focus);
+      color: var(--color-text);
+    }
+
+    .video-list {
+      display: grid;
+      gap: 0.65rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--space-3);
+    }
+
+    .video-list-label {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-semi);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .video-list a {
+      display: grid;
+      gap: 0.12rem;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .video-list a:hover .video-title {
+      color: var(--color-accent-hover);
+    }
+
+    .video-title {
+      color: var(--color-accent);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semi);
+      line-height: var(--line-height-snug);
+    }
+
+    .video-meta {
+      color: var(--color-text-muted);
+      font-size: var(--font-size-xs);
+      line-height: var(--line-height-snug);
+    }
+
     @media (max-width: 920px) {
       .channel-grid,
-      .archive-grid {
+      .archive-grid,
+      .video-collection-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -296,8 +387,8 @@
   <section class="search-hero search-hero--compact" aria-label="LLVM community">
     <div class="search-hero-shell">
       <h1>LLVM Community</h1>
-      <p class="subtitle">Official channels first, with selected library context for community health and project stewardship.</p>
-      <p class="mission-hero-copy">The library should help people find where the LLVM community already gathers: Discourse, Discord, office hours, sync-ups, events, and Foundation programs.</p>
+      <p class="subtitle">Official places to ask questions, join events, and find support.</p>
+      <p class="mission-hero-copy">Start with the active LLVM channels. Use the library links for background on community health, mentorship, and Foundation programs.</p>
       <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
         <input type="hidden" name="mode" value="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -321,7 +412,7 @@
     <section class="mission-section" aria-labelledby="official-channels-heading">
       <div class="mission-section-header">
         <h2 id="official-channels-heading">Official Channels</h2>
-        <p>Use these for current project discussion, questions, meetings, event participation, and contribution support.</p>
+        <p>Use these for current project discussion, questions, meetings, and contribution support.</p>
       </div>
       <div class="channel-grid">
         <a class="channel-card" href="https://llvm.org/docs/GettingInvolved.html">
@@ -360,7 +451,7 @@
     <section class="mission-section" aria-labelledby="support-heading">
       <div class="mission-section-header">
         <h2 id="support-heading">Foundation Support</h2>
-        <p>Programs that connect education, diversity, mentorship, and community health to the broader LLVM mission.</p>
+        <p>Programs for education, diversity, mentorship, community health, and infrastructure.</p>
       </div>
       <div class="channel-grid">
         <a class="channel-card" href="https://foundation.llvm.org/programs">
@@ -376,15 +467,69 @@
         <a class="channel-card" href="https://community-dot-o.llvm.org/#">
           <span class="channel-kicker">Diversity and inclusion</span>
           <span class="channel-title">Community.o</span>
-          <span class="channel-meta">LLVM Foundation initiative to increase diversity and inclusion in LLVM and compilers/tools, remove barriers, and help contributors from all backgrounds feel welcome and empowered.</span>
+          <span class="channel-meta">LLVM Foundation initiative for diversity, inclusion, and welcoming contributors from more backgrounds.</span>
         </a>
+      </div>
+    </section>
+
+    <section class="mission-section" aria-labelledby="community-videos-heading">
+      <div class="mission-section-header">
+        <h2 id="community-videos-heading">Community Videos</h2>
+        <p>Two useful collections, plus a few good starting points from each.</p>
+      </div>
+      <div class="video-collection-grid">
+        <article class="video-collection" aria-labelledby="wict-videos-heading">
+          <h3 id="wict-videos-heading">WiCT Videos</h3>
+          <p>Career stories, mentoring, and talks from Women in Compilers and Tools.</p>
+          <a class="video-playlist-link" href="https://www.youtube.com/playlist?list=PL_R5A0lGi1AAVLVOTNHMeHbC4m1J1QFLZ">Open WiCT playlist</a>
+          <div class="video-list">
+            <span class="video-list-label">Start with</span>
+            <a href="talks/talk.html?id=2021-06-wict-001">
+              <span class="video-title">From Packing Decimals with COBOL to Optimizing Tweets with Scala</span>
+              <span class="video-meta">Career reflections across industry compilers and related technologies.</span>
+            </a>
+            <a href="talks/talk.html?id=2021-06-wict-002">
+              <span class="video-title">From Student of Compilation to Mother of Decompilation</span>
+              <span class="video-meta">A retrospective on decompilation research and its applications.</span>
+            </a>
+            <a href="talks/talk.html?id=2022-01-wict-003">
+              <span class="video-title">Compilers Education and More with Michelle</span>
+              <span class="video-meta">An AMA on compiler education, careers, and supporting people.</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="video-collection" aria-labelledby="community-support-videos-heading">
+          <h3 id="community-support-videos-heading">Community Support and Belonging</h3>
+          <p>Talks on belonging, conduct, leadership, mentorship, and access.</p>
+          <a class="video-playlist-link" href="https://www.youtube.com/playlist?list=PL_R5A0lGi1AD8Xakb5ZOE3ZP7vS4YSkXh">Open Community.o playlist</a>
+          <div class="video-list">
+            <span class="video-list-label">Start with</span>
+            <a href="talks/talk.html?id=2021-03-community-o-003">
+              <span class="video-title">You're NOT Alone: Chasing the Journey of Learning and Belonging</span>
+              <span class="video-meta">Question reluctance, isolation, and belonging in technical communities.</span>
+            </a>
+            <a href="talks/talk.html?id=2021-03-community-o-002">
+              <span class="video-title">My Career in Languages and Compilers</span>
+              <span class="video-meta">Short career talks across open source, languages, compilers, and toolchains.</span>
+            </a>
+            <a href="talks/talk.html?id=2023-10-003">
+              <span class="video-title">A Technical Guide to Compassion in Open Source</span>
+              <span class="video-meta">Practical communication tools for conflict, stress, and newcomer support.</span>
+            </a>
+            <a href="talks/talk.html?id=2021-03-community-o-001">
+              <span class="video-title">LLVM Foundation Welcome</span>
+              <span class="video-meta">An introduction to Community.o and ways to get involved.</span>
+            </a>
+          </div>
+        </article>
       </div>
     </section>
 
     <section class="mission-section" aria-labelledby="archive-heading">
       <div class="mission-section-header">
-        <h2 id="archive-heading">Selected Library Context</h2>
-        <p>Library records are secondary here: useful background on how the community has discussed health, education, inclusion, governance, and infrastructure.</p>
+        <h2 id="archive-heading">More Context</h2>
+        <p>Background on community health, education, inclusion, governance, and infrastructure.</p>
       </div>
       <div class="archive-grid">
         <a class="archive-card" href="papers/paper.html?id=blog-2022-10-27-office-hours&amp;from=blogs">

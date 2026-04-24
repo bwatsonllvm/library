@@ -372,8 +372,8 @@
   <section class="search-hero search-hero--compact" aria-label="Learn LLVM">
     <div class="search-hero-shell">
       <h1>Learn LLVM</h1>
-      <p class="subtitle">A compact path for getting oriented, building LLVM, and making a first contribution.</p>
-      <p class="mission-hero-copy">These are resources a new user can use directly: official docs, setup guides, first-patch material, and a few durable tutorials from the library. Research talks remain searchable elsewhere, but they are not the backbone of this page.</p>
+      <p class="subtitle">A practical path for getting oriented, building LLVM, and making a first contribution.</p>
+      <p class="mission-hero-copy">Start with official docs, a few useful talks, and the core papers. Use the community links when you get stuck.</p>
       <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
         <input type="hidden" name="mode" value="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -397,43 +397,43 @@
     <section class="mission-section" aria-labelledby="learn-routes-heading">
       <div class="mission-section-header">
         <h2 id="learn-routes-heading">Start Here</h2>
-        <p>Use these routes in order if you are new to LLVM. The papers are included for durable context, not as a prerequisite for sending a first patch.</p>
+        <p>Follow these in order if you are new. You can send a first patch before reading every paper.</p>
       </div>
       <div class="learning-route-grid">
         <article class="learning-route-card">
           <h3>1. Orient to LLVM</h3>
-          <p>Start with official entry points, then read the core paper for the project's architecture and vocabulary.</p>
+          <p>Start with official docs, then read the core paper for the big picture.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/docs/GettingStartedTutorials.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Started / Tutorials</span></span>
-              <span class="resource-meta">Official index for people new to the LLVM system</span>
+              <span class="resource-meta">Official starting point for new LLVM users</span>
             </a>
             <a class="resource-link" href="https://llvm.org/docs/tutorial/">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Tutorial: Table of Contents</span></span>
-              <span class="resource-meta">Canonical hands-on tutorial series for using LLVM</span>
+              <span class="resource-meta">Hands-on tutorial series for using LLVM</span>
             </a>
             <a class="resource-link" href="https://llvm.org/pubs/2003-09-30-LifelongOptimizationTR.pdf">
               <span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">LLVM: A compilation framework for lifelong program analysis &amp; transformation</span></span>
-              <span class="resource-meta">Foundational paper for LLVM IR and the compiler framework</span>
+              <span class="resource-meta">Core paper on LLVM IR and the compiler framework</span>
             </a>
           </div>
         </article>
 
         <article class="learning-route-card">
           <h3>2. Build and Test Locally</h3>
-          <p>Get a local checkout into a state where experiments are cheap.</p>
+          <p>Set up a checkout you can build and test.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/docs/GettingStarted.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Started with the LLVM System</span></span>
-              <span class="resource-meta">Build prerequisites, checkout, configuration, and first commands</span>
+              <span class="resource-meta">Prerequisites, checkout, configuration, and first commands</span>
             </a>
             <a class="resource-link" href="talks/talk.html?id=2023-10-037">
               <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">Understanding the LLVM build</span></span>
-              <span class="resource-meta">Build layout, options, and common development workflows</span>
+              <span class="resource-meta">Build layout, options, and common workflows</span>
             </a>
             <a class="resource-link" href="https://llvm.org/docs/TestingGuide.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Testing Guide</span></span>
-              <span class="resource-meta">How the test suite is structured and how to run focused tests</span>
+              <span class="resource-meta">How to run focused tests</span>
             </a>
             <a class="resource-link" href="https://llvm.org/docs/HowToSubmitABug.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">How to Submit an LLVM Bug Report</span></span>
@@ -444,7 +444,7 @@
 
         <article class="learning-route-card">
           <h3>3. Make a First Contribution</h3>
-          <p>Use a narrow change to learn the review process and project norms.</p>
+          <p>Start small and learn the review process.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/docs/MyFirstTypoFix.html">
               <span class="resource-title-row"><span class="resource-type">Guide</span><span class="resource-title">MyFirstTypoFix</span></span>
@@ -452,11 +452,11 @@
             </a>
             <a class="resource-link" href="https://llvm.org/docs/Contributing.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Contributing to LLVM</span></span>
-              <span class="resource-meta">Project contribution expectations and review flow</span>
+              <span class="resource-meta">Contribution expectations and review flow</span>
             </a>
             <a class="resource-link" href="https://llvm.org/docs/GitHub.html">
               <span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM GitHub User Guide</span></span>
-              <span class="resource-meta">GitHub workflow and code review mechanics</span>
+              <span class="resource-meta">GitHub workflow and code review</span>
             </a>
             <a class="resource-link" href="community/">
               <span class="resource-title-row"><span class="resource-type">Community</span><span class="resource-title">Where to ask project questions</span></span>
@@ -467,7 +467,7 @@
 
         <article class="learning-route-card">
           <h3>4. Pick a Project Track</h3>
-          <p>After the basics, choose one practical area instead of trying to learn everything at once.</p>
+          <p>After the basics, choose one area to follow.</p>
           <div class="resource-list">
             <a class="resource-link" href="talks/talk.html?id=2019-10-029">
               <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">Getting Started With LLVM: Basics</span></span>
@@ -479,11 +479,11 @@
             </a>
             <a class="resource-link" href="talks/talk.html?id=2019-04-001">
               <span class="resource-title-row"><span class="resource-type">Video</span><span class="resource-title">MLIR: Multi-Level Intermediate Representation for Compiler Infrastructure</span></span>
-              <span class="resource-meta">Original EuroLLVM keynote introducing MLIR's design and compiler-infrastructure goals</span>
+              <span class="resource-meta">Original EuroLLVM keynote introducing MLIR</span>
             </a>
             <a class="resource-link" href="papers/paper.html?id=openalex-w3007772124">
               <span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">MLIR: A Compiler Infrastructure for the End of Moore's Law</span></span>
-              <span class="resource-meta">Architecture paper for reusable dialects, transformations, and lowering</span>
+              <span class="resource-meta">Architecture paper for dialects, transformations, and lowering</span>
             </a>
           </div>
         </article>
@@ -493,26 +493,26 @@
     <section class="mission-section" aria-labelledby="learn-papers-heading">
       <div class="mission-section-header">
         <h2 id="learn-papers-heading">Foundational Papers</h2>
-        <p>These are the background papers worth surfacing for new users. They explain the major systems without turning the learn page into a research archive.</p>
+        <p>A short list of papers that explain the main systems.</p>
       </div>
       <div class="resource-grid">
         <article class="resource-card">
           <h3>LLVM Architecture</h3>
-          <p>The best single paper for understanding why LLVM IR and the compiler framework are structured the way they are.</p>
+          <p>The best single paper for the LLVM architecture.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/pubs/2003-09-30-LifelongOptimizationTR.pdf"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">LLVM: A compilation framework for lifelong program analysis &amp; transformation</span></span></a>
           </div>
         </article>
         <article class="resource-card">
           <h3>Clang Context</h3>
-          <p>A historical report on Clang becoming a practical C/C++ compiler in the LLVM ecosystem.</p>
+          <p>A short report on Clang's early maturity.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/pubs/2010-06-06-Clang-LLVM.pdf"><span class="resource-title-row"><span class="resource-type">Report</span><span class="resource-title">Clang/LLVM Maturity Report</span></span></a>
           </div>
         </article>
         <article class="resource-card">
           <h3>MLIR Context</h3>
-          <p>Start with the infrastructure paper, then use structured operations when moving into tensor compiler work.</p>
+          <p>Start with the infrastructure paper, then read Structured Operations for tensor work.</p>
           <div class="resource-list">
             <a class="resource-link" href="papers/paper.html?id=openalex-w3007772124"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">MLIR: A Compiler Infrastructure for the End of Moore's Law</span></span></a>
             <a class="resource-link" href="papers/paper.html?id=manual-structured-operations-2022"><span class="resource-title-row"><span class="resource-type">Paper</span><span class="resource-title">Structured Operations</span></span></a>
@@ -524,12 +524,12 @@
     <section class="mission-section" aria-labelledby="learn-reference-heading">
       <div class="mission-section-header">
         <h2 id="learn-reference-heading">Reference Shelf</h2>
-        <p>Keep these close while working through the routes above.</p>
+        <p>Useful links while you work.</p>
       </div>
       <div class="resource-grid">
         <article class="resource-card">
           <h3>Core Reference</h3>
-          <p>Background for understanding source layout, APIs, and terminology.</p>
+          <p>APIs, source layout, and LLVM IR.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://llvm.org/docs/ProgrammersManual.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Programmer's Manual</span></span><span class="resource-meta">Core APIs, source layout, and C++ conventions</span></a>
             <a class="resource-link" href="https://llvm.org/docs/LangRef.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">LLVM Language Reference Manual</span></span><span class="resource-meta">Reference for LLVM IR syntax and semantics</span></a>
@@ -537,15 +537,17 @@
         </article>
         <article class="resource-card">
           <h3>Ask for Help</h3>
-          <p>Use current channels when you are blocked or unsure where a question belongs.</p>
+          <p>Use these when you are blocked or unsure where to ask.</p>
           <div class="resource-list">
+            <a class="resource-link" href="https://discord.com/channels/636084430946959380/642374147640524831"><span class="resource-title-row"><span class="resource-type">Chat</span><span class="resource-title">LLVM Discord #beginners</span></span><span class="resource-meta">Direct channel for newcomer questions on the official LLVM Discord</span></a>
+            <a class="resource-link" href="https://discourse.llvm.org/c/beginners/17"><span class="resource-title-row"><span class="resource-type">Forum</span><span class="resource-title">LLVM Discourse Beginners</span></span><span class="resource-meta">Beginner questions and answers on Discourse</span></a>
             <a class="resource-link" href="community/"><span class="resource-title-row"><span class="resource-type">Community</span><span class="resource-title">Community channels</span></span><span class="resource-meta">Discourse, Discord, office hours, and calendar links</span></a>
             <a class="resource-link" href="https://llvm.org/docs/GettingInvolved.html"><span class="resource-title-row"><span class="resource-type">Docs</span><span class="resource-title">Getting Involved</span></span><span class="resource-meta">Official index for forums, Discord, office hours, and sync-ups</span></a>
           </div>
         </article>
         <article class="resource-card">
           <h3>Foundation Support</h3>
-          <p>Support programs for students, mentors, and community-building work.</p>
+          <p>Programs for students, mentors, and community work.</p>
           <div class="resource-list">
             <a class="resource-link" href="https://foundation.llvm.org/grants-scholarships"><span class="resource-title-row"><span class="resource-type">Program</span><span class="resource-title">Grants, scholarships, and mentorship</span></span><span class="resource-meta">LLVM Foundation support programs</span></a>
             <a class="resource-link" href="https://foundation.llvm.org/programs"><span class="resource-title-row"><span class="resource-type">Program</span><span class="resource-title">LLVM Foundation Programs</span></span><span class="resource-meta">Education, community health, infrastructure, diversity, and grants</span></a>

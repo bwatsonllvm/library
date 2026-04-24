@@ -5445,6 +5445,8 @@
   function parseUrlState(search, talks) {
     const params = parseQueryString(search);
     const meeting = isNonEmptyString(params.meeting) ? params.meeting.trim() : '';
+    const tag = isNonEmptyString(params.tag) ? params.tag.trim() : '';
+    const query = isNonEmptyString(params.q) ? params.q.trim() : tag;
     let meetingName = '';
     if (meeting) {
       const sample = Array.isArray(talks)
@@ -5454,7 +5456,7 @@
     }
 
     return {
-      query: isNonEmptyString(params.q) ? params.q.trim() : '',
+      query,
       speaker: isNonEmptyString(params.speaker) ? normalizeSpeakerName(params.speaker) : '',
       meeting,
       meetingName,
@@ -5581,6 +5583,8 @@
     'LLVM Foundation',
     'Community Building',
     'D&I',
+    'WiCT',
+    'Community.o',
     'Incubator',
     'MCP',
     'VPlan',
@@ -5721,6 +5725,13 @@
     foundationupdates: 'LLVM Foundation',
     communitybuilding: 'Community Building',
     diversityinclusion: 'D&I',
+    wict: 'WiCT',
+    wictmeetup: 'WiCT',
+    wictmeetups: 'WiCT',
+    womenincompilersandtools: 'WiCT',
+    communityo: 'Community.o',
+    communitydoto: 'Community.o',
+    'community-dot-o': 'Community.o',
     incubation: 'Incubator',
     incubator: 'Incubator',
     mcp: 'MCP',
@@ -5798,6 +5809,8 @@
     { topic: 'Swift', pattern: /\bswift\b/i },
     { topic: 'Quantum Computing', pattern: /\bquantum (?:computing|compiler|compilation)\b/i },
     { topic: 'LLVM Foundation', pattern: /\bllvm foundation\b|\bfoundation update(?:s)?\b/i },
+    { topic: 'WiCT', pattern: /\bwict\b|\bwomen in compilers and tools\b/i },
+    { topic: 'Community.o', pattern: /\bcommunity(?:\.|[- ]?dot[- ]?)?o\b/i },
     { topic: 'MCP', pattern: /\bmcp\b/i },
     { topic: 'VPlan', pattern: /\bvplan\b/i },
     { topic: 'Mojo', pattern: /\bmojo\b/i },

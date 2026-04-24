@@ -824,6 +824,11 @@ test('parseUrlState tolerates malformed URL encoding', () => {
   });
 });
 
+test('parseUrlState treats tag links as topic queries', () => {
+  const parsed = utils.parseUrlState('?tag=Community.o', []);
+  assert.equal(parsed.query, 'Community.o');
+});
+
 test('composeCrossTypeRelevance rewards strict top-ranked matches', () => {
   const strictTop = utils.composeCrossTypeRelevance(180, {
     kindTopScore: 180,
