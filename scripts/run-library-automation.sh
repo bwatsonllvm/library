@@ -258,7 +258,7 @@ run_prepare_pages() {
   run rm -rf _site
   run mkdir -p _site/papers _site/devmtg _site/api
   run cp index.html work.html _site/
-  run cp -R talks blogs people mlir sub-projects about updates css js images _site/
+  run cp -R talks blogs people learn community mlir sub-projects about updates css js images _site/
   run rm -f _site/js/data/youtube-view-counts.json
   run rsync -a --exclude '.cache/' papers/ _site/papers/
   run cp -R devmtg/events _site/devmtg/
@@ -268,6 +268,8 @@ run_prepare_pages() {
     log "YOUTUBE_API_KEY not set; skipping deployed YouTube view-count endpoint"
   fi
   run test -f _site/mlir/index.html
+  run test -f _site/learn/index.html
+  run test -f _site/community/index.html
   run test -f _site/mlir/talks/index.html
   run test -f _site/mlir/talks/talk.html
   run test -f _site/mlir/pubs/index.html
