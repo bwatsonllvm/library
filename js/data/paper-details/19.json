@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7125352923": {
@@ -344,10 +344,10 @@
           "runtimes"
         ],
         "id": "openalex-w7126001648",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -787,10 +787,10 @@
           "clang"
         ],
         "id": "openalex-w4416435943",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -2544,15 +2544,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "when compiler optimizations meet symbolic execution: an empirical study",
         "_authorLower": "yue zhang drexel university melih sirlanci the ohio state university ruoyu wang arizona state university zhiqiang lin the ohio state university",
         "_authorsLower": "yue zhang drexel university melih sirlanci the ohio state university ruoyu wang arizona state university zhiqiang lin the ohio state university",
@@ -2929,7 +2929,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "when compiler optimizations meet symbolic execution an empirical study compiler optimizations intend to transform a program into a semantic-equivalent one with improved performance but it is unclear how these optimizations may impact the performance of dynamic symbolic execution dse on binary code. to systematically understand the impact of compiler optimizations on two popular dse techniques i.e. symbolic exploration and symbolic tracing this paper presents an empirical study that quantifies 209 gcc compilation flags and 73 clang compilation flags to reveal both positive and negative optimizations to dse. our data set contains 992 unique test cases which are produced from 3 449 source files in the gcc test suite. after analyzing 2 978 976 binary programs that we compiled with two compilers and various compilation flags we found that although some optimizations make dse faster most optimizations will actually slow down dse. our analysis further reveals root causes behind these impacts. the most positive impacts that optimizations have on dse come from the reduction of the number of instructions and program paths whereas negative impacts are caused by a series of unexpected behaviors including increased numbers of instructions or program paths library function inlining preventing dse engines from using function summaries and arithmetic optimizations leading to more sophisticated constraints. being the first in-depth analysis on why compiler flags influence the performance of dse this project sheds light on program transformations that can be applied before performing dse tasks for better performance. proceedings of 2024 on acm sigsac conference on computer and communications security proceedings of 2024 on acm sigsac conference on computer and communications security 2024 research-paper yue zhang drexel university melih sirlanci the ohio state university ruoyu wang arizona state university zhiqiang lin the ohio state university clang optimizations dynamic analysis security performance clang optimizations dynamic analysis security performance symbolic execution compiler optimizations meet meet symbolic execution compilation flags impacts program paths binary gcc optimizations meet symbolic clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -3018,16 +3018,16 @@
           "openmp"
         ],
         "id": "openalex-w4391251949",
-        "citationCount": 9,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 0,
         "_titleLower": "time-predictable task-to-thread mapping in multi-core processors",
         "_authorLower": "mohammad samadi gharajeh inesc tec sara royuela barcelona supercomputing center luís miguel pinho inesc tec tiago carvalho inesc tec eduardo quiñones barcelona supercomputing center",
         "_authorsLower": "mohammad samadi gharajeh inesc tec sara royuela barcelona supercomputing center luís miguel pinho inesc tec tiago carvalho inesc tec eduardo quiñones barcelona supercomputing center",
@@ -3456,7 +3456,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 9
+          "citationCount": 0
         },
         "_searchBlob": "time-predictable task-to-thread mapping in multi-core processors the performance of time-predictable systems can be improved in multi-core processors using parallel programming models e.g. openmp . however schedulability analysis of parallel applications is a big challenge due to their sophisticated structure. the common drawbacks of current task-to-thread mapping approaches in openmp are that they i utilize a global queue in the mapping process which may increase contention ii do not apply heuristic techniques which may reduce the predictability and performance of the system and iii use basic analytical techniques which may cause notable pessimism in the temporal conditions. accordingly this paper proposes a task-to-thread mapping method in multi-core processors based on the openmp framework. the mapping process is carried out through two phases allocation and dispatching. each thread has an allocation queue in order to minimize contention and the allocation and dispatching processes are performed using several heuristic algorithms to enhance predictability. in the allocation phase each task-part from the openmp dag is allocated to one of the allocation queues which includes both sibling and child task-parts. a suitable thread i.e. allocation queue is selected using one of the suggested heuristic allocation algorithms. in the dispatching phase when a thread is idle a task-part is selected from its allocation queue using one of the suggested heuristic dispatching algorithms and then dispatched to and executed by the thread. the performance of the proposed method is evaluated under different conditions e.g. varying the number of tasks and the number of threads in terms of application response time and overhead of the mapping process. the simulation results show that the proposed method surpasses the other methods especially in the scenario that includes overhead of the mapping. in addition a prototype implementation of the main heuristics is evaluated using two kernels from real-world applications showing that the methods work better than llvms default scheduler in most of the configurations. journal of systems architecture journal of systems architecture vol. 148 2024 research-paper mohammad samadi gharajeh inesc tec sara royuela barcelona supercomputing center luis miguel pinho inesc tec tiago carvalho inesc tec eduardo quinones barcelona supercomputing center llvm openmp performance llvm openmp performance parallel computing allocation queue thread mapping multi core processors mapping process suggested heuristic task part predictable task llvm openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -3541,10 +3541,10 @@
           "openmp"
         ],
         "id": "openalex-w4405387400",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -3810,9 +3810,9 @@
         ],
         "openalexId": "https://openalex.org/W4405305725",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/nas63802.2024.10781373",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4199,7 +4199,7 @@
         "sourceUrl": "https://doi.org/10.3390/mca29050085",
         "tags": [],
         "openalexId": "https://openalex.org/W4402861657",
-        "citationCount": 2,
+        "citationCount": 1,
         "doi": "10.3390/mca29050085",
         "publishedDate": "",
         "contentFormat": "",
@@ -4211,7 +4211,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "latent space perspicacity and interpretation enhancement (ls-pie) framework",
         "_authorLower": "jesse stevens university of pretoria daniël n. wilke university of pretoria isaac i. setshedi university of pretoria",
         "_authorsLower": "jesse stevens university of pretoria daniël n. wilke university of pretoria isaac i. setshedi university of pretoria",
@@ -4589,7 +4589,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "latent space perspicacity and interpretation enhancement ls-pie framework linear latent variable models such as principal component analysis pca independent component analysis ica canonical correlation analysis cca and factor analysis fa identify latent directions or loadings either ordered or unordered. these data are then projected onto the latent directions to obtain their projected representations or scores . for example pca solvers usually rank principal directions by explaining the most variance to the least variance. in contrast ica solvers usually return independent directions unordered and often with single sources spread across multiple directions as multiple sub-sources severely diminishing their usability and interpretability. this paper proposes a general framework to enhance latent space representations to improve the interpretability of linear latent spaces. although the concepts in this paper are programming language agnostic the framework is written in python. this framework simplifies the process of clustering and ranking of latent vectors to enhance latent information per latent vector and the interpretation of latent vectors. several innovative enhancements are incorporated including latent ranking lr latent scaling ls latent clustering lc and latent condensing lcon . lr ranks latent directions according to a specified scalar metric. ls scales latent directions according to a specified metric. lc automatically clusters latent directions into a specified number of clusters. lastly lcon automatically determines the appropriate number of clusters to condense the latent directions for a given metric to enable optimal latent discovery. additional functionality of the framework includes single-channel and multi-channel data sources and data pre-processing strategies such as hankelisation to seamlessly expand the applicability of linear latent variable models llvms to a wider variety of data. the effectiveness of lr ls lc and lcon is shown in two foundational problems crafted with two applied latent variable models namely pca and ica. mathematical and computational applications mathematical and computational applications vol. 29 issue 5 2024 research-paper jesse stevens university of pretoria daniel n. wilke university of pretoria isaac i. setshedi university of pretoria",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4629,9 +4629,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4403331764",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1016/j.jss.2024.112236",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -5629,7 +5629,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4399850836",
-        "citationCount": 19,
+        "citationCount": 16,
         "doi": "10.1145/3656386",
         "publishedDate": "",
         "contentFormat": "",
@@ -5643,7 +5643,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 16,
         "_titleLower": "boosting compiler testing by injecting real-world code",
         "_authorLower": "shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich",
         "_authorsLower": "shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich",
@@ -5978,7 +5978,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 19
+          "citationCount": 16
         },
         "_searchBlob": "boosting compiler testing by injecting real-world code we introduce a novel approach for testing optimizing compilers with code from real-world applications the main idea is to construct well-formed programs by fusing multiple code snippets from various realworld projects. the key insight is backed by the fact that the large volume of real-world code exercises rich syntactical and semantic language features which current engineering-intensive approaches like random program generators are hard to fully support. to construct well-formed programs from real-world code our approach works by 1 extracting real-world code at the granularity of function 2 injecting function calls into seed programs and 3 leveraging dynamic execution information to maintain the semantics and build complex data dependencies between injected functions and the seed program. with this idea our approach complements the existing generators by boosting their expressiveness via fusing real-world code in a semantics-preserving way. we implement our idea in a tool creal to test c compilers. in a nine-month testing period we have reported 132 bugs to gcc and llvm two of the most popular and well-tested c compilers. at the time of writing 121 of them have been confirmed as unknown bugs and 101 of them have been fixed. most of these bugs were miscompilations and many were recognized as long-latent and critical. our evaluation results evidently demonstrate the significant advantage of using real-world code to stress-test compilers. we believe this idea will benefit the general compiler testing direction and will be directly applicable to other compilers. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue pldi 2024 research-paper shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich testing testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6024,8 +6024,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of 2024 ACM/IEEE 44th International Conference on Software Engineering:New Ideas and Emerging Results",
-        "venue": "Proceedings of 2024 ACM/IEEE 44th International Conference on Software Engineering:New Ideas and Emerging Results",
+        "publication": "Proceedings of 2024 ACM/IEEE 44th International Conference on Software Engineering: New Ideas and Emerging Results",
+        "venue": "Proceedings of 2024 ACM/IEEE 44th International Conference on Software Engineering: New Ideas and Emerging Results",
         "type": "research-paper",
         "abstract": "Dead Code Elimination (DCE) is a fundamental compiler optimization technique that removes dead code (e.g., unreachable or reachable but whose results are unused) in the program to produce smaller or faster executables. However, since compiler optimizations are typically aggressively performed and there are complex relationships/interplay among a vast number of compiler optimizations (including DCE), it is not known whether DCE is indeed correctly performed and will only delete dead code in practice. In this study, we open a new research problem to investigate: can DCE happen to erroneously delete live code? To tackle this problem, we design a new approach named Xdead, which leverages differential testing, static binary analysis, and dynamic symbolic execution techniques, to detect miscompilation bugs caused by the erroneously deleted live code. Preliminary evaluation shows that Xdead can identify many divergent portions indicating erroneously deleted live code and finally detect two such miscompilation bugs in LLVM compilers. Our findings call for more attention to the potential issues in existing DCE implementations and more conservative strategies when designing new DCE-related compiler optimizations.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3639476.3639763",
@@ -6059,8 +6059,8 @@
         "_keywordsLower": "optimizations testing",
         "_topicsLower": "optimizations testing optimizations testing",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 2024 acm/ieee 44th international conference on software engineering:new ideas and emerging results",
-        "_venueLower": "proceedings of 2024 acm/ieee 44th international conference on software engineering:new ideas and emerging results",
+        "_publicationLower": "proceedings of 2024 acm/ieee 44th international conference on software engineering: new ideas and emerging results",
+        "_venueLower": "proceedings of 2024 acm/ieee 44th international conference on software engineering: new ideas and emerging results",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -6406,8 +6406,8 @@
           }
         ],
         "year": "2024",
-        "publication": "SC24-W:Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
-        "venue": "SC24-W:Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "publication": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "venue": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
         "type": "research-paper",
         "abstract": "In modern HPC systems, performance measurements are often disturbed by noise. Because repeating measurements to increase confidence in their results is costly, alternative noise-resilient techniques are desirable. Therefore, we implement a logical clock, which does not rely on real-time measurements, in Score-P. We explore several methods to model computational work with the clock increment, counting OpenMP loop iterations, LLVM basic blocks/statements, or hardware counters. We demonstrate the strengths and weaknesses of using logical time stamps in a trace analysis workflow with Score-P and Scalasca, by evaluating the performance problems we can find in three MPI+OpenMP mini-apps. By design, logical measurements reliably show algorithmic issues, such as load imbalance, but cannot capture external aspects of program execution, for example memory contention. In summary, logical-time based measurements are a specialized but valuable addition to the performance analyst’s toolbox.",
         "paperUrl": "https://doi.org/10.1109/scw63240.2024.00192",
@@ -6416,9 +6416,9 @@
         ],
         "openalexId": "https://openalex.org/W4406164231",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/scw63240.2024.00192",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6439,8 +6439,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "sc24-w:workshops of the international conference for high performance computing, networking, storage and analysis",
-        "_venueLower": "sc24-w:workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_publicationLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_venueLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -6727,9 +6727,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4386276704",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-40744-4_15",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6954,15 +6954,15 @@
           "mlir"
         ],
         "id": "openalex-w4390280319",
-        "citationCount": 5,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 0,
         "_titleLower": "mlirsynth: automatic, retargetable program raising in multi-level ir using program synthesis",
         "_authorLower": "alexander brauckmann university of edinburgh elizabeth polgreen university of edinburgh tobias grosser university of edinburgh michael o’boyle university of edinburgh",
         "_authorsLower": "alexander brauckmann university of edinburgh elizabeth polgreen university of edinburgh tobias grosser university of edinburgh michael o’boyle university of edinburgh",
@@ -7284,7 +7284,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 5
+          "citationCount": 0
         },
         "_searchBlob": "mlirsynth automatic retargetable program raising in multi-level ir using program synthesis mlir is an emerging compiler infrastructure for modern hardware but existing programs cannot take advantage of mlirs high-performance compilation if they are described in lower-level general purpose languages. consequently to avoid programs needing to be rewritten manually this has led to efforts to automatically raise lower-level to higher-level dialects in mlir. however current methods rely on manually-defined raising rules which limit their applicability and make them challenging to maintain as mlir dialects evolve. we present mlirsynth - a novel approach which translates programs from lower-level mlir dialects to high-level ones without manually defined rules. instead it uses available dialect definitions to construct a program space and searches it effectively using type constraints and equivalences. we demonstrate its effectiveness by raising c programs to two distinct high-level mlir dialects which enables us to use existing high-level dialect specific compilation flows. on polybench we show a greater coverage than previous approaches resulting in geomean speedups of 2.5x intel and 3.4x amd over state-of-the-art compilation flows for the c programming language. mlirsynth also enables retargetability to domain-specific accelerators resulting in a geomean speedup of 21.6x on a tpu. 2023 32nd international conference on parallel architectures and compilation techniques pact 2023 32nd international conference on parallel architectures and compilation techniques pact 2023 research-paper alexander brauckmann university of edinburgh elizabeth polgreen university of edinburgh tobias grosser university of edinburgh michael oboyle university of edinburgh mlir ir performance infrastructure programming languages mlir performance infrastructure programming languages program synthesis mlir dialects mlirsynth automatic retargetable compilation flows manually defined retargetable program raising mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7334,11 +7334,11 @@
           "mlir"
         ],
         "id": "openalex-w4417133035",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -7543,10 +7543,10 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4320341428",
-        "citationCount": 5,
+        "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1016/j.cose.2023.103104",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7559,7 +7559,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 2,
         "_titleLower": "improving monolithic kernel security and robustness through intra-kernel sandboxing",
         "_authorLower": "bojan novković university of zagreb marin golub university of zagreb",
         "_authorsLower": "bojan novković university of zagreb marin golub university of zagreb",
@@ -7844,7 +7844,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 5
+          "citationCount": 2
         },
         "_searchBlob": "improving monolithic kernel security and robustness through intra-kernel sandboxing the structure of commodity operating systems kernels remains largely unchanged despite radical changes in underlying hardware and security risks. existing research has managed to increase overall monolithic kernel security using various defense mechanisms such as kernel control-flow integrity and through the use of active vulnerability discovery techniques such as system call fuzzing. however these mitigation mechanisms often focus on a class of vulnerabilities while failing to address the broader underlying architectural issues which amplify the impact of these issues. this paper presents a novel architectural approach that aims to increase the robustness and security of monolithic operating system kernels. we propose an operating system model which focuses on strict decomposition and runtime separation between individual monolithic kernel subsystems through separate execution contexts. we propose a novel smp-capable nested kernel architecture that enforces separation policies in an effective efficient and mechanism-agnostic manner complemented by a special compiler pass and a domain-specific language that provides a handy and intuitive way of specifying separation policies and automating their integration. we implement a prototype system based on the freebsd operating system and the clang llvm compiler. we run a series of intense benchmarks to evaluate our model and separation mechanisms. computers and security computers and security vol. 127 2023 research-paper bojan novkovic university of zagreb marin golub university of zagreb clang security clang security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7933,15 +7933,15 @@
           "libsycl"
         ],
         "id": "openalex-w4309467950",
-        "citationCount": 4,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 0,
         "_titleLower": "user-driven online kernel fusion for sycl",
         "_authorLower": "víctor pérez codeplay lukáš sommer codeplay victor lomüller codeplay kumudha narasimhan codeplay mehdi goli codeplay",
         "_authorsLower": "víctor pérez codeplay lukáš sommer codeplay victor lomüller codeplay kumudha narasimhan codeplay mehdi goli codeplay",
@@ -8351,7 +8351,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 4
+          "citationCount": 0
         },
         "_searchBlob": "user-driven online kernel fusion for sycl heterogeneous programming models are becoming increasingly popular to support the ever-evolving hardware architectures especially for new and emerging specialized accelerators optimizing specific tasks. while such programs provide performance portability of the existing applications across various heterogeneous architectures to some extent short-running device kernels can affect an application performance due to overheads of data transfer synchronization and kernel launch. while in applications with one or two short-running kernels the overhead can be negligible it can be noticeable when these short-running kernels dominate the overall number of kernels in an application as it is the case in graph-based neural network models where there are several small memory-bound nodes alongside few large compute-bound nodes. to reduce the overhead combining several kernels into a single more optimized kernel is an active area of research. however this task can be time-consuming and error-prone given the huge set of potential combinations. this can push programmers to seek a tradeoff between a task-specific kernels with low overhead but hard to maintain and b smaller modular kernels with higher overhead but easier to maintain. while there are dsl-based approaches such as those provided for machine learning frameworks which offer the possibility of such a fusion they are limited to a particular domain and exploit specific knowledge of that domain and as a consequence are hard to port elsewhere. this study explores the feasibility of a user-driven kernel fusion through an extension to the sycl api to address the automation of kernel fusion. the proposed solution requires programmers to define the subgraph regions that are potentially suitable for fusion without any modification to the kernel code or the function signature. we evaluate the performance benefit of our approach on common neural networks and study the performance improvement in detail. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 20 issue 2 2022 research-paper victor perez codeplay lukas sommer codeplay victor lomuller codeplay kumudha narasimhan codeplay mehdi goli codeplay optimizations performance ml optimizations performance ml kernels online kernel fusion short running kernels overhead user driven online specific bound nodes driven online kernel libsycl",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -8850,15 +8850,15 @@
           "mlir"
         ],
         "id": "openalex-w4309468401",
-        "citationCount": 11,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 0,
         "_titleLower": "source matching and rewriting for mlir using string-based automata",
         "_authorLower": "vinícius couto espindola universidade estadual de campinas luciano zago universidade estadual de campinas hervé yviquel universidade estadual de campinas guido araújo universidade estadual de campinas",
         "_authorsLower": "vinícius couto espindola universidade estadual de campinas luciano zago universidade estadual de campinas hervé yviquel universidade estadual de campinas guido araújo universidade estadual de campinas",
@@ -9199,7 +9199,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 11
+          "citationCount": 0
         },
         "_searchBlob": "source matching and rewriting for mlir using string-based automata a typical compiler flow relies on a uni-directional sequence of translation optimization steps that lower the program abstract representation making it hard to preserve higher-level program information across each transformation step. on the other hand modern isa extensions and hardware accelerators can benefit from the compilers ability to detect and raise program idioms to acceleration instructions or optimized library calls. although recent works based on multi-level ir mlir have been proposed for code raising they rely on specialized languages compiler recompilation or in-depth dialect knowledge. this article presents source matching and rewriting smr a user-oriented source-code-based approach for mlir idiom matching and rewriting that does not require a compiler experts intervention. smr uses a two-phase automaton-based dag-matching algorithm inspired by early work on tree-pattern matching. first the idiom control-dependency graph cdg is matched against the programs cdg to rule out code fragments that do not have a control-flow structure similar to the desired idiom. second candidate code fragments from the previous phase have their data-dependency graphs ddgs constructed and matched against the idiom ddg. experimental results show that smr can effectively match idioms from fortran fir and c cil programs while raising them as blas calls to improve performance. additional experiments also show performance improvements when using smr to enable code replacement in areas like approximate computing and hardware acceleration. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 20 issue 2 2022 research-paper vinicius couto espindola universidade estadual de campinas luciano zago universidade estadual de campinas herve yviquel universidade estadual de campinas guido araujo universidade estadual de campinas mlir ir optimizations performance mlir optimizations performance matched against hardware mlir",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -9246,9 +9246,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3157213858",
         "citationCount": 8,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-99766-3_5",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -9670,9 +9670,9 @@
         ],
         "openalexId": "https://openalex.org/W3135440348",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/iceic51217.2021.9369763",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10014,9 +10014,9 @@
         ],
         "openalexId": "https://openalex.org/W4200036408",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.1109/correctness54621.2021.00009",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10438,10 +10438,10 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
@@ -10777,7 +10777,7 @@
           "Frontend"
         ],
         "openalexId": "https://openalex.org/W3137473159",
-        "citationCount": 15,
+        "citationCount": 14,
         "doi": "10.1007/978-3-030-72013-1_27",
         "publishedDate": "",
         "contentFormat": "",
@@ -10792,7 +10792,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 15,
+        "_citationCount": 14,
         "_titleLower": "gazer-theta: llvm-based verifier portfolio with bmc/cegar (competition contribution)",
         "_authorLower": "zsófia ádám budapest university of technology and economics gyula sallai ákos hajdu budapest university of technology and economics",
         "_authorsLower": "zsófia ádám budapest university of technology and economics gyula sallai ákos hajdu budapest university of technology and economics",
@@ -10964,7 +10964,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 15
+          "citationCount": 14
         },
         "_searchBlob": "gazer-theta llvm-based verifier portfolio with bmc cegar competition contribution abstract gazer-theta is a software model checking toolchain including various analyses for state reachability. the frontend namely gazer supports c programs through an llvm-based transformation and optimization pipeline. gazer includes an integrated bounded model checker bmc and can also employ the theta backend a generic verification framework based on abstraction-refinement cegar . on sv-comp 2021 a portfolio of bmc explicit-value analysis and predicate abstraction is applied sequentially in this order. lecture notes in computer science lecture notes in computer science 2021 research-paper zsofia adam budapest university of technology and economics gyula sallai akos hajdu budapest university of technology and economics backend frontend backend frontend",
         "addedAt": "2026-02-21T04:59:26.000Z",
@@ -11063,15 +11063,15 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 5,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 0,
         "_titleLower": "neurovectorizer: end-to-end vectorization with deep reinforcement learning",
         "_authorLower": "ameer haj-ali university of california, berkeley nesreen k. ahmed intel ted willke intel sophia shao university of california, berkeley krste asanović university of california, berkeley ion stoica university of california, berkeley",
         "_authorsLower": "ameer haj-ali university of california, berkeley nesreen k. ahmed intel ted willke intel sophia shao university of california, berkeley krste asanović university of california, berkeley ion stoica university of california, berkeley",
@@ -11498,7 +11498,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 5
+          "citationCount": 0
         },
         "_searchBlob": "neurovectorizer end-to-end vectorization with deep reinforcement learning one of the key challenges arising when compilers vectorize loops for todays simd-compatible architectures is to decide if vectorization or interleaving is beneficial. then the compiler has to determine how many instructions to pack together and how many loop iterations to interleave. compilers are designed today to use fixed-cost models that are based on heuristics to make vectorization decisions on loops. however these models are unable to capture the data dependency the computation graph or the organization of instructions. alternatively software engineers often hand-write the vectorization factors of every loop. this however places a huge burden on them since it requires prior experience and significantly increases the development time. in this work we explore a novel approach for handling loop vectorization and propose an end-to-end solution using deep reinforcement learning rl . we conjecture that deep rl can capture different instructions dependencies and data structures to enable learning a sophisticated model that can better predict the actual performance cost and determine the optimal vectorization factors. we develop an end-to-end framework from code to vectorization that integrates deep rl in the llvm compiler. our proposed framework takes benchmark codes as input and extracts the loop codes. these loop codes are then fed to a loop embedding generator that learns an embedding for these loops. finally the learned embeddings are used as input to a deep rl agent which determines the vectorization factors for all the loops. we further extend our framework to support multiple supervised learning methods. we evaluate our approaches against the currently used llvm vectorizer and loop polyhedral optimization techniques. our experiments show 1.29x-4.73x performance speedup compared to baseline and only 3 worse than the brute-force search on a wide range of benchmarks. proceedings of 18th acm ieee international symposium on code generation and optimization proceedings of 18th acm ieee international symposium on code generation and optimization 2020 research-paper ameer haj-ali university of california berkeley nesreen k. ahmed intel ted willke intel sophia shao university of california berkeley krste asanovic university of california berkeley ion stoica university of california berkeley llvm backend code generation optimizations autovectorization performance llvm backend code generation optimizations autovectorization performance simd vectorization factors deep reinforcement learning loop codes llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -11580,9 +11580,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3108007789",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-61078-4_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12035,8 +12035,8 @@
           }
         ],
         "year": "2019",
-        "publication": "Proceedings of Rapid Simulation and Performance Evaluation:Methods and Tools",
-        "venue": "Proceedings of Rapid Simulation and Performance Evaluation:Methods and Tools",
+        "publication": "Proceedings of Rapid Simulation and Performance Evaluation: Methods and Tools",
+        "venue": "Proceedings of Rapid Simulation and Performance Evaluation: Methods and Tools",
         "type": "research-paper",
         "abstract": "In many of today's products the embedded software is designed and tested in a model based environment. With the help of code generation techniques, a part of the model can be cross-compiled and integrated on the processor of the final product. While testing and debugging of the input model is usually well supported, debugging of the generated code for the target processor together with its run-time environment is more difficult, because traceability between the generated code and the input model is lost or has to be manually reconstructed. This paper focuses on providing traceability of automatically generated source code to model elements. Our proposed approach extends LLDB with model related debug information to become aware of the original input model. We demonstrate the correct functionality of our approach by running the model-related LLDB commands for two Stateflow models with generated source code in C and C++ respectively. The concept presented here is not limited to Stateflow models, but can be applicable to other models where source code is automatically generated with source-to-model traceability tags.",
         "paperUrl": "https://doi.org/10.1145/3300189.3300190",
@@ -12073,11 +12073,11 @@
           "lldb"
         ],
         "id": "openalex-w2947865796",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
@@ -12091,8 +12091,8 @@
         "_keywordsLower": "lldb backend code generation debug information testing performance embedded stateflow traceability automatically generated aware debugging",
         "_topicsLower": "lldb backend code generation debug information testing performance embedded lldb backend code generation debug information testing performance embedded stateflow traceability automatically generated aware debugging lldb",
         "_contentLower": "",
-        "_publicationLower": "proceedings of rapid simulation and performance evaluation:methods and tools",
-        "_venueLower": "proceedings of rapid simulation and performance evaluation:methods and tools",
+        "_publicationLower": "proceedings of rapid simulation and performance evaluation: methods and tools",
+        "_venueLower": "proceedings of rapid simulation and performance evaluation: methods and tools",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2019",
@@ -12429,9 +12429,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2923932799",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-11333-9_8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12966,9 +12966,9 @@
         ],
         "openalexId": "https://openalex.org/W2798404616",
         "citationCount": 27,
+        "sourceUrl": "",
         "doi": "10.1145/3192366.3192413",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13318,10 +13318,10 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W2963047853",
-        "citationCount": 99,
+        "citationCount": 98,
+        "sourceUrl": "",
         "doi": "10.1145/3213846.3213851",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13335,7 +13335,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 99,
+        "_citationCount": 98,
         "_titleLower": "eliminating timing side-channel leaks using program repair",
         "_authorLower": "meng wu virginia tech shengjian guo virginia tech patrick schaumont virginia tech chao wang university of southern california",
         "_authorsLower": "meng wu virginia tech shengjian guo virginia tech patrick schaumont virginia tech chao wang university of southern california",
@@ -13613,7 +13613,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 99
+          "citationCount": 98
         },
         "_searchBlob": "eliminating timing side-channel leaks using program repair we propose a method based on program analysis and transformation for eliminating timing side channels in software code that implements security-critical applications. our method takes as input the original program together with a list of secret variables e.g. cryptographic keys security tokens or passwords and returns the transformed program as output. the transformed program is guaranteed to be functionally equivalent to the original program and free of both instruction- and cache-timing side channels. specifically we ensure that the number of cpu cycles taken to execute any path is independent of the secret data and the cache behavior of memory accesses in terms of hits and misses is independent of the secret data. we have implemented our method in llvm and validated its effectiveness on a large set of applications which are cryptographic libraries with 19 708 lines of c c++ code in total. our experiments show the method is both scalable for real applications and effective in eliminating timing side channels. proceedings of 27th acm sigsoft international symposium on software testing and analysis proceedings of 27th acm sigsoft international symposium on software testing and analysis 2018 research-paper meng wu virginia tech shengjian guo virginia tech patrick schaumont virginia tech chao wang university of southern california c++ libraries security c++ libraries security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13750,9 +13750,9 @@
         ],
         "openalexId": "https://openalex.org/W2765674446",
         "citationCount": 16,
+        "sourceUrl": "",
         "doi": "10.1145/3148173.3148191",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14122,9 +14122,9 @@
         ],
         "openalexId": "https://openalex.org/W2527940972",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1016/j.entcs.2016.09.003",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14378,9 +14378,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2517358422",
         "citationCount": 41,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-45871-7_20",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -14559,8 +14559,8 @@
         ],
         "openalexId": "https://openalex.org/W2587890125",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15640,9 +15640,9 @@
         ],
         "openalexId": "https://openalex.org/W2257976607",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.15514/ispras-2015-27(2)-4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15944,9 +15944,9 @@
         ],
         "openalexId": "https://openalex.org/W1994790794",
         "citationCount": 60,
+        "sourceUrl": "",
         "doi": "10.1109/micro.2014.21",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18388,8 +18388,8 @@
           }
         ],
         "year": "2014",
-        "publication": "2014 21st Asia-Pacific Software Engineering Conference",
-        "venue": "2014 21st Asia-Pacific Software Engineering Conference",
+        "publication": "2014 21st Asia",
+        "venue": "2014 21st Asia",
         "type": "research-paper",
         "abstract": "Recently, concolic testing has drawn a lot of attention from the research community as a practical solution of overcoming limitations of manual test case generation. CONBOL, a concolic testing framework for large-scale embedded industrial software, has shown effectiveness of discovering real defects even for commercial quality software. In this paper, we extend CONBOL to be applicable to a project written in C++. Front-end of CONBOL is re-implemented based on LLVM and concolic engine is also modified. We design an enhanced DFS search strategy to enlarge search space when there an infinite loop exists in the execution path or control flow is too complex to be traversed. After applying to real world project, we prove that enhanced search strategy is better to increase test coverage. Finally, we investigate reasons of segmentation faults during concolic execution and suggest several heuristics to decrease segmentation faults.",
         "paperUrl": "https://doi.org/10.1109/apsec.2014.82",
@@ -18400,9 +18400,9 @@
         ],
         "openalexId": "https://openalex.org/W2059476514",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1109/apsec.2014.82",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18425,8 +18425,8 @@
         "_keywordsLower": "c++ embedded testing",
         "_topicsLower": "c++ embedded testing c++ embedded testing",
         "_contentLower": "",
-        "_publicationLower": "2014 21st asia-pacific software engineering conference",
-        "_venueLower": "2014 21st asia-pacific software engineering conference",
+        "_publicationLower": "2014 21st asia",
+        "_venueLower": "2014 21st asia",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2014",
@@ -18628,25 +18628,19 @@
               "words": []
             },
             "publication": {
-              "text": "2014 21st asia-pacific software engineering conference",
+              "text": "2014 21st asia",
               "words": [
                 "2014",
                 "21st",
-                "asia-pacific",
-                "software",
-                "engineering",
-                "conference"
+                "asia"
               ]
             },
             "venue": {
-              "text": "2014 21st asia-pacific software engineering conference",
+              "text": "2014 21st asia",
               "words": [
                 "2014",
                 "21st",
-                "asia-pacific",
-                "software",
-                "engineering",
-                "conference"
+                "asia"
               ]
             },
             "year": {
@@ -18659,7 +18653,7 @@
           "year": 2014,
           "citationCount": 6
         },
-        "_searchBlob": "concolic testing framework for industrial embedded software recently concolic testing has drawn a lot of attention from the research community as a practical solution of overcoming limitations of manual test case generation. conbol a concolic testing framework for large-scale embedded industrial software has shown effectiveness of discovering real defects even for commercial quality software. in this paper we extend conbol to be applicable to a project written in c++. front-end of conbol is re-implemented based on llvm and concolic engine is also modified. we design an enhanced dfs search strategy to enlarge search space when there an infinite loop exists in the execution path or control flow is too complex to be traversed. after applying to real world project we prove that enhanced search strategy is better to increase test coverage. finally we investigate reasons of segmentation faults during concolic execution and suggest several heuristics to decrease segmentation faults. 2014 21st asia-pacific software engineering conference 2014 21st asia-pacific software engineering conference 2014 research-paper taeksu kim samsung jonghyun park samsung igor kulida samsung yoonkyu jang samsung c++ embedded testing c++ embedded testing",
+        "_searchBlob": "concolic testing framework for industrial embedded software recently concolic testing has drawn a lot of attention from the research community as a practical solution of overcoming limitations of manual test case generation. conbol a concolic testing framework for large-scale embedded industrial software has shown effectiveness of discovering real defects even for commercial quality software. in this paper we extend conbol to be applicable to a project written in c++. front-end of conbol is re-implemented based on llvm and concolic engine is also modified. we design an enhanced dfs search strategy to enlarge search space when there an infinite loop exists in the execution path or control flow is too complex to be traversed. after applying to real world project we prove that enhanced search strategy is better to increase test coverage. finally we investigate reasons of segmentation faults during concolic execution and suggest several heuristics to decrease segmentation faults. 2014 21st asia 2014 21st asia 2014 research-paper taeksu kim samsung jonghyun park samsung igor kulida samsung yoonkyu jang samsung c++ embedded testing c++ embedded testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -18693,9 +18687,9 @@
         ],
         "openalexId": "https://openalex.org/W4235857908",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-1-4302-5906-0_12",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19135,12 +19129,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of eighteenth international conference on Architectural support for programming languages and operating systems",
         "openalexId": "https://openalex.org/W2101785823",
-        "doi": "10.1145/2451116.2451121",
-        "citationCount": 41,
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1145/2451116.2451121",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -19148,7 +19142,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 41,
+        "_citationCount": 0,
         "_titleLower": "cooperative empirical failure avoidance for multithreaded programs",
         "_authorLower": "brandon lucia university of washington luís ceze university of washington",
         "_authorsLower": "brandon lucia university of washington luís ceze university of washington",
@@ -19389,7 +19383,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 41
+          "citationCount": 0
         },
         "_searchBlob": "cooperative empirical failure avoidance for multithreaded programs concurrency errors in multithreaded programs are difficult to find and fix. we propose aviso a system for avoiding schedule-dependent failures. aviso monitors events during a programs execution and when a failure occurs records a history of events from the failing execution. it uses this history to generate schedule constraints that perturb the order of events in the execution and thereby avoids schedules that lead to failures in future program executions. aviso leverages scenarios where many instances of the same software run using a statistical model of program behavior and experimentation to determine which constraints most effectively avoid failures. after implementing aviso we showed that it decreased failure rates for a variety of important desktop server and cloud applications by orders of magnitude with an average overhead of less than 20 and in some cases as low as 5 . proceedings of eighteenth international conference on architectural support for programming languages and operating systems proceedings of eighteenth international conference on architectural support for programming languages and operating systems 2013 research-paper brandon lucia university of washington luis ceze university of washington",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -19429,9 +19423,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W75461624",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-03107-1_79",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -19619,8 +19613,8 @@
           }
         ],
         "year": "2012",
-        "publication": "http://people.cs.umass.edu/~emery/pubs/Stabilizer-UMass-CS-TR-2012-012.pdf",
-        "venue": "http://people.cs.umass.edu/~emery/pubs/Stabilizer-UMass-CS-TR-2012-012.pdf",
+        "publication": "",
+        "venue": "",
         "type": "research-paper",
         "abstract": "Modern architectures have made program behavior brittle and unpredictable, making software performance highly dependent on its execution environment. Even apparently innocuous changes, such as changing the size of an unused environment variable, can—by altering memory layout and alignment—alter performance by 33 % to 300%. This unpredictability makes it difficult for programmers to debug or understand application performance. It also greatly complicates the evaluation of performance optimizations, since slight changes in the execution environment can have a greater impact on performance than a typical optimization. We present STABILIZER, a compiler and runtime system that enables statistically rigorous performance evaluation. STABILIZER eliminates measurement bias by comprehensively and repeatedly randomizing the placement of functions, stack frames, and heap objects in memory. Random placement makes anomalous layouts unlikely and independent of the environment, and re-randomization ensures they are shortlived when they do occur. We demonstrate that applications compiled with STABILIZER deliver normally-distributed execution times, enabling the use of standard statistical tools for hypothesis testing. We demonstrate its use by testing the effectiveness of standard optimizations used in the LLVM compiler; we find that, across the SPEC CPU2000 and CPU2006 benchmark suites, the effect of the-O3 optimization level versus-O2 is indistinguishable from noise. 1.",
         "paperUrl": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.363.2788",
@@ -19631,8 +19625,8 @@
         ],
         "openalexId": "https://openalex.org/W2186284206",
         "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19656,8 +19650,8 @@
         "_keywordsLower": "optimizations performance testing",
         "_topicsLower": "optimizations performance testing optimizations performance testing",
         "_contentLower": "",
-        "_publicationLower": "http://people.cs.umass.edu/~emery/pubs/stabilizer-umass-cs-tr-2012-012.pdf",
-        "_venueLower": "http://people.cs.umass.edu/~emery/pubs/stabilizer-umass-cs-tr-2012-012.pdf",
+        "_publicationLower": "",
+        "_venueLower": "",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2012",
@@ -19918,24 +19912,12 @@
               "words": []
             },
             "publication": {
-              "text": "http people.cs.umass.edu emery pubs stabilizer-umass-cs-tr-2012-012.pdf",
-              "words": [
-                "http",
-                "people.cs.umass.edu",
-                "emery",
-                "pubs",
-                "stabilizer-umass-cs-tr-2012-012.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "http people.cs.umass.edu emery pubs stabilizer-umass-cs-tr-2012-012.pdf",
-              "words": [
-                "http",
-                "people.cs.umass.edu",
-                "emery",
-                "pubs",
-                "stabilizer-umass-cs-tr-2012-012.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2012",
@@ -19947,7 +19929,7 @@
           "year": 2012,
           "citationCount": 2
         },
-        "_searchBlob": "stabilizer enabling statistically rigorous performance evaluation modern architectures have made program behavior brittle and unpredictable making software performance highly dependent on its execution environment. even apparently innocuous changes such as changing the size of an unused environment variable can by altering memory layout and alignment alter performance by 33 to 300 . this unpredictability makes it difficult for programmers to debug or understand application performance. it also greatly complicates the evaluation of performance optimizations since slight changes in the execution environment can have a greater impact on performance than a typical optimization. we present stabilizer a compiler and runtime system that enables statistically rigorous performance evaluation. stabilizer eliminates measurement bias by comprehensively and repeatedly randomizing the placement of functions stack frames and heap objects in memory. random placement makes anomalous layouts unlikely and independent of the environment and re-randomization ensures they are shortlived when they do occur. we demonstrate that applications compiled with stabilizer deliver normally-distributed execution times enabling the use of standard statistical tools for hypothesis testing. we demonstrate its use by testing the effectiveness of standard optimizations used in the llvm compiler we find that across the spec cpu2000 and cpu2006 benchmark suites the effect of the-o3 optimization level versus-o2 is indistinguishable from noise. 1. http people.cs.umass.edu emery pubs stabilizer-umass-cs-tr-2012-012.pdf http people.cs.umass.edu emery pubs stabilizer-umass-cs-tr-2012-012.pdf 2012 research-paper charlie curtsinger university of massachusetts amherst emery d. berger university of massachusetts amherst optimizations performance testing optimizations performance testing",
+        "_searchBlob": "stabilizer enabling statistically rigorous performance evaluation modern architectures have made program behavior brittle and unpredictable making software performance highly dependent on its execution environment. even apparently innocuous changes such as changing the size of an unused environment variable can by altering memory layout and alignment alter performance by 33 to 300 . this unpredictability makes it difficult for programmers to debug or understand application performance. it also greatly complicates the evaluation of performance optimizations since slight changes in the execution environment can have a greater impact on performance than a typical optimization. we present stabilizer a compiler and runtime system that enables statistically rigorous performance evaluation. stabilizer eliminates measurement bias by comprehensively and repeatedly randomizing the placement of functions stack frames and heap objects in memory. random placement makes anomalous layouts unlikely and independent of the environment and re-randomization ensures they are shortlived when they do occur. we demonstrate that applications compiled with stabilizer deliver normally-distributed execution times enabling the use of standard statistical tools for hypothesis testing. we demonstrate its use by testing the effectiveness of standard optimizations used in the llvm compiler we find that across the spec cpu2000 and cpu2006 benchmark suites the effect of the-o3 optimization level versus-o2 is indistinguishable from noise. 1. 2012 research-paper charlie curtsinger university of massachusetts amherst emery d. berger university of massachusetts amherst optimizations performance testing optimizations performance testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -19987,9 +19969,9 @@
         ],
         "openalexId": "https://openalex.org/W1996587743",
         "citationCount": 33,
+        "sourceUrl": "",
         "doi": "10.1145/2370816.2370843",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20404,9 +20386,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W1979812226",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/s10766-012-0196-7",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -21037,10 +21019,10 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2128345666",
-        "citationCount": 30,
+        "citationCount": 29,
+        "sourceUrl": "",
         "doi": "10.1109/dsnw.2011.5958815",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -21054,7 +21036,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 30,
+        "_citationCount": 29,
         "_titleLower": "enabling sophisticated analyses of ×86 binaries with revgen",
         "_authorLower": "vitaly chipounov epfl george candea epfl",
         "_authorsLower": "vitaly chipounov epfl george candea epfl",
@@ -21303,7 +21285,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 30
+          "citationCount": 29
         },
         "_searchBlob": "enabling sophisticated analyses of 86 binaries with revgen current state-of-the-art static analysis tools for binary software operate on ad-hoc intermediate representations ir of the machine code. therefore even though irs facilitate program analysis by abstracting away the source language it is hard to reuse existing implementations of analysis tools in new endeavors. recently a new compiler framework - llvm - has emerged together with many analysis tools that use its ir. however these tools rely on a compiler to generate the ir from source code. we propose revgen a tool that automatically converts existing binary programs to the standard llvm ir making an increasingly large number of static and dynamic analysis frameworks as well as run-time instrumentation tools applicable to legacy software. we show the potential of revgen by converting several programs and device drivers to llvm and checking the resulting code with off-the-shelf analysis tools. 2011 ieee ifip 41st international conference on dependable systems and networks workshops dsn-w 2011 ieee ifip 41st international conference on dependable systems and networks workshops dsn-w 2011 research-paper vitaly chipounov epfl george candea epfl dynamic analysis ir static analysis dynamic analysis ir static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -21339,12 +21321,10 @@
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1586497944",
         "doi": "10.1007/978-3-642-14295-6_10",
-        "citationCount": 117,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Testing"
         ],
@@ -21354,7 +21334,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 117,
+        "_citationCount": 0,
         "_titleLower": "lazy annotation for program testing and verification",
         "_authorLower": "kenneth l. mcmillan lawrence berkeley national laboratory",
         "_authorsLower": "kenneth l. mcmillan lawrence berkeley national laboratory",
@@ -21491,7 +21471,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 117
+          "citationCount": 0
         },
         "_searchBlob": "lazy annotation for program testing and verification we describe an interpolant-based approach to test generation and model checking for sequential programs. the method generates floyd hoare style annotations of the program on demand as a result of failure to achieve goals in a manner analogous to conflict clause learning in a dpll style sat solver. lecture notes in computer science lecture notes in computer science 2010 research-paper kenneth l. mcmillan lawrence berkeley national laboratory testing testing",
         "addedAt": "2026-02-20T23:08:48.000Z",

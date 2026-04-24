@@ -91,7 +91,7 @@
         const affiliation = author && typeof author === 'object'
           ? String(author.affiliation || '').trim()
           : '';
-        return { name: normalized.name, affiliation };
+        return { name: normalized.name, affiliation: affiliation || normalized.affiliation || '' };
       }
       if (!author || typeof author !== 'object') return null;
       const name = String(author.name || '').trim();
@@ -128,8 +128,12 @@
     paper.abstract = String(paper.abstract || '').trim();
     paper.year = String(paper.year || '').trim();
     paper.publishedDate = normalizeIsoDate(paper.publishedDate || paper.publishDate || paper.date);
-    paper.publication = String(paper.publication || '').trim();
-    paper.venue = String(paper.venue || '').trim();
+    paper.publication = typeof HubUtils.normalizePublication === 'function'
+      ? HubUtils.normalizePublication(paper.publication)
+      : String(paper.publication || '').trim();
+    paper.venue = typeof HubUtils.normalizePublication === 'function'
+      ? HubUtils.normalizePublication(paper.venue)
+      : String(paper.venue || '').trim();
     paper.source = String(paper.source || '').trim();
     paper.sourceName = String(paper.sourceName || '').trim();
     paper.type = String(paper.type || '').trim();

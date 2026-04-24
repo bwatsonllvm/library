@@ -182,6 +182,33 @@
     return /^[A-Za-zÀ-ÖØ-öø-ÿ0-9 .,'’&/-]+$/.test(text);
   }
 
+  function splitTrailingAffiliationWithoutSeparator(value) {
+    const text = collapseWhitespace(value);
+    if (!text) return null;
+
+    const tokens = text.split(/\s+/).filter(Boolean);
+    if (tokens.length < 5) return null;
+
+    const maxNameTokens = Math.min(5, tokens.length - 3);
+    for (let index = 2; index <= maxNameTokens; index += 1) {
+      const candidateName = tokens.slice(0, index).join(' ');
+      const candidateAffiliation = tokens.slice(index).join(' ');
+      const affiliationTokenCount = tokens.length - index;
+      if (affiliationTokenCount < 3) continue;
+      if (!looksLikePersonNameFragment(candidateName)) continue;
+      if (!looksLikeAffiliationLabel(candidateAffiliation)) continue;
+      if (!/^(?:the\s+)?(?:university|college|institute|school|department|faculty|laboratory|centre|center)\b/i.test(candidateAffiliation)) {
+        continue;
+      }
+      return {
+        name: candidateName,
+        affiliation: candidateAffiliation,
+      };
+    }
+
+    return null;
+  }
+
   function splitSpeakerName(rawName) {
     const input = collapseWhitespace(rawName);
     if (!input) return { name: '', affiliation: '' };
@@ -216,6 +243,14 @@
       if (commaMatch && looksLikeAffiliationLabel(commaMatch[2])) {
         name = collapseWhitespace(commaMatch[1]);
         extractedAffiliation = collapseWhitespace(commaMatch[2]);
+      }
+    }
+
+    if (!extractedAffiliation) {
+      const trailingAffiliation = splitTrailingAffiliationWithoutSeparator(name);
+      if (trailingAffiliation) {
+        name = collapseWhitespace(trailingAffiliation.name);
+        extractedAffiliation = collapseWhitespace(trailingAffiliation.affiliation);
       }
     }
 
@@ -787,6 +822,106 @@
     return clean;
   }
 
+  function removePublicationUrlsAndDoiFragments(value) {
+    return collapseWhitespace(String(value || '')
+      .replace(/[<\u27e8]\s*(?:https?:\/\/doi\.org\/)?10\.\d{4,9}\/[^>\u27e9\s,;]+[>\u27e9]/gi, ' ')
+      .replace(/\bhttps?:\/\/doi\.org\/10\.\d{4,9}\/\S+/gi, ' ')
+      .replace(/\bdoi:\s*10\.\d{4,9}\/\S+/gi, ' ')
+      .replace(/\bhttps?:\/\/\S+/gi, ' ')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/\s+/g, ' '));
+  }
+
+  function truncatePublicationDetails(value) {
+    let text = collapseWhitespace(value);
+    if (!text) return '';
+
+    text = removePublicationUrlsAndDoiFragments(text);
+    text = text
+      .replace(/\s*;\s*(?:Proc\.?|Proceedings)\b.*$/i, '')
+      .replace(/\s*\.\s*\d{4}\s*,?\s*(?:pp?|pages?)\.?\s*\d+.*$/i, '')
+      .replace(/\s*,\s*(?:vol(?:ume)?\.?|iss(?:ue)?\.?|no\.?|number)\b.*$/i, '')
+      .replace(/\s*,\s*(?:pp?|pages?)\.?\s*\d+.*$/i, '')
+      .replace(/\s*[-–]\s*(?:pp?|pages?)\.?\s*\d+.*$/i, '')
+      .replace(/\s*,\s*\d+\s*[-–]\s*\d+.*$/i, '')
+      .replace(/\s*,\s*(?:Jan|January|Feb|February|Mar|March|Apr|April|May|Jun|June|Jul|July|Aug|August|Sep|Sept|September|Oct|October|Nov|November|Dec|December)\b.*$/i, '')
+      .replace(/\s*[-–]\s*(?:Jan|January|Feb|February|Mar|March|Apr|April|May|Jun|June|Jul|July|Aug|August|Sep|Sept|September|Oct|October|Nov|November|Dec|December)\b.*$/i, '')
+      .replace(/\s*,\s*\d{1,2}[-/]\d{1,2}(?:[-/]\d{2,4})?.*$/i, '')
+      .replace(/\s*,\s*\d{4},?\s*$/i, '')
+      .replace(/\s*\(\s*\d{4}[-/]\d{1,2}\s*\)\s*$/i, '')
+      .replace(/\s*\(\s*closed to submissions\s*\)\s*$/i, '')
+      .replace(/\s*,?\s*Retrieved from:?.*$/i, '')
+      .replace(/\s*,?\s*A preprint is available\b.*$/i, '')
+      .replace(/\s*,?\s*see FAQ\b.*$/i, '')
+      .replace(/\s*\.\s*$/g, '');
+
+    return collapseWhitespace(text).replace(/^\[([^\]]+)]$/, '$1');
+  }
+
+  function normalizePublicationAcronymPrefix(value) {
+    let text = collapseWhitespace(value);
+    if (!text) return '';
+
+    let match = text.match(/^Proceedings\s+([A-Z][A-Z0-9-]{1,12})\s+(\d{4})\s*[-–]\s*(.+)$/);
+    if (match) {
+      const acronym = match[1];
+      const year = match[2];
+      const label = collapseWhitespace(match[3]);
+      if (label && !new RegExp(`\\b${acronym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(label)) {
+        return `${label} (${acronym} ${year})`;
+      }
+      return label;
+    }
+
+    match = text.match(/^([A-Z][A-Z0-9-]{1,12})\s+(\d{4})\s*[-–]\s*((?:\d{4}\s+)?.+)$/);
+    if (match) {
+      const acronym = match[1];
+      const year = match[2];
+      let label = collapseWhitespace(match[3]);
+      label = label.replace(new RegExp(`^${year}\\s+`), '');
+      if (!label) return text;
+      if (new RegExp(`\\b${acronym.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(label)) {
+        return `${year} ${label}`;
+      }
+      return `${year} ${label} (${acronym})`;
+    }
+
+    return text;
+  }
+
+  function extractPublicationFromCitation(value) {
+    let text = collapseWhitespace(value);
+    if (!text) return '';
+
+    const proposedMatch = text.match(/^Proposed for presentation at\s+(?:the\s+)?(.+?)\s+held\b/i);
+    if (proposedMatch) return proposedMatch[1];
+
+    const inColonMatch = text.match(/^In:\s*(.+?)(?:\.\s*\(?\s*(?:pp?|pages?)\b|$)/i);
+    if (inColonMatch) return inColonMatch[1];
+
+    const sentenceInMatch = text.match(/\.\s+in\s+(.+)$/i);
+    if (sentenceInMatch) {
+      let candidate = sentenceInMatch[1];
+      candidate = candidate.replace(/^[^,]{2,120}\(\s*eds?\.?\s*\),\s*/i, '');
+      candidate = candidate.replace(/\.\s*(?:Association for Computing Machinery|ACM|IEEE|Springer|Dagstuhl|USENIX)\b.*$/i, '');
+      candidate = candidate.replace(/,\s*\d+\s*,\s*(?:Leibniz|LIPIcs|Dagstuhl)\b.*$/i, '');
+      candidate = candidate.replace(/\.,\s*\d+\b.*$/i, '');
+      candidate = candidate.replace(/,\s*(?:Leibniz|LIPIcs|Dagstuhl)\b.*$/i, '');
+      return candidate;
+    }
+
+    const reportMatch = text.match(/^\[\s*(Research Report)\s*]\s*\d{4}\b/i);
+    if (reportMatch) return reportMatch[1];
+
+    const arxivMatch = text.match(/\bArXiv\.org\b/i);
+    if (arxivMatch && /\b\d{4}\b/.test(text)) return 'arXiv';
+
+    const thesisRepositoryMatch = text.match(/^[^.]+?\.\s*\(\d{4}\)\.\s+.+?\.\s+([^.:]+:[^.]+)\./);
+    if (thesisRepositoryMatch) return thesisRepositoryMatch[1];
+
+    return '';
+  }
+
   function normalizePublication(value) {
     let text = cleanMetadataValue(value);
     if (!text) return '';
@@ -796,6 +931,19 @@
       .replace(/\s+([):;,.])/g, '$1')
       .replace(/([(:])\s+/g, '$1')
       .replace(/^\s*['"`]+|['"`]+\s*$/g, '');
+
+    if (/^(?:https?:\/\/|doi:|10\.\d{4,9}\/)/i.test(text)) {
+      return '';
+    }
+    if (/^\d{4}-\d{3}[\dX]$/i.test(text)) {
+      return '';
+    }
+
+    const extractedCitationPublication = extractPublicationFromCitation(text);
+    if (extractedCitationPublication) text = extractedCitationPublication;
+
+    text = truncatePublicationDetails(text);
+    if (!text) return '';
 
     text = text
       .replace(/^proceedings of eedings(?: of)?(?:\s+|\/)+/i, 'Proceedings of ')
@@ -824,6 +972,12 @@
     } else {
       text = text.replace(/^proceedings\s+of\s+the\s+/i, 'Proceedings of ');
     }
+
+    text = normalizePublicationAcronymPrefix(text);
+    if (/\(SBAC$/i.test(text)) {
+      text = text.replace(/\(SBAC$/i, /workshops/i.test(text) ? '(SBAC-PADW)' : '(SBAC-PAD)');
+    }
+    text = text.replace(/(:)(?=\S)/g, '$1 ');
 
     if (/^proceedings of acm on programming languages$/i.test(text)) {
       text = 'Proceedings of the ACM on Programming Languages';

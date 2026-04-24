@@ -245,6 +245,31 @@ function normalizePaperAuthors(rawAuthors) {
     : [];
 }
 
+function normalizePublicationLabel(value) {
+  if (typeof HubUtils.normalizePublication === 'function') {
+    return collapseWhitespace(HubUtils.normalizePublication(value));
+  }
+  return collapseWhitespace(value);
+}
+
+function normalizePublicationAndVenue(publication, venue) {
+  const normalizedPublication = normalizePublicationLabel(publication);
+  const parts = [];
+  if (normalizedPublication) parts.push(normalizedPublication);
+
+  for (const rawPart of String(venue || '').split('|')) {
+    const part = normalizePublicationLabel(rawPart);
+    if (!part) continue;
+    if (parts.some((existing) => existing.toLowerCase() === part.toLowerCase())) continue;
+    parts.push(part);
+  }
+
+  return {
+    publication: normalizedPublication,
+    venue: parts.join(' | '),
+  };
+}
+
 function isBlogPaper(paper) {
   if (!paper || typeof paper !== 'object') return false;
   if (paper._isBlog === true) return true;
@@ -502,8 +527,9 @@ function normalizePaperRecord(rawPaper) {
   paper.abstract = collapseWhitespace(paper.abstract);
   paper.year = collapseWhitespace(paper.year);
   paper.publishedDate = normalizeIsoDate(paper.publishedDate || paper.publishDate || paper.date);
-  paper.publication = collapseWhitespace(paper.publication);
-  paper.venue = collapseWhitespace(paper.venue);
+  const metadata = normalizePublicationAndVenue(paper.publication, paper.venue);
+  paper.publication = metadata.publication;
+  paper.venue = metadata.venue;
   paper.source = collapseWhitespace(paper.source);
   paper.sourceName = collapseWhitespace(paper.sourceName);
   paper.type = collapseWhitespace(paper.type);

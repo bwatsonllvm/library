@@ -519,6 +519,51 @@ def normalize_affiliation_key(value: str) -> str:
     return collapse_ws(clean)
 
 
+def _looks_like_person_name_fragment(value: str) -> bool:
+    text = collapse_ws(value).strip(" ,;:()[]{}")
+    if not text:
+        return False
+    if ACADEMIC_AFFILIATION_HINT_RE.search(text) or CORPORATE_AFFILIATION_HINT_RE.search(text):
+        return False
+    if re.search(r"\d", text):
+        return False
+    tokens = [part for part in text.split() if part]
+    if len(tokens) < 2 or len(tokens) > 5:
+        return False
+    return all(re.fullmatch(r"[A-Za-zÀ-ÖØ-öø-ÿ]+(?:[.'’:-][A-Za-zÀ-ÖØ-öø-ÿ]+)*", token.strip(".'’:-")) for token in tokens)
+
+
+def split_author_name_affiliation(name_value: str, affiliation_value: str = "") -> tuple[str, str]:
+    name = canonicalize_person_name(name_value)
+    affiliation = normalize_affiliation(affiliation_value)
+    if not name:
+        return "", affiliation
+
+    tokens = name.split()
+    if len(tokens) >= 5:
+        max_name_tokens = min(5, len(tokens) - 3)
+        for index in range(2, max_name_tokens + 1):
+            candidate_name = " ".join(tokens[:index])
+            candidate_affiliation = " ".join(tokens[index:])
+            if not _looks_like_person_name_fragment(candidate_name):
+                continue
+            if not re.match(
+                r"^(?:the\s+)?(?:university|college|institute|school|department|faculty|laboratory|centre|center)\b",
+                candidate_affiliation,
+                flags=re.IGNORECASE,
+            ):
+                continue
+            parsed_affiliation = normalize_affiliation(candidate_affiliation)
+            if not parsed_affiliation:
+                continue
+            name = canonicalize_person_name(candidate_name)
+            if not affiliation:
+                affiliation = parsed_affiliation
+            break
+
+    return name, affiliation
+
+
 def is_placeholder_abstract(value: str) -> bool:
     key = soft_text_key(value)
     return not key or key in {soft_text_key(v) for v in PLACEHOLDER_ABSTRACTS}
@@ -665,6 +710,121 @@ def _clean_meta_value(value: str) -> str:
     return clean
 
 
+PUBLICATION_MONTH_RE = (
+    r"(?:Jan|January|Feb|February|Mar|March|Apr|April|May|Jun|June|Jul|July|"
+    r"Aug|August|Sep|Sept|September|Oct|October|Nov|November|Dec|December)"
+)
+
+
+def _strip_publication_urls_and_dois(value: str) -> str:
+    clean = str(value or "")
+    clean = re.sub(r"[<\u27e8]\s*(?:https?://doi\.org/)?10\.\d{4,9}/[^>\u27e9\s,;]+[>\u27e9]", " ", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\bhttps?://doi\.org/10\.\d{4,9}/\S+", " ", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\bdoi:\s*10\.\d{4,9}/\S+", " ", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\bhttps?://\S+", " ", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"<[^>]+>", " ", clean)
+    return collapse_ws(clean)
+
+
+def _extract_publication_from_citation(value: str) -> str:
+    clean = collapse_ws(value)
+    if not clean:
+        return ""
+
+    match = re.match(r"^Proposed for presentation at\s+(?:the\s+)?(.+?)\s+held\b", clean, flags=re.IGNORECASE)
+    if match:
+        return match.group(1)
+
+    match = re.match(r"^In:\s*(.+?)(?:\.\s*\(?\s*(?:pp?|pages?)\b|$)", clean, flags=re.IGNORECASE)
+    if match:
+        return match.group(1)
+
+    match = re.search(r"\.\s+in\s+(.+)$", clean, flags=re.IGNORECASE)
+    if match:
+        candidate = match.group(1)
+        candidate = re.sub(r"^[^,]{2,120}\(\s*eds?\.?\s*\),\s*", "", candidate, flags=re.IGNORECASE)
+        candidate = re.sub(r"\.\s*(?:Association for Computing Machinery|ACM|IEEE|Springer|Dagstuhl|USENIX)\b.*$", "", candidate, flags=re.IGNORECASE)
+        candidate = re.sub(r",\s*\d+\s*,\s*(?:Leibniz|LIPIcs|Dagstuhl)\b.*$", "", candidate, flags=re.IGNORECASE)
+        candidate = re.sub(r"\.,\s*\d+\b.*$", "", candidate, flags=re.IGNORECASE)
+        candidate = re.sub(r",\s*(?:Leibniz|LIPIcs|Dagstuhl)\b.*$", "", candidate, flags=re.IGNORECASE)
+        return candidate
+
+    match = re.match(r"^\[\s*(Research Report)\s*]\s*\d{4}\b", clean, flags=re.IGNORECASE)
+    if match:
+        return match.group(1)
+
+    if re.search(r"\bArXiv\.org\b", clean, flags=re.IGNORECASE) and re.search(r"\b\d{4}\b", clean):
+        return "arXiv"
+
+    match = re.match(r"^[^.]+?\.\s*\(\d{4}\)\.\s+.+?\.\s+([^.:]+:[^.]+)\.", clean)
+    if match:
+        return match.group(1)
+
+    return ""
+
+
+def _truncate_publication_details(value: str) -> str:
+    clean = _strip_publication_urls_and_dois(value)
+    if not clean:
+        return ""
+
+    clean = re.sub(r"\s*;\s*(?:Proc\.?|Proceedings)\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*\.\s*\d{4}\s*,?\s*(?:pp?|pages?)\.?\s*\d+.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,\s*(?:vol(?:ume)?\.?|iss(?:ue)?\.?|no\.?|number)\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,\s*(?:pp?|pages?)\.?\s*\d+.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*[-–]\s*(?:pp?|pages?)\.?\s*\d+.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,\s*\d+\s*[-–]\s*\d+.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(rf"\s*,\s*{PUBLICATION_MONTH_RE}\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(rf"\s*[-–]\s*{PUBLICATION_MONTH_RE}\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,\s*\d{1,2}[-/]\d{1,2}(?:[-/]\d{2,4})?.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,\s*\d{4},?\s*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*\(\s*\d{4}[-/]\d{1,2}\s*\)\s*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*\(\s*closed to submissions\s*\)\s*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,?\s*Retrieved from:?.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,?\s*A preprint is available\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*,?\s*see FAQ\b.*$", "", clean, flags=re.IGNORECASE)
+    clean = re.sub(r"\s*\.\s*$", "", clean)
+    clean = collapse_ws(clean)
+
+    bracket_match = re.match(r"^\[([^\]]+)]$", clean)
+    if bracket_match:
+        clean = bracket_match.group(1)
+    return collapse_ws(clean)
+
+
+def _escape_re(value: str) -> str:
+    return re.escape(value)
+
+
+def _normalize_publication_acronym_prefix(value: str) -> str:
+    clean = collapse_ws(value)
+    if not clean:
+        return ""
+
+    match = re.match(r"^Proceedings\s+([A-Z][A-Z0-9-]{1,12})\s+(\d{4})\s*[-–]\s*(.+)$", clean)
+    if match:
+        acronym = match.group(1)
+        year = match.group(2)
+        label = collapse_ws(match.group(3))
+        if label and not re.search(rf"\b{_escape_re(acronym)}\b", label):
+            return f"{label} ({acronym} {year})"
+        return label
+
+    match = re.match(r"^([A-Z][A-Z0-9-]{1,12})\s+(\d{4})\s*[-–]\s*((?:\d{4}\s+)?.+)$", clean)
+    if match:
+        acronym = match.group(1)
+        year = match.group(2)
+        label = collapse_ws(match.group(3))
+        label = re.sub(rf"^{_escape_re(year)}\s+", "", label)
+        if not label:
+            return clean
+        if re.search(rf"\b{_escape_re(acronym)}\b", label):
+            return f"{year} {label}"
+        return f"{year} {label} ({acronym})"
+
+    return clean
+
+
 def _publication_alias_key(value: str) -> str:
     text = strip_diacritics(collapse_ws(value).lower())
     text = text.replace("&", " and ")
@@ -690,6 +850,19 @@ def _canonicalize_publication_label(value: str) -> str:
     clean = re.sub(r"([(:])\s+", r"\1", clean)
     clean = clean.strip(" '\"")
 
+    if re.match(r"^(?:https?://|doi:|10\.\d{4,9}/)", clean, flags=re.IGNORECASE):
+        return ""
+    if re.fullmatch(r"\d{4}-\d{3}[\dX]", clean, flags=re.IGNORECASE):
+        return ""
+
+    extracted = _extract_publication_from_citation(clean)
+    if extracted:
+        clean = extracted
+
+    clean = _truncate_publication_details(clean)
+    if not clean:
+        return ""
+
     clean = re.sub(r"^proceedings of eedings(?: of)?(?:\s+|/)+", "Proceedings of ", clean, flags=re.IGNORECASE)
     clean = re.sub(r"^proceedings of proceedings of\s+", "Proceedings of ", clean, flags=re.IGNORECASE)
 
@@ -700,6 +873,12 @@ def _canonicalize_publication_label(value: str) -> str:
             clean = f"Proceedings of {tail}"
     else:
         clean = re.sub(r"^proceedings\s+of\s+the\s+", "Proceedings of ", clean, flags=re.IGNORECASE)
+
+    clean = _normalize_publication_acronym_prefix(clean)
+    if re.search(r"\(SBAC$", clean, flags=re.IGNORECASE):
+        suffix = "(SBAC-PADW)" if re.search(r"workshops", clean, flags=re.IGNORECASE) else "(SBAC-PAD)"
+        clean = re.sub(r"\(SBAC$", suffix, clean, flags=re.IGNORECASE)
+    clean = re.sub(r":(?=\S)", ": ", clean)
 
     if re.fullmatch(r"(?:m\.?\s*s\.?|masters?)\s+thesis", clean, flags=re.IGNORECASE):
         clean = "Masters Thesis"
@@ -868,9 +1047,8 @@ def extract_openalex_authors(work: dict, keep_existing_nonempty_affiliations: bo
         if not name:
             continue
         name_key = normalize_name_key(name)
-        if not name_key or name_key in seen:
+        if not name_key:
             continue
-        seen.add(name_key)
 
         affiliation = ""
         institutions = (authorship or {}).get("institutions") or []
@@ -885,6 +1063,12 @@ def extract_openalex_authors(work: dict, keep_existing_nonempty_affiliations: bo
 
         if keep_existing_nonempty_affiliations and not affiliation and name_key in existing_aff_by_name:
             affiliation = existing_aff_by_name[name_key]
+
+        name, affiliation = split_author_name_affiliation(name, affiliation)
+        name_key = normalize_name_key(name)
+        if not name_key or name_key in seen:
+            continue
+        seen.add(name_key)
 
         out.append({"name": name, "affiliation": affiliation})
 
@@ -1992,6 +2176,91 @@ def sort_papers(papers: list[dict]):
     papers.sort(key=key, reverse=True)
 
 
+def normalize_author_records(authors) -> list[dict]:
+    if not isinstance(authors, list):
+        return []
+    out: list[dict] = []
+    seen: set[str] = set()
+    for author in authors:
+        if not isinstance(author, dict):
+            continue
+        name, affiliation = split_author_name_affiliation(
+            str(author.get("name", "")),
+            str(author.get("affiliation", "")),
+        )
+        key = normalize_name_key(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        record = {"name": name}
+        if affiliation:
+            record["affiliation"] = affiliation
+        out.append(record)
+    return out
+
+
+def normalize_publication_and_venue(publication: str, venue: str) -> tuple[str, str]:
+    normalized_publication = _canonicalize_publication_label(str(publication or ""))
+    parts: list[str] = []
+    seen: set[str] = set()
+
+    if normalized_publication:
+        parts.append(normalized_publication)
+        seen.add(_publication_alias_key(normalized_publication))
+
+    for raw_part in str(venue or "").split("|"):
+        part = _canonicalize_publication_label(raw_part)
+        if not part:
+            continue
+        key = _publication_alias_key(part)
+        if key and key in seen:
+            continue
+        if key:
+            seen.add(key)
+        parts.append(part)
+
+    return normalized_publication, " | ".join(parts)
+
+
+def normalize_paper_metadata(papers: list[dict]) -> int:
+    changed = 0
+    for paper in papers:
+        if not isinstance(paper, dict):
+            continue
+
+        before = json.dumps(
+            {
+                "publication": paper.get("publication"),
+                "venue": paper.get("venue"),
+                "authors": paper.get("authors"),
+            },
+            sort_keys=True,
+            ensure_ascii=False,
+        )
+
+        publication, venue = normalize_publication_and_venue(
+            str(paper.get("publication", "")),
+            str(paper.get("venue", "")),
+        )
+        paper["publication"] = publication
+        paper["venue"] = venue
+        paper["authors"] = normalize_author_records(paper.get("authors"))
+
+        after = json.dumps(
+            {
+                "publication": paper.get("publication"),
+                "venue": paper.get("venue"),
+                "authors": paper.get("authors"),
+            },
+            sort_keys=True,
+            ensure_ascii=False,
+        )
+        if before != after:
+            changed += 1
+
+    return changed
+
+
 def load_source_records(
     bundle_paths: list[Path],
     excluded_openalex_keys: set[str] | None = None,
@@ -2253,6 +2522,9 @@ def main() -> int:
 
     if not args.skip_landing_fallback and not args.skip_network:
         save_landing_cache(landing_cache_path, landing_cache)
+
+    metadata_normalized = normalize_paper_metadata(deduped)
+    print(f"Records with normalized paper metadata: {metadata_normalized}", flush=True)
 
     ensure_unique_ids(deduped)
     sort_papers(deduped)

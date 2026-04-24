@@ -208,6 +208,51 @@ test('person normalization merges known aliases while preserving alternate spell
   assert.ok(people[0].variantNames.includes('Oleksandr Zinenko'));
 });
 
+test('person normalization splits trailing affiliation labels without punctuation', () => {
+  assert.deepEqual(
+    utils.normalizePersonRecord({ name: 'Anton Lydike The University of Edinburgh' }),
+    {
+      name: 'Anton Lydike',
+      affiliation: 'The University of Edinburgh',
+    }
+  );
+});
+
+test('publication normalization removes citation and page details from venue labels', () => {
+  assert.equal(
+    utils.normalizePublication('Journal of Universal Computer Science, Vol 25, Iss 1, Pp 42-72 (2019)'),
+    'Journal of Universal Computer Science'
+  );
+  assert.equal(
+    utils.normalizePublication('USENIX Security, 49 - 63'),
+    'USENIX Security'
+  );
+  assert.equal(
+    utils.normalizePublication("Sa Menezes, R, Tihanyi, N, Jain, R, Levin, A, de Freitas, R & Cordeiro, L 2025, VO-GCSE:Verification Optimization through Global Common Subexpression Elimination. in ACM International Conference on the Foundations of Software Engineering (FSE 2025). Association for Computing Machinery, pp. 1060 - 1064. https://doi.org/10.1145/3696630.3728581"),
+    'ACM International Conference on the Foundations of Software Engineering (FSE 2025)'
+  );
+  assert.equal(
+    utils.normalizePublication('https://doi.org/10.1051/epjconf/202533701165'),
+    ''
+  );
+  assert.equal(
+    utils.normalizePublication('NOMS 2025-2025 IEEE Network Operations and Management Symposium'),
+    '2025 IEEE Network Operations and Management Symposium (NOMS)'
+  );
+  assert.equal(
+    utils.normalizePublication('Proceedings FUZZING 2022 - 1st International Fuzzing Workshop'),
+    '1st International Fuzzing Workshop (FUZZING 2022)'
+  );
+  assert.equal(
+    utils.normalizePublication('2025 IEEE/SBC 37th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD)'),
+    '2025 IEEE/SBC 37th International Symposium on Computer Architecture and High Performance Computing (SBAC-PAD)'
+  );
+  assert.equal(
+    utils.normalizePublication('2025 IEEE/SBC 37th International Symposium on Computer Architecture and High Performance Computing Workshops (SBAC'),
+    '2025 IEEE/SBC 37th International Symposium on Computer Architecture and High Performance Computing Workshops (SBAC-PADW)'
+  );
+});
+
 test('getRelatedPaperCandidates excludes same-year noise and keeps author/topic/title matches', () => {
   const target = {
     id: 'paper-target',

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7125966319": {
@@ -37,9 +37,9 @@
         ],
         "openalexId": "https://openalex.org/W7125966319",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.5281/zenodo.18399224",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -546,11 +546,11 @@
           "openmp"
         ],
         "id": "openalex-w4417034280",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -994,8 +994,8 @@
           }
         ],
         "year": "2026",
-        "publication": "Software:Practice and Experience",
-        "venue": "Software:Practice and Experience",
+        "publication": "Software: Practice and Experience",
+        "venue": "Software: Practice and Experience",
         "type": "research-paper",
         "abstract": "ABSTRACT Background When sharing or logging numerical data, we must convert binary floating‐point numbers into their decimal string representations. For example, the number π might become 3.1415927. Engineers have perfected many algorithms for producing such accurate, short strings. Aims We present an empirical comparison across diverse hardware architectures and datasets. Methods We benchmarked several established and recent algorithms for converting binary floating‐point numbers (IEEE 754 double‐precision) to their decimal string representations. We executed the conversions across multiple CPU microarchitectures, including recent Intel (Alder Lake, Skylake), AMD (Zen 3, Zen 4), and ARM (Apple M1/M2, Neoverse) processors, using recent versions of GCC, Clang, and platform‐specific compilers and several datasets. Results and Conclusions Cutting‐edge techniques like Schubfach and Dragonbox achieve up to a tenfold speedup over Steele and White's Dragon4, executing as few as 210 instructions per conversion compared to Dragon4's 1500–5000 instructions. Often per their specification, none of the implementations we surveyed consistently produced the shortest possible strings—some generate outputs up to 30% longer than optimal. We find that standard library implementations in languages such as C++ and Swift execute significantly more instructions than the fastest methods, with performance gaps varying across CPU architectures and compilers. We suggest some optimization targets for future research.",
         "paperUrl": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/spe.70056",
@@ -1030,10 +1030,10 @@
           "clang"
         ],
         "id": "openalex-w7126021253",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -1047,8 +1047,8 @@
         "_keywordsLower": "clang optimizations performance swift binary floating point floating point numbers converting binary floating decimal string representations shortest decimal strings recent cpu dragon4",
         "_topicsLower": "clang optimizations performance swift clang optimizations performance swift binary floating point floating point numbers converting binary floating decimal string representations shortest decimal strings recent cpu dragon4 clang",
         "_contentLower": "",
-        "_publicationLower": "software:practice and experience",
-        "_venueLower": "software:practice and experience",
+        "_publicationLower": "software: practice and experience",
+        "_venueLower": "software: practice and experience",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2026",
@@ -1428,9 +1428,9 @@
         ],
         "openalexId": "https://openalex.org/W4411522873",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3728903",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2316,10 +2316,10 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -2774,7 +2774,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4402457641",
-        "citationCount": 2,
+        "citationCount": 1,
         "doi": "10.1145/3650212.3685313",
         "publishedDate": "",
         "contentFormat": "",
@@ -2789,7 +2789,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "polytracker: whole-input dynamic information flow tracing",
         "_authorLower": "evan a. sultanik marek surovič henrik brodin kelly kaoudis facundo tuesca carson harmon lisa overall joseph sweeney bradford larsen",
         "_authorsLower": "evan a. sultanik marek surovič henrik brodin kelly kaoudis facundo tuesca carson harmon lisa overall joseph sweeney bradford larsen",
@@ -3100,7 +3100,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "polytracker whole-input dynamic information flow tracing we present polytracker a whole-program whole-input dynamic information flow tracing dift framework. given an llvm compatible codebase or a binary that has been lifted to llvm intermediate representation ir polytracker compiles it adding static instrumentation. the instrumented program will run normally with modest performance overhead but will additionally output a runtime trace artifact in the co-designed tdag tainted directed acyclic graph format. tdags can be post-processed for a variety of analyses including tracing every input byte through program execution. tdags can be generated either by running the program over a corpus of inputs or by employing a randomized input generator such as a fuzzer. polytracker traces tdags are useful not only for very localized targeted dynamic program analysis as with smaller-scale dift tdags are primarily intended for whole-program runtime exploration and bug finding granular information-flow diffing between program runs and comparisons of implementations of the same input specification without any need to emulate and instrument the entire running environment. for user-friendliness and reproducibility the software repository provides a number of examples of polytracker-instrumented builds of popular open-source software projects. we also provide an analysis library and repl written in python that are designed to assist users with operating over tdags. proceedings of 33rd acm sigsoft international symposium on software testing and analysis proceedings of 33rd acm sigsoft international symposium on software testing and analysis 2024 research-paper evan a. sultanik marek surovic henrik brodin kelly kaoudis facundo tuesca carson harmon lisa overall joseph sweeney bradford larsen ir performance ir performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -3147,9 +3147,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4395075299",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.5626/jok.2024.51.4.293",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -3325,11 +3325,11 @@
           "mlir"
         ],
         "id": "openalex-w4399723228",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -3669,10 +3669,10 @@
           "clang"
         ],
         "id": "openalex-w4405621186",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -4981,9 +4981,9 @@
         ],
         "openalexId": "https://openalex.org/W4403920025",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/secdev61143.2024.00011",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5402,15 +5402,15 @@
           "mlir"
         ],
         "id": "openalex-w4392265932",
-        "citationCount": 3,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 0,
         "_titleLower": "axi4mlir: user-driven automatic host code generation for custom axi-based accelerators",
         "_authorLower": "nícolas bohm agostini northeastern university jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory josé luis abellán universidad de murcia josé cano university of glasgow david kaeli northeastern university",
         "_authorsLower": "nícolas bohm agostini northeastern university jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory josé luis abellán universidad de murcia josé cano university of glasgow david kaeli northeastern university",
@@ -5718,7 +5718,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 3
+          "citationCount": 0
         },
         "_searchBlob": "axi4mlir user-driven automatic host code generation for custom axi-based accelerators this paper addresses the need for automatic and efficient generation of host driver code for arbitrary custom axi-based accelerators targeting linear algebra algorithms an important workload in various applications including machine learning and scientific computing. while existing tools have focused on automating accelerator prototyping little attention has been paid to the host-accelerator interaction. this paper introduces axi4mlir an extension of the mlir compiler framework designed to facilitate the automated generation of host-accelerator driver code. with new mlir attributes and transformations axi4mlir empowers users to specify accelerator features including their instructions and communication patterns and exploit the host memory hierarchy. we demonstrate axi4mlirs versatility across different types of accelerators and problems showcasing significant cpu cache reference reductions up to 56 and up to a 1.65 speedup compared to manually optimized driver code implementations. axi4mlir implementation is open-source and available at https 7github.com axi4mlir axi4mlir. 2024 ieee acm international symposium on code generation and optimization cgo 2024 ieee acm international symposium on code generation and optimization cgo 2024 research-paper nicolas bohm agostini northeastern university jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory jose luis abellan universidad de murcia jose cano university of glasgow david kaeli northeastern university mlir backend code generation optimizations ml mlir backend code generation optimizations axi4mlir user driven accelerators custom axi driver host accelerator driven automatic host mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -5760,9 +5760,9 @@
         ],
         "openalexId": "https://openalex.org/W4404604610",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-70924-1_61",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5945,9 +5945,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4382045722",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-35257-7_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6125,9 +6125,9 @@
         ],
         "openalexId": "https://openalex.org/W4392254701",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.47986/17/9",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6831,9 +6831,9 @@
         ],
         "openalexId": "https://openalex.org/W4384302746",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/icse48619.2023.00102",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7739,10 +7739,10 @@
           "offload"
         ],
         "id": "openalex-w4377009856",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -8114,9 +8114,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4388483021",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/ase56229.2023.00195",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -8442,10 +8442,10 @@
           "libsycl"
         ],
         "id": "openalex-w4386875822",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -8797,15 +8797,15 @@
           "mlir"
         ],
         "id": "openalex-w4386875305",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "btor2mlir: a format and toolchain for hardware verification",
         "_authorLower": "joseph tafese isabel garcia-contreras arie gurfinkel",
         "_authorsLower": "joseph tafese isabel garcia-contreras arie gurfinkel",
@@ -9051,7 +9051,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "btor2mlir a format and toolchain for hardware verification formats for representing and manipulating verification problems are extremely important for supporting the ecosystem of tools developers and practitioners. a good format allows representing many different types of problems has a strong toolchain for manipulating and translating problems and can grow with the community. in the world of hardware verification and specifically the hardware model checking competition hwmcc the btor2 format has emerged as the dominating format. it is supported by btor2tools verification tools and verilog design tools like yosys. in this paper we present an alternative format and toolchain called btor2mlir based on the recent mlir framework. the advantage of btor2mlir is in reusing existing components from a mature compiler infrastructure including parsers text and binary formats converters to a variety of intermediate representations and executable semantics of llvm. we hope that the format and our tooling will lead to rapid prototyping of verification and related tools for hardware verification. arxiv arxiv 2023 research-paper joseph tafese isabel garcia-contreras arie gurfinkel llvm mlir ir infrastructure llvm mlir infrastructure intermediate representation model checking format hardware verification btor2mlir toolchain llvm mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -9098,9 +9098,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4386124225",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-40843-4_32",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -9321,16 +9321,16 @@
           "mlir"
         ],
         "id": "openalex-w4320891761",
-        "citationCount": 16,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 0,
         "_titleLower": "autoscaledse: a scalable design space exploration engine for high-level synthesis",
         "_authorLower": "hyegang jun university of illinois urbana-champaign hanchen ye university of illinois urbana-champaign hyunmin jeong university of illinois urbana-champaign deming chen university of illinois urbana-champaign",
         "_authorsLower": "hyegang jun university of illinois urbana-champaign hanchen ye university of illinois urbana-champaign hyunmin jeong university of illinois urbana-champaign deming chen university of illinois urbana-champaign",
@@ -9685,7 +9685,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 16
+          "citationCount": 0
         },
         "_searchBlob": "autoscaledse a scalable design space exploration engine for high-level synthesis high-level synthesis hls has enabled users to rapidly develop designs targeted for fpgas from the behavioral description of the design. however to synthesize an optimal design capable of taking better advantage of the target fpga a considerable amount of effort is needed to transform the initial behavioral description into a form that can capture the desired level of parallelism. thus a design space exploration dse engine capable of optimizing large complex designs is needed to achieve this goal. we present a new dse engine capable of considering code transformation compiler directives pragmas and the compatibility of these optimizations. to accomplish this we initially express the structure of the input code as a graph to guide the exploration process. to appropriately transform the code we take advantage of scalehls based on the multi-level compiler infrastructure mlir . finally we identify problems that limit the scalability of existing dses which we name the design space merging problem. we address this issue by employing a random forest classifier that can successfully decrease the number of invalid design points without invoking the hls compiler as a validation tool. we evaluated our dse engine against the scalehls dse outperforming it by a maximum of 59 . we additionally demonstrate the scalability of our design by applying our dse to large-scale hls designs achieving a maximum speedup of 12 for the benchmarks in the machsuite and rodinia set. acm transactions on reconfigurable technology and systems acm transactions on reconfigurable technology and systems vol. 16 issue 3 2023 research-paper hyegang jun university of illinois urbana-champaign hanchen ye university of illinois urbana-champaign hyunmin jeong university of illinois urbana-champaign deming chen university of illinois urbana-champaign mlir optimizations infrastructure mlir optimizations infrastructure dse engine capable space exploration engine designs hls behavioral description synthesis mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -11079,8 +11079,8 @@
           }
         ],
         "year": "2022",
-        "publication": "网络与信息安全学报, Vol 8, Iss 2, Pp 100-111 (2022)",
-        "venue": "网络与信息安全学报, Vol 8, Iss 2, Pp 100-111 (2022)",
+        "publication": "网络与信息安全学报",
+        "venue": "网络与信息安全学报",
         "type": "research-paper",
         "abstract": "Executing code containing side-channel vulnerabilities exhibits different non-functional behaviors related to inputs.Attackers can obtain these behaviors by leveraging micro architecture side-channel attacks and then analyze the pattern between the behaviors and the inputs to access sensitive data.Vulnerability repairing at the software layer brings low overheads to a program’s execution.Besides, it does not require modifying hardware or system, which enables fast patching and widespread deployment.It becomes the mainstream strategy applied to the current cryptographic implementations.However, existing solutions are deeply bound to the program’s implementation and requires manual intervention.This brings challenge to implement and is not versatile enough.A general patching method was proposed for side-channel vulnerabilities that combined dynamic obfuscated execution with hardware atomic transaction.To hide the real accesses of the side-channel vulnerabilities of a program, the proposed method inserted dynamic confusing accesses into the vulnerabilities.To avoid an attacker using fine-grained side-channel attack to distinguish the real access and the confusing access, both of them were encapsulated as transactions and they were guaranteed to be uninterrupted during the running period.In addition, a prototype system called SC-Patcher was implemented based on the LLVM compiler.Various optimization strategies were supported, including secure springboard and transaction aggregation, to further improve system security and performance.Experimental results show that the proposed method makes it impossible for an attacker to restore accurate sensitive data through side-channel attack, and it also brings almost no additional performance overhead to the program.",
         "paperUrl": "https://doaj.org/article/5992bbdb1a1241d5ba77b3f5cf1be0d1",
@@ -11114,8 +11114,8 @@
         "_keywordsLower": "performance security",
         "_topicsLower": "performance security performance security",
         "_contentLower": "",
-        "_publicationLower": "网络与信息安全学报, vol 8, iss 2, pp 100-111 (2022)",
-        "_venueLower": "网络与信息安全学报, vol 8, iss 2, pp 100-111 (2022)",
+        "_publicationLower": "网络与信息安全学报",
+        "_venueLower": "网络与信息安全学报",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2022",
@@ -11407,24 +11407,12 @@
               "words": []
             },
             "publication": {
-              "text": "vol 8 iss 2 pp 100-111 2022",
-              "words": [
-                "vol",
-                "iss",
-                "pp",
-                "100-111",
-                "2022"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "vol 8 iss 2 pp 100-111 2022",
-              "words": [
-                "vol",
-                "iss",
-                "pp",
-                "100-111",
-                "2022"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2022",
@@ -11436,7 +11424,7 @@
           "year": 2022,
           "citationCount": 0
         },
-        "_searchBlob": "universal patching method for side-channel vulnerabilities based on atomic obfuscation executing code containing side-channel vulnerabilities exhibits different non-functional behaviors related to inputs.attackers can obtain these behaviors by leveraging micro architecture side-channel attacks and then analyze the pattern between the behaviors and the inputs to access sensitive data.vulnerability repairing at the software layer brings low overheads to a programs execution.besides it does not require modifying hardware or system which enables fast patching and widespread deployment.it becomes the mainstream strategy applied to the current cryptographic implementations.however existing solutions are deeply bound to the programs implementation and requires manual intervention.this brings challenge to implement and is not versatile enough.a general patching method was proposed for side-channel vulnerabilities that combined dynamic obfuscated execution with hardware atomic transaction.to hide the real accesses of the side-channel vulnerabilities of a program the proposed method inserted dynamic confusing accesses into the vulnerabilities.to avoid an attacker using fine-grained side-channel attack to distinguish the real access and the confusing access both of them were encapsulated as transactions and they were guaranteed to be uninterrupted during the running period.in addition a prototype system called sc-patcher was implemented based on the llvm compiler.various optimization strategies were supported including secure springboard and transaction aggregation to further improve system security and performance.experimental results show that the proposed method makes it impossible for an attacker to restore accurate sensitive data through side-channel attack and it also brings almost no additional performance overhead to the program. vol 8 iss 2 pp 100-111 2022 vol 8 iss 2 pp 100-111 2022 2022 research-paper pan zhang deqing zou huazhong university of science and technology wei liu performance security performance security",
+        "_searchBlob": "universal patching method for side-channel vulnerabilities based on atomic obfuscation executing code containing side-channel vulnerabilities exhibits different non-functional behaviors related to inputs.attackers can obtain these behaviors by leveraging micro architecture side-channel attacks and then analyze the pattern between the behaviors and the inputs to access sensitive data.vulnerability repairing at the software layer brings low overheads to a programs execution.besides it does not require modifying hardware or system which enables fast patching and widespread deployment.it becomes the mainstream strategy applied to the current cryptographic implementations.however existing solutions are deeply bound to the programs implementation and requires manual intervention.this brings challenge to implement and is not versatile enough.a general patching method was proposed for side-channel vulnerabilities that combined dynamic obfuscated execution with hardware atomic transaction.to hide the real accesses of the side-channel vulnerabilities of a program the proposed method inserted dynamic confusing accesses into the vulnerabilities.to avoid an attacker using fine-grained side-channel attack to distinguish the real access and the confusing access both of them were encapsulated as transactions and they were guaranteed to be uninterrupted during the running period.in addition a prototype system called sc-patcher was implemented based on the llvm compiler.various optimization strategies were supported including secure springboard and transaction aggregation to further improve system security and performance.experimental results show that the proposed method makes it impossible for an attacker to restore accurate sensitive data through side-channel attack and it also brings almost no additional performance overhead to the program. 2022 research-paper pan zhang deqing zou huazhong university of science and technology wei liu performance security performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -11493,15 +11481,15 @@
           "libsycl"
         ],
         "id": "openalex-w4313525688",
-        "citationCount": 17,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 0,
         "_titleLower": "understanding performance portability of bioinformatics applications in sycl on an nvidia gpu",
         "_authorLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -11684,7 +11672,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 17
+          "citationCount": 0
         },
         "_searchBlob": "understanding performance portability of bioinformatics applications in sycl on an nvidia gpu our goal is to have a better understanding of performance portability of sycl kernels on a gpu. toward this goal we migrate representative kernels in bioinformatics applications from cuda to sycl evaluate their performance on an nvidia gpu and explain the performance gaps through performance profiling and analyses. we hope that the findings provide valuable feedback to the development of the sycl ecosystem. 2022 ieee international conference on bioinformatics and biomedicine bibm 2022 ieee international conference on bioinformatics and biomedicine bibm 2022 research-paper zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory performance gpu cuda performance gpu cuda understanding performance portability nvidia gpu kernels libsycl",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -11747,10 +11735,10 @@
           "runtimes"
         ],
         "id": "openalex-w4388761475",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
@@ -12188,10 +12176,10 @@
           "openmp"
         ],
         "id": "openalex-w4226439887",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
@@ -12608,9 +12596,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4306406257",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.1145/3545948.3545966",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12903,15 +12891,15 @@
           "runtimes"
         ],
         "id": "openalex-w4311263197",
-        "citationCount": 13,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 0,
         "_titleLower": "leaps and bounds: analyzing webassembly’s performance with a focus on bounds checking",
         "_authorLower": "raven szewczyk university of edinburgh kimberley stonehouse university of edinburgh antonio barbalace university of edinburgh tom spink university of st andrews",
         "_authorsLower": "raven szewczyk university of edinburgh kimberley stonehouse university of edinburgh antonio barbalace university of edinburgh tom spink university of st andrews",
@@ -13301,7 +13289,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 13
+          "citationCount": 0
         },
         "_searchBlob": "leaps and bounds analyzing webassemblys performance with a focus on bounds checking webassembly is gaining more and more popularity finding applications beyond the web browser for which it was initially designed. however its performance which developers intended to be comparable with native has not been extensively studied to identify overheads and pinpoint their causes. this paper identifies that webassemblys bounds-checked memory access safety mechanism may introduce up to a 650 overhead and requires further tuning. based on that we extend four popular webassembly runtimes with modern bounds checking mechanisms and compare the performance of each with native compiled code. the runtimes are evaluated on three different instruction set architectures x86-64 armv8 and risc-v rv64gc. we show that for simple numerical kernels from poly-bench c there are no significant differences in the bounds checking performance overheads across different instruction set architectures. with the default bounds checking mechanism performance-oriented runtimes are able to achieve execution times within 20 of native on x86-64 platforms within 35 on armv8 platforms and within 17 on risc-v. we also show that when scaling the tested runtimes to multiple threads the default bounds checking approach taken by wavm wasmtime and v8 of using the mprotect syscall to resize memory can cause excessive locking in the linux kernel. such scaling might be used to quickly start up serverless instances for a single function without the overhead of spawning new processes. we present an alternative userfaultf-based solution to mitigate this issue. we share our results tools and scripts under an open source license for other researchers to replicate and use to monitor the progress that webassembly runtimes make as they evolve. 2022 ieee international symposium on workload characterization iiswc 2022 ieee international symposium on workload characterization iiswc 2022 research-paper raven szewczyk university of edinburgh kimberley stonehouse university of edinburgh antonio barbalace university of edinburgh tom spink university of st andrews runtimes performance runtimes performance default bounds checking webassembly runtimes instruction set architectures native armv8 memory bounds analyzing webassembly runtimes",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -13388,7 +13376,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4205586362",
-        "citationCount": 11,
+        "citationCount": 10,
         "doi": "10.1145/3498688",
         "publishedDate": "",
         "contentFormat": "",
@@ -13405,7 +13393,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 10,
         "_titleLower": "isolation without taxation: near-zero-cost transitions for webassembly and sfi",
         "_authorLower": "matthew kolosick university of california, san diego shravan narayan university of california, san diego evan johnson university of california, san diego conrad watt university of cambridge michael lemay intel deepak garg max planck institute for software systems ranjit jhala university of california, san diego deian stefan university of california, san diego",
         "_authorsLower": "matthew kolosick university of california, san diego shravan narayan university of california, san diego evan johnson university of california, san diego conrad watt university of cambridge michael lemay intel deepak garg max planck institute for software systems ranjit jhala university of california, san diego deian stefan university of california, san diego",
@@ -13823,7 +13811,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 11
+          "citationCount": 10
         },
         "_searchBlob": "isolation without taxation near-zero-cost transitions for webassembly and sfi software sandboxing or software-based fault isolation sfi is a lightweight approach to building secure systems out of untrusted components. mozilla for example uses sfi to harden the firefox browser by sandboxing third-party libraries and companies like fastly and cloudflare use sfi to safely co-locate untrusted tenants on their edge clouds. while there have been significant efforts to optimize and verify sfi enforcement context switching in sfi systems remains largely unexplored almost all sfi systems use heavyweight transitions that are not only error-prone but incur significant performance overhead from saving clearing and restoring registers when context switching. we identify a set of zero-cost conditions that characterize when sandboxed code has sufficient structured to guarantee security via lightweight zero-cost transitions simple function calls . we modify the lucet wasm compiler and its runtime to use zero-cost transitions eliminating the undue performance tax on systems that rely on lucet for sandboxing e.g. we speed up image and font rendering in firefox by up to 29.7 and 10 respectively . to remove the lucet compiler and its correct implementation of the wasm specification from the trusted computing base we 1 develop a static binary verifier verizero which in seconds checks that binaries produced by lucet satisfy our zero-cost conditions and 2 prove the soundness of verizero by developing a logical relation that captures when a compiled wasm function is semantically well-behaved with respect to our zero-cost conditions. finally we show that our model is useful beyond wasm by describing a new purpose-built sfi system segmentzero32 that uses x86 segmentation and llvm with mostly off-the-shelf passes to enforce our zero-cost conditions our prototype performs on-par with the state-of-the-art native client sfi system. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 6 issue popl 2022 research-paper matthew kolosick university of california san diego shravan narayan university of california san diego evan johnson university of california san diego conrad watt university of cambridge michael lemay intel deepak garg max planck institute for software systems ranjit jhala university of california san diego deian stefan university of california san diego libraries performance rust security libraries performance rust security",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -13875,7 +13863,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4295290086",
-        "citationCount": 18,
+        "citationCount": 17,
         "doi": "10.1145/3563037",
         "publishedDate": "",
         "contentFormat": "",
@@ -13892,7 +13880,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 18,
+        "_citationCount": 17,
         "_titleLower": "binsec/rel: symbolic binary analyzer for security with applications to constant-time and secret-erasure",
         "_authorLower": "lesly-ann daniel commissariat à l'énergie atomique et aux énergies alternatives sébastien bardin laboratoire d'intégration des systèmes et des technologies tamara rezk institut national de recherche en sciences et technologies du numérique",
         "_authorsLower": "lesly-ann daniel commissariat à l'énergie atomique et aux énergies alternatives sébastien bardin laboratoire d'intégration des systèmes et des technologies tamara rezk institut national de recherche en sciences et technologies du numérique",
@@ -14211,7 +14199,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 18
+          "citationCount": 17
         },
         "_searchBlob": "binsec rel symbolic binary analyzer for security with applications to constant-time and secret-erasure this article tackles the problem of designing efficient binary-level verification for a subset of information flow properties encompassing constant-time and secret-erasure . these properties are crucial for cryptographic implementations but are generally not preserved by compilers. our proposal builds on relational symbolic execution enhanced with new optimizations dedicated to information flow and binary-level analysis yielding a dramatic improvement over prior work based on symbolic execution. we implement a prototype binsec rel for bug-finding and bounded-verification of constant-time and secret-erasure and perform extensive experiments on a set of 338 cryptographic implementations demonstrating the benefits of our approach. using binsec rel we also automate two prior manual studies on preservation of constant-time and secret-erasure by compilers for a total of 4 148 and 1 156 binaries respectively. interestingly our analysis highlights incorrect usages of volatile data pointer for secret-erasure and shows that scrubbing mechanisms based on volatile function pointers can introduce additional register spilling that might break secret-erasure. we also discovered that gcc -o0 and backend passes of clang introduce violations of constant-time in implementations that were previously deemed secure by a state-of-the-art constant-time verification tool operating at llvm level showing the importance of reasoning at binary level. acm transactions on privacy and security acm transactions on privacy and security vol. 26 issue 2 2022 research-paper lesly-ann daniel commissariat a lenergie atomique et aux energies alternatives sebastien bardin laboratoire dintegration des systemes et des technologies tamara rezk institut national de recherche en sciences et technologies du numerique backend clang optimizations security backend clang optimizations security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14302,16 +14290,16 @@
           "mlir"
         ],
         "id": "openalex-w4294691697",
-        "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "aiwarek: compiling pytorch model for ai processor using mlir framework",
         "_authorLower": "hyunjeong kwon electronics and telecommunications research institute tae hyun kim electronics and telecommunications research institute chun‐gi lyuh electronics and telecommunications research institute jinkyu kim electronics and telecommunications research institute jinho han electronics and telecommunications research institute young-su kwon electronics and telecommunications research institute",
         "_authorsLower": "hyunjeong kwon electronics and telecommunications research institute tae hyun kim electronics and telecommunications research institute chun‐gi lyuh electronics and telecommunications research institute jinkyu kim electronics and telecommunications research institute jinho han electronics and telecommunications research institute young-su kwon electronics and telecommunications research institute",
@@ -14571,7 +14559,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "aiwarek compiling pytorch model for ai processor using mlir framework deep learning compiler becomes necessary with the active research on ai hardware. this work compiles pytorch models into target hardware codes using mlir framework. the compiler first constructs a graph from the pytorch model using torchscript tracing. to construct the graph our domain-specific parser generates an abstract syntax tree using tokens generated from the lexer. then the graph ir gir is built and lowered into the kernel ir kir and the processor ir pir in mlir framework. pir becomes the input of the backed compiler that generates target machine codes. experimental result shows that aiwarek compiled resnet18 in 7.67 seconds yielding 1.16e-03 mean absolute error. 2022 ieee 4th international conference on artificial intelligence circuits and systems aicas 2022 ieee 4th international conference on artificial intelligence circuits and systems aicas 2022 research-paper hyunjeong kwon electronics and telecommunications research institute tae hyun kim electronics and telecommunications research institute chun gi lyuh electronics and telecommunications research institute jinkyu kim electronics and telecommunications research institute jinho han electronics and telecommunications research institute young-su kwon electronics and telecommunications research institute mlir ir ai ml mlir ai aiwarek compiling pytorch graph hardware mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -14628,9 +14616,9 @@
         ],
         "openalexId": "https://openalex.org/W3133542048",
         "citationCount": 8,
+        "sourceUrl": "",
         "doi": "10.1109/tdsc.2021.3063843",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16506,15 +16494,15 @@
           "mlir"
         ],
         "id": "openalex-w4200038259",
-        "citationCount": 17,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 0,
         "_titleLower": "automated generation of integrated digital and spiking neuromorphic machine learning accelerators",
         "_authorLower": "serena curzel politecnico di milano nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory ismet dagli pacific northwest national laboratory ankur limaye pacific northwest national laboratory cheng tan pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory anup das drexel university fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory",
         "_authorsLower": "serena curzel politecnico di milano nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory ismet dagli pacific northwest national laboratory ankur limaye pacific northwest national laboratory cheng tan pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory anup das drexel university fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory",
@@ -16977,7 +16965,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 17
+          "citationCount": 0
         },
         "_searchBlob": "automated generation of integrated digital and spiking neuromorphic machine learning accelerators the growing numbers of application areas for artificial intelligence ai methods have led to an explosion in availability of domain-specific accelerators which struggle to support every new machine learning ml algorithm advancement clearly highlighting the need for a tool to quickly and automatically transition from algorithm definition to hardware implementation and explore the design space along a variety of swap size weight and power metrics. the software defined architectures soda synthesizer implements a modular compiler-based infrastructure for the end-to-end generation of machine learning accelerators from high-level frameworks to hardware description language. neuromorphic computing mimicking how the brain operates promises to perform artificial intelligence tasks at efficiencies orders-of-magnitude higher than the current conventional tensor-processing based accelerators as demonstrated by a variety of specialized designs leveraging spiking neural networks snns . nevertheless the mapping of an artificial neural network ann to solutions supporting snns is still a non-trivial and very device-specific task and completely lacks the possibility to design hybrid systems that integrate conventional and spiking neural models. in this paper we discuss the design of such an integrated generator leveraging the soda synthesizer framework and its modular structure. in particular we present a new mlir dialect in the soda frontend that allows expressing spiking neural network concepts e.g. spiking sequences transformation and manipulation and we discuss how to enable the mapping of spiking neurons to the related specialized hardware which could be generated through middle-end and backend layers of the soda synthesizer . we then discuss the opportunities for further integration offered by the hardware compilation infrastructure providing a path towards the generation of complex hybrid artificial intelligence systems. 2021 ieee acm international conference on computer aided design iccad 2021 ieee acm international conference on computer aided design iccad 2021 research-paper serena curzel politecnico di milano nicolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory ismet dagli pacific northwest national laboratory ankur limaye pacific northwest national laboratory cheng tan pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory anup das drexel university fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory mlir backend frontend infrastructure ai ml mlir backend frontend infrastructure ai neuromorphic machine learning machine learning accelerators artificial intelligence soda synthesizer spiking neural hardware discuss neural network spiking neuromorphic machine mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -17031,9 +17019,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3111286870",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/smc42975.2020.9283132",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -17384,9 +17372,9 @@
         ],
         "openalexId": "https://openalex.org/W3042341565",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/ipdps47924.2020.00107",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17805,9 +17793,9 @@
         ],
         "openalexId": "https://openalex.org/W2982588003",
         "citationCount": 11,
+        "sourceUrl": "",
         "doi": "10.1109/trustcom/bigdatase.2019.00031",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18197,9 +18185,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2920815523",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-15035-8_88",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -18389,8 +18377,8 @@
         ],
         "openalexId": "https://openalex.org/W3031282011",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18809,9 +18797,9 @@
         ],
         "openalexId": "https://openalex.org/W3012049721",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/icsess47205.2019.9040837",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19141,15 +19129,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "Verified Translation Validation For Register Promotion in LLVM",
-        "authors": [
-          {
-            "name": "박상훈",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2018",
         "publication": "",
         "venue": "",
@@ -19159,8 +19139,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3026610861",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -19173,8 +19153,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "verified translation validation for register promotion in llvm",
-        "_authorLower": "박상훈",
-        "_authorsLower": "박상훈",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "no abstract available in openalex metadata.",
         "_tagsLower": "",
         "_keywordsLower": "",
@@ -19318,15 +19298,15 @@
           "polly"
         ],
         "id": "openalex-w2898969787",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "user-directed loop-transformations in clang",
         "_authorLower": "michael kruse argonne national laboratory hal finkel argonne leadership computing facility",
         "_authorsLower": "michael kruse argonne national laboratory hal finkel argonne leadership computing facility",
@@ -19545,7 +19525,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "user-directed loop-transformations in clang directives for the compiler such as pragmas can help programmers to separate an algorithms semantics from its optimization. this keeps the code understandable and easier to optimize for different platforms. simple transformations such as loop unrolling are already implemented in most mainstream compilers. we recently submitted a proposal to add generalized loop transformations to the openmp standard. we are also working on an implementation in llvm clang polly to show its feasibility and usefulness. the current prototype allows applying patterns common to matrix-matrix multiplication optimizations. 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc 2018 research-paper michael kruse argonne national laboratory hal finkel argonne leadership computing facility llvm clang polly openmp optimizations loop transformations infrastructure llvm clang polly openmp optimizations loop transformations infrastructure loop optimization directed loop transformations user directed loop clang llvm openmp polly",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -19580,8 +19560,8 @@
         ],
         "openalexId": "https://openalex.org/W2791110596",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19790,9 +19770,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2907440908",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-05090-0_12",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -19996,7 +19976,7 @@
           "Infrastructure"
         ],
         "openalexId": "https://openalex.org/W2798960592",
-        "citationCount": 28,
+        "citationCount": 26,
         "doi": "10.1145/3276480",
         "publishedDate": "",
         "contentFormat": "",
@@ -20010,7 +19990,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 28,
+        "_citationCount": 26,
         "_titleLower": "goslp: globally optimized superword level parallelism framework",
         "_authorLower": "charith mendis massachusetts institute of technology saman amarasinghe massachusetts institute of technology",
         "_authorsLower": "charith mendis massachusetts institute of technology saman amarasinghe massachusetts institute of technology",
@@ -20264,7 +20244,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 28
+          "citationCount": 26
         },
         "_searchBlob": "goslp globally optimized superword level parallelism framework modern microprocessors are equipped with single instruction multiple data simd or vector instruction sets which allow compilers to exploit superword level parallelism slp a type of fine-grained parallelism. current slp auto-vectorization techniques use heuristics to discover vectorization opportunities in high-level language code. these heuristics are fragile local and typically only present one vectorization strategy that is either accepted or rejected by a cost model. we present goslp a novel slp auto-vectorization framework which solves the statement packing problem in a pairwise optimal manner. using an integer linear programming ilp solver goslp searches the entire space of statement packing opportunities for a whole function at a time while limiting total compilation time to a few minutes. furthermore goslp optimally solves the vector permutation selection problem using dynamic programming. we implemented goslp in the llvm compiler infrastructure achieving a geometric mean speedup of 7.58 on spec2017fp 2.42 on spec2006fp and 4.07 on nas benchmarks compared to llvms existing slp auto-vectorizer. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 2 issue oopsla 2018 research-paper charith mendis massachusetts institute of technology saman amarasinghe massachusetts institute of technology infrastructure infrastructure",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -21467,8 +21447,8 @@
         ],
         "openalexId": "https://openalex.org/W2782813868",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22245,8 +22225,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2732437058",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -22409,7 +22389,7 @@
           "C++"
         ],
         "openalexId": "https://openalex.org/W2743924600",
-        "citationCount": 17,
+        "citationCount": 15,
         "sourceUrl": "https://doi.org/10.5555/3049832.3049844",
         "doi": "10.1109/cgo.2017.7863732",
         "publishedDate": "",
@@ -22424,7 +22404,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 15,
         "_titleLower": "formalizing the concurrency semantics of an llvm fragment",
         "_authorLower": "soham chakraborty max planck institute for software systems viktor vafeiadis max planck institute for software systems",
         "_authorsLower": "soham chakraborty max planck institute for software systems viktor vafeiadis max planck institute for software systems",
@@ -22696,7 +22676,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 17
+          "citationCount": 15
         },
         "_searchBlob": "formalizing the concurrency semantics of an llvm fragment the llvm compiler follows closely the concurrency model of c c++ 2011 but with a crucial difference. while in c c++ a data race between a non-atomic read and a write is declared to be undefined behavior in llvm such a race has defined behavior the read returns the special undef value. this subtle difference in the semantics of racy programs has profound consequences on the set of allowed program transformations but it has been not formally been studied before. this work closes this gap by providing a formal memory model for a substantial fragment of llvm and showing that it is correct as a concurrency model for a compiler intermediate language 1 it is stronger than the c c++ model 2 weaker than the known hardware models and 3 supports the expected program transformations. in order to support llvms semantics for racy accesses our formal model does not work on the level of single executions as the hardware and the c c++ models do but rather uses more elaborate structures called event structures. 2017 ieee acm international symposium on code generation and optimization cgo 2017 ieee acm international symposium on code generation and optimization cgo 2017 research-paper soham chakraborty max planck institute for software systems viktor vafeiadis max planck institute for software systems c++ c++",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -22756,7 +22736,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W2773049795",
-        "citationCount": 36,
+        "citationCount": 35,
         "doi": "10.1145/3141234",
         "publishedDate": "",
         "contentFormat": "",
@@ -22774,7 +22754,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 36,
+        "_citationCount": 35,
         "_titleLower": "compiler-assisted loop hardening against fault attacks",
         "_authorLower": "julien proy karine heydemann sorbonne université alexandre berzati albert cohen institut national de recherche en informatique et en automatique",
         "_authorsLower": "julien proy karine heydemann sorbonne université alexandre berzati albert cohen institut national de recherche en informatique et en automatique",
@@ -23100,7 +23080,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 36
+          "citationCount": 35
         },
         "_searchBlob": "compiler-assisted loop hardening against fault attacks secure elements widely used in smartphones digital consumer electronics and payment systems are subject to fault attacks. to thwart such attacks software protections are manually inserted requiring experts and time. the explosion of the internet of things iot in home business and public spaces motivates the hardening of a wider class of applications and the need to offer security solutions to non-experts. this article addresses the automated protection of loops at compilation time covering the widest range of control- and data-flow patterns in both shape and complexity. the security property we consider is that a sensitive loop must always perform the expected number of iterations otherwise an attack must be reported. we propose a generic compile-time loop hardening scheme based on the duplication of termination conditions and of the computations involved in the evaluation of such conditions. we also investigate how to preserve the security property along the compilation flow while enabling aggressive optimizations. we implemented this algorithm in llvm 4.0 at the intermediate representation ir level in the backend. on average the compiler automatically hardens 95 of the sensitive loops of typical security benchmarks and 98 of these loops are shown to be robust to simulated faults. performance and code size overhead remain quite affordable at 12.5 and 14 respectively. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 14 issue 4 2017 research-paper julien proy karine heydemann sorbonne universite alexandre berzati albert cohen institut national de recherche en informatique et en automatique backend ir optimizations performance security backend ir optimizations performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -23160,10 +23140,10 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2017",
         "_publishedDate": "",
@@ -25978,8 +25958,8 @@
         ],
         "openalexId": "https://openalex.org/W3214420197",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -27075,9 +27055,9 @@
         ],
         "openalexId": "https://openalex.org/W2087202435",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.3103/s0146411614070025",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -27381,9 +27361,9 @@
         ],
         "openalexId": "https://openalex.org/W2109978386",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1134/s0361768814030037",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -29955,8 +29935,8 @@
         ],
         "openalexId": "https://openalex.org/W2166548548",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -30287,11 +30267,11 @@
           "addresssanitizer"
         ],
         "id": "openalex-w32896423",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2014",
         "_publishedDate": "",
@@ -30836,8 +30816,8 @@
         ],
         "openalexId": "https://openalex.org/W2413602982",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -34441,8 +34421,8 @@
           }
         ],
         "year": "2012",
-        "publication": "http://www.ieee-student-conference.de/fileadmin/templateV2/images/papers/12_Estimating_Potential_Parallelism_by_Data-Dependence_Profiling.pdf",
-        "venue": "http://www.ieee-student-conference.de/fileadmin/templateV2/images/papers/12_Estimating_Potential_Parallelism_by_Data-Dependence_Profiling.pdf",
+        "publication": "",
+        "venue": "",
         "type": "research-paper",
         "abstract": "Abstract—With the rise of multi-core consumer hardware, today’s software developers face the challenging task of refactoring existing sequential code assets with a view to exploiting modern multi-core processors ’ parallel execution capabilities. While there is a growing range of methods to support parallelism in software products, a software engineer nonetheless has to decide which parts of an already existing software are worth the effort of being modified. We propose an extensible data dependence profiling framework that facilitates the estimation of a software component’s inherent potential for parallelism. Our framework is based on the Low Level Virtual Machine (LLVM) compiler infrastructure. We use LLVM to perform a static analysis of a given code and instrument the code at the intermediate representation level to record memory accesses and control flow. The information recorded, together with the result of the static analysis, is used to estimate the parallelism inherent in the program. We evaluate our tool on a benchmark covering algorithmic problems like searching, sorting and numerical methods. I.",
         "paperUrl": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.251.3150",
@@ -34452,8 +34432,8 @@
         ],
         "openalexId": "https://openalex.org/W2407903596",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -34476,8 +34456,8 @@
         "_keywordsLower": "infrastructure static analysis",
         "_topicsLower": "infrastructure static analysis infrastructure static analysis",
         "_contentLower": "",
-        "_publicationLower": "http://www.ieee-student-conference.de/fileadmin/templatev2/images/papers/12_estimating_potential_parallelism_by_data-dependence_profiling.pdf",
-        "_venueLower": "http://www.ieee-student-conference.de/fileadmin/templatev2/images/papers/12_estimating_potential_parallelism_by_data-dependence_profiling.pdf",
+        "_publicationLower": "",
+        "_venueLower": "",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2012",
@@ -34692,40 +34672,12 @@
               "words": []
             },
             "publication": {
-              "text": "http www.ieee-student-conference.de fileadmin templatev2 images papers 12 estimating potential parallelism by data-dependence profiling.pdf",
-              "words": [
-                "http",
-                "www.ieee-student-conference.de",
-                "fileadmin",
-                "templatev2",
-                "images",
-                "papers",
-                "12",
-                "estimating",
-                "potential",
-                "parallelism",
-                "by",
-                "data-dependence",
-                "profiling.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "http www.ieee-student-conference.de fileadmin templatev2 images papers 12 estimating potential parallelism by data-dependence profiling.pdf",
-              "words": [
-                "http",
-                "www.ieee-student-conference.de",
-                "fileadmin",
-                "templatev2",
-                "images",
-                "papers",
-                "12",
-                "estimating",
-                "potential",
-                "parallelism",
-                "by",
-                "data-dependence",
-                "profiling.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2012",
@@ -34737,7 +34689,7 @@
           "year": 2012,
           "citationCount": 0
         },
-        "_searchBlob": "estimating potential parallelism by data-dependence profiling. abstract with the rise of multi-core consumer hardware todays software developers face the challenging task of refactoring existing sequential code assets with a view to exploiting modern multi-core processors parallel execution capabilities. while there is a growing range of methods to support parallelism in software products a software engineer nonetheless has to decide which parts of an already existing software are worth the effort of being modified. we propose an extensible data dependence profiling framework that facilitates the estimation of a software components inherent potential for parallelism. our framework is based on the low level virtual machine llvm compiler infrastructure. we use llvm to perform a static analysis of a given code and instrument the code at the intermediate representation level to record memory accesses and control flow. the information recorded together with the result of the static analysis is used to estimate the parallelism inherent in the program. we evaluate our tool on a benchmark covering algorithmic problems like searching sorting and numerical methods. i. http www.ieee-student-conference.de fileadmin templatev2 images papers 12 estimating potential parallelism by data-dependence profiling.pdf http www.ieee-student-conference.de fileadmin templatev2 images papers 12 estimating potential parallelism by data-dependence profiling.pdf 2012 research-paper andreas donig university of passau infrastructure static analysis infrastructure static analysis",
+        "_searchBlob": "estimating potential parallelism by data-dependence profiling. abstract with the rise of multi-core consumer hardware todays software developers face the challenging task of refactoring existing sequential code assets with a view to exploiting modern multi-core processors parallel execution capabilities. while there is a growing range of methods to support parallelism in software products a software engineer nonetheless has to decide which parts of an already existing software are worth the effort of being modified. we propose an extensible data dependence profiling framework that facilitates the estimation of a software components inherent potential for parallelism. our framework is based on the low level virtual machine llvm compiler infrastructure. we use llvm to perform a static analysis of a given code and instrument the code at the intermediate representation level to record memory accesses and control flow. the information recorded together with the result of the static analysis is used to estimate the parallelism inherent in the program. we evaluate our tool on a benchmark covering algorithmic problems like searching sorting and numerical methods. i. 2012 research-paper andreas donig university of passau infrastructure static analysis infrastructure static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -34788,8 +34740,8 @@
           }
         ],
         "year": "2011",
-        "publication": "http://www.cri.ensmp.fr/classement/doc/A-475.pdf",
-        "venue": "http://www.cri.ensmp.fr/classement/doc/A-475.pdf",
+        "publication": "",
+        "venue": "",
         "type": "research-paper",
         "abstract": "Abstract. As hardware platforms are growing in complexity, compiler infrastructures need more exibility: due to the heterogeneity of these platforms, compiler phases must be combined in unusual and dynamic ways, and several tools may need to be combined to handle speci c parts of the compilation process e ciently. The need for exibility also appears in iterative compilation when di erent phase orderings are explored. In this context, we need to assemble pieces of software typically compiler phases without having to dive into the tool internals. The entity in charge of this phase management is called a pass manager. While pass managers used to rely on a statically de ned schedule, the introduction of plugins in gcc and the current trends in compiler design showcased by llvm pave the way for dynamic pass schedulers. The contributions of this paper are a high-level modeling of pass chaining and its implementation in the pips source-to-source compiler framework under the name pyps. As a result, we propose a high level api for building end-to-end specialized compilers with the minimum e orts validated by 5 prototypes detailed in the paper: an iterative compiler, an openmp directive generator, a C-to-cuda translator, a multimedia instruction generator and a C-to-fpga translator.",
         "paperUrl": "https://hal-mines-paristech.archives-ouvertes.fr/hal-01087303",
@@ -34820,15 +34772,15 @@
           "llvm",
           "openmp"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "pyps a programmable pass manager",
         "_authorLower": "serge guelton département d'informatique mehdi amini centre de recherche en informatique ronan keryell béatrice creusillet télécom bretagne plouzané",
         "_authorsLower": "serge guelton département d'informatique mehdi amini centre de recherche en informatique ronan keryell béatrice creusillet télécom bretagne plouzané",
@@ -34837,8 +34789,8 @@
         "_keywordsLower": "llvm openmp cuda programmable pass manager compiler phases compilation",
         "_topicsLower": "llvm openmp cuda llvm openmp cuda programmable pass manager compiler phases compilation llvm openmp",
         "_contentLower": "",
-        "_publicationLower": "http://www.cri.ensmp.fr/classement/doc/a-475.pdf",
-        "_venueLower": "http://www.cri.ensmp.fr/classement/doc/a-475.pdf",
+        "_publicationLower": "",
+        "_venueLower": "",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2011",
@@ -35105,24 +35057,12 @@
               "words": []
             },
             "publication": {
-              "text": "http www.cri.ensmp.fr classement doc a-475.pdf",
-              "words": [
-                "http",
-                "www.cri.ensmp.fr",
-                "classement",
-                "doc",
-                "a-475.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "http www.cri.ensmp.fr classement doc a-475.pdf",
-              "words": [
-                "http",
-                "www.cri.ensmp.fr",
-                "classement",
-                "doc",
-                "a-475.pdf"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2011",
@@ -35132,9 +35072,9 @@
             }
           },
           "year": 2011,
-          "citationCount": 1
+          "citationCount": 0
         },
-        "_searchBlob": "pyps a programmable pass manager abstract. as hardware platforms are growing in complexity compiler infrastructures need more exibility due to the heterogeneity of these platforms compiler phases must be combined in unusual and dynamic ways and several tools may need to be combined to handle speci c parts of the compilation process e ciently. the need for exibility also appears in iterative compilation when di erent phase orderings are explored. in this context we need to assemble pieces of software typically compiler phases without having to dive into the tool internals. the entity in charge of this phase management is called a pass manager. while pass managers used to rely on a statically de ned schedule the introduction of plugins in gcc and the current trends in compiler design showcased by llvm pave the way for dynamic pass schedulers. the contributions of this paper are a high-level modeling of pass chaining and its implementation in the pips source-to-source compiler framework under the name pyps. as a result we propose a high level api for building end-to-end specialized compilers with the minimum e orts validated by 5 prototypes detailed in the paper an iterative compiler an openmp directive generator a c-to-cuda translator a multimedia instruction generator and a c-to-fpga translator. http www.cri.ensmp.fr classement doc a-475.pdf http www.cri.ensmp.fr classement doc a-475.pdf 2011 research-paper serge guelton departement dinformatique mehdi amini centre de recherche en informatique ronan keryell beatrice creusillet telecom bretagne plouzane llvm openmp cuda llvm openmp cuda programmable pass manager compiler phases compilation llvm openmp",
+        "_searchBlob": "pyps a programmable pass manager abstract. as hardware platforms are growing in complexity compiler infrastructures need more exibility due to the heterogeneity of these platforms compiler phases must be combined in unusual and dynamic ways and several tools may need to be combined to handle speci c parts of the compilation process e ciently. the need for exibility also appears in iterative compilation when di erent phase orderings are explored. in this context we need to assemble pieces of software typically compiler phases without having to dive into the tool internals. the entity in charge of this phase management is called a pass manager. while pass managers used to rely on a statically de ned schedule the introduction of plugins in gcc and the current trends in compiler design showcased by llvm pave the way for dynamic pass schedulers. the contributions of this paper are a high-level modeling of pass chaining and its implementation in the pips source-to-source compiler framework under the name pyps. as a result we propose a high level api for building end-to-end specialized compilers with the minimum e orts validated by 5 prototypes detailed in the paper an iterative compiler an openmp directive generator a c-to-cuda translator a multimedia instruction generator and a c-to-fpga translator. 2011 research-paper serge guelton departement dinformatique mehdi amini centre de recherche en informatique ronan keryell beatrice creusillet telecom bretagne plouzane llvm openmp cuda llvm openmp cuda programmable pass manager compiler phases compilation llvm openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
         "_addedAt": "2026-02-21T23:38:34.000Z",
         "_addedAtTs": 1771717114000
@@ -35431,10 +35371,10 @@
         "publication": "Proceedings of th 12th International Workshop on Software and Compilers for Embedded Systems",
         "openalexId": "https://openalex.org/W2037504187",
         "doi": "10.1145/1543820.1543833",
-        "citationCount": 12,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -35444,7 +35384,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 0,
         "_titleLower": "precise simulation of interrupts using a rollback mechanism",
         "_authorLower": "florian brandner tu wien",
         "_authorsLower": "florian brandner tu wien",
@@ -35620,7 +35560,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 12
+          "citationCount": 0
         },
         "_searchBlob": "precise simulation of interrupts using a rollback mechanism instruction set simulation based on dynamic compilation is a popular approach that focuses on fast simulation of user-visible features according to the instruction-set-architecture abstraction of a given processor. simulation of interrupts even though they are rare events is very expensive for these simulators because interrupts may occur anytime at any phase of the programs execution. many optimizations in compiling simulators can not be applied or become less beneficial in the presence of interrupts. proceedings of th 12th international workshop on software and compilers for embedded systems proceedings of th 12th international workshop on software and compilers for embedded systems 2009 research-paper florian brandner tu wien optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -35645,8 +35585,8 @@
           }
         ],
         "year": "2008",
-        "publication": "Plenary Talk, ACAT 2008:Advanced Computing and Analysis Techniques in Physics Research",
-        "venue": "Plenary Talk, ACAT 2008:Advanced Computing and Analysis Techniques in Physics Research | Erice, Sicily, Italy",
+        "publication": "Plenary Talk, ACAT 2008: Advanced Computing and Analysis Techniques in Physics Research",
+        "venue": "Plenary Talk, ACAT 2008: Advanced Computing and Analysis Techniques in Physics Research | Erice, Sicily, Italy",
         "type": "research-paper",
         "abstract": "This talk gives a gentle introduction to LLVM, talking about the benefits of using llvm-gcc and including updated compile-time and run-time performance numbers. This talk is high level and particularly suited for those without a deep compiler hacker background.",
         "paperUrl": "http://ui.adsabs.harvard.edu/abs/2008acat.confE...5L/abstract",
@@ -35684,8 +35624,8 @@
         "_keywordsLower": "performance c++ jit libraries",
         "_topicsLower": "performance c++ jit libraries performance c++ jit libraries",
         "_contentLower": "",
-        "_publicationLower": "plenary talk, acat 2008:advanced computing and analysis techniques in physics research",
-        "_venueLower": "plenary talk, acat 2008:advanced computing and analysis techniques in physics research | erice, sicily, italy",
+        "_publicationLower": "plenary talk, acat 2008: advanced computing and analysis techniques in physics research",
+        "_venueLower": "plenary talk, acat 2008: advanced computing and analysis techniques in physics research | erice, sicily, italy",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2008",

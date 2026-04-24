@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4407857386": {
@@ -57,9 +57,9 @@
         ],
         "openalexId": "https://openalex.org/W4407857386",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3696443.3708950",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2020,11 +2020,11 @@
           "clang"
         ],
         "id": "openalex-w4411144230",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -2441,9 +2441,9 @@
         ],
         "openalexId": "https://openalex.org/W4416924059",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/dasc66011.2025.11257174",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2843,9 +2843,9 @@
         ],
         "openalexId": "https://openalex.org/W4406807425",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1016/j.cose.2025.104342",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3223,11 +3223,11 @@
           "mlir"
         ],
         "id": "openalex-w4411552330",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -3576,10 +3576,10 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W4392265898",
-        "citationCount": 4,
+        "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/cgo57630.2024.10444854",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3591,7 +3591,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 3,
         "_titleLower": "high-throughput, formal-methods-assisted fuzzing for llvm",
         "_authorLower": "yuyou fan university of utah john regehr university of utah",
         "_authorsLower": "yuyou fan university of utah john regehr university of utah",
@@ -3862,7 +3862,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 4
+          "citationCount": 3
         },
         "_searchBlob": "high-throughput formal-methods-assisted fuzzing for llvm it is very difficult to thoroughly test a compiler and as a consequence it is common for released versions of production compilers to contain bugs that cause them to crash and to emit incorrect object code. we created alive-mutate a mutation-based fuzzing tool that takes test cases written by humans and randomly modifies them based on the hypothesis that while compiler developers are fundamentally good at writing tests they also tend to miss corner cases. alive-mutate is integrated with the alive2 translation validation tool for llvm which is useful because it checks the behavior of optimizations for all possible values of input variables. alive-mutate is also integrated with the llvm middle-end allowing it to perform mutations optimizations and formal verification of the optimizations all within a single program avoiding numerous sources of overhead. alive-mutates fuzzing throughput is 12x higher on average than a fuzzing workflow that runs mutation optimization and formal verification in separate processes. so far we have used alive-mutate to find and report 33 previously unknown bugs in llvm. 2024 ieee acm international symposium on code generation and optimization cgo 2024 ieee acm international symposium on code generation and optimization cgo 2024 research-paper yuyou fan university of utah john regehr university of utah optimizations optimizations",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3962,10 +3962,10 @@
           "llvm"
         ],
         "id": "openalex-w4392088149",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -4693,10 +4693,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4402777432",
-        "citationCount": 21,
+        "citationCount": 20,
+        "sourceUrl": "",
         "doi": "10.1109/cvpr52733.2024.01126",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4708,7 +4708,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 20,
         "_titleLower": "atlantis: enabling underwater depth estimation with stable diffusion",
         "_authorLower": "fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology",
         "_authorsLower": "fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology",
@@ -5063,7 +5063,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 21
+          "citationCount": 20
         },
         "_searchBlob": "atlantis enabling underwater depth estimation with stable diffusion monocular depth estimation has experienced significant progress on terrestrial images in recent years thanks to deep learning advancements. but it remains inadequate for underwater scenes primarily due to data scarcity. given the inherent challenges of light attenuation and backscat-ter in water acquiring clear underwater images or precise depth is notably difficult and costly. to mitigate this issue learning-based approaches often rely on synthetic data or turn to self- or unsupervised manners. nonetheless their performance is often hindered by domain gap and looser constraints. in this paper we propose a novel pipeline for generating photorealistic underwater images using accurate terrestrial depth. this approach facilitates the supervised training of models for underwater depth estimation effectively reducing the performance disparity between ter-restrial and underwater environments. contrary to previous synthetic datasets that merely apply style transfer to terres-trial images without scene content change our approach uniquely creates vivid non-existent underwater scenes by leveraging terrestrial depth data through the innovative stable diffusion model. specifically we introduce a specialized depth2underwater controlnet trained on prepared underwater depth text data triplets for this generation task. our newly developed dataset atlantis enables terres-trial depth estimation models to achieve considerable improvements on unseen underwater scenes surpassing their terrestrial pretrained counterparts both quantitatively and qualitatively. moreover we further show its practical utility by applying the improved depth in underwater image enhancement and its smaller domain gap from the llvm perspective. code and dataset are publicly available at https github.com zkawfanx atlantis. 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 research-paper fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -5582,15 +5582,15 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "program state element characterization",
         "_authorLower": "enrico armenio deiana northwestern university brian suchy northwestern university michael wilkins northwestern university brian homerding northwestern university tommy mcmichen northwestern university katarzyna dunajewski northwestern university peter a. dinda northwestern university nikos hardavellas northwestern university simone campanoni northwestern university",
         "_authorsLower": "enrico armenio deiana northwestern university brian suchy northwestern university michael wilkins northwestern university brian homerding northwestern university tommy mcmichen northwestern university katarzyna dunajewski northwestern university peter a. dinda northwestern university nikos hardavellas northwestern university simone campanoni northwestern university",
@@ -5920,7 +5920,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "program state element characterization modern programming languages offer abstractions that simplify software development and allow hardware to reach its full potential. these abstractions range from the well-established openmp language extensions to newer c++ features like smart pointers. to properly use these abstractions in an existing codebase programmers must determine how a given source code region interacts with program state elements pses i.e. the programs variables and memory locations . we call this process program state element characterization psec . without tool support for psec a programmers only option is to manually study the entire codebase. we propose a profile-based approach that automates psec and provides abstraction recommendations to programmers. because a profile-based approach incurs an impractical overhead we introduce the compiler and runtime memory observation tool carmot a psec-specific compiler co-designed with a parallel runtime. carmot reduces the overhead of psec by two orders of magnitude making psec practical. we show that carmots recommendations achieve the same speedup as hand-tuned openmp directives and avoid memory leaks with c++ smart pointers. from this we argue that psec tools such as carmot can provide support for the rich ecosystem of modern programming language abstractions. proceedings of 21st acm ieee international symposium on code generation and optimization proceedings of 21st acm ieee international symposium on code generation and optimization 2023 research-paper enrico armenio deiana northwestern university brian suchy northwestern university michael wilkins northwestern university brian homerding northwestern university tommy mcmichen northwestern university katarzyna dunajewski northwestern university peter a. dinda northwestern university nikos hardavellas northwestern university simone campanoni northwestern university openmp programming languages openmp programming languages program state element abstractions carmot state element characterization memory smart pointers openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -6025,15 +6025,15 @@
           "libfuzzer"
         ],
         "id": "openalex-w4384163474",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "crabsandwich: fuzzing rust with rust (registered report)",
         "_authorLower": "addison crump helmholtz center for information security dongjia zhang eurecom syeda mahnur asif helmholtz center for information security dominik maier technische universität berlin andrea fioraldi eurecom thorsten holz helmholtz center for information security davide balzarotti eurecom",
         "_authorsLower": "addison crump helmholtz center for information security dongjia zhang eurecom syeda mahnur asif helmholtz center for information security dominik maier technische universität berlin andrea fioraldi eurecom thorsten holz helmholtz center for information security davide balzarotti eurecom",
@@ -6251,7 +6251,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "crabsandwich fuzzing rust with rust registered report the rust programming language is one of the fastest-growing programming languages thanks to its unique blend of high performance execution and memory safety. still programs implemented in rust can contain critical bugs. apart from logic bugs and crashes code in unsafe blocks can still trigger memory corruptions. to find these the community uses traditional fuzzers like libfuzzer or aflpp in combination with rust-specific macros. of course the fuzzers themselves are still written in memory-unsafe languages. proceedings of 2nd international fuzzing workshop proceedings of 2nd international fuzzing workshop 2023 research-paper addison crump helmholtz center for information security dongjia zhang eurecom syeda mahnur asif helmholtz center for information security dominik maier technische universitat berlin andrea fioraldi eurecom thorsten holz helmholtz center for information security davide balzarotti eurecom testing security performance programming languages rust testing security performance programming languages rust fuzzing memory safety crabsandwich fuzzing rust rust registered report libfuzzer",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6308,11 +6308,11 @@
           "runtimes"
         ],
         "id": "openalex-w4388856679",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
@@ -7117,9 +7117,9 @@
         ],
         "openalexId": "https://openalex.org/W4281260410",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1142/s0218194022500206",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7501,9 +7501,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4212958517",
         "citationCount": 17,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-95561-8_8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7681,8 +7681,8 @@
           }
         ],
         "year": "2021",
-        "publication": "Journal of Physics:Conference Series",
-        "venue": "Journal of Physics:Conference Series | Vol. 1952 (Issue 2)",
+        "publication": "Journal of Physics: Conference Series",
+        "venue": "Journal of Physics: Conference Series | Vol. 1952 (Issue 2)",
         "type": "research-paper",
         "abstract": "Abstract With the continuous expansion of the scale of the network, modeling the complex graph structure is a major challenge for the recommendation task. There are conflicts between these complex information, which will directly affect the recommendation results. For this reason, a graph neural network recommendation method based on multi-branch decision is proposed. The algorithm models the social network graph and the user project graph through the neural network, connects the two graphs intrinsically, and learns the feature vectors of the target users in the social space and the project space. Then two feature vectors are connected in series by MLP to extract the potential feature vector of the user. Finally, the prediction score is generated by integrating the probability matrix decomposition model. In this method, the graph neural network is used to model the program data and dependence graph, and the effective program features are automatically extracted from the source code, and then the extracted features are input into the downstream model for loop vectorization parameter prediction. Finally, the attention mechanism is used for information fusion to get the final session representation and predict the next interactive item. Comparative experiments are carried out under the two scenarios of e-commerce and civil aviation respectively. The experimental results show that, compared with the optimal benchmark model, the improvement of MGSP model on each index of e-commerce data set is more than 1%, and that of civil aviation data set is about 3%, which verifies the effectiveness of MGSP model. On the LLVM cyclic vector test set, the proposed method achieves a speedup of 2.08 times and improves the performance by 12% compared with the existing methods. In order to solve the problem that the existing deep learning model considers the program code as a serial sequence and misses a large performance optimization space, a new program heuristic method based on depth map network is proposed to achieve optimization.",
         "paperUrl": "https://iopscience.iop.org/article/10.1088/1742-6596/1952/2/022050/pdf",
@@ -7714,8 +7714,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "journal of physics:conference series",
-        "_venueLower": "journal of physics:conference series | vol. 1952 (issue 2)",
+        "_publicationLower": "journal of physics: conference series",
+        "_venueLower": "journal of physics: conference series | vol. 1952 (issue 2)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2021",
@@ -8217,10 +8217,10 @@
           "mlir"
         ],
         "id": "openalex-w4225718726",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
@@ -8532,7 +8532,7 @@
         "sourceUrl": "https://doi.org/10.1145/3524452",
         "tags": [],
         "openalexId": "https://openalex.org/W4220980201",
-        "citationCount": 23,
+        "citationCount": 21,
         "doi": "10.1145/3524452",
         "publishedDate": "",
         "contentFormat": "",
@@ -8544,7 +8544,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 23,
+        "_citationCount": 21,
         "_titleLower": "h-container: enabling heterogeneous-isa container migration in edge computing",
         "_authorLower": "tong xing university of edinburgh antonio barbalace university of edinburgh pierre olivier university of manchester mohamed lamine karaoui wei wang brookhaven national laboratory binoy ravindran virginia tech",
         "_authorsLower": "tong xing university of edinburgh antonio barbalace university of edinburgh pierre olivier university of manchester mohamed lamine karaoui wei wang brookhaven national laboratory binoy ravindran virginia tech",
@@ -8891,7 +8891,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 23
+          "citationCount": 21
         },
         "_searchBlob": "h-container enabling heterogeneous-isa container migration in edge computing edge computing is a recent computing paradigm that brings cloud services closer to the client. among other features edge computing offers extremely low client server latencies. to consistently provide such low latencies services should run on edge nodes that are physically as close as possible to their clients. thus when the physical location of a client changes a service should migrate between edge nodes to maintain proximity. differently from cloud nodes edge nodes integrate cpus of different instruction set architectures isas hence a program natively compiled for a given isa cannot migrate to a server equipped with a cpu of a different isa. this hinders migration to the closest node. we introduce h-container a system that migrates natively compiled containerized applications across compute nodes featuring cpus of different isas. h-container advances over existing heterogeneous-isa migration systems by being a highly compatible no users source-code nor compiler toolchain modifications are needed b easily deployable fully implemented in user space thus without any os or hypervisor dependency and c largely linux-compliant it can migrate most linux software including server applications and dynamically linked binaries. h-container targets linux and its already-compiled executables adopts llvm extends criu and integrates with docker. experiments demonstrate that h-container adds no overheads during program execution while 10 100 ms are added during migration. furthermore we show the benefits of h-container in real-world scenarios demonstrating for example up to 94 increase in redis throughput when client server proximity is maintained through heterogeneous container migration. acm transactions on computer systems acm transactions on computer systems vol. 39 issue 1-4 2021 research-paper tong xing university of edinburgh antonio barbalace university of edinburgh pierre olivier university of manchester mohamed lamine karaoui wei wang brookhaven national laboratory binoy ravindran virginia tech",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8980,15 +8980,15 @@
           "openmp"
         ],
         "id": "openalex-w4226469047",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "an openmp runtime for transparent work sharing across cache-incoherent heterogeneous nodes",
         "_authorLower": "robert lyerly virginia tech carlos bilbao virginia tech changwoo min virginia tech christopher j. rossbach kitware binoy ravindran virginia tech",
         "_authorsLower": "robert lyerly virginia tech carlos bilbao virginia tech changwoo min virginia tech christopher j. rossbach kitware binoy ravindran virginia tech",
@@ -9318,7 +9318,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "an openmp runtime for transparent work sharing across cache-incoherent heterogeneous nodes in this work we present libhetmp an openmp runtime for automatically and transparently distributing parallel computation across heterogeneous nodes. libhetmp targets platforms comprising cpus with different instruction set architectures isa coupled by a high-speed memory interconnect where cross-isa binary incompatibility and non-coherent caches require application data be marshaled to be shared across cpus. because of this work distribution decisions must take into account both relative compute performance of asymmetric cpus and communication overheads. libhetmp drives workload distribution decisions without programmer intervention by measuring performance characteristics during cross-node execution. a novel hetprobe loop iteration scheduler decides if cross-node execution is beneficial and either distributes work according to the relative performance of cpus when it is or places all work on the set of homogeneous cpus providing the best performance when it is not. we evaluate libhetmp using compute kernels from several openmp benchmark suites and show a geometric mean 41 speedup in execution time across asymmetric cpus. because some workloads may showcase irregular behavior among iterations we extend libhetmp with a second scheduler called hetprobe-i. the evaluation of hetprobe-i shows it can further improve speedup for irregular computation in some cases up to a 24 by triggering periodic distribution decisions. acm transactions on computer systems acm transactions on computer systems vol. 39 issue 1-4 2021 research-paper robert lyerly virginia tech carlos bilbao virginia tech changwoo min virginia tech christopher j. rossbach kitware binoy ravindran virginia tech openmp performance openmp performance libhetmp distribution decisions cross node execution openmp runtime incoherent heterogeneous nodes hetprobe asymmetric cpus cpus because isa cache incoherent heterogeneous openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -9392,10 +9392,10 @@
           "llvm"
         ],
         "id": "openalex-w3064302811",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
@@ -9826,7 +9826,7 @@
           "IR"
         ],
         "openalexId": "https://openalex.org/W3013676851",
-        "citationCount": 17,
+        "citationCount": 16,
         "doi": "10.1109/iwsc50091.2020.9047637",
         "publishedDate": "",
         "contentFormat": "",
@@ -9840,7 +9840,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 16,
         "_titleLower": "improving syntactical clone detection methods through the use of an intermediate representation",
         "_authorLower": "pedro m. caldeira eth zurich kazunori sakamoto waseda university hironori washizaki waseda university yoshiaki fukazawa waseda university takahisa shimada",
         "_authorsLower": "pedro m. caldeira eth zurich kazunori sakamoto waseda university hironori washizaki waseda university yoshiaki fukazawa waseda university takahisa shimada",
@@ -10136,7 +10136,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 17
+          "citationCount": 16
         },
         "_searchBlob": "improving syntactical clone detection methods through the use of an intermediate representation detection of type-3 and type-4 clones remains a difficult task. current methods are complex both on a conceptual and computational level. similarly their usage requires substantial implementation efforts. instead of creating yet another method it might be more productive to combine the simplicity of syntactic approaches with the abstractions granted by intermediate representations ir . to this end we devised a c-like ir based on llvm and ran nicad on it llnicad . to establish whether the clone detection capabilities of syntactic approaches can be improved through an ir we compared nicad and llnicad on three open source projects taken from krutzs benchmark and a subset of google code jam solutions. in our results the f1-score of llnicad consistently outperforms nicad. indeed for all clone types in krutzs benchmark llnicad has a f1-score that is 37 higher than nicad with both better precision and recall. for type-4 clones in our gcj benchmark the f1-score of llnicad also outperforms cccd a semantic clone detector by 44 . these findings suggest that irs are beneficial for improving clone detection and that they have a larger impact on type-3 and type-4 clones. 2020 ieee 14th international workshop on software clones iwsc 2020 ieee 14th international workshop on software clones iwsc 2020 research-paper pedro m. caldeira eth zurich kazunori sakamoto waseda university hironori washizaki waseda university yoshiaki fukazawa waseda university takahisa shimada ir ir",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11114,8 +11114,8 @@
         ],
         "openalexId": "https://openalex.org/W3037712104",
         "citationCount": 16,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11984,8 +11984,8 @@
         ],
         "openalexId": "https://openalex.org/W2962995671",
         "citationCount": 36,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12330,9 +12330,9 @@
         ],
         "openalexId": "https://openalex.org/W3009512592",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.32968/psaie.2019.005",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12659,9 +12659,9 @@
         ],
         "openalexId": "https://openalex.org/W2883365010",
         "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1145/3196321.3196352",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13009,9 +13009,9 @@
         ],
         "openalexId": "https://openalex.org/W2791364156",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-981-10-8554-3_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13476,9 +13476,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2769928247",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/icecct.2017.8117875",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13948,9 +13948,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2403811540",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-29817-7_13",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -14186,8 +14186,8 @@
           }
         ],
         "year": "2016",
-        "publication": "SUROVIČ, M. Statická detekce malware nad LLVM IR [online]. Brno:Vysoké učení technické v Brně. Fakulta informačních technologií. 2016.",
-        "venue": "SUROVIČ, M. Statická detekce malware nad LLVM IR [online]. Brno:Vysoké učení technické v Brně. Fakulta informačních technologií. 2016.",
+        "publication": "SUROVIČ, M. Statická detekce malware nad LLVM IR [online]. Brno: Vysoké učení technické v Brně. Fakulta informačních technologií. 2016",
+        "venue": "SUROVIČ, M. Statická detekce malware nad LLVM IR [online]. Brno: Vysoké učení technické v Brně. Fakulta informačních technologií. 2016",
         "type": "research-paper",
         "abstract": "Tato práce se zabývá metodami pro behaviorální detekci malware, které využívají techniky formální analýzy a verifikace. Základem je odvozování stromových automatů z grafů závislostí systémových volání, které jsou získány pomocí statické analýzy LLVM IR. V rámci práce je implementován prototyp detektoru, který využívá překladačovou infrastrukturu LLVM. Pro experimentální ověření detektoru je použit překladač jazyka C/C++, který je schopen generovat mutace malware za pomoci obfuskujících transformací. Výsledky předběžných experimentů a případná budoucí rozšíření detektoru jsou diskutovány v závěru práce.",
         "paperUrl": "http://hdl.handle.net/11012/61919",
@@ -14197,8 +14197,8 @@
         ],
         "openalexId": "https://openalex.org/W3186240484",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14221,8 +14221,8 @@
         "_keywordsLower": "c++ ir",
         "_topicsLower": "c++ ir c++ ir",
         "_contentLower": "",
-        "_publicationLower": "surovič, m. statická detekce malware nad llvm ir [online]. brno:vysoké učení technické v brně. fakulta informačních technologií. 2016.",
-        "_venueLower": "surovič, m. statická detekce malware nad llvm ir [online]. brno:vysoké učení technické v brně. fakulta informačních technologií. 2016.",
+        "_publicationLower": "surovič, m. statická detekce malware nad llvm ir [online]. brno: vysoké učení technické v brně. fakulta informačních technologií. 2016",
+        "_venueLower": "surovič, m. statická detekce malware nad llvm ir [online]. brno: vysoké učení technické v brně. fakulta informačních technologií. 2016",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2016",
@@ -14346,7 +14346,7 @@
               "words": []
             },
             "publication": {
-              "text": "surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016.",
+              "text": "surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016",
               "words": [
                 "surovic",
                 "m.",
@@ -14365,11 +14365,11 @@
                 "fakulta",
                 "informacnich",
                 "technologii.",
-                "2016."
+                "2016"
               ]
             },
             "venue": {
-              "text": "surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016.",
+              "text": "surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016",
               "words": [
                 "surovic",
                 "m.",
@@ -14388,7 +14388,7 @@
                 "fakulta",
                 "informacnich",
                 "technologii.",
-                "2016."
+                "2016"
               ]
             },
             "year": {
@@ -14401,7 +14401,7 @@
           "year": 2016,
           "citationCount": 0
         },
-        "_searchBlob": "staticka detekce malware nad llvm ir tato prace se zabyva metodami pro behavioralni detekci malware ktere vyuzivaji techniky formalni analyzy a verifikace. zakladem je odvozovani stromovych automatu z grafu zavislosti systemovych volani ktere jsou ziskany pomoci staticke analyzy llvm ir. v ramci prace je implementovan prototyp detektoru ktery vyuziva prekladacovou infrastrukturu llvm. pro experimentalni overeni detektoru je pouzit prekladac jazyka c c++ ktery je schopen generovat mutace malware za pomoci obfuskujicich transformaci. vysledky predbeznych experimentu a pripadna budouci rozsireni detektoru jsou diskutovany v zaveru prace. surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016. surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016. 2016 research-paper marek surovic c++ ir c++ ir",
+        "_searchBlob": "staticka detekce malware nad llvm ir tato prace se zabyva metodami pro behavioralni detekci malware ktere vyuzivaji techniky formalni analyzy a verifikace. zakladem je odvozovani stromovych automatu z grafu zavislosti systemovych volani ktere jsou ziskany pomoci staticke analyzy llvm ir. v ramci prace je implementovan prototyp detektoru ktery vyuziva prekladacovou infrastrukturu llvm. pro experimentalni overeni detektoru je pouzit prekladac jazyka c c++ ktery je schopen generovat mutace malware za pomoci obfuskujicich transformaci. vysledky predbeznych experimentu a pripadna budouci rozsireni detektoru jsou diskutovany v zaveru prace. surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016 surovic m. staticka detekce malware nad llvm ir online . brno vysoke uceni technicke v brne. fakulta informacnich technologii. 2016 2016 research-paper marek surovic c++ ir c++ ir",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -14821,7 +14821,7 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2487875201",
-        "citationCount": 21,
+        "citationCount": 20,
         "sourceUrl": "https://doi.org/10.2991/ijndc.2016.4.3.1",
         "doi": "10.1109/snpd.2016.7515932",
         "publishedDate": "",
@@ -14839,7 +14839,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 20,
         "_titleLower": "mlsa: a static bugs analysis tool based on llvm ir",
         "_authorLower": "hongliang liang beijing university of posts and telecommunications wang lei beijing university of posts and telecommunications dongyang wu beijing university of posts and telecommunications jiuyun xu beijing university of posts and telecommunications",
         "_authorsLower": "hongliang liang beijing university of posts and telecommunications wang lei beijing university of posts and telecommunications dongyang wu beijing university of posts and telecommunications jiuyun xu beijing university of posts and telecommunications",
@@ -15104,7 +15104,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 21
+          "citationCount": 20
         },
         "_searchBlob": "mlsa a static bugs analysis tool based on llvm ir program bugs may result in unexpected software error crash or serious security attack. static program analysis is one of the most common methods to find program bugs. in this paper we present mlsa - a static analysis tool based on llvm intermediate representation ir which can analyze programs written in multiple programming languages. mlsa combines symbolic execution with z3 smt solver to find bugs. at present mlsa can detect some kinds of bugs such as divide zero error pointer overflow and dead code. moreover as a framework mlsa follows the scalability and extensibility principles which can help detect other types of bugs. experiments show that mlsa is effective in finding bugs in real world software. 2016 17th ieee acis international conference on software engineering artificial intelligence networking and parallel distributed computing snpd 2016 17th ieee acis international conference on software engineering artificial intelligence networking and parallel distributed computing snpd 2016 research-paper hongliang liang beijing university of posts and telecommunications wang lei beijing university of posts and telecommunications dongyang wu beijing university of posts and telecommunications jiuyun xu beijing university of posts and telecommunications ir programming languages security static analysis ir programming languages security static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -15477,7 +15477,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2292282166",
-        "citationCount": 61,
+        "citationCount": 60,
         "doi": "10.1145/2854038.2854041",
         "publishedDate": "",
         "contentFormat": "",
@@ -15496,7 +15496,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 61,
+        "_citationCount": 60,
         "_titleLower": "gpucc: an open-source gpgpu compiler",
         "_authorLower": "jingyue wu google artem belevich google eli bendersky google mark heffernan google chris leary google jacques a. pienaar google bjarke roune google rob springer google xuetian weng google robert hundt google",
         "_authorsLower": "jingyue wu google artem belevich google eli bendersky google mark heffernan google chris leary google jacques a. pienaar google bjarke roune google rob springer google xuetian weng google robert hundt google",
@@ -15805,7 +15805,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 61
+          "citationCount": 60
         },
         "_searchBlob": "gpucc an open-source gpgpu compiler graphics processing units have emerged as powerful accelerators for massively parallel numerically intensive workloads. the two dominant software models for these devices are nvidias cuda and the cross-platform opencl standard. until now there has not been a fully open-source compiler targeting the cuda environment hampering general compiler and architecture research and making deployment difficult in datacenter or supercomputer environments. in this paper we present gpucc an llvm-based fully open-source cuda compatible compiler for high performance computing. it performs various general and cuda-specific optimizations to generate high performance code. the clang-based frontend supports modern language features such as those in c++11 and c++14. compile time is 8 faster than nvidias toolchain nvcc and it reduces compile time by up to 2.4x for pathological compilations 100 secs which tend to dominate build times in parallel build environments. compared to nvcc gpuccs runtime performance is on par for several open-source benchmarks such as rodinia 0.8 faster shoc 0.5 slower or tensor 3.7 faster . it outperforms nvcc on internal large-scale end-to-end benchmarks by up to 51.0 with a geometric mean of 22.9 . proceedings of 2016 international symposium on code generation and optimization proceedings of 2016 international symposium on code generation and optimization 2016 research-paper jingyue wu google artem belevich google eli bendersky google mark heffernan google chris leary google jacques a. pienaar google bjarke roune google rob springer google xuetian weng google robert hundt google clang cuda frontend opencl optimizations performance clang cuda frontend opencl optimizations performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -15849,9 +15849,9 @@
         ],
         "openalexId": "https://openalex.org/W2292788936",
         "citationCount": 31,
+        "sourceUrl": "",
         "doi": "10.1145/2854038.2854061",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16216,9 +16216,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2302754089",
         "citationCount": 18,
+        "sourceUrl": "",
         "doi": "10.1007/s10766-016-0410-0",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -16576,9 +16576,9 @@
         ],
         "openalexId": "https://openalex.org/W2534404420",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/2997465.2997488",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16852,9 +16852,9 @@
         ],
         "openalexId": "https://openalex.org/W2506829169",
         "citationCount": 21,
+        "sourceUrl": "",
         "doi": "10.1145/2907950.2907959",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17336,9 +17336,9 @@
         ],
         "openalexId": "https://openalex.org/W2583964502",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/sccc.2016.7836038",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17686,10 +17686,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W2200680491",
-        "citationCount": 16,
+        "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1109/csitechnol.2015.7358259",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17701,7 +17701,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 13,
         "_titleLower": "llvm-based code clone detection framework",
         "_authorLower": "arutyun avetisyan shamil kurmangaleev institute for system programming sevak sargsyan institute for system programming mariam arutunian andrey belevantsev institute for system programming",
         "_authorsLower": "arutyun avetisyan shamil kurmangaleev institute for system programming sevak sargsyan institute for system programming mariam arutunian andrey belevantsev institute for system programming",
@@ -17977,7 +17977,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 16
+          "citationCount": 13
         },
         "_searchBlob": "llvm-based code clone detection framework existed methods of code clones detection have some restrictions. textual and lexical approaches cannot detect strongly modified fragments of code. syntactic and metrics based approaches detect strong modifications with low accuracy. on the contrary semantic approach accurately detects the cloned fragments of code with small changes as well as the strongly modified ones. methods based on this approach are not scalable for analysis of large projects. this paper describes llvm-based code clone detection framework which uses program semantic analysis. it has high accuracy and is scalable for analysis million lines of source code. the tool embeds a testing system which allows generating code clones for the project automatically. it is used for determining the developed algorithms accuracy. the instrument is applicable for all languages that can be compiled to llvm bitcode. proposed method was compared with two widely used tools moss and clonedr. results show that it has higher accuracy. the tool is scalable for analysis of linux-2.6 kernel which has about fourteen millions lines of source code. 2015 computer science and information technologies csit 2015 computer science and information technologies csit 2015 research-paper arutyun avetisyan shamil kurmangaleev institute for system programming sevak sargsyan institute for system programming mariam arutunian andrey belevantsev institute for system programming testing testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -18836,9 +18836,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2210768877",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1145/2843859.2843863",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -20779,9 +20779,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2323898135",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.3850/978-981-07-7393-9_080",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -20954,9 +20954,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2087532885",
         "citationCount": 39,
+        "sourceUrl": "",
         "doi": "10.1007/s10766-013-0259-4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -21908,9 +21908,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W98164394",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-1-4302-6488-0_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -22101,9 +22101,9 @@
         ],
         "openalexId": "https://openalex.org/W2058821752",
         "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1109/fmcad.2013.6679401",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22437,8 +22437,8 @@
         ],
         "openalexId": "https://openalex.org/W1582514536",
         "citationCount": 5,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22753,9 +22753,9 @@
         ],
         "openalexId": "https://openalex.org/W2140684357",
         "citationCount": 37,
+        "sourceUrl": "",
         "doi": "10.1109/cloud.2011.10",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23078,8 +23078,8 @@
         ],
         "openalexId": "https://openalex.org/W2188615207",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23406,12 +23406,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1587092156",
-        "doi": "10.1007/978-3-642-00641-8_21",
-        "citationCount": 20,
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1007/978-3-642-00641-8_21",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -23419,7 +23419,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 20,
+        "_citationCount": 0,
         "_titleLower": "compiling techniques for coarse grained runtime reconfigurable architectures",
         "_authorLower": "mythri alle indian institute of science bangalore keshavan varadarajan indian institute of science bangalore alexander fell indian institute of science bangalore s. k. nandy indian institute of science bangalore ranjani narayan",
         "_authorsLower": "mythri alle indian institute of science bangalore keshavan varadarajan indian institute of science bangalore alexander fell indian institute of science bangalore s. k. nandy indian institute of science bangalore ranjani narayan",
@@ -23540,7 +23540,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 20
+          "citationCount": 0
         },
         "_searchBlob": "compiling techniques for coarse grained runtime reconfigurable architectures no abstract available in llvm.org pubs metadata. lecture notes in computer science lecture notes in computer science 2009 research-paper mythri alle indian institute of science bangalore keshavan varadarajan indian institute of science bangalore alexander fell indian institute of science bangalore s. k. nandy indian institute of science bangalore ranjani narayan",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -23598,10 +23598,10 @@
         "publication": "Proceedings of 2008 ACM symposium on Applied computing",
         "openalexId": "https://openalex.org/W1986331539",
         "doi": "10.1145/1363686.1363855",
-        "citationCount": 49,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Performance",
           "Testing"
@@ -23612,7 +23612,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 49,
+        "_citationCount": 0,
         "_titleLower": "automatic software fault localization using generic program invariants",
         "_authorLower": "rui abreu delft university of technology alberto gonzález universidad de valladolid peter zoeteweij delft university of technology arjan j. c. van gemund delft university of technology",
         "_authorsLower": "rui abreu delft university of technology alberto gonzález universidad de valladolid peter zoeteweij delft university of technology arjan j. c. van gemund delft university of technology",
@@ -23880,7 +23880,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 49
+          "citationCount": 0
         },
         "_searchBlob": "automatic software fault localization using generic program invariants despite extensive testing in the development phase residual defects can be a great threat to dependability in the operational phase. this paper studies the utility of low-cost generic invariants screeners in their capacity of error detectors within a spectrum-based fault localization sfl approach aimed to diagnose program defects in the operational phase. the screeners considered are simple bit-mask and range invariants that screen every load store and function argument return program point. their generic nature allows them to be automatically instrumented without any programmer-effort while training is straightforward given the test cases available in the development phase. experiments based on the siemens program set demonstrate diagnostic performance that is similar to the traditional development-time application of sfl based on the program pass fail information known before-hand. this diagnostic performance is currently attained at an average 14 screener execution time overhead but this overhead can be reduced at limited performance penalty. proceedings of 2008 acm symposium on applied computing proceedings of 2008 acm symposium on applied computing 2008 research-paper rui abreu delft university of technology alberto gonzalez universidad de valladolid peter zoeteweij delft university of technology arjan j. c. van gemund delft university of technology performance testing performance testing",
         "addedAt": "2026-02-20T23:08:48.000Z",

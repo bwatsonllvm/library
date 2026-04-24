@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7125913748": {
@@ -44,9 +44,9 @@
         ],
         "openalexId": "https://openalex.org/W7125913748",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3771775.3786274",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -852,9 +852,9 @@
         ],
         "openalexId": "https://openalex.org/W4411337521",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/sp61157.2025.00188",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1202,17 +1202,17 @@
           }
         ],
         "year": "2025",
-        "publication": "Concurrency and Computation:Practice and Experience",
-        "venue": "Concurrency and Computation:Practice and Experience | Vol. 37 (Issue 21-22)",
+        "publication": "Concurrency and Computation: Practice and Experience",
+        "venue": "Concurrency and Computation: Practice and Experience | Vol. 37 (Issue 21-22)",
         "type": "research-paper",
         "abstract": "ABSTRACT May‐Happen‐in‐Parallel (MHP) analysis serves as the basis for many concurrency bugs analyses. Inadequate handling of the coupling between locks and thread creation statements, as well as inter‐procedural locks, can lead to a loss of precision in MHP analysis. To address these issues, this paper proposes a new MHP analysis for C that operates at the segment granularity rather than individual statements. By constructing a Segmented Thread‐sensitive Control Flow Graph (STCFG) for a program, statements are grouped into different segments. Context information is added to these segments to capture the semantics of Pthreads operations, thereby identifying Happens‐Before (HB) and conflict relationships between segments. To compute MHP information for statement pairs, it is sufficient to examine the relationship between segments to infer the relationship between statements. We implement our algorithm in LLVM and evaluate it using eight test cases as well as four programs from the SPLASH2 benchmark suite. Preliminary results show that our method provides higher precision and achieves higher efficiency.",
         "paperUrl": "https://doi.org/10.1002/cpe.70203",
         "tags": [],
         "openalexId": "https://openalex.org/W4412846545",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1002/cpe.70203",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -1231,8 +1231,8 @@
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "concurrency and computation:practice and experience",
-        "_venueLower": "concurrency and computation:practice and experience | vol. 37 (issue 21-22)",
+        "_publicationLower": "concurrency and computation: practice and experience",
+        "_venueLower": "concurrency and computation: practice and experience | vol. 37 (issue 21-22)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2025",
@@ -1549,9 +1549,9 @@
         ],
         "openalexId": "https://openalex.org/W7117965258",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/979-8-8688-2169-1_4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1733,9 +1733,9 @@
         ],
         "openalexId": "https://openalex.org/W7116377474",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.14288/1.0451035",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2063,9 +2063,9 @@
         ],
         "openalexId": "https://openalex.org/W4414735641",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3731569.3764830",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2382,10 +2382,10 @@
           "mlir"
         ],
         "id": "openalex-w4415155181",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -3483,8 +3483,8 @@
           }
         ],
         "year": "2025",
-        "publication": "2025 32nd Asia-Pacific Software Engineering Conference (APSEC)",
-        "venue": "2025 32nd Asia-Pacific Software Engineering Conference (APSEC)",
+        "publication": "2025 32nd Asia",
+        "venue": "2025 32nd Asia",
         "type": "research-paper",
         "abstract": "Numerical programs are widely used in high-performance computing, graphics, finance, deep learning, and other fields. The use of high-precision floating-point numbers can ensure the accuracy and robustness of the program and reduce the accumulation of errors. However, this approach also increases the program’s execution time, memory usage, and energy consumption. Therefore, the reasonable use of mixed precision is beneficial to balance the accuracy and performance of program results. To look for efficient mixed-precision configurations, we propose an LLVM toolchain, FuncTuner, that obtains the program transformation range by identifying the #pragma directive in the front end of Clang, uses a recursive search algorithm to access the configuration information of functions in the range, and uses LLVM Pass to modify the LLVM IR of the program according to the given configuration, pioneering the use of function-level mixed-precision optimization. Our approach achieves significant results in the HPL-AI program, with a maximum floating-point performance of 24.78 GFLOPs at fp16 precision and a performance improvement of 304.73 % at the max scale.",
         "paperUrl": "https://doi.org/10.1109/apsec66846.2025.00090",
@@ -3528,11 +3528,11 @@
           "llvm"
         ],
         "id": "openalex-w7131288436",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -3546,8 +3546,8 @@
         "_keywordsLower": "llvm clang ir optimizations performance infrastructure ai ml intermediate representation mixed precision numerical programs floating point optimization automatic tuner",
         "_topicsLower": "llvm clang ir optimizations performance infrastructure ai ml llvm clang ir optimizations performance infrastructure ai ml intermediate representation mixed precision numerical programs floating point optimization automatic tuner clang llvm",
         "_contentLower": "",
-        "_publicationLower": "2025 32nd asia-pacific software engineering conference (apsec)",
-        "_venueLower": "2025 32nd asia-pacific software engineering conference (apsec)",
+        "_publicationLower": "2025 32nd asia",
+        "_venueLower": "2025 32nd asia",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2025",
@@ -3827,27 +3827,19 @@
               "words": []
             },
             "publication": {
-              "text": "2025 32nd asia-pacific software engineering conference apsec",
+              "text": "2025 32nd asia",
               "words": [
                 "2025",
                 "32nd",
-                "asia-pacific",
-                "software",
-                "engineering",
-                "conference",
-                "apsec"
+                "asia"
               ]
             },
             "venue": {
-              "text": "2025 32nd asia-pacific software engineering conference apsec",
+              "text": "2025 32nd asia",
               "words": [
                 "2025",
                 "32nd",
-                "asia-pacific",
-                "software",
-                "engineering",
-                "conference",
-                "apsec"
+                "asia"
               ]
             },
             "year": {
@@ -3860,7 +3852,7 @@
           "year": 2025,
           "citationCount": 0
         },
-        "_searchBlob": "function-level optimization automatic tuner for numerical programs numerical programs are widely used in high-performance computing graphics finance deep learning and other fields. the use of high-precision floating-point numbers can ensure the accuracy and robustness of the program and reduce the accumulation of errors. however this approach also increases the programs execution time memory usage and energy consumption. therefore the reasonable use of mixed precision is beneficial to balance the accuracy and performance of program results. to look for efficient mixed-precision configurations we propose an llvm toolchain functuner that obtains the program transformation range by identifying the #pragma directive in the front end of clang uses a recursive search algorithm to access the configuration information of functions in the range and uses llvm pass to modify the llvm ir of the program according to the given configuration pioneering the use of function-level mixed-precision optimization. our approach achieves significant results in the hpl-ai program with a maximum floating-point performance of 24.78 gflops at fp16 precision and a performance improvement of 304.73 at the max scale. 2025 32nd asia-pacific software engineering conference apsec 2025 32nd asia-pacific software engineering conference apsec 2025 research-paper xinni liu national university of defense technology xinpeng li national university of defense technology guangping yu national university of defense technology hengbiao yu national university of defense technology xin yi national university of defense technology chun huang national university of defense technology llvm clang ir optimizations performance infrastructure ai ml llvm clang ir optimizations performance infrastructure ai ml intermediate representation mixed precision numerical programs floating point optimization automatic tuner clang llvm",
+        "_searchBlob": "function-level optimization automatic tuner for numerical programs numerical programs are widely used in high-performance computing graphics finance deep learning and other fields. the use of high-precision floating-point numbers can ensure the accuracy and robustness of the program and reduce the accumulation of errors. however this approach also increases the programs execution time memory usage and energy consumption. therefore the reasonable use of mixed precision is beneficial to balance the accuracy and performance of program results. to look for efficient mixed-precision configurations we propose an llvm toolchain functuner that obtains the program transformation range by identifying the #pragma directive in the front end of clang uses a recursive search algorithm to access the configuration information of functions in the range and uses llvm pass to modify the llvm ir of the program according to the given configuration pioneering the use of function-level mixed-precision optimization. our approach achieves significant results in the hpl-ai program with a maximum floating-point performance of 24.78 gflops at fp16 precision and a performance improvement of 304.73 at the max scale. 2025 32nd asia 2025 32nd asia 2025 research-paper xinni liu national university of defense technology xinpeng li national university of defense technology guangping yu national university of defense technology hengbiao yu national university of defense technology xin yi national university of defense technology chun huang national university of defense technology llvm clang ir optimizations performance infrastructure ai ml llvm clang ir optimizations performance infrastructure ai ml intermediate representation mixed precision numerical programs floating point optimization automatic tuner clang llvm",
         "addedAt": "2026-02-26T00:55:34.000Z",
         "_addedAt": "2026-02-26T00:55:34.000Z",
         "_addedAtTs": 1772067334000
@@ -3908,10 +3900,10 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W4411552252",
-        "citationCount": 4,
+        "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/icse55347.2025.00167",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3925,7 +3917,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 3,
         "_titleLower": "a study of undefined behavior across foreign function boundaries in rust libraries",
         "_authorLower": "ian mccormack carnegie mellon university joshua sunshine carnegie mellon university jonathan aldrich carnegie mellon university",
         "_authorsLower": "ian mccormack carnegie mellon university joshua sunshine carnegie mellon university jonathan aldrich carnegie mellon university",
@@ -4248,7 +4240,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 4
+          "citationCount": 3
         },
         "_searchBlob": "a study of undefined behavior across foreign function boundaries in rust libraries developers rely on the static safety guarantees of the rust programming language to write secure and performant applications. however rust is frequently used to interoperate with other languages which allow design patterns that conflict with rusts evolving aliasing models. miri is currently the only dynamic analysis tool that can validate applications against these models but it does not support finding bugs in foreign functions indicating that there may be a critical correctness gap across the rust ecosystem. we conducted a large-scale evaluation of rust libraries that call foreign functions to determine whether miris dynamic analyses remain useful in this context. we used miri and an llvm interpreter to jointly execute applications that call foreign functions where we found 46 instances of undefined or undesired behavior in 37 libraries. three bugs were found in libraries that had more than 10 000 daily downloads on average during our observation period and one was found in a library maintained by the rust project. many of these bugs were violations of rusts aliasing models but the latest tree borrows model was significantly more permissive than the earlier stacked borrows model. the rust community must invest in new production-ready tooling for multi-language applications to ensure that developers can detect these errors. 2025 ieee acm 47th international conference on software engineering icse 2025 ieee acm 47th international conference on software engineering icse 2025 research-paper ian mccormack carnegie mellon university joshua sunshine carnegie mellon university jonathan aldrich carnegie mellon university dynamic analysis libraries rust dynamic analysis libraries rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4803,15 +4795,15 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "uefi vulnerability signature generation using static and symbolic analysis",
         "_authorLower": "md shafiuzzaman achintya desai laboni sarker tevfik bultan",
         "_authorsLower": "md shafiuzzaman achintya desai laboni sarker tevfik bultan",
@@ -5159,7 +5151,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "uefi vulnerability signature generation using static and symbolic analysis since its major release in 2006 the unified extensible firmware interface uefi has become the industry standard for interfacing a computers hardware and operating system replacing bios. uefi has higher privileged security access to system resources than any other software component including the system kernel. hence identifying and characterizing vulnerabilities in uefi is extremely important for computer security. however automated detection and characterization of uefi vulnerabilities is a challenging problem. static vulnerability analysis techniques are scalable but lack precision reporting many false positives whereas symbolic analysis techniques are precise but are hampered by scalability issues due to path explosion and the cost of constraint solving. in this paper we introduce a technique called static analysis guided symbolic execution stase which integrates both analysis approaches to leverage their strengths and minimize their weaknesses. we begin with a rule-based static vulnerability analysis on llvm bitcode to identify potential vulnerability targets for symbolic execution. we then focus symbolic execution on each target to achieve precise vulnerability detection and signature generation. stase relies on the manual specification of reusable vulnerability rules and attacker-controlled inputs. however it automates the generation of harnesses that guide the symbolic execution process addressing the usability and scalability of symbolic execution which typically requires manual harness generation to reduce the state space. we implemented and applied stase to the implementations of uefi code base. stase detects and generates vulnerability signatures for 5 out of 9 recently reported pixiefail vulnerabilities and 13 new vulnerabilities in tianocores edkii codebase. arxiv arxiv 2024 research-paper md shafiuzzaman achintya desai laboni sarker tevfik bultan llvm static analysis dynamic analysis security llvm static analysis dynamic analysis security symbolic execution uefi vulnerability signature vulnerabilities vulnerability signature generation llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5208,9 +5200,9 @@
         ],
         "openalexId": "https://openalex.org/W1493341792",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.14279/tuj.eceasst.30.418",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5546,8 +5538,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 3",
-        "venue": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 3",
+        "publication": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+        "venue": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
         "type": "research-paper",
         "abstract": "eBPF (extended Berkeley Packet Filter) significantly enhances observability, performance, and security within the Linux kernel, playing a pivotal role in various real-world applications. Implemented as a register-based kernel virtual machine, eBPF features a customized Instruction Set Architecture (ISA) with stringent kernel safety requirements, e.g., a limited number of instructions. This constraint necessitates substantial optimization efforts for eBPF programs to meet performance objectives. Despite the availability of compilers supporting eBPF program compilation, existing tools often overlook key optimization opportunities, resulting in suboptimal performance. In response, this paper introduces Merlin, an optimization framework leveraging customized LLVM passes and bytecode rewriting for Instruction Representation (IR) transformation and bytecode refinement. Merlin employs two primary optimization strategies, i.e., instruction merging and strength reduction. These optimizations are deployed before eBPF verification. We evaluate Merlin across 19 XDP programs (drawn from the Linux kernel, Meta, hXDP, and Cilium) and three eBPF-based systems (Sysdig, Tetragon, and Tracee, each comprising several hundred eBPF programs). The results show that all optimized programs pass the kernel verification. Meanwhile, Merlin can reduce number of instructions by 73% and runtime overhead by 60% compared with the original programs. Merlin can also improve the throughput by 0.59% and reduce the latency by 5.31%, compared to state-of-the-art technique K2, while being 106 times faster and more scalable to larger and more complex programs without additional manual efforts.",
         "paperUrl": "https://doi.org/10.1145/3620666.3651387",
@@ -5559,9 +5551,9 @@
         ],
         "openalexId": "https://openalex.org/W4395116679",
         "citationCount": 11,
+        "sourceUrl": "",
         "doi": "10.1145/3620666.3651387",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5585,8 +5577,8 @@
         "_keywordsLower": "ir optimizations performance security",
         "_topicsLower": "ir optimizations performance security ir optimizations performance security",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems, volume 3",
-        "_venueLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems, volume 3",
+        "_publicationLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
+        "_venueLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -5888,7 +5880,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 3",
+              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -5904,12 +5896,11 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "venue": {
-              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 3",
+              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -5925,8 +5916,7 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "year": {
@@ -5939,7 +5929,7 @@
           "year": 2024,
           "citationCount": 11
         },
-        "_searchBlob": "merlin multi-tier optimization of ebpf code for performance and compactness ebpf extended berkeley packet filter significantly enhances observability performance and security within the linux kernel playing a pivotal role in various real-world applications. implemented as a register-based kernel virtual machine ebpf features a customized instruction set architecture isa with stringent kernel safety requirements e.g. a limited number of instructions. this constraint necessitates substantial optimization efforts for ebpf programs to meet performance objectives. despite the availability of compilers supporting ebpf program compilation existing tools often overlook key optimization opportunities resulting in suboptimal performance. in response this paper introduces merlin an optimization framework leveraging customized llvm passes and bytecode rewriting for instruction representation ir transformation and bytecode refinement. merlin employs two primary optimization strategies i.e. instruction merging and strength reduction. these optimizations are deployed before ebpf verification. we evaluate merlin across 19 xdp programs drawn from the linux kernel meta hxdp and cilium and three ebpf-based systems sysdig tetragon and tracee each comprising several hundred ebpf programs . the results show that all optimized programs pass the kernel verification. meanwhile merlin can reduce number of instructions by 73 and runtime overhead by 60 compared with the original programs. merlin can also improve the throughput by 0.59 and reduce the latency by 5.31 compared to state-of-the-art technique k2 while being 106 times faster and more scalable to larger and more complex programs without additional manual efforts. proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 3 proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 3 2024 research-paper jinsong mao university of massachusetts amherst hailun ding rutgers the state university of new jersey juan zhai university of massachusetts amherst shiqing ma university of massachusetts amherst ir optimizations performance security ir optimizations performance security",
+        "_searchBlob": "merlin multi-tier optimization of ebpf code for performance and compactness ebpf extended berkeley packet filter significantly enhances observability performance and security within the linux kernel playing a pivotal role in various real-world applications. implemented as a register-based kernel virtual machine ebpf features a customized instruction set architecture isa with stringent kernel safety requirements e.g. a limited number of instructions. this constraint necessitates substantial optimization efforts for ebpf programs to meet performance objectives. despite the availability of compilers supporting ebpf program compilation existing tools often overlook key optimization opportunities resulting in suboptimal performance. in response this paper introduces merlin an optimization framework leveraging customized llvm passes and bytecode rewriting for instruction representation ir transformation and bytecode refinement. merlin employs two primary optimization strategies i.e. instruction merging and strength reduction. these optimizations are deployed before ebpf verification. we evaluate merlin across 19 xdp programs drawn from the linux kernel meta hxdp and cilium and three ebpf-based systems sysdig tetragon and tracee each comprising several hundred ebpf programs . the results show that all optimized programs pass the kernel verification. meanwhile merlin can reduce number of instructions by 73 and runtime overhead by 60 compared with the original programs. merlin can also improve the throughput by 0.59 and reduce the latency by 5.31 compared to state-of-the-art technique k2 while being 106 times faster and more scalable to larger and more complex programs without additional manual efforts. proceedings of 29th acm international conference on architectural support for programming languages and operating systems proceedings of 29th acm international conference on architectural support for programming languages and operating systems 2024 research-paper jinsong mao university of massachusetts amherst hailun ding rutgers the state university of new jersey juan zhai university of massachusetts amherst shiqing ma university of massachusetts amherst ir optimizations performance security ir optimizations performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -5976,8 +5966,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of International Conference on High Performance Computing in Asia-Pacific Region Workshops",
-        "venue": "Proceedings of International Conference on High Performance Computing in Asia-Pacific Region Workshops",
+        "publication": "Proceedings of International Conference on High Performance Computing in Asia",
+        "venue": "Proceedings of International Conference on High Performance Computing in Asia",
         "type": "research-paper",
         "abstract": "Software pipelining is an essential optimization for accelerating High-Performance Computing(HPC) applications on CPUs. Modern CPUs achieve high performance through many-core and wide SIMD instructions. Software pipelining is an optimization that promotes further performance improvement of HPC applications by cooperating with these functions. Although open source compilers such as GCC and LLVM have implemented software pipelining, it is underutilized for the AArch64 architecture. We have implemented software pipelining for the A64FX processor on LLVM to improve this situation. This paper describes the details of this implementation. We also confirmed that our implementation improves the performance of several benchmark programs.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3636480.3637093",
@@ -6009,8 +5999,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "proceedings of international conference on high performance computing in asia-pacific region workshops",
-        "_venueLower": "proceedings of international conference on high performance computing in asia-pacific region workshops",
+        "_publicationLower": "proceedings of international conference on high performance computing in asia",
+        "_venueLower": "proceedings of international conference on high performance computing in asia",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -6167,7 +6157,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of international conference on high performance computing in asia-pacific region workshops",
+              "text": "proceedings of international conference on high performance computing in asia",
               "words": [
                 "proceedings",
                 "of",
@@ -6178,13 +6168,11 @@
                 "performance",
                 "computing",
                 "in",
-                "asia-pacific",
-                "region",
-                "workshops"
+                "asia"
               ]
             },
             "venue": {
-              "text": "proceedings of international conference on high performance computing in asia-pacific region workshops",
+              "text": "proceedings of international conference on high performance computing in asia",
               "words": [
                 "proceedings",
                 "of",
@@ -6195,9 +6183,7 @@
                 "performance",
                 "computing",
                 "in",
-                "asia-pacific",
-                "region",
-                "workshops"
+                "asia"
               ]
             },
             "year": {
@@ -6210,7 +6196,7 @@
           "year": 2024,
           "citationCount": 1
         },
-        "_searchBlob": "introducing software pipelining for the a64fx processor into llvm software pipelining is an essential optimization for accelerating high-performance computing hpc applications on cpus. modern cpus achieve high performance through many-core and wide simd instructions. software pipelining is an optimization that promotes further performance improvement of hpc applications by cooperating with these functions. although open source compilers such as gcc and llvm have implemented software pipelining it is underutilized for the aarch64 architecture. we have implemented software pipelining for the a64fx processor on llvm to improve this situation. this paper describes the details of this implementation. we also confirmed that our implementation improves the performance of several benchmark programs. proceedings of international conference on high performance computing in asia-pacific region workshops proceedings of international conference on high performance computing in asia-pacific region workshops 2024 research-paper m. arai fujitsu naoto fukumoto fujitsu hitoshi murai performance performance",
+        "_searchBlob": "introducing software pipelining for the a64fx processor into llvm software pipelining is an essential optimization for accelerating high-performance computing hpc applications on cpus. modern cpus achieve high performance through many-core and wide simd instructions. software pipelining is an optimization that promotes further performance improvement of hpc applications by cooperating with these functions. although open source compilers such as gcc and llvm have implemented software pipelining it is underutilized for the aarch64 architecture. we have implemented software pipelining for the a64fx processor on llvm to improve this situation. this paper describes the details of this implementation. we also confirmed that our implementation improves the performance of several benchmark programs. proceedings of international conference on high performance computing in asia proceedings of international conference on high performance computing in asia 2024 research-paper m. arai fujitsu naoto fukumoto fujitsu hitoshi murai performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -6294,9 +6280,9 @@
         ],
         "openalexId": "https://openalex.org/W4392265996",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1109/cgo57630.2024.10444866",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6934,8 +6920,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of 15th Asia-Pacific Symposium on Internetware",
-        "venue": "Proceedings of 15th Asia-Pacific Symposium on Internetware",
+        "publication": "Proceedings of 15th Asia",
+        "venue": "Proceedings of 15th Asia",
         "type": "research-paper",
         "abstract": "Compiler testing is an important task for assuring the quality of compilers. However, most mutation-based compiler testing approaches still suffer from the effectiveness issue due to the ineffective mutation strategies. In this paper, we propose CTHist, which leverages history-driven test program mutation to construct diverse bug-triggering test programs, aiming to discover more optimizing compiler bugs. Specifically, CTHist first examines the test programs that cause historical compiler bugs, and identifies four categories of bug-triggering structures to help generate new bug-triggering test programs. To generate diverse test programs, CTHist then iteratively conducts AST-level mutations to integrate the extracted structures into seed programs, and enhances the connections between the seed and the mutated structures by introducing new control- and data-dependencies. Finally, given the generated test programs, CTHist leverages differentially test based on local hash checksum to test compilers. The experiments on three popular compilers GCC, LLVM and ICX show that, CTHist outperforms four state-of-the-art approaches (i.e., GrayC, Clang-Fuzzer, universalmutator, and Csmith) in detecting more compiler bugs, and improves the Line Coverage of GCC and LLVM by up to 1.15% ∼ 17.77%. Moreover, CTHist has successfully detected 36 new bugs during the practical evaluation, of which 26 are miscompilation bugs (the most difficult to detect), and 27 have been confirmed/fixed by developers.",
         "paperUrl": "https://doi.org/10.1145/3671016.3671387",
@@ -6944,10 +6930,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4400798685",
-        "citationCount": 3,
+        "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1145/3671016.3671387",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6960,7 +6946,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 2,
         "_titleLower": "detecting optimizing compiler bugs via history-driven test program mutation",
         "_authorLower": "junwei zeng nanjing university of aeronautics and astronautics yixuan tang nanjing university of aeronautics and astronautics jingxuan zhang nanjing university of aeronautics and astronautics weiwei li nanjing university of aeronautics and astronautics zhiqiu huang nanjing university of aeronautics and astronautics",
         "_authorsLower": "junwei zeng nanjing university of aeronautics and astronautics yixuan tang nanjing university of aeronautics and astronautics jingxuan zhang nanjing university of aeronautics and astronautics weiwei li nanjing university of aeronautics and astronautics zhiqiu huang nanjing university of aeronautics and astronautics",
@@ -6969,8 +6955,8 @@
         "_keywordsLower": "clang testing",
         "_topicsLower": "clang testing clang testing",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 15th asia-pacific symposium on internetware",
-        "_venueLower": "proceedings of 15th asia-pacific symposium on internetware",
+        "_publicationLower": "proceedings of 15th asia",
+        "_venueLower": "proceedings of 15th asia",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -7270,27 +7256,21 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 15th asia-pacific symposium on internetware",
+              "text": "proceedings of 15th asia",
               "words": [
                 "proceedings",
                 "of",
                 "15th",
-                "asia-pacific",
-                "symposium",
-                "on",
-                "internetware"
+                "asia"
               ]
             },
             "venue": {
-              "text": "proceedings of 15th asia-pacific symposium on internetware",
+              "text": "proceedings of 15th asia",
               "words": [
                 "proceedings",
                 "of",
                 "15th",
-                "asia-pacific",
-                "symposium",
-                "on",
-                "internetware"
+                "asia"
               ]
             },
             "year": {
@@ -7301,9 +7281,9 @@
             }
           },
           "year": 2024,
-          "citationCount": 3
+          "citationCount": 2
         },
-        "_searchBlob": "detecting optimizing compiler bugs via history-driven test program mutation compiler testing is an important task for assuring the quality of compilers. however most mutation-based compiler testing approaches still suffer from the effectiveness issue due to the ineffective mutation strategies. in this paper we propose cthist which leverages history-driven test program mutation to construct diverse bug-triggering test programs aiming to discover more optimizing compiler bugs. specifically cthist first examines the test programs that cause historical compiler bugs and identifies four categories of bug-triggering structures to help generate new bug-triggering test programs. to generate diverse test programs cthist then iteratively conducts ast-level mutations to integrate the extracted structures into seed programs and enhances the connections between the seed and the mutated structures by introducing new control- and data-dependencies. finally given the generated test programs cthist leverages differentially test based on local hash checksum to test compilers. the experiments on three popular compilers gcc llvm and icx show that cthist outperforms four state-of-the-art approaches i.e. grayc clang-fuzzer universalmutator and csmith in detecting more compiler bugs and improves the line coverage of gcc and llvm by up to 1.15 17.77 . moreover cthist has successfully detected 36 new bugs during the practical evaluation of which 26 are miscompilation bugs the most difficult to detect and 27 have been confirmed fixed by developers. proceedings of 15th asia-pacific symposium on internetware proceedings of 15th asia-pacific symposium on internetware 2024 research-paper junwei zeng nanjing university of aeronautics and astronautics yixuan tang nanjing university of aeronautics and astronautics jingxuan zhang nanjing university of aeronautics and astronautics weiwei li nanjing university of aeronautics and astronautics zhiqiu huang nanjing university of aeronautics and astronautics clang testing clang testing",
+        "_searchBlob": "detecting optimizing compiler bugs via history-driven test program mutation compiler testing is an important task for assuring the quality of compilers. however most mutation-based compiler testing approaches still suffer from the effectiveness issue due to the ineffective mutation strategies. in this paper we propose cthist which leverages history-driven test program mutation to construct diverse bug-triggering test programs aiming to discover more optimizing compiler bugs. specifically cthist first examines the test programs that cause historical compiler bugs and identifies four categories of bug-triggering structures to help generate new bug-triggering test programs. to generate diverse test programs cthist then iteratively conducts ast-level mutations to integrate the extracted structures into seed programs and enhances the connections between the seed and the mutated structures by introducing new control- and data-dependencies. finally given the generated test programs cthist leverages differentially test based on local hash checksum to test compilers. the experiments on three popular compilers gcc llvm and icx show that cthist outperforms four state-of-the-art approaches i.e. grayc clang-fuzzer universalmutator and csmith in detecting more compiler bugs and improves the line coverage of gcc and llvm by up to 1.15 17.77 . moreover cthist has successfully detected 36 new bugs during the practical evaluation of which 26 are miscompilation bugs the most difficult to detect and 27 have been confirmed fixed by developers. proceedings of 15th asia proceedings of 15th asia 2024 research-paper junwei zeng nanjing university of aeronautics and astronautics yixuan tang nanjing university of aeronautics and astronautics jingxuan zhang nanjing university of aeronautics and astronautics weiwei li nanjing university of aeronautics and astronautics zhiqiu huang nanjing university of aeronautics and astronautics clang testing clang testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -7372,10 +7352,10 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -7882,16 +7862,10 @@
           "AI"
         ],
         "openalexId": "https://openalex.org/W4394862623",
-        "citationCount": 255,
-        "doi": "10.1109/wacvw60836.2024.00106",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "citationCountProviderCounts": {
-          "openalex": 255,
-          "crossref": 271
-        },
-        "publishedDate": "",
+        "citationCount": 237,
         "sourceUrl": "",
+        "doi": "10.1109/wacvw60836.2024.00106",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7903,7 +7877,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 255,
+        "_citationCount": 237,
         "_titleLower": "a survey on multimodal large language models for autonomous driving",
         "_authorLower": "can cui purdue university west lafayette yunsheng ma purdue university west lafayette xu cao university of illinois urbana-champaign wenqian ye university of virginia yang zhou new york university kaizhao liang jintai chen university of illinois urbana-champaign juanwu lu purdue university west lafayette zichong yang purdue university west lafayette kuei-da liao tianren gao erlong li tencent tang kun tencent zhipeng cao tencent tong zhou tencent ao liu tencent xinrui yan tencent shuqi mei tencent jianguo cao ziran wang purdue university west lafayette chao zheng tencent",
         "_authorsLower": "can cui purdue university west lafayette yunsheng ma purdue university west lafayette xu cao university of illinois urbana-champaign wenqian ye university of virginia yang zhou new york university kaizhao liang jintai chen university of illinois urbana-champaign juanwu lu purdue university west lafayette zichong yang purdue university west lafayette kuei-da liao tianren gao erlong li tencent tang kun tencent zhipeng cao tencent tong zhou tencent ao liu tencent xinrui yan tencent shuqi mei tencent jianguo cao ziran wang purdue university west lafayette chao zheng tencent",
@@ -8277,7 +8251,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 255
+          "citationCount": 237
         },
         "_searchBlob": "a survey on multimodal large language models for autonomous driving with the emergence of large language models llms and vision foundation models vfms multimodal ai systems benefiting from large models have the potential to equally perceive the real world make decisions and control tools as humans. in recent months llms have shown widespread attention in autonomous driving and map systems. despite its immense potential there is still a lack of a comprehensive understanding of key challenges opportunities and future endeavors to apply in llm driving systems. in this paper we present a systematic investigation in this field. we first introduce the background of multimodal large language models mllms the multimodal models development using llms and the history of autonomous driving. then we overview existing mllm tools for driving transportation and map systems together with existing datasets and benchmarks. moreover we summarized the works in the 1st wacv workshop on large language and vision models for autonomous driving llvm-ad which is the first workshop of its kind regarding llms in autonomous driving. to further promote the development of this field we also discuss several important problems regarding using mllms in autonomous driving systems that need to be solved by both academia and industry. 2024 ieee cvf winter conference on applications of computer vision workshops wacvw 2024 ieee cvf winter conference on applications of computer vision workshops wacvw 2024 research-paper can cui purdue university west lafayette yunsheng ma purdue university west lafayette xu cao university of illinois urbana-champaign wenqian ye university of virginia yang zhou new york university kaizhao liang jintai chen university of illinois urbana-champaign juanwu lu purdue university west lafayette zichong yang purdue university west lafayette kuei-da liao tianren gao erlong li tencent tang kun tencent zhipeng cao tencent tong zhou tencent ao liu tencent xinrui yan tencent shuqi mei tencent jianguo cao ziran wang purdue university west lafayette chao zheng tencent ai ai",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8375,10 +8349,10 @@
           "polly"
         ],
         "id": "openalex-w4405955694",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -9640,10 +9614,10 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -10123,10 +10097,10 @@
           "llvm"
         ],
         "id": "openalex-w7146600348",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -10431,10 +10405,10 @@
           "openmp"
         ],
         "id": "openalex-w4321650077",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -10892,15 +10866,15 @@
           "openmp"
         ],
         "id": "openalex-w4386106249",
-        "citationCount": 5,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 0,
         "_titleLower": "how do os and application schedulers interact? an investigation with multithreaded applications",
         "_authorLower": "jonas h. müller korndörfer university of basel ahmed eleliemy university of basel osman seçkin şimşek university of basel thomas ilsche tu dresden robert schöne tu dresden florina m. ciorba university of basel",
         "_authorsLower": "jonas h. müller korndörfer university of basel ahmed eleliemy university of basel osman seçkin şimşek university of basel thomas ilsche tu dresden robert schöne tu dresden florina m. ciorba university of basel",
@@ -11211,7 +11185,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 5
+          "citationCount": 0
         },
         "_searchBlob": "how do os and application schedulers interact an investigation with multithreaded applications abstract scheduling is critical for achieving high performance for parallel applications executing on high performance computing hpc systems. scheduling decisions can be taken at batch system application and operating system os levels. in this work we investigate the interaction between the linux scheduler and various openmp scheduling options during the execution of three multithreaded codes on two types of computing nodes. when threads are unpinned we found that os scheduling events significantly interfere with the performance of compute-bound applications aggravating their inherent load imbalance or overhead by additional context switches . while the linux scheduler balances system load in the absence of application-level load balancing we also found it decreases performance via additional context switches and thread migrations. we observed that performing load balancing operations both at the os and application levels is advantageous for the performance of concurrently executing applications. these results show the importance of considering the role of os scheduling in the design of application scheduling techniques and vice versa. this work motivates further research into coordination of scheduling within multithreaded applications and the os. lecture notes in computer science lecture notes in computer science 2023 research-paper jonas h. muller korndorfer university of basel ahmed eleliemy university of basel osman seckin simsek university of basel thomas ilsche tu dresden robert schone tu dresden florina m. ciorba university of basel openmp performance openmp performance additional context switches linux scheduler load balancing schedulers interact openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -11250,8 +11224,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Journal of Physics:Conference Series",
-        "venue": "Journal of Physics:Conference Series | Vol. 2438 (Issue 1)",
+        "publication": "Journal of Physics: Conference Series",
+        "venue": "Journal of Physics: Conference Series | Vol. 2438 (Issue 1)",
         "type": "research-paper",
         "abstract": "Abstract Automatic Differentiation (AD) is instrumental for science and industry. It is a tool to evaluate the derivative of a function specified through a computer program. The range of AD application domain spans from Machine Learning to Robotics to High Energy Physics. Computing gradients with the help of AD is guaranteed to be more precise than the numerical alternative and have a low, constant factor more arithmetical operations compared to the original function. Moreover, AD applications to domain problems typically are computationally bound. They are often limited by the computational requirements of high-dimensional parameters and thus can benefit from parallel implementations on graphics processing units (GPUs). Clad aims to enable differential analysis for C/C++ and CUDA and is a compiler-assisted AD tool available both as a compiler extension and in ROOT. Moreover, Clad works as a plugin extending the Clang compiler; as a plugin extending the interactive interpreter Cling; and as a Jupyter kernel extension based on xeus-cling. We demonstrate the advantages of parallel gradient computations on GPUs with Clad. We explain how to bring forth a new layer of optimization and a proportional speed up by extending Clad to support CUDA. The gradients of well-behaved C++ functions can be automatically executed on a GPU. The library can be easily integrated into existing frameworks or used interactively. Furthermore, we demonstrate the achieved application performance improvements, including (≈10x) in ROOT histogram fitting and corresponding performance gains from offloading to GPUs.",
         "paperUrl": "https://iopscience.iop.org/article/10.1088/1742-6596/2438/1/012043/pdf",
@@ -11287,10 +11261,10 @@
           "clang",
           "offload"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -11304,8 +11278,8 @@
         "_keywordsLower": "clang optimizations performance gpu cuda ml offloading plugin extending gpu accelerated accelerated automatic differentiation",
         "_topicsLower": "clang optimizations performance gpu cuda ml clang optimizations performance gpu cuda ml offloading plugin extending gpu accelerated accelerated automatic differentiation clang offload",
         "_contentLower": "",
-        "_publicationLower": "journal of physics:conference series",
-        "_venueLower": "journal of physics:conference series | vol. 2438 (issue 1)",
+        "_publicationLower": "journal of physics: conference series",
+        "_venueLower": "journal of physics: conference series | vol. 2438 (issue 1)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2023",
@@ -11690,9 +11664,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4313445496",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-18599-1_7",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12116,10 +12090,10 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -12448,8 +12422,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Fumero Alfonso, J, Rethy, G, Stratikopoulos, A, Foutris, N & Kotselidis, C-E 2023, 'Beehive SPIR-V Toolkit:A Composable and Functional API for Runtime SPIR-V Code Generation'.",
-        "venue": "Fumero Alfonso, J, Rethy, G, Stratikopoulos, A, Foutris, N & Kotselidis, C-E 2023, 'Beehive SPIR-V Toolkit:A Composable and Functional API for Runtime SPIR-V Code Generation'.",
+        "publication": "Fumero Alfonso, J, Rethy, G, Stratikopoulos, A, Foutris, N & Kotselidis, C-E 2023, 'Beehive SPIR-V Toolkit: A Composable and Functional API for Runtime SPIR-V Code Generation",
+        "venue": "Fumero Alfonso, J, Rethy, G, Stratikopoulos, A, Foutris, N & Kotselidis, C-E 2023, 'Beehive SPIR-V Toolkit: A Composable and Functional API for Runtime SPIR-V Code Generation",
         "type": "research-paper",
         "abstract": "The Standard Portable Intermediate Representation (SPIR-V) is a low-level binary format designed for representing shaders and compute kernels that can be consumed by OpenCL for computing kernels, and Vulkan for graphics rendering. As a binary representation, SPIR-V is meant to be used by compilers and runtime systems, and is usually performed by C/C++ programs and the LLVM software and compiler ecosystem. However, not all programming environments, runtime systems, and language implementations are C/C++ or based on LLVM. <br/><br/>This paper presents the Beehive SPIR-V Toolkit; a framework that can automatically generate a Java composable and functional library for dynamically building SPIR-V binary modules. The Beehive SPIR-V Toolkit can be used by optimizing compilers and runtime systems to generate and validate SPIR-V binary modules from managed runtime systems. Furthermore, our framework is architected to accommodate new SPIR-V releases in an easy-to-maintain manner, and it facilitates the automatic generation of Java libraries for other standards, besides SPIR-V. The Beehive SPIR-V Toolkit also includes an assembler that emits SPIR-V binary modules from disassembled SPIR-V text files, and a disassembler that converts the SPIR-V binary code into a text file.<br/>To the best of our knowledge, the Beehive SPIR-V Toolkit is the first Java programming framework that can dynamically generate SPIR-V binary modules.<br/><br/><br/>To demonstrate the use of our framework, we showcase the integration of the SPIR-V Beehive Toolkit in the context of the TornadoVM, a Java framework for automatically offloading and running Java programs on heterogeneous hardware. We show that, via the SPIR-V Beehive Toolkit, TornadoVM is able to compile code 3x faster than its existing OpenCL C JIT compiler, and it performs up to 1.52x faster than the existing OpenCL C backend in TornadoVM.",
         "paperUrl": "https://pure.manchester.ac.uk/ws/files/275959161/main.pdf",
@@ -12489,8 +12463,8 @@
         "_keywordsLower": "backend c++ jit libraries opencl",
         "_topicsLower": "backend c++ jit libraries opencl backend c++ jit libraries opencl",
         "_contentLower": "",
-        "_publicationLower": "fumero alfonso, j, rethy, g, stratikopoulos, a, foutris, n & kotselidis, c-e 2023, 'beehive spir-v toolkit:a composable and functional api for runtime spir-v code generation'.",
-        "_venueLower": "fumero alfonso, j, rethy, g, stratikopoulos, a, foutris, n & kotselidis, c-e 2023, 'beehive spir-v toolkit:a composable and functional api for runtime spir-v code generation'.",
+        "_publicationLower": "fumero alfonso, j, rethy, g, stratikopoulos, a, foutris, n & kotselidis, c-e 2023, 'beehive spir-v toolkit: a composable and functional api for runtime spir-v code generation",
+        "_venueLower": "fumero alfonso, j, rethy, g, stratikopoulos, a, foutris, n & kotselidis, c-e 2023, 'beehive spir-v toolkit: a composable and functional api for runtime spir-v code generation",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2023",
@@ -12842,7 +12816,7 @@
               "words": []
             },
             "publication": {
-              "text": "fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation.",
+              "text": "fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation",
               "words": [
                 "fumero",
                 "alfonso",
@@ -12864,11 +12838,11 @@
                 "runtime",
                 "spir-v",
                 "code",
-                "generation."
+                "generation"
               ]
             },
             "venue": {
-              "text": "fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation.",
+              "text": "fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation",
               "words": [
                 "fumero",
                 "alfonso",
@@ -12890,7 +12864,7 @@
                 "runtime",
                 "spir-v",
                 "code",
-                "generation."
+                "generation"
               ]
             },
             "year": {
@@ -12903,7 +12877,7 @@
           "year": 2023,
           "citationCount": 0
         },
-        "_searchBlob": "beehive spir-v toolkit a composable and functional api for runtime spir-v code generation the standard portable intermediate representation spir-v is a low-level binary format designed for representing shaders and compute kernels that can be consumed by opencl for computing kernels and vulkan for graphics rendering. as a binary representation spir-v is meant to be used by compilers and runtime systems and is usually performed by c c++ programs and the llvm software and compiler ecosystem. however not all programming environments runtime systems and language implementations are c c++ or based on llvm. br br this paper presents the beehive spir-v toolkit a framework that can automatically generate a java composable and functional library for dynamically building spir-v binary modules. the beehive spir-v toolkit can be used by optimizing compilers and runtime systems to generate and validate spir-v binary modules from managed runtime systems. furthermore our framework is architected to accommodate new spir-v releases in an easy-to-maintain manner and it facilitates the automatic generation of java libraries for other standards besides spir-v. the beehive spir-v toolkit also includes an assembler that emits spir-v binary modules from disassembled spir-v text files and a disassembler that converts the spir-v binary code into a text file. br to the best of our knowledge the beehive spir-v toolkit is the first java programming framework that can dynamically generate spir-v binary modules. br br br to demonstrate the use of our framework we showcase the integration of the spir-v beehive toolkit in the context of the tornadovm a java framework for automatically offloading and running java programs on heterogeneous hardware. we show that via the spir-v beehive toolkit tornadovm is able to compile code 3x faster than its existing opencl c jit compiler and it performs up to 1.52x faster than the existing opencl c backend in tornadovm. fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation. fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation. 2023 research-paper juan fumero alfonso gyorgy rethy eth zurich athanasios stratikopoulos nikolaos foutris christos-efthymios kotselidis backend c++ jit libraries opencl backend c++ jit libraries opencl",
+        "_searchBlob": "beehive spir-v toolkit a composable and functional api for runtime spir-v code generation the standard portable intermediate representation spir-v is a low-level binary format designed for representing shaders and compute kernels that can be consumed by opencl for computing kernels and vulkan for graphics rendering. as a binary representation spir-v is meant to be used by compilers and runtime systems and is usually performed by c c++ programs and the llvm software and compiler ecosystem. however not all programming environments runtime systems and language implementations are c c++ or based on llvm. br br this paper presents the beehive spir-v toolkit a framework that can automatically generate a java composable and functional library for dynamically building spir-v binary modules. the beehive spir-v toolkit can be used by optimizing compilers and runtime systems to generate and validate spir-v binary modules from managed runtime systems. furthermore our framework is architected to accommodate new spir-v releases in an easy-to-maintain manner and it facilitates the automatic generation of java libraries for other standards besides spir-v. the beehive spir-v toolkit also includes an assembler that emits spir-v binary modules from disassembled spir-v text files and a disassembler that converts the spir-v binary code into a text file. br to the best of our knowledge the beehive spir-v toolkit is the first java programming framework that can dynamically generate spir-v binary modules. br br br to demonstrate the use of our framework we showcase the integration of the spir-v beehive toolkit in the context of the tornadovm a java framework for automatically offloading and running java programs on heterogeneous hardware. we show that via the spir-v beehive toolkit tornadovm is able to compile code 3x faster than its existing opencl c jit compiler and it performs up to 1.52x faster than the existing opencl c backend in tornadovm. fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation fumero alfonso j rethy g stratikopoulos a foutris n and kotselidis c-e 2023 beehive spir-v toolkit a composable and functional api for runtime spir-v code generation 2023 research-paper juan fumero alfonso gyorgy rethy eth zurich athanasios stratikopoulos nikolaos foutris christos-efthymios kotselidis backend c++ jit libraries opencl backend c++ jit libraries opencl",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -12941,9 +12915,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4385732502",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3594806.3594812",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13249,9 +13223,9 @@
         ],
         "openalexId": "https://openalex.org/W4296433611",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-15922-0_5",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13515,15 +13489,15 @@
           "mlir"
         ],
         "id": "openalex-w4293024964",
-        "citationCount": 3,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 0,
         "_titleLower": "the soda approach",
         "_authorLower": "nícolas bohm agostini pacific northwest national laboratory serena curzel pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory joseph manzano pacific northwest national laboratory antonino tumeo pacific northwest national laboratory fabrizio ferrandi politecnico di milano",
         "_authorsLower": "nícolas bohm agostini pacific northwest national laboratory serena curzel pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory joseph manzano pacific northwest national laboratory antonino tumeo pacific northwest national laboratory fabrizio ferrandi politecnico di milano",
@@ -13829,7 +13803,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 3
+          "citationCount": 0
         },
         "_searchBlob": "the soda approach novel converged applications combine phases of scientific simulation with data analysis and machine learning. each computational phase can benefit from specialized accelerators. however algorithms evolve so quickly that mapping them on existing accelerators is suboptimal or even impossible. this paper presents the soda software defined accelerators framework a modular multi-level open-source no-human-in-the-loop hardware synthesizer that enables end-to-end generation of specialized accelerators. soda is composed of soda-opt a high-level frontend developed in mlir that interfaces with domain-specific programming frameworks and allows performing system level design and bambu a state-of-the-art high-level synthesis engine that can target different device technologies. the framework implements design space exploration as compiler optimization passes. we show how the modular yet tight integration of the high-level optimizer and lower-level hls tools enables the generation of accelerators optimized for the computational patterns of converged applications. we then discuss some of the research opportunities that such a framework allows including system-level design profile driven optimization and supporting new optimization metrics. proceedings of 59th acm ieee design automation conference proceedings of 59th acm ieee design automation conference 2022 research-paper nicolas bohm agostini pacific northwest national laboratory serena curzel pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory joseph manzano pacific northwest national laboratory antonino tumeo pacific northwest national laboratory fabrizio ferrandi politecnico di milano mlir frontend optimizations ml mlir frontend optimizations specialized accelerators mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -13869,9 +13843,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4285214656",
         "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-07312-0_16",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -14811,9 +14785,9 @@
         ],
         "openalexId": "https://openalex.org/W4293072363",
         "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1109/tr.2022.3165378",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15243,9 +15217,9 @@
         ],
         "openalexId": "https://openalex.org/W4226204056",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-04580-6_1",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15444,9 +15418,9 @@
         ],
         "openalexId": "https://openalex.org/W4361792201",
         "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1109/qrs-c57518.2022.00011",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15805,7 +15779,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W3187355740",
-        "citationCount": 5,
+        "citationCount": 4,
         "doi": "10.25080/majora-1b6fd038-012",
         "publishedDate": "",
         "contentFormat": "",
@@ -15820,7 +15794,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 4,
         "_titleLower": "multithreaded parallel python through openmp support in numba",
         "_authorLower": "todd a. anderson tim mattson",
         "_authorsLower": "todd a. anderson tim mattson",
@@ -16105,7 +16079,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 5
+          "citationCount": 4
         },
         "_searchBlob": "multithreaded parallel python through openmp support in numba a modern cpu delivers performance through parallelism. a program that exploits the performance available from a cpu must run in parallel on multiple cores. this is usually best done through multithreading. threads belong to a process and share the memory associated with that process. the most popular approach for writing multithreaded code is to use directives to tell the compiler how to convert code into multithreaded code. the most commonly used directive-based api for writing multithreaded code is openmp. python is not designed for parallel programming with threads. the globalinterpreterlock gil prevents multiple threads from simultaneously accessing python objects. this effectively prevents data races and makes python naturally thread safe. consequently the gil prevents parallel programming with multiple threads and therefore keeps python from accessing the full performance from a cpu. in this paper we describe a solution to this problem. we implement openmp in python so programmers can easily annotate their code and then let the numba justin-time jit compiler generate multithreaded openmp code in llvm thereby bypassing the gil. we describe this new multithreading system for python and and show that the performance in our early tests is on par with the analogous c code. proceedings of python in science conference proceedings of python in science conference 2021 research-paper todd a. anderson tim mattson jit performance jit performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -16156,9 +16130,9 @@
         ],
         "openalexId": "https://openalex.org/W3159746323",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1145/3456669.3456674",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16421,8 +16395,8 @@
         ],
         "openalexId": "https://openalex.org/W3167971287",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16811,8 +16785,8 @@
           }
         ],
         "year": "2020",
-        "publication": "2020 Second IEEE International Conference on Trust, Privacy and Security in Intelligent Systems and Applications (TPS-ISA)",
-        "venue": "2020 Second IEEE International Conference on Trust, Privacy and Security in Intelligent Systems and Applications (TPS-ISA) | Vol. 41",
+        "publication": "2020 Second IEEE International Conference on Trust",
+        "venue": "2020 Second IEEE International Conference on Trust | Vol. 41",
         "type": "research-paper",
         "abstract": "Data exfiltration attacks have led to huge data breaches. Recently, the Equifax attack affected 147M users and a third party library - Apache Struts - was alleged to be responsible for it. These attacks often exploit the fact that sensitive data are stored unencrypted in process memory and can be accessed by any function executing within the same process, including untrusted third party library functions. This paper presents StackVault, a kernel-based system to prevent sensitive stack-based data from being accessed in an unauthorized manner by intra-process functions. Stack-based data includes data on stack as well as data pointed to by pointer variables on stack. StackVault consists of three components: (1) a set of programming APIs to allow users to specify which data needs to be protected, (2) a kernel module which uses unforgeable function identities to reliably carry out the sensitive data protection, and (3) an LLVM compiler extension that enables transparent placement of stack protection operations. The StackVault system automatically enforces stack protection through spatial and temporal access monitoring and control over both sensitive stack data and untrusted functions. We implemented StackVault and evaluated it using a number of popular real world applications, including gRPC. The results show that StackVault is effective and efficient, incurring only up to 2.4% runtime overhead.",
         "paperUrl": "https://doi.org/10.1109/tps-isa50397.2020.00045",
@@ -16821,9 +16795,9 @@
         ],
         "openalexId": "https://openalex.org/W3128854187",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/tps-isa50397.2020.00045",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16844,8 +16818,8 @@
         "_keywordsLower": "rust",
         "_topicsLower": "rust rust",
         "_contentLower": "",
-        "_publicationLower": "2020 second ieee international conference on trust, privacy and security in intelligent systems and applications (tps-isa)",
-        "_venueLower": "2020 second ieee international conference on trust, privacy and security in intelligent systems and applications (tps-isa) | vol. 41",
+        "_publicationLower": "2020 second ieee international conference on trust",
+        "_venueLower": "2020 second ieee international conference on trust | vol. 41",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2020",
@@ -17131,7 +17105,7 @@
               "words": []
             },
             "publication": {
-              "text": "2020 second ieee international conference on trust privacy and security in intelligent systems and applications tps-isa",
+              "text": "2020 second ieee international conference on trust",
               "words": [
                 "2020",
                 "second",
@@ -17139,20 +17113,11 @@
                 "international",
                 "conference",
                 "on",
-                "trust",
-                "privacy",
-                "and",
-                "security",
-                "in",
-                "intelligent",
-                "systems",
-                "and",
-                "applications",
-                "tps-isa"
+                "trust"
               ]
             },
             "venue": {
-              "text": "2020 second ieee international conference on trust privacy and security in intelligent systems and applications tps-isa vol. 41",
+              "text": "2020 second ieee international conference on trust vol. 41",
               "words": [
                 "2020",
                 "second",
@@ -17161,15 +17126,6 @@
                 "conference",
                 "on",
                 "trust",
-                "privacy",
-                "and",
-                "security",
-                "in",
-                "intelligent",
-                "systems",
-                "and",
-                "applications",
-                "tps-isa",
                 "vol.",
                 "41"
               ]
@@ -17184,7 +17140,7 @@
           "year": 2020,
           "citationCount": 0
         },
-        "_searchBlob": "stackvault protection from untrusted functions data exfiltration attacks have led to huge data breaches. recently the equifax attack affected 147m users and a third party library - apache struts - was alleged to be responsible for it. these attacks often exploit the fact that sensitive data are stored unencrypted in process memory and can be accessed by any function executing within the same process including untrusted third party library functions. this paper presents stackvault a kernel-based system to prevent sensitive stack-based data from being accessed in an unauthorized manner by intra-process functions. stack-based data includes data on stack as well as data pointed to by pointer variables on stack. stackvault consists of three components 1 a set of programming apis to allow users to specify which data needs to be protected 2 a kernel module which uses unforgeable function identities to reliably carry out the sensitive data protection and 3 an llvm compiler extension that enables transparent placement of stack protection operations. the stackvault system automatically enforces stack protection through spatial and temporal access monitoring and control over both sensitive stack data and untrusted functions. we implemented stackvault and evaluated it using a number of popular real world applications including grpc. the results show that stackvault is effective and efficient incurring only up to 2.4 runtime overhead. 2020 second ieee international conference on trust privacy and security in intelligent systems and applications tps-isa 2020 second ieee international conference on trust privacy and security in intelligent systems and applications tps-isa vol. 41 2020 research-paper qi zhang ibm research - thomas j. watson research center zehra sura bloomberg ashish kundu gong su ibm research - thomas j. watson research center arun iyengar ibm research - thomas j. watson research center ling liu georgia institute of technology rust rust",
+        "_searchBlob": "stackvault protection from untrusted functions data exfiltration attacks have led to huge data breaches. recently the equifax attack affected 147m users and a third party library - apache struts - was alleged to be responsible for it. these attacks often exploit the fact that sensitive data are stored unencrypted in process memory and can be accessed by any function executing within the same process including untrusted third party library functions. this paper presents stackvault a kernel-based system to prevent sensitive stack-based data from being accessed in an unauthorized manner by intra-process functions. stack-based data includes data on stack as well as data pointed to by pointer variables on stack. stackvault consists of three components 1 a set of programming apis to allow users to specify which data needs to be protected 2 a kernel module which uses unforgeable function identities to reliably carry out the sensitive data protection and 3 an llvm compiler extension that enables transparent placement of stack protection operations. the stackvault system automatically enforces stack protection through spatial and temporal access monitoring and control over both sensitive stack data and untrusted functions. we implemented stackvault and evaluated it using a number of popular real world applications including grpc. the results show that stackvault is effective and efficient incurring only up to 2.4 runtime overhead. 2020 second ieee international conference on trust 2020 second ieee international conference on trust vol. 41 2020 research-paper qi zhang ibm research - thomas j. watson research center zehra sura bloomberg ashish kundu gong su ibm research - thomas j. watson research center arun iyengar ibm research - thomas j. watson research center ling liu georgia institute of technology rust rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -17221,8 +17177,8 @@
           }
         ],
         "year": "2020",
-        "publication": "Digital Threats:Research and Practice",
-        "venue": "Digital Threats:Research and Practice | Vol. 1 (Issue 4)",
+        "publication": "Digital Threats: Research and Practice",
+        "venue": "Digital Threats: Research and Practice | Vol. 1 (Issue 4)",
         "type": "research-paper",
         "abstract": "Gaining reliable arbitrary code execution through the exploitation of memory corruption vulnerabilities is becoming increasingly more difficult in the face of modern exploit mitigations. Facing this challenge, adversaries have started shifting their attention to data leakage attacks, which can lead to equally damaging outcomes, such as the disclosure of private keys or other sensitive data. In this work, we present a compiler-level defense against data leakage attacks for user-space applications. Our approach strikes a balance between the manual effort required to protect sensitive application data, and the performance overhead of achieving strong data confidentiality. To that end, we require developers to simply annotate those variables holding sensitive data, after which our framework automatically transforms only the fraction of the entire program code that is related to sensitive data operations. We implemented this approach by extending the LLVM compiler, and used it to protect memory-resident private keys in the MbedTLS server, ssh-agent, and a Libsodium-based file signing program, as well as user passwords for Lighttpd and Memcached. Our results demonstrate the feasibility and practicality of our technique: a modest runtime overhead (e.g., 13% throughput reduction for MbedTLS) that is on par with, or better than, existing state-of-the-art memory safety approaches for selective data protection.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3419475",
@@ -17231,7 +17187,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W3117037481",
-        "citationCount": 3,
+        "citationCount": 2,
         "doi": "10.1145/3419475",
         "publishedDate": "",
         "contentFormat": "",
@@ -17245,7 +17201,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 2,
         "_titleLower": "mitigating data-only attacks by protecting memory-resident sensitive data",
         "_authorLower": "tapti palit stony brook university fabian monrose university of north carolina at chapel hill michalis polychronakis stony brook university",
         "_authorsLower": "tapti palit stony brook university fabian monrose university of north carolina at chapel hill michalis polychronakis stony brook university",
@@ -17254,8 +17210,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "digital threats:research and practice",
-        "_venueLower": "digital threats:research and practice | vol. 1 (issue 4)",
+        "_publicationLower": "digital threats: research and practice",
+        "_venueLower": "digital threats: research and practice | vol. 1 (issue 4)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2020",
@@ -17551,7 +17507,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 3
+          "citationCount": 2
         },
         "_searchBlob": "mitigating data-only attacks by protecting memory-resident sensitive data gaining reliable arbitrary code execution through the exploitation of memory corruption vulnerabilities is becoming increasingly more difficult in the face of modern exploit mitigations. facing this challenge adversaries have started shifting their attention to data leakage attacks which can lead to equally damaging outcomes such as the disclosure of private keys or other sensitive data. in this work we present a compiler-level defense against data leakage attacks for user-space applications. our approach strikes a balance between the manual effort required to protect sensitive application data and the performance overhead of achieving strong data confidentiality. to that end we require developers to simply annotate those variables holding sensitive data after which our framework automatically transforms only the fraction of the entire program code that is related to sensitive data operations. we implemented this approach by extending the llvm compiler and used it to protect memory-resident private keys in the mbedtls server ssh-agent and a libsodium-based file signing program as well as user passwords for lighttpd and memcached. our results demonstrate the feasibility and practicality of our technique a modest runtime overhead e.g. 13 throughput reduction for mbedtls that is on par with or better than existing state-of-the-art memory safety approaches for selective data protection. digital threats research and practice digital threats research and practice vol. 1 issue 4 2020 research-paper tapti palit stony brook university fabian monrose university of north carolina at chapel hill michalis polychronakis stony brook university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17598,9 +17554,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2983337431",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/s11227-019-03057-4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -17973,9 +17929,9 @@
         ],
         "openalexId": "https://openalex.org/W2965759310",
         "citationCount": 59,
+        "sourceUrl": "",
         "doi": "10.1109/aicas.2019.8771510",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18733,9 +18689,9 @@
         ],
         "openalexId": "https://openalex.org/W2909273858",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/fareastcon.2018.8602801",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19536,8 +19492,8 @@
         ],
         "openalexId": "https://openalex.org/W3094413649",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20641,10 +20597,10 @@
           "openmp"
         ],
         "id": "openalex-w2724809007",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2017",
         "_publishedDate": "",
@@ -21193,8 +21149,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2750658501",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -21351,8 +21307,8 @@
           }
         ],
         "year": "2016",
-        "publication": "Software:Practice and Experience",
-        "venue": "Software:Practice and Experience | Vol. 46 (Issue 12)",
+        "publication": "Software: Practice and Experience",
+        "venue": "Software: Practice and Experience | Vol. 46 (Issue 12)",
         "type": "research-paper",
         "abstract": "Summary Binary translation attempts to emulate one instruction set with another on the same or different platforms. The important technique is widely used in modern software. Vector and floating‐point instructions are widely used in many applications, including multimedia, graphics, and gaming. Although these instructions are usually simulated with software in a binary translator, it is important to support them such that the host single‐instruction, multiple‐data (SIMD) and floating‐point hardware are efficiently used during emulation. We report our design and implementation of the emulation of ARM Neon and vector floating point (VFP) instructions in the machine‐code‐to‐low‐level‐virtual‐machine (MC2LLVM) binary translator. The Neon and VFP instructions are first translated into carefully chosen sequences of LLVM intermediate representation (IR), and later, the IR sequences are optimized and translated into the host native binary by the existing LLVM backend. Because MC2LLVM makes use of the vector and floating‐point types in LLVM IR, the generated host native binary can take full advantage of the vector and floating‐point functional units, if present, of the host machine. To be fully compliant with Neon and VFP instruction sets, all the features are supported, including the flush‐to‐zero mode, default not a number mode, and floating‐point exceptions. The experimental results show that code generated by MC2LLVM with the Neon and VFP extensions achieves an average speedup of 1.174× in SPEC 2006 benchmark suites and exhibits a floating‐point throughput of 12.05× in LINPACK, compared with code generated by MC2LLVM without the Neon and VFP extensions. Furthermore, MC2LLVM is 3.36× faster than QEMU for processing Neon/VFP instructions. Copyright © 2016 John Wiley &amp; Sons, Ltd.",
         "paperUrl": "https://doi.org/10.1002/spe.2394",
@@ -21361,10 +21317,10 @@
           "IR"
         ],
         "openalexId": "https://openalex.org/W2298470160",
-        "citationCount": 12,
+        "citationCount": 11,
+        "sourceUrl": "",
         "doi": "10.1002/spe.2394",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -21377,7 +21333,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 11,
         "_titleLower": "translating the arm neon and vfp instructions in a binary translator",
         "_authorLower": "yu‐chuan guo national yang ming chiao tung university wuu yang national yang ming chiao tung university jiunn‐yeu chen national yang ming chiao tung university jenq‐kuen lee national tsing hua university",
         "_authorsLower": "yu‐chuan guo national yang ming chiao tung university wuu yang national yang ming chiao tung university jiunn‐yeu chen national yang ming chiao tung university jenq‐kuen lee national tsing hua university",
@@ -21386,8 +21342,8 @@
         "_keywordsLower": "backend ir",
         "_topicsLower": "backend ir backend ir",
         "_contentLower": "",
-        "_publicationLower": "software:practice and experience",
-        "_venueLower": "software:practice and experience | vol. 46 (issue 12)",
+        "_publicationLower": "software: practice and experience",
+        "_venueLower": "software: practice and experience | vol. 46 (issue 12)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2016",
@@ -21778,7 +21734,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 12
+          "citationCount": 11
         },
         "_searchBlob": "translating the arm neon and vfp instructions in a binary translator summary binary translation attempts to emulate one instruction set with another on the same or different platforms. the important technique is widely used in modern software. vector and floating point instructions are widely used in many applications including multimedia graphics and gaming. although these instructions are usually simulated with software in a binary translator it is important to support them such that the host single instruction multiple data simd and floating point hardware are efficiently used during emulation. we report our design and implementation of the emulation of arm neon and vector floating point vfp instructions in the machine code to low level virtual machine mc2llvm binary translator. the neon and vfp instructions are first translated into carefully chosen sequences of llvm intermediate representation ir and later the ir sequences are optimized and translated into the host native binary by the existing llvm backend. because mc2llvm makes use of the vector and floating point types in llvm ir the generated host native binary can take full advantage of the vector and floating point functional units if present of the host machine. to be fully compliant with neon and vfp instruction sets all the features are supported including the flush to zero mode default not a number mode and floating point exceptions. the experimental results show that code generated by mc2llvm with the neon and vfp extensions achieves an average speedup of 1.174 in spec 2006 benchmark suites and exhibits a floating point throughput of 12.05 in linpack compared with code generated by mc2llvm without the neon and vfp extensions. furthermore mc2llvm is 3.36 faster than qemu for processing neon vfp instructions. copyright 2016 john wiley and amp sons ltd. software practice and experience software practice and experience vol. 46 issue 12 2016 research-paper yu chuan guo national yang ming chiao tung university wuu yang national yang ming chiao tung university jiunn yeu chen national yang ming chiao tung university jenq kuen lee national tsing hua university backend ir backend ir",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -21841,9 +21797,9 @@
         ],
         "openalexId": "https://openalex.org/W2370036963",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/2873058",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22228,12 +22184,10 @@
         "paperUrl": "https://doi.org/10.1145/2983990.2984038",
         "tags": [],
         "openalexId": "https://openalex.org/W2532737545",
-        "citationCount": 156,
-        "doi": "10.1145/2983990.2984038",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 154,
         "sourceUrl": "",
+        "doi": "10.1145/2983990.2984038",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -22243,7 +22197,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 156,
+        "_citationCount": 154,
         "_titleLower": "finding compiler bugs via live code mutation",
         "_authorLower": "c. p. sun university of california, davis vu le university of california, davis zhendong su university of california, davis",
         "_authorsLower": "c. p. sun university of california, davis vu le university of california, davis zhendong su university of california, davis",
@@ -22478,7 +22432,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 156
+          "citationCount": 154
         },
         "_searchBlob": "finding compiler bugs via live code mutation validating optimizing compilers is challenging because it is hard to generate valid test programs i.e. those that do not expose any undefined behavior . equivalence modulo inputs emi is an effective promising methodology to tackle this problem. given a test program with some inputs emi mutates the program to derive variants that are semantically equivalent w.r.t. these inputs. the state-of-the-art instantiations of emi are orion and athena both of which rely on deleting code from or inserting code into code regions that are not executed under the inputs. although both have demonstrated their ability in finding many bugs in gcc and llvm they are still limited due to their mutation strategies that operate only on dead code regions. proceedings of 2016 acm sigplan international conference on object-oriented programming systems languages and applications proceedings of 2016 acm sigplan international conference on object-oriented programming systems languages and applications 2016 research-paper c. p. sun university of california davis vu le university of california davis zhendong su university of california davis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -22548,8 +22502,8 @@
         ],
         "openalexId": "https://openalex.org/W2605319274",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22871,9 +22825,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2530629736",
         "citationCount": 17,
+        "sourceUrl": "",
         "doi": "10.1145/2968455.2968514",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23155,9 +23109,9 @@
         ],
         "openalexId": "https://openalex.org/W2001537678",
         "citationCount": 16,
+        "sourceUrl": "",
         "doi": "10.1145/2804302.2804313",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23803,9 +23757,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W283806354",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-15075-8_1",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -24682,8 +24636,8 @@
         ],
         "openalexId": "https://openalex.org/W2610771083",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24968,8 +24922,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2522478098",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -25602,10 +25556,10 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2089750484",
-        "citationCount": 13,
+        "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1145/2660267.2662394",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -25618,7 +25572,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 12,
         "_titleLower": "poster",
         "_authorLower": "jiayi ye peking university chao zhang university of california, berkeley xinhui han peking university",
         "_authorsLower": "jiayi ye peking university chao zhang university of california, berkeley xinhui han peking university",
@@ -25894,7 +25848,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 13
+          "citationCount": 12
         },
         "_searchBlob": "poster use-after-free vulnerabilities are gaining more and more attentions in recent years since they are commonly exploited in applications like browsers and exposed in abundant security updates e.g. from microsoft google or mozilla. this kind of vulnerabilities are triggered by dereferencing a dangling pointer and may introduce high risks into the system once they are exploited. in this paper we propose a comprehensive solution called uafchecker to detect use-after-free vulnerabilities in source code. our solution utilizes classical static analysis techniques including taint analysis and symbolic execution to make an inter-procedural analysis to find as many use-after-free vulnerabilities as possible with a low false negative rate and a low false positive rate. we implement a prototype of uafchecker based on the compiler framework llvm. we then use the juliet test suite to evaluate uafcheckers capability of detecting use-after-free vulnerabilities. results show that uafchecker is able to identify most use-after-free vulnerabilities in the juliet test suite. we also test uafchecker against two open source applications and successfully find out all known use-after-free vulnerabilities in them. proceedings of 2014 acm sigsac conference on computer and communications security proceedings of 2014 acm sigsac conference on computer and communications security 2014 research-paper jiayi ye peking university chao zhang university of california berkeley xinhui han peking university security static analysis security static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -26890,8 +26844,8 @@
         ],
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of Tenth ACM SIGPLAN/SIGOPS International Conference on Virtual Execution Environments (VEE 2014)",
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "citationCount": 0,
@@ -27110,9 +27064,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2100341130",
         "citationCount": 17,
+        "sourceUrl": "",
         "doi": "10.1145/2576195.2576213",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -28263,9 +28217,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2014877554",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1145/2362374.2362381",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -28583,8 +28537,8 @@
         ],
         "openalexId": "https://openalex.org/W1882188591",
         "citationCount": 1,
-        "publishedDate": "",
         "paperUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -28914,9 +28868,9 @@
         ],
         "openalexId": "https://openalex.org/W2018768276",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/sccc.2012.29",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -29168,8 +29122,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W85645304",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -30949,9 +30903,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2294470186",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.5281/zenodo.849932",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -31110,9 +31064,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2050086981",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icacte.2010.5579673",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -31362,8 +31316,8 @@
           }
         ],
         "year": "2009",
-        "publication": "http://www-static.cc.gatech.edu/cercs/tech-reports/tr2009/git-cercs-09-18.pdf",
-        "venue": "http://www-static.cc.gatech.edu/cercs/tech-reports/tr2009/git-cercs-09-18.pdf",
+        "publication": "SMARTech Repository (Georgia Institute of Technology)",
+        "venue": "SMARTech Repository (Georgia Institute of Technology)",
         "type": "research-paper",
         "abstract": "Abstract—Ocelot is a dynamic compilation framework designed to map the explicitly parallel PTX execution model used by NVIDIA CUDA applications onto diverse many-core architectures. Ocelot includes a dynamic binary translator from PTX to many-core processors that leverages the LLVM code generator to target x86. The binary translator is able to execute CUDA applications without recompilation and Ocelot can in fact dynamically switch between execution on an NVIDIA GPU and a many-core CPU. It has been validated against over 100 applications taken from the CUDA SDK [1], the UIUC Parboil benchmarks [2], the Virginia Rodinia benchmarks [3], the GPU-VSIPL signal and image processing library [4], and several domain specific applications. This paper presents a detailed description of the implementation of our binary translator highlighting design decisions and trade-offs, and showcasing their effect on application performance. We explore several code transformations that are applicable only when translating explicitly parallel applications and suggest additional optimization passes that may be useful to this class of applications. We expect this study to inform the design of compilation tools for explicitly parallel programming models (such as OpenCL) as well as future CPU and GPU architectures. I.",
         "paperUrl": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.163.8500",
@@ -31375,8 +31329,8 @@
         ],
         "openalexId": "https://openalex.org/W2582254694",
         "citationCount": 17,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -31401,8 +31355,8 @@
         "_keywordsLower": "cuda gpu opencl performance",
         "_topicsLower": "cuda gpu opencl performance cuda gpu opencl performance",
         "_contentLower": "",
-        "_publicationLower": "http://www-static.cc.gatech.edu/cercs/tech-reports/tr2009/git-cercs-09-18.pdf",
-        "_venueLower": "http://www-static.cc.gatech.edu/cercs/tech-reports/tr2009/git-cercs-09-18.pdf",
+        "_publicationLower": "smartech repository (georgia institute of technology)",
+        "_venueLower": "smartech repository (georgia institute of technology)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2009",
@@ -31651,25 +31605,25 @@
               "words": []
             },
             "publication": {
-              "text": "http www-static.cc.gatech.edu cercs tech-reports tr2009 git-cercs-09-18.pdf",
+              "text": "smartech repository georgia institute of technology",
               "words": [
-                "http",
-                "www-static.cc.gatech.edu",
-                "cercs",
-                "tech-reports",
-                "tr2009",
-                "git-cercs-09-18.pdf"
+                "smartech",
+                "repository",
+                "georgia",
+                "institute",
+                "of",
+                "technology"
               ]
             },
             "venue": {
-              "text": "http www-static.cc.gatech.edu cercs tech-reports tr2009 git-cercs-09-18.pdf",
+              "text": "smartech repository georgia institute of technology",
               "words": [
-                "http",
-                "www-static.cc.gatech.edu",
-                "cercs",
-                "tech-reports",
-                "tr2009",
-                "git-cercs-09-18.pdf"
+                "smartech",
+                "repository",
+                "georgia",
+                "institute",
+                "of",
+                "technology"
               ]
             },
             "year": {
@@ -31682,7 +31636,7 @@
           "year": 2009,
           "citationCount": 17
         },
-        "_searchBlob": "the design and implementation ocelots dynamic binary translator from ptx to multi-core x86 abstract ocelot is a dynamic compilation framework designed to map the explicitly parallel ptx execution model used by nvidia cuda applications onto diverse many-core architectures. ocelot includes a dynamic binary translator from ptx to many-core processors that leverages the llvm code generator to target x86. the binary translator is able to execute cuda applications without recompilation and ocelot can in fact dynamically switch between execution on an nvidia gpu and a many-core cpu. it has been validated against over 100 applications taken from the cuda sdk 1 the uiuc parboil benchmarks 2 the virginia rodinia benchmarks 3 the gpu-vsipl signal and image processing library 4 and several domain specific applications. this paper presents a detailed description of the implementation of our binary translator highlighting design decisions and trade-offs and showcasing their effect on application performance. we explore several code transformations that are applicable only when translating explicitly parallel applications and suggest additional optimization passes that may be useful to this class of applications. we expect this study to inform the design of compilation tools for explicitly parallel programming models such as opencl as well as future cpu and gpu architectures. i. http www-static.cc.gatech.edu cercs tech-reports tr2009 git-cercs-09-18.pdf http www-static.cc.gatech.edu cercs tech-reports tr2009 git-cercs-09-18.pdf 2009 research-paper gregory diamos georgia institute of technology cuda gpu opencl performance cuda gpu opencl performance",
+        "_searchBlob": "the design and implementation ocelots dynamic binary translator from ptx to multi-core x86 abstract ocelot is a dynamic compilation framework designed to map the explicitly parallel ptx execution model used by nvidia cuda applications onto diverse many-core architectures. ocelot includes a dynamic binary translator from ptx to many-core processors that leverages the llvm code generator to target x86. the binary translator is able to execute cuda applications without recompilation and ocelot can in fact dynamically switch between execution on an nvidia gpu and a many-core cpu. it has been validated against over 100 applications taken from the cuda sdk 1 the uiuc parboil benchmarks 2 the virginia rodinia benchmarks 3 the gpu-vsipl signal and image processing library 4 and several domain specific applications. this paper presents a detailed description of the implementation of our binary translator highlighting design decisions and trade-offs and showcasing their effect on application performance. we explore several code transformations that are applicable only when translating explicitly parallel applications and suggest additional optimization passes that may be useful to this class of applications. we expect this study to inform the design of compilation tools for explicitly parallel programming models such as opencl as well as future cpu and gpu architectures. i. smartech repository georgia institute of technology smartech repository georgia institute of technology 2009 research-paper gregory diamos georgia institute of technology cuda gpu opencl performance cuda gpu opencl performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000

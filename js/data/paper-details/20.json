@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7130529454": {
@@ -88,10 +88,10 @@
           "mlir"
         ],
         "id": "openalex-w7130529454",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -433,10 +433,10 @@
           "llvm"
         ],
         "id": "openalex-w4415274658",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -799,10 +799,10 @@
           "llvm"
         ],
         "id": "openalex-w4390784292",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -2372,7 +2372,7 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W4405181102",
-        "citationCount": 2,
+        "citationCount": 1,
         "doi": "10.1145/3658644.3670308",
         "publishedDate": "",
         "contentFormat": "",
@@ -2387,7 +2387,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "boosting practical control-flow integrity with complete field sensitivity and origin awareness",
         "_authorLower": "hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics",
         "_authorsLower": "hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics",
@@ -2768,7 +2768,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "boosting practical control-flow integrity with complete field sensitivity and origin awareness control-flow integrity cfi is a strong and efficient defense mechanism against memory-corruption attacks.the practical versions of cfi which have been integrated into compilers employ static analysis to collect all possibly valid target functions of indirect calls.they are however less effective because the static analysis is imprecise.while more precise cfi techniques have been proposed such as dynamic cfi they are not yet practical due to issues on performance compatibility and deployability.we believe that to be practical cfi based on static analysis is still the promising direction.however these years have not seen much progress on the effectiveness of such practical cfi.this paper aims to boost the effectiveness of practical cfi by dramatically optimizing the target-function sets aka equivalence class or ec of indirect calls.we first identify two fundamental limitations that lead to the imprecision of static indirect-call analysis incomplete field sensitivity due to variable field indexes and the unawareness of the origins of point-to targets.we then propose two novel analysis techniques complete field sensitivity and origin awareness which handle variable field indexes and distinguish target origins.the techniques dramatically reduce the size of target functions.to enforce the origin awareness we further employ intel memory protection keys to safely store the origin information.we implement our techniques as a system called eccut.the evaluation results show that compared to the mainline llvm cfi eccut achieves a substantial reduction of 94.8 and 90.3 in the average and the largest ec sizes.while compared to the state-of-the-art origin-aware cfi i.e. os-cfi eccut reduces the average and the largest ec sizes by 90.2 and 89.3 respectively.additionally proceedings of 2024 on acm sigsac conference on computer and communications security proceedings of 2024 on acm sigsac conference on computer and communications security 2024 research-paper hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics performance static analysis performance static analysis",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -2834,8 +2834,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
-        "venue": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
+        "publication": "Proceedings of SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
+        "venue": "Proceedings of SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
         "type": "research-paper",
         "abstract": "We evaluate Julia as a single language and ecosystem paradigm powered by LLVM to develop workflow components for high-performance computing. We run a Gray-Scott, 2-variable diffusion-reaction application using a memory-bound, 7-point stencil kernel on Frontier, the US Department of Energy’s first exascale supercomputer. We evaluate the performance, scaling, and trade-offs of (i) the computational kernel on AMD’s MI250x GPUs, (ii) weak scaling up to 4,096 MPI processes/GPUs or 512 nodes, (iii) parallel I/O writes using the ADIOS2 library bindings, and (iv) Jupyter Notebooks for interactive analysis. Results suggest that although Julia generates a reasonable LLVM-IR, a nearly 50% performance difference exists vs. native AMD HIP stencil codes when running on the GPUs. As expected, we observed near-zero overhead when using MPI and parallel I/O bindings for system-wide installed implementations. Consequently, Julia emerges as a compelling high-performance and high-productivity workflow composition language, as measured on the fastest supercomputer in the world.",
         "paperUrl": "https://arxiv.org/pdf/2309.10292",
@@ -2870,15 +2870,15 @@
           "llvm"
         ],
         "id": "openalex-w4386907353",
-        "citationCount": 7,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 0,
         "_titleLower": "julia as a unifying end-to-end workflow language on the frontier exascale system",
         "_authorLower": "william f. godoy oak ridge national laboratory pedro valero‐lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "william f. godoy oak ridge national laboratory pedro valero‐lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -2887,8 +2887,8 @@
         "_keywordsLower": "llvm ir performance gpu hip workflow language kernel mpi frontier exascale",
         "_topicsLower": "llvm ir performance gpu hip llvm ir performance gpu hip workflow language kernel mpi frontier exascale llvm",
         "_contentLower": "",
-        "_publicationLower": "proceedings of the sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
-        "_venueLower": "proceedings of the sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
+        "_publicationLower": "proceedings of sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
+        "_venueLower": "proceedings of sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2023",
@@ -3145,11 +3145,10 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis",
+              "text": "proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "sc",
                 "23",
                 "workshops",
@@ -3168,11 +3167,10 @@
               ]
             },
             "venue": {
-              "text": "proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis",
+              "text": "proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "sc",
                 "23",
                 "workshops",
@@ -3198,9 +3196,9 @@
             }
           },
           "year": 2023,
-          "citationCount": 7
+          "citationCount": 0
         },
-        "_searchBlob": "julia as a unifying end-to-end workflow language on the frontier exascale system we evaluate julia as a single language and ecosystem paradigm powered by llvm to develop workflow components for high-performance computing. we run a gray-scott 2-variable diffusion-reaction application using a memory-bound 7-point stencil kernel on frontier the us department of energys first exascale supercomputer. we evaluate the performance scaling and trade-offs of i the computational kernel on amds mi250x gpus ii weak scaling up to 4 096 mpi processes gpus or 512 nodes iii parallel i o writes using the adios2 library bindings and iv jupyter notebooks for interactive analysis. results suggest that although julia generates a reasonable llvm-ir a nearly 50 performance difference exists vs. native amd hip stencil codes when running on the gpus. as expected we observed near-zero overhead when using mpi and parallel i o bindings for system-wide installed implementations. consequently julia emerges as a compelling high-performance and high-productivity workflow composition language as measured on the fastest supercomputer in the world. proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper william f. godoy oak ridge national laboratory pedro valero lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory llvm ir performance gpu hip llvm ir performance gpu hip workflow language kernel mpi frontier exascale llvm",
+        "_searchBlob": "julia as a unifying end-to-end workflow language on the frontier exascale system we evaluate julia as a single language and ecosystem paradigm powered by llvm to develop workflow components for high-performance computing. we run a gray-scott 2-variable diffusion-reaction application using a memory-bound 7-point stencil kernel on frontier the us department of energys first exascale supercomputer. we evaluate the performance scaling and trade-offs of i the computational kernel on amds mi250x gpus ii weak scaling up to 4 096 mpi processes gpus or 512 nodes iii parallel i o writes using the adios2 library bindings and iv jupyter notebooks for interactive analysis. results suggest that although julia generates a reasonable llvm-ir a nearly 50 performance difference exists vs. native amd hip stencil codes when running on the gpus. as expected we observed near-zero overhead when using mpi and parallel i o bindings for system-wide installed implementations. consequently julia emerges as a compelling high-performance and high-productivity workflow composition language as measured on the fastest supercomputer in the world. proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper william f. godoy oak ridge national laboratory pedro valero lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory llvm ir performance gpu hip llvm ir performance gpu hip workflow language kernel mpi frontier exascale llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -3605,10 +3603,10 @@
           "Programming Languages"
         ],
         "openalexId": "https://openalex.org/W3026033607",
-        "citationCount": 32,
+        "citationCount": 31,
+        "sourceUrl": "",
         "doi": "10.1109/pdp50117.2020.00041",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3627,7 +3625,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 32,
+        "_citationCount": 31,
         "_titleLower": "lessons learned from comparing c-cuda and python-numba for gpu-computing",
         "_authorLower": "lena oden university of hagen",
         "_authorsLower": "lena oden university of hagen",
@@ -4560,7 +4558,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 32
+          "citationCount": 31
         },
         "_searchBlob": "lessons learned from comparing c-cuda and python-numba for gpu-computing python as programming language is increasingly gaining importance especially in data science scientific and parallel programming. it is faster and easier to learn than classical programming languages such as c. however usability often comes at the cost of performance and applications written in python are considered to be much slower than applications written in c or fortran. further it does not allow the usage of gpus-besides of pre-compiled libraries.however the numba package promises performance similar to c code for compute intensive parts of a python application and it supports cuda which allows the use of gpus inside a python application.in this paper we compare the performance of numba-cuda and c -cuda for different kinds of applications. for compute intensive benchmarks the performance of the numba version only reaches between 50 and 85 performance of the ccuda version despite the reduction operation where the numba version outperforms cuda. analyzing the ptx code and cuda performance counters revealed that index-calculation is one limiting factor in numba. another problem is the type interference for single precision computations as some values are computed in double precision. by optimizing this within the numba package the performance of numba improves. however c-cuda applications still outperform the numba versions. further analysis with the cloverleav mini app shows that numba performance further decreases for applications with multiple different compute kernels. the non-gpu part slows down these applications due to the slow python interpreter. this leads to a worse gpu utilization.today python is widely used in industry and academia and has been the first choice of coding languages among software programmers in the last years. currently according to the tiobe index 5 it is the 3rd most popular programming language and the number one in ieee spectrums fifth annual interactive ranking of the top programming languages 4 . one reason for this is that is easier to learn than classical programming languages like c. however the other reason is the increasing popularity of data science where python is the most used language. a collection of libraries such as numpy 22 and matplotlib 1 or scipy 8 provide a rich set of functions for scientific computing 16 . packages like dask 19 pycompss 21 and mpi for python 6 allow running python applications on large parallel machines promising high performance. however the performance of python is considered slow compared to compiled languages such as c c++ and fortran especially for heavy computations. in recent years more and more tools have been developed to counter this prejudice. numpy 22 for example uses c-like arrays to store data and offers fast functions implemented in c to speed up calculations. the cupy 14 package provides a similar set of functions but these functions are implemented for gpus using cuda. the scipy library is based on numpy and provides a rich set on functionalities for scientific computing. still the high performance of these libraries is provided by the underling c-implementations. internally they use libraries like openblas or intelmkl to reach high performance and therefore they are limited by the functions which are provided by theses libraries. therefore a performance problem always arises when the required functionality is not implemented within these libraries. in this case the application falls back to the python interpreter. compared to bare metal code interpreted code is slow. in addition in python it is not possible to use gpus or other accelerators directly as the python interpreter cannot execute code on these machines. therefore the usage is only possible with precompiled libraries. to overcome this limitation different approaches where developed to mix c cuda or opencl with python. cython 2 allows integrating c-code in python applications to improve performance of critical sections. it also allows an easy development of wrappers for c-libraries. similar packages such as pycuda and pyopencl 9 support wrappers for cuda or opencl code within a python script. both approaches require the mixture of different programming languages.numba 10 follows a different approach. instead of merging c cuda code with python it allows the development of efficient applications for both cpus and gpus in python style. when a python script using numba is executed marked functions are compiled just-in-time jit using the llvm framework. using python for gpu programming can mean a considerable simplification in the development of parallel applications.but often a simplification of comes at the expense of performance and one expects a performance loss from python compared to pure c code. in this paper we want to understand the differences between native c-cuda code and cuda-code written in python with numba. we also want to share some basic tips how to improve the performance of applications written in numba.we will first analyse a few micro benchmarks in detail. we are using these simple benchmarks as it is easier to understand the differences with small code examples. we will use the collected information to derive some optimization for numba. finally we evaluate and compare the performance of a more application like mini-app written in c-cuda and numba accelerated python. we will evaluate if our insights from the microbenchmarks to real applications. 2020 28th euromicro international conference on parallel distributed and network-based processing pdp 2020 28th euromicro international conference on parallel distributed and network-based processing pdp 2020 research-paper lena oden university of hagen c++ cuda gpu jit libraries opencl performance programming languages c++ cuda gpu jit libraries opencl performance programming languages",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4585,8 +4583,8 @@
           }
         ],
         "year": "2019",
-        "publication": "Lammich, P 2019, Generating Veriﬁed LLVM from Isabelle/HOL. in ITP 2019:Interactive Theorem Proving. Interactive Theorem Proving, Portland, Oregon, United States, 8/09/19.",
-        "venue": "Lammich, P 2019, Generating Veriﬁed LLVM from Isabelle/HOL. in ITP 2019:Interactive Theorem Proving. Interactive Theorem Proving, Portland, Oregon, United States, 8/09/19.",
+        "publication": "ITP 2019: Interactive Theorem Proving. Interactive Theorem Proving",
+        "venue": "ITP 2019: Interactive Theorem Proving. Interactive Theorem Proving",
         "type": "research-paper",
         "abstract": "We present a framework to generate veriﬁed LLVM programs from Isabelle/HOL. It is based on a code generator that generates LLVM text from a simpliﬁed fragment of LLVM, shallowly embedded into Isabelle/HOL. On top, we have developed a separation logic, a veriﬁcation condition generator, and an LLVM backend to the Isabelle Reﬁnement Framework. As case studies, we have produced veriﬁed LLVM implementations of binary search and the Knuth-Morris-Pratt string search algorithm. These are one order of magnitude faster than the Standard-ML implementations produced with the original Reﬁnement Framework, and on par with unveriﬁed C implementations. Adoption of the original correctness proofs to the new LLVM backend was straightforward. The trusted code base of our approach is the shallow embedding of the LLVM fragment and the code generator, which is a pretty printer combined with some straightforward compilation steps",
         "paperUrl": "https://research.manchester.ac.uk/en/publications/8f77891e-4e76-47fe-b951-5038709bc165",
@@ -4598,8 +4596,8 @@
         ],
         "openalexId": "https://openalex.org/W2977296237",
         "citationCount": 12,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4624,8 +4622,8 @@
         "_keywordsLower": "backend embedded ml rust",
         "_topicsLower": "backend embedded ml rust backend embedded ml rust",
         "_contentLower": "",
-        "_publicationLower": "lammich, p 2019, generating veriﬁed llvm from isabelle/hol. in itp 2019:interactive theorem proving. interactive theorem proving, portland, oregon, united states, 8/09/19.",
-        "_venueLower": "lammich, p 2019, generating veriﬁed llvm from isabelle/hol. in itp 2019:interactive theorem proving. interactive theorem proving, portland, oregon, united states, 8/09/19.",
+        "_publicationLower": "itp 2019: interactive theorem proving. interactive theorem proving",
+        "_venueLower": "itp 2019: interactive theorem proving. interactive theorem proving",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2019",
@@ -4813,17 +4811,8 @@
               "words": []
             },
             "publication": {
-              "text": "lammich p 2019 generating verified llvm from isabelle hol. in itp 2019 interactive theorem proving. interactive theorem proving portland oregon united states 8 09 19.",
+              "text": "itp 2019 interactive theorem proving. interactive theorem proving",
               "words": [
-                "lammich",
-                "2019",
-                "generating",
-                "verified",
-                "llvm",
-                "from",
-                "isabelle",
-                "hol.",
-                "in",
                 "itp",
                 "2019",
                 "interactive",
@@ -4831,27 +4820,12 @@
                 "proving.",
                 "interactive",
                 "theorem",
-                "proving",
-                "portland",
-                "oregon",
-                "united",
-                "states",
-                "09",
-                "19."
+                "proving"
               ]
             },
             "venue": {
-              "text": "lammich p 2019 generating verified llvm from isabelle hol. in itp 2019 interactive theorem proving. interactive theorem proving portland oregon united states 8 09 19.",
+              "text": "itp 2019 interactive theorem proving. interactive theorem proving",
               "words": [
-                "lammich",
-                "2019",
-                "generating",
-                "verified",
-                "llvm",
-                "from",
-                "isabelle",
-                "hol.",
-                "in",
                 "itp",
                 "2019",
                 "interactive",
@@ -4859,13 +4833,7 @@
                 "proving.",
                 "interactive",
                 "theorem",
-                "proving",
-                "portland",
-                "oregon",
-                "united",
-                "states",
-                "09",
-                "19."
+                "proving"
               ]
             },
             "year": {
@@ -4878,7 +4846,7 @@
           "year": 2019,
           "citationCount": 12
         },
-        "_searchBlob": "generating verified llvm from isabelle hol we present a framework to generate verified llvm programs from isabelle hol. it is based on a code generator that generates llvm text from a simplified fragment of llvm shallowly embedded into isabelle hol. on top we have developed a separation logic a verification condition generator and an llvm backend to the isabelle refinement framework. as case studies we have produced verified llvm implementations of binary search and the knuth-morris-pratt string search algorithm. these are one order of magnitude faster than the standard-ml implementations produced with the original refinement framework and on par with unverified c implementations. adoption of the original correctness proofs to the new llvm backend was straightforward. the trusted code base of our approach is the shallow embedding of the llvm fragment and the code generator which is a pretty printer combined with some straightforward compilation steps lammich p 2019 generating verified llvm from isabelle hol. in itp 2019 interactive theorem proving. interactive theorem proving portland oregon united states 8 09 19. lammich p 2019 generating verified llvm from isabelle hol. in itp 2019 interactive theorem proving. interactive theorem proving portland oregon united states 8 09 19. 2019 research-paper peter lammich backend embedded ml rust backend embedded ml rust",
+        "_searchBlob": "generating verified llvm from isabelle hol we present a framework to generate verified llvm programs from isabelle hol. it is based on a code generator that generates llvm text from a simplified fragment of llvm shallowly embedded into isabelle hol. on top we have developed a separation logic a verification condition generator and an llvm backend to the isabelle refinement framework. as case studies we have produced verified llvm implementations of binary search and the knuth-morris-pratt string search algorithm. these are one order of magnitude faster than the standard-ml implementations produced with the original refinement framework and on par with unverified c implementations. adoption of the original correctness proofs to the new llvm backend was straightforward. the trusted code base of our approach is the shallow embedding of the llvm fragment and the code generator which is a pretty printer combined with some straightforward compilation steps itp 2019 interactive theorem proving. interactive theorem proving itp 2019 interactive theorem proving. interactive theorem proving 2019 research-paper peter lammich backend embedded ml rust backend embedded ml rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -4945,15 +4913,15 @@
           "clang"
         ],
         "id": "openalex-w2906875436",
-        "citationCount": 13,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 0,
         "_titleLower": "full-speed fuzzing: reducing fuzzing overhead through coverage-guided tracing",
         "_authorLower": "stefan nagy virginia tech matthew hicks virginia tech",
         "_authorsLower": "stefan nagy virginia tech matthew hicks virginia tech",
@@ -5326,7 +5294,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 13
+          "citationCount": 0
         },
         "_searchBlob": "full-speed fuzzing reducing fuzzing overhead through coverage-guided tracing of coverage-guided fuzzings three main components 1 testcase generation 2 code coverage tracing and 3 crash triage code coverage tracing is a dominant source of overhead. coverage-guided fuzzers trace every testcases code coverage through either static or dynamic binary instrumentation or more recently using hardware support. unfortunately tracing all testcases incurs significant performance penalties---even when the overwhelming majority of testcases and their coverage information are discarded because they do not increase code coverage. to eliminate needless tracing by coverage-guided fuzzers we introduce the notion of coverage-guided tracing. coverage-guided tracing leverages two observations 1 only a fraction of generated testcases increase coverage and thus require tracing and 2 coverage-increasing testcases become less frequent over time. coverage-guided tracing works by encoding the current frontier of code coverage in the target binary so that it self-reports when a testcase produces new coverage---without tracing. this acts as a filter for tracing restricting the expense of tracing to only coverage-increasing testcases. thus coverage-guided tracing chooses to tradeoff increased coverage-increasing-testcase handling time for the ability to execute testcases initially at native speed. to show the potential of coverage-guided tracing we create an implementation based on the static binary instrumentor dyninst called untracer. we evaluate untracer using eight real-world binaries commonly used by the fuzzing community. experiments show that after only an hour of fuzzing untracers average overhead is below 1 and after 24-hours of fuzzing untracer approaches 0 overhead while tracing every testcase with popular white- and black-box-binary tracers afl-clang afl-qemu and afl-dyninst incurs overheads of 36 612 and 518 respectively. 2019 ieee symposium on security and privacy sp 2019 ieee symposium on security and privacy sp 2019 research-paper stefan nagy virginia tech matthew hicks virginia tech clang testing security performance clang testing security performance fuzzing coverage guided tracing testcases full speed fuzzing reducing fuzzing overhead coverage increasing testcases binary fuzzing untracer coverage guided fuzzers coverage tracing clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5368,9 +5336,9 @@
         ],
         "openalexId": "https://openalex.org/W2968263576",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.1109/les.2019.2935052",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5659,9 +5627,9 @@
         ],
         "openalexId": "https://openalex.org/W2888165129",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1049/iet-ifs.2018.5142",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5976,9 +5944,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2769560632",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icecct.2017.8117820",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6237,8 +6205,8 @@
           }
         ],
         "year": "2017",
-        "publication": "Other [cs.OH]. Université Paris sciences et lettres, 2017. English. ⟨NNT:2017PSLEE050⟩",
-        "venue": "Other [cs.OH]. Université Paris sciences et lettres, 2017. English. ⟨NNT:2017PSLEE050⟩",
+        "publication": "Other [cs.OH]. Université Paris sciences et lettres, 2017. English. ⟨NNT: 2017PSLEE050⟩",
+        "venue": "Other [cs.OH]. Université Paris sciences et lettres, 2017. English. ⟨NNT: 2017PSLEE050⟩",
         "type": "research-paper",
         "abstract": "Modern multiprocessors architectures and programming languages exhibit weakly consistent memories. Their behaviour is formalised by the memory model of the architecture or programming language; it precisely defines which write operation can be returned by each shared memory read. This is not always the latest store to the same variable, because of optimisations in the processors such as speculative execution of instructions, the complex effects of caches, and optimisations in the compilers. In this thesis we focus on the C11 memory model that is defined by the 2011 edition of the C standard. Our contributions are threefold. First, we focused on the theory surrounding the C11 model, formally studying which compiler optimisations it enables. We show that many common compiler optimisations are allowed, but, surprisingly, some important ones are forbidden. Secondly, building on our results, we developed a random testing methodology for detecting when mainstream compilers such as GCC or Clang perform an incorrect optimisation with respect to the memory model. We found several bugs in GCC, all promptly fixed. We also implemented a novel optimisation pass in LLVM, that looks for special instructions that restrict processor optimisations - called fence instructions - and eliminates the redundant ones. Finally, we developed a user-level scheduler for lightweight threads communicating through first-in first-out single-producer single-consumer queues. This programming model is known as Kahn process networks, and we show how to efficiently implement it, using C11 synchronisation primitives. This shows that despite its flaws, C11 can be usable in practice.",
         "paperUrl": "https://theses.hal.science/tel-01823521/document",
@@ -6274,8 +6242,8 @@
         "_keywordsLower": "clang programming languages testing",
         "_topicsLower": "clang programming languages testing clang programming languages testing",
         "_contentLower": "",
-        "_publicationLower": "other [cs.oh]. université paris sciences et lettres, 2017. english. ⟨nnt:2017pslee050⟩",
-        "_venueLower": "other [cs.oh]. université paris sciences et lettres, 2017. english. ⟨nnt:2017pslee050⟩",
+        "_publicationLower": "other [cs.oh]. université paris sciences et lettres, 2017. english. ⟨nnt: 2017pslee050⟩",
+        "_venueLower": "other [cs.oh]. université paris sciences et lettres, 2017. english. ⟨nnt: 2017pslee050⟩",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2017",
@@ -6652,9 +6620,9 @@
         ],
         "openalexId": "https://openalex.org/W2736544726",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/icasi.2017.7988587",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8100,9 +8068,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2475052715",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-39077-2_10",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -8312,11 +8280,9 @@
         ],
         "openalexId": "https://openalex.org/W2215262239",
         "citationCount": 134,
-        "doi": "10.1145/2843859.2843867",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1145/2843859.2843867",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9565,9 +9531,9 @@
         ],
         "openalexId": "https://openalex.org/W2341540919",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1109/indicon.2015.7443611",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9943,8 +9909,8 @@
         ],
         "openalexId": "https://openalex.org/W2599131637",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10211,15 +10177,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "C&C++コンパイラ/リンカ/アセンブラ/デバッガ…全部タダでMyパソコンに! ARM用LLVM&GCC開発環境の構築 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新GCC&LLVM初体験) -- (新時代コンパイラLLVMを定番ボードBeagleBone Blackで試す)",
-        "authors": [
-          {
-            "name": "和夫 村井",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2015",
         "publication": "インターフェース = Interface",
         "venue": "インターフェース = Interface | Vol. 41 (Issue 3)",
@@ -10231,8 +10189,8 @@
         ],
         "openalexId": "https://openalex.org/W389227731",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10247,8 +10205,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "c&c++コンパイラ/リンカ/アセンブラ/デバッガ…全部タダでmyパソコンに! arm用llvm&gcc開発環境の構築 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新gcc&llvm初体験) -- (新時代コンパイラllvmを定番ボードbeaglebone blackで試す)",
-        "_authorLower": "和夫 村井",
-        "_authorsLower": "和夫 村井",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "https://cir.nii.ac.jp/crid/1521136279906287616",
         "_tagsLower": "c++",
         "_keywordsLower": "c++",
@@ -10382,10 +10340,10 @@
         "paperUrl": "https://doi.org/10.1007/978-3-319-10936-7_20",
         "tags": [],
         "openalexId": "https://openalex.org/W951859702",
-        "citationCount": 36,
+        "citationCount": 35,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-10936-7_20",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10395,7 +10353,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 36,
+        "_citationCount": 35,
         "_titleLower": "region-based selective flow-sensitive pointer analysis",
         "_authorLower": "sen ye yulei sui jingling xue",
         "_authorsLower": "sen ye yulei sui jingling xue",
@@ -10714,7 +10672,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 36
+          "citationCount": 35
         },
         "_searchBlob": "region-based selective flow-sensitive pointer analysis flow-sensitive pointer analysis constitutes an essential component of precise program analysis for accurately modeling pointer behaviors by incorporating control flows. flow-sensitive pointer analysis is extensively used in alias analysis taint analysis program understanding compiler optimization etc. existing flow-sensitive pointer analysis approaches which are conducted based on control flow graphs have significantly advanced the precision of pointer analysis via sophisticated techniques to leverage control flow information. however they inevitably suffer from computational inefficiencies when resolving points-to information due to the inherent complex structures of control flow graphs. we present cg-fspta a flow-sensitive constraint graph fsconsg based flow-sensitive pointer analysis to overcome the inefficiency of control-flow-graph-based analysis. cg-fspta uses a flow-sensitive variant to leverage the structural advantages of set-constraint graphs which are commonly used in flow-insensitive pointer analysis while keeping the flow sensitivity of variable definitions and uses allowing the incorporation of sophisticated graph optimization and dynamic solving techniques. in this way cg-fspta achieves significant efficiency improvements while keeping the precision of flow-sensitive analysis. experimental evaluations on benchmark programs demonstrate that cg-fspta significantly reduces both memory usage and execution time while maintaining precision. in particular by solving in the fsconsg cg-fspta achieves an average memory reduction of 33.05 and accelerates flow-sensitive pointer analysis by 7.27x compared to the state-of-art method. these experimental results underscore the efficacy of cg-fspta as a scalable solution to analyze large-scale software systems establishing a robust foundation for future advancements in efficient program analysis frameworks. lecture notes in computer science lecture notes in computer science 2014 research-paper sen ye yulei sui jingling xue",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11947,9 +11905,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2139210439",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-14896-0_12",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12133,11 +12091,9 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2294628582",
-        "citationCount": 274,
+        "citationCount": 270,
         "sourceUrl": "https://doi.org/10.1145/2490301.2451150",
         "doi": "10.1145/2451116.2451150",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12150,7 +12106,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 274,
+        "_citationCount": 270,
         "_titleLower": "stochastic superoptimization",
         "_authorLower": "eric schkufza stanford university rahul sharma stanford university alex aiken stanford university",
         "_authorsLower": "eric schkufza stanford university rahul sharma stanford university alex aiken stanford university",
@@ -12384,7 +12340,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 274
+          "citationCount": 270
         },
         "_searchBlob": "stochastic superoptimization we formulate the loop-free binary superoptimization task as a stochastic search problem. the competing constraints of transformation correctness and performance improvement are encoded as terms in a cost function and a markov chain monte carlo sampler is used to rapidly explore the space of all possible programs to find one that is an optimization of a given target program. although our method sacrifices completeness the scope of programs we are able to consider and the resulting quality of the programs that we produce far exceed those of existing superoptimizers. beginning from binaries compiled by llvm -o0 for 64-bit x86 our prototype implementation stoke is able to produce programs which either match or outperform the code produced by gcc -o3 icc -o3 and in some cases expert handwritten assembly. proceedings of eighteenth international conference on architectural support for programming languages and operating systems proceedings of eighteenth international conference on architectural support for programming languages and operating systems 2013 research-paper eric schkufza stanford university rahul sharma stanford university alex aiken stanford university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12779,9 +12735,9 @@
         ],
         "openalexId": "https://openalex.org/W2049191224",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/telfor.2013.6716404",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13017,8 +12973,8 @@
           }
         ],
         "year": "2013",
-        "publication": "2013 IEEE 21st Annual International Symposium on Field-Programmable Custom Computing Machines",
-        "venue": "2013 IEEE 21st Annual International Symposium on Field-Programmable Custom Computing Machines",
+        "publication": "2013 IEEE 21st Annual International Symposium on Field",
+        "venue": "2013 IEEE 21st Annual International Symposium on Field",
         "type": "research-paper",
         "abstract": "Summary form only given. There is growing commercial interest in using FPGAs for compute acceleration. To ease the programming task for non-hardware-expert programmers, systems are emerging that can map high-level languages such as C and OpenCL to FPGAs-targeting compiler-generated circuits and soft processing engines. Soft processing engines such as CPUs are familiar to programmers, can be reprogrammed quickly without rebuilding the FPGA image, and by their general nature can support multiple software functions in a smaller area than the alternative of multiple per-function synthesized circuits. Finally, compelling processing engines can be incorporated into the output of high-level synthesis systems. For FPGA-based soft compute engines to be compelling they must be computationally dense: they must achieve high throughput per area. For simple CPUs with simple functional units (FUs) it is relatively straightforward to achieve good utilization, and it is not overly-detrimental if a small, single-pipeline-stage FU such as an integer adder is under-utilized. In contrast, larger, more deeply pipelined, more numerous, and more varied FUs can be quite challenging to keep busy-even for an engine capable of extracting instruction-level parallelism (ILP) from an application. Hence a key challenge for FPGA-based compute engines is how to maximize compute density (throughput per-area) by achieving high utilization of a datapath composed of multiple varying FUs of significant and varying pipeline depth. In this work, we propose a highly-parameterizable template architecture of a multi-threaded FPGA-based compute engine designed to highly-utilize varied and deeply pipelined FUs. Our approach to achieving high utilization is to leverage (i) support for multiple thread contexts (ii) thread-level and instruction-level parallelism, and (iii) static compiler analysis and scheduling. We focus on deeply-pipelined, IEEE-754 floating-point FUs of widely-varying latency, executing both Hodgkin-Huxley neuron simulation and Black-Scholes options pricing models as example applications, compiled with our LLVM-based scheduler. Targeting a Stratix IV FPGA, we explore architectural tradeoffs by measuring area and throughput for designs with varying numbers of FUs, thread contexts (T), memory banks (B), and bank multi-porting. To determine the most efficient designs that would be suitable for replicating we measure compute density (application throughput per unit of FPGA area), and report which architectural choices lead to the most computationally-dense designs.The most computationally dense design is not necessarily the one with highest throughput and (i) for maximizing throughput, having each thread reside in its own bank is best; (ii) when only moderate numbers of independent threads are available, the compute engine has higher compute density than a custom hardware implementation eg., 2.3x for 32 threads; (iii) the best FU mix does not necessarily match the FU usage in the dataflow graph of the application; and (iv) architectural parameters.",
         "paperUrl": "https://doi.org/10.1109/fccm.2013.36",
@@ -13027,9 +12983,9 @@
         ],
         "openalexId": "https://openalex.org/W2068573906",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/fccm.2013.36",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13050,8 +13006,8 @@
         "_keywordsLower": "opencl",
         "_topicsLower": "opencl opencl",
         "_contentLower": "",
-        "_publicationLower": "2013 ieee 21st annual international symposium on field-programmable custom computing machines",
-        "_venueLower": "2013 ieee 21st annual international symposium on field-programmable custom computing machines",
+        "_publicationLower": "2013 ieee 21st annual international symposium on field",
+        "_venueLower": "2013 ieee 21st annual international symposium on field",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2013",
@@ -13536,7 +13492,7 @@
               "words": []
             },
             "publication": {
-              "text": "2013 ieee 21st annual international symposium on field-programmable custom computing machines",
+              "text": "2013 ieee 21st annual international symposium on field",
               "words": [
                 "2013",
                 "ieee",
@@ -13545,14 +13501,11 @@
                 "international",
                 "symposium",
                 "on",
-                "field-programmable",
-                "custom",
-                "computing",
-                "machines"
+                "field"
               ]
             },
             "venue": {
-              "text": "2013 ieee 21st annual international symposium on field-programmable custom computing machines",
+              "text": "2013 ieee 21st annual international symposium on field",
               "words": [
                 "2013",
                 "ieee",
@@ -13561,10 +13514,7 @@
                 "international",
                 "symposium",
                 "on",
-                "field-programmable",
-                "custom",
-                "computing",
-                "machines"
+                "field"
               ]
             },
             "year": {
@@ -13577,7 +13527,7 @@
           "year": 2013,
           "citationCount": 2
         },
-        "_searchBlob": "a multithreaded vliw soft processor family summary form only given. there is growing commercial interest in using fpgas for compute acceleration. to ease the programming task for non-hardware-expert programmers systems are emerging that can map high-level languages such as c and opencl to fpgas-targeting compiler-generated circuits and soft processing engines. soft processing engines such as cpus are familiar to programmers can be reprogrammed quickly without rebuilding the fpga image and by their general nature can support multiple software functions in a smaller area than the alternative of multiple per-function synthesized circuits. finally compelling processing engines can be incorporated into the output of high-level synthesis systems. for fpga-based soft compute engines to be compelling they must be computationally dense they must achieve high throughput per area. for simple cpus with simple functional units fus it is relatively straightforward to achieve good utilization and it is not overly-detrimental if a small single-pipeline-stage fu such as an integer adder is under-utilized. in contrast larger more deeply pipelined more numerous and more varied fus can be quite challenging to keep busy-even for an engine capable of extracting instruction-level parallelism ilp from an application. hence a key challenge for fpga-based compute engines is how to maximize compute density throughput per-area by achieving high utilization of a datapath composed of multiple varying fus of significant and varying pipeline depth. in this work we propose a highly-parameterizable template architecture of a multi-threaded fpga-based compute engine designed to highly-utilize varied and deeply pipelined fus. our approach to achieving high utilization is to leverage i support for multiple thread contexts ii thread-level and instruction-level parallelism and iii static compiler analysis and scheduling. we focus on deeply-pipelined ieee-754 floating-point fus of widely-varying latency executing both hodgkin-huxley neuron simulation and black-scholes options pricing models as example applications compiled with our llvm-based scheduler. targeting a stratix iv fpga we explore architectural tradeoffs by measuring area and throughput for designs with varying numbers of fus thread contexts t memory banks b and bank multi-porting. to determine the most efficient designs that would be suitable for replicating we measure compute density application throughput per unit of fpga area and report which architectural choices lead to the most computationally-dense designs.the most computationally dense design is not necessarily the one with highest throughput and i for maximizing throughput having each thread reside in its own bank is best ii when only moderate numbers of independent threads are available the compute engine has higher compute density than a custom hardware implementation eg. 2.3x for 32 threads iii the best fu mix does not necessarily match the fu usage in the dataflow graph of the application and iv architectural parameters. 2013 ieee 21st annual international symposium on field-programmable custom computing machines 2013 ieee 21st annual international symposium on field-programmable custom computing machines 2013 research-paper kalin ovtcharov university of toronto ilian tili university of toronto j. gregory steffan university of toronto opencl opencl",
+        "_searchBlob": "a multithreaded vliw soft processor family summary form only given. there is growing commercial interest in using fpgas for compute acceleration. to ease the programming task for non-hardware-expert programmers systems are emerging that can map high-level languages such as c and opencl to fpgas-targeting compiler-generated circuits and soft processing engines. soft processing engines such as cpus are familiar to programmers can be reprogrammed quickly without rebuilding the fpga image and by their general nature can support multiple software functions in a smaller area than the alternative of multiple per-function synthesized circuits. finally compelling processing engines can be incorporated into the output of high-level synthesis systems. for fpga-based soft compute engines to be compelling they must be computationally dense they must achieve high throughput per area. for simple cpus with simple functional units fus it is relatively straightforward to achieve good utilization and it is not overly-detrimental if a small single-pipeline-stage fu such as an integer adder is under-utilized. in contrast larger more deeply pipelined more numerous and more varied fus can be quite challenging to keep busy-even for an engine capable of extracting instruction-level parallelism ilp from an application. hence a key challenge for fpga-based compute engines is how to maximize compute density throughput per-area by achieving high utilization of a datapath composed of multiple varying fus of significant and varying pipeline depth. in this work we propose a highly-parameterizable template architecture of a multi-threaded fpga-based compute engine designed to highly-utilize varied and deeply pipelined fus. our approach to achieving high utilization is to leverage i support for multiple thread contexts ii thread-level and instruction-level parallelism and iii static compiler analysis and scheduling. we focus on deeply-pipelined ieee-754 floating-point fus of widely-varying latency executing both hodgkin-huxley neuron simulation and black-scholes options pricing models as example applications compiled with our llvm-based scheduler. targeting a stratix iv fpga we explore architectural tradeoffs by measuring area and throughput for designs with varying numbers of fus thread contexts t memory banks b and bank multi-porting. to determine the most efficient designs that would be suitable for replicating we measure compute density application throughput per unit of fpga area and report which architectural choices lead to the most computationally-dense designs.the most computationally dense design is not necessarily the one with highest throughput and i for maximizing throughput having each thread reside in its own bank is best ii when only moderate numbers of independent threads are available the compute engine has higher compute density than a custom hardware implementation eg. 2.3x for 32 threads iii the best fu mix does not necessarily match the fu usage in the dataflow graph of the application and iv architectural parameters. 2013 ieee 21st annual international symposium on field 2013 ieee 21st annual international symposium on field 2013 research-paper kalin ovtcharov university of toronto ilian tili university of toronto j. gregory steffan university of toronto opencl opencl",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -13622,8 +13572,8 @@
         ],
         "sourceName": "LLVM Publications",
         "publication": "ACM SIGPLAN Erlang Workshop",
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "citationCount": 0,
@@ -14487,10 +14437,10 @@
         "publication": "Proceedings of 2009 ACM SIGPLAN workshop on Partial evaluation and program manipulation",
         "openalexId": "https://openalex.org/W2081388122",
         "doi": "10.1145/1480945.1480947",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Security"
         ],
@@ -14500,7 +14450,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "program analysis for bug detection using parfait",
         "_authorLower": "cristina cifuentes nathan keynes lian li bernhard scholz",
         "_authorsLower": "cristina cifuentes nathan keynes lian li bernhard scholz",
@@ -14653,7 +14603,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "program analysis for bug detection using parfait the goal of the parfait project is to find bugs in c source code in a scalable and precise way. to this end parfait was designed as a framework with layers of sound program analyses multiple layers per bug type to identify bugs in a program more quickly and accurately. proceedings of 2009 acm sigplan workshop on partial evaluation and program manipulation proceedings of 2009 acm sigplan workshop on partial evaluation and program manipulation 2009 research-paper cristina cifuentes nathan keynes lian li bernhard scholz security security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -14706,10 +14656,10 @@
         "publication": "Asia and South Pacific Design Automation Conference",
         "openalexId": "https://openalex.org/W2168830726",
         "doi": "10.5555/1509633.1509762",
-        "citationCount": 45,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Embedded",
           "Infrastructure",
@@ -14722,7 +14672,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 45,
+        "_citationCount": 0,
         "_titleLower": "automatic instrumentation of embedded software for high level hardware/software co-simulation",
         "_authorLower": "aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frédéric pétrot institut polytechnique de grenoble",
         "_authorsLower": "aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frédéric pétrot institut polytechnique de grenoble",
@@ -14925,7 +14875,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 45
+          "citationCount": 0
         },
         "_searchBlob": "automatic instrumentation of embedded software for high level hardware software co-simulation we propose an automatic instrumentation method for embedded software annotation to enable performance modeling in high level hardware software co-simulation environments. the proposed cross-annotation technique consists of extending a retargetable compiler infrastructure to allow the automatic instrumentation of embedded software at the basic block level. thus target and annotated native binaries are guaranteed to have isomorphic control flow graphs cfg . the proposed method takes into account the processor-specific optimizations at the compiler level and proves to be accurate with low simulation overhead. asia and south pacific design automation conference asia and south pacific design automation conference 2009 research-paper aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frederic petrot institut polytechnique de grenoble embedded infrastructure optimizations performance embedded infrastructure optimizations performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -14967,10 +14917,10 @@
         "sourceName": "LLVM Publications",
         "publication": "ACM SIGPLAN Workshop on Transactional Computing (TRANSACT 2008)",
         "openalexId": "https://openalex.org/W1569183949",
-        "citationCount": 18,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "C++"
         ],
@@ -14981,7 +14931,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 18,
+        "_citationCount": 0,
         "_titleLower": "making object-based stm practical in unmanaged environments",
         "_authorLower": "torvald riegel hochschule für technik und wirtschaft dresden – university of applied sciences diogo becker de brum hochschule für technik und wirtschaft dresden – university of applied sciences",
         "_authorsLower": "torvald riegel hochschule für technik und wirtschaft dresden – university of applied sciences diogo becker de brum hochschule für technik und wirtschaft dresden – university of applied sciences",
@@ -15252,7 +15202,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 18
+          "citationCount": 0
         },
         "_searchBlob": "making object-based stm practical in unmanaged environments current transactifying compilers for unmanaged environments e.g. systems software written in c c++ target only word-based software transactional memories stms because the compiler cannot easily infer whether it is safe to transform a transactional access to a certain memory location in an object-based way. to use objectbased stms in these environments programmers must use explicit calls to the stm or use a restricted language dialect both of which are not practical. in this paper we show how an existing pointer analysis can be used to let a transactifying compiler for c c++ use objectbased accesses whenever this is possible and safe while falling back to word-based accesses otherwise. programmers do not need to provide any annotations and do not have to use a restricted language. our evaluation also shows that an object-based stm can be significantly faster than a word-based stm with an otherwise identical design and implementation even if the parameters of the latter have been tuned. acm sigplan workshop on transactional computing transact 2008 acm sigplan workshop on transactional computing transact 2008 salt lake city utah 2008 research-paper torvald riegel hochschule fur technik und wirtschaft dresden university of applied sciences diogo becker de brum hochschule fur technik und wirtschaft dresden university of applied sciences c++ c++",
         "addedAt": "2026-02-20T23:08:48.000Z",

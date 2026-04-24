@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7141772604": {
@@ -74,10 +74,10 @@
           "runtimes"
         ],
         "id": "openalex-w7141772604",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -413,11 +413,11 @@
           "llvm"
         ],
         "id": "openalex-w7131085510",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -1085,10 +1085,10 @@
           "openmp"
         ],
         "id": "openalex-w7149000297",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -2266,8 +2266,8 @@
           }
         ],
         "year": "2025",
-        "publication": "Proceedings of 31st ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 1",
-        "venue": "Proceedings of 31st ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 1",
+        "publication": "Proceedings of 31st ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+        "venue": "Proceedings of 31st ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
         "type": "research-paper",
         "abstract": "Contemporary compute platforms increasingly offload compute kernels from CPU to integrated hardware accelerators to reach maximum performance per Watt. Unfortunately, the time the CPU spends on setup control and synchronization has increased with growing accelerator complexity. For systems with complex accelerators, this means that performance can be configuration-bound. Faster accelerators are more severely impacted by this overlooked performance drop, which we call the configuration wall. Prior work evidences this wall and proposes ad-hoc solutions to reduce configuration overhead. However, these solutions are not universally applicable, nor do they offer comprehensive insights into the underlying causes of performance degradation. In this work, we first introduce a widely-applicable variant of the well-known roofline model to quantify when system performance is configuration-bound. To move systems out of the performance-bound region, we subsequently propose a domain-specific compiler abstraction and associated optimization passes. We implement the abstraction and passes in the MLIR compiler framework to run optimized binaries on open-source architectures to prove its effectiveness and generality. Experiments demonstrate a geomean performance boost of 2x on the open-source OpenGeMM system, by eliminating redundant configuration cycles and by automatically hiding the remaining configuration cycles. Our work provides key insights in how accelerator performance is affected by setup mechanisms, thereby facilitating automatic code generation for circumventing the configuration wall.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3760250.3762225",
@@ -2316,10 +2316,10 @@
           "offload"
         ],
         "id": "openalex-w4416239860",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -2333,8 +2333,8 @@
         "_keywordsLower": "mlir offload backend code generation optimizations performance gpu programming languages offloading configuration wall characterization accelerators accelerator configuration overhead configuration bound configuration cycles",
         "_topicsLower": "mlir offload backend code generation optimizations performance gpu programming languages mlir offload backend code generation optimizations performance gpu programming languages offloading configuration wall characterization accelerators accelerator configuration overhead configuration bound configuration cycles mlir offload",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems, volume 1",
-        "_venueLower": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems, volume 1",
+        "_publicationLower": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems",
+        "_venueLower": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2025",
@@ -2666,7 +2666,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems volume 1",
+              "text": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -2682,12 +2682,11 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "venue": {
-              "text": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems volume 1",
+              "text": "proceedings of 31st acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -2703,8 +2702,7 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "year": {
@@ -2717,7 +2715,7 @@
           "year": 2025,
           "citationCount": 0
         },
-        "_searchBlob": "the configuration wall characterization and elimination of accelerator configuration overhead contemporary compute platforms increasingly offload compute kernels from cpu to integrated hardware accelerators to reach maximum performance per watt. unfortunately the time the cpu spends on setup control and synchronization has increased with growing accelerator complexity. for systems with complex accelerators this means that performance can be configuration-bound. faster accelerators are more severely impacted by this overlooked performance drop which we call the configuration wall. prior work evidences this wall and proposes ad-hoc solutions to reduce configuration overhead. however these solutions are not universally applicable nor do they offer comprehensive insights into the underlying causes of performance degradation. in this work we first introduce a widely-applicable variant of the well-known roofline model to quantify when system performance is configuration-bound. to move systems out of the performance-bound region we subsequently propose a domain-specific compiler abstraction and associated optimization passes. we implement the abstraction and passes in the mlir compiler framework to run optimized binaries on open-source architectures to prove its effectiveness and generality. experiments demonstrate a geomean performance boost of 2x on the open-source opengemm system by eliminating redundant configuration cycles and by automatically hiding the remaining configuration cycles. our work provides key insights in how accelerator performance is affected by setup mechanisms thereby facilitating automatic code generation for circumventing the configuration wall. proceedings of 31st acm international conference on architectural support for programming languages and operating systems volume 1 proceedings of 31st acm international conference on architectural support for programming languages and operating systems volume 1 2025 research-paper josse van delm ku leuven anton lydike university of edinburgh joren dumoulin ku leuven jonas crols ku leuven xun yi ku leuven ryan antonio ku leuven jackson woodruff university of edinburgh tobias grosser university of cambridge marian verhelst ku leuven mlir offload backend code generation optimizations performance gpu programming languages mlir offload backend code generation optimizations performance gpu programming languages offloading configuration wall characterization accelerators accelerator configuration overhead configuration bound configuration cycles mlir offload",
+        "_searchBlob": "the configuration wall characterization and elimination of accelerator configuration overhead contemporary compute platforms increasingly offload compute kernels from cpu to integrated hardware accelerators to reach maximum performance per watt. unfortunately the time the cpu spends on setup control and synchronization has increased with growing accelerator complexity. for systems with complex accelerators this means that performance can be configuration-bound. faster accelerators are more severely impacted by this overlooked performance drop which we call the configuration wall. prior work evidences this wall and proposes ad-hoc solutions to reduce configuration overhead. however these solutions are not universally applicable nor do they offer comprehensive insights into the underlying causes of performance degradation. in this work we first introduce a widely-applicable variant of the well-known roofline model to quantify when system performance is configuration-bound. to move systems out of the performance-bound region we subsequently propose a domain-specific compiler abstraction and associated optimization passes. we implement the abstraction and passes in the mlir compiler framework to run optimized binaries on open-source architectures to prove its effectiveness and generality. experiments demonstrate a geomean performance boost of 2x on the open-source opengemm system by eliminating redundant configuration cycles and by automatically hiding the remaining configuration cycles. our work provides key insights in how accelerator performance is affected by setup mechanisms thereby facilitating automatic code generation for circumventing the configuration wall. proceedings of 31st acm international conference on architectural support for programming languages and operating systems proceedings of 31st acm international conference on architectural support for programming languages and operating systems 2025 research-paper josse van delm ku leuven anton lydike university of edinburgh joren dumoulin ku leuven jonas crols ku leuven xun yi ku leuven ryan antonio ku leuven jackson woodruff university of edinburgh tobias grosser university of cambridge marian verhelst ku leuven mlir offload backend code generation optimizations performance gpu programming languages mlir offload backend code generation optimizations performance gpu programming languages offloading configuration wall characterization accelerators accelerator configuration overhead configuration bound configuration cycles mlir offload",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -2790,11 +2788,11 @@
           "llvm"
         ],
         "id": "openalex-w7133739909",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -3141,16 +3139,16 @@
           "mlir"
         ],
         "id": "openalex-w4409917588",
-        "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "portable, high performance matrix multiplication micro-kernels for risc-v with exo",
         "_authorLower": "adrián castelló universitat politècnica de catalunya hèctor martínez sandra catalán universitat jaume i jie lei universitat politècnica de catalunya yuka ikarashi grace dinh cornell university francisco d. igual universidad complutense de madrid enrique s. quintana–ort́ı universitat politècnica de catalunya",
         "_authorsLower": "adrián castelló universitat politècnica de catalunya hèctor martínez sandra catalán universitat jaume i jie lei universitat politècnica de catalunya yuka ikarashi grace dinh cornell university francisco d. igual universidad complutense de madrid enrique s. quintana–ort́ı universitat politècnica de catalunya",
@@ -3497,7 +3495,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "portable high performance matrix multiplication micro-kernels for risc-v with exo the proliferation of risc-v platforms and their use in a wide variety of scientific applications including deep learning scenarios has dramatically increased the interest to generate optimized code for them. in the field of hpc high performance computing the riscv isa instruction set architecture has been adopted by a wide variety of designs with different micro-architecture as a result performance portability of existing codes is a major endeavor. code generators and compilers such as apache tvm mlir or exo provide a hardware abstraction for implementing optimized hardware-aware codes thus reducing development time and potential errors. these generators can handle the full software stack from basic micro-kernels to complex operations. in this work we focus on the optimization of gemm general matrix-matrix multiplication a key operation on top of which dense linear algebra libraries and deep learning frameworks are built. specifically we present an exo-based gemm microkernel generator for the risc-v isa with rvv vector extensions that addresses the lack of high-performance and portable gemm micro-kernels. our results demonstrate that by generating a wide range of micro-kernels one can obtain gemm realizations that outperform those in the state-of-the-art high performance libraries. 2025 33rd euromicro international conference on parallel distributed and network-based processing pdp 2025 33rd euromicro international conference on parallel distributed and network-based processing pdp 2025 research-paper adrian castello universitat politecnica de catalunya hector martinez sandra catalan universitat jaume i jie lei universitat politecnica de catalunya yuka ikarashi grace dinh cornell university francisco d. igual universidad complutense de madrid enrique s. quintana ort universitat politecnica de catalunya mlir optimizations performance libraries ml mlir optimizations performance libraries multiplication micro kernels performance matrix multiplication matrix multiplication micro deep learning wide variety hardware isa mlir",
         "addedAt": "2026-02-23T18:01:35.000Z",
@@ -3568,9 +3566,9 @@
         ],
         "openalexId": "https://openalex.org/W4415746224",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icsme64153.2025.00055",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4004,10 +4002,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4407848466",
-        "citationCount": 8,
+        "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1145/3696443.3708929",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4021,7 +4019,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 6,
         "_titleLower": "llm-vectorizer: llm-based verified loop vectorizer",
         "_authorLower": "jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft",
         "_authorsLower": "jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft",
@@ -4325,7 +4323,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 8
+          "citationCount": 6
         },
         "_searchBlob": "llm-vectorizer llm-based verified loop vectorizer vectorization is a powerful optimization technique that significantly boosts the performance of high performance computing applications operating on large data arrays. despite decades of research on auto-vectorization compilers frequently miss opportunities to vectorize code. on the other hand writing vectorized code manually using compiler intrinsics is still a complex error-prone task that demands deep knowledge of specific architecture and compilers. in this paper we evaluate the potential of large-language models llms to generate vectorized single instruction multiple data code from scalar programs that process individual array elements. we propose a novel finite-state-machine multi-agents based approach that harnesses llms and test-based feedback to generate vectorized code. our findings indicate that llms are capable of producing high-performance vectorized code with run-time speedup ranging from 1.1x to 9.4x as compared to the state-of-the-art compilers such as intel compiler gcc and clang. to verify the correctness of vectorized code we use alive2 a leading bounded translation validation tool for llvm ir. we describe a few domain-specific techniques to improve the scalability of alive2 on our benchmark dataset. overall our approach is able to verify 38.2 of vectorizations as correct on the tsvc benchmark dataset. proceedings of 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft clang ir performance clang ir performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4427,9 +4425,9 @@
         ],
         "openalexId": "https://openalex.org/W7116338778",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3750720.3757298",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4814,8 +4812,8 @@
           }
         ],
         "year": "2025",
-        "publication": "https://doi.org/10.1051/epjconf/202533701165",
-        "venue": "https://doi.org/10.1051/epjconf/202533701165",
+        "publication": "Springer Link (Chiba Institute of Technology)",
+        "venue": "Springer Link (Chiba Institute of Technology)",
         "type": "research-paper",
         "abstract": "The Cling C++ interpreter has transformed language bindings by enabling incremental compilation at runtime. This allows Python to interact with C++ on demand and lazily construct bindings between the two. The emergence of Clang-Repl, within the LLVM compiler framework, as a potential alternative to Cling highlights the need for a unified framework for interactive C++ technologies. We present CppInterOp, a C++ interoperability library that leverages Cling and LLVM’s Clang-Repl to provide a minimalist and backward-compatible API facilitating seamless language interoperability. This provides downstream interactive C++ tools with the compiler as a service by embedding Clang and LLVM as libraries in their codebases. By enabling dynamic Python interactions with static C++ codebases, CppInterOp enhances computational efficiency and rapid development in high-energy physics. The library offers reflection and ondemand JIT compilation APIs enabling cppyy, an automatic, run-time, Python- C++ bindings generator. We also demonstrate CppInterOp’s utility in diverse computing environments through its adoption as the runtime engine for xeuscpp, a Jupyter kernel designed for C++. CppInterOp is a general-purpose library inspired by the developments in the ROOT framework, which pushed the frontiers of interactive C++. It aims to extend this approach and serve as an integral component of ROOT, enhancing performance and resilience. This article introduces CppInterOp to the HEP community and showcases how it optimizes cross-language execution and computational tasks in high-energy physics, making it a valuable tool for researchers and developers.",
         "paperUrl": "https://doi.org/10.1051/epjconf/202533701165/pdf",
@@ -4855,8 +4853,8 @@
         "_keywordsLower": "c++ clang jit libraries performance",
         "_topicsLower": "c++ clang jit libraries performance c++ clang jit libraries performance",
         "_contentLower": "",
-        "_publicationLower": "https://doi.org/10.1051/epjconf/202533701165",
-        "_venueLower": "https://doi.org/10.1051/epjconf/202533701165",
+        "_publicationLower": "springer link (chiba institute of technology)",
+        "_venueLower": "springer link (chiba institute of technology)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2025",
@@ -5146,23 +5144,25 @@
               "words": []
             },
             "publication": {
-              "text": "https doi.org 10.1051 epjconf 202533701165",
+              "text": "springer link chiba institute of technology",
               "words": [
-                "https",
-                "doi.org",
-                "10.1051",
-                "epjconf",
-                "202533701165"
+                "springer",
+                "link",
+                "chiba",
+                "institute",
+                "of",
+                "technology"
               ]
             },
             "venue": {
-              "text": "https doi.org 10.1051 epjconf 202533701165",
+              "text": "springer link chiba institute of technology",
               "words": [
-                "https",
-                "doi.org",
-                "10.1051",
-                "epjconf",
-                "202533701165"
+                "springer",
+                "link",
+                "chiba",
+                "institute",
+                "of",
+                "technology"
               ]
             },
             "year": {
@@ -5175,7 +5175,7 @@
           "year": 2025,
           "citationCount": 0
         },
-        "_searchBlob": "cppinterop advancing interactive c++ for high energy physics the cling c++ interpreter has transformed language bindings by enabling incremental compilation at runtime. this allows python to interact with c++ on demand and lazily construct bindings between the two. the emergence of clang-repl within the llvm compiler framework as a potential alternative to cling highlights the need for a unified framework for interactive c++ technologies. we present cppinterop a c++ interoperability library that leverages cling and llvms clang-repl to provide a minimalist and backward-compatible api facilitating seamless language interoperability. this provides downstream interactive c++ tools with the compiler as a service by embedding clang and llvm as libraries in their codebases. by enabling dynamic python interactions with static c++ codebases cppinterop enhances computational efficiency and rapid development in high-energy physics. the library offers reflection and ondemand jit compilation apis enabling cppyy an automatic run-time python- c++ bindings generator. we also demonstrate cppinterops utility in diverse computing environments through its adoption as the runtime engine for xeuscpp a jupyter kernel designed for c++. cppinterop is a general-purpose library inspired by the developments in the root framework which pushed the frontiers of interactive c++. it aims to extend this approach and serve as an integral component of root enhancing performance and resilience. this article introduces cppinterop to the hep community and showcases how it optimizes cross-language execution and computational tasks in high-energy physics making it a valuable tool for researchers and developers. https doi.org 10.1051 epjconf 202533701165 https doi.org 10.1051 epjconf 202533701165 2025 research-paper aaron jomy baidyanath kundu wim lavrijsen alexander penev vassil vassilev c++ clang jit libraries performance c++ clang jit libraries performance",
+        "_searchBlob": "cppinterop advancing interactive c++ for high energy physics the cling c++ interpreter has transformed language bindings by enabling incremental compilation at runtime. this allows python to interact with c++ on demand and lazily construct bindings between the two. the emergence of clang-repl within the llvm compiler framework as a potential alternative to cling highlights the need for a unified framework for interactive c++ technologies. we present cppinterop a c++ interoperability library that leverages cling and llvms clang-repl to provide a minimalist and backward-compatible api facilitating seamless language interoperability. this provides downstream interactive c++ tools with the compiler as a service by embedding clang and llvm as libraries in their codebases. by enabling dynamic python interactions with static c++ codebases cppinterop enhances computational efficiency and rapid development in high-energy physics. the library offers reflection and ondemand jit compilation apis enabling cppyy an automatic run-time python- c++ bindings generator. we also demonstrate cppinterops utility in diverse computing environments through its adoption as the runtime engine for xeuscpp a jupyter kernel designed for c++. cppinterop is a general-purpose library inspired by the developments in the root framework which pushed the frontiers of interactive c++. it aims to extend this approach and serve as an integral component of root enhancing performance and resilience. this article introduces cppinterop to the hep community and showcases how it optimizes cross-language execution and computational tasks in high-energy physics making it a valuable tool for researchers and developers. springer link chiba institute of technology springer link chiba institute of technology 2025 research-paper aaron jomy baidyanath kundu wim lavrijsen alexander penev vassil vassilev c++ clang jit libraries performance c++ clang jit libraries performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -5209,9 +5209,9 @@
         ],
         "openalexId": "https://openalex.org/W4417432392",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.36676/jmk.v5.i2.93",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5932,9 +5932,9 @@
         ],
         "openalexId": "https://openalex.org/W7117455432",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/tcad.2025.3649448",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6363,9 +6363,9 @@
         ],
         "openalexId": "https://openalex.org/W7129696276",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icaice68195.2025.11382376",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6925,8 +6925,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of the 53rd International Conference on Parallel Processing",
-        "venue": "Proceedings of the 53rd International Conference on Parallel Processing",
+        "publication": "Proceedings of 53rd International Conference on Parallel Processing",
+        "venue": "Proceedings of 53rd International Conference on Parallel Processing",
         "type": "research-paper",
         "abstract": "Particle-in-Cell (PIC) applications form a core simulation component for designing fusion reactors and their efficient use. In this work, we introduce OP-PIC, a new embedded Domain Specific Language (DSL) for developing unstructured-mesh PIC applications. The DSL is aimed at gaining performance portability for PIC codes on current and emerging, massively parallel architectures. We investigate and bring together the state-of-the-art in PIC solver parallelization techniques, refactoring them within a multi-layered DSL. OP-PIC use source-to-source translation to generate platform-specific optimizations. These parallelizations can be reused for any application declared using the DSL’s high-level API. We showcase the performance and portability of two non-trivial PIC applications developed with OP-PIC on multiple CPU and GPU clusters, employing a number of parallelization techniques, including OpenMP, CUDA, HIP and their combinations with distributed memory (MPI) parallelization. We benchmark the OP-PIC generated code on a range of single node systems and a number of distributed-memory systems, including an AMD EPYC CPU-based HPE-Cray EX cluster, an NVIDIA V100 GPU cluster, and an AMD MI250X GPU cluster, exploring both single node and scaling performance. Results demonstrate the flexibility of the DSL to implement radically different optimizations for each platform, showing between 1.4 × to 3.5 × speed-ups with GPUs compared to CPUs on power equivalent systems and good weak-scaling to over 10 billion particles.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3673038.3673130",
@@ -6965,15 +6965,15 @@
           "openmp"
         ],
         "id": "openalex-w4401408967",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "op-pic - an unstructured-mesh particle-in-cell dsl for developing nuclear fusion simulations",
         "_authorLower": "zaman lantra university of warwick steven a. wright university of york gihan r. mudalige university of warwick",
         "_authorsLower": "zaman lantra university of warwick steven a. wright university of york gihan r. mudalige university of warwick",
@@ -6982,8 +6982,8 @@
         "_keywordsLower": "openmp optimizations performance gpu cuda hip embedded dsl unstructured mesh particle cluster gpu cluster parallelization distributed memory single node",
         "_topicsLower": "openmp optimizations performance gpu cuda hip embedded openmp optimizations performance gpu cuda hip embedded dsl unstructured mesh particle cluster gpu cluster parallelization distributed memory single node openmp",
         "_contentLower": "",
-        "_publicationLower": "proceedings of the 53rd international conference on parallel processing",
-        "_venueLower": "proceedings of the 53rd international conference on parallel processing",
+        "_publicationLower": "proceedings of 53rd international conference on parallel processing",
+        "_venueLower": "proceedings of 53rd international conference on parallel processing",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2024",
@@ -7283,11 +7283,10 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of the 53rd international conference on parallel processing",
+              "text": "proceedings of 53rd international conference on parallel processing",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "53rd",
                 "international",
                 "conference",
@@ -7297,11 +7296,10 @@
               ]
             },
             "venue": {
-              "text": "proceedings of the 53rd international conference on parallel processing",
+              "text": "proceedings of 53rd international conference on parallel processing",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "53rd",
                 "international",
                 "conference",
@@ -7318,9 +7316,9 @@
             }
           },
           "year": 2024,
-          "citationCount": 1
+          "citationCount": 0
         },
-        "_searchBlob": "op-pic - an unstructured-mesh particle-in-cell dsl for developing nuclear fusion simulations particle-in-cell pic applications form a core simulation component for designing fusion reactors and their efficient use. in this work we introduce op-pic a new embedded domain specific language dsl for developing unstructured-mesh pic applications. the dsl is aimed at gaining performance portability for pic codes on current and emerging massively parallel architectures. we investigate and bring together the state-of-the-art in pic solver parallelization techniques refactoring them within a multi-layered dsl. op-pic use source-to-source translation to generate platform-specific optimizations. these parallelizations can be reused for any application declared using the dsls high-level api. we showcase the performance and portability of two non-trivial pic applications developed with op-pic on multiple cpu and gpu clusters employing a number of parallelization techniques including openmp cuda hip and their combinations with distributed memory mpi parallelization. we benchmark the op-pic generated code on a range of single node systems and a number of distributed-memory systems including an amd epyc cpu-based hpe-cray ex cluster an nvidia v100 gpu cluster and an amd mi250x gpu cluster exploring both single node and scaling performance. results demonstrate the flexibility of the dsl to implement radically different optimizations for each platform showing between 1.4 to 3.5 speed-ups with gpus compared to cpus on power equivalent systems and good weak-scaling to over 10 billion particles. proceedings of the 53rd international conference on parallel processing proceedings of the 53rd international conference on parallel processing 2024 research-paper zaman lantra university of warwick steven a. wright university of york gihan r. mudalige university of warwick openmp optimizations performance gpu cuda hip embedded openmp optimizations performance gpu cuda hip embedded dsl unstructured mesh particle cluster gpu cluster parallelization distributed memory single node openmp",
+        "_searchBlob": "op-pic - an unstructured-mesh particle-in-cell dsl for developing nuclear fusion simulations particle-in-cell pic applications form a core simulation component for designing fusion reactors and their efficient use. in this work we introduce op-pic a new embedded domain specific language dsl for developing unstructured-mesh pic applications. the dsl is aimed at gaining performance portability for pic codes on current and emerging massively parallel architectures. we investigate and bring together the state-of-the-art in pic solver parallelization techniques refactoring them within a multi-layered dsl. op-pic use source-to-source translation to generate platform-specific optimizations. these parallelizations can be reused for any application declared using the dsls high-level api. we showcase the performance and portability of two non-trivial pic applications developed with op-pic on multiple cpu and gpu clusters employing a number of parallelization techniques including openmp cuda hip and their combinations with distributed memory mpi parallelization. we benchmark the op-pic generated code on a range of single node systems and a number of distributed-memory systems including an amd epyc cpu-based hpe-cray ex cluster an nvidia v100 gpu cluster and an amd mi250x gpu cluster exploring both single node and scaling performance. results demonstrate the flexibility of the dsl to implement radically different optimizations for each platform showing between 1.4 to 3.5 speed-ups with gpus compared to cpus on power equivalent systems and good weak-scaling to over 10 billion particles. proceedings of 53rd international conference on parallel processing proceedings of 53rd international conference on parallel processing 2024 research-paper zaman lantra university of warwick steven a. wright university of york gihan r. mudalige university of warwick openmp optimizations performance gpu cuda hip embedded openmp optimizations performance gpu cuda hip embedded dsl unstructured mesh particle cluster gpu cluster parallelization distributed memory single node openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -7366,10 +7364,10 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W4403223076",
-        "citationCount": 7,
+        "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1145/3689766",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7381,7 +7379,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 6,
         "_titleLower": "minotaur: a simd-oriented synthesizing superoptimizer",
         "_authorLower": "z. liu university of utah stefan mada university of utah john regehr university of utah",
         "_authorsLower": "z. liu university of utah stefan mada university of utah john regehr university of utah",
@@ -7610,7 +7608,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 7
+          "citationCount": 6
         },
         "_searchBlob": "minotaur a simd-oriented synthesizing superoptimizer a superoptimizing compiler one that performs a meaningful search of the program space as part of the optimization process can find optimization opportunities that are missed by even the best existing optimizing compilers. we created minotaur a superoptimizer for llvm that uses program synthesis to improve its code generation focusing on integer and floating-point simd code. on an intel cascade lake processor minotaur achieves an average speedup of 7.3 on the gnu multiple precision library gmp s benchmark suite with a maximum speedup of 13 . on spec cpu 2017 our superoptimizer produces an average speedup of 1.5 with a maximum speedup of 4.5 for 638.imagick. every optimization produced by minotaur has been formally verified and several optimizations that it has discovered have been implemented in llvm as a result of our work. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue oopsla2 2024 research-paper z. liu university of utah stefan mada university of utah john regehr university of utah optimizations optimizations",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7635,8 +7633,8 @@
           }
         ],
         "year": "2024",
-        "publication": "instacron:UEL",
-        "venue": "instacron:UEL",
+        "publication": "instacron: UEL",
+        "venue": "instacron: UEL",
         "type": "thesis",
         "abstract": "Resumo: Devido às restrições de potência da atual tecnologia de semi-condutores, o consumo de energia se tornou um importante fato rpara os sistemas de computadores Reduzir a energia consumida por esses sistemas pode significar mais tempo de bateria para dispositivos móveis ou redução dos custos financeiros para data centers Um dos gargalos de consumo de energia dos sistemas de computadores é o tráfego de informações entre o processador e a hierarquia de memória Neste trabalho, é realizada uma avaliação da redução do consumo de energia da nova técnica de minimização de spill code, chamada color flipping, em comparação com as abordagens clássicas Para realização dos experimentos, foi implementado no framework LLVM (Low-Level Virtual Machine), o alocador de Briggs com e sem a estratégia de color flipping e foram executados alguns benchmarks do conjunto SPEC CPU 26 com as duas estratégias em uma versão modificada do simulador gem5 para arquitetura ARM Cortex-A9 Então, o consumo de energia foi estimado para cada benchmark, utilizando o framework McPAT Os resultados mostram que a técnica pode reduzir aproximadamente 1% do consumo de energia de programas de aritmética inteira",
         "paperUrl": "https://repositorio.uel.br/bitstreams/69c56da7-7763-4a71-8c6f-da41baf17d7b/download",
@@ -7664,8 +7662,8 @@
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "instacron:uel",
-        "_venueLower": "instacron:uel",
+        "_publicationLower": "instacron: uel",
+        "_venueLower": "instacron: uel",
         "_typeLower": "thesis",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -7944,8 +7942,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Chen, J, Dessole, M & Varbanescu, A L 2024 'Lessons Learned Migrating CUDA to SYCL : A HEP Case Study with ROOT RDataFrame' ArXiv.org. https://doi.org/10.48550/arXiv.2401.13310",
-        "venue": "Chen, J, Dessole, M & Varbanescu, A L 2024 'Lessons Learned Migrating CUDA to SYCL : A HEP Case Study with ROOT RDataFrame' ArXiv.org. https://doi.org/10.48550/arXiv.2401.13310",
+        "publication": "arXiv",
+        "venue": "arXiv",
         "type": "research-paper",
         "abstract": "The world's largest particle accelerator, located at CERN, produces petabytes of data that need to be analysed efficiently, to study the fundamental structures of our universe. ROOT is an open-source C++ data analysis framework, developed for this purpose. Its high-level data analysis interface, RDataFrame, currently only supports CPU parallelism. Given the increasing heterogeneity in computing facilities, it becomes crucial to efficiently support GPGPUs to take advantage of the available resources. SYCL allows for a single-source implementation, which enables support for different architectures. In this paper, we describe a CUDA implementation and the migration process to SYCL, focusing on a core high energy physics operation in RDataFrame -- histogramming. We detail the challenges that we faced when integrating SYCL into a large and complex code base. Furthermore, we perform an extensive comparative performance analysis of two SYCL compilers, AdaptiveCpp and DPC++, and the reference CUDA implementation. We highlight the performance bottlenecks that we encountered, and the methodology used to detect these. Based on our findings, we provide actionable insights for developers of SYCL applications.",
         "paperUrl": "https://arxiv.org/pdf/2401.13310",
@@ -7970,10 +7968,10 @@
           "libsycl"
         ],
         "id": "openalex-w4391244637",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -7987,8 +7985,8 @@
         "_keywordsLower": "performance cuda learned migrating cuda root rdataframe lessons learned migrating",
         "_topicsLower": "performance cuda performance cuda learned migrating cuda root rdataframe lessons learned migrating libsycl",
         "_contentLower": "",
-        "_publicationLower": "chen, j, dessole, m & varbanescu, a l 2024 'lessons learned migrating cuda to sycl : a hep case study with root rdataframe' arxiv.org. https://doi.org/10.48550/arxiv.2401.13310",
-        "_venueLower": "chen, j, dessole, m & varbanescu, a l 2024 'lessons learned migrating cuda to sycl : a hep case study with root rdataframe' arxiv.org. https://doi.org/10.48550/arxiv.2401.13310",
+        "_publicationLower": "arxiv",
+        "_venueLower": "arxiv",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2024",
@@ -8228,57 +8226,15 @@
               "words": []
             },
             "publication": {
-              "text": "chen j dessole m and varbanescu a l 2024 lessons learned migrating cuda to sycl a hep case study with root rdataframe arxiv.org. https doi.org 10.48550 arxiv.2401.13310",
+              "text": "arxiv",
               "words": [
-                "chen",
-                "dessole",
-                "and",
-                "varbanescu",
-                "2024",
-                "lessons",
-                "learned",
-                "migrating",
-                "cuda",
-                "to",
-                "sycl",
-                "hep",
-                "case",
-                "study",
-                "with",
-                "root",
-                "rdataframe",
-                "arxiv.org.",
-                "https",
-                "doi.org",
-                "10.48550",
-                "arxiv.2401.13310"
+                "arxiv"
               ]
             },
             "venue": {
-              "text": "chen j dessole m and varbanescu a l 2024 lessons learned migrating cuda to sycl a hep case study with root rdataframe arxiv.org. https doi.org 10.48550 arxiv.2401.13310",
+              "text": "arxiv",
               "words": [
-                "chen",
-                "dessole",
-                "and",
-                "varbanescu",
-                "2024",
-                "lessons",
-                "learned",
-                "migrating",
-                "cuda",
-                "to",
-                "sycl",
-                "hep",
-                "case",
-                "study",
-                "with",
-                "root",
-                "rdataframe",
-                "arxiv.org.",
-                "https",
-                "doi.org",
-                "10.48550",
-                "arxiv.2401.13310"
+                "arxiv"
               ]
             },
             "year": {
@@ -8291,7 +8247,7 @@
           "year": 2024,
           "citationCount": 0
         },
-        "_searchBlob": "lessons learned migrating cuda to sycl a hep case study with root rdataframe the worlds largest particle accelerator located at cern produces petabytes of data that need to be analysed efficiently to study the fundamental structures of our universe. root is an open-source c++ data analysis framework developed for this purpose. its high-level data analysis interface rdataframe currently only supports cpu parallelism. given the increasing heterogeneity in computing facilities it becomes crucial to efficiently support gpgpus to take advantage of the available resources. sycl allows for a single-source implementation which enables support for different architectures. in this paper we describe a cuda implementation and the migration process to sycl focusing on a core high energy physics operation in rdataframe -- histogramming. we detail the challenges that we faced when integrating sycl into a large and complex code base. furthermore we perform an extensive comparative performance analysis of two sycl compilers adaptivecpp and dpc++ and the reference cuda implementation. we highlight the performance bottlenecks that we encountered and the methodology used to detect these. based on our findings we provide actionable insights for developers of sycl applications. chen j dessole m and varbanescu a l 2024 lessons learned migrating cuda to sycl a hep case study with root rdataframe arxiv.org. https doi.org 10.48550 arxiv.2401.13310 chen j dessole m and varbanescu a l 2024 lessons learned migrating cuda to sycl a hep case study with root rdataframe arxiv.org. https doi.org 10.48550 arxiv.2401.13310 2024 research-paper jolly chen monica dessole ana lucia varbanescu performance cuda performance cuda learned migrating cuda root rdataframe lessons learned migrating libsycl",
+        "_searchBlob": "lessons learned migrating cuda to sycl a hep case study with root rdataframe the worlds largest particle accelerator located at cern produces petabytes of data that need to be analysed efficiently to study the fundamental structures of our universe. root is an open-source c++ data analysis framework developed for this purpose. its high-level data analysis interface rdataframe currently only supports cpu parallelism. given the increasing heterogeneity in computing facilities it becomes crucial to efficiently support gpgpus to take advantage of the available resources. sycl allows for a single-source implementation which enables support for different architectures. in this paper we describe a cuda implementation and the migration process to sycl focusing on a core high energy physics operation in rdataframe -- histogramming. we detail the challenges that we faced when integrating sycl into a large and complex code base. furthermore we perform an extensive comparative performance analysis of two sycl compilers adaptivecpp and dpc++ and the reference cuda implementation. we highlight the performance bottlenecks that we encountered and the methodology used to detect these. based on our findings we provide actionable insights for developers of sycl applications. arxiv arxiv 2024 research-paper jolly chen monica dessole ana lucia varbanescu performance cuda performance cuda learned migrating cuda root rdataframe lessons learned migrating libsycl",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -9419,9 +9375,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4402634862",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-72567-8_13",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10000,9 +9956,9 @@
         ],
         "openalexId": "https://openalex.org/W4383333745",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/iciba56860.2023.10165133",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10454,15 +10410,15 @@
           "openmp"
         ],
         "id": "openalex-w4362655956",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "portable programming model exploration for lartpc simulation in a heterogeneous computing environment: openmp vs. sycl",
         "_authorLower": "meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college",
         "_authorsLower": "meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college",
@@ -10824,7 +10780,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "portable programming model exploration for lartpc simulation in a heterogeneous computing environment openmp vs. sycl the evolution of the computing landscape has resulted in the proliferation of diverse hardware architectures with different flavors of gpus and other compute accelerators becoming more widely available. to facilitate the efficient use of these architectures in a heterogeneous computing environment several programming models are available to enable portability and performance across different computing systems such as kokkos sycl openmp and others. as part of the high energy physics center for computational excellence hep-cce project we investigate if and how these different programming models may be suitable for experimental hep workflows through a few representative use cases. one of such use cases is the liquid argon time projection chamber lartpc simulation which is essential for lartpc detector design validation and data analysis. following up on our previous investigations of using kokkos to port lartpc simulation in the wire-cell toolkit wct to gpus we have explored openmp and sycl as potential portable programming models for wct with the goal to make diverse computing resources accessible to the lartpc simulations. in this work we describe how we utilize relevant features of openmp and sycl for the lartpc simulation module in wct. we also show performance benchmark results on multi-core cpus nvidia and amd gpus for both the openmp and the sycl implementations. comparisons with different compilers will also be given where appropriate. arxiv arxiv 2023 research-paper meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college openmp performance gpu openmp performance gpu heterogeneous computing lartpc simulation computing environment openmp heterogeneous computing environment portable programming libsycl openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -11290,7 +11246,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4379512400",
-        "citationCount": 32,
+        "citationCount": 29,
         "doi": "10.1145/3591295",
         "publishedDate": "",
         "contentFormat": "",
@@ -11307,7 +11263,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 32,
+        "_citationCount": 29,
         "_titleLower": "fuzzing loop optimizations in compilers for c++ and data-parallel languages",
         "_authorLower": "vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah",
         "_authorsLower": "vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah",
@@ -11572,7 +11528,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 32
+          "citationCount": 29
         },
         "_searchBlob": "fuzzing loop optimizations in compilers for c++ and data-parallel languages compilers are part of the foundation upon which software systems are built they need to be as correct as possible. this paper is about stress-testing loop optimizers it presents a major reimplementation of yet another random program generator yarpgen an open-source generative compiler fuzzer. this new version has found 122 bugs both in compilers for data-parallel languages such as the intel implicit spmd program compiler and the intel oneapi dpc++ compiler and in c++ compilers such as gcc and clang llvm. the first main contribution of our work is a novel method for statically avoiding undefined behavior when generating loops the resulting programs conform to the relevant language standard enabling automated testing. the second main contribution is a collection of mechanisms for increasing the diversity of generated loop code in our evaluation we demonstrate that these make it possible to trigger loop optimizations significantly more often providing opportunities to discover bugs in the optimizers. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 7 issue pldi 2023 research-paper vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah c++ clang optimizations testing c++ clang optimizations testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -11608,10 +11564,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4389158553",
-        "citationCount": 1,
+        "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3611643.3617846",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11625,7 +11581,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "detection of optimizations missed by the compiler",
         "_authorLower": "yi zhang nanjing university",
         "_authorsLower": "yi zhang nanjing university",
@@ -11892,7 +11848,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "detection of optimizations missed by the compiler with the increasing significance of compilers in software development identifying optimization bugs and enhancing their performance has become a significant challenge. in recent years many studies have targeted only specific analyses to identify missed optimizations e.g. in data flow analyses . while there have been some general approaches most rely on differential testing between different compilers which makes it difficult to identify optimization bugs that are common to multiple compilers. this paper tackles these challenges by introducing an effective and general approach called mod. mod works by using a manually-curated mapping between optimizations ensuring that code should be consistently optimized if one optimization triggers but the other does not that indicates a bug in either of the two optimizations. we implemented mod as a tool to detect missed optimizations in the available expressions of the llvm. experimental results show that mod can report 20 correct alerts in one hour of detection of random test programs. proceedings of 31st acm joint european software engineering conference and symposium on the foundations of software engineering proceedings of 31st acm joint european software engineering conference and symposium on the foundations of software engineering 2023 research-paper yi zhang nanjing university optimizations performance testing optimizations performance testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12268,8 +12224,8 @@
           }
         ],
         "year": "2022",
-        "publication": "Proposed for presentation at the The International Conference for High Performance Computing, Networking, Storage, and Analysis held November 13-18, 2022 in Dallas, Texas.",
-        "venue": "Proposed for presentation at the The International Conference for High Performance Computing, Networking, Storage, and Analysis held November 13-18, 2022 in Dallas, Texas.",
+        "publication": "The International Conference for High Performance Computing, Networking, Storage, and Analysis",
+        "venue": "The International Conference for High Performance Computing, Networking, Storage, and Analysis",
         "type": "research-paper",
         "abstract": "Abstract not provided.",
         "paperUrl": "https://www.osti.gov/servlets/purl/2005381",
@@ -12294,10 +12250,10 @@
           "openmp"
         ],
         "id": "openalex-w4388349503",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
@@ -12311,8 +12267,8 @@
         "_keywordsLower": "openmp performance locality sensitive algorithmic sensitive algorithmic strategies tunable locality sensitive",
         "_topicsLower": "openmp performance openmp performance locality sensitive algorithmic sensitive algorithmic strategies tunable locality sensitive openmp",
         "_contentLower": "",
-        "_publicationLower": "proposed for presentation at the the international conference for high performance computing, networking, storage, and analysis held november 13-18, 2022 in dallas, texas.",
-        "_venueLower": "proposed for presentation at the the international conference for high performance computing, networking, storage, and analysis held november 13-18, 2022 in dallas, texas.",
+        "_publicationLower": "the international conference for high performance computing, networking, storage, and analysis",
+        "_venueLower": "the international conference for high performance computing, networking, storage, and analysis",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2022",
@@ -12376,13 +12332,8 @@
               "words": []
             },
             "publication": {
-              "text": "proposed for presentation at the the international conference for high performance computing networking storage and analysis held november 13-18 2022 in dallas texas.",
+              "text": "the international conference for high performance computing networking storage and analysis",
               "words": [
-                "proposed",
-                "for",
-                "presentation",
-                "at",
-                "the",
                 "the",
                 "international",
                 "conference",
@@ -12393,24 +12344,12 @@
                 "networking",
                 "storage",
                 "and",
-                "analysis",
-                "held",
-                "november",
-                "13-18",
-                "2022",
-                "in",
-                "dallas",
-                "texas."
+                "analysis"
               ]
             },
             "venue": {
-              "text": "proposed for presentation at the the international conference for high performance computing networking storage and analysis held november 13-18 2022 in dallas texas.",
+              "text": "the international conference for high performance computing networking storage and analysis",
               "words": [
-                "proposed",
-                "for",
-                "presentation",
-                "at",
-                "the",
                 "the",
                 "international",
                 "conference",
@@ -12421,14 +12360,7 @@
                 "networking",
                 "storage",
                 "and",
-                "analysis",
-                "held",
-                "november",
-                "13-18",
-                "2022",
-                "in",
-                "dallas",
-                "texas."
+                "analysis"
               ]
             },
             "year": {
@@ -12441,7 +12373,7 @@
           "year": 2022,
           "citationCount": 0
         },
-        "_searchBlob": "tunable locality-sensitive algorithmic strategies in openmp. abstract not provided. proposed for presentation at the the international conference for high performance computing networking storage and analysis held november 13-18 2022 in dallas texas. proposed for presentation at the the international conference for high performance computing networking storage and analysis held november 13-18 2022 in dallas texas. 2022 research-paper vivek kale openmp performance openmp performance locality sensitive algorithmic sensitive algorithmic strategies tunable locality sensitive openmp",
+        "_searchBlob": "tunable locality-sensitive algorithmic strategies in openmp. abstract not provided. the international conference for high performance computing networking storage and analysis the international conference for high performance computing networking storage and analysis 2022 research-paper vivek kale openmp performance openmp performance locality sensitive algorithmic sensitive algorithmic strategies tunable locality sensitive openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -12472,9 +12404,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4313189495",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.2139/ssrn.4254658",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12791,10 +12723,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4224256145",
-        "citationCount": 7,
+        "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1145/3528425.3529099",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12810,7 +12742,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 6,
         "_titleLower": "improving performance of sycl applications on cpu architectures using llvm-directed compilation flow",
         "_authorLower": "pietro ghiglio codeplay uwe dolinsky codeplay mehdi goli codeplay kumudha narasimhan codeplay",
         "_authorsLower": "pietro ghiglio codeplay uwe dolinsky codeplay mehdi goli codeplay kumudha narasimhan codeplay",
@@ -13028,7 +12960,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 7
+          "citationCount": 6
         },
         "_searchBlob": "improving performance of sycl applications on cpu architectures using llvm-directed compilation flow the wide adoption of sycl as an open-standard api for accelerating c++ software in domains such as hpc automotive artificial intelligence machine learning and other areas necessitates efficient compiler and runtime support for a growing number of different platforms. existing sycl implementations provide support for various devices like cpus gpus dsps fpgas etc typically via opencl or cuda backends. while accelerators have increased the performance of user applications significantly employing cpu devices for further performance improvement is beneficial due to the significant presence of cpus in existing data-centers. and other setups. proceedings of thirteenth international workshop on programming models and applications for multicores and manycores proceedings of thirteenth international workshop on programming models and applications for multicores and manycores 2022 research-paper pietro ghiglio codeplay uwe dolinsky codeplay mehdi goli codeplay kumudha narasimhan codeplay backend c++ cuda opencl performance backend c++ cuda opencl performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13681,15 +13613,15 @@
           "clang",
           "openmp"
         ],
-        "citationCount": 3,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 0,
         "_titleLower": "energy-efficiency evaluation of openmp loop transformations and runtime constructs",
         "_authorLower": "henrik valter axel karlsson miquel pericàs",
         "_authorsLower": "henrik valter axel karlsson miquel pericàs",
@@ -14068,7 +14000,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 3
+          "citationCount": 0
         },
         "_searchBlob": "energy-efficiency evaluation of openmp loop transformations and runtime constructs openmp is the de facto api for parallel programming in hpc applications. these programs are often computed in data centers where energy consumption is a major issue. whereas previous work has focused almost entirely on performance we here analyse aspects of openmp from an energy consumption perspective. this analysis is accomplished by executing novel microbenchmarks and common benchmark suites on data center nodes and measuring the energy consumption. three main aspects are analysed directive-generated loop tiling and unrolling parallel for loops and explicit tasking and the policy of handling blocked threads. for loop tiling and unrolling we find that tiling can yield significant energy savings for some mostly unoptimised programs while directive-generated unrolling provides very minor improvement in the best case and degenerates performance majorly in the worst case. for the second aspect we find that parallel for loops yield better results than explicit tasking loops in cases where both can be used. this becomes more prominent with more fine-grained workloads. for the third we find that significant energy savings can be made by not descheduling waiting threads but instead having them spin at the cost of a higher power consumption. we also analyse how the choice of compiler affects the above questions by compiling programs with each of icc clang and gcc and find that while neither is strictly better than the others they can produce very different results for the same compiled programs. as a final step we combine the findings of all results and suggest novel compiler directives as well as general recommendations on how to reduce energy consumption in openmp programs. arxiv arxiv 2022 research-paper henrik valter axel karlsson miquel pericas clang openmp loop transformations performance clang openmp loop transformations performance loop optimization parallel computing energy consumption openmp loop transformations significant energy savings directive generated explicit tasking loop tiling energy efficiency runtime constructs clang openmp",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -14131,7 +14063,7 @@
           "Clang"
         ],
         "openalexId": "https://openalex.org/W4318328068",
-        "citationCount": 4,
+        "citationCount": 1,
         "doi": "10.1145/3559009.3569663",
         "publishedDate": "",
         "contentFormat": "",
@@ -14145,7 +14077,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 1,
         "_titleLower": "combining run-time checks and compile-time analysis to improve control flow auto-vectorization",
         "_authorLower": "bangtian liu university of toronto avery laird university of toronto wai hung tsang ibm bardia mahjour ibm maryam mehri dehnavi university of toronto",
         "_authorsLower": "bangtian liu university of toronto avery laird university of toronto wai hung tsang ibm bardia mahjour ibm maryam mehri dehnavi university of toronto",
@@ -14496,7 +14428,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 4
+          "citationCount": 1
         },
         "_searchBlob": "combining run-time checks and compile-time analysis to improve control flow auto-vectorization simd single instruction multiple data instructions apply the same operation to multiple elements simultaneously. compilers transform codes to exploit simd instructions through auto-vectorization. control flow can lead to challenges for auto-vectorization tools because compilers conservatively assume branches are divergent. however it is common that all simd lanes follow the same control-path at run-time a property we call dynamic uniformity. in this paper we present vecrc an auto-vectorizer with run-time checks a novel compile-time technique that uses run-time checks to test for dynamically uniform control flows. under the assumption of dynamic uniformity we perform several compile-time analyses that improve control flow auto-vectorization vs state-of-the-art approaches. vecrc leverages dynamic uniformity to vectorize loops with control-dependent loop-carried dependences. existing strategies use speculation to optimistically execute vector code and must correct any incorrect computation due to violated run-time assumptions. vecrc performs compile-time analysis based on uniformity to support such dependences without the overhead of speculation. we propose a probability-based cost model to predict the profitability of run-time checks to eliminate the need for specialized profiling or expensive auto-tuning required in existing methods. vecrc is evaluated in llvm on a diverse range of benchmarks including spec2017 npb parboil tsvc and rodinia on intel skylake and ibm power 9 architectures. on the skylake architecture geometric mean speedups of 1.31x 1.20x 1.19x and 1.06x over region vectorizer gcc clang and icc are obtained with vecrc on real benchmark code. proceedings of international conference on parallel architectures and compilation techniques proceedings of international conference on parallel architectures and compilation techniques vol. 13 2022 research-paper bangtian liu university of toronto avery laird university of toronto wai hung tsang ibm bardia mahjour ibm maryam mehri dehnavi university of toronto clang clang",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14569,15 +14501,15 @@
           "threadsanitizer"
         ],
         "id": "openalex-w4313563671",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "cbmc-ssm: bounded model checking of c programs with symbolic shadow memory",
         "_authorLower": "bernd fischer stellenbosch university salvatore la torre university of salerno gennaro parlato university of molise peter schrammel university of sussex",
         "_authorsLower": "bernd fischer stellenbosch university salvatore la torre university of salerno gennaro parlato university of molise peter schrammel university of sussex",
@@ -14792,7 +14724,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "cbmc-ssm bounded model checking of c programs with symbolic shadow memory dynamic program analysis tools such as eraser taintcheck or threadsanitizer abstract the contents of individual memory locations and store the abstraction results in a separate data structure called shadow memory. they then use this meta-information to efficiently implement the actual analyses. in this paper we describe the implementation of an efficient symbolic shadow memory extension for the cbmc bounded model checker that can be accessed through an api and sketch its use in the design of a new data race analyzer that is implemented by a code-to-code translation. proceedings of 37th ieee acm international conference on automated software engineering proceedings of 37th ieee acm international conference on automated software engineering 2022 research-paper bernd fischer stellenbosch university salvatore la torre university of salerno gennaro parlato university of molise peter schrammel university of sussex testing testing model checking sanitizers symbolic shadow memory cbmc ssm bounded threadsanitizer",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -14864,15 +14796,15 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 3,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 0,
         "_titleLower": "adaptive query compilation in graph databases",
         "_authorLower": "alexander baumstark technische universität ilmenau muhammad attahir jibril technische universität ilmenau kai-uwe sattler technische universität ilmenau",
         "_authorsLower": "alexander baumstark technische universität ilmenau muhammad attahir jibril technische universität ilmenau kai-uwe sattler technische universität ilmenau",
@@ -15137,7 +15069,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 3
+          "citationCount": 0
         },
         "_searchBlob": "adaptive query compilation in graph databases title abstract title compiling database queries into compact and efficient machine code has proven to be a great technique to improve query performance and to exploit characteristics of modern hardware. particularly for graph database queries which often execute the same instructions for processing this technique can lead to an improvement. furthermore compilation frameworks like llvm provide powerful optimization techniques and support different backends. however the time for generating and optimizing machine code becomes an issue for short-running queries or queries which could produce early results quickly.in this work we present an adaptive approach integrating graph query interpretation and compilation. while query compilation and code generation are running in the background the query execution starts using the interpreter. as soon as the code generation is finished the execution switches to the compiled code. our evaluation shows that autonomously switching execution modes helps to hide compilation times and additionally the additional latencies of the underlying storage. research square research square 2022 research-paper alexander baumstark technische universitat ilmenau muhammad attahir jibril technische universitat ilmenau kai-uwe sattler technische universitat ilmenau llvm backend code generation optimizations performance llvm backend code generation optimizations performance adaptive query compilation database queries graph databases llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -15284,16 +15216,16 @@
           "mlir"
         ],
         "id": "openalex-w3196156237",
-        "citationCount": 11,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 0,
         "_titleLower": "towards automatic and agile ai/ml accelerator design with end-to-end synthesis",
         "_authorLower": "jeff zhang harvard university press nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press",
         "_authorsLower": "jeff zhang harvard university press nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press",
@@ -15649,7 +15581,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 11
+          "citationCount": 0
         },
         "_searchBlob": "towards automatic and agile ai ml accelerator design with end-to-end synthesis domain-specific designs offer greater energy efficiency and performance gain than general-purpose processors. for this reason modern system-on-chips have a significant portion of their silicon area with custom accelerators. however designing hardware by hand is laborious and time-consuming given the large design space and the performance power and area constraints that are not realized in the software. moreover domain-specific algorithms e.g. machine learning models are evolving quickly challenging the accelerator design further. to address these issues this paper presents soda synthesizer an automated open-source high-level ml framework to verilog modular compiler targeting ai ml application-specific integrated circuits asics accelerators. soda tightly couples the multi-level intermediate representation mlir compiler infrastructure 24 and open-source hls approaches. thus soda can support various ml frameworks and algorithms and can perform optimizations that combine specialized architecture templates and conventional hls to generate the hardware modules. in addition soda and #x2019 s closed-loop design space exploration dse engine allows developers to perform end-to-end design space explorations on different metrics and technology nodes. 2021 ieee 32nd international conference on application-specific systems architectures and processors asap 2021 ieee 32nd international conference on application-specific systems architectures and processors asap 2021 research-paper jeff zhang harvard university press nicolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press mlir ir optimizations performance infrastructure ai ml mlir optimizations performance infrastructure ai intermediate representation ml accelerator domain specific hardware hls mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -15682,9 +15614,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3216765584",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.34727/2021/isbn.978-3-85448-046-4_26",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -16005,7 +15937,7 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W3210510236",
-        "citationCount": 48,
+        "citationCount": 47,
         "doi": "10.1145/3458817.3476165",
         "publishedDate": "",
         "contentFormat": "",
@@ -16023,7 +15955,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 48,
+        "_citationCount": 47,
         "_titleLower": "reverse-mode automatic differentiation and optimization of gpu kernels via enzyme",
         "_authorLower": "william s. moses valentin churavy ludger paehler technical university of munich jan hückelheim argonne national laboratory sri hari krishna narayanan argonne national laboratory michel schanen argonne national laboratory johannes doerfert argonne national laboratory",
         "_authorsLower": "william s. moses valentin churavy ludger paehler technical university of munich jan hückelheim argonne national laboratory sri hari krishna narayanan argonne national laboratory michel schanen argonne national laboratory johannes doerfert argonne national laboratory",
@@ -16364,7 +16296,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 48
+          "citationCount": 47
         },
         "_searchBlob": "reverse-mode automatic differentiation and optimization of gpu kernels via enzyme computing derivatives is key to many algorithms in scientific computing and machine learning such as optimization uncertainty quantification and stability analysis. enzyme is a llvm compiler plugin that performs reverse-mode automatic differentiation ad and thus generates high performance gradients of programs in languages including c c++ fortran julia and rust. prior to this work enzyme and other ad tools were not capable of generating gradients of gpu kernels. our paper presents a combination of novel techniques that make enzyme the first fully automatic reversemode ad tool to generate gradients of gpu kernels. since unlike other tools enzyme performs automatic differentiation within a general-purpose compiler we are able to introduce several novel gpu and ad-specific optimizations. to show the generality and efficiency of our approach we compute gradients of five gpu-based hpc applications executed on nvidia and amd gpus. all benchmarks run within an order of magnitude of the original programs execution time. without gpu and ad-specific optimizations gradients of gpu kernels either fail to run from a lack of resources or have infeasible overhead. finally we demonstrate that increasing the problem size by either increasing the number of threads or increasing the work per thread does not substantially impact the overhead from differentiation. proceedings of international conference for high performance computing networking storage and analysis proceedings of international conference for high performance computing networking storage and analysis 2021 research-paper william s. moses valentin churavy ludger paehler technical university of munich jan huckelheim argonne national laboratory sri hari krishna narayanan argonne national laboratory michel schanen argonne national laboratory johannes doerfert argonne national laboratory c++ gpu optimizations performance rust c++ gpu optimizations performance rust",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -16426,10 +16358,10 @@
           "Polly"
         ],
         "openalexId": "https://openalex.org/W3205717712",
-        "citationCount": 78,
+        "citationCount": 73,
+        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "doi": "10.1109/pact52795.2021.00011",
         "publishedDate": "",
-        "sourceUrl": "https://mlir.llvm.org/pubs/",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16450,7 +16382,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 78,
+        "_citationCount": 73,
         "_titleLower": "polygeist: raising c to polyhedral mlir",
         "_authorLower": "william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google",
         "_authorsLower": "william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google",
@@ -16715,7 +16647,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 78
+          "citationCount": 73
         },
         "_searchBlob": "polygeist raising c to polyhedral mlir we present polygeist a new compilation flow that connects the mlir compiler infrastructure to cutting edge polyhedral optimization tools. it consists of a c and c++ frontend capable of converting a broad range of existing codes into mlir suitable for polyhedral transformation and a bi-directional conversion between mlir and openscop exchange format. the polygeist mlir intermediate representation featuring high-level affine loop constructs and n-d arrays embedded into a single static assignment ssa substrate enables an unprecedented combination of ssa-based and polyhedral optimizations. we illustrate this by proposing and implementing two extra transformations statement splitting and reduction parallelization. our evaluation demonstrates that polygeist outperforms on average both an llvm ir-level optimizer polly and a source-to-source state-of-the-art polyhedral compiler pluto when exercised on the polybench c benchmark suite in sequential 2.53x vs 1.41x 2.34x and parallel mode 9.47x vs 3.26x 7.54x thanks to the new representation and transformations. 2021 30th international conference on parallel architectures and compilation techniques pact 2021 30th international conference on parallel architectures and compilation techniques pact 2021 research-paper william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly mlir",
         "_mlirSourceUpstream": true,
@@ -16756,9 +16688,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3197598117",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-85262-7_1",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -17768,8 +17700,8 @@
         ],
         "openalexId": "https://openalex.org/W3216421790",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19063,9 +18995,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2966435790",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-25283-0_15",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -19263,9 +19195,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2969918555",
         "citationCount": 11,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-28596-8_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -19470,9 +19402,9 @@
         ],
         "openalexId": "https://openalex.org/W2971017961",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1541/ieejeiss.139.952",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19840,9 +19772,9 @@
         ],
         "openalexId": "https://openalex.org/W4255464795",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/cgo.2019.8661165",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22136,15 +22068,15 @@
           "offload",
           "openmp"
         ],
-        "citationCount": 30,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 30,
+        "_citationCount": 0,
         "_titleLower": "compiler assisted hybrid implicit and explicit gpu memory management under unified address space",
         "_authorLower": "lingda li brookhaven national laboratory barbara chapman stony brook university",
         "_authorsLower": "lingda li brookhaven national laboratory barbara chapman stony brook university",
@@ -22444,7 +22376,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 30
+          "citationCount": 0
         },
         "_searchBlob": "compiler assisted hybrid implicit and explicit gpu memory management under unified address space to improve programmability and productivity recent gpus adopt a virtual memory address space shared with cpus e.g. nvidias unified memory . unified memory migrates the data management burden from programmers to system software and hardware and enables gpus to address datasets that exceed their memory capacity. our experiments show that while the implicit data transfer of unified memory may bring better data movement efficiency page fault overhead and data thrashing can erase its benefits. in this paper we propose several user-transparent unified memory management schemes to 1 achieve adaptive implicit and explicit data transfer and 2 prevent data thrashing. unlike previous approaches which mostly rely on the runtime and thus suffer from large overhead we demonstrate the benefits of exploiting key information from compiler analyses including data locality access density and target reuse distance to accomplish our goal. we implement the proposed schemes to improve openmp gpu offloading performance. our evaluation shows that our schemes improve the gpu performance and memory efficiency significantly. proceedings of international conference for high performance computing networking storage and analysis proceedings of international conference for high performance computing networking storage and analysis 2019 research-paper lingda li brookhaven national laboratory barbara chapman stony brook university openmp performance gpu openmp performance gpu offloading unified memory unified address space explicit gpu memory assisted hybrid implicit gpu memory management improve schemes compiler assisted hybrid offload openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -22484,9 +22416,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2971214872",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-27008-7_8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -22654,8 +22586,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2796720464",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23011,9 +22943,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2889566052",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1007/978-981-13-2423-9_7",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23237,8 +23169,8 @@
         ],
         "openalexId": "https://openalex.org/W2883898247",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24382,9 +24314,9 @@
         ],
         "openalexId": "https://openalex.org/W2572740268",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1145/3040575.3040579",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24741,10 +24673,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4241572510",
-        "citationCount": 42,
+        "citationCount": 40,
+        "sourceUrl": "",
         "doi": "10.1109/iccad.2017.8203781",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24757,7 +24689,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 42,
+        "_citationCount": 40,
         "_titleLower": "a load balancing inspired optimization framework for exascale multicore systems: a complex networks approach",
         "_authorLower": "yao xiao university of southern california yuankun xue university of southern california shahin nazarian university of southern california paul bogdan university of southern california",
         "_authorsLower": "yao xiao university of southern california yuankun xue university of southern california shahin nazarian university of southern california paul bogdan university of southern california",
@@ -25060,7 +24992,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 42
+          "citationCount": 40
         },
         "_searchBlob": "a load balancing inspired optimization framework for exascale multicore systems a complex networks approach many-core multi-threaded performance is plagued by on-chip communication nonidealities limited memory bandwidth and critical sections. inspired by complex network theory of social communities we propose a novel methodology to model the dynamic execution of an application and partition the application into an optimal number of clusters for parallel execution. we first adopt an llvm ir compiler analysis of a specific application and construct a dynamic application dependency graph encoding its computational and memory operations. next based on this graph we propose an optimization model to find the optimal clusters such that 1 the intra-cluster edges are maximized 2 the execution times of the clusters are nearly equalized for load balancing and 3 the cluster size does not exceed the core count. our novel approach confines data movement to be mainly inside a cluster for power reduction and congestion prevention. finally we propose an algorithm to sort the graph of connected clusters topologically and map the clusters onto noc. experimental results on a 32-core noc demonstrate a maximum speedup of 131.82 when compared to thread-based execution. furthermore the scalability of our framework makes it a promising software design automation platform. 2017 ieee acm international conference on computer-aided design iccad 2017 ieee acm international conference on computer-aided design iccad 2017 research-paper yao xiao university of southern california yuankun xue university of southern california shahin nazarian university of southern california paul bogdan university of southern california ir performance ir performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -25766,12 +25698,10 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W2003164052",
-        "citationCount": 128,
-        "doi": "10.1145/2737924.2737965",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 127,
         "sourceUrl": "",
+        "doi": "10.1145/2737924.2737965",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -25784,7 +25714,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 128,
+        "_citationCount": 127,
         "_titleLower": "provably correct peephole optimizations with alive",
         "_authorLower": "nuno p. lopes microsoft research david menendez rutgers, the state university of new jersey santosh nagarakatte rutgers, the state university of new jersey john regehr university of utah",
         "_authorsLower": "nuno p. lopes microsoft research david menendez rutgers, the state university of new jersey santosh nagarakatte rutgers, the state university of new jersey john regehr university of utah",
@@ -26047,7 +25977,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 128
+          "citationCount": 127
         },
         "_searchBlob": "provably correct peephole optimizations with alive compilers should not miscompile. our work addresses problems in developing peephole optimizations that perform local rewriting to improve the efficiency of llvm code. these optimizations are individually difficult to get right particularly in the presence of undefined behavior taken together they represent a persistent source of bugs. this paper presents alive a domain-specific language for writing optimizations and for automatically either proving them correct or else generating counterexamples. furthermore alive can be automatically translated into c++ code that is suitable for inclusion in an llvm optimization pass. alive is based on an attempt to balance usability and formal methods for example it captures---but largely hides---the detailed semantics of three different kinds of undefined behavior in llvm. we have translated more than 300 llvm optimizations into alive and in the process found that eight of them were wrong. proceedings of 36th acm sigplan conference on programming language design and implementation proceedings of 36th acm sigplan conference on programming language design and implementation 2015 research-paper nuno p. lopes microsoft research david menendez rutgers the state university of new jersey santosh nagarakatte rutgers the state university of new jersey john regehr university of utah c++ optimizations c++ optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -27534,8 +27464,8 @@
         ],
         "openalexId": "https://openalex.org/W3027376483",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -27714,11 +27644,9 @@
         ],
         "openalexId": "https://openalex.org/W2095445208",
         "citationCount": 138,
-        "doi": "10.1145/2814270.2814319",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1145/2814270.2814319",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -28348,16 +28276,16 @@
           }
         ],
         "year": "2015",
-        "publication": "Proceedings of 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015) (2015-10); Proc. of the 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015), Oct 2015",
-        "venue": "Proceedings of 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015) (2015-10); Proc. of the 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015), Oct 2015",
+        "publication": "Proceedings of 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015)",
+        "venue": "Proceedings of 7th European Symposium on Computational Intelligence and Mathematics.(ESCIM 2015)",
         "type": "research-paper",
         "abstract": "peer reviewed",
         "paperUrl": "https://orbilu.uni.lu/handle/10993/21597",
         "tags": [],
         "openalexId": "https://openalex.org/W1554996992",
         "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -28377,8 +28305,8 @@
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 7th european symposium on computational intelligence and mathematics.(escim 2015) (2015-10); proc. of the 7th european symposium on computational intelligence and mathematics.(escim 2015), oct 2015",
-        "_venueLower": "proceedings of 7th european symposium on computational intelligence and mathematics.(escim 2015) (2015-10); proc. of the 7th european symposium on computational intelligence and mathematics.(escim 2015), oct 2015",
+        "_publicationLower": "proceedings of 7th european symposium on computational intelligence and mathematics.(escim 2015)",
+        "_venueLower": "proceedings of 7th european symposium on computational intelligence and mathematics.(escim 2015)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2015",
@@ -28442,7 +28370,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 2015-10 proc. of the 7th european symposium on computational intelligence and mathematics. escim 2015 oct 2015",
+              "text": "proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015",
               "words": [
                 "proceedings",
                 "of",
@@ -28455,27 +28383,11 @@
                 "and",
                 "mathematics.",
                 "escim",
-                "2015",
-                "2015-10",
-                "proc.",
-                "of",
-                "the",
-                "7th",
-                "european",
-                "symposium",
-                "on",
-                "computational",
-                "intelligence",
-                "and",
-                "mathematics.",
-                "escim",
-                "2015",
-                "oct",
                 "2015"
               ]
             },
             "venue": {
-              "text": "proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 2015-10 proc. of the 7th european symposium on computational intelligence and mathematics. escim 2015 oct 2015",
+              "text": "proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015",
               "words": [
                 "proceedings",
                 "of",
@@ -28488,22 +28400,6 @@
                 "and",
                 "mathematics.",
                 "escim",
-                "2015",
-                "2015-10",
-                "proc.",
-                "of",
-                "the",
-                "7th",
-                "european",
-                "symposium",
-                "on",
-                "computational",
-                "intelligence",
-                "and",
-                "mathematics.",
-                "escim",
-                "2015",
-                "oct",
                 "2015"
               ]
             },
@@ -28517,7 +28413,7 @@
           "year": 2015,
           "citationCount": 2
         },
-        "_searchBlob": "an llvm-based approach to generate energy aware code by means of moeas peer reviewed proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 2015-10 proc. of the 7th european symposium on computational intelligence and mathematics. escim 2015 oct 2015 proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 2015-10 proc. of the 7th european symposium on computational intelligence and mathematics. escim 2015 oct 2015 2015 research-paper sebastien varrette university of luxembourg bernabe dorronsorro pascal bouvry university of luxembourg",
+        "_searchBlob": "an llvm-based approach to generate energy aware code by means of moeas peer reviewed proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 proceedings of 7th european symposium on computational intelligence and mathematics. escim 2015 2015 research-paper sebastien varrette university of luxembourg bernabe dorronsorro pascal bouvry university of luxembourg",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -28548,9 +28444,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W32753533",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-642-54807-9_1",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -28939,9 +28835,9 @@
         ],
         "openalexId": "https://openalex.org/W2165803716",
         "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1145/2678373.2665737",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -31155,11 +31051,9 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W1816718056",
-        "citationCount": 243,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 242,
         "paperUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -31174,7 +31068,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 243,
+        "_citationCount": 242,
         "_titleLower": "enforcing forward-edge control-flow integrity in gcc & llvm",
         "_authorLower": "caroline tice tom roeder peter collingbourne stephen checkoway johns hopkins university úlfar erlingsson luis a. lozano geoff pike",
         "_authorsLower": "caroline tice tom roeder peter collingbourne stephen checkoway johns hopkins university úlfar erlingsson luis a. lozano geoff pike",
@@ -31459,7 +31353,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 243
+          "citationCount": 242
         },
         "_searchBlob": "enforcing forward-edge control-flow integrity in gcc and llvm constraining dynamic control transfers is a common technique for mitigating software vulnerabilities. this defense has been widely and successfully used to protect return addresses and stack data hence current attacks instead typically corrupt vtable and function pointers to subvert a forward edge an indirect jump or call in the control-flow graph. forward edges can be protected using control-flow integrity cfi but to date cfi implementations have been research prototypes based on impractical assumptions or ad hoc heuristic techniques. to be widely adoptable cfi mechanisms must be integrated into production compilers and be compatible with software-engineering aspects such as incremental compilation and dynamic libraries. this paper presents implementations of fine-grained forward-edge cfi enforcement and analysis for gcc and llvm that meet the above requirements. an analysis and evaluation of the security performance and resource consumption of these mechanisms applied to the spec cpu2006 benchmarks and common benchmarks for the chromium web browser show the practicality of our approach these fine-grained cfi mechanisms have significantly lower overhead than recent academic cfi prototypes. implementing cfi in industrial compiler frameworks has also led to insights into design tradeoffs and practical challenges such as dynamic loading. 2014 research-paper caroline tice tom roeder peter collingbourne stephen checkoway johns hopkins university ulfar erlingsson luis a. lozano geoff pike libraries performance security libraries performance security",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -31474,41 +31368,19 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "LLVM-based Dynamic Race Condition Detection",
-        "authors": [
-          {
-            "name": "Д.Н. Ковега",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "В.А. Крищенко",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "МГТУ им. Н.Э. Баумана",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2013",
-        "publication": "Engineering Journal:Science and Innovation",
-        "venue": "Engineering Journal:Science and Innovation | Issue 15",
+        "publication": "Engineering Journal: Science and Innovation",
+        "venue": "Engineering Journal: Science and Innovation | Issue 15",
         "type": "research-paper",
         "abstract": "Использование системы LLVM при динамическом поиске состояний гонок в программах Д. Н. Ковега 1 , В. А. Крищенко 1 1 МГТУ им.Н.Э.Баумана, Москва, 105005, Россия В многопоточных программах может возникать состояние гонок ввиду отсутствия синхронизации при доступе к памяти.Для сбора информации о событиях динамическими методами выявления таких",
         "paperUrl": "https://doi.org/10.18698/2308-6033-2013-2-549",
         "tags": [],
         "openalexId": "https://openalex.org/W4241402802",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.18698/2308-6033-2013-2-549",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -31520,15 +31392,15 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "llvm-based dynamic race condition detection",
-        "_authorLower": "д.н. ковега в.а. крищенко мгту им. н.э. баумана",
-        "_authorsLower": "д.н. ковега в.а. крищенко мгту им. н.э. баумана",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "использование системы llvm при динамическом поиске состояний гонок в программах д. н. ковега 1 , в. а. крищенко 1 1 мгту им.н.э.баумана, москва, 105005, россия в многопоточных программах может возникать состояние гонок ввиду отсутствия синхронизации при доступе к памяти.для сбора информации о событиях динамическими методами выявления таких",
         "_tagsLower": "",
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "engineering journal:science and innovation",
-        "_venueLower": "engineering journal:science and innovation | issue 15",
+        "_publicationLower": "engineering journal: science and innovation",
+        "_venueLower": "engineering journal: science and innovation | issue 15",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2013",
@@ -31546,7 +31418,7 @@
               ]
             },
             "authors": {
-              "text": ". . . . . . .",
+              "text": "",
               "words": []
             },
             "topics": {
@@ -31603,7 +31475,7 @@
           "year": 2013,
           "citationCount": 0
         },
-        "_searchBlob": "llvm-based dynamic race condition detection llvm . . 1 . . 1 1 . . . 105005 . engineering journal science and innovation engineering journal science and innovation issue 15 2013 research-paper . . . . . . .",
+        "_searchBlob": "llvm-based dynamic race condition detection llvm . . 1 . . 1 1 . . . 105005 . engineering journal science and innovation engineering journal science and innovation issue 15 2013 research-paper",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -31686,9 +31558,9 @@
         ],
         "openalexId": "https://openalex.org/W2002977800",
         "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1109/tpds.2013.56",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -32763,9 +32635,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2102477277",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1109/sbac-pad.2012.33",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -33161,12 +33033,10 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W2128046183",
-        "citationCount": 214,
-        "doi": "10.1145/1854273.1854318",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 213,
         "sourceUrl": "",
+        "doi": "10.1145/1854273.1854318",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -33180,7 +33050,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 214,
+        "_citationCount": 213,
         "_titleLower": "ocelot",
         "_authorLower": "gregory diamos georgia institute of technology andrew kerr georgia institute of technology sudhakar yalamanchili georgia institute of technology nathan clark georgia institute of technology",
         "_authorsLower": "gregory diamos georgia institute of technology andrew kerr georgia institute of technology sudhakar yalamanchili georgia institute of technology nathan clark georgia institute of technology",
@@ -33416,7 +33286,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 214
+          "citationCount": 213
         },
         "_searchBlob": "ocelot ocelot is a dynamic compilation framework designed to map the explicitly data parallel execution model used by nvidia cuda applications onto diverse multithreaded platforms. ocelot includes a dynamic binary translator from parallel thread execution isa ptx to many-core processors that leverages the low level virtual machine llvm code generator to target x86 and other isas. the dynamic compiler is able to execute existing cuda binaries without recompilation from source and supports switching between execution on an nvidia gpu and a many-core cpu at runtime. it has been validated against over 130 applications taken from the cuda sdk the uiuc parboil benchmarks 1 the virginia rodinia benchmarks 2 the gpu-vsipl signal and image processing library 3 the thrust library 4 and several domain specific applications. proceedings of 19th international conference on parallel architectures and compilation techniques proceedings of 19th international conference on parallel architectures and compilation techniques 2010 research-paper gregory diamos georgia institute of technology andrew kerr georgia institute of technology sudhakar yalamanchili georgia institute of technology nathan clark georgia institute of technology cuda gpu rust cuda gpu rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -34522,10 +34392,10 @@
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1507484312",
         "doi": "10.1007/978-3-540-85114-1_22",
-        "citationCount": 43,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -34535,7 +34405,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 43,
+        "_citationCount": 0,
         "_titleLower": "verifying multi-threaded c programs with spin",
         "_authorLower": "anna zaks new york university rajeev joshi jet propulsion laboratory",
         "_authorsLower": "anna zaks new york university rajeev joshi jet propulsion laboratory",
@@ -34825,7 +34695,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 43
+          "citationCount": 0
         },
         "_searchBlob": "verifying multi-threaded c programs with spin a key challenge in model checking software is the difficulty of verifying properties of implementation code as opposed to checking an abstract algorithmic description. we describe a tool for verifying multithreaded c programs that uses the spin model checker. our tool works by compiling a multi-threaded c program into a typed bytecode format and then using a virtual machine that interprets the bytecode and computes new program states under the direction of spin. our virtual machine is compatible with most of spins search options and optimization flags such as bitstate hashing and multi-core checking. it provides support for dynamic memory allocation the malloc and free family of functions and for the pthread library which provides primitives often used by multi-threaded c programs. a feature of our approach is that it can check code after compiler optimizations which can sometimes introduce race conditions. we describe how our tool addresses the state space explosion problem by allowing users to define data abstraction functions and to constrain the number of allowed context switches. we also describe a reduction method that reduces context switches using dynamic knowledge computed on-the-fly while being sound for both safety and liveness properties. finally we present initial experimental results with our tool on some small examples. lecture notes in computer science lecture notes in computer science 2008 research-paper anna zaks new york university rajeev joshi jet propulsion laboratory optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -34882,12 +34752,10 @@
         "publication": "2008 41st IEEE/ACM International Symposium on Microarchitecture",
         "openalexId": "https://openalex.org/W2116170858",
         "doi": "10.1109/micro.2008.4771802",
-        "citationCount": 150,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -34897,7 +34765,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 150,
+        "_citationCount": 0,
         "_titleLower": "copy or discard execution model for speculative parallelization on multicores",
         "_authorLower": "chen tian university of california, riverside min feng university of california, riverside vijay nagarajan university of california, riverside rajiv gupta university of california, riverside",
         "_authorsLower": "chen tian university of california, riverside min feng university of california, riverside vijay nagarajan university of california, riverside rajiv gupta university of california, riverside",
@@ -35189,7 +35057,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 150
+          "citationCount": 0
         },
         "_searchBlob": "copy or discard execution model for speculative parallelization on multicores the advent of multicores presents a promising opportunity for speeding up sequential programs via profile-based speculative parallelization of these programs. in this paper we present a novel solution for efficiently supporting software speculation on multicore processors. we propose the copy or discard cord execution model in which the state of speculative parallel threads is maintained separately from the nonspeculative computation state. if speculation is successful the results of the speculative computation are committed by copying them into the non-speculative state. if misspeculation is detected no costly state recovery mechanisms are needed as the speculative state can be simply discarded. optimizations are proposed to reduce the cost of data copying between nonspeculative and speculative state. a lightweight mechanism that maintains version numbers for non-speculative data values enables misspeculation detection. we also present an algorithm for profile-based speculative parallelization that is effective in extracting parallelism from sequential programs. our experiments show that the combination of cord and our speculative parallelization algorithm achieves speedups ranging from 3.7 to 7.8 on a dell poweredge 1900 server with two intel xeon quad-core processors. 2008 41st ieee acm international symposium on microarchitecture 2008 41st ieee acm international symposium on microarchitecture 2008 research-paper chen tian university of california riverside min feng university of california riverside vijay nagarajan university of california riverside rajiv gupta university of california riverside optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -35235,8 +35103,8 @@
           }
         ],
         "year": "2004",
-        "publication": "18th International Parallel and Distributed Processing Symposium, 2004. Proceedings.",
-        "venue": "18th International Parallel and Distributed Processing Symposium, 2004. Proceedings. | Vol. 14",
+        "publication": "18th International Parallel and Distributed Processing Symposium, 2004. Proceedings",
+        "venue": "18th International Parallel and Distributed Processing Symposium, 2004. Proceedings | Vol. 14",
         "type": "research-paper",
         "abstract": "Summary form only given. Virtual instruction set computer (VISC) architectures define two separate instruction sets (one to serve as the representation of stored programs, and another to control the hardware), and use a hardware-specific translation layer to optimize and execute code on the hardware. This approach lends great flexibility to hardware and compiler design, enabling sophisticated hardware-specific optimizations at all stages of a program's lifetime. Building on our experience with the LLVM compiler infrastructure, we have proposed (1) a novel virtual instruction set for VISC architectures, and (2) a translation strategy that permits both offline and online translation, as well as dynamic optimization. Our V-ISA design is low-level and language-independent, yet retains enough high-level information to support sophisticated, \"lifelong\" optimization of software. The VISC strategy and V-ISA design also have important implications for high-level language virtual machines and for operating system kernels. We describe our instruction set design and translation strategy, and our ongoing work on dynamic optimization for VISC systems, and briefly discuss our work in the software implications of VISC systems.",
         "paperUrl": "https://doi.org/10.1109/ipdps.2004.1303226",
@@ -35246,9 +35114,9 @@
         ],
         "openalexId": "https://openalex.org/W2147239995",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/ipdps.2004.1303226",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -35270,8 +35138,8 @@
         "_keywordsLower": "infrastructure optimizations",
         "_topicsLower": "infrastructure optimizations infrastructure optimizations",
         "_contentLower": "",
-        "_publicationLower": "18th international parallel and distributed processing symposium, 2004. proceedings.",
-        "_venueLower": "18th international parallel and distributed processing symposium, 2004. proceedings. | vol. 14",
+        "_publicationLower": "18th international parallel and distributed processing symposium, 2004. proceedings",
+        "_venueLower": "18th international parallel and distributed processing symposium, 2004. proceedings | vol. 14",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2004",
@@ -35506,7 +35374,7 @@
               "words": []
             },
             "publication": {
-              "text": "18th international parallel and distributed processing symposium 2004. proceedings.",
+              "text": "18th international parallel and distributed processing symposium 2004. proceedings",
               "words": [
                 "18th",
                 "international",
@@ -35516,11 +35384,11 @@
                 "processing",
                 "symposium",
                 "2004.",
-                "proceedings."
+                "proceedings"
               ]
             },
             "venue": {
-              "text": "18th international parallel and distributed processing symposium 2004. proceedings. vol. 14",
+              "text": "18th international parallel and distributed processing symposium 2004. proceedings vol. 14",
               "words": [
                 "18th",
                 "international",
@@ -35530,7 +35398,7 @@
                 "processing",
                 "symposium",
                 "2004.",
-                "proceedings.",
+                "proceedings",
                 "vol.",
                 "14"
               ]
@@ -35545,7 +35413,7 @@
           "year": 2004,
           "citationCount": 0
         },
-        "_searchBlob": "software implications of virtual instruction set computers summary form only given. virtual instruction set computer visc architectures define two separate instruction sets one to serve as the representation of stored programs and another to control the hardware and use a hardware-specific translation layer to optimize and execute code on the hardware. this approach lends great flexibility to hardware and compiler design enabling sophisticated hardware-specific optimizations at all stages of a programs lifetime. building on our experience with the llvm compiler infrastructure we have proposed 1 a novel virtual instruction set for visc architectures and 2 a translation strategy that permits both offline and online translation as well as dynamic optimization. our v-isa design is low-level and language-independent yet retains enough high-level information to support sophisticated lifelong optimization of software. the visc strategy and v-isa design also have important implications for high-level language virtual machines and for operating system kernels. we describe our instruction set design and translation strategy and our ongoing work on dynamic optimization for visc systems and briefly discuss our work in the software implications of visc systems. 18th international parallel and distributed processing symposium 2004. proceedings. 18th international parallel and distributed processing symposium 2004. proceedings. vol. 14 2004 research-paper vikram adve urbana university m. brukman university of illinois urbana-champaign a. evlogimenos urbana university b. gaeke urbana university infrastructure optimizations infrastructure optimizations",
+        "_searchBlob": "software implications of virtual instruction set computers summary form only given. virtual instruction set computer visc architectures define two separate instruction sets one to serve as the representation of stored programs and another to control the hardware and use a hardware-specific translation layer to optimize and execute code on the hardware. this approach lends great flexibility to hardware and compiler design enabling sophisticated hardware-specific optimizations at all stages of a programs lifetime. building on our experience with the llvm compiler infrastructure we have proposed 1 a novel virtual instruction set for visc architectures and 2 a translation strategy that permits both offline and online translation as well as dynamic optimization. our v-isa design is low-level and language-independent yet retains enough high-level information to support sophisticated lifelong optimization of software. the visc strategy and v-isa design also have important implications for high-level language virtual machines and for operating system kernels. we describe our instruction set design and translation strategy and our ongoing work on dynamic optimization for visc systems and briefly discuss our work in the software implications of visc systems. 18th international parallel and distributed processing symposium 2004. proceedings 18th international parallel and distributed processing symposium 2004. proceedings vol. 14 2004 research-paper vikram adve urbana university m. brukman university of illinois urbana-champaign a. evlogimenos urbana university b. gaeke urbana university infrastructure optimizations infrastructure optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7119468303": {
@@ -35,9 +35,9 @@
         ],
         "openalexId": "https://openalex.org/W7119468303",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3779031.3779089",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -373,9 +373,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4409495191",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icstw64639.2025.10962498",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -716,9 +716,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4416557631",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-032-07612-0_23",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -1006,9 +1006,9 @@
         ],
         "openalexId": "https://openalex.org/W4416004133",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3731599.3767481",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1383,9 +1383,9 @@
         ],
         "openalexId": "https://openalex.org/W4416799411",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/snpd65828.2025.11253509",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1751,9 +1751,9 @@
         ],
         "openalexId": "https://openalex.org/W7127156588",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/trustcom66490.2025.00095",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2176,10 +2176,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4411260251",
-        "citationCount": 1,
+        "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3729266",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2192,7 +2192,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "link-time optimization of dynamic casts in c++ programs",
         "_authorLower": "xufan lu instituto politécnico de lisboa nuno p. lopes instituto de engenharia de sistemas e computadores investigação e desenvolvimento",
         "_authorsLower": "xufan lu instituto politécnico de lisboa nuno p. lopes instituto de engenharia de sistemas e computadores investigação e desenvolvimento",
@@ -2515,7 +2515,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "link-time optimization of dynamic casts in c++ programs a core design principle of c++ is that users should only incur costs for features they actually use both in terms of performance and code size. a notable exception to this rule is the run-time type information rtti data used for dynamic downcasts exceptions and run-time type introspection. for classes that define at least one virtual method compilers generate rtti data that uniquely identifies the type including a string for the type name. in large programs with complex type inheritance hierarchies this rtti data can grow substantially in size. moreover dynamic casting algorithms are linear in the type hierarchy size causing some programs to spend considerable time on these casts. the common workaround is to use the -fno-rtti compiler flag which disables rtti data generation. however this approach has significant drawbacks such as disabling polymorphic exceptions and dynamic casts and requiring the flag to be applied across the entire program due to abi changes. in this paper we propose a new link-time optimization to mitigate both the performance and size overhead associated with dynamic casts and rtti data. our optimization replaces costly library calls for downcasts with short instruction sequences and eliminates unnecessary rtti data by modifying vtables to remove rtti slots. our prototype implemented in the llvm compiler demonstrates an average speedup of 1.4 proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 9 issue pldi 2025 research-paper xufan lu instituto politecnico de lisboa nuno p. lopes instituto de engenharia de sistemas e computadores investigacao e desenvolvimento c++ performance c++ performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -2583,15 +2583,15 @@
           "runtimes"
         ],
         "id": "openalex-w4411259701",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "gray-in-young: a generational garbage collection for processing-in-memory",
         "_authorLower": "ryu morimoto the university of tokyo kazuki ichinose the university of tokyo tomoharu ugawa the university of tokyo",
         "_authorsLower": "ryu morimoto the university of tokyo kazuki ichinose the university of tokyo tomoharu ugawa the university of tokyo",
@@ -2940,7 +2940,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "gray-in-young a generational garbage collection for processing-in-memory processing-in-memory pim is a promising approach to overcome the performance bottleneck caused by the gap between cpu speed and memory speed known as the memory wall problem. the upmem pim-enabled memory is the first commercialized general-purpose pim accelerator to which the program running on the host cpu offloads computation kernels. its dram processing units dpus are general-purpose processors and have the flexibility to run various computation kernels. however there is no support for programming in managed languages with garbage collection gc . in this paper we design gc for dpus which is a key component of managed runtimes. our gc is a parallel generational gc whose young space is in scratch pad memory spm . the gc updates pointers in promoting objects before copying them to old space in dram to reduce dram accesses. it also determines class information needed for minor gc of each computation kernel at compile time and caches them in spm. the major gc routines are compiled in a separate binary so that the binaries of computation kernels fit in 24 kb of program memory. the evaluation results using a micro benchmark showed that our proposed techniques reduced up to 85.9 dram accesses and improved performance by 46.2 for our benchmark. the gc scaled up to 11 threads and the remaining code size for the gc routine was only 4.3 kb after separating 6.9 kb of major gc. proceedings of 2025 acm sigplan international symposium on memory management proceedings of 2025 acm sigplan international symposium on memory management 2025 research-paper ryu morimoto the university of tokyo kazuki ichinose the university of tokyo tomoharu ugawa the university of tokyo runtimes performance runtimes performance memory computation kernels generational garbage collection dram accesses cpu runtimes",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -2997,9 +2997,9 @@
         ],
         "openalexId": "https://openalex.org/W4417105794",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1016/j.hcc.2025.100377",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3346,7 +3346,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4392265924",
-        "citationCount": 9,
+        "citationCount": 8,
         "doi": "10.1109/cgo57630.2024.10444847",
         "publishedDate": "",
         "contentFormat": "",
@@ -3360,7 +3360,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 8,
         "_titleLower": "revealing compiler heuristics through automated discovery and optimization",
         "_authorLower": "volker seeker chris cummins murray cole university of edinburgh björn franke university of edinburgh kim hazelwood hugh leather",
         "_authorsLower": "volker seeker chris cummins murray cole university of edinburgh björn franke university of edinburgh kim hazelwood hugh leather",
@@ -3844,7 +3844,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 9
+          "citationCount": 8
         },
         "_searchBlob": "revealing compiler heuristics through automated discovery and optimization tuning compiler heuristics and parameters is well known to improve optimization outcomes dramatically. prior works have tuned command line flags and a few expert identified heuristics. however there are an unknown number of heuristics buried unmarked and unexposed inside the compiler as a consequence of decades of development without auto-tuning being foremost in the minds of developers. many may not even have been considered heuristics by the developers who wrote them. the result is that auto-tuning search and machine learning can optimize only a tiny fraction of what could be possible if all heuristics were available to tune. manually discovering all of these heuristics hidden among millions of lines of code and exposing them to auto-tuning tools is a herculean task that is simply not practical. what is needed is a method of automatically finding these heuristics to extract every last drop of potential optimization. in this work we propose heureka a framework that automatically identifies potential heuristics in the compiler that are highly profitable optimization targets and then automatically finds available tuning parameters for those heuristics with minimal human involvement. our work is based on the following key insight when modifying the output of a heuristic within an acceptable value range the calling code using that output will still function correctly and produce semantically correct results. building on that we automatically manipulate the output of potential heuristic code in the compiler and decide using a differential testing approach if we found a heuristic or not. during output manipulation we also explore acceptable value ranges of the targeted code. heuristics identified in this way can then be tuned to optimize an objective function. we used heureka to search for heuristics among eight thousand functions from the llvm optimization passes which is about 2 of all available functions. we then use identified heuristics to tune the compilation of 38 applications from the nas and polybench benchmark suites. compared to an -ozbaseline we reduce binary sizes by up to 11.6 considering single heuristics only and up to 19.5 when stacking the effects of multiple identified tuning targets and applying a random search with minimal search effort. generalizing from existing analysis results heureka needs on average a little under an hour on a single machine to identify relevant heuristic targets for a previously unseen application. 2024 ieee acm international symposium on code generation and optimization cgo 2024 ieee acm international symposium on code generation and optimization cgo 2024 research-paper volker seeker chris cummins murray cole university of edinburgh bjorn franke university of edinburgh kim hazelwood hugh leather testing testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3928,10 +3928,10 @@
           "llvm"
         ],
         "id": "openalex-w4403780251",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -5152,8 +5152,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 1",
-        "venue": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 1",
+        "publication": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+        "venue": "Proceedings of 29th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
         "type": "research-paper",
         "abstract": "Memory safety issues are a persistent source of security vulnerabilities, with conventional architectures and the C codebase chronically prone to exploitable errors. The CHERI research project has shown how one can provide radically improved security for that existing codebase with minimal modification, using unforgeable hardware capabilities in place of machine-word pointers in CHERI dialects of C, implemented as adaptions of Clang/LLVM and GCC. CHERI was first prototyped as extensions of MIPS and RISC-V; it is currently being evaluated by Arm and others with the Arm Morello experimental architecture, processor, and platform, to explore its potential for mass-market adoption, and by Microsoft in their CHERIoT design for embedded cores.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3617232.3624859",
@@ -5189,8 +5189,8 @@
         "_keywordsLower": "clang embedded security",
         "_topicsLower": "clang embedded security clang embedded security",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems, volume 1",
-        "_venueLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems, volume 1",
+        "_publicationLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
+        "_venueLower": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -5407,7 +5407,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 1",
+              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -5423,12 +5423,11 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "venue": {
-              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 1",
+              "text": "proceedings of 29th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -5444,8 +5443,7 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "year": {
@@ -5458,7 +5456,7 @@
           "year": 2024,
           "citationCount": 6
         },
-        "_searchBlob": "formal mechanised semantics of cheri c capabilities undefined behaviour and provenance memory safety issues are a persistent source of security vulnerabilities with conventional architectures and the c codebase chronically prone to exploitable errors. the cheri research project has shown how one can provide radically improved security for that existing codebase with minimal modification using unforgeable hardware capabilities in place of machine-word pointers in cheri dialects of c implemented as adaptions of clang llvm and gcc. cheri was first prototyped as extensions of mips and risc-v it is currently being evaluated by arm and others with the arm morello experimental architecture processor and platform to explore its potential for mass-market adoption and by microsoft in their cheriot design for embedded cores. proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 1 proceedings of 29th acm international conference on architectural support for programming languages and operating systems volume 1 2024 research-paper vadim zaliva university of cambridge kayvan memarian university of cambridge ricardo almeida university of edinburgh jessica clarke university of cambridge brooks davis sri international alexander richardson university of cambridge david chisnall microsoft research b. k. campbell university of edinburgh ian stark university of edinburgh robert n. m. watson university of cambridge peter sewell university of cambridge clang embedded security clang embedded security",
+        "_searchBlob": "formal mechanised semantics of cheri c capabilities undefined behaviour and provenance memory safety issues are a persistent source of security vulnerabilities with conventional architectures and the c codebase chronically prone to exploitable errors. the cheri research project has shown how one can provide radically improved security for that existing codebase with minimal modification using unforgeable hardware capabilities in place of machine-word pointers in cheri dialects of c implemented as adaptions of clang llvm and gcc. cheri was first prototyped as extensions of mips and risc-v it is currently being evaluated by arm and others with the arm morello experimental architecture processor and platform to explore its potential for mass-market adoption and by microsoft in their cheriot design for embedded cores. proceedings of 29th acm international conference on architectural support for programming languages and operating systems proceedings of 29th acm international conference on architectural support for programming languages and operating systems 2024 research-paper vadim zaliva university of cambridge kayvan memarian university of cambridge ricardo almeida university of edinburgh jessica clarke university of cambridge brooks davis sri international alexander richardson university of cambridge david chisnall microsoft research b. k. campbell university of edinburgh ian stark university of edinburgh robert n. m. watson university of cambridge peter sewell university of cambridge clang embedded security clang embedded security",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -5496,9 +5494,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4395097841",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-57537-2_6",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7233,9 +7231,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4386365920",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.18293/seke2023-182",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7651,8 +7649,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
-        "venue": "Proceedings of the SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
+        "publication": "Proceedings of SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
+        "venue": "Proceedings of SC '23 Workshops of the International Conference on High Performance Computing, Network, Storage, and Analysis",
         "type": "research-paper",
         "abstract": "Preparing for the deployment of large scientific and engineering codes on upcoming exascale systems with GPU-dense nodes is made challenging by the unprecedented diversity of device architectures and heterogeneous programming models. In this work, we evaluate the process of porting a massively parallel, fluid dynamics code written in CUDA to SYCL, HIP, and Kokkos with a range of backends, using a combination of automated tools and manual tuning. We use a proxy application along with a custom performance model to inform the results and identify additional optimization strategies. At scale performance of the programming model implementations are evaluated on pre-production GPU node architectures for Frontier and Aurora, as well as on current NVIDIA device-based systems Summit and Polaris. Real-world workloads representing 3D blood flow calculations in complex vasculature are assessed. Our analysis highlights critical trade-offs between code performance, portability, and development time.",
         "paperUrl": "https://www.osti.gov/servlets/purl/2224199",
@@ -7684,15 +7682,15 @@
           "libsycl"
         ],
         "id": "openalex-w4388581265",
-        "citationCount": 4,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 0,
         "_titleLower": "performance evaluation of heterogeneous gpu programming frameworks for hemodynamic simulations",
         "_authorLower": "aristotle martin duke university geng liu argonne national laboratory william ladd duke university seyong lee oak ridge national laboratory john gounley oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory saumil patel argonne national laboratory silvio rizzi argonne national laboratory victor a. mateevitsi argonne national laboratory joseph a. insley argonne national laboratory amanda randles duke university",
         "_authorsLower": "aristotle martin duke university geng liu argonne national laboratory william ladd duke university seyong lee oak ridge national laboratory john gounley oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory saumil patel argonne national laboratory silvio rizzi argonne national laboratory victor a. mateevitsi argonne national laboratory joseph a. insley argonne national laboratory amanda randles duke university",
@@ -7701,8 +7699,8 @@
         "_keywordsLower": "optimizations performance gpu cuda hip gpu programming frameworks heterogeneous gpu programming hemodynamic simulations",
         "_topicsLower": "optimizations performance gpu cuda hip optimizations performance gpu cuda hip gpu programming frameworks heterogeneous gpu programming hemodynamic simulations libsycl",
         "_contentLower": "",
-        "_publicationLower": "proceedings of the sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
-        "_venueLower": "proceedings of the sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
+        "_publicationLower": "proceedings of sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
+        "_venueLower": "proceedings of sc '23 workshops of the international conference on high performance computing, network, storage, and analysis",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2023",
@@ -7965,11 +7963,10 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis",
+              "text": "proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "sc",
                 "23",
                 "workshops",
@@ -7988,11 +7985,10 @@
               ]
             },
             "venue": {
-              "text": "proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis",
+              "text": "proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "sc",
                 "23",
                 "workshops",
@@ -8018,9 +8014,9 @@
             }
           },
           "year": 2023,
-          "citationCount": 4
+          "citationCount": 0
         },
-        "_searchBlob": "performance evaluation of heterogeneous gpu programming frameworks for hemodynamic simulations preparing for the deployment of large scientific and engineering codes on upcoming exascale systems with gpu-dense nodes is made challenging by the unprecedented diversity of device architectures and heterogeneous programming models. in this work we evaluate the process of porting a massively parallel fluid dynamics code written in cuda to sycl hip and kokkos with a range of backends using a combination of automated tools and manual tuning. we use a proxy application along with a custom performance model to inform the results and identify additional optimization strategies. at scale performance of the programming model implementations are evaluated on pre-production gpu node architectures for frontier and aurora as well as on current nvidia device-based systems summit and polaris. real-world workloads representing 3d blood flow calculations in complex vasculature are assessed. our analysis highlights critical trade-offs between code performance portability and development time. proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of the sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper aristotle martin duke university geng liu argonne national laboratory william ladd duke university seyong lee oak ridge national laboratory john gounley oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory saumil patel argonne national laboratory silvio rizzi argonne national laboratory victor a. mateevitsi argonne national laboratory joseph a. insley argonne national laboratory amanda randles duke university optimizations performance gpu cuda hip optimizations performance gpu cuda hip gpu programming frameworks heterogeneous gpu programming hemodynamic simulations libsycl",
+        "_searchBlob": "performance evaluation of heterogeneous gpu programming frameworks for hemodynamic simulations preparing for the deployment of large scientific and engineering codes on upcoming exascale systems with gpu-dense nodes is made challenging by the unprecedented diversity of device architectures and heterogeneous programming models. in this work we evaluate the process of porting a massively parallel fluid dynamics code written in cuda to sycl hip and kokkos with a range of backends using a combination of automated tools and manual tuning. we use a proxy application along with a custom performance model to inform the results and identify additional optimization strategies. at scale performance of the programming model implementations are evaluated on pre-production gpu node architectures for frontier and aurora as well as on current nvidia device-based systems summit and polaris. real-world workloads representing 3d blood flow calculations in complex vasculature are assessed. our analysis highlights critical trade-offs between code performance portability and development time. proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper aristotle martin duke university geng liu argonne national laboratory william ladd duke university seyong lee oak ridge national laboratory john gounley oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory saumil patel argonne national laboratory silvio rizzi argonne national laboratory victor a. mateevitsi argonne national laboratory joseph a. insley argonne national laboratory amanda randles duke university optimizations performance gpu cuda hip optimizations performance gpu cuda hip gpu programming frameworks heterogeneous gpu programming hemodynamic simulations libsycl",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -8082,10 +8078,10 @@
           "Programming Languages"
         ],
         "openalexId": "https://openalex.org/W4321496225",
-        "citationCount": 4,
+        "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1145/3579990.3580019",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8099,7 +8095,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 2,
         "_titleLower": "parsimony: enabling simd/vector programming in standard compiler flows",
         "_authorLower": "vijay kandiah northwestern university daniel lustig nvidia oreste villa nvidia david nellans nvidia nikos hardavellas northwestern university",
         "_authorsLower": "vijay kandiah northwestern university daniel lustig nvidia oreste villa nvidia david nellans nvidia nikos hardavellas northwestern university",
@@ -8415,7 +8411,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 4
+          "citationCount": 2
         },
         "_searchBlob": "parsimony enabling simd vector programming in standard compiler flows achieving peak throughput on modern cpus requires maximizing the use of single-instruction multiple-data simd or vector compute units. single-program multiple-data spmd programming models are an effective way to use high-level programming languages to target these isas. unfortunately many spmd frameworks have evolved to have either overly-restrictive language specifications or under-specified programming models and this has slowed the widescale adoption of spmd-style programming. this paper introduces parsimony parallel simd a spmd programming approach built with semantics designed to be compatible with multiple languages and to cleanly integrate into the standard optimizing compiler toolchains for those languages. we first explain the parsimony programming model semantics and how they enable a standalone compiler ir-to-ir pass that can perform vectorization independently of other passes improving the language and toolchain compatibility of spmd programming. we then demonstrate a llvm prototype of the parsimony approach that matches the performance of ispc a popular but more restrictive spmd approach and achieves 97 of the performance of hand-written avx-512 simd intrinsics on over 70 benchmarks ported from the simd library. we finally discuss where parsimony has exposed parts of existing language and compiler flows where slight improvements could further enable improved spmd program vectorization. proceedings of 21st acm ieee international symposium on code generation and optimization proceedings of 21st acm ieee international symposium on code generation and optimization 2023 research-paper vijay kandiah northwestern university daniel lustig nvidia oreste villa nvidia david nellans nvidia nikos hardavellas northwestern university ir performance programming languages ir performance programming languages",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8499,15 +8495,15 @@
           "openmp"
         ],
         "id": "openalex-w4384573107",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "model checking race-freedom when “sequential consistency for data-race-free programs” is guaranteed",
         "_authorLower": "wenhao wu university of delaware jan hückelheim argonne national laboratory paul hovland argonne national laboratory ziqing luo university of delaware stephen f. siegel university of delaware",
         "_authorsLower": "wenhao wu university of delaware jan hückelheim argonne national laboratory paul hovland argonne national laboratory ziqing luo university of delaware stephen f. siegel university of delaware",
@@ -8723,7 +8719,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "model checking race-freedom when sequential consistency for data-race-free programs is guaranteed abstract many parallel programming models guarantee that if all sequentially consistent sc executions of a program are free of data races then all executions of the program will appear to be sequentially consistent. this greatly simplifies reasoning about the program but leaves open the question of how to verify that all sc executions are race-free. in this paper we show that with a few simple modifications model checking can be an effective tool for verifying race-freedom. we explore this technique on a suite of c programs parallelized with openmp. lecture notes in computer science lecture notes in computer science 2023 research-paper wenhao wu university of delaware jan huckelheim argonne national laboratory paul hovland argonne national laboratory ziqing luo university of delaware stephen f. siegel university of delaware openmp openmp model checking parallel computing checking race freedom executions sequentially consistent race free programs sequential consistency openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -8796,16 +8792,16 @@
           "libfuzzer"
         ],
         "id": "openalex-w4385301329",
-        "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "libafl libfuzzer: libfuzzer on top of libafl",
         "_authorLower": "addison crump helmholtz center for information security andrea fioraldi eurecom dominik maier google dongjia zhang the university of tokyo",
         "_authorsLower": "addison crump helmholtz center for information security andrea fioraldi eurecom dominik maier google dongjia zhang the university of tokyo",
@@ -9091,7 +9087,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "libafl libfuzzer libfuzzer on top of libafl general-purpose fuzzing has come into the public eye with many researchers developing new fuzzers to improve on the state of the art. libafl developed by the group which originally made afl++ offers researchers the ability to develop fuzzers at a component level allowing researchers to simply develop their own components rather than modifying an existing fuzzer. this allows for more straightforward comparisons of fuzzers allowing researchers to experiment with the removal and addition of individual components without compromising on the flexibility of fuzzer development. to demonstrate this flexibility and offer alternative frontends to the community we developed two fuzzers libafl libfuzzer and aflrustrust the former of which is discussed here as a drop-in replacement for libfuzzer and the latter in a sister report as a drop-in replacement for afl++. we find that libafl libfuzzer performed very well on the coverage benchmarks while struggling with the bug-based benchmarks conducted in the sbft fuzzing competition and discover and analyse which fuzzer features and bugs led to this underperformance. 2023 ieee acm international workshop on search-based and fuzz testing sbft 2023 ieee acm international workshop on search-based and fuzz testing sbft 2023 research-paper addison crump helmholtz center for information security andrea fioraldi eurecom dominik maier google dongjia zhang the university of tokyo testing testing fuzzing libafl libafl libfuzzer fuzzers allowing researchers libfuzzer",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -9144,8 +9140,8 @@
           }
         ],
         "year": "2023",
-        "publication": "2023 33rd International Conference on Field-Programmable Logic and Applications (FPL)",
-        "venue": "2023 33rd International Conference on Field-Programmable Logic and Applications (FPL)",
+        "publication": "2023 33rd International Conference on Field",
+        "venue": "2023 33rd International Conference on Field",
         "type": "research-paper",
         "abstract": "In recent years the use of FPGAs to accelerate scientific applications has grown, with numerous applications demonstrating the benefit of FPGAs for high performance workloads. However, whilst High Level Synthesis (HLS) has significantly lowered the barrier to entry in programming FPGAs by enabling programmers to use C++, a major challenge is that most often these codes are not originally written in C++. Instead, Fortran is the lingua franca of scientific computing and-so it requires a complex and time consuming initial step to convert into C++ even before considering the FPGA. In this paper we describe work enabling Fortran for AMD Xilinx FPGAs by connecting the LLVM Flang front end to AMD Xilinx's LLVM back end. This enables programmers to use Fortran as a first-class language for programming FPGAs, and as we demonstrate enjoy all the tuning and optimisation opportunities that HLS C++ provides. Furthermore, we demonstrate that certain language features of Fortran make it especially beneficial for programming FPGAs compared to C++. The result of this work is a lowering of the barrier to entry in using FPGAs for scientific computing, enabling programmers to leverage their existing codebase and language of choice on the FPGA directly.",
         "paperUrl": "https://doi.org/10.1109/fpl60245.2023.00010",
@@ -9156,9 +9152,9 @@
         ],
         "openalexId": "https://openalex.org/W4388214723",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/fpl60245.2023.00010",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9181,8 +9177,8 @@
         "_keywordsLower": "c++ flang performance",
         "_topicsLower": "c++ flang performance c++ flang performance",
         "_contentLower": "",
-        "_publicationLower": "2023 33rd international conference on field-programmable logic and applications (fpl)",
-        "_venueLower": "2023 33rd international conference on field-programmable logic and applications (fpl)",
+        "_publicationLower": "2023 33rd international conference on field",
+        "_venueLower": "2023 33rd international conference on field",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2023",
@@ -9461,33 +9457,25 @@
               "words": []
             },
             "publication": {
-              "text": "2023 33rd international conference on field-programmable logic and applications fpl",
+              "text": "2023 33rd international conference on field",
               "words": [
                 "2023",
                 "33rd",
                 "international",
                 "conference",
                 "on",
-                "field-programmable",
-                "logic",
-                "and",
-                "applications",
-                "fpl"
+                "field"
               ]
             },
             "venue": {
-              "text": "2023 33rd international conference on field-programmable logic and applications fpl",
+              "text": "2023 33rd international conference on field",
               "words": [
                 "2023",
                 "33rd",
                 "international",
                 "conference",
                 "on",
-                "field-programmable",
-                "logic",
-                "and",
-                "applications",
-                "fpl"
+                "field"
               ]
             },
             "year": {
@@ -9500,7 +9488,7 @@
           "year": 2023,
           "citationCount": 5
         },
-        "_searchBlob": "fortran high-level synthesis reducing the barriers to accelerating hpc codes on fpgas in recent years the use of fpgas to accelerate scientific applications has grown with numerous applications demonstrating the benefit of fpgas for high performance workloads. however whilst high level synthesis hls has significantly lowered the barrier to entry in programming fpgas by enabling programmers to use c++ a major challenge is that most often these codes are not originally written in c++. instead fortran is the lingua franca of scientific computing and-so it requires a complex and time consuming initial step to convert into c++ even before considering the fpga. in this paper we describe work enabling fortran for amd xilinx fpgas by connecting the llvm flang front end to amd xilinxs llvm back end. this enables programmers to use fortran as a first-class language for programming fpgas and as we demonstrate enjoy all the tuning and optimisation opportunities that hls c++ provides. furthermore we demonstrate that certain language features of fortran make it especially beneficial for programming fpgas compared to c++. the result of this work is a lowering of the barrier to entry in using fpgas for scientific computing enabling programmers to leverage their existing codebase and language of choice on the fpga directly. 2023 33rd international conference on field-programmable logic and applications fpl 2023 33rd international conference on field-programmable logic and applications fpl 2023 research-paper gabriel rodriguez canal el paso community college nick brown el paso community college tim dykes hewlett packard enterprise jessica r. jones hewlett packard enterprise utz uwe haus hewlett packard enterprise c++ flang performance c++ flang performance",
+        "_searchBlob": "fortran high-level synthesis reducing the barriers to accelerating hpc codes on fpgas in recent years the use of fpgas to accelerate scientific applications has grown with numerous applications demonstrating the benefit of fpgas for high performance workloads. however whilst high level synthesis hls has significantly lowered the barrier to entry in programming fpgas by enabling programmers to use c++ a major challenge is that most often these codes are not originally written in c++. instead fortran is the lingua franca of scientific computing and-so it requires a complex and time consuming initial step to convert into c++ even before considering the fpga. in this paper we describe work enabling fortran for amd xilinx fpgas by connecting the llvm flang front end to amd xilinxs llvm back end. this enables programmers to use fortran as a first-class language for programming fpgas and as we demonstrate enjoy all the tuning and optimisation opportunities that hls c++ provides. furthermore we demonstrate that certain language features of fortran make it especially beneficial for programming fpgas compared to c++. the result of this work is a lowering of the barrier to entry in using fpgas for scientific computing enabling programmers to leverage their existing codebase and language of choice on the fpga directly. 2023 33rd international conference on field 2023 33rd international conference on field 2023 research-paper gabriel rodriguez canal el paso community college nick brown el paso community college tim dykes hewlett packard enterprise jessica r. jones hewlett packard enterprise utz uwe haus hewlett packard enterprise c++ flang performance c++ flang performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -9551,15 +9539,15 @@
           "libsycl"
         ],
         "id": "openalex-w4386124558",
-        "citationCount": 6,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 0,
         "_titleLower": "an investigation into the performance and portability of sycl compiler implementations",
         "_authorLower": "wageesha r. shilpage university of york steven a. wright university of york",
         "_authorsLower": "wageesha r. shilpage university of york steven a. wright university of york",
@@ -9669,7 +9657,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 6
+          "citationCount": 0
         },
         "_searchBlob": "an investigation into the performance and portability of sycl compiler implementations no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2023 research-paper wageesha r. shilpage university of york steven a. wright university of york performance performance sycl compiler libsycl",
         "addedAt": "2026-04-12T09:38:46.000Z",
@@ -10095,8 +10083,8 @@
           }
         ],
         "year": "2022",
-        "publication": "2022 IEEE International Symposium on High-Performance Computer Architecture (HPCA)",
-        "venue": "2022 IEEE International Symposium on High-Performance Computer Architecture (HPCA)",
+        "publication": "2022 IEEE International Symposium on High",
+        "venue": "2022 IEEE International Symposium on High",
         "type": "research-paper",
         "abstract": "High-level synthesis (HLS) has been widely adopted as it significantly improves the hardware design productivity and enables efficient design space exploration (DSE). Existing HLS tools are built using compiler infrastructures largely based on a single-level abstraction, such as LLVM. How-ever, as HLS designs typically come with intrinsic structural or functional hierarchies, different HLS optimization problems are often better solved with different levels of abstractions. This paper proposes ScaleHLS <sup>1</sup>, a new scalable and customizable HLS framework, on top of a multi-level compiler infrastructure called MLIR. ScaleHLS represents HLS designs at multiple representation levels and provides an HLS-dedicated analysis and transform library to solve the optimization problems at the suitable levels. Using this library, we provide a DSE engine to generate optimized HLS designs automatically. In addition, we develop an HLS C front-end and a C/C++ emission back-end to translate HLS designs into/from MLIR for enabling an end-to-end compilation flow. Experimental results show that, comparing to the baseline designs without manual directives insertion and code-rewriting, that are only optimized by Xilinx Vivado HLS, ScaleHLS improves the performances with amazing quality-of-results &#x2013; up to 768.1&#x00D7; better on computation kernel level programs and up to 3825.0&#x00D7; better on neural network models.",
         "paperUrl": "https://doi.org/10.1109/hpca53966.2022.00060",
@@ -10138,16 +10126,16 @@
           "mlir"
         ],
         "id": "openalex-w3211485653",
-        "citationCount": 66,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 66,
+        "_citationCount": 0,
         "_titleLower": "scalehls: a new scalable high-level synthesis framework on multi-level intermediate representation",
         "_authorLower": "hanchen ye university of illinois urbana-champaign cong hao georgia institute of technology jianyi cheng imperial college london hyunmin jeong university of illinois urbana-champaign jack huang university of illinois urbana-champaign stephen neuendorffer xilinx deming chen university of illinois urbana-champaign",
         "_authorsLower": "hanchen ye university of illinois urbana-champaign cong hao georgia institute of technology jianyi cheng imperial college london hyunmin jeong university of illinois urbana-champaign jack huang university of illinois urbana-champaign stephen neuendorffer xilinx deming chen university of illinois urbana-champaign",
@@ -10156,8 +10144,8 @@
         "_keywordsLower": "llvm mlir optimizations performance infrastructure intermediate representation hls designs scalehls levels synthesis x00d7",
         "_topicsLower": "llvm mlir ir optimizations performance infrastructure ml llvm mlir optimizations performance infrastructure intermediate representation hls designs scalehls levels synthesis x00d7 llvm mlir",
         "_contentLower": "",
-        "_publicationLower": "2022 ieee international symposium on high-performance computer architecture (hpca)",
-        "_venueLower": "2022 ieee international symposium on high-performance computer architecture (hpca)",
+        "_publicationLower": "2022 ieee international symposium on high",
+        "_venueLower": "2022 ieee international symposium on high",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2022",
@@ -10465,31 +10453,25 @@
               "words": []
             },
             "publication": {
-              "text": "2022 ieee international symposium on high-performance computer architecture hpca",
+              "text": "2022 ieee international symposium on high",
               "words": [
                 "2022",
                 "ieee",
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "computer",
-                "architecture",
-                "hpca"
+                "high"
               ]
             },
             "venue": {
-              "text": "2022 ieee international symposium on high-performance computer architecture hpca",
+              "text": "2022 ieee international symposium on high",
               "words": [
                 "2022",
                 "ieee",
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "computer",
-                "architecture",
-                "hpca"
+                "high"
               ]
             },
             "year": {
@@ -10500,9 +10482,9 @@
             }
           },
           "year": 2022,
-          "citationCount": 66
+          "citationCount": 0
         },
-        "_searchBlob": "scalehls a new scalable high-level synthesis framework on multi-level intermediate representation high-level synthesis hls has been widely adopted as it significantly improves the hardware design productivity and enables efficient design space exploration dse . existing hls tools are built using compiler infrastructures largely based on a single-level abstraction such as llvm. how-ever as hls designs typically come with intrinsic structural or functional hierarchies different hls optimization problems are often better solved with different levels of abstractions. this paper proposes scalehls sup 1 sup a new scalable and customizable hls framework on top of a multi-level compiler infrastructure called mlir. scalehls represents hls designs at multiple representation levels and provides an hls-dedicated analysis and transform library to solve the optimization problems at the suitable levels. using this library we provide a dse engine to generate optimized hls designs automatically. in addition we develop an hls c front-end and a c c++ emission back-end to translate hls designs into from mlir for enabling an end-to-end compilation flow. experimental results show that comparing to the baseline designs without manual directives insertion and code-rewriting that are only optimized by xilinx vivado hls scalehls improves the performances with amazing quality-of-results and #x2013 up to 768.1 and #x00d7 better on computation kernel level programs and up to 3825.0 and #x00d7 better on neural network models. 2022 ieee international symposium on high-performance computer architecture hpca 2022 ieee international symposium on high-performance computer architecture hpca 2022 research-paper hanchen ye university of illinois urbana-champaign cong hao georgia institute of technology jianyi cheng imperial college london hyunmin jeong university of illinois urbana-champaign jack huang university of illinois urbana-champaign stephen neuendorffer xilinx deming chen university of illinois urbana-champaign llvm mlir ir optimizations performance infrastructure ml llvm mlir optimizations performance infrastructure intermediate representation hls designs scalehls levels synthesis x00d7 llvm mlir",
+        "_searchBlob": "scalehls a new scalable high-level synthesis framework on multi-level intermediate representation high-level synthesis hls has been widely adopted as it significantly improves the hardware design productivity and enables efficient design space exploration dse . existing hls tools are built using compiler infrastructures largely based on a single-level abstraction such as llvm. how-ever as hls designs typically come with intrinsic structural or functional hierarchies different hls optimization problems are often better solved with different levels of abstractions. this paper proposes scalehls sup 1 sup a new scalable and customizable hls framework on top of a multi-level compiler infrastructure called mlir. scalehls represents hls designs at multiple representation levels and provides an hls-dedicated analysis and transform library to solve the optimization problems at the suitable levels. using this library we provide a dse engine to generate optimized hls designs automatically. in addition we develop an hls c front-end and a c c++ emission back-end to translate hls designs into from mlir for enabling an end-to-end compilation flow. experimental results show that comparing to the baseline designs without manual directives insertion and code-rewriting that are only optimized by xilinx vivado hls scalehls improves the performances with amazing quality-of-results and #x2013 up to 768.1 and #x00d7 better on computation kernel level programs and up to 3825.0 and #x00d7 better on neural network models. 2022 ieee international symposium on high 2022 ieee international symposium on high 2022 research-paper hanchen ye university of illinois urbana-champaign cong hao georgia institute of technology jianyi cheng imperial college london hyunmin jeong university of illinois urbana-champaign jack huang university of illinois urbana-champaign stephen neuendorffer xilinx deming chen university of illinois urbana-champaign llvm mlir ir optimizations performance infrastructure ml llvm mlir optimizations performance infrastructure intermediate representation hls designs scalehls levels synthesis x00d7 llvm mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -10845,8 +10827,8 @@
           }
         ],
         "year": "2022",
-        "publication": "2022 IEEE International Conferences on Internet of Things (iThings) and IEEE Green Computing & Communications (GreenCom) and IEEE Cyber, Physical & Social Computing (CPSCom) and IEEE Smart Data (SmartData) and IEEE Congress on Cybermatics (Cybermatics)",
-        "venue": "2022 IEEE International Conferences on Internet of Things (iThings) and IEEE Green Computing & Communications (GreenCom) and IEEE Cyber, Physical & Social Computing (CPSCom) and IEEE Smart Data (SmartData) and IEEE Congress on Cybermatics (Cybermatics) | Vol. 19",
+        "publication": "2022 IEEE International Conferences on Internet of Things (iThings) and IEEE Green Computing & Communications (GreenCom) and IEEE Cyber",
+        "venue": "2022 IEEE International Conferences on Internet of Things (iThings) and IEEE Green Computing & Communications (GreenCom) and IEEE Cyber | Vol. 19",
         "type": "research-paper",
         "abstract": "In recent years, IoT devices and systems have helped make our lifestyle smarter. Operating systems running on IoT devices form a critical component for connectivity, security, networking, storage, remote device management and other system needs. As a result, applications deployed on top of such an operating system can exploit its vulnerabilities and potentially leak confidential data to the attacker. IoT devices typically have sensors that allow them to measure one or more channel values. They constitute one such example of confidential data for the user which can get leaked or manipulated by a malicious application exploiting the privileges provided by the operating system. In this work, we propose a methodology for finding security vulnerabilities using the concept of taint analysis on the LLVM IR of a part of the kernel of the Zephyr OS, a lightweight real-time operating system for connected, resource-constrained and embedded devices. Several vulnerabilities were detected as reported in the Results section.",
         "paperUrl": "https://doi.org/10.1109/ithings-greencom-cpscom-smartdata-cybermatics55523.2022.00055",
@@ -10857,9 +10839,9 @@
         ],
         "openalexId": "https://openalex.org/W4312678779",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/ithings-greencom-cpscom-smartdata-cybermatics55523.2022.00055",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10882,8 +10864,8 @@
         "_keywordsLower": "embedded ir security",
         "_topicsLower": "embedded ir security embedded ir security",
         "_contentLower": "",
-        "_publicationLower": "2022 ieee international conferences on internet of things (ithings) and ieee green computing & communications (greencom) and ieee cyber, physical & social computing (cpscom) and ieee smart data (smartdata) and ieee congress on cybermatics (cybermatics)",
-        "_venueLower": "2022 ieee international conferences on internet of things (ithings) and ieee green computing & communications (greencom) and ieee cyber, physical & social computing (cpscom) and ieee smart data (smartdata) and ieee congress on cybermatics (cybermatics) | vol. 19",
+        "_publicationLower": "2022 ieee international conferences on internet of things (ithings) and ieee green computing & communications (greencom) and ieee cyber",
+        "_venueLower": "2022 ieee international conferences on internet of things (ithings) and ieee green computing & communications (greencom) and ieee cyber | vol. 19",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2022",
@@ -11103,7 +11085,7 @@
               "words": []
             },
             "publication": {
-              "text": "2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber physical and social computing cpscom and ieee smart data smartdata and ieee congress on cybermatics cybermatics",
+              "text": "2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber",
               "words": [
                 "2022",
                 "ieee",
@@ -11123,27 +11105,11 @@
                 "greencom",
                 "and",
                 "ieee",
-                "cyber",
-                "physical",
-                "and",
-                "social",
-                "computing",
-                "cpscom",
-                "and",
-                "ieee",
-                "smart",
-                "data",
-                "smartdata",
-                "and",
-                "ieee",
-                "congress",
-                "on",
-                "cybermatics",
-                "cybermatics"
+                "cyber"
               ]
             },
             "venue": {
-              "text": "2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber physical and social computing cpscom and ieee smart data smartdata and ieee congress on cybermatics cybermatics vol. 19",
+              "text": "2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber vol. 19",
               "words": [
                 "2022",
                 "ieee",
@@ -11164,22 +11130,6 @@
                 "and",
                 "ieee",
                 "cyber",
-                "physical",
-                "and",
-                "social",
-                "computing",
-                "cpscom",
-                "and",
-                "ieee",
-                "smart",
-                "data",
-                "smartdata",
-                "and",
-                "ieee",
-                "congress",
-                "on",
-                "cybermatics",
-                "cybermatics",
                 "vol.",
                 "19"
               ]
@@ -11194,7 +11144,7 @@
           "year": 2022,
           "citationCount": 0
         },
-        "_searchBlob": "identifying channel related vulnerabilities in zephyr firmware in recent years iot devices and systems have helped make our lifestyle smarter. operating systems running on iot devices form a critical component for connectivity security networking storage remote device management and other system needs. as a result applications deployed on top of such an operating system can exploit its vulnerabilities and potentially leak confidential data to the attacker. iot devices typically have sensors that allow them to measure one or more channel values. they constitute one such example of confidential data for the user which can get leaked or manipulated by a malicious application exploiting the privileges provided by the operating system. in this work we propose a methodology for finding security vulnerabilities using the concept of taint analysis on the llvm ir of a part of the kernel of the zephyr os a lightweight real-time operating system for connected resource-constrained and embedded devices. several vulnerabilities were detected as reported in the results section. 2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber physical and social computing cpscom and ieee smart data smartdata and ieee congress on cybermatics cybermatics 2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber physical and social computing cpscom and ieee smart data smartdata and ieee congress on cybermatics cybermatics vol. 19 2022 research-paper devansh rajgarhia indian institute of technology kharagpur peng liu pennsylvania state university shamik sural indian institute of technology kharagpur embedded ir security embedded ir security",
+        "_searchBlob": "identifying channel related vulnerabilities in zephyr firmware in recent years iot devices and systems have helped make our lifestyle smarter. operating systems running on iot devices form a critical component for connectivity security networking storage remote device management and other system needs. as a result applications deployed on top of such an operating system can exploit its vulnerabilities and potentially leak confidential data to the attacker. iot devices typically have sensors that allow them to measure one or more channel values. they constitute one such example of confidential data for the user which can get leaked or manipulated by a malicious application exploiting the privileges provided by the operating system. in this work we propose a methodology for finding security vulnerabilities using the concept of taint analysis on the llvm ir of a part of the kernel of the zephyr os a lightweight real-time operating system for connected resource-constrained and embedded devices. several vulnerabilities were detected as reported in the results section. 2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber 2022 ieee international conferences on internet of things ithings and ieee green computing and communications greencom and ieee cyber vol. 19 2022 research-paper devansh rajgarhia indian institute of technology kharagpur peng liu pennsylvania state university shamik sural indian institute of technology kharagpur embedded ir security embedded ir security",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -11239,9 +11189,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4312321873",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-22308-2_11",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11422,7 +11372,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4313423325",
-        "citationCount": 2,
+        "citationCount": 1,
         "doi": "10.1145/3577949.3577968",
         "publishedDate": "",
         "contentFormat": "",
@@ -11437,7 +11387,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "compiler support for an ai-oriented simd extension of a space processor",
         "_authorLower": "marc solé barcelona supercomputing center leonidas kosmidis universitat politècnica de catalunya",
         "_authorsLower": "marc solé barcelona supercomputing center leonidas kosmidis universitat politècnica de catalunya",
@@ -11648,7 +11598,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "compiler support for an ai-oriented simd extension of a space processor in this on going research paper we present our work on the compiler support for an ai-oriented simd extension called sparrow. the sparrow hardware design has been developed during a recently defended awardwinning master thesis and is targeting cobham gaislers space processors leon3 and noel-v. we present the compiler support we have included in two compiler toolchains gcc and llvm as well as a simd intrinsics library for easy programmability. compiler modifications are kept to minimum in order to enable incremental qualification of the toolchains. we present our experience working with the two compilers and performance results for the two compilers on top an fpga implementation of the target space processor. acm sigada ada letters acm sigada ada letters vol. 42 issue 1 2022 research-paper marc sole barcelona supercomputing center leonidas kosmidis universitat politecnica de catalunya ai performance ai performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -11743,15 +11693,15 @@
           "mlir"
         ],
         "id": "openalex-w4296131215",
-        "citationCount": 9,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 0,
         "_titleLower": "automatic creation of high-bandwidth memory architectures from domain-specific languages: the case of computational fluid dynamics",
         "_authorLower": "stephanie soldavini politecnico di milano karl f. a. friebel technische universität dresden mattia tibaldi politecnico di milano gerald hempel technische universität dresden jerónimo castrillón technische universität dresden christian pilato politecnico di milano",
         "_authorsLower": "stephanie soldavini politecnico di milano karl f. a. friebel technische universität dresden mattia tibaldi politecnico di milano gerald hempel technische universität dresden jerónimo castrillón technische universität dresden christian pilato politecnico di milano",
@@ -12081,7 +12031,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 9
+          "citationCount": 0
         },
         "_searchBlob": "automatic creation of high-bandwidth memory architectures from domain-specific languages the case of computational fluid dynamics numerical simulations can help solve complex problems. most of these algorithms are massively parallel and thus good candidates for fpga acceleration thanks to spatial parallelism. modern fpga devices can leverage high-bandwidth memory technologies but when applications are memory-bound designers must craft advanced communication and memory architectures for efficient data movement and on-chip storage. this development process requires hardware design skills that are uncommon in domain-specific experts. in this paper we propose an automated tool flow from a domain-specific language dsl for tensor expressions to generate massively-parallel accelerators on hbm-equipped fpgas. designers can use this flow to integrate and evaluate various compiler or hardware optimizations. we use computational fluid dynamics cfd as a paradigmatic example. our flow starts from the high-level specification of tensor operations and combines an mlir-based compiler with an in-house hardware generation flow to generate systems with parallel accelerators and a specialized memory architecture that moves data efficiently aiming at fully exploiting the available cpu-fpga bandwidth. we simulated applications with millions of elements achieving up to 103 gflops with one compute unit and custom precision when targeting a xilinx alveo u280. our fpga implementation is up to 25x more energy-efficient than expert-crafted intel cpu implementations. arxiv arxiv 2022 research-paper stephanie soldavini politecnico di milano karl f. a. friebel technische universitat dresden mattia tibaldi politecnico di milano gerald hempel technische universitat dresden jeronimo castrillon technische universitat dresden christian pilato politecnico di milano mlir optimizations mlir optimizations memory architectures domain specific languages computational fluid dynamics bandwidth memory architectures hardware massively parallel parallel accelerators cpu mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -13331,15 +13281,15 @@
           "clang"
         ],
         "id": "openalex-w3206733312",
-        "citationCount": 16,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 0,
         "_titleLower": "vespa: static profiling for binary optimization",
         "_authorLower": "angélica aparecida moreira universidade federal de minas gerais guilherme ottoni meta fernando magno quintão pereira universidade federal de minas gerais",
         "_authorsLower": "angélica aparecida moreira universidade federal de minas gerais guilherme ottoni meta fernando magno quintão pereira universidade federal de minas gerais",
@@ -13618,7 +13568,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 16
+          "citationCount": 0
         },
         "_searchBlob": "vespa static profiling for binary optimization over the past few years there has been a surge in the popularity of binary optimizers such as bolt propeller janus and halo. these tools use dynamic profiling information to make optimization decisions. although effective gathering runtime data presents developers with inconveniences such as unrepresentative inputs the need to accommodate software modifications and longer build times. in this paper we revisit the static profiling technique proposed by calder et al. in the late 90s and investigate its application to drive binary optimizations in the context of the bolt binary optimizer as a replacement for dynamic profiling. a few core modifications to calder et al.s original proposal consisting of new program features and a new regression model are sufficient to enable some of the gains obtained through runtime profiling. an evaluation of bolt powered by our static profiler on four large benchmarks clang gcc mysql and postgresql yields binaries that are 5.47 faster than the executables produced by clang -o3. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 5 issue oopsla 2021 research-paper angelica aparecida moreira universidade federal de minas gerais guilherme ottoni meta fernando magno quintao pereira universidade federal de minas gerais clang bolt optimizations programming languages clang bolt optimizations programming languages binary binary optimization bolt clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -13674,9 +13624,9 @@
         ],
         "openalexId": "https://openalex.org/W3189486434",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/imcec51613.2021.9482032",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14052,7 +14002,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W3185662757",
-        "citationCount": 3,
+        "citationCount": 2,
         "doi": "10.1145/3460434",
         "publishedDate": "",
         "contentFormat": "",
@@ -14066,7 +14016,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 2,
         "_titleLower": "pico",
         "_authorLower": "tina jung saarland university fabian ritter saarland university sebastian hack saarland university",
         "_authorsLower": "tina jung saarland university fabian ritter saarland university sebastian hack saarland university",
@@ -14356,7 +14306,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 3
+          "citationCount": 2
         },
         "_searchBlob": "pico memory safety violations such as buffer overflows are a threat to security to this day. a common solution to ensure memory safety for c is code instrumentation. however this often causes high execution-time overhead and is therefore rarely used in production. static analyses can reduce this overhead by proving some memory accesses in bounds at compile time. in practice however static analyses may fail to verify in-bounds accesses due to over-approximation. therefore it is important to additionally optimize the checks that reside in the program. in this article we present pico an approach to eliminate and replace in-bounds checks. pico exactly captures the spatial memory safety of accesses using presburger formulas to either verify them statically or substitute existing checks with more efficient ones. thereby pico can generate checks of which each covers multiple accesses and place them at infrequently executed locations. we evaluate our llvm-based pico prototype with the well-known softbound instrumentation on spec benchmarks commonly used in related work. pico reduces the execution-time overhead introduced by softbound by 36 on average and the code-size overhead by 24 . our evaluation shows that the impact of substituting checks dominates that of removing provably redundant checks. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 18 issue 4 2021 research-paper tina jung saarland university fabian ritter saarland university sebastian hack saarland university security security",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -14426,9 +14376,9 @@
         ],
         "openalexId": "https://openalex.org/W4200329729",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1109/llvmhpc54804.2021.00008",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15152,9 +15102,9 @@
         ],
         "openalexId": "https://openalex.org/W4293141437",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-01769-8_8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15386,10 +15336,10 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
@@ -16079,15 +16029,15 @@
           "openmp"
         ],
         "id": "openalex-w3008672790",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "supporting openmp 5.0 tasks in hpxmp -- a study of an openmp implementation within task based runtime systems",
         "_authorLower": "tianyi zhang shahrzad shirzad bibek wagle adrian s. lemoine patrick diehl hartmut kaiser",
         "_authorsLower": "tianyi zhang shahrzad shirzad bibek wagle adrian s. lemoine patrick diehl hartmut kaiser",
@@ -16367,7 +16317,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "supporting openmp 5.0 tasks in hpxmp -- a study of an openmp implementation within task based runtime systems openmp has been the de facto standard for single node parallelism for more than a decade. recently asynchronous many-task runtime amt systems have increased in popularity as a new programming paradigm for high performance computing applications. one of the major challenges of this new paradigm is the incompatibility of the openmp thread model and other amts. highly optimized openmp-based libraries do not perform well when coupled with amts because the threading of both libraries will compete for resources. this paper is a follow-up paper on the fundamental implementation of hpxmp an implementation of the openmp standard which utilizes the c++ standard library for parallelism and concurrency hpx to schedule and manage tasks. in this paper we present the implementation of task features e.g. taskgroup task depend and task reduction of the openmp 5.0 standard and optimization of the #pragma omp parallel for pragma. we use the daxpy benchmark the barcelona openmp tasks suite parallel research kernels and openblas benchmarks to compare the different openmp implementations hpxmp llvm-openmp and gomp. arxiv arxiv 2020 research-paper tianyi zhang shahrzad shirzad bibek wagle adrian s. lemoine patrick diehl hartmut kaiser llvm openmp optimizations performance libraries llvm openmp optimizations performance libraries supporting openmp standard parallelism llvm openmp",
         "addedAt": "2026-02-23T18:01:35.000Z",
@@ -16700,10 +16650,10 @@
         "paperUrl": "https://doi.org/10.1109/eurosp48549.2020.00010",
         "tags": [],
         "openalexId": "https://openalex.org/W3097781304",
-        "citationCount": 16,
+        "citationCount": 15,
+        "sourceUrl": "",
         "doi": "10.1109/eurosp48549.2020.00010",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -16713,7 +16663,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 15,
         "_titleLower": "saffire: context-sensitive function specialization against code reuse attacks",
         "_authorLower": "shachee mishra stony brook university michalis polychronakis stony brook university",
         "_authorsLower": "shachee mishra stony brook university michalis polychronakis stony brook university",
@@ -17141,7 +17091,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 16
+          "citationCount": 15
         },
         "_searchBlob": "saffire context-sensitive function specialization against code reuse attacks the sophistication and complexity of recent exploitation techniques which rely on memory disclosure and whole-function reuse to bypass address space layout randomization and control flow integrity is indicative of the effect that the combination of exploit mitigations has in challenging the construction of reliable exploits. in addition to software diversification and control flow enforcement recent efforts have focused on the complementary approach of code and api specialization to restrict further the critical operations that an attacker can perform as part of a code reuse exploit. in this paper we propose sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink saffire sub a compiler-level defense against code reuse attacks. for each calling context of a critical function saffire creates a specialized and hardened replica of the function with a restricted interface that can accommodate only that particular invocation. this is achieved by applying sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink static sub sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink argument sub sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink binding sub to eliminate arguments with static values and concretize them within the function body and sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink dynamic sub sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink argument sub sub xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink binding sub which applies a narrow-scope form of data flow integrity to restrict the acceptable values of arguments that cannot be statically derived. we have implemented saffire on top of llvm and applied it to a set of 11 applications including nginx firefox and chrome. the results of our experimental evaluation with a set of 17 real-world rop exploits and three whole-function reuse exploits demonstrate the effectiveness of saffire in preventing these attacks while incurring a negligible runtime overhead. 2020 ieee european symposium on security and privacy euros and p 2020 ieee european symposium on security and privacy euros and p 2020 research-paper shachee mishra stony brook university michalis polychronakis stony brook university",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17186,8 +17136,8 @@
           }
         ],
         "year": "2020",
-        "publication": "In: 2023 IEEE Security and Privacy Workshops (SPW). (pp. pp. 228-237). IEEE: San Francisco, CA, USA. (2023)",
-        "venue": "In: 2023 IEEE Security and Privacy Workshops (SPW). (pp. pp. 228-237). IEEE: San Francisco, CA, USA. (2023)",
+        "publication": "2023 IEEE Security and Privacy Workshops (SPW)",
+        "venue": "2023 IEEE Security and Privacy Workshops (SPW)",
         "type": "research-paper",
         "abstract": "Software obfuscation plays a crucial role in protecting intellectual property in software from reverse engineering attempts. While some obfuscation techniques originate from the obfuscation-reverse engineering arms race, others stem from different research areas, such as binary software exploitation. Return-oriented programming (ROP) gained popularity as one of the most effective exploitation techniques for memory error vulnerabilities. ROP interferes with our natural perception of a process control flow, inspiring us to repurpose ROP as a robust and effective form of software obfuscation. Although previous work already explores ROP's effectiveness as an obfuscation technique, evolving reverse engineering research raises the need for principled reasoning to understand the strengths and limitations of ROP-based mechanisms against man-at-the-end (MATE) attacks. To this end, we present ROPfuscator, a compiler-driven obfuscation pass based on ROP for any programming language supported by LLVM. We incorporate opaque predicates and constants and a novel instruction hiding technique to withstand sophisticated MATE attacks. More importantly, we introduce a realistic and unified threat model to thoroughly evaluate ROPfuscator and provide principled reasoning on ROP-based obfuscation techniques that answer to code coverage, incurred overhead, correctness, robustness, and practicality challenges.",
         "paperUrl": "https://arxiv.org/pdf/2012.09163",
@@ -17219,10 +17169,10 @@
           "llvm"
         ],
         "id": "openalex-w4362642506",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
@@ -17236,8 +17186,8 @@
         "_keywordsLower": "llvm security programming languages reverse engineering obfuscation ropfuscator robust obfuscation mate attacks principled reasoning",
         "_topicsLower": "llvm security programming languages llvm security programming languages reverse engineering obfuscation ropfuscator robust obfuscation mate attacks principled reasoning llvm",
         "_contentLower": "",
-        "_publicationLower": "in: 2023 ieee security and privacy workshops (spw). (pp. pp. 228-237). ieee: san francisco, ca, usa. (2023)",
-        "_venueLower": "in: 2023 ieee security and privacy workshops (spw). (pp. pp. 228-237). ieee: san francisco, ca, usa. (2023)",
+        "_publicationLower": "2023 ieee security and privacy workshops (spw)",
+        "_venueLower": "2023 ieee security and privacy workshops (spw)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2020",
@@ -17488,47 +17438,27 @@
               "words": []
             },
             "publication": {
-              "text": "in 2023 ieee security and privacy workshops spw . pp. pp. 228-237 . ieee san francisco ca usa. 2023",
+              "text": "2023 ieee security and privacy workshops spw",
               "words": [
-                "in",
                 "2023",
                 "ieee",
                 "security",
                 "and",
                 "privacy",
                 "workshops",
-                "spw",
-                "pp.",
-                "pp.",
-                "228-237",
-                "ieee",
-                "san",
-                "francisco",
-                "ca",
-                "usa.",
-                "2023"
+                "spw"
               ]
             },
             "venue": {
-              "text": "in 2023 ieee security and privacy workshops spw . pp. pp. 228-237 . ieee san francisco ca usa. 2023",
+              "text": "2023 ieee security and privacy workshops spw",
               "words": [
-                "in",
                 "2023",
                 "ieee",
                 "security",
                 "and",
                 "privacy",
                 "workshops",
-                "spw",
-                "pp.",
-                "pp.",
-                "228-237",
-                "ieee",
-                "san",
-                "francisco",
-                "ca",
-                "usa.",
-                "2023"
+                "spw"
               ]
             },
             "year": {
@@ -17541,7 +17471,7 @@
           "year": 2020,
           "citationCount": 0
         },
-        "_searchBlob": "ropfuscator robust obfuscation with rop software obfuscation plays a crucial role in protecting intellectual property in software from reverse engineering attempts. while some obfuscation techniques originate from the obfuscation-reverse engineering arms race others stem from different research areas such as binary software exploitation. return-oriented programming rop gained popularity as one of the most effective exploitation techniques for memory error vulnerabilities. rop interferes with our natural perception of a process control flow inspiring us to repurpose rop as a robust and effective form of software obfuscation. although previous work already explores rops effectiveness as an obfuscation technique evolving reverse engineering research raises the need for principled reasoning to understand the strengths and limitations of rop-based mechanisms against man-at-the-end mate attacks. to this end we present ropfuscator a compiler-driven obfuscation pass based on rop for any programming language supported by llvm. we incorporate opaque predicates and constants and a novel instruction hiding technique to withstand sophisticated mate attacks. more importantly we introduce a realistic and unified threat model to thoroughly evaluate ropfuscator and provide principled reasoning on rop-based obfuscation techniques that answer to code coverage incurred overhead correctness robustness and practicality challenges. in 2023 ieee security and privacy workshops spw . pp. pp. 228-237 . ieee san francisco ca usa. 2023 in 2023 ieee security and privacy workshops spw . pp. pp. 228-237 . ieee san francisco ca usa. 2023 2020 research-paper giulio de pasquale fukutomo nakanishi daniele ferla lorenzo cavallaro llvm security programming languages llvm security programming languages reverse engineering obfuscation ropfuscator robust obfuscation mate attacks principled reasoning llvm",
+        "_searchBlob": "ropfuscator robust obfuscation with rop software obfuscation plays a crucial role in protecting intellectual property in software from reverse engineering attempts. while some obfuscation techniques originate from the obfuscation-reverse engineering arms race others stem from different research areas such as binary software exploitation. return-oriented programming rop gained popularity as one of the most effective exploitation techniques for memory error vulnerabilities. rop interferes with our natural perception of a process control flow inspiring us to repurpose rop as a robust and effective form of software obfuscation. although previous work already explores rops effectiveness as an obfuscation technique evolving reverse engineering research raises the need for principled reasoning to understand the strengths and limitations of rop-based mechanisms against man-at-the-end mate attacks. to this end we present ropfuscator a compiler-driven obfuscation pass based on rop for any programming language supported by llvm. we incorporate opaque predicates and constants and a novel instruction hiding technique to withstand sophisticated mate attacks. more importantly we introduce a realistic and unified threat model to thoroughly evaluate ropfuscator and provide principled reasoning on rop-based obfuscation techniques that answer to code coverage incurred overhead correctness robustness and practicality challenges. 2023 ieee security and privacy workshops spw 2023 ieee security and privacy workshops spw 2020 research-paper giulio de pasquale fukutomo nakanishi daniele ferla lorenzo cavallaro llvm security programming languages llvm security programming languages reverse engineering obfuscation ropfuscator robust obfuscation mate attacks principled reasoning llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
@@ -17602,15 +17532,15 @@
           "clang"
         ],
         "id": "openalex-w3107212594",
-        "citationCount": 4,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 0,
         "_titleLower": "detecting uninitialized variables in c++ with the clang static analyzer",
         "_authorLower": "kristóf umann eötvös loránd university zoltán porkoláb eötvös loránd university",
         "_authorsLower": "kristóf umann eötvös loránd university zoltán porkoláb eötvös loránd university",
@@ -17893,7 +17823,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 4
+          "citationCount": 0
         },
         "_searchBlob": "detecting uninitialized variables in c++ with the clang static analyzer uninitialized variables have been a source of errors since the beginning of software engineering. some programming languages e.g. java and python will automatically zero-initialize such variables but others like c and c++ leave their state undefined. while laying aside initialization in c and c++ might be a performance advantage if an initial value cant be supplied working with such variables is an undefined behavior and is a common source of instabilities and crashes. to avoid such errors whenever meaningful initialization is possible it should be used. tools for detecting these errors run time have existed for decades but those require the problematic code to be executed. since in many cases the number of possible execution paths are combinatoric static analysis techniques emerged as an alternative. in this paper we overview the technique for detecting uninitialized c++ variables using the clang static analyzer and describe various heuristics to guess whether a specific variable was left in an undefined state intentionally. we implemented a prototype tool based on our idea and successfully tested it on large open source projects. acta cybernetica acta cybernetica vol. 25 issue 4 2020 research-paper kristof umann eotvos lorand university zoltan porkolab eotvos lorand university clang static analysis performance programming languages clang static analysis performance programming languages uninitialized variables detecting uninitialized variables errors initialization clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -18353,9 +18283,9 @@
         ],
         "openalexId": "https://openalex.org/W3035997769",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/informatics47936.2019.9119295",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18670,9 +18600,9 @@
         ],
         "openalexId": "https://openalex.org/W2981634702",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/fdl.2019.8876895",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18975,8 +18905,8 @@
           }
         ],
         "year": "2018",
-        "publication": "Труды Института системного программирования РАН, Vol 22, Iss 0 (2018)",
-        "venue": "Труды Института системного программирования РАН, Vol 22, Iss 0 (2018)",
+        "publication": "Труды Института системного программирования РАН",
+        "venue": "Труды Института системного программирования РАН",
         "type": "research-paper",
         "abstract": "We describe the usage of programming language constraints to achieve program security and portability, which are especially important for large projects. The existing collections of such constraints (like MISRA C++, JSF, or HICPP) contain only descriptive natural language rule definitions, which could be possibly ambiguous or incomplete.We propose the formal model for constraints definition, which allows specifying stylistic, syntax and contextual rules. We also give the constraints classification, which splits all constraints into 4 disjoint groups determining the constraint complexity and optimal checking order. To solve the problem of automatic rules checking, we have developed the analyzer based on the C/C++ Clang compiler maintained as a part of the LLVM project. We also describe some specific details of analyzer implementation: basic components overview, the set of specially developed and well-known static analysis algorithms used for constraint violation discovering, rule ordering approach, permanent external storage (SQLite database) usage for intermodule analysis and work with error messages (sorting, history). We also provide analyzer integration with popular build systems so that the source files used in the build process are analyzed automatically.The implemented system is able to check approximately 50 different C and C++ constraints and requires only 20% more time than the regular optimized build.",
         "paperUrl": "https://doaj.org/article/5490f0831af840e6a55c682a83a63358",
@@ -18989,8 +18919,8 @@
         ],
         "openalexId": "https://openalex.org/W4323348933",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -19016,8 +18946,8 @@
         "_keywordsLower": "c++ clang programming languages security static analysis",
         "_topicsLower": "c++ clang programming languages security static analysis c++ clang programming languages security static analysis",
         "_contentLower": "",
-        "_publicationLower": "труды института системного программирования ран, vol 22, iss 0 (2018)",
-        "_venueLower": "труды института системного программирования ран, vol 22, iss 0 (2018)",
+        "_publicationLower": "труды института системного программирования ран",
+        "_venueLower": "труды института системного программирования ран",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2018",
@@ -19288,22 +19218,12 @@
               "words": []
             },
             "publication": {
-              "text": "vol 22 iss 0 2018",
-              "words": [
-                "vol",
-                "22",
-                "iss",
-                "2018"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "vol 22 iss 0 2018",
-              "words": [
-                "vol",
-                "22",
-                "iss",
-                "2018"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2018",
@@ -19315,7 +19235,7 @@
           "year": 2018,
           "citationCount": 0
         },
-        "_searchBlob": "static analysis usage for customizable checks of programming languages semantic constraints we describe the usage of programming language constraints to achieve program security and portability which are especially important for large projects. the existing collections of such constraints like misra c++ jsf or hicpp contain only descriptive natural language rule definitions which could be possibly ambiguous or incomplete.we propose the formal model for constraints definition which allows specifying stylistic syntax and contextual rules. we also give the constraints classification which splits all constraints into 4 disjoint groups determining the constraint complexity and optimal checking order. to solve the problem of automatic rules checking we have developed the analyzer based on the c c++ clang compiler maintained as a part of the llvm project. we also describe some specific details of analyzer implementation basic components overview the set of specially developed and well-known static analysis algorithms used for constraint violation discovering rule ordering approach permanent external storage sqlite database usage for intermodule analysis and work with error messages sorting history . we also provide analyzer integration with popular build systems so that the source files used in the build process are analyzed automatically.the implemented system is able to check approximately 50 different c and c++ constraints and requires only 20 more time than the regular optimized build. vol 22 iss 0 2018 vol 22 iss 0 2018 2018 research-paper v. n. ignatyev institute for system programming c++ clang programming languages security static analysis c++ clang programming languages security static analysis",
+        "_searchBlob": "static analysis usage for customizable checks of programming languages semantic constraints we describe the usage of programming language constraints to achieve program security and portability which are especially important for large projects. the existing collections of such constraints like misra c++ jsf or hicpp contain only descriptive natural language rule definitions which could be possibly ambiguous or incomplete.we propose the formal model for constraints definition which allows specifying stylistic syntax and contextual rules. we also give the constraints classification which splits all constraints into 4 disjoint groups determining the constraint complexity and optimal checking order. to solve the problem of automatic rules checking we have developed the analyzer based on the c c++ clang compiler maintained as a part of the llvm project. we also describe some specific details of analyzer implementation basic components overview the set of specially developed and well-known static analysis algorithms used for constraint violation discovering rule ordering approach permanent external storage sqlite database usage for intermodule analysis and work with error messages sorting history . we also provide analyzer integration with popular build systems so that the source files used in the build process are analyzed automatically.the implemented system is able to check approximately 50 different c and c++ constraints and requires only 20 more time than the regular optimized build. 2018 research-paper v. n. ignatyev institute for system programming c++ clang programming languages security static analysis c++ clang programming languages security static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -19811,9 +19731,9 @@
         ],
         "openalexId": "https://openalex.org/W2898326323",
         "citationCount": 40,
+        "sourceUrl": "",
         "doi": "10.1145/3274694.3274739",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22655,9 +22575,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2897024396",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/s11554-018-0830-8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23073,15 +22993,15 @@
           "llvm"
         ],
         "id": "openalex-w4289752579",
-        "citationCount": 4,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 0,
         "_titleLower": "bolt: a practical binary optimizer for data centers and beyond",
         "_authorLower": "maksim panchenko rafael auler bill nell guilherme ottoni",
         "_authorsLower": "maksim panchenko rafael auler bill nell guilherme ottoni",
@@ -23402,7 +23322,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 4
+          "citationCount": 0
         },
         "_searchBlob": "bolt a practical binary optimizer for data centers and beyond performance optimization for large-scale applications has recently become more important as computation continues to move towards data centers. data-center applications are generally very large and complex which makes code layout an important optimization to improve their performance. this has motivated recent investigation of practical techniques to improve code layout at both compile time and link time. although post-link optimizers had some success in the past no recent work has explored their benefits in the context of modern data-center applications. in this paper we present bolt a post-link optimizer built on top of the llvm framework. utilizing sample-based profiling bolt boosts the performance of real-world applications even for highly optimized binaries built with both feedback-driven optimizations fdo and link-time optimizations lto . we demonstrate that post-link performance improvements are complementary to conventional compiler optimizations even when the latter are done at a whole-program level and in the presence of profile information. we evaluated bolt on both facebook data-center workloads and open-source compilers. for data-center applications bolt achieves up to 8.0 performance speedups on top of profile-guided function reordering and lto. for the gcc and clang compilers our evaluation shows that bolt speeds up their binaries by up to 20.4 on top of fdo and lto and up to 52.1 if the binaries are built without fdo and lto. arxiv arxiv 2018 research-paper maksim panchenko rafael auler bill nell guilherme ottoni llvm clang bolt optimizations lto performance llvm clang bolt optimizations lto performance link-time optimization post link binaries binary optimizer bolt clang llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -23460,9 +23380,9 @@
         ],
         "openalexId": "https://openalex.org/W2937710140",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1109/iicspi.2018.8690342",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23788,9 +23708,9 @@
         ],
         "openalexId": "https://openalex.org/W2761485157",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/nvmsa.2017.8064469",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24047,9 +23967,9 @@
         ],
         "openalexId": "https://openalex.org/W2576158840",
         "citationCount": 19,
+        "sourceUrl": "",
         "doi": "10.1109/apccas.2016.7804063",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24347,10 +24267,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2562864702",
-        "citationCount": 17,
+        "citationCount": 16,
+        "sourceUrl": "",
         "doi": "10.1007/s10586-016-0707-1",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -24362,7 +24282,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 16,
         "_titleLower": "predicting hpc parallel program performance based on llvm compiler",
         "_authorLower": "weizhe zhang harbin institute of technology meng hao harbin institute of technology marc snir university of illinois urbana-champaign",
         "_authorsLower": "weizhe zhang harbin institute of technology meng hao harbin institute of technology marc snir university of illinois urbana-champaign",
@@ -24713,7 +24633,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 17
+          "citationCount": 16
         },
         "_searchBlob": "predicting hpc parallel program performance based on llvm compiler performance prediction of parallel program plays key roles in many areas such as parallel system design parallel program optimization and parallel system procurement. accurate and efficient performance prediction on large-scale parallel systems is a challenging problem. to solve this problem we present an effective framework for performance prediction based on the llvm compiler technique in this paper. we can predict the performance of a parallel program on a small amount of nodes of the target parallel system using this framework toned but not execute this parallel program on a corresponding full-scale parallel system. this framework predicts the performance of computation and communication components separately and combines the two predictions to achieve full program prediction. as for sequential computation we first combine the static branch probability and loop trip count identification and propose a new instrumentation method to acquire the number of each instruction type. we then construct a test program to measure the average execution time of each instruction type. finally we utilize the pruning technique to convert a parallel program into a corresponding sequential program to predict the performance on only one node of the target parallel system. as for communication we utilize the loggp model to model point-to-point communication and the artificial neural network technique to model collective communication. we validate our approach by a set of experiments that predict the performance of nas parallel benchmarks and cgpop parallel application. experimental results show that the proposed framework can accurately predict the execution time of parallel programs and the average error rate of these programs is 10.86 . cluster computing cluster computing vol. 20 issue 2 2016 research-paper weizhe zhang harbin institute of technology meng hao harbin institute of technology marc snir university of illinois urbana-champaign performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -25162,12 +25082,12 @@
         "sourceName": "LLVM Publications",
         "publication": "2015 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)",
         "openalexId": "https://openalex.org/W4240590466",
-        "doi": "10.1109/cgo.2015.7054186",
-        "citationCount": 84,
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1109/cgo.2015.7054186",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "C++"
         ],
@@ -25177,7 +25097,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 84,
+        "_citationCount": 0,
         "_titleLower": "memorysanitizer: fast detector of uninitialized memory use in c++",
         "_authorLower": "evgeniy stepanov google konstantin serebryany google",
         "_authorsLower": "evgeniy stepanov google konstantin serebryany google",
@@ -25416,7 +25336,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 84
+          "citationCount": 0
         },
         "_searchBlob": "memorysanitizer fast detector of uninitialized memory use in c++ this paper presents memorysanitizer a dynamic tool that detects uses of uninitialized memory in c and c++. the tool is based on compile time instrumentation and relies on bit-precise shadow memory at run-time. shadow propagation technique is used to avoid false positive reports on copying of uninitialized memory. memorysanitizer finds bugs at a modest cost of 2.5 in execution time and 2 in memory usage the tool has an optional origin tracking mode that provides better reports with moderate extra overhead. the reports with origins are more detailed compared to reports from other similar tools such reports contain names of local variables and the entire history of the uninitialized memory including intermediate stores. in this paper we share our experience in deploying the tool at a large scale and demonstrate the benefits of compile-time instrumentation over dynamic binary instrumentation. 2015 ieee acm international symposium on code generation and optimization cgo 2015 ieee acm international symposium on code generation and optimization cgo 2015 research-paper evgeniy stepanov google konstantin serebryany google c++ c++",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -25895,15 +25815,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "Appendix 最低限の工作で済ませる BeagleBone Blackに安価なJTAGデバッガをつなぐ準備 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新GCC&LLVM初体験) -- (新時代コンパイラLLVMを定番ボードBeagleBone Blackで試す)",
-        "authors": [
-          {
-            "name": "和夫 村井",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2015",
         "publication": "インターフェース = Interface",
         "venue": "インターフェース = Interface | Vol. 41 (Issue 3)",
@@ -25913,8 +25825,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W419166539",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -25927,8 +25839,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "appendix 最低限の工作で済ませる beaglebone blackに安価なjtagデバッガをつなぐ準備 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新gcc&llvm初体験) -- (新時代コンパイラllvmを定番ボードbeaglebone blackで試す)",
-        "_authorLower": "和夫 村井",
-        "_authorsLower": "和夫 村井",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "https://cir.nii.ac.jp/crid/1521417755376518400",
         "_tagsLower": "",
         "_keywordsLower": "",
@@ -27640,22 +27552,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "A-3-16 LLVMバックエンド用テストプログラムのテンプレート記述(A-3.VLSI設計技術,一般セッション)",
-        "authors": [
-          {
-            "name": "大輔 藤原",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "菜岐佐 石浦",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2014",
         "publication": "電子情報通信学会ソサイエティ大会講演論文集",
         "venue": "電子情報通信学会ソサイエティ大会講演論文集 | Vol. 2014",
@@ -27665,8 +27562,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W356528283",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -27679,8 +27576,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "a-3-16 llvmバックエンド用テストプログラムのテンプレート記述(a-3.vlsi設計技術,一般セッション)",
-        "_authorLower": "大輔 藤原 菜岐佐 石浦",
-        "_authorsLower": "大輔 藤原 菜岐佐 石浦",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "https://cir.nii.ac.jp/crid/1571417127807139712",
         "_tagsLower": "",
         "_keywordsLower": "",
@@ -27792,9 +27689,9 @@
         ],
         "openalexId": "https://openalex.org/W2012630996",
         "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1145/2458523.2458525",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -28036,15 +27933,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "Machine-specific optimization methods for C/C++ applications that are distributed in the LLVM intermediate representation format",
-        "authors": [
-          {
-            "name": "Ш. Ф. Курмангалеев",
-            "affiliation": "Institute for System Programming",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2013",
         "publication": "Proceedings of the Institute for System Programming of the RAS",
         "venue": "Proceedings of the Institute for System Programming of the RAS | Vol. 24",
@@ -28076,8 +27965,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 3,
         "_titleLower": "machine-specific optimization methods for c/c++ applications that are distributed in the llvm intermediate representation format",
-        "_authorLower": "ш. ф. курмангалеев institute for system programming",
-        "_authorsLower": "ш. ф. курмангалеев institute for system programming",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "this paper analyzes approaches for optimizing c/c++ applications used in twostage compilation system, allowing distributing such applications in the llvm (low level virtual machine) intermediate representation. the on-stack replacement technique implemented in the llvm just-in-time compiler is described. the paper presents a static instrumentation technique with incomplete control flow edge covering and its correction to the full control flow profile. the proposed approach allows the derived profile information to be comparable in quality to the classical approach while significantly reducing the profiling overhead. also, the technique for converting dynamically collected profile to llvm profile format for statically compiled applications is presented. this paper evaluates both existing optimizations modified for using the collected profile and the newly developed ones. implemented profile based inlining, outlining, speculative devirtualization. also implemented annotation of control flow graph by profile weights to make profile based optimizations easy for debugging. proposed the technique which allows using the prefetch instructions to improve the effectiveness of array processing codes. this paper describes the approach for building a specific cloud application storage that allows solving program optimization and protection problems. finally, we present the approach for reducing compilation and optimization overhead in the cloud infrastructure.",
         "_tagsLower": "c++ infrastructure optimizations",
         "_keywordsLower": "c++ infrastructure optimizations",
@@ -28112,13 +28001,8 @@
               ]
             },
             "authors": {
-              "text": ". . institute for system programming",
-              "words": [
-                "institute",
-                "for",
-                "system",
-                "programming"
-              ]
+              "text": "",
+              "words": []
             },
             "topics": {
               "text": "c++ infrastructure optimizations c++ infrastructure optimizations",
@@ -28382,7 +28266,7 @@
           "year": 2013,
           "citationCount": 3
         },
-        "_searchBlob": "machine-specific optimization methods for c c++ applications that are distributed in the llvm intermediate representation format this paper analyzes approaches for optimizing c c++ applications used in twostage compilation system allowing distributing such applications in the llvm low level virtual machine intermediate representation. the on-stack replacement technique implemented in the llvm just-in-time compiler is described. the paper presents a static instrumentation technique with incomplete control flow edge covering and its correction to the full control flow profile. the proposed approach allows the derived profile information to be comparable in quality to the classical approach while significantly reducing the profiling overhead. also the technique for converting dynamically collected profile to llvm profile format for statically compiled applications is presented. this paper evaluates both existing optimizations modified for using the collected profile and the newly developed ones. implemented profile based inlining outlining speculative devirtualization. also implemented annotation of control flow graph by profile weights to make profile based optimizations easy for debugging. proposed the technique which allows using the prefetch instructions to improve the effectiveness of array processing codes. this paper describes the approach for building a specific cloud application storage that allows solving program optimization and protection problems. finally we present the approach for reducing compilation and optimization overhead in the cloud infrastructure. proceedings of the institute for system programming of the ras proceedings of the institute for system programming of the ras vol. 24 2013 research-paper . . institute for system programming c++ infrastructure optimizations c++ infrastructure optimizations",
+        "_searchBlob": "machine-specific optimization methods for c c++ applications that are distributed in the llvm intermediate representation format this paper analyzes approaches for optimizing c c++ applications used in twostage compilation system allowing distributing such applications in the llvm low level virtual machine intermediate representation. the on-stack replacement technique implemented in the llvm just-in-time compiler is described. the paper presents a static instrumentation technique with incomplete control flow edge covering and its correction to the full control flow profile. the proposed approach allows the derived profile information to be comparable in quality to the classical approach while significantly reducing the profiling overhead. also the technique for converting dynamically collected profile to llvm profile format for statically compiled applications is presented. this paper evaluates both existing optimizations modified for using the collected profile and the newly developed ones. implemented profile based inlining outlining speculative devirtualization. also implemented annotation of control flow graph by profile weights to make profile based optimizations easy for debugging. proposed the technique which allows using the prefetch instructions to improve the effectiveness of array processing codes. this paper describes the approach for building a specific cloud application storage that allows solving program optimization and protection problems. finally we present the approach for reducing compilation and optimization overhead in the cloud infrastructure. proceedings of the institute for system programming of the ras proceedings of the institute for system programming of the ras vol. 24 2013 research-paper c++ infrastructure optimizations c++ infrastructure optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -28992,8 +28876,8 @@
         "tags": [],
         "sourceName": "LLVM Publications",
         "publication": "Principles and Practices of Parallel Programming (PPoPP)",
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "citationCount": 0,
@@ -29523,8 +29407,8 @@
         ],
         "openalexId": "https://openalex.org/W2472980127",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -30014,8 +29898,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W12121177",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -30241,9 +30125,9 @@
         ],
         "openalexId": "https://openalex.org/W4241352414",
         "citationCount": 55,
+        "sourceUrl": "",
         "doi": "10.1145/1926385.1926389",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -30581,9 +30465,9 @@
         ],
         "openalexId": "https://openalex.org/W2014107911",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1145/2036918.2036929",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [

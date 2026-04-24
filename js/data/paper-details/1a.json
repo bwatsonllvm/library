@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7127883925": {
@@ -61,9 +61,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W7127883925",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1016/j.peva.2026.102543",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -810,9 +810,9 @@
         ],
         "openalexId": "https://openalex.org/W4417452058",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1117/12.3094136",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1426,15 +1426,15 @@
           "openmp"
         ],
         "id": "openalex-w4415353511",
-        "citationCount": 9,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 0,
         "_titleLower": "petsc/tao users manual revision 3.24",
         "_authorLower": "s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory václav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california, san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory josé e. román universitat politècnica de valència karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee‐won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory",
         "_authorsLower": "s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory václav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california, san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory josé e. román universitat politècnica de valència karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee‐won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory",
@@ -2383,7 +2383,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 9
+          "citationCount": 0
         },
         "_searchBlob": "petsc tao users manual revision 3.24 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations pdes and related problems on high-performance computers.petsc tao is a suite of data structures and routines that provide the building blocks for implementing large-scale application codes on parallel and serial computers.petsc uses the mpi standard for all distributed memory communication.petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and optimizers that may be used in application codes written in fortran c c++ and python via petsc4py see getting started .the library is organized hierarchically enabling users to employ the abstraction level most appropriate for a particular problem.by using techniques of object-oriented programming petsc provides enormous flexibility for users.petsc is a sophisticated set of software tools it initially has a steeper learning curve than packages such as matlab or a simple subroutine library.in particular for individuals without some experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use.however the power of the petsc design and the algorithms it incorporates makes the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. several packages listed on https petsc.org built on petsc may satisfy your needs without requiring directly using petsc.we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code.this approach can provide modest improvements in the application time by utilizing modest numbers of mpi processes.see pcmpi for details on how to utilize the petsc mpi linear solver server.since petsc is under continued development small changes in usage and calling sequences of routines will occur.petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support.petsc tao users manual release 3.24.0dm interfacing between solvers and models discretizations details how a users models and discretizations can easily be interfaced with the solvers by using the dm construct.additional information describes a variety of useful information including profiling the options database viewers error handling and some details of petsc design.visual studio code eclipse emacs and vim users may find their development environments options for searching in the source code are useful for exploring the petsc source code.details of this feature are provided in developer environments.note to fortran programmers in most of the manual the examples and calling sequences are given for the c c++ family of programming languages.however fortran programmers can use all of the functionality of petsc from fortran with only minor differences in the user interface.petsc for fortran users provides a discussion of the differences between using petsc from fortran and c as well as several complete fortran examples. note to python programmers to program with petsc in python you need to enable python bindings i.e.petsc4py with the configure option --with-petsc4py 1.see the petsc installation guide for more details. mpiexec -n 8 . petsc program namepetsc optionspetsc also provides a script that automatically uses the correct mpiexec for your configuration. petsc dir lib petsc bin petscmpiexec -n 8 . petsc program namepetsc options certain options are supported by all petsc programs.we list a few particularly useful ones below a complete list can be obtained by running any petsc program with the option -help. -log view -summarize the programs performance see profiling -fp trap -stop on floating-point exceptions for example divide by zero -malloc dump -enable memory tracing dump list of unfreed memory at conclusion of the run see detecting memory allocation problems and memory usage argonne national laboratory anl argonne il united states argonne national laboratory anl argonne il united states 2025 research-paper s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcin king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory vaclav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory jose e. roman universitat politecnica de valencia karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory lldb openmp optimizations performance programming languages lldb openmp optimizations performance programming languages fortran petsc tao users memory python tao users manual petsc program namepetsc mpi options solvers lldb openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -2436,8 +2436,8 @@
           }
         ],
         "year": "2025",
-        "publication": "2025 IEEE/ACM 47th International Conference on Software Engineering:Software Engineering in Practice (ICSE-SEIP)",
-        "venue": "2025 IEEE/ACM 47th International Conference on Software Engineering:Software Engineering in Practice (ICSE-SEIP)",
+        "publication": "2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)",
+        "venue": "2025 IEEE/ACM 47th International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)",
         "type": "research-paper",
         "abstract": "The emergence of Deep Learning compilers provides automated optimization and compilation across Deep Learning frameworks and hardware platforms, which enhances the performance of AI service and benefits the deployment to edge devices and low-power processors. However, deep neural network (DNN) programs generated by Deep Learning compilers introduce a new attack interface. They are targeted by new model extraction attacks that can fully or partially rebuild the DNN model by reversing the DNN programs. Unfortunately, no defense countermeasure is designed to hinder this kind of attack. To address the issue, we investigate all of the state-of-the-art reversing-based model extraction attacks and identify an essential component shared across the frameworks. Based on this observation, we propose FlatD, the first defense framework for DNN programs toward reversing-based model extraction attacks. FlatD manipulates and conceals the original Control Flow Graphs of DNN programs based on Control Flow Flattening. Unlike traditional Control Flow Flattening, FlatD ensures the DNN programs are challenging for attackers to recover their Control Flow Graphs and gain necessary information statically. Our evaluation shows that, compared to the traditional Control Flow Flattening (O-LLVM), FlatD provides more effective and stealthy protection to DNN programs with similar performance and lower scale.",
         "paperUrl": "https://doi.org/10.1109/icse-seip66354.2025.00062",
@@ -2447,9 +2447,9 @@
         ],
         "openalexId": "https://openalex.org/W4413349718",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icse-seip66354.2025.00062",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2471,8 +2471,8 @@
         "_keywordsLower": "ai performance",
         "_topicsLower": "ai performance ai performance",
         "_contentLower": "",
-        "_publicationLower": "2025 ieee/acm 47th international conference on software engineering:software engineering in practice (icse-seip)",
-        "_venueLower": "2025 ieee/acm 47th international conference on software engineering:software engineering in practice (icse-seip)",
+        "_publicationLower": "2025 ieee/acm 47th international conference on software engineering: software engineering in practice (icse-seip)",
+        "_venueLower": "2025 ieee/acm 47th international conference on software engineering: software engineering in practice (icse-seip)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2025",
@@ -2882,16 +2882,16 @@
           "mlir"
         ],
         "id": "openalex-w4411260257",
-        "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "first-class verification dialects for mlir",
         "_authorLower": "mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac université grenoble alpes john regehr university of utah tobias grosser university of cambridge",
         "_authorsLower": "mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac université grenoble alpes john regehr university of utah tobias grosser university of cambridge",
@@ -3316,7 +3316,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "first-class verification dialects for mlir mlir is a toolkit supporting the development of extensible and composable intermediate representations irs called dialects it was created in response to rapid changes in hardware platforms programming languages and application domains such as machine learning. mlir supports development teams creating compilers and compiler-adjacent tools by factoring out common infrastructure such as parsers and printers. a major limitation of mlir is that it is syntax-focused it has no support for directly encoding the semantics of operations in its dialects. thus at present the parts of mlir tools that depend on semantics optimizers analyzers verifiers transformers must all be engineered by hand. our work makes formal semantics a first-class citizen in the mlir ecosystem. we designed and implemented a collection of semantics-supporting mlir dialects for encoding the semantics of compiler irs. these dialects support a separation of concerns between three domains of expertise when building formal-methods-based tooling for compilers. first compiler developers define their dialects semantics as a lowering compilation transformation from their dialect to one or more of ours. second smt solver experts provide tools to optimize domain-specific high-level semantics and lower them to smt queries. third tool builders create dialect-independent verification tools. we validate our work by defining semantics for five key mlir dialects defining a state-of-the-art smt encoding for memory-based semantics and building three dialect-agnostic tools which we used to find five miscompilation bugs in upstream mlir verify a canonicalization pass and also formally verify transfer functions for two dataflow analyses known bits that finds individual bits that are always zero or one in all executions and demanded bits that finds dont-care bits . the transfer functions that we verify are improved versions of those in upstream mlir they detect on average 36.6 more known bits in real-world mlir programs compared to the upstream implementation. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 9 issue pldi 2025 research-paper mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac universite grenoble alpes john regehr university of utah tobias grosser university of cambridge mlir ir infrastructure ml programming languages mlir infrastructure programming languages intermediate representation semantics mlir dialects upstream mlir verify known bits class verification dialects mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3379,9 +3379,9 @@
         ],
         "openalexId": "https://openalex.org/W4414585315",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-032-06343-4_10",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3596,10 +3596,10 @@
           "mlir"
         ],
         "id": "openalex-w4417143970",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -4032,10 +4032,10 @@
           "clang"
         ],
         "id": "openalex-w4417515759",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -4308,15 +4308,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "scaling symbolic execution to large software systems",
         "_authorLower": "gábor horváth réka kovács zoltán porkoláb",
         "_authorsLower": "gábor horváth réka kovács zoltán porkoláb",
@@ -4650,7 +4650,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "scaling symbolic execution to large software systems static analysis is the analysis of a program without executing it usually carried out by an automated tool. symbolic execution is a popular static analysis technique used both in program verification and in bug detection software. it works by interpreting the code introducing a symbol for each value unknown at compile time e.g. user-given inputs and carrying out calculations symbolically. the analysis engine strives to explore multiple execution paths simultaneously although checking all paths is an intractable problem due to the vast number of possibilities. we focus on an error finding framework called the clang static analyzer and the infrastructure built around it named codechecker. the emphasis is on achieving end-to-end scalability. this includes the run time and memory consumption of the analysis bug presentation to the users automatic false positive suppression incremental analysis pattern discovery in the results and usage in continuous integration loops. we also outline future directions and open problems concerning these tools. while a rich literature exists on program verification software error finding tools normally need to settle for survey papers on individual techniques. in this paper we not only discuss individual methods but also how these decisions interact and reinforce each other creating a system that is greater than the sum of its parts. although the clang static analyzer can only handle c-family languages the techniques introduced in this paper are mostly language-independent and applicable to other similar static analysis tools. arxiv arxiv 2024 research-paper gabor horvath reka kovacs zoltan porkolab clang static analysis dynamic analysis infrastructure clang static analysis dynamic analysis infrastructure symbolic execution scaling symbolic execution error finding program verification clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4711,9 +4711,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4402536916",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-72322-3_4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -4894,8 +4894,8 @@
           }
         ],
         "year": "2024",
-        "publication": "MILCOM 2024 - 2024 IEEE Military Communications Conference (MILCOM)",
-        "venue": "MILCOM 2024 - 2024 IEEE Military Communications Conference (MILCOM)",
+        "publication": "2024 IEEE Military Communications Conference (MILCOM)",
+        "venue": "2024 IEEE Military Communications Conference (MILCOM)",
         "type": "research-paper",
         "abstract": "Software vulnerabilities, caused by unintentional flaws in source code, are a primary root cause of cyberattacks. Static analysis of source code has been widely used to detect these unintentional defects introduced by software developers. Large Language Models (LLMs) have demonstrated human-like conversational abilities due to their capacity to capture complex patterns in sequential data, such as natural languages. In this paper, we harness LLMs’ capabilities to analyze source code and detect known vulnerabilities. To ensure the proposed vulnerability detection method is universal across multiple programming languages, we convert source code to LLVM IR and train LLMs on these intermediate representations. We conduct extensive experiments on various LLM architectures and compare their accuracy. Our comprehensive experiments on real-world and synthetic codes from NVD and SARD demonstrate high accuracy in identifying source code vulnerabilities.",
         "paperUrl": "https://doi.org/10.1109/milcom61039.2024.10774025",
@@ -4905,10 +4905,10 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W4405103986",
-        "citationCount": 14,
+        "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1109/milcom61039.2024.10774025",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4922,7 +4922,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 12,
         "_titleLower": "harnessing the power of llms in source code vulnerability detection",
         "_authorLower": "andrew a. mahyari",
         "_authorsLower": "andrew a. mahyari",
@@ -4931,8 +4931,8 @@
         "_keywordsLower": "ir programming languages static analysis",
         "_topicsLower": "ir programming languages static analysis ir programming languages static analysis",
         "_contentLower": "",
-        "_publicationLower": "milcom 2024 - 2024 ieee military communications conference (milcom)",
-        "_venueLower": "milcom 2024 - 2024 ieee military communications conference (milcom)",
+        "_publicationLower": "2024 ieee military communications conference (milcom)",
+        "_venueLower": "2024 ieee military communications conference (milcom)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -5125,10 +5125,8 @@
               "words": []
             },
             "publication": {
-              "text": "milcom 2024 - 2024 ieee military communications conference milcom",
+              "text": "2024 ieee military communications conference milcom",
               "words": [
-                "milcom",
-                "2024",
                 "2024",
                 "ieee",
                 "military",
@@ -5138,10 +5136,8 @@
               ]
             },
             "venue": {
-              "text": "milcom 2024 - 2024 ieee military communications conference milcom",
+              "text": "2024 ieee military communications conference milcom",
               "words": [
-                "milcom",
-                "2024",
                 "2024",
                 "ieee",
                 "military",
@@ -5158,9 +5154,9 @@
             }
           },
           "year": 2024,
-          "citationCount": 14
+          "citationCount": 12
         },
-        "_searchBlob": "harnessing the power of llms in source code vulnerability detection software vulnerabilities caused by unintentional flaws in source code are a primary root cause of cyberattacks. static analysis of source code has been widely used to detect these unintentional defects introduced by software developers. large language models llms have demonstrated human-like conversational abilities due to their capacity to capture complex patterns in sequential data such as natural languages. in this paper we harness llms capabilities to analyze source code and detect known vulnerabilities. to ensure the proposed vulnerability detection method is universal across multiple programming languages we convert source code to llvm ir and train llms on these intermediate representations. we conduct extensive experiments on various llm architectures and compare their accuracy. our comprehensive experiments on real-world and synthetic codes from nvd and sard demonstrate high accuracy in identifying source code vulnerabilities. milcom 2024 - 2024 ieee military communications conference milcom milcom 2024 - 2024 ieee military communications conference milcom 2024 research-paper andrew a. mahyari ir programming languages static analysis ir programming languages static analysis",
+        "_searchBlob": "harnessing the power of llms in source code vulnerability detection software vulnerabilities caused by unintentional flaws in source code are a primary root cause of cyberattacks. static analysis of source code has been widely used to detect these unintentional defects introduced by software developers. large language models llms have demonstrated human-like conversational abilities due to their capacity to capture complex patterns in sequential data such as natural languages. in this paper we harness llms capabilities to analyze source code and detect known vulnerabilities. to ensure the proposed vulnerability detection method is universal across multiple programming languages we convert source code to llvm ir and train llms on these intermediate representations. we conduct extensive experiments on various llm architectures and compare their accuracy. our comprehensive experiments on real-world and synthetic codes from nvd and sard demonstrate high accuracy in identifying source code vulnerabilities. 2024 ieee military communications conference milcom 2024 ieee military communications conference milcom 2024 research-paper andrew a. mahyari ir programming languages static analysis ir programming languages static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -5199,10 +5195,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4401455319",
-        "citationCount": 2,
+        "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3677333.3678150",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5214,7 +5210,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "evaluating and enhancing performance through macro-op fusion optimization with risc-v",
         "_authorLower": "jian-yu shen national taiwan university shih-wei liao national taiwan university",
         "_authorsLower": "jian-yu shen national taiwan university shih-wei liao national taiwan university",
@@ -5473,7 +5469,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "evaluating and enhancing performance through macro-op fusion optimization with risc-v risc-v renowned for its simplicity and extensibility has garnered significant attention in the realm of high-performance processor construction. however its streamlined design necessitates more instructions for tasks compared to established isas like armv8 and x86 resulting in increased code size and dynamic instruction counts. to mitigate this drawback various risc-v extensions have been proposed yet performance gaps persist when compared to mature isas. in this paper we address this challenge by leveraging the technique of macro-op fusion a proven method in modern processors for enhancing instruction throughput and resource utilization. by fusing compatible instructions into larger more complex macro-ops processors can exploit parallelism more effectively thereby improving overall performance. we present an optimization approach targeting instruction scheduling and register allocation within llvm coupled with a novel evaluation framework to assess the efficacy of our modifications. through this endeavor we aim to bridge the performance disparity between risc-v and established isas unlocking greater potential for risc-v-based high-performance processors. the 53rd international conference on parallel processing workshops the 53rd international conference on parallel processing workshops 2024 research-paper jian-yu shen national taiwan university shih-wei liao national taiwan university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -5510,9 +5506,9 @@
         ],
         "openalexId": "https://openalex.org/W4409079551",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.32657/10356/182903",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6090,10 +6086,10 @@
           "runtimes"
         ],
         "id": "openalex-w4402634849",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -6300,10 +6296,10 @@
           "offload"
         ],
         "id": "openalex-w4406157742",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -6719,8 +6715,8 @@
           }
         ],
         "year": "2024",
-        "publication": "https://doi.org/10.1051/epjconf/202429511003",
-        "venue": "https://doi.org/10.1051/epjconf/202429511003",
+        "publication": "",
+        "venue": "",
         "type": "research-paper",
         "abstract": "Next generation High-Energy Physics (HEP) experiments are presented with significant computational challenges, both in terms of data volume and processing power. Using compute accelerators, such as GPUs, is one of the promising ways to provide the necessary computational power to meet the challenge. The current programming models for compute accelerators often involve using architecture-specific programming languages promoted by the hardware vendors and hence limit the set of platforms that the code can run on. Developing software with platform restrictions is especially unfeasible for HEP communities as it takes significant effort to convert typical HEP algorithms into ones that are efficient for compute accelerators. Multiple performance portability solutions have recently emerged and provide an alternative path for using compute accelerators, which allow the code to be executed on hardware from different vendors. We apply several portability solutions, such as Kokkos, SYCL, C++17 std::execution::par and Alpaka, on two mini-apps extracted from the mkFit project: p2z and p2r. These apps include basic kernels for a Kalman filter track fit, such as propagation and update of track parameters, for detectors at a fixed z or fixed r position, respectively. The two mini-apps explore different memory layout formats. We report on the development experience with different portability solutions, as well as their performance on GPUs and many-core CPUs, measured as the throughput of the kernels from different GPU and CPU vendors such as NVIDIA, AMD and Intel.",
         "paperUrl": "https://arxiv.org/pdf/2401.14221",
@@ -6751,10 +6747,10 @@
         "matchedSubprojects": [
           "libsycl"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -6768,8 +6764,8 @@
         "_keywordsLower": "performance gpu programming languages performance portability solutions compute accelerators two mini apps track reconstruction kernels core cpus vendors hardware",
         "_topicsLower": "performance gpu programming languages performance gpu programming languages performance portability solutions compute accelerators two mini apps track reconstruction kernels core cpus vendors hardware libsycl",
         "_contentLower": "",
-        "_publicationLower": "https://doi.org/10.1051/epjconf/202429511003",
-        "_venueLower": "https://doi.org/10.1051/epjconf/202429511003",
+        "_publicationLower": "",
+        "_venueLower": "",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2024",
@@ -7157,24 +7153,12 @@
               "words": []
             },
             "publication": {
-              "text": "https doi.org 10.1051 epjconf 202429511003",
-              "words": [
-                "https",
-                "doi.org",
-                "10.1051",
-                "epjconf",
-                "202429511003"
-              ]
+              "text": "",
+              "words": []
             },
             "venue": {
-              "text": "https doi.org 10.1051 epjconf 202429511003",
-              "words": [
-                "https",
-                "doi.org",
-                "10.1051",
-                "epjconf",
-                "202429511003"
-              ]
+              "text": "",
+              "words": []
             },
             "year": {
               "text": "2024",
@@ -7186,7 +7170,7 @@
           "year": 2024,
           "citationCount": 0
         },
-        "_searchBlob": "application of performance portability solutions for gpus and many-core cpus to track reconstruction kernels next generation high-energy physics hep experiments are presented with significant computational challenges both in terms of data volume and processing power. using compute accelerators such as gpus is one of the promising ways to provide the necessary computational power to meet the challenge. the current programming models for compute accelerators often involve using architecture-specific programming languages promoted by the hardware vendors and hence limit the set of platforms that the code can run on. developing software with platform restrictions is especially unfeasible for hep communities as it takes significant effort to convert typical hep algorithms into ones that are efficient for compute accelerators. multiple performance portability solutions have recently emerged and provide an alternative path for using compute accelerators which allow the code to be executed on hardware from different vendors. we apply several portability solutions such as kokkos sycl c++17 std execution par and alpaka on two mini-apps extracted from the mkfit project p2z and p2r. these apps include basic kernels for a kalman filter track fit such as propagation and update of track parameters for detectors at a fixed z or fixed r position respectively. the two mini-apps explore different memory layout formats. we report on the development experience with different portability solutions as well as their performance on gpus and many-core cpus measured as the throughput of the kernels from different gpu and cpu vendors such as nvidia amd and intel. https doi.org 10.1051 epjconf 202429511003 https doi.org 10.1051 epjconf 202429511003 2024 research-paper k. h. m. kwok fermi national accelerator laboratory m. j. kortelainen fermi national accelerator laboratory g. b. cerati fermi national accelerator laboratory alexei strelchenko fermi national accelerator laboratory o. gutsche fermi national accelerator laboratory allison reinsvold hall united states naval academy s. lantz cornell university m. reid cornell university daniel riley cornell university s. berkman fermi national accelerator laboratory seyong lee oak ridge associated universities hammad ather university of oregon boyana norris university of oregon cong wang fermi national accelerator laboratory performance gpu programming languages performance gpu programming languages performance portability solutions compute accelerators two mini apps track reconstruction kernels core cpus vendors hardware libsycl",
+        "_searchBlob": "application of performance portability solutions for gpus and many-core cpus to track reconstruction kernels next generation high-energy physics hep experiments are presented with significant computational challenges both in terms of data volume and processing power. using compute accelerators such as gpus is one of the promising ways to provide the necessary computational power to meet the challenge. the current programming models for compute accelerators often involve using architecture-specific programming languages promoted by the hardware vendors and hence limit the set of platforms that the code can run on. developing software with platform restrictions is especially unfeasible for hep communities as it takes significant effort to convert typical hep algorithms into ones that are efficient for compute accelerators. multiple performance portability solutions have recently emerged and provide an alternative path for using compute accelerators which allow the code to be executed on hardware from different vendors. we apply several portability solutions such as kokkos sycl c++17 std execution par and alpaka on two mini-apps extracted from the mkfit project p2z and p2r. these apps include basic kernels for a kalman filter track fit such as propagation and update of track parameters for detectors at a fixed z or fixed r position respectively. the two mini-apps explore different memory layout formats. we report on the development experience with different portability solutions as well as their performance on gpus and many-core cpus measured as the throughput of the kernels from different gpu and cpu vendors such as nvidia amd and intel. 2024 research-paper k. h. m. kwok fermi national accelerator laboratory m. j. kortelainen fermi national accelerator laboratory g. b. cerati fermi national accelerator laboratory alexei strelchenko fermi national accelerator laboratory o. gutsche fermi national accelerator laboratory allison reinsvold hall united states naval academy s. lantz cornell university m. reid cornell university daniel riley cornell university s. berkman fermi national accelerator laboratory seyong lee oak ridge associated universities hammad ather university of oregon boyana norris university of oregon cong wang fermi national accelerator laboratory performance gpu programming languages performance gpu programming languages performance portability solutions compute accelerators two mini apps track reconstruction kernels core cpus vendors hardware libsycl",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -7252,9 +7236,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4401327609",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1016/j.cola.2024.101289",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7486,15 +7470,15 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "pragformer: data-driven parallel source code classification with transformers",
         "_authorLower": "re’em harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion – israel institute of technology",
         "_authorsLower": "re’em harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion – israel institute of technology",
@@ -7934,7 +7918,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "pragformer data-driven parallel source code classification with transformers title abstract title multi-core shared memory architectures have become ubiquitous in computing hardware nowadays. as a result there is a growing need to fully utilize these architectures by introducing appropriate parallelization schemes such as openmp worksharing-loop constructs to applications. however most developers find introducing openmp directives to their code hard due to pervasive pitfalls in managing parallel shared memory. to assist developers in this process many compilers as well as source-to-source s2s translation tools have been developed over the years tasked with inserting openmp directives into code automatically. in addition to having limited robustness to their input format these compilers still do not achieve satisfactory coverage and precision in locating parallelizable code and generating appropriate directives. recently many data-driven ai-based code completion cc tools such as github copilot have been developed to ease and improve programming productivity. leveraging the insights from existing ai-based programming-assistance tools this work presents a novel ai model that can serve as a parallel-programming assistant sup sup . specifically our model named pragformer is tasked with identifying for loops that can benefit from conversion to parallel worksharing-loop construct openmp directive and even predict the need for specific data-sharing attributes clauses on the fly. we created a unique database named open-omp specifically for this goal. open-omp contains over 32 000 unique code snippets from different domains half of which contain openmp directives while the other half do not. we experimented with different model design parameters for these tasks and showed that our best-performing model outperforms a statistically-trained baseline as well as a state-of-the-art s2s compiler. in fact it even outperforms the popular generative ai model of chatgpt. in the spirit of advancing research on this topic we have already released source code for pragformer as well as open-omp dataset to public sup sup . moreover an interactive demo of our tool as well as a hugging face webpage sup sup to experiment with our tool are already available. research square research square 2023 research-paper reem harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion israel institute of technology openmp ai openmp ai openmp directives open omp pragformer shared memory worksharing loop driven parallel openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -8076,15 +8060,15 @@
           "clang"
         ],
         "id": "openalex-w4315631944",
-        "citationCount": 19,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 0,
         "_titleLower": "mswasm: soundly enforcing memory-safe execution of unsafe code",
         "_authorLower": "alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california, san diego craig disselkoen university of california, san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california, san diego",
         "_authorsLower": "alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california, san diego craig disselkoen university of california, san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california, san diego",
@@ -8517,7 +8501,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 19
+          "citationCount": 0
         },
         "_searchBlob": "mswasm soundly enforcing memory-safe execution of unsafe code most programs compiled to webassembly wasm today are written in unsafe languages like c and c++. unfortunately memory-unsafe c code remains unsafe when compiled to wasm and attackers can exploit buffer overflows and use-after-frees in wasm almost as easily as they can on native platforms. memory- safe webassembly mswasm proposes to extend wasm with language-level memory-safety abstractions to precisely address this problem. in this paper we build on the original mswasm position paper to realize this vision. we give a precise and formal semantics of mswasm and prove that well-typed mswasm programs are by construction robustly memory safe. to this end we develop a novel language-independent memory-safety property based on colored memory locations and pointers. this property also lets us reason about the security guarantees of a formal c-to-mswasm compiler and prove that it always produces memory-safe programs and preserves the semantics of safe programs . we use these formal results to then guide several implementations two compilers of mswasm to native code and a c-to-mswasm compiler that extends clang . our mswasm compilers support different enforcement mechanisms allowing developers to make security-performance trade-offs according to their needs. our evaluation shows that on the polybenchc suite the overhead of enforcing memory safety in software ranges from 22 enforcing spatial safety alone to 198 enforcing full memory safety and 51.7 when using hardware memory capabilities for spatial safety and pointer integrity. more importantly mswasms design makes it easy to swap between enforcement mechanisms as fast especially hardware-based enforcement techniques become available mswasm will be able to take advantage of these advances almost for free. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 7 issue popl 2023 research-paper alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california san diego craig disselkoen university of california san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california san diego clang security performance wasm programming languages clang security performance wasm programming languages memory safety soundly enforcing memory mswasm compiler unsafe enforcement mechanisms formal spatial safety hardware semantics clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -8559,9 +8543,9 @@
         ],
         "openalexId": "https://openalex.org/W4311246739",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-22390-7_21",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8946,9 +8930,9 @@
         ],
         "openalexId": "https://openalex.org/W4310174129",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/memocode57689.2022.9954595",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9647,9 +9631,9 @@
         ],
         "openalexId": "https://openalex.org/W4313055447",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1063/5.0094022",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10111,16 +10095,16 @@
           "libfuzzer"
         ],
         "id": "openalex-w3199024925",
-        "citationCount": 13,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 0,
         "_titleLower": "via: analyzing device interfaces of protected virtual machines",
         "_authorLower": "felicitas hetzelt technische universität berlin martin radev fraunhofer institute for applied and integrated security robert buhren technische universität berlin mathias morbitzer fraunhofer institute for applied and integrated security jean‐pierre seifert technische universität berlin",
         "_authorsLower": "felicitas hetzelt technische universität berlin martin radev fraunhofer institute for applied and integrated security robert buhren technische universität berlin mathias morbitzer fraunhofer institute for applied and integrated security jean‐pierre seifert technische universität berlin",
@@ -10527,7 +10511,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 13
+          "citationCount": 0
         },
         "_searchBlob": "via analyzing device interfaces of protected virtual machines both amd and intel have presented technologies for confidential computing in cloud environments. the proposed solutions amd sev -es -snp and intel tdx protect vms vms against attacks from higher privileged layers through memory encryption and integrity protection. this model of computation draws a new trust boundary between virtual devices and the vm which in so far lacks thorough examination. in this paper we therefore present an analysis of the virtual device interface and discuss several attack vectors against a protected vm. further we develop and evaluate via an automated analysis tool to detect cases of improper sanitization of input recieved via the virtual device interface. via improves upon existing approaches for the automated analysis of device interfaces in the following aspects i support for virtualization relevant buses ii efficient direct memory access dma support and iii performance. via builds upon the linux kernel library and clangs libfuzzer to fuzz the communication between the driver and the device via mmio pio and dma. an evaluation of via shows that it performs 570 executions per second on average and improves performance compared to existing approaches by an average factor of 2706. using via we analyzed 22 drivers in linux 5.10.0-rc6 thereby uncovering 50 bugs and initiating multiple patches to the virtual device driver interface of linux. to prove our findings criticality under the threat model of amd sev and intel tdx we showcase three exemplary attacks based on the bugs found. the attacks enable a malicious hypervisor to corrupt the memory and gain code execution in protected vms with sev-es and are theoretically applicable to sev-snp and tdx. annual computer security applications conference annual computer security applications conference 2021 research-paper felicitas hetzelt technische universitat berlin martin radev fraunhofer institute for applied and integrated security robert buhren technische universitat berlin mathias morbitzer fraunhofer institute for applied and integrated security jean pierre seifert technische universitat berlin clang testing security performance clang testing security performance fuzzing analyzing device interfaces virtual device interface attacks memory amd sev intel tdx protected virtual machines clang libfuzzer",
         "addedAt": "2026-02-23T19:12:56.000Z",
@@ -10977,9 +10961,9 @@
         ],
         "openalexId": "https://openalex.org/W3155180036",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/infocom42981.2021.9488903",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11304,10 +11288,10 @@
           "llvm"
         ],
         "id": "openalex-w3177871936",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
@@ -11714,9 +11698,9 @@
         ],
         "openalexId": "https://openalex.org/W4206394013",
         "citationCount": 10,
+        "sourceUrl": "",
         "doi": "10.1109/ase51524.2021.9678836",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12239,16 +12223,16 @@
           "openmp"
         ],
         "id": "openalex-w3176080641",
-        "citationCount": 5,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 0,
         "_titleLower": "arbalest: dynamic detection of data mapping issues in heterogeneous openmp applications",
         "_authorLower": "lechen yu georgia institute of technology joachim protze rwth aachen university óscar hernández oak ridge national laboratory vivek sarkar georgia institute of technology",
         "_authorsLower": "lechen yu georgia institute of technology joachim protze rwth aachen university óscar hernández oak ridge national laboratory vivek sarkar georgia institute of technology",
@@ -12655,7 +12639,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 5
+          "citationCount": 0
         },
         "_searchBlob": "arbalest dynamic detection of data mapping issues in heterogeneous openmp applications from openmp 4.0 onwards programmers can offload code regions to accelerators by using the target offloading feature. however incorrect usage of target offloading constructs may incur data mapping issues. a data mapping issue occurs when the host fails to observe updates on the accelerator or vice versa. it may further lead to multiple memory issues such as use of uninitialized memory use of stale data and data race. to the best of our knowledge currently there is no prior work on dynamic detection of data mapping issues in heterogeneous openmp applications.in this paper we identify possible root causes of data mapping issues in openmps standard memory model and the unified memory model. we find that data mapping issues primarily result from incorrect settings of map and nowait clauses in target offloading constructs. further the novel unified memory model introduced in openmp 5.0 cannot avoid the occurrence of data mapping issues. to mitigate the difficulty of detecting data mapping issues we propose arbalest an on-the-fly data mapping issue detector for openmp applications. for each variable mapped to the accelerator arbalests detection algorithm leverages a state machine to track the last writes visibility. arbalest requires constant storage space for each memory location and takes amortized constant time per memory access. to demonstrate arbalests effectiveness an experimental comparison with four other dynamic analysis tools valgrind archer addresssanitizer memorysanitizer has been carried out on a number of open-source benchmark suites. the evaluation results show that arbalest delivers demonstrably better precision than the other four tools and its execution time overhead is comparable to that of state-of-the-art dynamic analysis tools. 2021 ieee international parallel and distributed processing symposium ipdps 2021 ieee international parallel and distributed processing symposium ipdps 2021 research-paper lechen yu georgia institute of technology joachim protze rwth aachen university oscar hernandez oak ridge national laboratory vivek sarkar georgia institute of technology openmp offload dynamic analysis testing gpu openmp offload dynamic analysis testing gpu sanitizers offloading unified memory arbalest heterogeneous openmp target offloading constructs detection addresssanitizer memorysanitizer offload openmp",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -13092,15 +13076,15 @@
           "offload"
         ],
         "id": "openalex-w3036184137",
-        "citationCount": 10,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 0,
         "_titleLower": "tdo-cim: transparent detection and offloading for computation in-memory",
         "_authorLower": "kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology",
         "_authorsLower": "kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology",
@@ -13360,7 +13344,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 10
+          "citationCount": 0
         },
         "_searchBlob": "tdo-cim transparent detection and offloading for computation in-memory computation in-memory is a promising non-von neumann approach aiming at completely diminishing the data transfer to and from the memory subsystem. although a lot of architectures have been proposed compiler support for such architectures is still lagging behind. in this paper we close this gap by proposing an end-to-end compilation flow for in-memory computing based on the llvm compiler infrastructure. starting from sequential code our approach automatically detects opti-mizes and offloads kernels suitable for in-memory acceleration. we demonstrate our compiler tool-flow on the polybench c benchmark suite and evaluate the benefits of our proposed in-memory architecture simulated in gem5 by comparing it with a state-of-the-art von neumann architecture. 2020 design automation and test in europe conference and exhibition date 2020 design automation and test in europe conference and exhibition date 2020 research-paper kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology llvm infrastructure gpu llvm infrastructure gpu offloading memory von neumann cim transparent detection tdo cim transparent llvm offload",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -13446,17 +13430,15 @@
           "addresssanitizer"
         ],
         "id": "openalex-w3015291177",
-        "citationCount": 124,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 124,
+        "_citationCount": 0,
         "_titleLower": "retrowrite: statically instrumenting cots binaries for fuzzing and sanitization",
         "_authorLower": "s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette",
         "_authorsLower": "s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette",
@@ -13836,7 +13818,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 124
+          "citationCount": 0
         },
         "_searchBlob": "retrowrite statically instrumenting cots binaries for fuzzing and sanitization analyzing the security of closed source binaries is currently impractical for end-users or even developers who rely on third-party libraries. such analysis relies on automatic vulnerability discovery techniques most notably fuzzing with sanitizers enabled. the current state of the art for applying fuzzing or sanitization to binaries is dynamic binary translation which has prohibitive performance overhead. the alternate technique static binary rewriting cannot fully recover symbolization information and hence has difficulty modifying binaries to track code coverage for fuzzing or to add security checks for sanitizers.the ideal solution for binary security analysis would be a static rewriter that can intelligently add the required instrumentation as if it were inserted at compile time. such instrumentation requires an analysis to statically disambiguate between references and scalars a problem known to be undecidable in the general case. we show that recovering this information is possible in practice for the most common class of software and libraries 64-bit position independent code. based on this observation we develop retrowrite a binary-rewriting instrumentation to support american fuzzy lop afl and address sanitizer asan and show that it can achieve compiler-level performance while retaining precision. binaries rewritten for coverage-guided fuzzing using retrowrite are identical in performance to compiler-instrumented binaries and outperform the default qemu-based instrumentation by 4.5x while triggering more bugs. our implementation of binary-only address sanitizer is 3x faster than valgrinds memcheck the state-of-the-art binary-only memory checker and detects 80 more bugs in our evaluation. 2020 ieee symposium on security and privacy sp 2020 ieee symposium on security and privacy sp 2020 research-paper s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette testing sanitizers security performance libraries testing sanitizers security performance libraries fuzzing binary translation instrumenting cots binaries binary rewriting instrumentation retrowrite statically instrumenting address sanitizer sanitization statically instrumenting cots addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -14082,15 +14064,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 27,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 0,
         "_titleLower": "the code that never ran: modeling attacks on speculative evaluation",
         "_authorLower": "craig disselkoen university of california, san diego radha jagadeesan depaul university alan jeffrey james riely depaul university",
         "_authorsLower": "craig disselkoen university of california, san diego radha jagadeesan depaul university alan jeffrey james riely depaul university",
@@ -14354,7 +14336,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 27
+          "citationCount": 0
         },
         "_searchBlob": "the code that never ran modeling attacks on speculative evaluation this paper studies information flow caused by speculation mechanisms in hardware and software. the spectre attack shows that there are practical information flow attacks which use an interaction of dynamic security checks speculative evaluation and cache timing. previous formal models of program execution are designed to capture computer architecture rather than micro-architecture and so do not capture attacks such as spectre. in this paper we propose a model based on pomsets which is designed to model speculative evaluation. the model is abstract with respect to specific micro-architectural features such as caches and pipelines yet is powerful enough to express known attacks such as spectre and prime+abort and verify their countermeasures. the model also allows for the prediction of new information flow attacks. we derive two such attacks which exploit compiler optimizations and validate these experimentally against gcc and clang. 2019 ieee symposium on security and privacy sp 2019 ieee symposium on security and privacy sp 2019 research-paper craig disselkoen university of california san diego radha jagadeesan depaul university alan jeffrey james riely depaul university clang optimizations security clang optimizations security flow attacks speculative spectre never ran modeling ran modeling attacks clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -14439,15 +14421,15 @@
           "openmp"
         ],
         "id": "openalex-w2969747866",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "ompparser: a standalone and unified openmp parser",
         "_authorLower": "anjia wang university of south carolina yaying shi university of south carolina xinyao yi university of south carolina yonghong yan university of south carolina chunhua liao lawrence livermore national laboratory bronis r. de supinski lawrence livermore national laboratory",
         "_authorsLower": "anjia wang university of south carolina yaying shi university of south carolina xinyao yi university of south carolina yonghong yan university of south carolina chunhua liao lawrence livermore national laboratory bronis r. de supinski lawrence livermore national laboratory",
@@ -14579,7 +14561,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "ompparser a standalone and unified openmp parser no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2019 research-paper anjia wang university of south carolina yaying shi university of south carolina xinyao yi university of south carolina yonghong yan university of south carolina chunhua liao lawrence livermore national laboratory bronis r. de supinski lawrence livermore national laboratory openmp openmp unified openmp parser openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -14638,8 +14620,8 @@
           }
         ],
         "year": "2019",
-        "publication": "Proceedings of 28th International Symposium on High-Performance Parallel and Distributed Computing",
-        "venue": "Proceedings of 28th International Symposium on High-Performance Parallel and Distributed Computing",
+        "publication": "Proceedings of 28th International Symposium on High",
+        "venue": "Proceedings of 28th International Symposium on High",
         "type": "research-paper",
         "abstract": "OS-capable embedded systems exhibiting a very low power consumption are available at an extremely low price point. It makes them highly compelling in a datacenter context. In this paper we show that sharing long-running, compute-intensive datacenter HPC workloads between a server machine and one or a few connected embedded boards of negligible cost and power consumption can bring significant benefits in terms of consolidation. Our approach, named Heterogeneous EXecution Offloading (HEXO), selectively offloads Virtual Machines (VMs) from server class machines to embedded boards. Our design tackles several challenges. We address the Instruction Set Architecture (ISA) difference between typical servers (x86) and embedded systems (ARM) through hypervisor and guest OS-level support for heterogeneous-ISA runtime VM migration. We cope with the low amount of resources in embedded systems by using lightweight VMs: unikernels. VMs are offloaded based on an estimation of the slowdown expected from running on a given board. We build a prototype of HEXO and demonstrate significant increase in throughput (up to 67%) and energy efficiency (up to 56%) over a set of macro-benchmarks running datacenter compute-intensive jobs.",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3307681.3325408",
@@ -14674,15 +14656,15 @@
           "offload"
         ],
         "id": "openalex-w2950567617",
-        "citationCount": 16,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 0,
         "_titleLower": "hexo",
         "_authorLower": "pierre olivier virginia tech a k m fazla mehrab virginia tech stefan lankes rwth aachen university mohamed lamine karaoui virginia tech robert lyerly virginia tech binoy ravindran virginia tech",
         "_authorsLower": "pierre olivier virginia tech a k m fazla mehrab virginia tech stefan lankes rwth aachen university mohamed lamine karaoui virginia tech robert lyerly virginia tech binoy ravindran virginia tech",
@@ -14691,8 +14673,8 @@
         "_keywordsLower": "performance gpu embedded offloading datacenter compute intensive embedded boards power consumption isa",
         "_topicsLower": "performance gpu embedded performance gpu embedded offloading datacenter compute intensive embedded boards power consumption isa offload",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 28th international symposium on high-performance parallel and distributed computing",
-        "_venueLower": "proceedings of 28th international symposium on high-performance parallel and distributed computing",
+        "_publicationLower": "proceedings of 28th international symposium on high",
+        "_venueLower": "proceedings of 28th international symposium on high",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2019",
@@ -14945,7 +14927,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 28th international symposium on high-performance parallel and distributed computing",
+              "text": "proceedings of 28th international symposium on high",
               "words": [
                 "proceedings",
                 "of",
@@ -14953,15 +14935,11 @@
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "parallel",
-                "and",
-                "distributed",
-                "computing"
+                "high"
               ]
             },
             "venue": {
-              "text": "proceedings of 28th international symposium on high-performance parallel and distributed computing",
+              "text": "proceedings of 28th international symposium on high",
               "words": [
                 "proceedings",
                 "of",
@@ -14969,11 +14947,7 @@
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "parallel",
-                "and",
-                "distributed",
-                "computing"
+                "high"
               ]
             },
             "year": {
@@ -14984,9 +14958,9 @@
             }
           },
           "year": 2019,
-          "citationCount": 16
+          "citationCount": 0
         },
-        "_searchBlob": "hexo os-capable embedded systems exhibiting a very low power consumption are available at an extremely low price point. it makes them highly compelling in a datacenter context. in this paper we show that sharing long-running compute-intensive datacenter hpc workloads between a server machine and one or a few connected embedded boards of negligible cost and power consumption can bring significant benefits in terms of consolidation. our approach named heterogeneous execution offloading hexo selectively offloads virtual machines vms from server class machines to embedded boards. our design tackles several challenges. we address the instruction set architecture isa difference between typical servers x86 and embedded systems arm through hypervisor and guest os-level support for heterogeneous-isa runtime vm migration. we cope with the low amount of resources in embedded systems by using lightweight vms unikernels. vms are offloaded based on an estimation of the slowdown expected from running on a given board. we build a prototype of hexo and demonstrate significant increase in throughput up to 67 and energy efficiency up to 56 over a set of macro-benchmarks running datacenter compute-intensive jobs. proceedings of 28th international symposium on high-performance parallel and distributed computing proceedings of 28th international symposium on high-performance parallel and distributed computing 2019 research-paper pierre olivier virginia tech a k m fazla mehrab virginia tech stefan lankes rwth aachen university mohamed lamine karaoui virginia tech robert lyerly virginia tech binoy ravindran virginia tech performance gpu embedded performance gpu embedded offloading datacenter compute intensive embedded boards power consumption isa offload",
+        "_searchBlob": "hexo os-capable embedded systems exhibiting a very low power consumption are available at an extremely low price point. it makes them highly compelling in a datacenter context. in this paper we show that sharing long-running compute-intensive datacenter hpc workloads between a server machine and one or a few connected embedded boards of negligible cost and power consumption can bring significant benefits in terms of consolidation. our approach named heterogeneous execution offloading hexo selectively offloads virtual machines vms from server class machines to embedded boards. our design tackles several challenges. we address the instruction set architecture isa difference between typical servers x86 and embedded systems arm through hypervisor and guest os-level support for heterogeneous-isa runtime vm migration. we cope with the low amount of resources in embedded systems by using lightweight vms unikernels. vms are offloaded based on an estimation of the slowdown expected from running on a given board. we build a prototype of hexo and demonstrate significant increase in throughput up to 67 and energy efficiency up to 56 over a set of macro-benchmarks running datacenter compute-intensive jobs. proceedings of 28th international symposium on high proceedings of 28th international symposium on high 2019 research-paper pierre olivier virginia tech a k m fazla mehrab virginia tech stefan lankes rwth aachen university mohamed lamine karaoui virginia tech robert lyerly virginia tech binoy ravindran virginia tech performance gpu embedded performance gpu embedded offloading datacenter compute intensive embedded boards power consumption isa offload",
         "addedAt": "2026-02-26T00:55:34.000Z",
         "_addedAt": "2026-02-26T00:55:34.000Z",
         "_addedAtTs": 1772067334000
@@ -15065,10 +15039,10 @@
           "clang",
           "openmp"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
@@ -15431,9 +15405,9 @@
         ],
         "openalexId": "https://openalex.org/W2914096292",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.4018/ijssmet.2019040104",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15770,16 +15744,16 @@
           "addresssanitizer"
         ],
         "id": "openalex-w2884076027",
-        "citationCount": 36,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 36,
+        "_citationCount": 0,
         "_titleLower": "practical memory safety with rest",
         "_authorLower": "kanad sinha columbia university simha sethumadhavan columbia university",
         "_authorsLower": "kanad sinha columbia university simha sethumadhavan columbia university",
@@ -16108,7 +16082,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 36
+          "citationCount": 0
         },
         "_searchBlob": "practical memory safety with rest in this paper we propose random embedded secret tokens rest a simple hardware primitive to provide content-based checks and show how it can be used to mitigate common types of spatial and temporal memory errors at very low cost. rest is simply a very large random value that is embedded into programs. to provide memory safety rest is used to bookend data structures during allocation. if the hardware accesses a rest value during execution due to programming errors or adversarial actions it reports a privileged memory safety exception. implementing rest requires 1 bit of metadata per l1 data cache line and a comparator to check for rest tokens during a cache fill. the software infrastructure to provide memory safety with rest reuses a production-quality memory error detection tool addresssanitizer by changing less than 1.5k lines of code. rest based memory safety offers several advantages com-pared to extant methods 1 it does not require significant redesign of hardware or software 2 the overhead of heap and stack safety is 2 compared to 40 for addresssanitizer 3 the security of the memory safety implementation is improved compared addresssanitizer and 4 rest based memory safety can mitigate heap safety errors in legacy binaries without recom-pilation or source code. these advantages provide a significant step towards continuous runtime memory safety monitoring and mitigation for legacy and new binaries. 2018 acm ieee 45th annual international symposium on computer architecture isca 2018 acm ieee 45th annual international symposium on computer architecture isca 2018 research-paper kanad sinha columbia university simha sethumadhavan columbia university testing security infrastructure embedded testing security infrastructure embedded sanitizers memory safety provide memory safety addresssanitizer errors hardware addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -16175,9 +16149,9 @@
         ],
         "openalexId": "https://openalex.org/W2888279336",
         "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1504/ijhpcn.2019.097051",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16496,9 +16470,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2898221686",
         "citationCount": 10,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-03418-4_25",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -16696,10 +16670,10 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2792181598",
-        "citationCount": 55,
+        "citationCount": 54,
+        "sourceUrl": "",
         "doi": "10.14722/ndss.2018.23326",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16713,7 +16687,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 55,
+        "_citationCount": 54,
         "_titleLower": "k-miner: uncovering memory corruption in linux",
         "_authorLower": "david gen�s simon schmitt lucas davi university of duisburg-essen ahmad‐reza sadeghi",
         "_authorsLower": "david gen�s simon schmitt lucas davi university of duisburg-essen ahmad‐reza sadeghi",
@@ -16881,7 +16855,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 55
+          "citationCount": 54
         },
         "_searchBlob": "k-miner uncovering memory corruption in linux operating system kernels are appealing attack targets compromising the kernel usually allows attackers to bypass all deployed security mechanisms and take control over the entire system. commodity kernels like linux are written in low-level programming languages that offer only limited type and memory-safety guarantees enabling adversaries to launch sophisticated run-time attacks against the kernel by exploiting memory-corruption vulnerabilities. proceedings 2018 network and distributed system security symposium proceedings 2018 network and distributed system security symposium 2018 research-paper david gen s simon schmitt lucas davi university of duisburg-essen ahmad reza sadeghi programming languages security static analysis programming languages security static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -16923,8 +16897,8 @@
         ],
         "openalexId": "https://openalex.org/W2811061184",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17267,8 +17241,8 @@
           }
         ],
         "year": "2018",
-        "publication": "USENIX 2018, 27th Usenix Security Symposium, August 15-17, 2018, Baltimore, MD, USA",
-        "venue": "USENIX 2018, 27th Usenix Security Symposium, August 15-17, 2018, Baltimore, MD, USA",
+        "publication": "USENIX 2018, 27th Usenix Security Symposium",
+        "venue": "USENIX 2018, 27th Usenix Security Symposium",
         "type": "research-paper",
         "abstract": "Connected embedded systems are becoming widely deployed, and their security is a serious concern. Current techniques for security testing of embedded software rely either on source code or on binaries. Detecting vulnerabilities by testing binary code is harder, because source code semantics are lost. Unfortunately, in embedded systems, high-level source code (C/C++) is often mixed with hand-written assembly, which cannot be directly handled by current source-based tools. In this paper we introduce Inception, a framework to perform security testing of complete real-world embedded firmware. Inception introduces novel techniques for symbolic execution in embedded systems. In particular, Inception Translator generates and merges LLVM bitcode from high-level source code, hand-written assembly, binary libraries, and part of the processor hardware behavior. This design reduces differences with real execution as well as the manual effort. The source code semantics are preserved, improving the effectiveness of security checks. Inception Symbolic Virtual Machine, based on KLEE, performs symbolic execution, using several strategies to handle different levels of memory abstractions, interaction with peripherals, and interrupts. Finally, the Inception Debugger is a high-performance JTAG debugger which performs redirection of memory accesses to the real hardware. We first validate our implementation using 53000 tests comparing Inception's execution to concrete execution on an Arm Cortex-M3 chip. We then show Inception's advantages on a benchmark made of 1624 synthetic vulnerable programs, four real-world open source and industrial applications, and 19 demos. We discovered eight crashes and two previously unknown vulnerabilities, demonstrating the effectiveness of Inception as a tool to assist embedded device firmware testing.",
         "paperUrl": "http://www.eurecom.fr/publication/5550",
@@ -17282,8 +17256,8 @@
         ],
         "openalexId": "https://openalex.org/W2889242166",
         "citationCount": 50,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17310,8 +17284,8 @@
         "_keywordsLower": "c++ embedded libraries performance security testing",
         "_topicsLower": "c++ embedded libraries performance security testing c++ embedded libraries performance security testing",
         "_contentLower": "",
-        "_publicationLower": "usenix 2018, 27th usenix security symposium, august 15-17, 2018, baltimore, md, usa",
-        "_venueLower": "usenix 2018, 27th usenix security symposium, august 15-17, 2018, baltimore, md, usa",
+        "_publicationLower": "usenix 2018, 27th usenix security symposium",
+        "_venueLower": "usenix 2018, 27th usenix security symposium",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2018",
@@ -17628,37 +17602,25 @@
               "words": []
             },
             "publication": {
-              "text": "usenix 2018 27th usenix security symposium august 15-17 2018 baltimore md usa",
+              "text": "usenix 2018 27th usenix security symposium",
               "words": [
                 "usenix",
                 "2018",
                 "27th",
                 "usenix",
                 "security",
-                "symposium",
-                "august",
-                "15-17",
-                "2018",
-                "baltimore",
-                "md",
-                "usa"
+                "symposium"
               ]
             },
             "venue": {
-              "text": "usenix 2018 27th usenix security symposium august 15-17 2018 baltimore md usa",
+              "text": "usenix 2018 27th usenix security symposium",
               "words": [
                 "usenix",
                 "2018",
                 "27th",
                 "usenix",
                 "security",
-                "symposium",
-                "august",
-                "15-17",
-                "2018",
-                "baltimore",
-                "md",
-                "usa"
+                "symposium"
               ]
             },
             "year": {
@@ -17671,7 +17633,7 @@
           "year": 2018,
           "citationCount": 50
         },
-        "_searchBlob": "inception system-wide security testing of real-world embedded systems software connected embedded systems are becoming widely deployed and their security is a serious concern. current techniques for security testing of embedded software rely either on source code or on binaries. detecting vulnerabilities by testing binary code is harder because source code semantics are lost. unfortunately in embedded systems high-level source code c c++ is often mixed with hand-written assembly which cannot be directly handled by current source-based tools. in this paper we introduce inception a framework to perform security testing of complete real-world embedded firmware. inception introduces novel techniques for symbolic execution in embedded systems. in particular inception translator generates and merges llvm bitcode from high-level source code hand-written assembly binary libraries and part of the processor hardware behavior. this design reduces differences with real execution as well as the manual effort. the source code semantics are preserved improving the effectiveness of security checks. inception symbolic virtual machine based on klee performs symbolic execution using several strategies to handle different levels of memory abstractions interaction with peripherals and interrupts. finally the inception debugger is a high-performance jtag debugger which performs redirection of memory accesses to the real hardware. we first validate our implementation using 53000 tests comparing inceptions execution to concrete execution on an arm cortex-m3 chip. we then show inceptions advantages on a benchmark made of 1624 synthetic vulnerable programs four real-world open source and industrial applications and 19 demos. we discovered eight crashes and two previously unknown vulnerabilities demonstrating the effectiveness of inception as a tool to assist embedded device firmware testing. usenix 2018 27th usenix security symposium august 15-17 2018 baltimore md usa usenix 2018 27th usenix security symposium august 15-17 2018 baltimore md usa 2018 research-paper nassim corteggiani eurecom giovanni camurati eurecom aurelien francillon eurecom c++ embedded libraries performance security testing c++ embedded libraries performance security testing",
+        "_searchBlob": "inception system-wide security testing of real-world embedded systems software connected embedded systems are becoming widely deployed and their security is a serious concern. current techniques for security testing of embedded software rely either on source code or on binaries. detecting vulnerabilities by testing binary code is harder because source code semantics are lost. unfortunately in embedded systems high-level source code c c++ is often mixed with hand-written assembly which cannot be directly handled by current source-based tools. in this paper we introduce inception a framework to perform security testing of complete real-world embedded firmware. inception introduces novel techniques for symbolic execution in embedded systems. in particular inception translator generates and merges llvm bitcode from high-level source code hand-written assembly binary libraries and part of the processor hardware behavior. this design reduces differences with real execution as well as the manual effort. the source code semantics are preserved improving the effectiveness of security checks. inception symbolic virtual machine based on klee performs symbolic execution using several strategies to handle different levels of memory abstractions interaction with peripherals and interrupts. finally the inception debugger is a high-performance jtag debugger which performs redirection of memory accesses to the real hardware. we first validate our implementation using 53000 tests comparing inceptions execution to concrete execution on an arm cortex-m3 chip. we then show inceptions advantages on a benchmark made of 1624 synthetic vulnerable programs four real-world open source and industrial applications and 19 demos. we discovered eight crashes and two previously unknown vulnerabilities demonstrating the effectiveness of inception as a tool to assist embedded device firmware testing. usenix 2018 27th usenix security symposium usenix 2018 27th usenix security symposium 2018 research-paper nassim corteggiani eurecom giovanni camurati eurecom aurelien francillon eurecom c++ embedded libraries performance security testing c++ embedded libraries performance security testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -17737,15 +17699,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "detecting misusages of the c++ standard template library",
         "_authorLower": "gábor horväth eötvös loránd university attila páter-részeg eötvös loránd university norbert pataki london rebuilding society",
         "_authorsLower": "gábor horväth eötvös loránd university attila páter-részeg eötvös loránd university norbert pataki london rebuilding society",
@@ -17924,7 +17886,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "detecting misusages of the c++ standard template library the c++ standard template library stl is the most well-known and widely used library that is based on the generic programming paradigm. the stl takes advantage of c++ templates so it is an extensible effective but flexible system. professional c++ programs cannot miss the usage of the stl because it increases quality maintainability understandability and efficacy of the code. proceedings of 10th international conference on applied informatics proceedings of 10th international conference on applied informatics 2018 research-paper gabor horvath eotvos lorand university attila pater-reszeg eotvos lorand university norbert pataki london rebuilding society clang static analysis infrastructure clang static analysis infrastructure standard template library compilation detecting misusages clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -17961,8 +17923,8 @@
         ],
         "openalexId": "https://openalex.org/W2777412712",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18801,8 +18763,8 @@
         ],
         "openalexId": "https://openalex.org/W2511492035",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20479,9 +20441,9 @@
         ],
         "openalexId": "https://openalex.org/W2746234147",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.4018/ijertcs.2016070103",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22136,8 +22098,8 @@
           }
         ],
         "year": "2015",
-        "publication": "Stony Brook Theses and Dissertations Collection, 2006-2020 (closed to submissions)",
-        "venue": "Stony Brook Theses and Dissertations Collection, 2006-2020 (closed to submissions)",
+        "publication": "Stony Brook Theses and Dissertations Collection",
+        "venue": "Stony Brook Theses and Dissertations Collection",
         "type": "research-paper",
         "abstract": "Binary analysis, translation and instrumentation tools play an important role in software security. To support binaries for different processors, it is necessary to incorporate the semantics of every processor's instruction set into the tool. Unfortunately, the complexity of modern instruction sets makes the common approach of manual semantics modeling cumbersome and error-prone. Furthermore, it limits the number of processors as well as the fraction of the instruction set that is supported. In this dissertation, we propose novel architecture-neutral techniques for automatically synthesizing the semantics of instruction sets. Our approach relies on the observation that modern compilers such as GCC and LLVM already contain detailed knowledge about the semantics of many instruction sets. We therefore develop two techniques for extracting this knowledge. Our first technique relies on a learning process: observing examples of translation between a compiler's architecture-neutral internal representation and machine instructions, and inferring the mapping from these examples. We then develop a second (and complementary) method that develops symbolic execution techniques to extract this mapping from the code generator source. Unlike previous symbolic execution systems that specialize in generating a single solution to a set of constraints, our problem requires a compact representation of all possible solutions. We describe the development of such a system, based on source-to-source transformation of C-code and a runtime system that is implemented in C and Prolog with a finite-domain constraint solver (CLP-FD). To demonstrate the applicability of synthesized instruction-set semantics, we develop two applications. In the first application, we use synthesized semantics to test correctness of code generators. Specifically, we develop a new testing approach that generates and executes test cases based on the derived semantic model for each instruction. We uncovered nontrivial bugs in the GCC code generator using this technique. As a second application, we have used these models to lift binaries for x86, ARM and AVR (used in Arduino and other microcontroller) architectures to intermediate code, which can then be analyzed or instrumented in an architecture-independent manner. | 198 pages",
         "paperUrl": "https://commons.library.stonybrook.edu/stony-brook-theses-and-dissertations-collection/3084",
@@ -22147,8 +22109,8 @@
         ],
         "openalexId": "https://openalex.org/W2553581973",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22171,8 +22133,8 @@
         "_keywordsLower": "security testing",
         "_topicsLower": "security testing security testing",
         "_contentLower": "",
-        "_publicationLower": "stony brook theses and dissertations collection, 2006-2020 (closed to submissions)",
-        "_venueLower": "stony brook theses and dissertations collection, 2006-2020 (closed to submissions)",
+        "_publicationLower": "stony brook theses and dissertations collection",
+        "_venueLower": "stony brook theses and dissertations collection",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2015",
@@ -22543,33 +22505,25 @@
               "words": []
             },
             "publication": {
-              "text": "stony brook theses and dissertations collection 2006-2020 closed to submissions",
+              "text": "stony brook theses and dissertations collection",
               "words": [
                 "stony",
                 "brook",
                 "theses",
                 "and",
                 "dissertations",
-                "collection",
-                "2006-2020",
-                "closed",
-                "to",
-                "submissions"
+                "collection"
               ]
             },
             "venue": {
-              "text": "stony brook theses and dissertations collection 2006-2020 closed to submissions",
+              "text": "stony brook theses and dissertations collection",
               "words": [
                 "stony",
                 "brook",
                 "theses",
                 "and",
                 "dissertations",
-                "collection",
-                "2006-2020",
-                "closed",
-                "to",
-                "submissions"
+                "collection"
               ]
             },
             "year": {
@@ -22582,7 +22536,7 @@
           "year": 2015,
           "citationCount": 1
         },
-        "_searchBlob": "automatic synthesis of instruction set semantics and its applications binary analysis translation and instrumentation tools play an important role in software security. to support binaries for different processors it is necessary to incorporate the semantics of every processors instruction set into the tool. unfortunately the complexity of modern instruction sets makes the common approach of manual semantics modeling cumbersome and error-prone. furthermore it limits the number of processors as well as the fraction of the instruction set that is supported. in this dissertation we propose novel architecture-neutral techniques for automatically synthesizing the semantics of instruction sets. our approach relies on the observation that modern compilers such as gcc and llvm already contain detailed knowledge about the semantics of many instruction sets. we therefore develop two techniques for extracting this knowledge. our first technique relies on a learning process observing examples of translation between a compilers architecture-neutral internal representation and machine instructions and inferring the mapping from these examples. we then develop a second and complementary method that develops symbolic execution techniques to extract this mapping from the code generator source. unlike previous symbolic execution systems that specialize in generating a single solution to a set of constraints our problem requires a compact representation of all possible solutions. we describe the development of such a system based on source-to-source transformation of c-code and a runtime system that is implemented in c and prolog with a finite-domain constraint solver clp-fd . to demonstrate the applicability of synthesized instruction-set semantics we develop two applications. in the first application we use synthesized semantics to test correctness of code generators. specifically we develop a new testing approach that generates and executes test cases based on the derived semantic model for each instruction. we uncovered nontrivial bugs in the gcc code generator using this technique. as a second application we have used these models to lift binaries for x86 arm and avr used in arduino and other microcontroller architectures to intermediate code which can then be analyzed or instrumented in an architecture-independent manner. 198 pages stony brook theses and dissertations collection 2006-2020 closed to submissions stony brook theses and dissertations collection 2006-2020 closed to submissions 2015 research-paper niranjan hasabnis security testing security testing",
+        "_searchBlob": "automatic synthesis of instruction set semantics and its applications binary analysis translation and instrumentation tools play an important role in software security. to support binaries for different processors it is necessary to incorporate the semantics of every processors instruction set into the tool. unfortunately the complexity of modern instruction sets makes the common approach of manual semantics modeling cumbersome and error-prone. furthermore it limits the number of processors as well as the fraction of the instruction set that is supported. in this dissertation we propose novel architecture-neutral techniques for automatically synthesizing the semantics of instruction sets. our approach relies on the observation that modern compilers such as gcc and llvm already contain detailed knowledge about the semantics of many instruction sets. we therefore develop two techniques for extracting this knowledge. our first technique relies on a learning process observing examples of translation between a compilers architecture-neutral internal representation and machine instructions and inferring the mapping from these examples. we then develop a second and complementary method that develops symbolic execution techniques to extract this mapping from the code generator source. unlike previous symbolic execution systems that specialize in generating a single solution to a set of constraints our problem requires a compact representation of all possible solutions. we describe the development of such a system based on source-to-source transformation of c-code and a runtime system that is implemented in c and prolog with a finite-domain constraint solver clp-fd . to demonstrate the applicability of synthesized instruction-set semantics we develop two applications. in the first application we use synthesized semantics to test correctness of code generators. specifically we develop a new testing approach that generates and executes test cases based on the derived semantic model for each instruction. we uncovered nontrivial bugs in the gcc code generator using this technique. as a second application we have used these models to lift binaries for x86 arm and avr used in arduino and other microcontroller architectures to intermediate code which can then be analyzed or instrumented in an architecture-independent manner. 198 pages stony brook theses and dissertations collection stony brook theses and dissertations collection 2015 research-paper niranjan hasabnis security testing security testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -22979,8 +22933,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2900034882",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23117,12 +23071,10 @@
         "paperUrl": "https://doi.org/10.1007/978-3-319-08867-9_7",
         "tags": [],
         "openalexId": "https://openalex.org/W121297392",
-        "citationCount": 135,
-        "doi": "10.1007/978-3-319-08867-9_7",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 132,
         "sourceUrl": "",
+        "doi": "10.1007/978-3-319-08867-9_7",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -23132,7 +23084,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 135,
+        "_citationCount": 132,
         "_titleLower": "smack: decoupling source language details from verifier implementations",
         "_authorLower": "zvonimir rakamarić university of utah michael emmi imdea software",
         "_authorsLower": "zvonimir rakamarić university of utah michael emmi imdea software",
@@ -23230,7 +23182,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 135
+          "citationCount": 132
         },
         "_searchBlob": "smack decoupling source language details from verifier implementations no abstract available in openalex metadata. lecture notes in computer science lecture notes in computer science 2014 research-paper zvonimir rakamaric university of utah michael emmi imdea software",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -23622,8 +23574,8 @@
         ],
         "openalexId": "https://openalex.org/W2104126615",
         "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -25723,8 +25675,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2515845901",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -25886,16 +25838,16 @@
           }
         ],
         "year": "2013",
-        "publication": "instacron:UFRGS",
-        "venue": "instacron:UFRGS",
+        "publication": "instacron: UFRGS",
+        "venue": "instacron: UFRGS",
         "type": "thesis",
         "abstract": "Técnicas de prevenção de falhas como testes e verificação de software não são suficientes para prover dependabilidade a sistemas, visto que não são capazes de tratar falhas ocasionadas por eventos externos tais como falhas transientes. Nessas situações faz-se necessária a aplicação de técnicas capazes de tratar e tolerar falhas que ocorram durante a execução do software. Grande parte das técnicas de tolerância a falhas transientes está focada na detecção e correção de erros de fluxo de controle, que podem corresponder a até 70% de erros causados por esse tipo de falha. Essas técnicas tratam as falhas em nível de software, alterando o programa com a inserção de novas instruções que devem capturar e corrigir desvios inesperados ocorridos durante a execução do software, sendo ACCE uma das técnicas mais conhecidas. Neste trabalho foi feita uma implementação da técnica ACCE através da criação de um passo de transformação de programas para a infraestrutura de compilação LLVM. ACCE atua sobre a linguagem intermediária dos programas compilados com o LLVM, resultando em portabilidade de linguagem de programação e de arquitetura de máquina. Além da implementação da técnica como um passo de transformação, o LLVM foi utilizado para a realização dos experimentos para avaliar o impacto na eficácia de ACCE quando aplicada em programas previamente otimizados por outras transformações. Esse tipo de avaliação é fundamental uma vez que dificilmente a compilação de programas é feita sem a ativação de otimizações, e, até onde sabemos, nunca havia sido feito anteriormente. Os experimentos deste trabalho foram realizados através de baterias de injeção de falhas em programas da suíte de benchmarks Mibench, divididas em diferentes cenários, que avaliaram ACCE em termos de correção de falhas, quando aplicada em programas otimizados por transformações individuais e também por combinações de transformações. Os resultados dos experimentos realizados mostram que a técnica ACCE é eficaz na correção de falhas, porém, para alguns programas otimizados por determinadas transformações, houve redução na correção de falhas. Esse trabalho analisa os experimentos nos quais houve redução da eficácia de ACCE e aponta possíveis causas.",
         "paperUrl": "http://hdl.handle.net/10183/72923",
         "tags": [],
         "openalexId": "https://openalex.org/W7119256746",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -25915,8 +25867,8 @@
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "instacron:ufrgs",
-        "_venueLower": "instacron:ufrgs",
+        "_publicationLower": "instacron: ufrgs",
+        "_venueLower": "instacron: ufrgs",
         "_typeLower": "thesis",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2013",
@@ -30391,8 +30343,8 @@
           }
         ],
         "year": "2011",
-        "publication": "http://hal-ens-lyon.archives-ouvertes.fr/docs/00/58/53/03/PDF/RR-7503.pdf",
-        "venue": "http://hal-ens-lyon.archives-ouvertes.fr/docs/00/58/53/03/PDF/RR-7503.pdf",
+        "publication": "HAL (Le Centre pour la Communication Scientifique Directe)",
+        "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
         "type": "research-paper",
         "abstract": "We revisit the problem of computing liveness sets, i.e., the set of variables live-in and live-out of basic blocks, for programs in strict SSA (static single assignment). Strict SSA is also known as SSA with dominance property because it ensures that the definition of a variable always dominates all its uses. This property can be exploited to optimize the computation of liveness sets. Our first contribution is the design of a fast data-flow algorithm, which, unlike traditional approaches, avoids the iterative calculation of a fixed point. Thanks to the properties of strict SSA form and the use of a loop-nesting forest, we show that two passes are sufficient. A first pass, similar to the initialization of iterative data-flow analysis, traverses the control-flow graph in postorder propagating liveness information backwards. A second pass then traverses the loop-nesting forest, updating liveness information within loops. Another approach is to propagate from uses to definition, one variable and one path at a time, instead of unioning sets as in standard data-flow analysis. Such a path-exploration strategy was proposed by Appel in his ''Tiger book'' and is also used in the LLVM compiler. Our second contribution is to show how to extend and optimize algorithms based on this idea to compute liveness sets one variable at a time using adequate data~structures. Finally, we evaluate and compare the efficiency of the proposed algorithms using the SPECINT 2000 benchmark suite. The standard data-flow approach is clearly outperformed, all algorithms show substantial speed-ups of a factor of 2 on average. Depending on the underlying set implementation either the path-exploration approach or the loop-forest-based approach provides superior performance. Experiments show that our loop-forest-based algorithm provides superior performances (average speed-up of 43% on the fastest alternative) when sets are represented as bitsets and for optimized programs, i.e., when there are more variables and larger live-sets and live-ranges.",
         "paperUrl": "https://inria.hal.science/inria-00558509",
@@ -30424,8 +30376,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "http://hal-ens-lyon.archives-ouvertes.fr/docs/00/58/53/03/pdf/rr-7503.pdf",
-        "_venueLower": "http://hal-ens-lyon.archives-ouvertes.fr/docs/00/58/53/03/pdf/rr-7503.pdf",
+        "_publicationLower": "hal (le centre pour la communication scientifique directe)",
+        "_venueLower": "hal (le centre pour la communication scientifique directe)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2011",
@@ -30782,31 +30734,29 @@
               "words": []
             },
             "publication": {
-              "text": "http hal-ens-lyon.archives-ouvertes.fr docs 00 58 53 03 pdf rr-7503.pdf",
+              "text": "hal le centre pour la communication scientifique directe",
               "words": [
-                "http",
-                "hal-ens-lyon.archives-ouvertes.fr",
-                "docs",
-                "00",
-                "58",
-                "53",
-                "03",
-                "pdf",
-                "rr-7503.pdf"
+                "hal",
+                "le",
+                "centre",
+                "pour",
+                "la",
+                "communication",
+                "scientifique",
+                "directe"
               ]
             },
             "venue": {
-              "text": "http hal-ens-lyon.archives-ouvertes.fr docs 00 58 53 03 pdf rr-7503.pdf",
+              "text": "hal le centre pour la communication scientifique directe",
               "words": [
-                "http",
-                "hal-ens-lyon.archives-ouvertes.fr",
-                "docs",
-                "00",
-                "58",
-                "53",
-                "03",
-                "pdf",
-                "rr-7503.pdf"
+                "hal",
+                "le",
+                "centre",
+                "pour",
+                "la",
+                "communication",
+                "scientifique",
+                "directe"
               ]
             },
             "year": {
@@ -30819,7 +30769,7 @@
           "year": 2011,
           "citationCount": 3
         },
-        "_searchBlob": "computing liveness sets for ssa-form programs we revisit the problem of computing liveness sets i.e. the set of variables live-in and live-out of basic blocks for programs in strict ssa static single assignment . strict ssa is also known as ssa with dominance property because it ensures that the definition of a variable always dominates all its uses. this property can be exploited to optimize the computation of liveness sets. our first contribution is the design of a fast data-flow algorithm which unlike traditional approaches avoids the iterative calculation of a fixed point. thanks to the properties of strict ssa form and the use of a loop-nesting forest we show that two passes are sufficient. a first pass similar to the initialization of iterative data-flow analysis traverses the control-flow graph in postorder propagating liveness information backwards. a second pass then traverses the loop-nesting forest updating liveness information within loops. another approach is to propagate from uses to definition one variable and one path at a time instead of unioning sets as in standard data-flow analysis. such a path-exploration strategy was proposed by appel in his tiger book and is also used in the llvm compiler. our second contribution is to show how to extend and optimize algorithms based on this idea to compute liveness sets one variable at a time using adequate data structures. finally we evaluate and compare the efficiency of the proposed algorithms using the specint 2000 benchmark suite. the standard data-flow approach is clearly outperformed all algorithms show substantial speed-ups of a factor of 2 on average. depending on the underlying set implementation either the path-exploration approach or the loop-forest-based approach provides superior performance. experiments show that our loop-forest-based algorithm provides superior performances average speed-up of 43 on the fastest alternative when sets are represented as bitsets and for optimized programs i.e. when there are more variables and larger live-sets and live-ranges. http hal-ens-lyon.archives-ouvertes.fr docs 00 58 53 03 pdf rr-7503.pdf http hal-ens-lyon.archives-ouvertes.fr docs 00 58 53 03 pdf rr-7503.pdf 2011 research-paper florian brandner benoit boissinot alain darte benoit dupont de dinechin kuraray fabrice rastello performance performance",
+        "_searchBlob": "computing liveness sets for ssa-form programs we revisit the problem of computing liveness sets i.e. the set of variables live-in and live-out of basic blocks for programs in strict ssa static single assignment . strict ssa is also known as ssa with dominance property because it ensures that the definition of a variable always dominates all its uses. this property can be exploited to optimize the computation of liveness sets. our first contribution is the design of a fast data-flow algorithm which unlike traditional approaches avoids the iterative calculation of a fixed point. thanks to the properties of strict ssa form and the use of a loop-nesting forest we show that two passes are sufficient. a first pass similar to the initialization of iterative data-flow analysis traverses the control-flow graph in postorder propagating liveness information backwards. a second pass then traverses the loop-nesting forest updating liveness information within loops. another approach is to propagate from uses to definition one variable and one path at a time instead of unioning sets as in standard data-flow analysis. such a path-exploration strategy was proposed by appel in his tiger book and is also used in the llvm compiler. our second contribution is to show how to extend and optimize algorithms based on this idea to compute liveness sets one variable at a time using adequate data structures. finally we evaluate and compare the efficiency of the proposed algorithms using the specint 2000 benchmark suite. the standard data-flow approach is clearly outperformed all algorithms show substantial speed-ups of a factor of 2 on average. depending on the underlying set implementation either the path-exploration approach or the loop-forest-based approach provides superior performance. experiments show that our loop-forest-based algorithm provides superior performances average speed-up of 43 on the fastest alternative when sets are represented as bitsets and for optimized programs i.e. when there are more variables and larger live-sets and live-ranges. hal le centre pour la communication scientifique directe hal le centre pour la communication scientifique directe 2011 research-paper florian brandner benoit boissinot alain darte benoit dupont de dinechin kuraray fabrice rastello performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -30855,7 +30805,7 @@
           }
         ],
         "year": "2010",
-        "venue": "Proceedings of Fifteenth International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS '10) | Pittsburgh, PA",
+        "venue": "Proceedings of Fifteenth International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS '10) | Pittsburgh",
         "type": "research-paper",
         "abstract": "This paper proposes an efficient hardware/software system that significantly enhances software security through diversified replication on multi-cores. Recent studies show that a large class of software attacks can be detected by running multiple versions of a program simultaneously and checking the consistency of their behaviors. However, execution of multiple replicas incurs significant overheads on today's computing platforms, especially with fine-grained comparisons necessary for high security. Orthrus exploits similarities in automatically generated replicas to enable simultaneous execution of those replicas with minimal overheads; the architecture reduces memory and bandwidth overheads by compressing multiple memory spaces together, and additional power consumption and silicon area by eliminating redundant computations. Utilizing the hardware architecture, Orthrus implements a fine-grained memory layout diversification with the LLVM compiler and can detect corruptions in both pointers and critical data. Experiments indicate that the Orthrus architecture incurs minimal overheads and provides a protection against a broad range of attacks.",
         "paperUrl": "https://llvm.org/pubs/2010-03-ASPLOS-Orthrus.pdf",
@@ -30890,7 +30840,7 @@
         "_topicsLower": "security security",
         "_contentLower": "",
         "_publicationLower": "proceedings of fifteenth international conference on architectural support for programming languages and operating systems (asplos '10)",
-        "_venueLower": "proceedings of fifteenth international conference on architectural support for programming languages and operating systems (asplos '10) | pittsburgh, pa",
+        "_venueLower": "proceedings of fifteenth international conference on architectural support for programming languages and operating systems (asplos '10) | pittsburgh",
         "_typeLower": "research-paper",
         "_sourceLower": "llvm-org-pubs",
         "_yearLower": "2010",
@@ -31113,7 +31063,7 @@
               ]
             },
             "venue": {
-              "text": "proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 pittsburgh pa",
+              "text": "proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 pittsburgh",
               "words": [
                 "proceedings",
                 "of",
@@ -31131,8 +31081,7 @@
                 "systems",
                 "asplos",
                 "10",
-                "pittsburgh",
-                "pa"
+                "pittsburgh"
               ]
             },
             "year": {
@@ -31145,7 +31094,7 @@
           "year": 2010,
           "citationCount": 0
         },
-        "_searchBlob": "orthrus efficient software integrity protection on multi-core this paper proposes an efficient hardware software system that significantly enhances software security through diversified replication on multi-cores. recent studies show that a large class of software attacks can be detected by running multiple versions of a program simultaneously and checking the consistency of their behaviors. however execution of multiple replicas incurs significant overheads on todays computing platforms especially with fine-grained comparisons necessary for high security. orthrus exploits similarities in automatically generated replicas to enable simultaneous execution of those replicas with minimal overheads the architecture reduces memory and bandwidth overheads by compressing multiple memory spaces together and additional power consumption and silicon area by eliminating redundant computations. utilizing the hardware architecture orthrus implements a fine-grained memory layout diversification with the llvm compiler and can detect corruptions in both pointers and critical data. experiments indicate that the orthrus architecture incurs minimal overheads and provides a protection against a broad range of attacks. proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 pittsburgh pa 2010 research-paper ruirui huang daniel y. deng g. edward suh security security",
+        "_searchBlob": "orthrus efficient software integrity protection on multi-core this paper proposes an efficient hardware software system that significantly enhances software security through diversified replication on multi-cores. recent studies show that a large class of software attacks can be detected by running multiple versions of a program simultaneously and checking the consistency of their behaviors. however execution of multiple replicas incurs significant overheads on todays computing platforms especially with fine-grained comparisons necessary for high security. orthrus exploits similarities in automatically generated replicas to enable simultaneous execution of those replicas with minimal overheads the architecture reduces memory and bandwidth overheads by compressing multiple memory spaces together and additional power consumption and silicon area by eliminating redundant computations. utilizing the hardware architecture orthrus implements a fine-grained memory layout diversification with the llvm compiler and can detect corruptions in both pointers and critical data. experiments indicate that the orthrus architecture incurs minimal overheads and provides a protection against a broad range of attacks. proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 proceedings of fifteenth international conference on architectural support for programming languages and operating systems asplos 10 pittsburgh 2010 research-paper ruirui huang daniel y. deng g. edward suh security security",
         "addedAt": "2026-02-20T23:08:48.000Z",
         "_addedAt": "2026-02-20T23:08:48.000Z",
         "_addedAtTs": 1771628928000
@@ -31187,9 +31136,9 @@
         ],
         "openalexId": "https://openalex.org/W1964642996",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1145/1806672.1806680",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -31525,10 +31474,10 @@
         "publication": "International Journal of Parallel Programming",
         "openalexId": "https://openalex.org/W2162464118",
         "doi": "10.1007/s10766-009-0111-z",
-        "citationCount": 23,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -31536,7 +31485,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 23,
+        "_citationCount": 0,
         "_titleLower": "speculative parallelization of sequential loops on multicores",
         "_authorLower": "chen tian university of california, riverside min feng university of california, riverside vijay nagarajan university of california, riverside rajiv gupta university of california, riverside",
         "_authorsLower": "chen tian university of california, riverside min feng university of california, riverside vijay nagarajan university of california, riverside rajiv gupta university of california, riverside",
@@ -31802,7 +31751,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 23
+          "citationCount": 0
         },
         "_searchBlob": "speculative parallelization of sequential loops on multicores the advent of multicores presents a promising opportunity for speeding up the execution of sequential programs through their parallelization. in this paper we present a novel solution for efficiently supporting software-based speculative parallelization of sequential loops on multicore processors. the execution model we employ is based upon state separation an approach for separately maintaining the speculative state of parallel threads and non-speculative state of the computation. if speculation is successful the results produced by parallel threads in speculative state are committed by copying them into the computations non-speculative state. if misspeculation is detected no costly state recovery mechanisms are needed as the speculative state can be simply discarded. techniques are proposed to reduce the cost of data copying between non-speculative and speculative state and efficiently carrying out misspeculation detection. we apply the above approach to speculative parallelization of loops in several sequential programs which results in significant speedups on a dell poweredge 1900 server with two intel xeon quad-core processors. international journal of parallel programming international journal of parallel programming vol. 37 issue 5 2009 research-paper chen tian university of california riverside min feng university of california riverside vijay nagarajan university of california riverside rajiv gupta university of california riverside",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -31866,10 +31815,10 @@
         "publication": "International Symposium on Microarchitecture",
         "openalexId": "https://openalex.org/W2156191262",
         "doi": "10.5555/956417.956545",
-        "citationCount": 67,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -31879,7 +31828,7 @@
         "_year": "2003",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 67,
+        "_citationCount": 0,
         "_titleLower": "llva: a low-level virtual instruction set architecture",
         "_authorLower": "vikram adve university of illinois urbana-champaign chris lattner university of illinois urbana-champaign m. brukman university of illinois urbana-champaign anand kumar shukla university of illinois urbana-champaign b. gaeke university of illinois urbana-champaign",
         "_authorsLower": "vikram adve university of illinois urbana-champaign chris lattner university of illinois urbana-champaign m. brukman university of illinois urbana-champaign anand kumar shukla university of illinois urbana-champaign b. gaeke university of illinois urbana-champaign",
@@ -32200,7 +32149,7 @@
             }
           },
           "year": 2003,
-          "citationCount": 67
+          "citationCount": 0
         },
         "_searchBlob": "llva a low-level virtual instruction set architecture a virtual instruction set architecture v-isa implemented via a processor-specific software translation layer can provide great flexibility to processor designers. recent examples such as crusoe and daisy however have used existing hardware instruction sets as virtual isas which complicates translation and optimization. in fact there has been little research on specific designs for a virtual isa for processors. this paper proposes a novel virtual isa llva and a translation strategy for implementing it on arbitrary hardware. the instruction set is typed uses an infinite virtual register set in static single assignment form and provides explicit control-flow and dataflow information and yet uses low-level operations closely matched to traditional hardware. it includes novel mechanisms to allow more flexible optimization of native code including a flexible exception model and minor constraints on self-modifying code. we propose a translation strategy that enables offline translation and transparent offline caching of native code and profile information while remaining completely os-independent. it also supports optimizations directly on the representation at install-time runtime and offline between executions. we show experimentally that despite its rich information content virtual object code is comparable in size to native machine code virtual instructions expand to only 2-4 ordinary hardware instructions on average and simple translation costs under 1 of total execution time except for very short runs. international symposium on microarchitecture international symposium on microarchitecture 2003 research-paper vikram adve university of illinois urbana-champaign chris lattner university of illinois urbana-champaign m. brukman university of illinois urbana-champaign anand kumar shukla university of illinois urbana-champaign b. gaeke university of illinois urbana-champaign optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",

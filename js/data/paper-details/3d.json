@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w7118312905": {
@@ -86,9 +86,9 @@
         ],
         "openalexId": "https://openalex.org/W7118312905",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3773656.3773658",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1152,10 +1152,10 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W7110271608",
-        "citationCount": 1,
+        "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.23919/isc.2025.11018308",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1167,7 +1167,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "how to make the most out of simd on aarch64?",
         "_authorLower": "serval martinot-lagarde maison des sciences de l'homme lou knauer maison des sciences de l'homme etienne renault maison des sciences de l'homme",
         "_authorsLower": "serval martinot-lagarde maison des sciences de l'homme lou knauer maison des sciences de l'homme etienne renault maison des sciences de l'homme",
@@ -1470,7 +1470,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "how to make the most out of simd on aarch64 interleaving unrolling and vectorization are two popular means to optimize applications. while the first one creates multiple copies of the loop body content the second one focuses on operating on multiple data elements in parallel thanks to simd units available in the cpu. in theory interleaving and vectorization are orthogonal optimizations one relying on instruction-level parallelism superscalarity and the other on data-level parallelism within a single instruction. modern cpu architectures provide both of these parallelism mechanisms at once and the combination of vectorization and interleaving is complex influencing each other due to instruction selection and complexity of underlying hardware and the programmer often has to rely on the compilers auto-vectorization. based on a large evaluation of 642 loops coming from the literature this paper demonstrates that significant gains up to 20 can be obtained by adapting the llvm auto-vectorizer to better exploit interleaving and vectorization for a given aarch64 architecture. the proposed approach is flexible and can be easily applied at both loop level or application level. experiments on 5 mini-apps coming from the hpc realm show similar improvements and demonstrates the co-design potential of the presented approach. isc high performance 2025 research paper proceedings 40th international conference isc high performance 2025 research paper proceedings 40th international conference 2025 research-paper serval martinot-lagarde maison des sciences de lhomme lou knauer maison des sciences de lhomme etienne renault maison des sciences de lhomme optimizations optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -2163,8 +2163,8 @@
           }
         ],
         "year": "2025",
-        "publication": "Authorea Inc.",
-        "venue": "Authorea Inc.",
+        "publication": "Authorea Inc",
+        "venue": "Authorea Inc",
         "type": "research-paper",
         "abstract": "The base64 format is ubiquitous: it is used in emails and Web documents to encode binary data as text. By convention, base64 text often includes ignorable characters such as spaces. We introduce the first base64-decoding algorithms with support for ignorable characters designed for single-instruction-multiple-data (SIMD) instructions. Our novel functions multiply the base64 decoding speed compared to traditional methods. Our algorithms have been implemented for different hardware architectures (ARM and x64). Our approach has been widely adopted in JavaScript runtimes and Web browsers.",
         "paperUrl": "https://www.authorea.com/doi/pdf/10.22541/au.173866897.72952916",
@@ -2190,10 +2190,10 @@
           "runtimes"
         ],
         "id": "openalex-w4407141354",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -2207,8 +2207,8 @@
         "_keywordsLower": "runtimes autovectorization simd base64 decoding ignorable characters simd instructions",
         "_topicsLower": "runtimes autovectorization runtimes autovectorization simd base64 decoding ignorable characters simd instructions runtimes",
         "_contentLower": "",
-        "_publicationLower": "authorea inc.",
-        "_venueLower": "authorea inc.",
+        "_publicationLower": "authorea inc",
+        "_venueLower": "authorea inc",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2025",
@@ -2353,17 +2353,17 @@
               "words": []
             },
             "publication": {
-              "text": "authorea inc.",
+              "text": "authorea inc",
               "words": [
                 "authorea",
-                "inc."
+                "inc"
               ]
             },
             "venue": {
-              "text": "authorea inc.",
+              "text": "authorea inc",
               "words": [
                 "authorea",
-                "inc."
+                "inc"
               ]
             },
             "year": {
@@ -2376,7 +2376,7 @@
           "year": 2025,
           "citationCount": 0
         },
-        "_searchBlob": "base64 decoding with ignorable characters using simd instructions the base64 format is ubiquitous it is used in emails and web documents to encode binary data as text. by convention base64 text often includes ignorable characters such as spaces. we introduce the first base64-decoding algorithms with support for ignorable characters designed for single-instruction-multiple-data simd instructions. our novel functions multiply the base64 decoding speed compared to traditional methods. our algorithms have been implemented for different hardware architectures arm and x64 . our approach has been widely adopted in javascript runtimes and web browsers. authorea inc. authorea inc. 2025 research-paper daniel lemire universite teluq runtimes autovectorization runtimes autovectorization simd base64 decoding ignorable characters simd instructions runtimes",
+        "_searchBlob": "base64 decoding with ignorable characters using simd instructions the base64 format is ubiquitous it is used in emails and web documents to encode binary data as text. by convention base64 text often includes ignorable characters such as spaces. we introduce the first base64-decoding algorithms with support for ignorable characters designed for single-instruction-multiple-data simd instructions. our novel functions multiply the base64 decoding speed compared to traditional methods. our algorithms have been implemented for different hardware architectures arm and x64 . our approach has been widely adopted in javascript runtimes and web browsers. authorea inc authorea inc 2025 research-paper daniel lemire universite teluq runtimes autovectorization runtimes autovectorization simd base64 decoding ignorable characters simd instructions runtimes",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -3206,9 +3206,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4405383334",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-73716-9_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -3562,9 +3562,9 @@
         ],
         "openalexId": "https://openalex.org/W4387267929",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.17918/00001738",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4200,9 +4200,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4324030876",
         "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1016/j.cose.2023.103183",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -4523,8 +4523,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Proceedings of the 52nd International Conference on Parallel Processing Workshops",
-        "venue": "Proceedings of the 52nd International Conference on Parallel Processing Workshops",
+        "publication": "Proceedings of 52nd International Conference on Parallel Processing Workshops",
+        "venue": "Proceedings of 52nd International Conference on Parallel Processing Workshops",
         "type": "research-paper",
         "abstract": "SYCL allows for deployment and use of accelerators across vendors’ platforms. In this work, we describe the experience of deploying graph analytics on vendors’ GPUs using SYCL. We contrast the CUDA and SYCL application programming interfaces by describing the experience of migrating the applications from CUDA to SYCL, evaluate the performance of the applications on NVIDIA and AMD GPUs, and explore performance improvement with device-level parallelism. The results show that the recent SYCL extensions facilitate functional portability, but improving code optimizations and resource usage for performance portability is needed in the compiler implementation.",
         "paperUrl": "https://www.osti.gov/servlets/purl/2000370",
@@ -4552,15 +4552,15 @@
           "libsycl"
         ],
         "id": "openalex-w4386517180",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "experience deploying graph applications on gpus with sycl",
         "_authorLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -4569,8 +4569,8 @@
         "_keywordsLower": "optimizations performance gpu cuda experience experience deploying graph",
         "_topicsLower": "optimizations performance gpu cuda optimizations performance gpu cuda experience experience deploying graph libsycl",
         "_contentLower": "",
-        "_publicationLower": "proceedings of the 52nd international conference on parallel processing workshops",
-        "_venueLower": "proceedings of the 52nd international conference on parallel processing workshops",
+        "_publicationLower": "proceedings of 52nd international conference on parallel processing workshops",
+        "_venueLower": "proceedings of 52nd international conference on parallel processing workshops",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2023",
@@ -4736,11 +4736,10 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of the 52nd international conference on parallel processing workshops",
+              "text": "proceedings of 52nd international conference on parallel processing workshops",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "52nd",
                 "international",
                 "conference",
@@ -4751,11 +4750,10 @@
               ]
             },
             "venue": {
-              "text": "proceedings of the 52nd international conference on parallel processing workshops",
+              "text": "proceedings of 52nd international conference on parallel processing workshops",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "52nd",
                 "international",
                 "conference",
@@ -4773,9 +4771,9 @@
             }
           },
           "year": 2023,
-          "citationCount": 2
+          "citationCount": 0
         },
-        "_searchBlob": "experience deploying graph applications on gpus with sycl sycl allows for deployment and use of accelerators across vendors platforms. in this work we describe the experience of deploying graph analytics on vendors gpus using sycl. we contrast the cuda and sycl application programming interfaces by describing the experience of migrating the applications from cuda to sycl evaluate the performance of the applications on nvidia and amd gpus and explore performance improvement with device-level parallelism. the results show that the recent sycl extensions facilitate functional portability but improving code optimizations and resource usage for performance portability is needed in the compiler implementation. proceedings of the 52nd international conference on parallel processing workshops proceedings of the 52nd international conference on parallel processing workshops 2023 research-paper zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory optimizations performance gpu cuda optimizations performance gpu cuda experience experience deploying graph libsycl",
+        "_searchBlob": "experience deploying graph applications on gpus with sycl sycl allows for deployment and use of accelerators across vendors platforms. in this work we describe the experience of deploying graph analytics on vendors gpus using sycl. we contrast the cuda and sycl application programming interfaces by describing the experience of migrating the applications from cuda to sycl evaluate the performance of the applications on nvidia and amd gpus and explore performance improvement with device-level parallelism. the results show that the recent sycl extensions facilitate functional portability but improving code optimizations and resource usage for performance portability is needed in the compiler implementation. proceedings of 52nd international conference on parallel processing workshops proceedings of 52nd international conference on parallel processing workshops 2023 research-paper zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory optimizations performance gpu cuda optimizations performance gpu cuda experience experience deploying graph libsycl",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -5309,15 +5307,15 @@
           "llvm"
         ],
         "id": "openalex-w3128680588",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "noelle offers empowering llvm extensions",
         "_authorLower": "angelo matni northwestern university enrico armenio deiana northwestern university yian su northwestern university lukas gross northwestern university souradip ghosh northwestern university sotiris apostolakis princeton university ziyang xu princeton university zujun tan princeton university ishita chaturvedi princeton university david i. august northwestern university simone campanoni northwestern university",
         "_authorsLower": "angelo matni northwestern university enrico armenio deiana northwestern university yian su northwestern university lukas gross northwestern university souradip ghosh northwestern university sotiris apostolakis princeton university ziyang xu princeton university zujun tan princeton university ishita chaturvedi princeton university david i. august northwestern university simone campanoni northwestern university",
@@ -5596,7 +5594,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "noelle offers empowering llvm extensions modern and emerging architectures demand increasingly complex compiler analyses and transformations. as the emphasis on compiler infrastructure moves beyond support for peephole optimizations and the extraction of instruction-level parallelism they should support custom tools designed to meet these demands with higher-level analysis-powered abstractions of wider program scope. this paper introduces noelle a robust open-source domain-independent compilation layer built upon llvm providing this support. noelle is modular and demand-driven making it easy-to-extend and adaptable to custom-tool-specific needs without unduly wasting compile time and memory. this paper shows the power of noelle by presenting a diverse set of ten custom tools built upon it with a 33.2 to 99.2 reduction in code size loc compared to their counterparts without noelle. 2022 ieee acm international symposium on code generation and optimization cgo 2022 ieee acm international symposium on code generation and optimization cgo 2022 research-paper angelo matni northwestern university enrico armenio deiana northwestern university yian su northwestern university lukas gross northwestern university souradip ghosh northwestern university sotiris apostolakis princeton university ziyang xu princeton university zujun tan princeton university ishita chaturvedi princeton university david i. august northwestern university simone campanoni northwestern university llvm backend code generation optimizations infrastructure llvm backend code generation optimizations infrastructure noelle offers empowering custom built upon empowering llvm extensions offers empowering llvm llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -5646,9 +5644,9 @@
         ],
         "openalexId": "https://openalex.org/W4310608292",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/sbesc56799.2022.9965085",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5994,10 +5992,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4320061944",
-        "citationCount": 2,
+        "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/llvm-hpc56686.2022.00008",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6009,7 +6007,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "automatic asynchronous execution of synchronously offloaded openmp target regions",
         "_authorLower": "rafael a. herrera guaitero university of delaware jose m. monsalve diaz argonne national laboratory thomas applencourt argonne national laboratory xiaoming li university of delaware johannes doerfert argonne national laboratory",
         "_authorsLower": "rafael a. herrera guaitero university of delaware jose m. monsalve diaz argonne national laboratory thomas applencourt argonne national laboratory xiaoming li university of delaware johannes doerfert argonne national laboratory",
@@ -6353,7 +6351,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "automatic asynchronous execution of synchronously offloaded openmp target regions use of heterogeneous architectures has steadily increased during the past decade. however non-homogeneous systems present a challenge to the programming model as the execution models between cpu and accelerator might differ considerably. openmp since version 4.0 has been trying to bridge this gap by allowing to offload a code block to a target device. among the additions to the openmp offloading api since the most notably probably is asynchronous execution between device and host. by default offloaded regions are executed synchronously thus the host thread blocks until their completion. the nowait clause allows work to overlap between the host and target device. however nowait must be manually added by the user along with the tasks data dependencies and appropriate synchronization to avoid race conditions increasing the program complexity and developer burden. in this work we present automatic asynchronous execution for openmp offloaded regions. by taking advantage of the distinct host and target data environments we discover opportunities that allow them to overlap execution without any need for user intervention. we also describe the necessary changes in the llvm openmp runtime. we evaluate our implementation through multiple hpc proxy applications and well known parallel benchmarks executed on gpus. the measured performance can double for an ideal test case while real application exhibit speedups between 5 and 34 . 2022 ieee acm eighth workshop on the llvm compiler infrastructure in hpc llvm-hpc 2022 ieee acm eighth workshop on the llvm compiler infrastructure in hpc llvm-hpc 2022 research-paper rafael a. herrera guaitero university of delaware jose m. monsalve diaz argonne national laboratory thomas applencourt argonne national laboratory xiaoming li university of delaware johannes doerfert argonne national laboratory performance performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6427,17 +6425,17 @@
           }
         ],
         "year": "2021",
-        "publication": "2021 IEEE/ACM 43rd International Conference on Software Engineering:Companion Proceedings (ICSE-Companion)",
-        "venue": "2021 IEEE/ACM 43rd International Conference on Software Engineering:Companion Proceedings (ICSE-Companion)",
+        "publication": "2021 IEEE/ACM 43rd International Conference on Software Engineering: Companion Proceedings (ICSE-Companion)",
+        "venue": "2021 IEEE/ACM 43rd International Conference on Software Engineering: Companion Proceedings (ICSE-Companion)",
         "type": "research-paper",
         "abstract": "This paper presents Metrinome, a tool for performing automatic path complexity analysis of C functions. The path complexity of a function is an expression that describes the number of paths through the function up to a given execution depth. Metrinome constructs the control flow graph CFG of a C function using LLVM utilities, analyzes that CFG using algebraic graph theory and analytic combinatorics, and produces a closed-form expression for the path complexity as well as the asymptotic path complexity of the function. Our experiments show that path complexity predicts the growth rate of the number of execution paths that Klee, a popular symbolic execution tool, is able to cover within a given exploration depth. Metrinome is open-source, available as a Docker image for immediate use, and all of our experiments and data are available in our repository and included in our Docker image.",
         "paperUrl": "https://doi.org/10.1109/icse-companion52605.2021.00028",
         "tags": [],
         "openalexId": "https://openalex.org/W3163095639",
-        "citationCount": 6,
+        "citationCount": 4,
+        "sourceUrl": "",
         "doi": "10.1109/icse-companion52605.2021.00028",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6447,7 +6445,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 4,
         "_titleLower": "metrinome: path complexity predicts symbolic execution path explosion",
         "_authorLower": "gabriel bessler harvey mudd college josh cordova harvey mudd college shaheen cullen-baratloo harvey mudd college sofiane dissem harvey mudd college emily ming‐chieh lu scripps college sofia devin harvey mudd college ibrahim abughararh harvey mudd college lucas bang harvey mudd college",
         "_authorsLower": "gabriel bessler harvey mudd college josh cordova harvey mudd college shaheen cullen-baratloo harvey mudd college sofiane dissem harvey mudd college emily ming‐chieh lu scripps college sofia devin harvey mudd college ibrahim abughararh harvey mudd college lucas bang harvey mudd college",
@@ -6456,8 +6454,8 @@
         "_keywordsLower": "",
         "_topicsLower": "",
         "_contentLower": "",
-        "_publicationLower": "2021 ieee/acm 43rd international conference on software engineering:companion proceedings (icse-companion)",
-        "_venueLower": "2021 ieee/acm 43rd international conference on software engineering:companion proceedings (icse-companion)",
+        "_publicationLower": "2021 ieee/acm 43rd international conference on software engineering: companion proceedings (icse-companion)",
+        "_venueLower": "2021 ieee/acm 43rd international conference on software engineering: companion proceedings (icse-companion)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2021",
@@ -6718,7 +6716,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 6
+          "citationCount": 4
         },
         "_searchBlob": "metrinome path complexity predicts symbolic execution path explosion this paper presents metrinome a tool for performing automatic path complexity analysis of c functions. the path complexity of a function is an expression that describes the number of paths through the function up to a given execution depth. metrinome constructs the control flow graph cfg of a c function using llvm utilities analyzes that cfg using algebraic graph theory and analytic combinatorics and produces a closed-form expression for the path complexity as well as the asymptotic path complexity of the function. our experiments show that path complexity predicts the growth rate of the number of execution paths that klee a popular symbolic execution tool is able to cover within a given exploration depth. metrinome is open-source available as a docker image for immediate use and all of our experiments and data are available in our repository and included in our docker image. 2021 ieee acm 43rd international conference on software engineering companion proceedings icse-companion 2021 ieee acm 43rd international conference on software engineering companion proceedings icse-companion 2021 research-paper gabriel bessler harvey mudd college josh cordova harvey mudd college shaheen cullen-baratloo harvey mudd college sofiane dissem harvey mudd college emily ming chieh lu scripps college sofia devin harvey mudd college ibrahim abughararh harvey mudd college lucas bang harvey mudd college",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6758,9 +6756,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3206466725",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-88806-0_2",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6936,8 +6934,8 @@
         ],
         "openalexId": "https://openalex.org/W3189390930",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7904,15 +7902,15 @@
           "openmp"
         ],
         "id": "openalex-w4206688618",
-        "citationCount": 6,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 0,
         "_titleLower": "addressing load imbalance in bioinformatics and biomedical applications: efficient scheduling across multiple gpus",
         "_authorLower": "mathialakan thavappiragasam oak ridge national laboratory vivek kale brookhaven national laboratory óscar hernández nvidia ada sedova oak ridge national laboratory",
         "_authorsLower": "mathialakan thavappiragasam oak ridge national laboratory vivek kale brookhaven national laboratory óscar hernández nvidia ada sedova oak ridge national laboratory",
@@ -8324,7 +8322,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 6
+          "citationCount": 0
         },
         "_searchBlob": "addressing load imbalance in bioinformatics and biomedical applications efficient scheduling across multiple gpus computational bioinformatics and biomedical applications frequently contain heterogeneously sized units of work or tasks for instance due to variability in the sizes of biological sequences and molecules. variable-sized workloads lead to load imbalances in parallel implementations which detract from efficiency and performance. many modern computing resources now have multiple graphics processing units gpus per computer for acceleration. these multiple gpu resources need to be used efficiently through balancing of workloads across the gpus. openmp is a portable directive-based parallel programming api used ubiquitously in bioscience applications to program cpus recently the use of openmp directives for gpu acceleration has become possible. here motivated by experiences with imbalanced loads in gpu-accelerated bioinformatics applications we address the load balancing problem using openmp task-to-gpu scheduling combined with openmp gpu offloading for multiply heterogeneous workloads loads with both variable input sizes and simultaneously variable convergence rates for algorithms with a stochastic component scheduled across multiple gpus. we aim to develop strategies which are both easy to use and have lower overheads and may be incorporated incrementally in existing programs which already make use of openmp for cpu-based threading in order to make use of multi-gpu computers. we test different combinations of input size variability and convergence rate variability and characterize the effects of these different scenarios on the performance of scheduling strategies across multiple gpus with openmp. we present several dynamic scheduling solutions for different parallel patterns explore optimizations and provide publicly available example computational kernels to make these strategies easy to use in programs. this work will enable application developers to efficiently and easily use multiple gpus for imbalanced workloads found in bioinformatics and biomedical applications. 2021 ieee international conference on bioinformatics and biomedicine bibm 2021 ieee international conference on bioinformatics and biomedicine bibm 2021 research-paper mathialakan thavappiragasam oak ridge national laboratory vivek kale brookhaven national laboratory oscar hernandez nvidia ada sedova oak ridge national laboratory openmp optimizations performance gpu openmp optimizations performance gpu offloading parallel computing bioinformatics workloads biomedical strategies variability variable make use addressing load imbalance offload openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -8389,15 +8387,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 10,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 0,
         "_titleLower": "tensor optimization for high-level synthesis design flows",
         "_authorLower": "marco siracusa politecnico di milano fabrizio ferrandi politecnico di milano",
         "_authorsLower": "marco siracusa politecnico di milano fabrizio ferrandi politecnico di milano",
@@ -8734,7 +8732,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 10
+          "citationCount": 0
         },
         "_searchBlob": "tensor optimization for high-level synthesis design flows improving data locality of tensor data structures is a crucial optimization for maximizing the performance of machine learning and intensive linear algebra applications. while cpus and gpus improve data locality by means of automated caching mechanisms fpgas let the developer specify data structure allocation. although this feature enables a high degree of customizability the increasing complexity and memory footprint of modern applications prevent considering any manual approach to find an optimal allocation. for this reason we propose a compiler optimization to automatically improve the tensor allocation of high-level software descriptions. the optimization is controlled by a flexible cost model that can be tuned by means of simple yet expressive callback functions. in this way the user can tailor the optimization strategy with respect to the optimization goal. we tested our methodology integrating our optimization in the bambu open-source hls framework. in this setting we achieved a 14 speedup on the digit recognition version proposed by the rosetta benchmark. moreover we tested our optimization on the chstone benchmark suite achieving an average of 6 speedup. finally we applied our methodology on two industrial examples from the aerospace domain obtaining a 15 speedup. as a final step we tested the versatility of our methodology inserting our optimization in the clang software optimization flow achieving a 12 speedup on the rosetta benchmark when running on cpu. ieee transactions on computer-aided design of integrated circuits and systems ieee transactions on computer-aided design of integrated circuits and systems vol. 39 issue 11 2020 research-paper marco siracusa politecnico di milano fabrizio ferrandi politecnico di milano clang optimizations performance gpu ml clang optimizations performance gpu ml speedup tensor optimization allocation methodology clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -9339,15 +9337,15 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "a vertex cut based framework for load balancing and parallelism optimization in multi-core systems",
         "_authorLower": "guixiang ma yao xiao theodore l. willke nesreen k. ahmed shahin nazarian paul bogdan",
         "_authorsLower": "guixiang ma yao xiao theodore l. willke nesreen k. ahmed shahin nazarian paul bogdan",
@@ -9719,7 +9717,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "a vertex cut based framework for load balancing and parallelism optimization in multi-core systems high-level applications such as machine learning are evolving from simple models based on multilayer perceptrons for simple image recognition to much deeper and more complex neural networks for self-driving vehicle control systems.the rapid increase in the consumption of memory and computational resources by these models demands the use of multi-core parallel systems to scale the execution of the complex emerging applications that depend on them. however parallel programs running on high-performance computers often suffer from data communication bottlenecks limited memory bandwidth and synchronization overhead due to irregular critical sections. in this paper we propose a framework to reduce the data communication and improve the scalability and performance of these applications in multi-core systems. we design a vertex cut framework for partitioning llvm ir graphs into clusters while taking into consideration the data communication and workload balance among clusters. first we construct llvm graphs by compiling high-level programs into llvm ir instrumenting code to obtain the execution order of basic blocks and the execution time for each memory operation and analyze data dependencies in dynamic llvm traces. next we formulate the problem as weight balanced p -way vertex cut and propose a generic and flexible framework wherein four different greedy algorithms are proposed for solving this problem. lastly we propose a memory-centric run-time mapping of the linear time complexity to map clusters generated from the vertex cut algorithms onto a multi-core platform. we conclude that our best algorithm wb-libra provides performance improvements of 1.56x and 1.86x over existing state-of-the-art approaches for 8 and 1024 clusters running on a multi-core platform respectively. arxiv arxiv 2020 research-paper guixiang ma yao xiao theodore l. willke nesreen k. ahmed shahin nazarian paul bogdan llvm ir optimizations performance ml llvm ir optimizations performance ml intermediate representation multi core platform vertex cut clusters llvm ir memory communication propose graphs llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -9767,10 +9765,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2963356946",
-        "citationCount": 10,
+        "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1145/3339186.3339192",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9782,7 +9780,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 9,
         "_titleLower": "translating aarch64 floating-point instruction set to the x86-64 platform",
         "_authorLower": "yi‐ping you national yang ming chiao tung university tsung‐chun lin national yang ming chiao tung university wuu yang national yang ming chiao tung university",
         "_authorsLower": "yi‐ping you national yang ming chiao tung university tsung‐chun lin national yang ming chiao tung university wuu yang national yang ming chiao tung university",
@@ -10065,7 +10063,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 10
+          "citationCount": 9
         },
         "_searchBlob": "translating aarch64 floating-point instruction set to the x86-64 platform binary translation translates binary programs from one instruction set to another. it is widely used in virtual machines and emulators. we extend mc2llvm which is an llvm-based retargetable 32-bit binary translator developed in our lab in the past several years to support 64-bit arm instruction set. in this paper we report the translation of aarch64 floating-point instructions in our mc2llvm. for floating-point instructions due to the lack of floating-point support in llvm 13 14 we add support for the flush-to-zero mode not-a-number processing floating-point exceptions and various rounding modes. on average mc2llvm-translated binary can achieve 47 and 24.5 of the performance of natively compiled x86-64 binary on statically translated eembc benchmark and dynamically translated spec cint2006 benchmarks respectively. compared to qemu-translated binary mc2llvm-translated binary runs 2.92x 1.21x and 1.41x faster on statically translated eembc benchmark dynamically translated spec cint2006 and cfp2006 benchmarks respectively. note that the benchmarks contain both floating-point instructions and other instructions such as load and store instructions. workshop proceedings of the 48th international conference on parallel processing workshop proceedings of the 48th international conference on parallel processing 2019 research-paper yi ping you national yang ming chiao tung university tsung chun lin national yang ming chiao tung university wuu yang national yang ming chiao tung university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -10119,9 +10117,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2913127789",
         "citationCount": 7,
+        "sourceUrl": "",
         "doi": "10.1109/lca.2019.2893932",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10426,9 +10424,9 @@
         ],
         "openalexId": "https://openalex.org/W2798370135",
         "citationCount": 32,
+        "sourceUrl": "",
         "doi": "10.23919/date.2018.8342229",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10848,9 +10846,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2889176444",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1007/s10766-018-0597-3",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11500,9 +11498,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2800448816",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1016/j.procs.2018.04.166",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11732,8 +11730,8 @@
         ],
         "openalexId": "https://openalex.org/W2765283125",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12149,15 +12147,15 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "citationCount": 20,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 20,
+        "_citationCount": 0,
         "_titleLower": "pragmatic performance portability with openmp 4.x",
         "_authorLower": "matt martineau university of bristol james price university of bristol simon mcintosh‐smith university of bristol wayne gaudin atomic weapons establishment",
         "_authorsLower": "matt martineau university of bristol james price university of bristol simon mcintosh‐smith university of bristol wayne gaudin atomic weapons establishment",
@@ -12274,7 +12272,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 20
+          "citationCount": 0
         },
         "_searchBlob": "pragmatic performance portability with openmp 4.x no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2016 research-paper matt martineau university of bristol james price university of bristol simon mcintosh smith university of bristol wayne gaudin atomic weapons establishment openmp performance openmp performance pragmatic performance portability openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -13051,14 +13049,12 @@
         "sourceName": "LLVM Publications",
         "publication": "2016 IEEE Symposium on Security and Privacy (SP)",
         "openalexId": "https://openalex.org/W2512784977",
-        "doi": "10.1109/sp.2016.62",
-        "citationCount": 359,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1109/sp.2016.62",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -13066,7 +13062,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 359,
+        "_citationCount": 0,
         "_titleLower": "data-oriented programming: on the expressiveness of non-control data attacks",
         "_authorLower": "hong hu national university of singapore shweta shinde national university of singapore sendroiu adrian national university of singapore zheng leong chua national university of singapore prateek saxena national university of singapore zhenkai liang national university of singapore",
         "_authorsLower": "hong hu national university of singapore shweta shinde national university of singapore sendroiu adrian national university of singapore zheng leong chua national university of singapore prateek saxena national university of singapore zhenkai liang national university of singapore",
@@ -13376,7 +13372,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 359
+          "citationCount": 0
         },
         "_searchBlob": "data-oriented programming on the expressiveness of non-control data attacks as control-flow hijacking defenses gain adoption it is important to understand the remaining capabilities of adversaries via memory exploits. non-control data exploits are used to mount information leakage attacks or privilege escalation attacks program memory. compared to control-flow hijacking attacks such non-control data exploits have limited expressiveness however the question is what is the real expressive power of non-control data attacks in this paper we show that such attacks are turing-complete. we present a systematic technique called data-oriented programming dop to construct expressive non-control data exploits for arbitrary x86 programs. in the experimental evaluation using 9 programs we identified 7518 data-oriented x86 gadgets and 5052 gadget dispatchers which are the building blocks for dop. 8 out of 9 real-world programs have gadgets to simulate arbitrary computations and 2 of them are confirmed to be able to build turing-complete attacks. we build 3 end-to-end attacks to bypass randomization defenses without leaking addresses to run a network bot which takes commands from the attacker and to alter the memory permissions. all the attacks work in the presence of aslr and dep demonstrating how the expressiveness offered by dop significantly empowers the attacker. 2016 ieee symposium on security and privacy sp 2016 ieee symposium on security and privacy sp 2016 research-paper hong hu national university of singapore shweta shinde national university of singapore sendroiu adrian national university of singapore zheng leong chua national university of singapore prateek saxena national university of singapore zhenkai liang national university of singapore",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -13733,15 +13729,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "定番Cortex-AボードBeagleBone Blackで確かめる 強烈!? LLVM/Clangコンパイラの実力 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新GCC&LLVM初体験) -- (新時代コンパイラLLVMを定番ボードBeagleBone Blackで試す)",
-        "authors": [
-          {
-            "name": "和夫 村井",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2015",
         "publication": "インターフェース = Interface",
         "venue": "インターフェース = Interface | Vol. 41 (Issue 3)",
@@ -13753,8 +13741,8 @@
         ],
         "openalexId": "https://openalex.org/W364048574",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13769,8 +13757,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "定番cortex-aボードbeaglebone blackで確かめる 強烈!? llvm/clangコンパイラの実力 (特集 高性能でフリー! 新時代コンパイラ入門 : 使わない手はない! 最新gcc&llvm初体験) -- (新時代コンパイラllvmを定番ボードbeaglebone blackで試す)",
-        "_authorLower": "和夫 村井",
-        "_authorsLower": "和夫 村井",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "https://cir.nii.ac.jp/crid/1523669555539821824",
         "_tagsLower": "clang",
         "_keywordsLower": "clang",
@@ -13897,9 +13885,9 @@
         ],
         "openalexId": "https://openalex.org/W1994155933",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1134/s0361768815040027",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14092,8 +14080,8 @@
         ],
         "openalexId": "https://openalex.org/W835756272",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15033,9 +15021,9 @@
         ],
         "openalexId": "https://openalex.org/W2067255729",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/ipdpsw.2012.60",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15414,8 +15402,8 @@
           }
         ],
         "year": "2010",
-        "publication": "http://hal.inria.fr/docs/00/49/41/71/PDF/WARP2010-kenter-upaderborn.pdf",
-        "venue": "http://hal.inria.fr/docs/00/49/41/71/PDF/WARP2010-kenter-upaderborn.pdf",
+        "publication": "INRIA a CCSD electronic archive server",
+        "venue": "INRIA a CCSD electronic archive server",
         "type": "research-paper",
         "abstract": "Abstract—In this paper we present an approach for studying the design space when interfacing reconfigurable accelerators with a CPU. For this purpose we introduce a framework based on the LLVM infrastructure that performs hardware/software partitioning with runtime estimation utilizing profiling information and code analysis. We apply it to reconfigurable accelerators that are controlled by a CPU via a direct low-latency interface but also have direct access to the memory hierarchy. Our results show that a shared L2 cache for CPU and accelerator seems to be the most promising design point for a range of applications. I. INTRODUCTION AND RELATED WORK Reconfigurable hardware accelerators promise to improve performance and energy efficiency over conventional CPUs for a wide range of applications. The integration of CPU and accelerator is an essential design decision since the characteristics",
         "paperUrl": "https://hal.inria.fr/inria-00494171",
@@ -15449,8 +15437,8 @@
         "_keywordsLower": "infrastructure performance",
         "_topicsLower": "infrastructure performance infrastructure performance",
         "_contentLower": "",
-        "_publicationLower": "http://hal.inria.fr/docs/00/49/41/71/pdf/warp2010-kenter-upaderborn.pdf",
-        "_venueLower": "http://hal.inria.fr/docs/00/49/41/71/pdf/warp2010-kenter-upaderborn.pdf",
+        "_publicationLower": "inria a ccsd electronic archive server",
+        "_venueLower": "inria a ccsd electronic archive server",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2010",
@@ -15644,31 +15632,23 @@
               "words": []
             },
             "publication": {
-              "text": "http hal.inria.fr docs 00 49 41 71 pdf warp2010-kenter-upaderborn.pdf",
+              "text": "inria a ccsd electronic archive server",
               "words": [
-                "http",
-                "hal.inria.fr",
-                "docs",
-                "00",
-                "49",
-                "41",
-                "71",
-                "pdf",
-                "warp2010-kenter-upaderborn.pdf"
+                "inria",
+                "ccsd",
+                "electronic",
+                "archive",
+                "server"
               ]
             },
             "venue": {
-              "text": "http hal.inria.fr docs 00 49 41 71 pdf warp2010-kenter-upaderborn.pdf",
+              "text": "inria a ccsd electronic archive server",
               "words": [
-                "http",
-                "hal.inria.fr",
-                "docs",
-                "00",
-                "49",
-                "41",
-                "71",
-                "pdf",
-                "warp2010-kenter-upaderborn.pdf"
+                "inria",
+                "ccsd",
+                "electronic",
+                "archive",
+                "server"
               ]
             },
             "year": {
@@ -15681,7 +15661,7 @@
           "year": 2010,
           "citationCount": 3
         },
-        "_searchBlob": "performance estimation for the exploration of cpu-accelerator architectures abstract in this paper we present an approach for studying the design space when interfacing reconfigurable accelerators with a cpu. for this purpose we introduce a framework based on the llvm infrastructure that performs hardware software partitioning with runtime estimation utilizing profiling information and code analysis. we apply it to reconfigurable accelerators that are controlled by a cpu via a direct low-latency interface but also have direct access to the memory hierarchy. our results show that a shared l2 cache for cpu and accelerator seems to be the most promising design point for a range of applications. i. introduction and related work reconfigurable hardware accelerators promise to improve performance and energy efficiency over conventional cpus for a wide range of applications. the integration of cpu and accelerator is an essential design decision since the characteristics http hal.inria.fr docs 00 49 41 71 pdf warp2010-kenter-upaderborn.pdf http hal.inria.fr docs 00 49 41 71 pdf warp2010-kenter-upaderborn.pdf 2010 research-paper tobias kenter paderborn university marco platzner paderborn university christian plessl paderborn university michael kauschke intel infrastructure performance infrastructure performance",
+        "_searchBlob": "performance estimation for the exploration of cpu-accelerator architectures abstract in this paper we present an approach for studying the design space when interfacing reconfigurable accelerators with a cpu. for this purpose we introduce a framework based on the llvm infrastructure that performs hardware software partitioning with runtime estimation utilizing profiling information and code analysis. we apply it to reconfigurable accelerators that are controlled by a cpu via a direct low-latency interface but also have direct access to the memory hierarchy. our results show that a shared l2 cache for cpu and accelerator seems to be the most promising design point for a range of applications. i. introduction and related work reconfigurable hardware accelerators promise to improve performance and energy efficiency over conventional cpus for a wide range of applications. the integration of cpu and accelerator is an essential design decision since the characteristics inria a ccsd electronic archive server inria a ccsd electronic archive server 2010 research-paper tobias kenter paderborn university marco platzner paderborn university christian plessl paderborn university michael kauschke intel infrastructure performance infrastructure performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -16035,7 +16015,7 @@
         ],
         "year": "2025",
         "publication": "ASPLOS",
-        "venue": "ASPLOS 2025",
+        "venue": "ASPLOS | ASPLOS 2025",
         "type": "research-paper",
         "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3669940.3707214",
         "sourceUrl": "https://grosser.science/pub/2025-compressed-and-parallelized-structured-tensor-algebra",
@@ -16070,7 +16050,7 @@
         "_topicsLower": "llvm tensor algebra llvm tensor algebra",
         "_contentLower": "- source page: https://grosser.science/pub/2025-compressed-and-parallelized-structured-tensor-algebra - openreview: https://openreview.net/forum?id=xm6lhjk8px - doi: https://doi.org/10.1145/3669940.3707214 - pdf: https://dl.acm.org/doi/pdf/10.1145/3669940.3707214",
         "_publicationLower": "asplos",
-        "_venueLower": "asplos 2025",
+        "_venueLower": "asplos | asplos 2025",
         "_typeLower": "research-paper",
         "_sourceLower": "manual-added",
         "_yearLower": "2025",
@@ -16155,8 +16135,9 @@
               ]
             },
             "venue": {
-              "text": "asplos 2025",
+              "text": "asplos asplos 2025",
               "words": [
+                "asplos",
                 "asplos",
                 "2025"
               ]
@@ -16171,7 +16152,7 @@
           "year": 2025,
           "citationCount": 0
         },
-        "_searchBlob": "compressed and parallelized structured tensor algebra - source page https grosser.science pub 2025-compressed-and-parallelized-structured-tensor-algebra - openreview https openreview.net forum id xm6lhjk8px - doi https doi.org 10.1145 3669940.3707214 - pdf https dl.acm.org doi pdf 10.1145 3669940.3707214 asplos asplos 2025 2025 research-paper sasha lopoukhine tobias grosser llvm tensor algebra llvm tensor algebra"
+        "_searchBlob": "compressed and parallelized structured tensor algebra - source page https grosser.science pub 2025-compressed-and-parallelized-structured-tensor-algebra - openreview https openreview.net forum id xm6lhjk8px - doi https doi.org 10.1145 3669940.3707214 - pdf https dl.acm.org doi pdf 10.1145 3669940.3707214 asplos asplos asplos 2025 2025 research-paper sasha lopoukhine tobias grosser llvm tensor algebra llvm tensor algebra"
       },
       "source": "manual-added"
     }

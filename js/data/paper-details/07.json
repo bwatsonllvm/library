@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4399837024": {
@@ -74,10 +74,10 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -422,8 +422,8 @@
           }
         ],
         "year": "2024",
-        "publication": "2024 IEEE International Symposium on High-Performance Computer Architecture (HPCA)",
-        "venue": "2024 IEEE International Symposium on High-Performance Computer Architecture (HPCA)",
+        "publication": "2024 IEEE International Symposium on High",
+        "venue": "2024 IEEE International Symposium on High",
         "type": "research-paper",
         "abstract": "With the increasing demand for computing capability given limited resource and power budgets, it is prominent to deploy applications to customized accelerators like FPGAs. However, FPGA programming is non-trivial. Although existing high-level synthesis (HLS) tools improve productivity to a certain extent, they are limited in scope and capability to support sufficient FPGA-oriented transformations and optimizations. This paper focuses on FPGA-based accelerators and proposes POM, an end-to-end optimizing framework built on multi-level intermediate representation (MLIR). POM has several features which demonstrate its scope and capability of performance optimization. First, most HLS tools depend exclusively on a single-level IR like LLVM IR to perform all the optimizations, introducing excessive information into the IR and making debugging an arduous task. In contrast, POM explicitly introduces three layers of IR to perform operations at suitable abstraction levels, streamlining the implementation and debugging process and exhibiting better flexibility, extensibility, and systematicness. Second, POM integrates the polyhedral model into MLIR and hence enables advanced dependence analysis and a wide range of FPGA-oriented loop transformations. By representing nested loops with integer sets and maps at suitable IR, loop transformations can be conducted conveniently through a series of manipulations on polyhedral semantics. Finally, to further relieve design effort, POM is equipped with a user-friendly programming interface (DSL) that allows a concise description of computation and includes a rich collection of scheduling primitives. An automatic design space exploration (DSE) engine is also provided to search for high-performance optimization schemes efficiently and generate optimized accelerators automatically. Experimental results show that POM achieves a 6.46× average speedup on typical benchmark suites and a 6.06 ×average speedup on real-world applications compared to the state-of-the-art.",
         "paperUrl": "https://doi.org/10.1109/hpca57654.2024.00017",
@@ -435,10 +435,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4393406930",
-        "citationCount": 5,
+        "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/hpca57654.2024.00017",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -454,7 +454,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 3,
         "_titleLower": "an optimizing framework on mlir for efficient fpga-based accelerator generation",
         "_authorLower": "weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university",
         "_authorsLower": "weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university",
@@ -463,8 +463,8 @@
         "_keywordsLower": "ir loop transformations mlir optimizations performance",
         "_topicsLower": "ir loop transformations mlir optimizations performance ir loop transformations mlir optimizations performance",
         "_contentLower": "",
-        "_publicationLower": "2024 ieee international symposium on high-performance computer architecture (hpca)",
-        "_venueLower": "2024 ieee international symposium on high-performance computer architecture (hpca)",
+        "_publicationLower": "2024 ieee international symposium on high",
+        "_venueLower": "2024 ieee international symposium on high",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -824,31 +824,25 @@
               "words": []
             },
             "publication": {
-              "text": "2024 ieee international symposium on high-performance computer architecture hpca",
+              "text": "2024 ieee international symposium on high",
               "words": [
                 "2024",
                 "ieee",
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "computer",
-                "architecture",
-                "hpca"
+                "high"
               ]
             },
             "venue": {
-              "text": "2024 ieee international symposium on high-performance computer architecture hpca",
+              "text": "2024 ieee international symposium on high",
               "words": [
                 "2024",
                 "ieee",
                 "international",
                 "symposium",
                 "on",
-                "high-performance",
-                "computer",
-                "architecture",
-                "hpca"
+                "high"
               ]
             },
             "year": {
@@ -859,9 +853,9 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 3
         },
-        "_searchBlob": "an optimizing framework on mlir for efficient fpga-based accelerator generation with the increasing demand for computing capability given limited resource and power budgets it is prominent to deploy applications to customized accelerators like fpgas. however fpga programming is non-trivial. although existing high-level synthesis hls tools improve productivity to a certain extent they are limited in scope and capability to support sufficient fpga-oriented transformations and optimizations. this paper focuses on fpga-based accelerators and proposes pom an end-to-end optimizing framework built on multi-level intermediate representation mlir . pom has several features which demonstrate its scope and capability of performance optimization. first most hls tools depend exclusively on a single-level ir like llvm ir to perform all the optimizations introducing excessive information into the ir and making debugging an arduous task. in contrast pom explicitly introduces three layers of ir to perform operations at suitable abstraction levels streamlining the implementation and debugging process and exhibiting better flexibility extensibility and systematicness. second pom integrates the polyhedral model into mlir and hence enables advanced dependence analysis and a wide range of fpga-oriented loop transformations. by representing nested loops with integer sets and maps at suitable ir loop transformations can be conducted conveniently through a series of manipulations on polyhedral semantics. finally to further relieve design effort pom is equipped with a user-friendly programming interface dsl that allows a concise description of computation and includes a rich collection of scheduling primitives. an automatic design space exploration dse engine is also provided to search for high-performance optimization schemes efficiently and generate optimized accelerators automatically. experimental results show that pom achieves a 6.46 average speedup on typical benchmark suites and a 6.06 average speedup on real-world applications compared to the state-of-the-art. 2024 ieee international symposium on high-performance computer architecture hpca 2024 ieee international symposium on high-performance computer architecture hpca 2024 research-paper weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university ir loop transformations mlir optimizations performance ir loop transformations mlir optimizations performance",
+        "_searchBlob": "an optimizing framework on mlir for efficient fpga-based accelerator generation with the increasing demand for computing capability given limited resource and power budgets it is prominent to deploy applications to customized accelerators like fpgas. however fpga programming is non-trivial. although existing high-level synthesis hls tools improve productivity to a certain extent they are limited in scope and capability to support sufficient fpga-oriented transformations and optimizations. this paper focuses on fpga-based accelerators and proposes pom an end-to-end optimizing framework built on multi-level intermediate representation mlir . pom has several features which demonstrate its scope and capability of performance optimization. first most hls tools depend exclusively on a single-level ir like llvm ir to perform all the optimizations introducing excessive information into the ir and making debugging an arduous task. in contrast pom explicitly introduces three layers of ir to perform operations at suitable abstraction levels streamlining the implementation and debugging process and exhibiting better flexibility extensibility and systematicness. second pom integrates the polyhedral model into mlir and hence enables advanced dependence analysis and a wide range of fpga-oriented loop transformations. by representing nested loops with integer sets and maps at suitable ir loop transformations can be conducted conveniently through a series of manipulations on polyhedral semantics. finally to further relieve design effort pom is equipped with a user-friendly programming interface dsl that allows a concise description of computation and includes a rich collection of scheduling primitives. an automatic design space exploration dse engine is also provided to search for high-performance optimization schemes efficiently and generate optimized accelerators automatically. experimental results show that pom achieves a 6.46 average speedup on typical benchmark suites and a 6.06 average speedup on real-world applications compared to the state-of-the-art. 2024 ieee international symposium on high 2024 ieee international symposium on high 2024 research-paper weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university ir loop transformations mlir optimizations performance ir loop transformations mlir optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -956,15 +950,15 @@
           "mlir"
         ],
         "id": "openalex-w4399723097",
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "an end-to-end programming model for ai engine architectures",
         "_authorLower": "maksim levental university of chicago arham khan university of chicago ryan chard argonne national laboratory kyle chard university of chicago stephen neuendorffer advanced micro devices ian foster university of chicago",
         "_authorsLower": "maksim levental university of chicago arham khan university of chicago ryan chard argonne national laboratory kyle chard university of chicago stephen neuendorffer advanced micro devices ian foster university of chicago",
@@ -1301,7 +1295,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "an end-to-end programming model for ai engine architectures coarse-grained reconfigurable architectures cgras are becoming a promising alternative to conventional computing architectures such as cpus gpus and fpgas when energy efficiency and high performance are required. like cpus and gpus cgras have processing elements pes that can perform complex operations such as vectorized arithmetic and like fpgas they support a reconfigurable topology of components. because of their coarser grain reconfigurability they are less challenging to program than fpgas but more challenging than cpus and gpus. this paper presents an end-to-end programming model for amd ai engine cgras which enables programming simultaneously at a high level and a very implementation-specific level all in the same language all in the same flow . our programming model allows users to specify implement and test on-device enabling the productive design of dataflow programs for streaming applications. the programming model is open source and includes a language frontend python edsl an mlir based compiler export paths to target codegen compilers and runtime infrastructure. we show that our approach to language and compiler design enables users to program with much less friction and ceremony while preserving access to all features and device apis necessary for achieving performance competitive with existing ai engine programming models. 14th international symposium on highly efficient accelerators and reconfigurable technologies heart 24 14th international symposium on highly efficient accelerators and reconfigurable technologies heart 24 2024 research-paper maksim levental university of chicago arham khan university of chicago ryan chard argonne national laboratory kyle chard university of chicago stephen neuendorffer advanced micro devices ian foster university of chicago mlir frontend performance infrastructure gpu ai mlir frontend performance infrastructure gpu ai engine architectures cgras mlir",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -2011,9 +2005,9 @@
         ],
         "openalexId": "https://openalex.org/W4386429872",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-981-99-5837-5_3",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2200,7 +2194,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4389459074",
-        "citationCount": 6,
+        "citationCount": 5,
         "doi": "10.1109/access.2023.3340680",
         "publishedDate": "",
         "contentFormat": "",
@@ -2215,7 +2209,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 5,
         "_titleLower": "microcfi: microarchitecture-level control-flow restrictions for spectre mitigation",
         "_authorLower": "hyerean jang korea university youngjoo shin korea university",
         "_authorsLower": "hyerean jang korea university youngjoo shin korea university",
@@ -2503,7 +2497,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 6
+          "citationCount": 5
         },
         "_searchBlob": "microcfi microarchitecture-level control-flow restrictions for spectre mitigation spectre attack exploits the vulnerability in speculative execution an optimization technique for modern superscalar processors. among the attack variants spectre-btb and spectre-rsb are the most threatening because they allow adversaries to execute arbitrary code in the transient execution context. however there are few mitigation techniques for these spectre variants due to the high degree of implementation difficulty. in this paper we propose microcfi a hardware software co-design approach to mitigate spectre-btb and spectre-rsb. the main idea of microcfi is to enforce control-flow integrity cfi in microarchitectural level of a programs execution. specifically microcfi strictly limits possible forward and backward indirect branch targets predicted by btb and rsb by imposing cfi properties on all potential targets. as indirect branches only have destinations to valid targets that satisfy these properties microcfi significantly reduces the chance of arbitrary code execution in spectre attacks. we implemented a prototype of microcfi using an llvm compiler and performed an evaluation on marssx86 a simulator for x86 microarchitectures. the security evaluation shows that microcfi reduces the number of available spectre gadgets by more than 90 significantly increasing the complexity of the attack. the performance evaluation using the spec cpu 2017 benchmarks shows that microcfi introduces negligible performance overhead. ieee access ieee access vol. 11 2023 research-paper hyerean jang korea university youngjoo shin korea university performance security performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -2982,15 +2976,15 @@
           "mlir"
         ],
         "id": "openalex-w4390215346",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "axi4mlir: user-driven automatic host code generation for custom axi-based accelerators",
         "_authorLower": "nícolas bohm agostini pacific northwest national laboratory jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory josé luis abellán universidad de murcia josé cano university of glasgow david kaeli northeastern university",
         "_authorsLower": "nícolas bohm agostini pacific northwest national laboratory jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory josé luis abellán universidad de murcia josé cano university of glasgow david kaeli northeastern university",
@@ -3278,7 +3272,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "axi4mlir user-driven automatic host code generation for custom axi-based accelerators this paper addresses the need for automatic and efficient generation of host driver code for arbitrary custom axi-based accelerators targeting linear algebra algorithms an important workload in various applications including machine learning and scientific computing. while existing tools have focused on automating accelerator prototyping little attention has been paid to the host-accelerator interaction. this paper introduces axi4mlir an extension of the mlir compiler framework designed to facilitate the automated generation of host-accelerator driver code. with new mlir attributes and transformations axi4mlir empowers users to specify accelerator features including their instructions and communication patterns and exploit the host memory hierarchy. we demonstrate axi4mlirs versatility across different types of accelerators and problems showcasing significant cpu cache reference reductions up to 56 and up to a 1.65x speedup compared to manually optimized driver code implementations. axi4mlir implementation is open-source and available at https github.com axi4mlir axi4mlir. arxiv arxiv 2023 research-paper nicolas bohm agostini pacific northwest national laboratory jude haris university of glasgow perry gibson university of glasgow malith jayaweera northeastern university norm rubin northeastern university antonino tumeo pacific northwest national laboratory jose luis abellan universidad de murcia jose cano university of glasgow david kaeli northeastern university mlir backend code generation ml mlir backend code generation axi4mlir user driven accelerators custom axi driver host accelerator driven automatic host mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3396,16 +3390,16 @@
           "mlir"
         ],
         "id": "openalex-w4220830361",
-        "citationCount": 26,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 26,
+        "_citationCount": 0,
         "_titleLower": "hecate: performance-aware scale optimization for homomorphic encryption compiler",
         "_authorLower": "yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university",
         "_authorsLower": "yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university",
@@ -3766,7 +3760,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 26
+          "citationCount": 0
         },
         "_searchBlob": "hecate performance-aware scale optimization for homomorphic encryption compiler despite the benefit of fully homomorphic encryption fhe that supports encrypted computation writing an efficient fhe application is challenging due to magnitude scale management. each fhe operation increases scales of ciphertext and leaving the scales high harms performance of the following fhe operations. thus rescaling ciphertext is inevitable to optimize an fhe application but since fhe requires programmers to match the rescaling levels of operands of each fhe operation programmers should rescale ciphertext reflecting the entire fhe application. although recently proposed fhe compilers reduce the programming burden by automatically manipulating ciphertext scales they fail to fully optimize the fhe application because they greedily rescale the ciphertext without considering their performance impacts throughout the entire application. this work proposes hecate a new fhe compiler framework that optimizes scales of ciphertext reflecting their rescaling levels and performance impact. with a new type system that embeds the scale and rescaling level and a new rescaling operation called downscale hecate makes various scale management plans analyzes their expected performance and finds the optimal rescaling points throughout the entire fhe application. this work implements hecate on top of the mlir framework with a python frontend and shows that hecate achieves 27 speedup over the state-of-the-art approach for various fhe applications. 2022 ieee acm international symposium on code generation and optimization cgo 2022 ieee acm international symposium on code generation and optimization cgo 2022 research-paper yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university mlir backend frontend code generation optimizations performance mlir backend frontend code generation optimizations performance ciphertext reflecting hecate hecate performance aware scales homomorphic encryption compiler entire fhe fhe operation rescaling levels mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4287,15 +4281,15 @@
           "openmp"
         ],
         "id": "openalex-w4311649166",
-        "citationCount": 7,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 0,
         "_titleLower": "assessing application efficiency and performance portability in single-source programming for heterogeneous parallel systems",
         "_authorLower": "august ernstsson linköping university dalvan griebler pontifícia universidade católica do rio grande do sul christoph keßler linköping university",
         "_authorsLower": "august ernstsson linköping university dalvan griebler pontifícia universidade católica do rio grande do sul christoph keßler linköping university",
@@ -4525,7 +4519,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 7
+          "citationCount": 0
         },
         "_searchBlob": "assessing application efficiency and performance portability in single-source programming for heterogeneous parallel systems abstract we analyze the performance portability of the skeleton-based single-source multi-backend high-level programming framework skepu across multiple different cpu gpu heterogeneous systems. thereby we provide a systematic application efficiency characterization of skepu-generated code in comparison to equivalent hand-written code in more low-level parallel programming models such as openmp and cuda. for this purpose we contribute ports of the stream benchmark suite and of a part of the nas parallel benchmark suite to skepu. we show that for stream and the ep benchmark skepu regularly scores efficiency values above 80 and in particular for cpu systems skepu can outperform hand-written code. international journal of parallel programming international journal of parallel programming vol. 51 issue 1 2022 research-paper august ernstsson linkoping university dalvan griebler pontificia universidade catolica do rio grande do sul christoph ke ler linkoping university openmp backend performance gpu cuda openmp backend performance gpu cuda parallel computing efficiency performance portability hand written cpu heterogeneous parallel openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -4908,9 +4902,9 @@
         ],
         "openalexId": "https://openalex.org/W3096955785",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/cases51649.2020.9243814",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5439,17 +5433,15 @@
           "mlir"
         ],
         "id": "openalex-w3010243192",
-        "citationCount": 312,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 312,
+        "_citationCount": 0,
         "_titleLower": "lamina: an mlir-based translation library for heterogeneous quantum-classical compilation",
         "_authorLower": "michael broughton google guillaume verdon google trevor mccourt google antonio j. martinez google jae hyeon yoo google sergei v. isakov google philip massey google ramin halavati google murphy yuezhen niu google alexander zlokapa google evan peters fermi national accelerator laboratory owen lockwood rensselaer polytechnic institute andrea skolik ames research center sofiène jerbi vedran dunjko martin leib michael streif ames research center david von dollen hongxiang chen university college london shuxiang cao science oxford roeland wiersema hsin-yuan huang google jarrod r. mcclean google ryan babbush google sergio boixo google dave bacon google alan ho google hartmut neven google masoud mohseni google",
         "_authorsLower": "michael broughton google guillaume verdon google trevor mccourt google antonio j. martinez google jae hyeon yoo google sergei v. isakov google philip massey google ramin halavati google murphy yuezhen niu google alexander zlokapa google evan peters fermi national accelerator laboratory owen lockwood rensselaer polytechnic institute andrea skolik ames research center sofiène jerbi vedran dunjko martin leib michael streif ames research center david von dollen hongxiang chen university college london shuxiang cao science oxford roeland wiersema hsin-yuan huang google jarrod r. mcclean google ryan babbush google sergio boixo google dave bacon google alan ho google hartmut neven google masoud mohseni google",
@@ -5795,7 +5787,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 312
+          "citationCount": 0
         },
         "_searchBlob": "lamina an mlir-based translation library for heterogeneous quantum-classical compilation quantum computing is increasingly integrated into high-performance computing hpc environments where quantum processors act as specialized accelerators within hybrid workflows. the munich quantum software stack mqss - a unified compilation and runtime framework for hybrid quantum classical computing - provides the foundation for this integration. however the growing heterogeneity of applications demands more flexible compilation tools. this work introduces an multilevel intermediate representation mlir -based translation library that extends mqss by enabling the conversion of cuda-quantum cuda-q quake dialects into machine learning oriented mlir representations compatible with modern compiler ecosystems. leveraging mlirs dialect-driven design the library enables hardware-agnostic transformations device-specific optimizations and seamless integration with mqss components. the proposed approach bridges quantum compilation and contemporary machine learning frameworks facilitating gpu-accelerated circuit simulation hybrid quantum classical workflows and heterogeneous execution thereby advancing a unified compiler infrastructure for quantum computing. arxiv arxiv 2020 research-paper michael broughton google guillaume verdon google trevor mccourt google antonio j. martinez google jae hyeon yoo google sergei v. isakov google philip massey google ramin halavati google murphy yuezhen niu google alexander zlokapa google evan peters fermi national accelerator laboratory owen lockwood rensselaer polytechnic institute andrea skolik ames research center sofiene jerbi vedran dunjko martin leib michael streif ames research center david von dollen hongxiang chen university college london shuxiang cao science oxford roeland wiersema hsin-yuan huang google jarrod r. mcclean google ryan babbush google sergio boixo google dave bacon google alan ho google hartmut neven google masoud mohseni google mlir ir optimizations performance infrastructure gpu cuda ml quantum computing mlir optimizations performance infrastructure gpu cuda quantum computing intermediate representation quantum compilation hybrid quantum classical quantum classical compilation library machine learning heterogeneous quantum classical mlir",
         "addedAt": "2026-04-12T09:38:46.000Z",
@@ -5858,15 +5850,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 21,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 0,
         "_titleLower": "deepdataflow",
         "_authorLower": "chris cummins university of edinburgh",
         "_authorsLower": "chris cummins university of edinburgh",
@@ -6284,7 +6276,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 21
+          "citationCount": 0
         },
         "_searchBlob": "deepdataflow this dataset contains 493k llvm-irs taken from a wide range of projects and source programming languages and includes labels for several compiler data analyses. we also include the logs for the machine learning jobs which produced our published experimental results. the uncompressed dataset uses the following layout code labels code directory containing machine learning features and labels for programs for compiler data flow analyses. code labels and lt analysis and gt and lt source and gt . and lt id and gt . and lt lang and gt .programfeatureslist.pb code a programfeatureslist protocol buffer containing a list of features resulting from running a data flow analysis on a program. code graphs code directory containing programl representations of llvm irs. code graphs and lt source and gt . and lt id and gt . and lt lang and gt .programgraph.pb code a programgraph protocol buffer of an llvm ir in the programl representation. code ll code directory containing llvm-ir files. code ir and lt source and gt . and lt id and gt . and lt lang and gt .ll code an llvm ir in text format as produced by code clang -emit-llvm -s code or equivalent. code test code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the test set. code train code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the training set. code val code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the validation set. code vocab code directory containing vocabulary files. code vocab and lt type and gt .csv code a vocabulary file which lists unique node texts their frequency in the dataset and the cumulative proportion of total unique node texts that is covered. for further information please see our programl repository. arxiv arxiv 2020 research-paper chris cummins university of edinburgh llvm clang ir static analysis ml programming languages llvm clang ir static analysis ml programming languages intermediate representation dataflow analysis graphs should directory containing symlinks llvm irs directory indicating labels unique node texts clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6358,15 +6350,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "synthesis of benchmarks for the c programming language by mining software repositories",
         "_authorLower": "breno campos ferreira guimarães josé wesley de souza magalhães anderson faustino da silva universidade estadual de maringá fernando magno quintão pereira",
         "_authorsLower": "breno campos ferreira guimarães josé wesley de souza magalhães anderson faustino da silva universidade estadual de maringá fernando magno quintão pereira",
@@ -6635,7 +6627,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "synthesis of benchmarks for the c programming language by mining software repositories compilers are usually distributed with a test framework. this framework supports the task of tuning optimizations and static analyses. as an example clang has a test suite that in march 2019 counted 259 benchmarks. although in principle a large collection this number is small once we consider the needs of the automatic tuning techniques that became fashionable recently. to mitigate the problems caused by such lack of benchmarks this paper introduces a technique that allows the automatic construction of compilable programs out of open-source repositories. our approach has made it possible to build in less than 24 hours a collection with over 500 thousand functions that clang can compile. in this paper we show that such abundance of data gives us precise information about the behavior of compiler optimizations and lets us create accurate prediction models. this collection of benchmarks is today freely available to the open-source community. proceedings of xxiii brazilian symposium on programming languages proceedings of xxiii brazilian symposium on programming languages vol. 10 2019 research-paper breno campos ferreira guimaraes jose wesley de souza magalhaes anderson faustino da silva universidade estadual de maringa fernando magno quintao pereira clang optimizations programming languages clang optimizations programming languages collection clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6677,8 +6669,8 @@
         ],
         "openalexId": "https://openalex.org/W2888947160",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7198,15 +7190,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "Application of the LLVM Compiler Infrastructure to the Program Analysis in SAPFOR",
-        "authors": [
-          {
-            "name": "Никита Андреевич Катаев",
-            "affiliation": "Keldysh Institute of Applied Mathematics",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2018",
         "publication": "Communications in Computer and Information Science",
         "venue": "Communications in Computer and Information Science",
@@ -7218,9 +7202,9 @@
         ],
         "openalexId": "https://openalex.org/W2907452459",
         "citationCount": 14,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-030-05807-4_41",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7234,8 +7218,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 14,
         "_titleLower": "application of the llvm compiler infrastructure to the program analysis in sapfor",
-        "_authorLower": "никита андреевич катаев keldysh institute of applied mathematics",
-        "_authorsLower": "никита андреевич катаев keldysh institute of applied mathematics",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "the paper proposes an approach to implementation of program analysis in sapfor (system for automated parallelization). this is a software development suit that is focused on cost reduction of manual program parallelization. it was primarily designed to perform...",
         "_tagsLower": "infrastructure",
         "_keywordsLower": "infrastructure",
@@ -7267,14 +7251,8 @@
               ]
             },
             "authors": {
-              "text": "keldysh institute of applied mathematics",
-              "words": [
-                "keldysh",
-                "institute",
-                "of",
-                "applied",
-                "mathematics"
-              ]
+              "text": "",
+              "words": []
             },
             "topics": {
               "text": "infrastructure infrastructure",
@@ -7368,7 +7346,7 @@
           "year": 2018,
           "citationCount": 14
         },
-        "_searchBlob": "application of the llvm compiler infrastructure to the program analysis in sapfor the paper proposes an approach to implementation of program analysis in sapfor system for automated parallelization . this is a software development suit that is focused on cost reduction of manual program parallelization. it was primarily designed to perform... communications in computer and information science communications in computer and information science 2018 research-paper keldysh institute of applied mathematics infrastructure infrastructure",
+        "_searchBlob": "application of the llvm compiler infrastructure to the program analysis in sapfor the paper proposes an approach to implementation of program analysis in sapfor system for automated parallelization . this is a software development suit that is focused on cost reduction of manual program parallelization. it was primarily designed to perform... communications in computer and information science communications in computer and information science 2018 research-paper infrastructure infrastructure",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -7415,8 +7393,8 @@
         ],
         "openalexId": "https://openalex.org/W2885923480",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9342,12 +9320,10 @@
         "paperUrl": "https://doi.org/10.1007/978-3-662-46681-0_28",
         "tags": [],
         "openalexId": "https://openalex.org/W1719093023",
-        "citationCount": 103,
-        "doi": "10.1007/978-3-662-46681-0_28",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
+        "citationCount": 102,
         "sourceUrl": "",
+        "doi": "10.1007/978-3-662-46681-0_28",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -9357,7 +9333,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 103,
+        "_citationCount": 102,
         "_titleLower": "stateless model checking for tso and pso",
         "_authorLower": "parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jönsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
         "_authorsLower": "parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jönsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
@@ -9503,7 +9479,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 103
+          "citationCount": 102
         },
         "_searchBlob": "stateless model checking for tso and pso we present a technique for efficient stateless model checking of programs that execute under the relaxed memory models tso and pso. the basis for our technique is a novel representation of executions under tso and pso called chronological traces. chronological... lecture notes in computer science lecture notes in computer science 2015 research-paper parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jonsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -10442,9 +10418,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2293779257",
         "citationCount": 8,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-24595-9_3",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10814,9 +10790,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W150190951",
         "citationCount": 66,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-08867-9_8",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11017,9 +10993,9 @@
         ],
         "openalexId": "https://openalex.org/W87604264",
         "citationCount": 28,
+        "sourceUrl": "",
         "doi": "10.7916/d8wm1c1p",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11377,9 +11353,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4240634662",
         "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-642-19125-1_5",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11597,16 +11573,16 @@
           "lldb"
         ],
         "id": "openalex-w2012902881",
-        "citationCount": 10,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 0,
         "_titleLower": "the optimal transmission power per round for hybrid-arq rayleigh fading links",
         "_authorLower": "weifeng su university at buffalo, state university of new york s. lee university at buffalo, state university of new york dimitris a. pados university at buffalo, state university of new york john d. matyjas united states air force research laboratory",
         "_authorsLower": "weifeng su university at buffalo, state university of new york s. lee university at buffalo, state university of new york dimitris a. pados university at buffalo, state university of new york john d. matyjas united states air force research laboratory",
@@ -11924,7 +11900,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 10
+          "citationCount": 0
         },
         "_searchBlob": "the optimal transmission power per round for hybrid-arq rayleigh fading links we address the fundamental problem of identifying the optimal power allocation sequence for hybrid automatic-repeat-request h-arq communications over quasistatic rayleigh fading channels. for any targeted h-arq link outage probability we find the sequence of power values that minimizes the average total expended transmission power. the newly founded power allocation solution reveals that conventional equal-power h-arq assignment is far from optimal. for example for targeted outage probability of 10 sup xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -3 sup with a maximum of two transmissions the average total transmission power with optimal assignment is 9db lower than the equal-power protocol. the difference in average total power cost grows further when the number of allowable retransmissions increases for example lldb gain with a cap of 5 transmissions or the targeted outage probability decreases 27db gain with outage probability 10 sup xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -5 sup and transmissions capped at 5 . 2010 ieee international conference on communications 2010 ieee international conference on communications vol. 30 2010 research-paper weifeng su university at buffalo state university of new york s. lee university at buffalo state university of new york dimitris a. pados university at buffalo state university of new york john d. matyjas united states air force research laboratory lldb lldb targeted outage probability transmission power optimal transmission power average total arq rayleigh fading transmissions equal power power allocation hybrid arq rayleigh rayleigh fading links lldb",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -11969,10 +11945,10 @@
         "publication": "Proceedings of 5th European conference on Computer systems",
         "openalexId": "https://openalex.org/W2107558499",
         "doi": "10.1145/1755913.1755932",
-        "citationCount": 75,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Embedded",
           "Performance",
@@ -11984,7 +11960,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 75,
+        "_citationCount": 0,
         "_titleLower": "reverse engineering of binary device drivers with revnic",
         "_authorLower": "vitaly chipounov epfl george candea epfl",
         "_authorsLower": "vitaly chipounov epfl george candea epfl",
@@ -12268,7 +12244,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 75
+          "citationCount": 0
         },
         "_searchBlob": "reverse engineering of binary device drivers with revnic this paper presents a technique that helps automate the reverse engineering of device drivers. it takes a closed-source binary driver automatically reverse engineers the drivers logic and synthesizes new device driver code that implements the exact same hardware protocol as the original driver. this code can be targeted at the same or a different os. no vendor documentation or source code is required. drivers are often proprietary and available for only one or two operating systems thus restricting the range of device support on all other oses. restricted device support leads to low market viability of new oses and hampers os researchers in their efforts to make their ideas available to the real world. reverse engineering can help automate the porting of drivers as well as produce replacement drivers with fewer bugs and fewer security vulnerabilities. our technique is embodied in revnic a tool for reverse engineering network drivers. we use revnic to reverse engineer four proprietary windows drivers and port them to four different oses both for pcs and embedded systems. the synthesized network drivers deliver performance nearly identical to that of the original drivers. proceedings of 5th european conference on computer systems proceedings of 5th european conference on computer systems 2010 research-paper vitaly chipounov epfl george candea epfl embedded performance security embedded performance security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -12602,7 +12578,7 @@
           }
         ],
         "year": "2008",
-        "venue": "BSDCan 2008:The BSD Conference | Ottawa, Canada",
+        "venue": "BSDCan 2008: The BSD Conference | Ottawa, Canada",
         "type": "research-paper",
         "abstract": "This talk gives a gentle introduction to LLVM and Clang, particularly suited for those without a deep compiler hacker background.",
         "paperUrl": "https://llvm.org/pubs/2008-05-17-BSDCan-LLVMIntro.pdf",
@@ -12611,7 +12587,7 @@
           "Clang"
         ],
         "sourceName": "LLVM Publications",
-        "publication": "BSDCan 2008:The BSD Conference",
+        "publication": "BSDCan 2008: The BSD Conference",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12636,8 +12612,8 @@
         "_keywordsLower": "clang",
         "_topicsLower": "clang clang",
         "_contentLower": "",
-        "_publicationLower": "bsdcan 2008:the bsd conference",
-        "_venueLower": "bsdcan 2008:the bsd conference | ottawa, canada",
+        "_publicationLower": "bsdcan 2008: the bsd conference",
+        "_venueLower": "bsdcan 2008: the bsd conference | ottawa, canada",
         "_typeLower": "research-paper",
         "_sourceLower": "llvm-org-pubs",
         "_yearLower": "2008",

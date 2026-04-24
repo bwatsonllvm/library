@@ -440,6 +440,9 @@ function normalizeTopicKey(value) {
 function normalizePublicationLabel(value) {
   const cleaned = String(value || '').replace(/\s+/g, ' ').trim();
   if (!cleaned) return '';
+  if (typeof HubUtils.normalizePublication === 'function') {
+    return HubUtils.normalizePublication(cleaned);
+  }
   if (/^arxiv(?:\.org)?(?:\s*\(cornell university\))?$/i.test(cleaned)) {
     return 'arXiv';
   }
@@ -1257,7 +1260,7 @@ function normalizePaperRecord(rawPaper) {
         const affiliation = author && typeof author === 'object'
           ? String(author.affiliation || '').trim()
           : '';
-        return { name: normalized.name, affiliation };
+        return { name: normalized.name, affiliation: normalized.affiliation || affiliation };
       })
       .filter(Boolean)
     : [];
@@ -2657,8 +2660,8 @@ function renderPaperCard(paper, tokensOverride = null) {
   const pdfLink = directPdfHref
     ? `<a href="${escapeHtml(directPdfHref)}" class="card-link-btn card-link-btn--video" target="_blank" rel="noopener noreferrer" aria-label="Open PDF for ${titleEsc} (opens in new tab)"><span aria-hidden="true">PDF</span></a>`
     : '';
-  const detailLink = (!blogEntry && directPdfHref)
-    ? `<a href="${escapeHtml(detailHref)}" class="card-link-btn" aria-label="Open detail page for ${titleEsc}"><span aria-hidden="true">Detail</span></a>`
+  const detailLink = !blogEntry
+    ? `<a href="${escapeHtml(detailHref)}" class="card-link-btn" aria-label="Open details for ${titleEsc}"><span aria-hidden="true">Details</span></a>`
     : '';
   const paperActionLabel = blogEntry ? 'Post' : 'Paper';
   const paperLink = (paperHref && !directPdfHref)

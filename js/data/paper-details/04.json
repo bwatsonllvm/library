@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4409683945": {
@@ -49,9 +49,9 @@
         ],
         "openalexId": "https://openalex.org/W4409683945",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/isacc65211.2025.10969267",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1523,9 +1523,9 @@
         ],
         "openalexId": "https://openalex.org/W4393617984",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-031-56583-0_7",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1796,16 +1796,16 @@
           "addresssanitizer"
         ],
         "id": "openalex-w4391725335",
-        "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "facilitating non-intrusive in-vivo firmware testing with stateless instrumentation",
         "_authorLower": "jiameng shi wenqiang li wenwen wang le guan",
         "_authorsLower": "jiameng shi wenqiang li wenwen wang le guan",
@@ -2092,7 +2092,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "facilitating non-intrusive in-vivo firmware testing with stateless instrumentation although numerous dynamic testing techniques have been developed they can hardly be directly applied to firmware of deeply embedded e.g. microcontroller-based devices due to the tremendously different runtime environment and restricted resources on these devices.this work tackles these challenges by leveraging the unique position of microcontroller devices during firmware development.that is firmware developers have to rely on a powerful engineering workstation that connects to the target device to program and debug code.therefore we develop a decoupled firmware testing framework named ipea which shifts the overhead of resource-intensive analysis tasks from the microcontroller to the workstation.only lightweight needle probes are left in the firmware to collect internal execution information without processing it.we also instantiated this framework with a sanitizer based on pointer capability ipea-san and a greybox fuzzer ipea-fuzz .by comparing ipea-san with a port of addresssanitizer for microcontrollers we show that ipea-san reduces memory overhead by 62.75 in real-world firmware with better detection accuracy.combining ipea-fuzz with ipea-san we found 7 zero-day bugs in popular iot libraries 3 and peripheral driver code 4 . proceedings 2024 network and distributed system security symposium proceedings 2024 network and distributed system security symposium 2024 research-paper jiameng shi wenqiang li wenwen wang le guan testing security libraries embedded testing security libraries embedded fuzzing sanitizers vivo firmware testing ipea san devices microcontroller ipea fuzz facilitating non intrusive stateless instrumentation addresssanitizer",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -2171,22 +2171,15 @@
           "openmp"
         ],
         "id": "openalex-w4381304672",
-        "citationCount": 1,
-        "citationCountSource": "crossref",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "citationCountStatus": "openalex-rejected:citations-before-publication-window",
-        "citationCountProviderCounts": {
-          "openalex": 12930,
-          "crossref": 1
-        },
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "suspending openmp tasks on asynchronous events: extending the taskwait construct",
         "_authorLower": "romain pereira école normale supérieure de lyon m. n. martin commissariat à l'énergie atomique et aux énergies alternatives adrien roussel commissariat à l'énergie atomique et aux énergies alternatives patrick carribault commissariat à l'énergie atomique et aux énergies alternatives thierry gautier école normale supérieure de lyon",
         "_authorsLower": "romain pereira école normale supérieure de lyon m. n. martin commissariat à l'énergie atomique et aux énergies alternatives adrien roussel commissariat à l'énergie atomique et aux énergies alternatives patrick carribault commissariat à l'énergie atomique et aux énergies alternatives thierry gautier école normale supérieure de lyon",
@@ -2455,7 +2448,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "suspending openmp tasks on asynchronous events extending the taskwait construct many-core and heterogeneous architectures now require programmers to compose multiple asynchronous programming model to fully exploit hardware capabilities. as a shared-memory parallel programming model openmp has the responsibility of orchestrating the suspension and progression of asynchronous operations occurring on a compute node such as mpi communications or cuda hip streams. yet specifications only come with the task detach event api to suspend tasks until an asynchronous operation is completed which presents a few drawbacks. in this paper we introduce the design and implementation of an extension on the taskwait construct to suspend a task until an asynchronous event completion. it aims to reduce runtime costs induced by the current solution and to provide a standard api to automate portable task suspension solutions. the results show twice less overheads compared to the existing task detach clause. lecture notes in computer science lecture notes in computer science 2023 research-paper romain pereira ecole normale superieure de lyon m. n. martin commissariat a lenergie atomique et aux energies alternatives adrien roussel commissariat a lenergie atomique et aux energies alternatives patrick carribault commissariat a lenergie atomique et aux energies alternatives thierry gautier ecole normale superieure de lyon openmp openmp asynchronous events extending suspending openmp tasks taskwait construct openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -2505,10 +2498,10 @@
           "mlir"
         ],
         "id": "openalex-w4390553472",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -2769,8 +2762,8 @@
           }
         ],
         "year": "2023",
-        "publication": "Proceedings of 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2",
-        "venue": "Proceedings of 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems, Volume 2",
+        "publication": "Proceedings of 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
+        "venue": "Proceedings of 28th ACM International Conference on Architectural Support for Programming Languages and Operating Systems",
         "type": "research-paper",
         "abstract": "Compilation Consistency Modulo Debug Information (CCMD) is an essential compiler property that a production compiler should support: the compiler should emit the same machine code regardless of enabling debug information. CCMD is vital to developers’ experiences with debugging a production binary containing no debug information. To debug such a binary, developers need build another binary with the same compiler flags and enable debug information. Without CCMD, the machine code in the latter binary will be different, which can confuse the debugger, hide the bug, or even cause a miscompilation (as GCC once did with the Linux Kernel).",
         "paperUrl": "https://doi.org/10.1145/3575693.3575740",
@@ -2780,10 +2773,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4318541608",
-        "citationCount": 14,
+        "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1145/3575693.3575740",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2797,7 +2790,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 12,
         "_titleLower": "compilation consistency modulo debug information",
         "_authorLower": "theodore luo wang university of waterloo yongqiang tian university of waterloo yiwen dong university of waterloo zhenyang xu university of waterloo c. p. sun university of waterloo",
         "_authorsLower": "theodore luo wang university of waterloo yongqiang tian university of waterloo yiwen dong university of waterloo zhenyang xu university of waterloo c. p. sun university of waterloo",
@@ -2806,8 +2799,8 @@
         "_keywordsLower": "clang debug information testing",
         "_topicsLower": "clang debug information testing clang debug information testing",
         "_contentLower": "",
-        "_publicationLower": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems, volume 2",
-        "_venueLower": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems, volume 2",
+        "_publicationLower": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems",
+        "_venueLower": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2023",
@@ -2979,7 +2972,7 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems volume 2",
+              "text": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -2995,12 +2988,11 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "venue": {
-              "text": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems volume 2",
+              "text": "proceedings of 28th acm international conference on architectural support for programming languages and operating systems",
               "words": [
                 "proceedings",
                 "of",
@@ -3016,8 +3008,7 @@
                 "languages",
                 "and",
                 "operating",
-                "systems",
-                "volume"
+                "systems"
               ]
             },
             "year": {
@@ -3028,9 +3019,9 @@
             }
           },
           "year": 2023,
-          "citationCount": 14
+          "citationCount": 12
         },
-        "_searchBlob": "compilation consistency modulo debug information compilation consistency modulo debug information ccmd is an essential compiler property that a production compiler should support the compiler should emit the same machine code regardless of enabling debug information. ccmd is vital to developers experiences with debugging a production binary containing no debug information. to debug such a binary developers need build another binary with the same compiler flags and enable debug information. without ccmd the machine code in the latter binary will be different which can confuse the debugger hide the bug or even cause a miscompilation as gcc once did with the linux kernel . proceedings of 28th acm international conference on architectural support for programming languages and operating systems volume 2 proceedings of 28th acm international conference on architectural support for programming languages and operating systems volume 2 2023 research-paper theodore luo wang university of waterloo yongqiang tian university of waterloo yiwen dong university of waterloo zhenyang xu university of waterloo c. p. sun university of waterloo clang debug information testing clang debug information testing",
+        "_searchBlob": "compilation consistency modulo debug information compilation consistency modulo debug information ccmd is an essential compiler property that a production compiler should support the compiler should emit the same machine code regardless of enabling debug information. ccmd is vital to developers experiences with debugging a production binary containing no debug information. to debug such a binary developers need build another binary with the same compiler flags and enable debug information. without ccmd the machine code in the latter binary will be different which can confuse the debugger hide the bug or even cause a miscompilation as gcc once did with the linux kernel . proceedings of 28th acm international conference on architectural support for programming languages and operating systems proceedings of 28th acm international conference on architectural support for programming languages and operating systems 2023 research-paper theodore luo wang university of waterloo yongqiang tian university of waterloo yiwen dong university of waterloo zhenyang xu university of waterloo c. p. sun university of waterloo clang debug information testing clang debug information testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -3091,9 +3082,9 @@
         ],
         "openalexId": "https://openalex.org/W4285816422",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/i2ct54291.2022.9825320",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3394,16 +3385,16 @@
           "mlir"
         ],
         "id": "openalex-w3186613262",
-        "citationCount": 8,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 0,
         "_titleLower": "scalehls: scalable high-level synthesis through mlir",
         "_authorLower": "hanchen ye cong hao jianyi cheng hyunmin jeong jack huang stephen neuendorffer deming chen",
         "_authorsLower": "hanchen ye cong hao jianyi cheng hyunmin jeong jack huang stephen neuendorffer deming chen",
@@ -3755,7 +3746,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 8
+          "citationCount": 0
         },
         "_searchBlob": "scalehls scalable high-level synthesis through mlir high-level synthesis hls has been widely adopted as it significantly improves the hardware design productivity and enables efficient design space exploration dse . hls tools can be used to deliver solutions for many different kinds of design problems which are often better solved with different levels of abstraction. while existing hls tools are built using compiler infrastructures largely based on a single-level abstraction e.g. llvm we propose scalehls a next-generation hls compilation flow on top of a multi-level compiler infrastructure called mlir for the first time. by using an intermediate representation ir that can be better tuned to particular algorithms at different representation levels we are able to build this new hls tool that is more scalable and customizable towards various applications coming with intrinsic structural or functional hierarchies. scalehls is able to represent and optimize hls designs at multiple levels of abstraction and provides an hls-dedicated transform and analysis library to solve the optimization problems at the suitable representation levels. on top of the library we also build an automated dse engine to explore the multi-dimensional design space efficiently. in addition we develop an hls c front-end and a c c++ emission back-end to translate hls designs into from mlir for enabling the end-to-end scalehls flow. experimental results show that comparing to the baseline designs only optimized by xilinx vivado hls scalehls improves the performances with amazing quality-of-results -- up to 768.1x better on computation kernel level programs and up to 3825.0x better on neural network models. arxiv arxiv 2021 research-paper hanchen ye cong hao jianyi cheng hyunmin jeong jack huang stephen neuendorffer deming chen llvm mlir ir optimizations infrastructure ml llvm mlir optimizations infrastructure intermediate representation scalehls scalable levels abstraction hls designs representation levels synthesis llvm mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3848,15 +3839,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 21,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 0,
         "_titleLower": "same coverage, less bloat: accelerating binary-only fuzzing with coverage-preserving coverage-guided tracing",
         "_authorLower": "stefan nagy virginia tech anh nguyen‐tuong university of virginia jason d. hiser university of virginia jack w. davidson university of virginia matthew hicks virginia tech",
         "_authorsLower": "stefan nagy virginia tech anh nguyen‐tuong university of virginia jason d. hiser university of virginia jack w. davidson university of virginia matthew hicks virginia tech",
@@ -4118,7 +4109,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 21
+          "citationCount": 0
         },
         "_searchBlob": "same coverage less bloat accelerating binary-only fuzzing with coverage-preserving coverage-guided tracing coverage-guided fuzzings aggressive high-volume testing has helped reveal tens of thousands of software security flaws. while executing billions of test cases mandates fast code coverage tracing the nature of binary-only targets leads to reduced tracing performance. a recent advancement in binary fuzzing performance is coverage-guided tracing cgt which brings orders-of-magnitude gains in throughput by restricting the expense of coverage tracing to only when new coverage is guaranteed. unfortunately cgt suits only a basic block coverage granularity---yet most fuzzers require finer-grain coverage metrics edge coverage and hit counts. it is this limitation which prohibits nearly all of todays state-of-the-art fuzzers from attaining the performance benefits of cgt. proceedings of 2021 acm sigsac conference on computer and communications security proceedings of 2021 acm sigsac conference on computer and communications security 2021 research-paper stefan nagy virginia tech anh nguyen tuong university of virginia jason d. hiser university of virginia jack w. davidson university of virginia matthew hicks virginia tech clang testing security performance clang testing security performance fuzzing coverage guided tracing fuzzing nperformance bloat accelerating binary coverage metrics coverage preserving coverage tracing coverage less bloat less bloat accelerating preserving coverage guided clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -4200,15 +4191,15 @@
           "bolt"
         ],
         "id": "openalex-w3131917500",
-        "citationCount": 35,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 35,
+        "_citationCount": 0,
         "_titleLower": "lightning bolt: powerful, fast, and scalable binary optimization",
         "_authorLower": "maksim panchenko meta rafael auler meta laith sakka meta guilherme ottoni meta",
         "_authorsLower": "maksim panchenko meta rafael auler meta laith sakka meta guilherme ottoni meta",
@@ -4549,7 +4540,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 35
+          "citationCount": 0
         },
         "_searchBlob": "lightning bolt powerful fast and scalable binary optimization profile-guided binary optimization has proved to be an important technology to achieve peak performance particularly for large-scale binaries that are typical for data-center applications. by applying the profile data at the same representation where sampling-based profiling is collected binary optimizers can provide double-digit speedups over binaries compiled with profile-guided optimizations using similarly collected profile data. the main blocker for adoption of binary optimizers in practice is the overhead that they add to the already long and demanding build pipelines used for producing highly optimized binaries which already include aggressive compiler optimizations guided by profile data and also link-time optimizations. this paper addresses the overheads of binary optimizers in the context of bolt a modern and powerful open-source binary optimizer. more specifically this paper describes lightning bolt which is an improved version of the bolt binary optimizer that drastically reduces bolts processing time and memory requirements while preserving bolts effectiveness in improving the final binarys performance. using a set of real-world data-center and open-source applications we show that lightning bolt speeds up bolts processing by an average of 4.71 and reduces bolts memory consumption by 70.5 on average. furthermore lightning bolt also provides an adjustable mechanism to further reduce bolts overheads at the cost of some lost performance for the final binary. proceedings of 30th acm sigplan international conference on compiler construction proceedings of 30th acm sigplan international conference on compiler construction 2021 research-paper maksim panchenko meta rafael auler meta laith sakka meta guilherme ottoni meta bolt optimizations performance bolt optimizations performance binary optimizers lightning bolt powerful profile guided scalable binary optimization binaries final binary reduces bolt memory bolt powerful fast bolt",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -4870,9 +4861,9 @@
         ],
         "openalexId": "https://openalex.org/W3099877272",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1016/j.simpa.2020.100038",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5463,8 +5454,8 @@
         ],
         "openalexId": "https://openalex.org/W3083576581",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5745,9 +5736,9 @@
         ],
         "openalexId": "https://openalex.org/W3092642880",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1145/3406536",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6262,15 +6253,15 @@
           "clang",
           "openmp"
         ],
-        "citationCount": 6,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 0,
         "_titleLower": "evaluation of compilers effects on openmp soft error resiliency",
         "_authorLower": "jonas gava universidade federal do rio grande do sul vitor bandeira universidade federal do rio grande do sul ricardo reis universidade federal do rio grande do sul luciano ost loughborough university",
         "_authorsLower": "jonas gava universidade federal do rio grande do sul vitor bandeira universidade federal do rio grande do sul ricardo reis universidade federal do rio grande do sul luciano ost loughborough university",
@@ -6553,7 +6544,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 6
+          "citationCount": 0
         },
         "_searchBlob": "evaluation of compilers effects on openmp soft error resiliency software engineers are using different compilers and parallel programming models e.g. pthreads openmp to take the best performance offered by multicore systems. both programming models and compilers have specific characteristics which directly impact on applications code footprint performance power-efficiency and reliability. the occurrence of soft errors in multicore systems is a growing reliability issue in several domains e.g. automotive medical avionics . in this scenario this paper investigates the impact of widely adopted compilers on the soft error reliability of applications implemented with openmp library. fault injection campaigns consider 3 open-source compilers gnu gcc 5.5.0 7.3.1 clang 6.0.1 16 openmp benchmarks executing on single dual and quad-core versions of the arm cortex-a72 processor. results show that on average clang is 15.85 more reliable than both versions of gcc which demonstrate to be more sensitive to the optimisation flags when compared to clang. 2019 ieee computer society annual symposium on vlsi isvlsi 2019 ieee computer society annual symposium on vlsi isvlsi 2019 research-paper jonas gava universidade federal do rio grande do sul vitor bandeira universidade federal do rio grande do sul ricardo reis universidade federal do rio grande do sul luciano ost loughborough university clang openmp performance clang openmp performance parallel computing openmp soft error reliability gcc soft error resiliency compilers effects clang openmp",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6621,7 +6612,7 @@
         "sourceUrl": "https://doi.org/10.1145/3338906.3338957",
         "tags": [],
         "openalexId": "https://openalex.org/W2968370566",
-        "citationCount": 53,
+        "citationCount": 52,
         "doi": "10.1145/3338906.3338957",
         "publishedDate": "",
         "contentFormat": "",
@@ -6633,7 +6624,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 53,
+        "_citationCount": 52,
         "_titleLower": "compiler bug isolation via effective witness test program generation",
         "_authorLower": "junjie chen tianjin university jiaqi han peking university peiyi sun peking university lingming zhang peking university dan hao peking university lu zhang peking university",
         "_authorsLower": "junjie chen tianjin university jiaqi han peking university peiyi sun peking university lingming zhang peking university dan hao peking university lu zhang peking university",
@@ -6955,7 +6946,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 53
+          "citationCount": 52
         },
         "_searchBlob": "compiler bug isolation via effective witness test program generation compiler bugs are extremely harmful but are notoriously difficult to debug because compiler bugs usually produce few debugging information. given a bug-triggering test program for a compiler hundreds of compiler files are usually involved during compilation and thus are suspect buggy files. although there are lots of automated bug isolation techniques they are not applicable to compilers due to the scalability or effectiveness problem. to solve this problem in this paper we transform the compiler bug isolation problem into a search problem i.e. searching for a set of effective witness test programs that are able to eliminate innocent compiler files from suspects. based on this intuition we propose an automated compiler bug isolation technique diwi which 1 proposes a heuristic-based search strategy to generate such a set of effective witness test programs via applying our designed witnessing mutation rules to the given failing test program and 2 compares their coverage to isolate bugs following the practice of spectrum-based bug isolation. the experimental results on 90 real bugs from popular gcc and llvm compilers show that diwi effectively isolates 66.67 78.89 bugs within top-10 top-20 compiler files significantly outperforming state-of-the-art bug isolation techniques. proceedings of 2019 27th acm joint meeting on european software engineering conference and symposium on the foundations of software engineering proceedings of 2019 27th acm joint meeting on european software engineering conference and symposium on the foundations of software engineering 2019 research-paper junjie chen tianjin university jiaqi han peking university peiyi sun peking university lingming zhang peking university dan hao peking university lu zhang peking university",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6993,9 +6984,9 @@
         ],
         "openalexId": "https://openalex.org/W2949071583",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.32657/10220/48432",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8398,10 +8389,10 @@
           "clang"
         ],
         "id": "openalex-w2809362563",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
@@ -9314,9 +9305,9 @@
         ],
         "openalexId": "https://openalex.org/W2735225819",
         "citationCount": 14,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-63387-9_25",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9524,9 +9515,9 @@
         ],
         "openalexId": "https://openalex.org/W2783603270",
         "citationCount": 6,
+        "sourceUrl": "",
         "doi": "10.1109/cyberc.2017.69",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10664,9 +10655,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2293807964",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-25942-0_15",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12816,22 +12807,7 @@
         "source": "openalex-llvm-query",
         "sourceName": "OpenAlex Query (title/abstract: llvm)",
         "title": "Fourth-Tier LLVM(FTL) 자바스크립트 JIT 컴파일러 성능분석",
-        "authors": [
-          {
-            "name": "김재윤",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "문수묵",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "authors": [],
         "year": "2015",
         "publication": "한국정보과학회 학술발표논문집",
         "venue": "한국정보과학회 학술발표논문집",
@@ -12843,8 +12819,8 @@
         ],
         "openalexId": "https://openalex.org/W2282506432",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12859,8 +12835,8 @@
         "_publishedDateLabel": "",
         "_citationCount": 0,
         "_titleLower": "fourth-tier llvm(ftl) 자바스크립트 jit 컴파일러 성능분석",
-        "_authorLower": "김재윤 문수묵",
-        "_authorsLower": "김재윤 문수묵",
+        "_authorLower": "",
+        "_authorsLower": "",
         "_abstractLower": "자바스크립트 엔진의 성능을 향상시키기 위해 수행 중에 머신 코드로 번역하여 수행하는 just-in-time (jit) 컴파일러가 사용되고 있다. 웹킷(webkit) 프레임워크에서는 적응(adaptive) 컴파일 방식을 사용하고 있는데 최근 llvm을 이용한 고성능 ftl jit 컴파일러를 도입하였다. 본 논문에서는 ftl jit 컴파일러의 성능을 분석한다. google의 octane 2.0 벤치마크를 ... <a href=javascript:; onclick=onclickreadnode(",
         "_tagsLower": "jit",
         "_keywordsLower": "jit",
@@ -13002,15 +12978,15 @@
           "clang"
         ],
         "id": "openalex-w2339131307",
-        "citationCount": 16,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 0,
         "_titleLower": "clang matchers for verified usage of the c++ standard template library",
         "_authorLower": "gábor horváth norbert pataki eötvös loránd university",
         "_authorsLower": "gábor horváth norbert pataki eötvös loránd university",
@@ -13324,7 +13300,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 16
+          "citationCount": 0
         },
         "_searchBlob": "clang matchers for verified usage of the c++ standard template library the c++ standard template library stl is the exemplar of generic and #13 nlibraries. professional c++ programs cannot miss the usage of this standard and #13 nlibrary because it increases quality maintainability understandability and and #13 nefficacy of the code. however the usage of c++ stl does not guarantee and #13 nerror-free code. contrarily incorrect application of the library may intro- and #13 nduce new types of problems. unfortunately there is still a large number of and #13 nproperties are tested neither at compilation-time nor at run-time. it is not and #13 nsurprising that in implementation of c++ programs so many stl-related and #13 nbugs are occurred. and #13 nwe match patterns on abstract syntax trees ast with the help of predicates. and #13 nthe predicates can be combined and define an embedded language. and #13 nwe have developed a tool which finds the potential missuses of the stl as a and #13 nvalidation of our approach. the software takes advantage of the clang astmatcher and #13 ntechnology. the tool is in-use in ericsson. we advise new matchers and #13 nthat have get into the clang code base. and #13 nkeywords c++ stl generic programming clang ast static analysis and #13 ncode validation acta biologica plantarum agriensis eszterhazy karoly university hungary acta biologica plantarum agriensis eszterhazy karoly university hungary 2015 research-paper gabor horvath norbert pataki eotvos lorand university clang static analysis embedded clang static analysis embedded clang matchers standard template library clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -13361,8 +13337,8 @@
         ],
         "openalexId": "https://openalex.org/W634301069",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13681,7 +13657,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W1972151859",
-        "citationCount": 14,
+        "citationCount": 13,
         "sourceUrl": "https://doi.org/10.1145/2578854.2503779",
         "doi": "10.1145/2503778.2503779",
         "publishedDate": "",
@@ -13699,7 +13675,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 13,
         "_titleLower": "the intel labs haskell research compiler",
         "_authorLower": "hai liu intel neal glew intel leaf petersen intel todd a. anderson intel",
         "_authorsLower": "hai liu intel neal glew intel leaf petersen intel todd a. anderson intel",
@@ -14008,7 +13984,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 14
+          "citationCount": 13
         },
         "_searchBlob": "the intel labs haskell research compiler the glasgow haskell compiler ghc is a well supported optimizing compiler for the haskell programming language along with its own extensions to the language and libraries. haskells lazy semantics imposes a runtime model which is in general difficult to implement efficiently. ghc achieves good performance across a wide variety of programs via aggressive optimization taking advantage of the lack of side effects and by targeting a carefully tuned virtual machine. the intel labs haskell research compiler uses ghc as a frontend but provides a new whole-program optimizing backend by compiling the ghc intermediate representation to a relatively generic functional language compilation platform. we found that ghcs external core language was relatively easy to use but reusing ghcs libraries and achieving full compatibility were harder. for certain classes of programs our platform provides substantial performance benefits over ghc alone performing 2x faster than ghc with the llvm backend on selected modern performance-oriented benchmarks for other classes of programs the benefits of ghcs tuned virtual machine continue to outweigh the benefits of more aggressive whole program optimization. overall we achieve parity with ghc with the llvm backend. in this paper we describe our haskell compiler stack its implementation and optimization approach and present benchmark results comparing it to ghc. proceedings of 2013 acm sigplan symposium on haskell proceedings of 2013 acm sigplan symposium on haskell 2013 research-paper hai liu intel neal glew intel leaf petersen intel todd a. anderson intel backend frontend libraries performance backend frontend libraries performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14057,9 +14033,9 @@
         ],
         "openalexId": "https://openalex.org/W13271837",
         "citationCount": 9,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-642-28891-3_25",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14470,14 +14446,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of ACM SIGCOMM 2011 conference",
         "openalexId": "https://openalex.org/W2115526539",
-        "doi": "10.1145/2018436.2018470",
-        "citationCount": 373,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1145/2018436.2018470",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -14485,7 +14459,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 373,
+        "_citationCount": 0,
         "_titleLower": "debugging the data plane with anteater",
         "_authorLower": "haohui mai university of illinois urbana-champaign ahmed khurshid university of illinois urbana-champaign rachit agarwal university of illinois urbana-champaign matthew caesar university of illinois urbana-champaign p. brighten godfrey university of illinois urbana-champaign samuel t. king university of illinois urbana-champaign",
         "_authorsLower": "haohui mai university of illinois urbana-champaign ahmed khurshid university of illinois urbana-champaign rachit agarwal university of illinois urbana-champaign matthew caesar university of illinois urbana-champaign p. brighten godfrey university of illinois urbana-champaign samuel t. king university of illinois urbana-champaign",
@@ -14658,7 +14632,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 373
+          "citationCount": 0
         },
         "_searchBlob": "debugging the data plane with anteater diagnosing problems in networks is a time-consuming and error-prone process. existing tools to assist operators primarily focus on analyzing control plane configuration. configuration analysis is limited in that it cannot find bugs in router software and is harder to generalize across protocols since it must model complex configuration languages and dynamic protocol behavior. proceedings of acm sigcomm 2011 conference proceedings of acm sigcomm 2011 conference 2011 research-paper haohui mai university of illinois urbana-champaign ahmed khurshid university of illinois urbana-champaign rachit agarwal university of illinois urbana-champaign matthew caesar university of illinois urbana-champaign p. brighten godfrey university of illinois urbana-champaign samuel t. king university of illinois urbana-champaign",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -14701,9 +14675,9 @@
         ],
         "openalexId": "https://openalex.org/W2150821142",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/pccc.2009.5403838",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15130,10 +15104,10 @@
         "publication": "Proceedings of 47th Annual Southeast Regional Conference",
         "openalexId": "https://openalex.org/W2014754119",
         "doi": "10.1145/1566445.1566553",
-        "citationCount": 10,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -15143,7 +15117,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 0,
         "_titleLower": "a case for compiler-driven superpage allocation",
         "_authorLower": "joshua magee texas state university apan qasem texas state university",
         "_authorsLower": "joshua magee texas state university apan qasem texas state university",
@@ -15411,7 +15385,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 10
+          "citationCount": 0
         },
         "_searchBlob": "a case for compiler-driven superpage allocation most modern microprocessor-based systems provide support for superpages both at the hardware and software level. judicious use of superpages can significantly cut down the number of tlb misses and improve overall system performance. however indiscriminate superpage allocation results in page fragmentation and increased application footprint which often outweigh the benefits of reduced tlb misses. previous research has explored policies for smart allocation of superpages from an operating systems perspective. this paper presents a compiler-based strategy for automatic and profitable memory allocation via superpages. a significant advantage of a compiler-based approach is the availability of data-reuse information within an application. our strategy employs data-locality analysis to estimate the tlb demands of a program and uses this metric to determine if the program will benefit from superpage allocation. apart from its obvious utility in improving tlb performance this strategy can be used to improve the effectiveness of certain data-layout transformations and can be a useful tool in benchmarking and empirical tuning. we demonstrate the effectiveness of this strategy with experiments on an intel core 2 duo with a two-level tlb. proceedings of 47th annual southeast regional conference proceedings of 47th annual southeast regional conference 2009 research-paper joshua magee texas state university apan qasem texas state university performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",

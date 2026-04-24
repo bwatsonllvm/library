@@ -1,5 +1,5 @@
 {
-  "dataVersion": "viewer-precomputed-v1-338ed2bf6341",
+  "dataVersion": "viewer-precomputed-v1-f728800fe5b0",
   "generatedAt": "2026-04-22T22:08:38.000Z",
   "papers": {
     "openalex-w4415159921": {
@@ -61,9 +61,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4415159921",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-032-07194-1_4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -278,8 +278,8 @@
           }
         ],
         "year": "2025",
-        "publication": "In Proceedings of the 23rd ACM/IEEE International Symposium on Code Generation and Optimization - pp. 241-254 - March 3, 2025.",
-        "venue": "Proceedings of 23rd ACM/IEEE International Symposium on Code Generation and Optimization",
+        "publication": "In Proceedings of the 23rd ACM/IEEE International Symposium on Code Generation and Optimization",
+        "venue": "In Proceedings of the 23rd ACM/IEEE International Symposium on Code Generation and Optimization | Proceedings of 23rd ACM/IEEE International Symposium on Code Generation and Optimization",
         "type": "research-paper",
         "abstract": "To take full advantage of a specific hardware target, performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. Yet, modern compilers are poorly controlled, usually by configuring a sequence of coarse-grained monolithic black-box passes, or by means of predefined compiler annotations/pragmas. These can be effective, but often do not let users precisely optimize their varying compute loads. As a consequence, performance engineers have to resort to implementing custom passes for a specific optimization heuristic, requiring compiler engineering expert knowledge. In this paper, we present a technique that provides fine-grained control of general-purpose compilers by introducing the Transform dialect, a controllable IR-based transformation system implemented in MLIR. The Transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. We demonstrate in five case studies that the Transform dialect enables precise, safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods.",
         "paperUrl": "https://doi.org/10.1145/3696443.3708922",
@@ -317,16 +317,16 @@
           "mlir"
         ],
         "id": "openalex-w4407848518",
-        "citationCount": 6,
-        "publishedDate": "",
         "sourceUrl": "https://mlir.llvm.org/pubs/",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 0,
         "_titleLower": "the mlir transform dialect",
         "_authorLower": "martin paul lücke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universität berlin albert cohen",
         "_authorsLower": "martin paul lücke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universität berlin albert cohen",
@@ -335,8 +335,8 @@
         "_keywordsLower": "mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware",
         "_topicsLower": "mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
         "_contentLower": "",
-        "_publicationLower": "in proceedings of the 23rd acm/ieee international symposium on code generation and optimization - pp. 241-254 - march 3, 2025.",
-        "_venueLower": "proceedings of 23rd acm/ieee international symposium on code generation and optimization",
+        "_publicationLower": "in proceedings of the 23rd acm/ieee international symposium on code generation and optimization",
+        "_venueLower": "in proceedings of the 23rd acm/ieee international symposium on code generation and optimization | proceedings of 23rd acm/ieee international symposium on code generation and optimization",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2025",
@@ -596,7 +596,26 @@
               "words": []
             },
             "publication": {
-              "text": "in proceedings of the 23rd acm ieee international symposium on code generation and optimization - pp. 241-254 - march 3 2025.",
+              "text": "in proceedings of the 23rd acm ieee international symposium on code generation and optimization",
+              "words": [
+                "in",
+                "proceedings",
+                "of",
+                "the",
+                "23rd",
+                "acm",
+                "ieee",
+                "international",
+                "symposium",
+                "on",
+                "code",
+                "generation",
+                "and",
+                "optimization"
+              ]
+            },
+            "venue": {
+              "text": "in proceedings of the 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization",
               "words": [
                 "in",
                 "proceedings",
@@ -612,15 +631,6 @@
                 "generation",
                 "and",
                 "optimization",
-                "pp.",
-                "241-254",
-                "march",
-                "2025."
-              ]
-            },
-            "venue": {
-              "text": "proceedings of 23rd acm ieee international symposium on code generation and optimization",
-              "words": [
                 "proceedings",
                 "of",
                 "23rd",
@@ -643,9 +653,9 @@
             }
           },
           "year": 2025,
-          "citationCount": 6
+          "citationCount": 0
         },
-        "_searchBlob": "the mlir transform dialect to take full advantage of a specific hardware target performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. yet modern compilers are poorly controlled usually by configuring a sequence of coarse-grained monolithic black-box passes or by means of predefined compiler annotations pragmas. these can be effective but often do not let users precisely optimize their varying compute loads. as a consequence performance engineers have to resort to implementing custom passes for a specific optimization heuristic requiring compiler engineering expert knowledge. in this paper we present a technique that provides fine-grained control of general-purpose compilers by introducing the transform dialect a controllable ir-based transformation system implemented in mlir. the transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. we demonstrate in five case studies that the transform dialect enables precise safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods. in proceedings of the 23rd acm ieee international symposium on code generation and optimization - pp. 241-254 - march 3 2025. proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper martin paul lucke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universitat berlin albert cohen mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
+        "_searchBlob": "the mlir transform dialect to take full advantage of a specific hardware target performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. yet modern compilers are poorly controlled usually by configuring a sequence of coarse-grained monolithic black-box passes or by means of predefined compiler annotations pragmas. these can be effective but often do not let users precisely optimize their varying compute loads. as a consequence performance engineers have to resort to implementing custom passes for a specific optimization heuristic requiring compiler engineering expert knowledge. in this paper we present a technique that provides fine-grained control of general-purpose compilers by introducing the transform dialect a controllable ir-based transformation system implemented in mlir. the transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. we demonstrate in five case studies that the transform dialect enables precise safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods. in proceedings of the 23rd acm ieee international symposium on code generation and optimization in proceedings of the 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper martin paul lucke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universitat berlin albert cohen mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
         "_mlirSourceUpstream": true,
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
@@ -684,9 +694,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4413205419",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/zinc65316.2025.11103541",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -1029,10 +1039,10 @@
           "offload"
         ],
         "id": "openalex-w4415158337",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -1358,9 +1368,9 @@
         ],
         "openalexId": "https://openalex.org/W4416004523",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3731599.3767479",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1674,9 +1684,9 @@
         ],
         "openalexId": "https://openalex.org/W4400582589",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3660779",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2064,9 +2074,9 @@
         ],
         "openalexId": "https://openalex.org/W4401454438",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1145/3677333.3678148",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2464,8 +2474,8 @@
           }
         ],
         "year": "2024",
-        "publication": "SC24-W:Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
-        "venue": "SC24-W:Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "publication": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "venue": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
         "type": "research-paper",
         "abstract": "With Nvidia’s release of the Grace Superchip, all three big semiconductor companies in HPC (AMD, Intel, Nvidia) are currently competing in the race for the best CPU. In this work we analyze the performance of these state-of-the-art CPUs and create an accurate in-core performance model for their microarchitectures Zen 4, Golden Cove, and Neoverse V2, extending the Open Source Architecture Code Analyzer (OSACA) tool and comparing it with LLVM-MCA. Starting from the peculiarities and up- and downsides of a single core, we extend our comparison by a variety of microbenchmarks and the capabilities of a full node. The \"write-allocate (WA) evasion\" feature, which can automatically reduce the memory traffic caused by write misses, receives special attention; we show that the Grace Superchip has a next-to-optimal implementation of WA evasion, and that the only way to avoid write allocates on Zen 4 is the explicit use of non-temporal stores.",
         "paperUrl": "https://doi.org/10.1109/scw63240.2024.00181",
@@ -2474,9 +2484,9 @@
         ],
         "openalexId": "https://openalex.org/W4406157312",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/scw63240.2024.00181",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2497,8 +2507,8 @@
         "_keywordsLower": "performance",
         "_topicsLower": "performance performance",
         "_contentLower": "",
-        "_publicationLower": "sc24-w:workshops of the international conference for high performance computing, networking, storage and analysis",
-        "_venueLower": "sc24-w:workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_publicationLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_venueLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2024",
@@ -2788,9 +2798,9 @@
         ],
         "openalexId": "https://openalex.org/W4403210797",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/icnc-fskd64080.2024.10702289",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3566,8 +3576,8 @@
           }
         ],
         "year": "2024",
-        "publication": "Computer Science [cs]. Strasbourg University, 2024. English. &#x27E8;NNT : &#x27E9;",
-        "venue": "Computer Science [cs]. Strasbourg University, 2024. English. &#x27E8;NNT : &#x27E9;",
+        "publication": "Computer Science [cs]. Strasbourg University, 2024. English. ⟨NNT: ⟩",
+        "venue": "Computer Science [cs]. Strasbourg University, 2024. English. ⟨NNT: ⟩",
         "type": "thesis",
         "abstract": "Dans cette thèse, nous montrons les avantages de la nouvelle technologie de compilateur MLIR pour la génération de code à partir d'un DSL, à savoir EasyML utilisé dans openCARP, un simulateur largement utilisé dans la recherche en électrophysiologie cardiaque. S'appuyant sur un travail existant nous avons profondément modifié le générateur de code natif d'openCARP pour permettre une génération efficace de code CPU vectoriel et GPU (Nvidia CUDA et AMD ROCm). La génération de code optimisé pour différents accélérateurs nécessite des optimisations spécifiques et nous examinons comment MLIR a été utilisé pour permettre la génération de code multi-cible à partir d'un générateur intégré. À notre connaissance, il s’agit du premier travail qui relie profondément une infrastructure de compilateur d’optimisation aux modèles électrophysiologiques du corps humain, montrant les avantages potentiels de l’utilisation de technologies de compilation dans la simulation des interactions entre cellules humaines. De plus, nous avons réalisé une étude sur les compilateurs polyédriques et généralisé nos techniques en utilisant Polygeist pour améliorer la vectorisation et la génération de codes hétérogènes des compilateurs polyédriques.",
         "paperUrl": "https://inria.hal.science/tel-04718259v1/file/PhD_Thesis_Arun.pdf",
@@ -3603,11 +3613,11 @@
           "mlir"
         ],
         "id": "openalex-w4403116989",
-        "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -3621,8 +3631,8 @@
         "_keywordsLower": "mlir autovectorization infrastructure gpu cuda ration compilateurs poly driques utilis dans les avantages nous avons pour permettre profond ment boucles parall les pour des nids",
         "_topicsLower": "mlir autovectorization infrastructure gpu cuda mlir autovectorization infrastructure gpu cuda ration compilateurs poly driques utilis dans les avantages nous avons pour permettre profond ment boucles parall les pour des nids mlir",
         "_contentLower": "",
-        "_publicationLower": "computer science [cs]. strasbourg university, 2024. english. &#x27e8;nnt : &#x27e9;",
-        "_venueLower": "computer science [cs]. strasbourg university, 2024. english. &#x27e8;nnt : &#x27e9;",
+        "_publicationLower": "computer science [cs]. strasbourg university, 2024. english. ⟨nnt: ⟩",
+        "_venueLower": "computer science [cs]. strasbourg university, 2024. english. ⟨nnt: ⟩",
         "_typeLower": "thesis",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2024",
@@ -3877,7 +3887,7 @@
               "words": []
             },
             "publication": {
-              "text": "computer science cs . strasbourg university 2024. english. and #x27e8 nnt and #x27e9",
+              "text": "computer science cs . strasbourg university 2024. english. nnt",
               "words": [
                 "computer",
                 "science",
@@ -3886,15 +3896,11 @@
                 "university",
                 "2024.",
                 "english.",
-                "and",
-                "#x27e8",
-                "nnt",
-                "and",
-                "#x27e9"
+                "nnt"
               ]
             },
             "venue": {
-              "text": "computer science cs . strasbourg university 2024. english. and #x27e8 nnt and #x27e9",
+              "text": "computer science cs . strasbourg university 2024. english. nnt",
               "words": [
                 "computer",
                 "science",
@@ -3903,11 +3909,7 @@
                 "university",
                 "2024.",
                 "english.",
-                "and",
-                "#x27e8",
-                "nnt",
-                "and",
-                "#x27e9"
+                "nnt"
               ]
             },
             "year": {
@@ -3920,7 +3922,7 @@
           "year": 2024,
           "citationCount": 0
         },
-        "_searchBlob": "generation de code optimisee pour des nids de boucles paralleles et polyedriques a laide de mlir dans cette these nous montrons les avantages de la nouvelle technologie de compilateur mlir pour la generation de code a partir dun dsl a savoir easyml utilise dans opencarp un simulateur largement utilise dans la recherche en electrophysiologie cardiaque. sappuyant sur un travail existant nous avons profondement modifie le generateur de code natif dopencarp pour permettre une generation efficace de code cpu vectoriel et gpu nvidia cuda et amd rocm . la generation de code optimise pour differents accelerateurs necessite des optimisations specifiques et nous examinons comment mlir a ete utilise pour permettre la generation de code multi-cible a partir dun generateur integre. a notre connaissance il sagit du premier travail qui relie profondement une infrastructure de compilateur doptimisation aux modeles electrophysiologiques du corps humain montrant les avantages potentiels de lutilisation de technologies de compilation dans la simulation des interactions entre cellules humaines. de plus nous avons realise une etude sur les compilateurs polyedriques et generalise nos techniques en utilisant polygeist pour ameliorer la vectorisation et la generation de codes heterogenes des compilateurs polyedriques. computer science cs . strasbourg university 2024. english. and #x27e8 nnt and #x27e9 computer science cs . strasbourg university 2024. english. and #x27e8 nnt and #x27e9 2024 thesis arun thangamani mlir autovectorization infrastructure gpu cuda mlir autovectorization infrastructure gpu cuda ration compilateurs poly driques utilis dans les avantages nous avons pour permettre profond ment boucles parall les pour des nids mlir",
+        "_searchBlob": "generation de code optimisee pour des nids de boucles paralleles et polyedriques a laide de mlir dans cette these nous montrons les avantages de la nouvelle technologie de compilateur mlir pour la generation de code a partir dun dsl a savoir easyml utilise dans opencarp un simulateur largement utilise dans la recherche en electrophysiologie cardiaque. sappuyant sur un travail existant nous avons profondement modifie le generateur de code natif dopencarp pour permettre une generation efficace de code cpu vectoriel et gpu nvidia cuda et amd rocm . la generation de code optimise pour differents accelerateurs necessite des optimisations specifiques et nous examinons comment mlir a ete utilise pour permettre la generation de code multi-cible a partir dun generateur integre. a notre connaissance il sagit du premier travail qui relie profondement une infrastructure de compilateur doptimisation aux modeles electrophysiologiques du corps humain montrant les avantages potentiels de lutilisation de technologies de compilation dans la simulation des interactions entre cellules humaines. de plus nous avons realise une etude sur les compilateurs polyedriques et generalise nos techniques en utilisant polygeist pour ameliorer la vectorisation et la generation de codes heterogenes des compilateurs polyedriques. computer science cs . strasbourg university 2024. english. nnt computer science cs . strasbourg university 2024. english. nnt 2024 thesis arun thangamani mlir autovectorization infrastructure gpu cuda mlir autovectorization infrastructure gpu cuda ration compilateurs poly driques utilis dans les avantages nous avons pour permettre profond ment boucles parall les pour des nids mlir",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -5615,10 +5617,10 @@
           "offload"
         ],
         "id": "openalex-w4406032132",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -5995,10 +5997,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4400582765",
-        "citationCount": 2,
+        "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1145/3643779",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6013,7 +6015,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 1,
         "_titleLower": "dtd: comprehensive and scalable testing for debuggers",
         "_authorLower": "hongyi lu hong kong university of science and technology zhibo liu hong kong university of science and technology shuai wang hong kong university of science and technology fengwei zhang southern university of science and technology",
         "_authorsLower": "hongyi lu hong kong university of science and technology zhibo liu hong kong university of science and technology shuai wang hong kong university of science and technology fengwei zhang southern university of science and technology",
@@ -6489,7 +6491,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 1
         },
         "_searchBlob": "dtd comprehensive and scalable testing for debuggers as a powerful tool for developers interactive debuggers help locate and fix errors in software. by using debugging information included in binaries debuggers can retrieve necessary program states about the program. unlike printf -style debugging debuggers allow for more flexible inspection and modification of program execution states. however debuggers may incorrectly retrieve and interpret program execution causing confusion and hindering the debugging process. despite the wide usage of interactive debuggers a scalable and comprehensive measurement of their functionality correctness does not exist yet. existing works either fall short in scalability or focus more on the compiler side defects instead of debugger bugs. to facilitate a better assessment of debugger correctness we first propose and advocate a set of debugger testing criteria covering both comprehensiveness in terms of debug information covered and scalability in terms of testing overhead . moreover we design comparative experiments to show that fulfilling these criteria is not only theoretically appealing but also brings major improvement to debugger testing. furthermore based on these criteria we present dtd a differential testing dt framework for detecting bugs in interactive debuggers. dtd compares the behaviors of two mainstream debuggers when processing an identical c executable discrepancies indicate bugs in one of the two debuggers. dtd leverages a novel heuristic method to avoid the repetitive structures e.g. loops that exist in c programs which facilitates dtd to achieve full debug information coverage efficiently. moreover we have also designed a temporal differential filtering method to practically filter out the false positives caused by the uninitialized variables in common c programs. with these carefully designed techniques dtd fulfills our proposed testing requirements and therefore achieves high scalability and testing comprehensiveness. for the first time it offers large-scale testing for c debuggers to detect debugger behavior discrepancies when inspecting millions of program states. an empirical comparison shows that dtd finds 17 more errortriggering cases and detects 5 more bugs than the state-of-the-art debugger testing technique. we have used dtd to detect 13 bugs in the llvm toolchain clang lldb and 5 bugs in the gnu toolchain gcc gdb . one of our fixes has already landed in the latest lldb development branch. proceedings of acm on software engineering proceedings of acm on software engineering vol. 1 issue fse 2024 research-paper hongyi lu hong kong university of science and technology zhibo liu hong kong university of science and technology shuai wang hong kong university of science and technology fengwei zhang southern university of science and technology clang debug information lldb testing clang debug information lldb testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6589,10 +6591,10 @@
           "Quantum Computing"
         ],
         "openalexId": "https://openalex.org/W4406262153",
-        "citationCount": 4,
+        "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/qce60285.2024.00106",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6607,7 +6609,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 3,
         "_titleLower": "design and architecture of the ibm quantum engine compiler",
         "_authorLower": "michael b. healy ibm research - thomas j. watson research center reza jokar ibm research - thomas j. watson research center soolu thomas ibm research - thomas j. watson research center v. r. pascuzzi ibm research - thomas j. watson research center kit barton ibm thomas a. alexander ibm roy elkabetz ibm research - haifa brian c. donovan cambridge scientific hiroshi horii ibm research - tokyo marius hillenbrand ibm",
         "_authorsLower": "michael b. healy ibm research - thomas j. watson research center reza jokar ibm research - thomas j. watson research center soolu thomas ibm research - thomas j. watson research center v. r. pascuzzi ibm research - thomas j. watson research center kit barton ibm thomas a. alexander ibm roy elkabetz ibm research - haifa brian c. donovan cambridge scientific hiroshi horii ibm research - tokyo marius hillenbrand ibm",
@@ -6930,7 +6932,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 4
+          "citationCount": 3
         },
         "_searchBlob": "design and architecture of the ibm quantum engine compiler in this work we describe the design and architecture of the open-source quantum engine compiler qe-compiler currently used in production for ibm quantum systems. the qe-compiler is built using llvms multi-level intermediate representation mlir framework and includes definitions for several dialects to represent parameterized quantum computation at multiple levels of abstraction. the compiler also provides python bindings and a diagnostic system. an open-source lalr lexer and parser built using bison and flex generates an abstract syntax tree that is translated to a high-level mlir dialect. an extensible hierarchical target system for modeling the heterogeneous nature of control systems at compilation time is included. target-based and generic compilation passes are added using a pipeline interface to translate the input down to low-level intermediate representations including llvm ir and can take advantage of llvm backends and tooling to generate machine executable binaries. the qe-compiler is built to be extensible maintainable performant and scalable to support the future of quantum computing. 2024 ieee international conference on quantum computing and engineering qce 2024 ieee international conference on quantum computing and engineering qce 2024 research-paper michael b. healy ibm research - thomas j. watson research center reza jokar ibm research - thomas j. watson research center soolu thomas ibm research - thomas j. watson research center v. r. pascuzzi ibm research - thomas j. watson research center kit barton ibm thomas a. alexander ibm roy elkabetz ibm research - haifa brian c. donovan cambridge scientific hiroshi horii ibm research - tokyo marius hillenbrand ibm backend ir mlir quantum computing backend ir mlir quantum computing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7014,15 +7016,15 @@
           "mlir"
         ],
         "id": "openalex-w4399464945",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "a systematic translation validation framework for mlir-based compilers",
         "_authorLower": "yanzhao wang portland state university fei xie portland state university zhenkun yang intel pasquale cocchini intel jin yang intel",
         "_authorsLower": "yanzhao wang portland state university fei xie portland state university zhenkun yang intel pasquale cocchini intel jin yang intel",
@@ -7278,7 +7280,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "a systematic translation validation framework for mlir-based compilers this paper introduces an innovative translation validation framework designed for mlir-based compilers which has garnered considerable prominence in fields such as machine learning high-performance computing and hardware design. despite rigorous testing compilers based on mlir might still induce incorrect results and undefined behaviors necessitating verification work. our framework first takes a pair of mlir programs as inputs and check their function signatures compatibility before encoding them into smt expressions. then it uses the z3 smt solver to check whether the target program refines the source program. our framework transcends the dialect limitations of past solutions thereby providing validation support to a wider range of mlir-based compilers. we demonstrate its effectiveness through evaluations on prominent open-source mlir-based compilers where we identified bugs and undefined behaviors. we further demonstrate the capability of this framework by validating two practical deep-learning accelerator designs. international journal of software engineering and knowledge engineering international journal of software engineering and knowledge engineering 2024 research-paper yanzhao wang portland state university fei xie portland state university zhenkun yang intel pasquale cocchini intel jin yang intel mlir testing performance ml mlir testing performance validation undefined behaviors mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -7372,16 +7374,16 @@
           "addresssanitizer"
         ],
         "id": "openalex-w4389571996",
-        "citationCount": 5,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 0,
         "_titleLower": "a smart status based monitoring algorithm for the dynamic analysis of memory safety",
         "_authorLower": "zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney",
         "_authorsLower": "zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney",
@@ -7867,7 +7869,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 5
+          "citationCount": 0
         },
         "_searchBlob": "a smart status based monitoring algorithm for the dynamic analysis of memory safety c is a dominant programming language for implementing system and low-level embedded software. unfortunately the unsafe nature of its low-level control of memory often leads to memory errors. dynamic analysis has been widely used to detect memory errors at runtime. however existing monitoring algorithms for dynamic analysis are not yet satisfactory as they cannot deterministically and completely detect some types of errors such as segment confusion errors sub-object overflows use-after-frees and memory leaks. we propose a new monitoring algorithm namely smatus short for smart status that improves memory safety by performing comprehensive dynamic analysis. the key innovation is to maintain at runtime a small status node for each memory object. a status node records the status value and reference count of an object where the status value denotes the liveness and segment type of this object and the reference count tracks the number of pointer variables pointing to this object. smatus maintains at runtime a pointer metadata for each pointer variable to record not only the base and bound of a pointers referent but also the address of the referents status node. all the pointers pointing to the same referent share the same status node in their pointer metadata. a status node is smart in the sense that it is automatically deleted when it becomes useless indicated by its reference count reaching zero . to the best of our knowledge smatus represents the most comprehensive approach of its kind. we have evaluated smatus by using a large set of programs including the nist software assurance reference dataset msbench mibench spec and stress testing benchmarks. in terms of effectiveness detecting different types of memory errors smatus outperforms state-of-the-art tools googles addresssanitizer softboundcets and valgrind as it is capable of detecting more errors. in terms of performance the time and memory overheads smatus outperforms softboundcets and valgrind in terms of both lower time and memory overheads incurred and is on par with addresssanitizer in terms of the time and memory overhead tradeoff made with much lower memory overheads incurred . acm transactions on software engineering and methodology acm transactions on software engineering and methodology vol. 33 issue 4 2023 research-paper zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney dynamic analysis testing security performance embedded programming languages dynamic analysis testing security performance embedded programming languages sanitizers memory safety memory overheads incurred status node memory errors smatus outperforms object pointer metadata addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -8187,15 +8189,15 @@
           "mlir"
         ],
         "id": "openalex-w4226289789",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "source matching and rewriting",
         "_authorLower": "vinícius milanez couto luciano zago hervé yviquel guido araújo",
         "_authorsLower": "vinícius milanez couto luciano zago hervé yviquel guido araújo",
@@ -8478,7 +8480,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "source matching and rewriting a typical compiler flow relies on a uni-directional sequence of translation optimization steps that lower the program abstract representation making it hard to preserve higher-level program information across each transformation step. on the other hand modern isa extensions and hardware accelerators can benefit from the compilers ability to detect and raise program idioms to acceleration instructions or optimized library calls. although recent works based on multi-level ir mlir have been proposed for code raising they rely on specialized languages compiler recompilation or in-depth dialect knowledge. this paper presents source matching and rewriting smr a user-oriented source-code-based approach for mlir idiom matching and rewriting that does not require a compiler experts intervention. smr uses a two-phase automaton-based dag-matching algorithm inspired by early work on tree-pattern matching. first the idiom control-dependency graph cdg is matched against the programs cdg to rule out code fragments that do not have a control-flow structure similar to the desired idiom. second candidate code fragments from the previous phase have their data-dependency graphs ddgs constructed and matched against the idiom ddg. experimental results show that smr can effectively match idioms from fortran fir and c cil programs while raising them as blas calls to improve performance. arxiv arxiv 2022 research-paper vinicius milanez couto luciano zago herve yviquel guido araujo mlir ir optimizations performance mlir optimizations performance matched against mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -8509,8 +8511,8 @@
           }
         ],
         "year": "2022",
-        "publication": "Proceedings of the 13th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics",
-        "venue": "Proceedings of the 13th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics",
+        "publication": "Proceedings of 13th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics",
+        "venue": "Proceedings of 13th ACM International Conference on Bioinformatics, Computational Biology and Health Informatics",
         "type": "research-paper",
         "abstract": "We describe the experience of converting a CUDA implementation of a high-order epistasis detection algorithm to SYCL. The goals are for our work to be useful to application and compiler developers with a detailed description of migration paths between CUDA and SYCL. Evaluating the CUDA and SYCL applications on an NVIDIA V100 GPU, we find that the optimization of loop unrolling needs to be applied manually to the SYCL kernel for obtaining comparable performance. The performance of the SYCL group reduce function, an alternative to the CUDA warp-based reduction, depends on the problem and work group sizes. The 64-bit popcount operation implemented with tree of adders is slightly faster than the built-in popcount operation. When the number of OpenMP threads is four, the highest performance of the SYCL and CUDA applications are comparable.",
         "paperUrl": "https://www.osti.gov/servlets/purl/1883813",
@@ -8545,15 +8547,15 @@
           "openmp"
         ],
         "id": "openalex-w4288421628",
-        "citationCount": 20,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 20,
+        "_citationCount": 0,
         "_titleLower": "performance portability study of epistasis detection using sycl on nvidia gpu",
         "_authorLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -8562,8 +8564,8 @@
         "_keywordsLower": "openmp optimizations loop transformations performance gpu cuda loop optimization performance portability epistasis detection popcount operation",
         "_topicsLower": "openmp optimizations loop transformations performance gpu cuda openmp optimizations loop transformations performance gpu cuda loop optimization performance portability epistasis detection popcount operation libsycl openmp",
         "_contentLower": "",
-        "_publicationLower": "proceedings of the 13th acm international conference on bioinformatics, computational biology and health informatics",
-        "_venueLower": "proceedings of the 13th acm international conference on bioinformatics, computational biology and health informatics",
+        "_publicationLower": "proceedings of 13th acm international conference on bioinformatics, computational biology and health informatics",
+        "_venueLower": "proceedings of 13th acm international conference on bioinformatics, computational biology and health informatics",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-discovery",
         "_yearLower": "2022",
@@ -8780,11 +8782,10 @@
               "words": []
             },
             "publication": {
-              "text": "proceedings of the 13th acm international conference on bioinformatics computational biology and health informatics",
+              "text": "proceedings of 13th acm international conference on bioinformatics computational biology and health informatics",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "13th",
                 "acm",
                 "international",
@@ -8799,11 +8800,10 @@
               ]
             },
             "venue": {
-              "text": "proceedings of the 13th acm international conference on bioinformatics computational biology and health informatics",
+              "text": "proceedings of 13th acm international conference on bioinformatics computational biology and health informatics",
               "words": [
                 "proceedings",
                 "of",
-                "the",
                 "13th",
                 "acm",
                 "international",
@@ -8825,9 +8825,9 @@
             }
           },
           "year": 2022,
-          "citationCount": 20
+          "citationCount": 0
         },
-        "_searchBlob": "performance portability study of epistasis detection using sycl on nvidia gpu we describe the experience of converting a cuda implementation of a high-order epistasis detection algorithm to sycl. the goals are for our work to be useful to application and compiler developers with a detailed description of migration paths between cuda and sycl. evaluating the cuda and sycl applications on an nvidia v100 gpu we find that the optimization of loop unrolling needs to be applied manually to the sycl kernel for obtaining comparable performance. the performance of the sycl group reduce function an alternative to the cuda warp-based reduction depends on the problem and work group sizes. the 64-bit popcount operation implemented with tree of adders is slightly faster than the built-in popcount operation. when the number of openmp threads is four the highest performance of the sycl and cuda applications are comparable. proceedings of the 13th acm international conference on bioinformatics computational biology and health informatics proceedings of the 13th acm international conference on bioinformatics computational biology and health informatics 2022 research-paper zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory openmp optimizations loop transformations performance gpu cuda openmp optimizations loop transformations performance gpu cuda loop optimization performance portability epistasis detection popcount operation libsycl openmp",
+        "_searchBlob": "performance portability study of epistasis detection using sycl on nvidia gpu we describe the experience of converting a cuda implementation of a high-order epistasis detection algorithm to sycl. the goals are for our work to be useful to application and compiler developers with a detailed description of migration paths between cuda and sycl. evaluating the cuda and sycl applications on an nvidia v100 gpu we find that the optimization of loop unrolling needs to be applied manually to the sycl kernel for obtaining comparable performance. the performance of the sycl group reduce function an alternative to the cuda warp-based reduction depends on the problem and work group sizes. the 64-bit popcount operation implemented with tree of adders is slightly faster than the built-in popcount operation. when the number of openmp threads is four the highest performance of the sycl and cuda applications are comparable. proceedings of 13th acm international conference on bioinformatics computational biology and health informatics proceedings of 13th acm international conference on bioinformatics computational biology and health informatics 2022 research-paper zheming jin oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory openmp optimizations loop transformations performance gpu cuda openmp optimizations loop transformations performance gpu cuda loop optimization performance portability epistasis detection popcount operation libsycl openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
@@ -8899,16 +8899,16 @@
           "mlir"
         ],
         "id": "openalex-w4308067463",
-        "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "co-optimizing dataflow graphs and actors with mlir",
         "_authorLower": "pedro ciambra universidade estadual de campinas mickacl dardaillon institut d'électronique et des technologies du numérique maxime pelcat institut d'électronique et des technologies du numérique hervé yviquel universidade estadual de campinas",
         "_authorsLower": "pedro ciambra universidade estadual de campinas mickacl dardaillon institut d'électronique et des technologies du numérique maxime pelcat institut d'électronique et des technologies du numérique hervé yviquel universidade estadual de campinas",
@@ -9121,7 +9121,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "co-optimizing dataflow graphs and actors with mlir dataflow programming is considered a good solution for the implementation of parallel signal processing applications. however the strict separation between kernel and coordination codes limits the variety of possible optimizations and the compatibility with state-of-the-art compiler frameworks. we present a prototype static dataflow compiler built with the llvm mlir framework that overcomes these limitations and enables a previously impossible combination of optimization strategies that leverages information from the dataflow topology. initial results show 30 wall time improvement and 53 memory usage improvement on a video processing workload. 2022 ieee workshop on signal processing systems sips 2022 ieee workshop on signal processing systems sips 2022 research-paper pedro ciambra universidade estadual de campinas mickacl dardaillon institut delectronique et des technologies du numerique maxime pelcat institut delectronique et des technologies du numerique herve yviquel universidade estadual de campinas llvm mlir optimizations llvm mlir optimizations optimizing dataflow graphs llvm mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -9154,9 +9154,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3155297306",
         "citationCount": 12,
+        "sourceUrl": "",
         "doi": "10.1007/s11390-020-9754-4",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -9515,10 +9515,10 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3130095569",
-        "citationCount": 27,
+        "citationCount": 26,
+        "sourceUrl": "",
         "doi": "10.1145/3446804.3446849",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9531,7 +9531,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 26,
         "_titleLower": "exploring the space of optimization sequences for code-size reduction: insights and tools",
         "_authorLower": "anderson faustino da silva universidade estadual de maringá bernardo n. b. de lima universidade federal de minas gerais fernando magno quintão pereira universidade federal de minas gerais",
         "_authorsLower": "anderson faustino da silva universidade estadual de maringá bernardo n. b. de lima universidade federal de minas gerais fernando magno quintão pereira universidade federal de minas gerais",
@@ -9884,7 +9884,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 27
+          "citationCount": 26
         },
         "_searchBlob": "exploring the space of optimization sequences for code-size reduction insights and tools the optimization space of a compiler is the set of every possible sequence of optimizations that said compiler can use. the exploration of the optimization space of any mainstream compiler has been for decades hampered by the lack of benchmarks. however recent efforts from different research groups have made available a large quantity of compilable code that can be today used to overcome this problem. in this paper we use 15 000 programs from a public collection to explore the optimization space of llvm focusing on code-size reduction. this exploration reveals that the probability of beating the default optimization levels of llvm with random sequences ranges from 10 considering opt -oz to 19 considering clang -os . yet the distribution of probabilities is uneven across programs the default levels work well for most programs and poorly for a few. based on these observations we introduce the notion of an optimization cache a table of programs to optimization sequences that can be used to support predictive compilation. we then use an optimization cache to build what we call a default covering set a small ensemble of optimization sequences that once combined tend to be good for any program. optimization caches and default covering sets are used independently. the former when applied onto mibench yield programs that are 11.9 smaller than programs produced by opt -os on average. the latter produce programs 12.5 smaller. proceedings of 30th acm sigplan international conference on compiler construction proceedings of 30th acm sigplan international conference on compiler construction 2021 research-paper anderson faustino da silva universidade estadual de maringa bernardo n. b. de lima universidade federal de minas gerais fernando magno quintao pereira universidade federal de minas gerais clang optimizations clang optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9952,9 +9952,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3112750549",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/qrs51102.2020.00053",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10318,15 +10318,15 @@
           "offload"
         ],
         "id": "openalex-w3046771328",
-        "citationCount": 48,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 48,
+        "_citationCount": 0,
         "_titleLower": "gallium",
         "_authorLower": "kaiyuan zhang university of washington danyang zhuo duke university arvind krishnamurthy university of washington",
         "_authorsLower": "kaiyuan zhang university of washington danyang zhuo duke university arvind krishnamurthy university of washington",
@@ -10605,7 +10605,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 48
+          "citationCount": 0
         },
         "_searchBlob": "gallium researchers have shown that offloading software middleboxes e.g. nat firewall load balancer to programmable switches can yield orders-of-magnitude performance gains. however it requires manually selecting the middle-box components to offload and rewriting the offloaded code in p4 a domain-specific language for programmable switches. we design and implement gallium a compiler that transforms an input software middlebox into two parts---a p4 program that runs on a programmable switch and an x86 non-offloaded program that runs on a regular middlebox server. gallium ensures that 1 the combined effect of the p4 program and the non-offloaded program is functionally equivalent to the input middlebox program 2 the p4 program respects the resource constraints in the programmable switch and 3 the run-to-completion semantics are met under concurrent execution. our evaluations show that gallium saves 21-79 of processing cycles and reduces latency by about 31 across various software middleboxes. proceedings of annual conference of the acm special interest group on data communication on the applications technologies architectures and protocols for computer communication proceedings of annual conference of the acm special interest group on data communication on the applications technologies architectures and protocols for computer communication 2020 research-paper kaiyuan zhang university of washington danyang zhuo duke university arvind krishnamurthy university of washington offload performance gpu offload performance gpu offloading gallium programmable switches non offloaded program middlebox offload",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -10696,15 +10696,15 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 2,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "enabling reliability-driven optimization selection with gate graph attention neural network",
         "_authorLower": "jiang wu national university of defense technology jianjun xu national university of defense technology xiankai meng national university of defense technology haoyu zhang national university of defense technology zhuo zhang guilin university of electronic technology",
         "_authorsLower": "jiang wu national university of defense technology jianjun xu national university of defense technology xiankai meng national university of defense technology haoyu zhang national university of defense technology zhuo zhang guilin university of electronic technology",
@@ -11050,7 +11050,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "enabling reliability-driven optimization selection with gate graph attention neural network modern compilers provide a huge number of optional compilation optimization options. it is necessary to select the appropriate compilation optimization options for different programs or applications. to mitigate this problem machine learning is widely used as an efficient technology. how to ensure the integrity and effectiveness of program information is the key to problem mitigation. in addition when selecting the best compilation optimization option the optimization goals are often execution speed code size and cpu consumption. there is not much research on program reliability. this paper proposes a gate graph attention neural network ggann -based compilation optimization option selection model. the data flow and function-call information are integrated into the abstract syntax tree as the program graph-based features. we extend the deep neural network based on ggann and build a learning model that learns the heuristics method for program reliability. the experiment is performed under the clang compiler framework. compared with the traditional machine learning method our model improves the average accuracy by 5 11 in the optimization option selection for program reliability. at the same time experiments show that our model has strong scalability. international journal of software engineering and knowledge engineering international journal of software engineering and knowledge engineering vol. 30 issue 11n12 2020 research-paper jiang wu national university of defense technology jianjun xu national university of defense technology xiankai meng national university of defense technology haoyu zhang national university of defense technology zhuo zhang guilin university of electronic technology clang optimizations ml clang optimizations ml compilation optimization attention neural network program reliability compilation optimization options gate graph attention graph attention neural optimization option selection machine learning driven optimization selection reliability driven optimization clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -11107,9 +11107,9 @@
         ],
         "openalexId": "https://openalex.org/W3120262944",
         "citationCount": 3,
+        "sourceUrl": "",
         "doi": "10.1109/ismvl49045.2020.00-28",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11797,8 +11797,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2970672767",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12133,9 +12133,9 @@
         ],
         "openalexId": "https://openalex.org/W2951653635",
         "citationCount": 10,
+        "sourceUrl": "",
         "doi": "10.1109/icst.2019.00039",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12562,9 +12562,9 @@
         ],
         "openalexId": "https://openalex.org/W2969433881",
         "citationCount": 5,
+        "sourceUrl": "",
         "doi": "10.1109/dsn.2019.00065",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13004,9 +13004,9 @@
         ],
         "openalexId": "https://openalex.org/W3006581002",
         "citationCount": 11,
+        "sourceUrl": "",
         "doi": "10.1109/issre.2019.00038",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13528,10 +13528,8 @@
           "Quantum Computing"
         ],
         "openalexId": "https://openalex.org/W2913992572",
-        "citationCount": 364,
+        "citationCount": 354,
         "doi": "10.1145/3297858.3304075",
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -13545,7 +13543,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 364,
+        "_citationCount": 354,
         "_titleLower": "noise-adaptive compiler mappings for noisy intermediate-scale quantum computers",
         "_authorLower": "prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university",
         "_authorsLower": "prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university",
@@ -13984,7 +13982,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 364
+          "citationCount": 354
         },
         "_searchBlob": "noise-adaptive compiler mappings for noisy intermediate-scale quantum computers a massive gap exists between current quantum computing qc prototypes and the size and scale required for many proposed qc algorithms. current qc implementations are prone to noise and variability which affect their reliability and yet with less than 80 quantum bits qubits total they are too resource-constrained to implement error correction. the term noisy intermediate-scale quantum nisq refers to these current and near-term systems of 1000 qubits or less. given nisqs severe resource constraints low reliability and high variability in physical characteristics such as coherence time or error rates it is of pressing importance to map computations onto them in ways that use resources efficiently and maximize the likelihood of successful runs. this paper proposes and evaluates backend compiler approaches to map and optimize high-level qc programs to execute with high reliability on nisq systems with diverse hardware characteristics. our techniques all start from an llvm intermediate representation of the quantum program such as would be generated from high-level qc languages like scaffold and generate qc executables runnable on the ibm q public qc machine. we then use this framework to implement and evaluate several optimal and heuristic mapping methods. these methods vary in how they account for the availability of dynamic machine calibration data the relative importance of various noise parameters the different possible routing strategies and the relative importance of compile-time scalability versus runtime success. using real-system measurements we show that fine grained spatial and temporal variations in hardware parameters can be exploited to obtain an average 2.9x and up to 18x improvement in program success rate over the industry standard ibm qiskit compiler. despite small qubit counts nisq systems will soon be large enough to demonstrate quantum supremacy i.e. an advantage over classical computing. tools like ours provide significant improvements in program reliability and execution time and offer high leverage in accelerating progress towards quantum supremacy. proceedings of twenty-fourth international conference on architectural support for programming languages and operating systems proceedings of twenty-fourth international conference on architectural support for programming languages and operating systems 2019 research-paper prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university backend quantum computing backend quantum computing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14048,9 +14046,9 @@
         ],
         "openalexId": "https://openalex.org/W2996268865",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.5626/jok.2019.46.12.1279",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14418,15 +14416,15 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "citationCount": 18,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 18,
+        "_citationCount": 0,
         "_titleLower": "openmp 4.5 validation and verification suite for device offload",
         "_authorLower": "jose monsalve diaz university of delaware swaroop pophale oak ridge national laboratory óscar hernández oak ridge national laboratory david e. bernholdt oak ridge national laboratory sunita chandrasekaran university of delaware",
         "_authorsLower": "jose monsalve diaz university of delaware swaroop pophale oak ridge national laboratory óscar hernández oak ridge national laboratory david e. bernholdt oak ridge national laboratory sunita chandrasekaran university of delaware",
@@ -14557,7 +14555,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 18
+          "citationCount": 0
         },
         "_searchBlob": "openmp 4.5 validation and verification suite for device offload no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2018 research-paper jose monsalve diaz university of delaware swaroop pophale oak ridge national laboratory oscar hernandez oak ridge national laboratory david e. bernholdt oak ridge national laboratory sunita chandrasekaran university of delaware openmp gpu openmp gpu offloading device offload verification suite openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -14662,10 +14660,10 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W2798573268",
-        "citationCount": 24,
+        "citationCount": 23,
+        "sourceUrl": "",
         "doi": "10.1145/3192366.3192377",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14678,7 +14676,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 24,
+        "_citationCount": 23,
         "_titleLower": "crellvm: verified credible compilation for llvm",
         "_authorLower": "jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university",
         "_authorsLower": "jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university",
@@ -14903,7 +14901,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 24
+          "citationCount": 23
         },
         "_searchBlob": "crellvm verified credible compilation for llvm production compilers such as gcc and llvm are large complex software systems for which achieving a high level of reliability is hard. although testing is an effective method for finding bugs it alone cannot guarantee a high level of reliability. to provide a higher level of reliability many approaches that examine compilers internal logics have been proposed. however none of them have been successfully applied to major optimizations of production compilers. proceedings of 39th acm sigplan conference on programming language design and implementation proceedings of 39th acm sigplan conference on programming language design and implementation 2018 research-paper jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university optimizations testing optimizations testing",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -14978,10 +14976,10 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
@@ -15648,9 +15646,9 @@
         ],
         "openalexId": "https://openalex.org/W2727449424",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-59288-6_47",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15872,8 +15870,8 @@
         ],
         "openalexId": "https://openalex.org/W2679001871",
         "citationCount": 0,
-        "publishedDate": "",
         "paperUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16313,9 +16311,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2500011840",
         "citationCount": 1,
+        "sourceUrl": "",
         "doi": "10.1109/spw.2016.38",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -16568,9 +16566,9 @@
         ],
         "openalexId": "https://openalex.org/W2553283531",
         "citationCount": 8,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-319-48869-1_12",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16765,10 +16763,10 @@
         "openalexId": "https://openalex.org/W2474051304",
         "sourceUrl": "https://doi.org/10.1109/hipc.2016.037",
         "doi": "10.1109/hipc.2016.037",
-        "citationCount": 0,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -17109,7 +17107,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2411334977",
-        "citationCount": 27,
+        "citationCount": 26,
         "doi": "10.1145/2872421.2872424",
         "publishedDate": "",
         "contentFormat": "",
@@ -17123,7 +17121,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 26,
         "_titleLower": "predictive modeling methodology for compiler phase-ordering",
         "_authorLower": "amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano",
         "_authorsLower": "amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano",
@@ -17438,7 +17436,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 27
+          "citationCount": 26
         },
         "_searchBlob": "predictive modeling methodology for compiler phase-ordering todays compilers offer a huge number of transformation options to choose among and this choice can significantly impact on the performance of the code being optimized. not only the selection of compiler options represents a hard problem to be solved but also the ordering of the phases is adding further complexity making it a long standing problem in compilation research. this paper presents an innovative approach for tackling the compiler phase-ordering problem by using predictive modeling. the proposed methodology enables i to efficiently explore compiler exploration space including optimization permutations and repetitions and ii to extract the application dynamic features to predict the next-best optimization to be applied to maximize the performance given the current status. experimental results are done by assessing the proposed methodology with utilizing two different search heuristics on the compiler optimization space and it demonstrates the effectiveness of the methodology on the selected set of applications. using the proposed methodology on average we observed up to 4 execution speedup with respect to llvm standard baseline. proceedings of 7th workshop on parallel programming and run-time management techniques for many-core architectures and the 5th workshop on design tools and architectures for multicore embedded computing platforms proceedings of 7th workshop on parallel programming and run-time management techniques for many-core architectures and the 5th workshop on design tools and architectures for multicore embedded computing platforms 2016 research-paper amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17518,9 +17516,9 @@
         ],
         "openalexId": "https://openalex.org/W2751042664",
         "citationCount": 13,
+        "sourceUrl": "",
         "doi": "10.1109/llvm-hpc.2016.008",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17888,9 +17886,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2545444117",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/dsd.2016.88",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -18191,9 +18189,9 @@
         ],
         "openalexId": "https://openalex.org/W2539700731",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.1109/informatics.2015.7377808",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18586,9 +18584,9 @@
         ],
         "openalexId": "https://openalex.org/W2523714409",
         "citationCount": 0,
+        "sourceUrl": "",
         "doi": "10.26053/0h-wrre-1r00",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20431,8 +20429,8 @@
         ],
         "openalexId": "https://openalex.org/W2913664002",
         "citationCount": 1,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20924,9 +20922,9 @@
         ],
         "openalexId": "https://openalex.org/W1944639319",
         "citationCount": 2,
+        "sourceUrl": "",
         "doi": "10.1109/dft.2015.7315166",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -21316,12 +21314,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of eighteenth international conference on Architectural support for programming languages and operating systems",
         "openalexId": "https://openalex.org/W2121204404",
-        "doi": "10.1145/2451116.2451131",
-        "citationCount": 98,
-        "publishedDate": "",
         "sourceUrl": "",
+        "doi": "10.1145/2451116.2451131",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -21329,7 +21327,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 98,
+        "_citationCount": 0,
         "_titleLower": "using likely invariants for automated software fault localization",
         "_authorLower": "swarup kumar sahoo university of illinois urbana-champaign john criswell university of illinois urbana-champaign chase geigle university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
         "_authorsLower": "swarup kumar sahoo university of illinois urbana-champaign john criswell university of illinois urbana-champaign chase geigle university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
@@ -21575,7 +21573,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 98
+          "citationCount": 0
         },
         "_searchBlob": "using likely invariants for automated software fault localization we propose an automatic diagnosis technique for isolating the root cause s of software failures. we use likely program invariants automatically generated using correct inputs that are close to the fault-triggering input to select a set of candidate program locations which are possible root causes. we then trim the set of candidate root causes using software-implemented dynamic backwards slicing plus two new filtering heuristics dependence filtering and filtering via multiple failing inputs that are also close to the failing input. experimental results on reported software bugs of three large open-source servers show that we are able to narrow down the number of candidate bug locations to between 5 and 17 program expressions even in programs that are hundreds of thousands of lines long. proceedings of eighteenth international conference on architectural support for programming languages and operating systems proceedings of eighteenth international conference on architectural support for programming languages and operating systems 2013 research-paper swarup kumar sahoo university of illinois urbana-champaign john criswell university of illinois urbana-champaign chase geigle university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -21611,10 +21609,10 @@
         "publication": "Infoscience (Ecole Polytechnique Fédérale de Lausanne)",
         "openalexId": "https://openalex.org/W1515856599",
         "doi": "10.5075/epfl-thesis-5914",
-        "citationCount": 1,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Static Analysis"
         ],
@@ -21624,7 +21622,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 0,
         "_titleLower": "execution synthesis: a technique for automating the debugging of software",
         "_authorLower": "cristian zamfir",
         "_authorsLower": "cristian zamfir",
@@ -22051,7 +22049,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 1
+          "citationCount": 0
         },
         "_searchBlob": "execution synthesis a technique for automating the debugging of software debugging real systems is hard requires deep knowledge of the target code and is time-consuming. bug reports rarely provide sufficient information for debugging thus forcing developers to turn into detectives searching for an explanation of how the program could have arrived at the reported failure state. this thesis introduces execution synthesis a technique for automating this detective work given a program and a bug report execution synthesis automatically produces an execution of the program that leads to the reported bug symptoms. using a combination of static analysis and symbolic execution the technique synthesizes a thread schedule and various required program inputs that cause the bug to manifest. the synthesized execution can be played back deterministically in a regular debugger like gdb. this is particularly useful in debugging concurrency bugs because it transforms otherwise non-deterministic bugs into bugs that can be deterministically observed in a debugger. execution synthesis requires no runtime recording and no program or hardware modifications thus incurring no runtime overhead. this makes it practical for use in production systems. this thesis includes a theoretical analysis of execution synthesis as well as empirical evidence that execution synthesis is successful in starting from mere bug reports and reproducing on its own concurrency and memory safety bugs in real systems taking on the order of minutes. this thesis also introduces reverse execution synthesis an automated debugging technique that takes a coredump obtained after a failure and automatically computes the suffix of an execution that leads to that coredump. reverse execution synthesis generates the necessary information to then play back this suffix in a debugger deterministically as many times as needed to complete the debugging process. since it synthesizes an execution suffix instead of the entire execution reverse execution is particularly well suited for arbitrarily long executions in which the failure and its root cause occur within a short time span so developers can use a short execution suffix to debug the problem. the thesis also shows how execution synthesis can be combined with recording techniques in order to automatically classify data races and to efficiently debug deadlock bugs. infoscience ecole polytechnique federale de lausanne infoscience ecole polytechnique federale de lausanne 2013 research-paper cristian zamfir static analysis static analysis",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -22112,9 +22110,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2998579349",
         "citationCount": 17,
+        "sourceUrl": "",
         "doi": "10.1145/2345156.2254115",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -22510,9 +22508,9 @@
         ],
         "openalexId": "https://openalex.org/W2999411576",
         "citationCount": 20,
+        "sourceUrl": "",
         "doi": "10.1145/2370036.2145831",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22881,8 +22879,8 @@
         ],
         "openalexId": "https://openalex.org/W341956247",
         "citationCount": 0,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23147,8 +23145,8 @@
           }
         ],
         "year": "2010",
-        "publication": "https://www.ideals.illinois.edu/bitstream/handle/2142/16605/PREMtechrep.pdf?sequence%3D2",
-        "venue": "https://www.ideals.illinois.edu/bitstream/handle/2142/16605/PREMtechrep.pdf?sequence%3D2",
+        "publication": "Illinois Digital Environment for Access to Learning and Scholarship (University of Illinois at Urbana-Champaign)",
+        "venue": "Illinois Digital Environment for Access to Learning and Scholarship (University of Illinois at Urbana-Champaign)",
         "type": "research-paper",
         "abstract": "Building safety-critical real-time systems out of inexpensive, non-real-time, COTS components is challenging. Although COTS components generally offer high performance, they can occasionally incur significant timing delays. To prevent this, we propose controlling the operating point of each COTS shared resource (like the cache, memory, and interconnection buses) to maintain it below its saturation limit. This is necessary because the low-level arbiters of these shared resources are not typically designed to provide real-time guarantees. In this work, we introduce a novel system execution model, the PRedictable Execution Model (PREM), which, in contrast to the standard COTS execution model, coschedules at a high level all active COTS components in the system, such as CPU cores and I/O peripherals. In order to permit predictable, system-wide execution, we argue that real-time embedded applications need to be compiled according to a new set of rules dictated by PREM. To experimentally validate our theory, we developed a COTS-based PREM testbed and modified the LLVM Compiler Infrastructure to produce PREM-compatible executables. 1.",
         "paperUrl": "http://hdl.handle.net/2142/16605",
@@ -23159,8 +23157,8 @@
         ],
         "openalexId": "https://openalex.org/W1506943720",
         "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -23184,8 +23182,8 @@
         "_keywordsLower": "embedded infrastructure performance",
         "_topicsLower": "embedded infrastructure performance embedded infrastructure performance",
         "_contentLower": "",
-        "_publicationLower": "https://www.ideals.illinois.edu/bitstream/handle/2142/16605/premtechrep.pdf?sequence%3d2",
-        "_venueLower": "https://www.ideals.illinois.edu/bitstream/handle/2142/16605/premtechrep.pdf?sequence%3d2",
+        "_publicationLower": "illinois digital environment for access to learning and scholarship (university of illinois at urbana-champaign)",
+        "_venueLower": "illinois digital environment for access to learning and scholarship (university of illinois at urbana-champaign)",
         "_typeLower": "research-paper",
         "_sourceLower": "openalex-llvm-query",
         "_yearLower": "2010",
@@ -23408,31 +23406,41 @@
               "words": []
             },
             "publication": {
-              "text": "https www.ideals.illinois.edu bitstream handle 2142 16605 premtechrep.pdf sequence 3d2",
+              "text": "illinois digital environment for access to learning and scholarship university of illinois at urbana-champaign",
               "words": [
-                "https",
-                "www.ideals.illinois.edu",
-                "bitstream",
-                "handle",
-                "2142",
-                "16605",
-                "premtechrep.pdf",
-                "sequence",
-                "3d2"
+                "illinois",
+                "digital",
+                "environment",
+                "for",
+                "access",
+                "to",
+                "learning",
+                "and",
+                "scholarship",
+                "university",
+                "of",
+                "illinois",
+                "at",
+                "urbana-champaign"
               ]
             },
             "venue": {
-              "text": "https www.ideals.illinois.edu bitstream handle 2142 16605 premtechrep.pdf sequence 3d2",
+              "text": "illinois digital environment for access to learning and scholarship university of illinois at urbana-champaign",
               "words": [
-                "https",
-                "www.ideals.illinois.edu",
-                "bitstream",
-                "handle",
-                "2142",
-                "16605",
-                "premtechrep.pdf",
-                "sequence",
-                "3d2"
+                "illinois",
+                "digital",
+                "environment",
+                "for",
+                "access",
+                "to",
+                "learning",
+                "and",
+                "scholarship",
+                "university",
+                "of",
+                "illinois",
+                "at",
+                "urbana-champaign"
               ]
             },
             "year": {
@@ -23445,7 +23453,7 @@
           "year": 2010,
           "citationCount": 2
         },
-        "_searchBlob": "predictable execution model concept and implementation building safety-critical real-time systems out of inexpensive non-real-time cots components is challenging. although cots components generally offer high performance they can occasionally incur significant timing delays. to prevent this we propose controlling the operating point of each cots shared resource like the cache memory and interconnection buses to maintain it below its saturation limit. this is necessary because the low-level arbiters of these shared resources are not typically designed to provide real-time guarantees. in this work we introduce a novel system execution model the predictable execution model prem which in contrast to the standard cots execution model coschedules at a high level all active cots components in the system such as cpu cores and i o peripherals. in order to permit predictable system-wide execution we argue that real-time embedded applications need to be compiled according to a new set of rules dictated by prem. to experimentally validate our theory we developed a cots-based prem testbed and modified the llvm compiler infrastructure to produce prem-compatible executables. 1. https www.ideals.illinois.edu bitstream handle 2142 16605 premtechrep.pdf sequence 3d2 https www.ideals.illinois.edu bitstream handle 2142 16605 premtechrep.pdf sequence 3d2 2010 research-paper rodolfo pellizzoni emiliano betti stanley bak gang yao john criswell marco caccamo embedded infrastructure performance embedded infrastructure performance",
+        "_searchBlob": "predictable execution model concept and implementation building safety-critical real-time systems out of inexpensive non-real-time cots components is challenging. although cots components generally offer high performance they can occasionally incur significant timing delays. to prevent this we propose controlling the operating point of each cots shared resource like the cache memory and interconnection buses to maintain it below its saturation limit. this is necessary because the low-level arbiters of these shared resources are not typically designed to provide real-time guarantees. in this work we introduce a novel system execution model the predictable execution model prem which in contrast to the standard cots execution model coschedules at a high level all active cots components in the system such as cpu cores and i o peripherals. in order to permit predictable system-wide execution we argue that real-time embedded applications need to be compiled according to a new set of rules dictated by prem. to experimentally validate our theory we developed a cots-based prem testbed and modified the llvm compiler infrastructure to produce prem-compatible executables. 1. illinois digital environment for access to learning and scholarship university of illinois at urbana-champaign illinois digital environment for access to learning and scholarship university of illinois at urbana-champaign 2010 research-paper rodolfo pellizzoni emiliano betti stanley bak gang yao john criswell marco caccamo embedded infrastructure performance embedded infrastructure performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAt": "2026-02-21T05:39:52.000Z",
         "_addedAtTs": 1771652392000
@@ -23493,10 +23501,10 @@
         "publication": "Operating Systems Design and Implementation",
         "openalexId": "https://openalex.org/W2251066406",
         "doi": "10.5555/1924943.1924953",
-        "citationCount": 54,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -23506,7 +23514,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 54,
+        "_citationCount": 0,
         "_titleLower": "bypassing races in live applications with execution filters",
         "_authorLower": "jingyue wu columbia university heming cui columbia university junfeng yang columbia university",
         "_authorsLower": "jingyue wu columbia university heming cui columbia university junfeng yang columbia university",
@@ -23759,7 +23767,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 54
+          "citationCount": 0
         },
         "_searchBlob": "bypassing races in live applications with execution filters deployed multithreaded applications contain many races because these applications are difficult to write test and debug. worse the number of races in deployed applications may drastically increase due to the rise of multicore hardware and the immaturity of current race detectors.loom is a live-workaround system designed to quickly and safely bypass application races at runtime. loom provides a flexible and safe language for developers to write execution filters that explicitly synchronize code. it then uses an evacuation algorithm to safely install the filters to live applications to avoid races. it reduces its performance overhead using hybrid instrumentation that combines static and dynamic instrumentation.we evaluated loom on nine real races from a diverse set of six applications including mysql and apache. our results show that 1 loom can safely fix all evaluated races in a timely manner thereby increasing application availability 2 loom incurs little performance overhead 3 loom scales well with the number of application threads and 4 loom is easy to use. operating systems design and implementation operating systems design and implementation 2010 research-paper jingyue wu columbia university heming cui columbia university junfeng yang columbia university performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -23806,8 +23814,8 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2895087378",
         "citationCount": 2,
-        "publishedDate": "",
         "sourceUrl": "",
+        "publishedDate": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -24142,9 +24150,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W1536242253",
         "citationCount": 10,
+        "sourceUrl": "",
         "doi": "10.1007/978-3-642-10452-7_18",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -24325,12 +24333,10 @@
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1587844310",
         "doi": "10.1007/978-3-540-68237-0_5",
-        "citationCount": 109,
-        "citationCountSource": "openalex",
-        "citationCountCheckedAt": "2026-04-23T23:55:28Z",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -24340,7 +24346,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 109,
+        "_citationCount": 0,
         "_titleLower": "covac: compiler validation by program analysis of the cross-product",
         "_authorLower": "anna zaks new york university amir pnueli new york university",
         "_authorsLower": "anna zaks new york university amir pnueli new york university",
@@ -24555,7 +24561,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 109
+          "citationCount": 0
         },
         "_searchBlob": "covac compiler validation by program analysis of the cross-product the paper presents a deductive framework for proving program equivalence and its application to automatic verification of transformations performed by optimizing compilers. to leverage existing program analysis techniques we reduce the equivalence checking problem to analysis of one system - a cross-product of the two input programs. we show how the approach can be effectively used for checking equivalence of consonant i.e. structurally similar programs. finally we report on the prototype tool that applies the developed methodology to verify that a compiler optimization run preserves the program semantics. unlike existing frameworks covac accommodates absence of compiler annotations and handles most of the classical intraprocedural optimizations such as constant folding reassociation common subexpression elimination code motion dead code elimination branch optimizations and others. lecture notes in computer science lecture notes in computer science 2008 research-paper anna zaks new york university amir pnueli new york university optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -24593,7 +24599,7 @@
           }
         ],
         "year": "2005",
-        "venue": "http://llvm.org/pubs/2006-05-12-PLDI-SAFECode.pdf",
+        "venue": "Proceedings of 2006 ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI '06) | Ottawa, Canada",
         "type": "research-paper",
         "abstract": "Static analysis of programs in weakly typed languages such as C and C++ generally is not guaranteed to be sound because programs in these languages may have undetected memory errors such as dangling pointer references, references using uninitialized pointers, and array bounds overflow. Optimizing compilers can produce undefined results for programs with memory access errors, but this is quite undesirable for many tools that aim to analyze security and reliability properties with guarantees of soundness. We describe a relatively simple compilation strategy for standard C programs that guarantees sound semantics for a call graph, an aggressive interprocedural pointer analysis, and type information for a subset of memory. These provide the foundation for sophisticated static analyses to be applied to such programs with a guarantee of soundness. Our work builds on a previously published transformation called Automatic Pool Allocation to ensure that hard-to-detect memory errors (dangling pointer references and certain array bounds errors) cannot invalidate the call graph, points-to information or type information. The key insight behind our approach is that pool allocation can be used to create a run-time partitioning of memory that matches the compile-time memory partitioning in a points-to graph, and efficient checks can be used to isolate the run-time partitions.&#13;\\n&#13;\\nFurthermore, we show that the sound analysis information enable static checking techniques that reliably eliminate many run-time checks. Our approach requires no source code changes, allows memory to be managed explicitly, and do not use meta-data on pointers or individual tag bits for memory thus avoiding any external library compatibility issues. Using many benchmarks and system codes, we show experimentally that the run-time overheads are low (less than 10% in nearly all cases and 30% in the worst case we have seen). We also show the effectiveness of reliable static analyses for eliminating run-time checks.",
         "paperUrl": "http://hdl.handle.net/2142/11123",
@@ -24604,12 +24610,12 @@
           "Security"
         ],
         "sourceName": "LLVM Publications",
-        "publication": "http://llvm.org/pubs/2006-05-12-PLDI-SAFECode.pdf",
+        "publication": "Proceedings of 2006 ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI '06)",
         "openalexId": "https://openalex.org/W1125513871",
-        "citationCount": 6,
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
+        "citationCount": 0,
         "keywords": [
           "C++",
           "Static Analysis",
@@ -24622,7 +24628,7 @@
         "_year": "2005",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 0,
         "_titleLower": "enforcing alias analysis for weakly typed languages",
         "_authorLower": "dinakar dhurjati sumant kowshik vikram adve",
         "_authorsLower": "dinakar dhurjati sumant kowshik vikram adve",
@@ -24631,8 +24637,8 @@
         "_keywordsLower": "c++ static analysis security",
         "_topicsLower": "c++ static analysis security c++ static analysis security",
         "_contentLower": "",
-        "_publicationLower": "http://llvm.org/pubs/2006-05-12-pldi-safecode.pdf",
-        "_venueLower": "http://llvm.org/pubs/2006-05-12-pldi-safecode.pdf",
+        "_publicationLower": "proceedings of 2006 acm sigplan conference on programming language design and implementation (pldi '06)",
+        "_venueLower": "proceedings of 2006 acm sigplan conference on programming language design and implementation (pldi '06) | ottawa, canada",
         "_typeLower": "research-paper",
         "_sourceLower": "llvm-org-pubs",
         "_yearLower": "2005",
@@ -24985,21 +24991,43 @@
               "words": []
             },
             "publication": {
-              "text": "http llvm.org pubs 2006-05-12-pldi-safecode.pdf",
+              "text": "proceedings of 2006 acm sigplan conference on programming language design and implementation pldi 06",
               "words": [
-                "http",
-                "llvm.org",
-                "pubs",
-                "2006-05-12-pldi-safecode.pdf"
+                "proceedings",
+                "of",
+                "2006",
+                "acm",
+                "sigplan",
+                "conference",
+                "on",
+                "programming",
+                "language",
+                "design",
+                "and",
+                "implementation",
+                "pldi",
+                "06"
               ]
             },
             "venue": {
-              "text": "http llvm.org pubs 2006-05-12-pldi-safecode.pdf",
+              "text": "proceedings of 2006 acm sigplan conference on programming language design and implementation pldi 06 ottawa canada",
               "words": [
-                "http",
-                "llvm.org",
-                "pubs",
-                "2006-05-12-pldi-safecode.pdf"
+                "proceedings",
+                "of",
+                "2006",
+                "acm",
+                "sigplan",
+                "conference",
+                "on",
+                "programming",
+                "language",
+                "design",
+                "and",
+                "implementation",
+                "pldi",
+                "06",
+                "ottawa",
+                "canada"
               ]
             },
             "year": {
@@ -25010,9 +25038,9 @@
             }
           },
           "year": 2005,
-          "citationCount": 6
+          "citationCount": 0
         },
-        "_searchBlob": "enforcing alias analysis for weakly typed languages static analysis of programs in weakly typed languages such as c and c++ generally is not guaranteed to be sound because programs in these languages may have undetected memory errors such as dangling pointer references references using uninitialized pointers and array bounds overflow. optimizing compilers can produce undefined results for programs with memory access errors but this is quite undesirable for many tools that aim to analyze security and reliability properties with guarantees of soundness. we describe a relatively simple compilation strategy for standard c programs that guarantees sound semantics for a call graph an aggressive interprocedural pointer analysis and type information for a subset of memory. these provide the foundation for sophisticated static analyses to be applied to such programs with a guarantee of soundness. our work builds on a previously published transformation called automatic pool allocation to ensure that hard-to-detect memory errors dangling pointer references and certain array bounds errors cannot invalidate the call graph points-to information or type information. the key insight behind our approach is that pool allocation can be used to create a run-time partitioning of memory that matches the compile-time memory partitioning in a points-to graph and efficient checks can be used to isolate the run-time partitions. and #13 n and #13 nfurthermore we show that the sound analysis information enable static checking techniques that reliably eliminate many run-time checks. our approach requires no source code changes allows memory to be managed explicitly and do not use meta-data on pointers or individual tag bits for memory thus avoiding any external library compatibility issues. using many benchmarks and system codes we show experimentally that the run-time overheads are low less than 10 in nearly all cases and 30 in the worst case we have seen . we also show the effectiveness of reliable static analyses for eliminating run-time checks. http llvm.org pubs 2006-05-12-pldi-safecode.pdf http llvm.org pubs 2006-05-12-pldi-safecode.pdf 2005 research-paper dinakar dhurjati sumant kowshik vikram adve c++ static analysis security c++ static analysis security",
+        "_searchBlob": "enforcing alias analysis for weakly typed languages static analysis of programs in weakly typed languages such as c and c++ generally is not guaranteed to be sound because programs in these languages may have undetected memory errors such as dangling pointer references references using uninitialized pointers and array bounds overflow. optimizing compilers can produce undefined results for programs with memory access errors but this is quite undesirable for many tools that aim to analyze security and reliability properties with guarantees of soundness. we describe a relatively simple compilation strategy for standard c programs that guarantees sound semantics for a call graph an aggressive interprocedural pointer analysis and type information for a subset of memory. these provide the foundation for sophisticated static analyses to be applied to such programs with a guarantee of soundness. our work builds on a previously published transformation called automatic pool allocation to ensure that hard-to-detect memory errors dangling pointer references and certain array bounds errors cannot invalidate the call graph points-to information or type information. the key insight behind our approach is that pool allocation can be used to create a run-time partitioning of memory that matches the compile-time memory partitioning in a points-to graph and efficient checks can be used to isolate the run-time partitions. and #13 n and #13 nfurthermore we show that the sound analysis information enable static checking techniques that reliably eliminate many run-time checks. our approach requires no source code changes allows memory to be managed explicitly and do not use meta-data on pointers or individual tag bits for memory thus avoiding any external library compatibility issues. using many benchmarks and system codes we show experimentally that the run-time overheads are low less than 10 in nearly all cases and 30 in the worst case we have seen . we also show the effectiveness of reliable static analyses for eliminating run-time checks. proceedings of 2006 acm sigplan conference on programming language design and implementation pldi 06 proceedings of 2006 acm sigplan conference on programming language design and implementation pldi 06 ottawa canada 2005 research-paper dinakar dhurjati sumant kowshik vikram adve c++ static analysis security c++ static analysis security",
         "addedAt": "2026-02-20T23:08:48.000Z",
         "_addedAt": "2026-02-20T23:08:48.000Z",
         "_addedAtTs": 1771628928000
@@ -25050,7 +25078,7 @@
         ],
         "year": "2022",
         "publication": "SSBSE",
-        "venue": "SSBSE 2022",
+        "venue": "SSBSE | SSBSE 2022",
         "type": "research-paper",
         "paperUrl": "https://link.springer.com/content/pdf/10.1007/978-3-031-22385-3_4.pdf",
         "sourceUrl": "https://grosser.science/pub/2022-metamorphic-fuzzing-of-c-libraries",
@@ -25085,7 +25113,7 @@
         "_topicsLower": "llvm fuzzing llvm fuzzing",
         "_contentLower": "- source page: https://grosser.science/pub/2022-metamorphic-fuzzing-of-c-libraries - doi: https://doi.org/10.1007/978-3-031-22385-3 4 - pdf: https://link.springer.com/content/pdf/10.1007/978-3-031-22385-3 4.pdf",
         "_publicationLower": "ssbse",
-        "_venueLower": "ssbse 2022",
+        "_venueLower": "ssbse | ssbse 2022",
         "_typeLower": "research-paper",
         "_sourceLower": "manual-added",
         "_yearLower": "2022",
@@ -25164,8 +25192,9 @@
               ]
             },
             "venue": {
-              "text": "ssbse 2022",
+              "text": "ssbse ssbse 2022",
               "words": [
+                "ssbse",
                 "ssbse",
                 "2022"
               ]
@@ -25180,7 +25209,7 @@
           "year": 2022,
           "citationCount": 0
         },
-        "_searchBlob": "metamorphic fuzzing of c++ libraries - source page https grosser.science pub 2022-metamorphic-fuzzing-of-c-libraries - doi https doi.org 10.1007 978-3-031-22385-3 4 - pdf https link.springer.com content pdf 10.1007 978-3-031-22385-3 4.pdf ssbse ssbse 2022 2022 research-paper radu-cristian nica chih-hong cheng tobias grosser llvm fuzzing llvm fuzzing"
+        "_searchBlob": "metamorphic fuzzing of c++ libraries - source page https grosser.science pub 2022-metamorphic-fuzzing-of-c-libraries - doi https doi.org 10.1007 978-3-031-22385-3 4 - pdf https link.springer.com content pdf 10.1007 978-3-031-22385-3 4.pdf ssbse ssbse ssbse 2022 2022 research-paper radu-cristian nica chih-hong cheng tobias grosser llvm fuzzing llvm fuzzing"
       },
       "source": "manual-added"
     }
