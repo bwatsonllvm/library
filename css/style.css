@@ -116,6 +116,8 @@
   --radius-md:   6px;
   --radius-lg:   8px;
   --radius-xl:   12px;
+  --radius-control: var(--radius-lg);
+  --radius-search-shell: var(--radius-xl);
   --radius-full: 4px;
 
   /* Shadows */
@@ -495,7 +497,7 @@ ul, ol {
   align-items: center;
   min-width: clamp(240px, 34vw, 420px);
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   overflow: visible;
   background: var(--color-surface);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -511,7 +513,7 @@ ul, ol {
   height: 38px;
   border: 0;
   border-right: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control) 0 0 var(--radius-control);
   background: transparent;
   color: var(--color-text);
   padding: 0 10px;
@@ -541,7 +543,7 @@ ul, ol {
   align-items: center;
   justify-content: center;
   border: 0;
-  border-radius: 0;
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
   color: var(--color-text-muted);
   background: transparent;
   transition: color var(--transition-fast), background var(--transition-fast);
@@ -1037,7 +1039,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   color: var(--color-text);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-control);
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
   -webkit-appearance: none;
@@ -1076,7 +1078,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   transform: translateY(-50%);
   width: 24px;
   height: 24px;
-  border-radius: var(--radius-full);
+  border-radius: 50%;
   display: none;
   align-items: center;
   justify-content: center;
@@ -1107,7 +1109,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   min-width: 0;
   padding: 8px;
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-search-shell);
   background: var(--color-surface);
   gap: 0;
   transition: border-color var(--transition-fast), background var(--transition-fast);
@@ -1124,7 +1126,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   min-width: 0;
   min-height: 52px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   background: var(--color-surface);
 }
 
@@ -1137,8 +1139,13 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   padding: 0 40px 0 40px;
   border: 0;
   border-right: 0;
-  border-radius: 0;
+  border-radius: var(--radius-control);
   background: transparent;
+}
+
+.search-box.global-search-form > .global-search-input.search-input {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
 .search-box.global-search-form:focus-within .global-search-input {
@@ -1181,7 +1188,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   align-items: center;
   padding: 0 10px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   font-size: var(--font-size-xs);
   color: var(--color-text-muted);
   background: var(--color-surface);
@@ -1192,8 +1199,9 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   display: inline-flex;
   align-items: stretch;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   background: var(--color-surface);
+  overflow: hidden;
 }
 
 .global-search-scope-btn {
@@ -1210,8 +1218,13 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   transition: color var(--transition-fast), background var(--transition-fast);
 }
 
+.global-search-scope-btn:first-child {
+  border-radius: var(--radius-control) 0 0 var(--radius-control);
+}
+
 .global-search-scope-btn:last-child {
   border-right: 0;
+  border-radius: 0 var(--radius-control) var(--radius-control) 0;
 }
 
 .global-search-scope-btn:hover {
@@ -1227,7 +1240,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
 .global-search-advanced-toggle {
   height: 30px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   color: var(--color-text-muted);
   font-size: var(--font-size-xs);
@@ -1325,6 +1338,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   border-right: 0;
   border-bottom: 0;
   border-left: 1px solid var(--color-border);
+  border-radius: 0;
   padding: 0 8px;
   flex-shrink: 0;
 }
@@ -1341,7 +1355,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   width: min(760px, calc(100vw - 24px));
   padding: 12px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-search-shell);
   background: var(--color-surface);
   box-shadow: var(--shadow-md);
 }
@@ -1418,7 +1432,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
   width: 100%;
   min-height: 32px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   padding: 0 8px;
   font-size: var(--font-size-sm);
   color: var(--color-text);
@@ -1440,7 +1454,7 @@ body.filter-collapsed .search-hero--compact.search-hero--sidebar-aware .search-h
 .global-search-advanced-btn {
   min-height: 30px;
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: var(--radius-control);
   padding: 0 10px;
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-medium);
@@ -2133,7 +2147,7 @@ body.filter-collapsed .filter-collapse-btn svg {
 
 .results-sort-select {
   height: 30px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   padding: 0 28px 0 var(--space-2);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -2259,7 +2273,7 @@ body.filter-collapsed .filter-collapse-btn svg {
 .work-advanced-input {
   width: 100%;
   height: 32px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
   color: var(--color-text);
@@ -2282,7 +2296,7 @@ body.filter-collapsed .filter-collapse-btn svg {
 
 .work-advanced-btn {
   height: 32px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   padding: 0 var(--space-3);
   border: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -3058,7 +3072,7 @@ body.filter-collapsed .filter-collapse-btn svg {
   min-height: 38px;
   padding: 0 var(--space-3);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   color: var(--color-text);
   font-size: var(--font-size-sm);
