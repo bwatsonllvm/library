@@ -45,7 +45,7 @@
     .mission-main {
       position: relative;
       z-index: 1;
-      width: min(1120px, calc(100vw - 2rem));
+      width: min(var(--content-rail), calc(100vw - 2rem));
       margin: 0 auto 3rem;
       color: var(--color-text);
       display: grid;
@@ -384,12 +384,12 @@
     </div>
   </header>
 
-  <section class="search-hero search-hero--compact" aria-label="LLVM community">
+  <section class="search-hero search-hero--compact search-hero--mission" aria-label="LLVM community">
     <div class="search-hero-shell">
       <h1>LLVM Community</h1>
       <p class="subtitle">Official places to ask questions, join events, and find support.</p>
       <p class="mission-hero-copy">Start with the active LLVM channels. Use the library links for background on community health, mentorship, and Foundation programs.</p>
-      <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics">
+      <form class="search-box global-search-form" action="work.html" method="get" role="search" aria-label="Search All across talks, papers, blogs, people, and key topics" data-advanced-search="false">
         <input type="hidden" name="mode" value="search">
         <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>

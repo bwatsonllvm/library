@@ -177,6 +177,7 @@
 
   function shouldEnableAdvancedSearch(form) {
     if (!form) return false;
+    if (form.getAttribute('data-advanced-search') === 'false') return false;
     if (isWorkSearchPage()) return false;
     if (form.classList.contains('work-hero-search')) return false;
     if (form.querySelector('#work-search-input')) return false;

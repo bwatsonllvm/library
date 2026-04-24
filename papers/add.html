@@ -43,9 +43,9 @@
     body { background: transparent; }
 
     .manual-paper-main {
-      max-width: 1240px;
+      width: min(var(--content-rail), calc(100vw - 2rem));
       margin: 0 auto;
-      padding: 0 1rem 3rem;
+      padding: 0 0 3rem;
     }
 
     .manual-paper-shell {
@@ -232,7 +232,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=37a1cd0f01aa">
+  <link rel="stylesheet" href="css/style.css?v=7625a0149ccf">
 </head>
 <body data-content-scope="paper">
   <nav class="skip-links" aria-label="Skip links">
@@ -515,7 +515,7 @@
   </main>
 
   <script src="js/shared/library-utils.js?v=b0c53d24d1ba"></script>
-  <script src="js/shared/global-search.js?v=8d246d9a6eef"></script>
+  <script src="js/shared/global-search.js?v=5736f44a5595"></script>
   <script src="js/paper-manual-add.js?v=f491af653d9e"></script>
 </body>
 </html>

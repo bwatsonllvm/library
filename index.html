@@ -42,6 +42,7 @@
     body { background: transparent; }
 
     .home-hero-shell {
+      max-width: min(var(--max-width-narrow), calc(100vw - 2rem));
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -77,7 +78,7 @@
     }
 
     .home-main {
-      width: min(1120px, calc(100vw - 2rem));
+      width: min(var(--content-rail), calc(100vw - 2rem));
       margin: 0 auto 3rem;
       text-align: left;
     }
@@ -314,7 +315,7 @@
   <link rel="icon" type="image/png" href="images/llvm-favicon.png">
   <link rel="shortcut icon" href="images/llvm-favicon.png">
   <link rel="apple-touch-icon" href="images/llvm-favicon.png">
-  <link rel="stylesheet" href="css/style.css?v=37a1cd0f01aa">
+  <link rel="stylesheet" href="css/style.css?v=7625a0149ccf">
 </head>
 <body>
 
@@ -509,7 +510,7 @@
           </a>
           <a class="home-stat" href="talks/events.html">
             <span class="home-stat-value" data-home-stat="meetings">35</span>
-            <span class="home-stat-label">Events</span>
+            <span class="home-stat-label">LLVM Developers' Meetings</span>
           </a>
         </div>
       </section>
@@ -569,7 +570,7 @@
 
   <script src="js/shared/library-utils.js?v=b0c53d24d1ba"></script>
 
-  <script src="js/shared/global-search.js?v=8d246d9a6eef"></script>
+  <script src="js/shared/global-search.js?v=5736f44a5595"></script>
   <script src="js/home.js?v=03c1a5cc8dd4"></script>
 </body>
 </html>
