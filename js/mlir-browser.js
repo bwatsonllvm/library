@@ -13,6 +13,8 @@
   const initCustomizationMenu = PageShell ? () => PageShell.initCustomizationMenu() : () => {};
   const initMobileNavMenu = PageShell ? () => PageShell.initMobileNavMenu() : () => {};
   const initShareMenu = PageShell ? () => PageShell.initShareMenu() : () => {};
+  const safeStorageGet = PageShell ? PageShell.safeStorageGet : () => null;
+  const safeStorageSet = PageShell ? PageShell.safeStorageSet : () => {};
   const safeSessionSet = PageShell ? PageShell.safeSessionSet : () => {};
   const safeSessionRemove = PageShell ? PageShell.safeSessionRemove : () => {};
 
@@ -40,6 +42,8 @@
   const INITIAL_BATCH_SIZE = 60;
   const RENDER_BATCH_SIZE = 40;
   const LOAD_MORE_ROOT_MARGIN = '900px 0px';
+  const TOPIC_SORT_STORAGE_KEY = 'llvm-hub-topic-sort';
+  const TOPIC_SORT_MODES = new Set(['alpha', 'common']);
   const DIRECT_PDF_URL_RE = /\.pdf(?:$|[?#])|\/pdf(?:$|[/?#])|[?&](?:format|type|output)=pdf(?:$|[&#])|[?&]filename=[^&#]*\.pdf(?:$|[&#])/i;
   const BLOG_SOURCE_SLUGS = new Set(['llvm-blog-www', 'llvm-www-blog']);
   const TALK_CATEGORY_LABELS = Object.freeze({
@@ -84,6 +88,7 @@
     activeTopics: new Set(),
     years: new Set(),
     talkTypes: new Set(),
+    topicSort: 'alpha',
   };
 
   let allItems = [];
@@ -166,6 +171,11 @@
     if (normalizeTalkCategoryFromHub) return normalizeTalkCategoryFromHub(value);
     const normalized = collapseWhitespace(value).toLowerCase();
     return TALK_CATEGORY_LABELS[normalized] ? normalized : 'other';
+  }
+
+  function normalizeTopicSortMode(value) {
+    const mode = String(value || '').trim().toLowerCase();
+    return TOPIC_SORT_MODES.has(mode) ? mode : 'alpha';
   }
 
   function truncateText(value, maxLength) {
@@ -1256,6 +1266,24 @@
     }).join('');
   }
 
+  function compareTopicFacetOptionsAlpha(a, b) {
+    return String(a && a.value || '').localeCompare(String(b && b.value || ''));
+  }
+
+  function compareTopicFacetOptionsMostCommon(a, b) {
+    const countDiff = Number(b && b.count || 0) - Number(a && a.count || 0);
+    if (countDiff !== 0) return countDiff;
+    return compareTopicFacetOptionsAlpha(a, b);
+  }
+
+  function syncTopicSortControl() {
+    document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]').forEach((button) => {
+      const active = normalizeTopicSortMode(button.dataset.topicSort) === state.topicSort;
+      button.classList.toggle('active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
   function buildTopicFacetOptions(queryMatchedItems) {
     const items = queryMatchedItems.filter((item) => (
       matchesSelectedSource(item)
@@ -1276,10 +1304,9 @@
         counts.set(key, current);
       }
     }
-    return [...counts.values()].sort((a, b) => {
-      if (b.count !== a.count) return b.count - a.count;
-      return a.value.localeCompare(b.value);
-    });
+    return [...counts.values()].sort(
+      state.topicSort === 'common' ? compareTopicFacetOptionsMostCommon : compareTopicFacetOptionsAlpha
+    );
   }
 
   function buildYearFacetOptions(queryMatchedItems) {
@@ -1514,6 +1541,15 @@
     state.talkTypes = new Set(parseCsvParam(params.get('talkType')).map(normalizeTalkCategory));
 
     if (state.scope !== 'talks') state.talkTypes.clear();
+  }
+
+  function setTopicSort(nextSort) {
+    const normalizedSort = normalizeTopicSortMode(nextSort);
+    if (state.topicSort === normalizedSort) return;
+    state.topicSort = normalizedSort;
+    safeStorageSet(TOPIC_SORT_STORAGE_KEY, state.topicSort);
+    syncTopicSortControl();
+    recomputeResults();
   }
 
   function setQuery(nextQuery) {
@@ -1792,6 +1828,7 @@
     const papersScopeToggle = getNode('mlir-scope-papers');
     const clearFiltersButton = getNode('mlir-clear-filters');
     const filterSidebarBody = getNode('mlir-filter-sidebar-body');
+    const topicSortButtons = document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]');
 
     if (form) {
       form.addEventListener('submit', (event) => {
@@ -1845,6 +1882,10 @@
         toggleFacetValue(target.dataset.filterType, target.dataset.value);
       });
     }
+
+    topicSortButtons.forEach((button) => {
+      button.addEventListener('click', () => setTopicSort(button.dataset.topicSort));
+    });
   }
 
   async function init() {
@@ -1855,7 +1896,9 @@
     initShareMenu();
 
     parseUrlState();
+    state.topicSort = normalizeTopicSortMode(safeStorageGet(TOPIC_SORT_STORAGE_KEY));
     updateSearchUi();
+    syncTopicSortControl();
     setLoadingState();
     initFilterAccordions();
     initFilterSidebarCollapse();

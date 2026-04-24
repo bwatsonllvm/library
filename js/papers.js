@@ -94,6 +94,8 @@ let loadMoreObserver = null;
 let loadMoreScrollHandler = null;
 const MIN_TOPIC_FILTER_COUNT = 4;
 const MAX_TOPIC_FILTERS = 180;
+const TOPIC_SORT_STORAGE_KEY = 'llvm-hub-topic-sort';
+const TOPIC_SORT_MODES = new Set(['alpha', 'common']);
 const MIN_PUBLICATION_FILTER_COUNT = 2;
 const MAX_PUBLICATION_FILTERS = 200;
 const MIN_AFFILIATION_FILTER_COUNT = 2;
@@ -150,9 +152,11 @@ const state = {
   affiliations: new Set(),
   publications: new Set(),
   sortBy: 'relevance',
+  topicSort: 'alpha',
 };
 
 let scopedPapers = [];
+let topicFilterOptions = [];
 let publicationFilterOptions = [];
 let affiliationFilterOptions = [];
 let paperCatalogFilters = {};
@@ -2112,6 +2116,64 @@ function syncYearChipsFromState() {
   });
 }
 
+function normalizeTopicSortMode(value) {
+  const mode = String(value || '').trim().toLowerCase();
+  return TOPIC_SORT_MODES.has(mode) ? mode : 'alpha';
+}
+
+function compareTopicFilterEntriesAlpha(a, b) {
+  return String(a && a.label || '').localeCompare(String(b && b.label || ''));
+}
+
+function compareTopicFilterEntriesMostCommon(a, b) {
+  const countDiff = Number(b && b.count || 0) - Number(a && a.count || 0);
+  if (countDiff !== 0) return countDiff;
+  return compareTopicFilterEntriesAlpha(a, b);
+}
+
+function syncTopicSortControl() {
+  document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]').forEach((button) => {
+    const active = normalizeTopicSortMode(button.dataset.topicSort) === state.topicSort;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function renderTopicFilterChips() {
+  const tagContainer = document.getElementById('filter-tags');
+  if (!tagContainer) return;
+
+  const entries = [...topicFilterOptions]
+    .sort(state.topicSort === 'common' ? compareTopicFilterEntriesMostCommon : compareTopicFilterEntriesAlpha)
+    .slice(0, MAX_TOPIC_FILTERS);
+
+  tagContainer.innerHTML = entries.map((entry) => {
+    const active = hasTagFilter(entry.label);
+    return `
+      <button class="filter-chip filter-chip--tag${active ? ' active' : ''}" data-type="tag" data-value="${escapeHtml(entry.label)}"
+              role="switch" aria-checked="${active ? 'true' : 'false'}">
+        ${escapeHtml(entry.label)}
+        <span class="filter-chip-count">${Number(entry.count || 0).toLocaleString()}</span>
+      </button>`;
+  }).join('');
+  syncTopicSortControl();
+}
+
+function initTopicSortControl() {
+  state.topicSort = normalizeTopicSortMode(safeStorageGet(TOPIC_SORT_STORAGE_KEY));
+  syncTopicSortControl();
+  document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextSort = normalizeTopicSortMode(button.dataset.topicSort);
+      if (state.topicSort === nextSort) return;
+      state.topicSort = nextSort;
+      safeStorageSet(TOPIC_SORT_STORAGE_KEY, state.topicSort);
+      syncTopicSortControl();
+      renderTopicFilterChips();
+    });
+  });
+}
+
 function initFilters() {
   const scopeKey = PAGE_SCOPE === BLOG_FILTER_VALUE ? 'blog' : 'paper';
   const scopeFilters = paperCatalogFilters && typeof paperCatalogFilters === 'object'
@@ -2226,19 +2288,18 @@ function initFilters() {
     }
   }
 
-  const tags = Object.entries(tagCounts)
-    .filter(([, count]) => count >= MIN_TOPIC_FILTER_COUNT)
-    .sort((a, b) => a[0].localeCompare(b[0]));
-  const visibleTags = tags.slice(0, MAX_TOPIC_FILTERS);
+  topicFilterOptions = Object.entries(tagCounts)
+    .map(([label, count]) => ({ label, count }))
+    .filter((entry) => entry.label && Number(entry.count || 0) >= MIN_TOPIC_FILTER_COUNT);
 
   const tagContainer = document.getElementById('filter-tags');
   if (tagContainer) {
-    tagContainer.innerHTML = visibleTags.map(([tag, count]) => `
-      <button class="filter-chip filter-chip--tag" data-type="tag" data-value="${escapeHtml(tag)}"
-              role="switch" aria-checked="false">
-        ${escapeHtml(tag)}
-        <span class="filter-chip-count">${count.toLocaleString()}</span>
-      </button>`).join('');
+    renderTopicFilterChips();
+    tagContainer.addEventListener('click', (event) => {
+      const chip = event.target.closest('.filter-chip[data-type="tag"]');
+      if (!chip || !tagContainer.contains(chip) || chip.disabled) return;
+      applyAutocompleteSelection('tag', chip.dataset.value, 'sidebar');
+    });
   }
 
   const years = Object.entries(yearCounts)
@@ -2328,7 +2389,7 @@ function initFilters() {
       .join('');
   }
 
-  document.querySelectorAll('.filter-chip[data-type]').forEach((chip) => {
+  document.querySelectorAll('.filter-chip[data-type]:not([data-type="tag"])').forEach((chip) => {
     chip.addEventListener('click', () => {
       const type = chip.dataset.type;
       const value = chip.dataset.value;
@@ -2347,11 +2408,6 @@ function initFilters() {
         updateClearBtn();
         syncUrl();
         render();
-        return;
-      }
-
-      if (type === 'tag') {
-        applyAutocompleteSelection('tag', value, 'sidebar');
         return;
       }
 
@@ -3720,6 +3776,7 @@ window.filterByTag = filterByTag;
   }
 
   buildSearchIndex();
+  initTopicSortControl();
   initFilters();
   initFilterAccordions();
   initFilterSidebarCollapse();
