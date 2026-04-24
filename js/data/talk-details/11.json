@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2026-04-021": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "This talk presents rocMLIR, a kernel generator for AMD GPUs using MLIR. We present the compilation flow from high-level IR (TOSA and Linalg dialects) to low-level code generation using downstream and upstream MLIR dialects (AMDGPU and ROCDL). We focus on implementing MI300X/MI350X features in MLIR, including double-rate MFMAs, DirectToLDS, and support for MXFP4/FP4 data types. We also cover application-specific optimizations such as SplitK for GEMMs and KV Cache for attention, along with fusion strategies.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_martinez.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
         "tags": [],
+        "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
         "githubReferences": [
           "https://github.com/ROCm/AMDMIGraphX",
           "https://github.com/ROCm/rocMLIR"
@@ -68,6 +67,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "rocmlir: high-performance ml compilation for amd gpus with mlir",
         "_speakerLower": "pablo antonio martinez",
@@ -254,16 +254,16 @@
           }
         ],
         "abstract": "The string table(STRTAB) accounts for a significant portion of object file overhead at Google, with long mangled names, such as those from Protos, frequently reaching 35% of the total file size. Optimizing this space is the key to faster builds and leaner binaries. In this talk, we propose an approach to reduce the string table through hashing its entries, demonstrating a reduction in overall binary size",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_nguyen.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "strtab hash & slash: reducing strtab size by hashing its entries",
         "_speakerLower": "vy nguyen",
@@ -11715,15 +11715,7 @@
         "id": "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
         "title": "HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
         "abstract": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations. With the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
-        "speakers": [
-          {
-            "name": "Shaojie Xiang",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -11760,7 +11752,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "heterocl, an mlir-based intermediate representation for accelerator design with decoupled customizations",
-        "_speakerLower": "shaojie xiang",
+        "_speakerLower": "",
         "_abstractLower": "hongzheng chen & niansong zhang (cornell) will present heterocl: an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as gpus and fpgas. however, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with fpgas. as a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
         "_tagsLower": "mlir ir performance gpu",
         "_meetingLower": "mlir open design meeting  2022-08-11",
@@ -11784,11 +11776,8 @@
               ]
             },
             "speakers": {
-              "text": "shaojie xiang",
-              "words": [
-                "shaojie",
-                "xiang"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir ir performance gpu",
@@ -11916,7 +11905,7 @@
           },
           "year": 2022
         },
-        "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting shaojie xiang mlir ir performance gpu"
+        "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting mlir ir performance gpu"
       },
       "meeting": null
     },

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2026-04-051": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "IR2Vec is a widely adopted framework for generating program embeddings from LLVM IR, supporting both Symbolic and Flow-Aware inference modes. The Flow-Aware mode captures data dependencies by computing reaching definitions over memory operations, but its original implementation relies on a custom control-flow graph traversal, effectively reimplementing analyses already available in LLVM. This work replaces the custom reaching-definitions logic with LLVM’s MemorySSA framework, yielding more semantically rich embeddings while significantly simplifying the implementation. By leveraging MemorySSA’s def-use chains, the new approach correctly handles complex memory behaviors including pointer indirection, loop-carried dependencies, structured data access, and dynamic allocation. Through detailed IR case studies, we demonstrate how the MemorySSA-based design eliminates spurious dependencies and enables richer, more accurate flow-aware embeddings.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_sachdeva.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "memoryssa-based reaching definitions for ir2vec flow-aware embeddings",
         "_speakerLower": "nishant sachdeva",

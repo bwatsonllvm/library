@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "papers": {
     "openalex-w4416070486": {
       "paper": {
@@ -124,10 +124,11 @@
           "clang"
         ],
         "id": "openalex-w4416070486",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -506,9 +507,10 @@
         ],
         "openalexId": "https://openalex.org/W7127095517",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/trustcom66490.2025.00096",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -853,9 +855,10 @@
         ],
         "openalexId": "https://openalex.org/W4411260208",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1145/3729260",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1287,10 +1290,11 @@
           "llvm"
         ],
         "id": "openalex-w4406231129",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -1763,16 +1767,17 @@
           "lldb"
         ],
         "id": "openalex-w4407197237",
-        "sourceUrl": "",
+        "citationCount": 7,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 7,
         "_titleLower": "debugger toolchain validation via cross-level debugging",
         "_authorLower": "yibiao yang nanjing university maolin sun nanjing university jiangchang wu nanjing university qingyang li nanjing university yuming zhou nanjing university",
         "_authorsLower": "yibiao yang nanjing university maolin sun nanjing university jiangchang wu nanjing university qingyang li nanjing university yuming zhou nanjing university",
@@ -2219,7 +2224,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 7
         },
         "_searchBlob": "debugger toolchain validation via cross-level debugging ensuring the correctness of debugger toolchains is of paramount importance as they play a vital role in understanding and resolving programming errors during software development. bugs hidden within these toolchains can significantly mislead developers. unfortunately comprehensive testing of debugger toolchains is lacking due to the absence of effective test oracles. existing studies on debugger toolchain validation have primarily focused on validating the debug information within optimized executables by comparing the traces between debugging optimized and unoptimized executables i.e. different executables in the debugger under the assumption that the traces obtained from debugging unoptimized executables serve as a reliable oracle. however these techniques suffer from inherent limitations as compiler optimizations can drastically alter source code elements variable representations and instruction order rendering the traces obtained from debugging different executables incomparable and failing to uncover bugs in debugger toolchains when debugging unoptimized executables. to address these limitations we propose a novel concept called cross-level debugging cld for validating the debugger toolchain. cld compares the traces obtained from debugging the same executable using source-level and instruction-level strategies within the same debugger. the core insight of cld is that the execution traces obtained from different debugging levels for the same executable should adhere to specific relationships regardless of whether the executable is generated with or without optimization. we formulate three key relations in cld reachability preservation of program locations order preservation for reachable program locations and value consistency at program locations which apply to traces at different debugging levels. we implement devil a practical framework that employs these relations for debugger toolchain validation. we evaluate the effectiveness of devil using two widely used production debugger toolchains gdb and lldb. ultimately devil successfully identified 27 new bug reports of which 18 have been confirmed and 12 have been fixed by developers. proceedings of 30th acm international conference on architectural support for programming languages and operating systems proceedings of 30th acm international conference on architectural support for programming languages and operating systems 2025 research-paper yibiao yang nanjing university maolin sun nanjing university jiangchang wu nanjing university qingyang li nanjing university yuming zhou nanjing university lldb optimizations debug information testing infrastructure programming languages lldb optimizations debug information testing infrastructure programming languages debugger toolchains debugging unoptimized executables traces obtained debugger toolchain validation program locations debugging levels same executable lldb",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -2283,9 +2288,10 @@
         ],
         "openalexId": "https://openalex.org/W7123878150",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/icoecai67333.2025.11335621",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2691,15 +2697,16 @@
           "clang-tools-extra"
         ],
         "id": "openalex-w4406490355",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "static code analysis with codechecker",
         "_authorLower": "gábor horváth réka kovács richárd szalay zoltán porkoláb g. orbán dániel krupp",
         "_authorsLower": "gábor horváth réka kovács richárd szalay zoltán porkoláb g. orbán dániel krupp",
@@ -2864,7 +2871,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "static code analysis with codechecker codechecker is an open source project that integrates different static analysis tools such as the clang static analyzer and clang-tidy into the build systems continuous integration loops and development workflows of c++ programmers. it has a powerful issue management system to make it easier to evaluate the reports of the static analysis tools. this document was handed out as supportive material for a code analysis lecture at the 2018 3cows conference in kosice slovakia. arxiv arxiv 2024 research-paper gabor horvath reka kovacs richard szalay zoltan porkolab g. orban daniel krupp clang static analysis clang static analysis clang clang-tools-extra",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -2917,10 +2924,11 @@
         "paperUrl": "https://doi.org/10.1007/978-3-031-72967-6_16",
         "tags": [],
         "openalexId": "https://openalex.org/W4404002859",
-        "citationCount": 4,
-        "sourceUrl": "",
+        "citationCount": 5,
         "doi": "10.1007/978-3-031-72967-6_16",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -2930,7 +2938,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 5,
         "_titleLower": "moai: mixture of all intelligence for large language and vision models",
         "_authorLower": "byung‐kwan lee korea advanced institute of science and technology beomchan park korea advanced institute of science and technology chae won kim korea advanced institute of science and technology yong man ro korea advanced institute of science and technology",
         "_authorsLower": "byung‐kwan lee korea advanced institute of science and technology beomchan park korea advanced institute of science and technology chae won kim korea advanced institute of science and technology yong man ro korea advanced institute of science and technology",
@@ -3092,7 +3100,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 4
+          "citationCount": 5
         },
         "_searchBlob": "moai mixture of all intelligence for large language and vision models the rise of large language models llms and instruction tuning has led to the current trend of instruction-tuned large language and vision models llvms . this trend involves either meticulously curating numerous instruction tuning datasets tailored to specific... lecture notes in computer science lecture notes in computer science 2024 research-paper byung kwan lee korea advanced institute of science and technology beomchan park korea advanced institute of science and technology chae won kim korea advanced institute of science and technology yong man ro korea advanced institute of science and technology",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4054,10 +4062,11 @@
         "matchedSubprojects": [
           "clang"
         ],
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -4462,15 +4471,16 @@
         "matchedSubprojects": [
           "clang"
         ],
+        "citationCount": 31,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 31,
         "_titleLower": "propeller: a profile guided, relinking optimizer for warehouse-scale applications",
         "_authorLower": "han shen google krzysztof pszeniczny google rahman lavaee google snehasish kumar google sriraman tallam google xinliang li google",
         "_authorsLower": "han shen google krzysztof pszeniczny google rahman lavaee google snehasish kumar google sriraman tallam google xinliang li google",
@@ -4834,7 +4844,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 31
         },
         "_searchBlob": "propeller a profile guided relinking optimizer for warehouse-scale applications while profile guided optimizations pgo and link time optimiza-tions lto have been widely adopted post link optimizations plo have languished until recently when researchers demonstrated that late injection of profiles can yield significant performance improvements. however the disassembly-driven monolithic design of post link optimizers face scaling challenges with large binaries andis at odds with distributed build systems. to reconcile and enable post link optimizations within a distributed build environment we propose propeller a relinking optimizer for warehouse scale work-loads. to enable flexible code layout optimizations we introduce basic block sections a novel linker abstraction. propeller uses basic block sections to enable a new approach to plo without disassembly. propeller achieves scalability by relinking the binary using precise profiles instead of rewriting the binary. the overhead of relinking is lowered by caching and leveraging distributed compiler actions during code generation. propeller has been deployed to production at google with over tens of millions of cores executing propeller optimized code at any time. an evaluation of internal warehouse-scale applications show propeller improves performance by 1.1 to 8 beyond pgo and thinlto. compiler tools such as clang improve by 7 while mysql improves by 1 . compared to the state of the art binary optimizer propeller achieves comparable performance while lowering memory overheads by 30 -70 on large benchmarks. proceedings of 28th acm international conference on architectural support for programming languages and operating systems proceedings of 28th acm international conference on architectural support for programming languages and operating systems 2023 research-paper han shen google krzysztof pszeniczny google rahman lavaee google snehasish kumar google sriraman tallam google xinliang li google clang backend code generation optimizations lto pgo performance programming languages clang backend code generation optimizations lto pgo performance programming languages profile-guided optimization link-time optimization propeller achieves warehouse scale post link post link optimizations clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4870,9 +4880,10 @@
         ],
         "openalexId": "https://openalex.org/W4417133229",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.59350/98cw5-m4y92",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5622,6 +5633,7 @@
         "openalexId": "https://openalex.org/W2268890418",
         "citationCount": 0,
         "doi": "10.56698/rfim.361",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -6047,15 +6059,16 @@
         "matchedSubprojects": [
           "runtimes"
         ],
+        "citationCount": 14,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 14,
         "_titleLower": "multi-language dynamic taint analysis in a polyglot virtual machine",
         "_authorLower": "jacob kreindl daniele bonetta oracle lukas stadler david leopoldseder hanspeter mössenböck",
         "_authorsLower": "jacob kreindl daniele bonetta oracle lukas stadler david leopoldseder hanspeter mössenböck",
@@ -6295,7 +6308,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 0
+          "citationCount": 14
         },
         "_searchBlob": "multi-language dynamic taint analysis in a polyglot virtual machine dynamic taint analysis is a popular program analysis technique in which sensitive data is marked as tainted and the propagation of tainted data is tracked in order to determine whether that data reaches critical program locations. this analysis technique has been successfully applied to software vulnerability detection malware analysis testing and debugging and many other fields. however existing approaches of dynamic taint analysis are either language-specific or they target native code. neither is suitable for analyzing applications in which high-level dynamic languages such as javascript and low-level languages such as c interact.in these approaches the language boundary forms an opaque barrier that prevents a sound analysis of data flow in the other language and can thus lead to the analysis being evaded. proceedings of 17th international conference on managed programming languages and runtimes proceedings of 17th international conference on managed programming languages and runtimes 2020 research-paper jacob kreindl daniele bonetta oracle lukas stadler david leopoldseder hanspeter mossenbock runtimes testing programming languages runtimes testing programming languages polyglot virtual machine multi language runtimes",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -6343,16 +6356,17 @@
           "libfuzzer"
         ],
         "id": "openalex-w3118461745",
-        "sourceUrl": "",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "fuzzing c++ class interfaces for generating and running tests with libfuzzer",
         "_authorLower": "zoltán porkoláb",
         "_authorsLower": "zoltán porkoláb",
@@ -6593,7 +6607,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "fuzzing c++ class interfaces for generating and running tests with libfuzzer summary form only given as follows. the complete presentation was not made available for publication as part of the conference proceedings. fuzzing c++ class interfaces for generating and running tests with libfuzzer presents how fuzzing can be used to automatically generate and run test cases based only on the class interface. driven by the coverage guidance of libfuzzer we can generate more and more complex combinations of interface calls. like other fuzzer solutions this automatic tester can run for arbitrary time to discover edge cases the programmer ignored. the close to minimal subset of discovered test cases providing the maximum coverage can be stored as a regression test to re-run later. the implemented prototype performed well both on artificial test cases and real-world c++ containers. the prototype is available at https gitlab.com wilzegers autotest. 2020 ieee international symposium on software reliability engineering workshops issrew 2020 ieee international symposium on software reliability engineering workshops issrew 2020 research-paper zoltan porkolab testing testing fuzzing libfuzzer class interfaces running tests libfuzzer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6618,8 +6632,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3199090238",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6783,10 +6798,11 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2954070386",
-        "citationCount": 2,
-        "sourceUrl": "",
+        "citationCount": 3,
         "doi": "10.1145/3316482.3326343",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6801,7 +6817,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "a compiler-based approach for gpgpu performance calibration using tlp modulation (wip paper)",
         "_authorLower": "yongseung yu hanyang university seokwon kang hanyang university yongjun park hanyang university",
         "_authorsLower": "yongseung yu hanyang university seokwon kang hanyang university yongjun park hanyang university",
@@ -7157,7 +7173,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "a compiler-based approach for gpgpu performance calibration using tlp modulation wip paper modern gpus are the most successful accelerators as they provide outstanding performance gain by using cuda or opencl programming models. for maximum performance programmers typically try to maximize the number of thread blocks of target programs and gpus also generally attempt to allocate the maximum number of thread blocks to their gpu cores. however many recent studies have pointed out that simply allocating the maximum number of thread blocks to gpu cores does not always guarantee the best performance and identifying proper number of thread blocks per gpu core is a major challenge. despite these studies most existing architectural techniques cannot be directly applied to current gpu hardware and the optimal number of thread blocks can vary significantly depending on the target gpu and application characteristics. to solve these problems this study proposes a just-in-time thread block number adjustment system using cuda binary modification upon an llvm compiler framework referred to as the cta-limiter in order to dynamically maximize gpu performance on real gpus without reprogramming. the framework gradually reduces the number of concurrent thread blocks of target cuda workloads using extra shared memory allocation and compares the execution time with the previous version to automatically identify the optimal number of co-running thread blocks per gpu core. the results showed meaningful performance improvements averaging at 30 40 and 44 in gtx 960 gtx 1050 and gtx 1080 ti respectively. proceedings of 20th acm sigplan sigbed international conference on languages compilers and tools for embedded systems proceedings of 20th acm sigplan sigbed international conference on languages compilers and tools for embedded systems 2019 research-paper yongseung yu hanyang university seokwon kang hanyang university yongjun park hanyang university cuda gpu opencl performance cuda gpu opencl performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7185,9 +7201,10 @@
         ],
         "openalexId": "https://openalex.org/W2913178315",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1109/ivmem.2018.00011",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7486,9 +7503,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2886790228",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1007/s11042-018-6171-6",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7880,10 +7898,11 @@
         "paperUrl": "https://doi.org/10.1145/3236024.3236028",
         "tags": [],
         "openalexId": "https://openalex.org/W2964177714",
-        "citationCount": 45,
-        "sourceUrl": "",
+        "citationCount": 46,
         "doi": "10.1145/3236024.3236028",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7893,7 +7912,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 45,
+        "_citationCount": 46,
         "_titleLower": "adversarial symbolic execution for detecting concurrency-related cache timing leaks",
         "_authorLower": "shengjian guo virginia tech meng wu virginia tech chao wang university of southern california",
         "_authorsLower": "shengjian guo virginia tech meng wu virginia tech chao wang university of southern california",
@@ -8191,7 +8210,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 45
+          "citationCount": 46
         },
         "_searchBlob": "adversarial symbolic execution for detecting concurrency-related cache timing leaks the timing characteristics of cache a high-speed storage between the fast cpu and the slow memory may reveal sensitive information of a program thus allowing an adversary to conduct side-channel attacks. existing methods for detecting timing leaks either ignore cache all together or focus only on passive leaks generated by the program itself without considering leaks that are made possible by concurrently running some other threads. in this work we show that timing-leak-freedom is not a compositional property a program that is not leaky when running alone may become leaky when interleaved with other threads. thus we develop a new method named adversarial symbolic execution to detect such leaks. it systematically explores both the feasible program paths and their interleavings while modeling the cache and leverages an smt solver to decide if there are timing leaks. we have implemented our method in llvm and evaluated it on a set of real-world ciphers with 14 455 lines of c code in total. our experiments demonstrate both the efficiency of our method and its effectiveness in detecting side-channel leaks. proceedings of 2018 26th acm joint meeting on european software engineering conference and symposium on the foundations of software engineering proceedings of 2018 26th acm joint meeting on european software engineering conference and symposium on the foundations of software engineering 2018 research-paper shengjian guo virginia tech meng wu virginia tech chao wang university of southern california",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8234,9 +8253,10 @@
         ],
         "openalexId": "https://openalex.org/W2911264106",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1109/ecticon.2018.8619960",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8488,9 +8508,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2778498407",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-71489-9_4",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -8666,9 +8687,10 @@
         ],
         "openalexId": "https://openalex.org/W2750782719",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.12681/eadd/41138",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9452,10 +9474,11 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W2578771209",
-        "citationCount": 58,
-        "sourceUrl": "",
+        "citationCount": 59,
         "doi": "10.14722/ndss.2016.23164",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9468,7 +9491,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 58,
+        "_citationCount": 59,
         "_titleLower": "vtrust: regaining trust on virtual calls",
         "_authorLower": "chao zhang berkeley college scott carr purdue university west lafayette tongxin li peking university yu ding peking university chengyu song georgia institute of technology mathias payer purdue university west lafayette dawn song university of california, berkeley",
         "_authorsLower": "chao zhang berkeley college scott carr purdue university west lafayette tongxin li peking university yu ding peking university chengyu song georgia institute of technology mathias payer purdue university west lafayette dawn song university of california, berkeley",
@@ -9779,7 +9802,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 58
+          "citationCount": 59
         },
         "_searchBlob": "vtrust regaining trust on virtual calls virtual function calls are one of the most popular control-flow hijack attack targets. compilers use a virtual function pointer table called a vtable to dynamically dispatch virtual function calls. these vtables are read-only but pointers to them are not. vtable pointers reside in objects that are writable allowing attackers to overwrite them. as a result attackers can divert the control-flow of virtual function calls and launch vtable hijacking attacks. researchers have proposed several solutions to protect virtual calls. however they either incur high performance overhead or fail to defeat some vtable hijacking attacks. in this paper we propose a lightweight defense solution vtrust to protect all virtual function calls from vtable hijacking attacks. it consists of two independent layers of defenses virtual function type enforcement and vtable pointer sanitization. combined with modern compilers default configuration i.e. placing vtables in read-only memory vtrust can defeat all vtable hijacking attacks and supports modularity allowing us to harden applications module by module. we have implemented a prototype on the llvm compiler framework. our experiments show that this solution only introduces a low performance overhead and it defeats real world vtable hijacking attacks. proceedings 2016 network and distributed system security symposium proceedings 2016 network and distributed system security symposium 2016 research-paper chao zhang berkeley college scott carr purdue university west lafayette tongxin li peking university yu ding peking university chengyu song georgia institute of technology mathias payer purdue university west lafayette dawn song university of california berkeley performance rust performance rust",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -9822,9 +9845,10 @@
         ],
         "openalexId": "https://openalex.org/W2301552806",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1145/2892208.2892227",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10131,9 +10155,10 @@
         ],
         "openalexId": "https://openalex.org/W2505234834",
         "citationCount": 30,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-31271-2_10",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10450,8 +10475,9 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W2528661589",
-        "citationCount": 33,
+        "citationCount": 36,
         "doi": "10.1109/mm.2016.84",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -10464,7 +10490,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 33,
+        "_citationCount": 36,
         "_titleLower": "fast protection-domain crossing in the cheri capability-system architecture",
         "_authorLower": "robert n. m. watson university of cambridge robert m. norton university of cambridge jonathan woodruff university of cambridge simon w. moore university of cambridge peter g. neumann sri international jonathan anderson memorial university of newfoundland david chisnall university of cambridge brooks davis sri international ben laurie google michael roe university of cambridge nirav dave massachusetts institute of technology khilan gudka bridge university alexandre joannou école centrale d'électronique a. theodore markettos école centrale d'électronique ed maste sri international steven j. murdoch university college london colin rothwell university of cambridge stacey son sri international munraj vadera bridge university",
         "_authorsLower": "robert n. m. watson university of cambridge robert m. norton university of cambridge jonathan woodruff university of cambridge simon w. moore university of cambridge peter g. neumann sri international jonathan anderson memorial university of newfoundland david chisnall university of cambridge brooks davis sri international ben laurie google michael roe university of cambridge nirav dave massachusetts institute of technology khilan gudka bridge university alexandre joannou école centrale d'électronique a. theodore markettos école centrale d'électronique ed maste sri international steven j. murdoch university college london colin rothwell university of cambridge stacey son sri international munraj vadera bridge university",
@@ -10784,7 +10810,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 33
+          "citationCount": 36
         },
         "_searchBlob": "fast protection-domain crossing in the cheri capability-system architecture capability hardware enhanced risc instructions cheri supplement the conventional memory management unit mmu with instruction-set architecture isa extensions that implement a capability system model in the address space. cheri can also underpin a hardware-software object-capability model for scalable application compartmentalization that can mitigate broader classes of attack. this article describes isa additions to cheri that support fast protection-domain switching not only in terms of low cycle count but also efficient memory sharing with mutual distrust. the authors propose isa support for sealed capabilities hardware-assisted checking during protection-domain switching a lightweight capability flow-control model and fast register clearing while retaining the flexibility of a software-defined protection-domain transition model. they validate this approach through a full-system experimental design including isa extensions a field-programmable gate array prototype implemented in bluespec systemverilog and a software stack including an os based on freebsd compiler based on llvm software compartmentalization model and open-source applications. ieee micro ieee micro vol. 36 issue 5 2016 research-paper robert n. m. watson university of cambridge robert m. norton university of cambridge jonathan woodruff university of cambridge simon w. moore university of cambridge peter g. neumann sri international jonathan anderson memorial university of newfoundland david chisnall university of cambridge brooks davis sri international ben laurie google michael roe university of cambridge nirav dave massachusetts institute of technology khilan gudka bridge university alexandre joannou ecole centrale delectronique a. theodore markettos ecole centrale delectronique ed maste sri international steven j. murdoch university college london colin rothwell university of cambridge stacey son sri international munraj vadera bridge university rust rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -10852,9 +10878,10 @@
         ],
         "openalexId": "https://openalex.org/W2539031531",
         "citationCount": 7,
-        "sourceUrl": "",
         "doi": "10.15514/ispras-2016-28(4)-13",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11296,9 +11323,10 @@
         ],
         "openalexId": "https://openalex.org/W1675260315",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1109/ipdpsw.2015.40",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13922,8 +13950,9 @@
         ],
         "openalexId": "https://openalex.org/W127410472",
         "citationCount": 1,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -15371,11 +15400,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Twenty First Usenix Security Symposium",
         "openalexId": "https://openalex.org/W2111927651",
-        "sourceUrl": "",
+        "citationCount": 207,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Security"
         ],
@@ -15386,7 +15416,7 @@
         "_year": "2012",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 207,
         "_titleLower": "enhanced operating system security through efficient and fine-grained address space randomization",
         "_authorLower": "cristiano giuffrida vrije universiteit amsterdam anton kuijsten vrije universiteit amsterdam andrew s. tanenbaum vrije universiteit amsterdam",
         "_authorsLower": "cristiano giuffrida vrije universiteit amsterdam anton kuijsten vrije universiteit amsterdam andrew s. tanenbaum vrije universiteit amsterdam",
@@ -15721,7 +15751,7 @@
             }
           },
           "year": 2012,
-          "citationCount": 0
+          "citationCount": 207
         },
         "_searchBlob": "enhanced operating system security through efficient and fine-grained address space randomization in recent years the deployment of many application-level countermeasures against memory errors and the increasing number of vulnerabilities discovered in the kernel has fostered a renewed interest in kernel-level exploitation. unfortunately no comprehensive and well-established mechanism exists to protect the operating system from arbitrary attacks due to the relatively new development of the area and the challenges involved. in this paper we propose the first design for fine-grained address space randomization asr inside the operating system os providing an efficient and comprehensive countermeasure against classic and emerging attacks such as return-oriented programming. to motivate our design we investigate the differences with application-level asr and find that some of the well-established assumptions in existing solutions are no longer valid inside the os above all perhaps that information leakage becomes a major concern in the new context. we show that our asr strategy outperforms state-of-the-art solutions in terms of both performance and security without affecting the software distribution model. finally we present the first comprehensive live rerandomization strategy which we found to be particularly important inside the os. experimental results demonstrate that our techniques yield low run-time performance overhead less than 5 on average on both spec and syscall-intensive benchmarks and limited run-time memory footprint increase around 15 during the execution of our benchmarks . we believe our techniques can greatly enhance the level of os security without compromising the performance and reliability of the os. twenty first usenix security symposium twenty first usenix security symposium 2012 research-paper cristiano giuffrida vrije universiteit amsterdam anton kuijsten vrije universiteit amsterdam andrew s. tanenbaum vrije universiteit amsterdam security security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -15760,6 +15790,7 @@
         ],
         "openalexId": "https://openalex.org/W113035452",
         "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -16167,11 +16198,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of IEEE Symposium on Field",
         "openalexId": "https://openalex.org/W162625162",
-        "sourceUrl": "",
+        "citationCount": 5,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -16180,7 +16212,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 5,
         "_titleLower": "woolcano: an architecture and tool flow for dynamic instruction set extension on xilinx virtex-4 fx.",
         "_authorLower": "mariusz grad paderborn university christian plessl",
         "_authorsLower": "mariusz grad paderborn university christian plessl",
@@ -16404,7 +16436,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 5
         },
         "_searchBlob": "woolcano an architecture and tool flow for dynamic instruction set extension on xilinx virtex-4 fx. in this paper we introduce the woolcano reconfigurable processor architecture. the architecture is based on the xilinx virtex-4 fx fpga and leverages the auxiliary processing unit apu as well as the partial reconfiguration capabilities to provide dynamically reconfigurable custom instructions. we also present a hardware tool flow that automatically translates software functions into custom instructions and a software tool flow that creates binaries using these instructions. while previous research on processors with reconfigurable functional units has been performed predominantly with simulation the woolcano architecture allows for exploring dynamic instruction set extension with commercially available hardware. finally we present a case study demonstrating a custom floating-point instruction generated with our approach which achieves a 40x speedup over software-emulated floating-point operations and a 21 speedup over the xilinx hardware floating-point unit. proceedings of ieee symposium on field proceedings of ieee symposium on field napa ca usa 2009 research-paper mariusz grad paderborn university christian plessl",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17617,12 +17649,13 @@
         "sourceName": "LLVM Publications",
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W2096121243",
-        "sourceUrl": "",
         "doi": "10.1007/978-3-642-03138-0_2",
+        "citationCount": 3,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -17630,7 +17663,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 3,
         "_titleLower": "programmable and scalable architecture for graphics processing units",
         "_authorLower": "carlos s. de la lama universidad rey juan carlos pekka jääskeläinen tampere university jarmo takala tampere university",
         "_authorsLower": "carlos s. de la lama universidad rey juan carlos pekka jääskeläinen tampere university jarmo takala tampere university",
@@ -17737,7 +17770,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 3
         },
         "_searchBlob": "programmable and scalable architecture for graphics processing units no abstract available in llvm.org pubs metadata. lecture notes in computer science lecture notes in computer science 2009 research-paper carlos s. de la lama universidad rey juan carlos pekka jaaskelainen tampere university jarmo takala tampere university",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17780,10 +17813,11 @@
         "sourceName": "LLVM Publications",
         "publication": "Ph.D. Thesis",
         "openalexId": "https://openalex.org/W114095935",
+        "citationCount": 46,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Optimizations",
           "Performance"
@@ -17795,7 +17829,7 @@
         "_year": "2005",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 46,
         "_titleLower": "macroscopic data structure analysis and optimization",
         "_authorLower": "vikram adve university of illinois urbana-champaign christopher arthur lattner university of illinois urbana-champaign",
         "_authorsLower": "vikram adve university of illinois urbana-champaign christopher arthur lattner university of illinois urbana-champaign",
@@ -18198,7 +18232,7 @@
             }
           },
           "year": 2005,
-          "citationCount": 0
+          "citationCount": 46
         },
         "_searchBlob": "macroscopic data structure analysis and optimization providing high performance for pointer-intensive programs on modern architectures is an increasingly difficult problem for compilers. pointer-intensive programs are often bound by memory latency and cache performance but traditional approaches to these problems usually fail pointer intensive programs are often highly-irregular and the compiler has little control over the layout of heap allocated objects. this thesis presents a new class of techniques named macroscopic data structure analyses and optimizations which is a new approach to the problem of analyzing and optimizing pointer-intensive programs. instead of analyzing individual load store operations or structure definitions this approach identifies analyzes and transforms entire memory structures as a unit. the foundation of the approach is an analysis named data structure analysis and a transformation named automatic pool allocation. data structure analysis is a context-sensitive pointer analysis which identifies data structures on the heap and their important properties such as type safety . automatic pool allocation uses the results of data structure analysis to segregate dynamically allocated objects on the heap giving control over the layout of the data structure in memory to the compiler. based on these two foundation techniques this thesis describes several performance improving optimizations for pointer-intensive programs. first automatic pool allocation itself provides important locality improvements for the program. once the program is pool allocated several pool-specific optimizations can be performed to reduce inter-object padding and pool overhead. second we describe an aggressive technique automatic pointer compression which reduces the size of pointers on 64-bit targets to 32-bits or less increasing effective cache capacity and memory bandwidth for pointer-intensive programs. this thesis describes the approach analysis and transformation of programs with macroscopic techniques and evaluates the net performance impact of the transformations. finally it describes a large class of potential applications for the work in fields such as heap safety and reliability program understanding distributed computing and static garbage collection. ph.d. thesis ph.d. thesis computer science dept. university of illinois at urbana-champaign 2005 research-paper vikram adve university of illinois urbana-champaign christopher arthur lattner university of illinois urbana-champaign optimizations performance optimizations performance",
         "addedAt": "2026-02-20T23:08:48.000Z",

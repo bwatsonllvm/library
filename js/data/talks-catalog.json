@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": [
     {
       "id": "2026-04-001",
@@ -34,16 +34,16 @@
         }
       ],
       "abstract": "Support for the CHERI capability architecture and its embedded derivative, CHERIoT, is being upstreamed to LLVM. This talk explores what that means for LLVM developers, which parts of the toolchain are affected, and how these changes may interact with existing frontend, optimizer, backend, and linker work. We’ll take a look at work to date, the status of upstreaming, and open problems where community involvement could help.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/keynote/keynote_anderson.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "capabilities great and small: cheri, cheriot, and llvm",
       "_speakerLower": "owen anderson edoardo marangoni david chisnall",
@@ -208,16 +208,16 @@
         }
       ],
       "abstract": "LLVM is foundational software, so stakes for making changes to it are very high, and most downstream vendors of LLVM have elaborate testing pipelines to validate all of the properties they care about. However, because these private pipelines are often slow and disconnected from the community, detecting defects is expensive and leads to labor-intensive negotiations over misaligned technical requirements. To improve the experience for both contributors and downstreams, this talk shares lessons from 15 years of LLVM continuous integration experience to advocate for shared upstream CI infrastructure that \"shifts left\" on testing, to create a better, more harmonious experience for contributors and consumers alike.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/keynote/keynote_kleckner.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "the testing funnel: validating llvm at scale",
       "_speakerLower": "reid kleckner",
@@ -415,16 +415,16 @@
         }
       ],
       "abstract": "LLVM's fast-math flags allow users to specify which floating-point transformations they want to see. Unfortunately, their semantics are both not entirely respected by LLVM and underspecified. This talk covers a number of fast-math issues, an overview of efforts to address them and gives an outlook for the future, more systemic approach to fast-math flags.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_pirog.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "fast-math flags: a bag of issues and a handful of solutions",
       "_speakerLower": "mikolag pirog",
@@ -572,16 +572,16 @@
         }
       ],
       "abstract": "This is a tutorial on MLIR’s new Python bindings for defining (1) dialects and ops, via an embedded op-definition DSL, as well as (2) writing rewrites (passes, pattern rewrites, and transform ops) that integrate with the existing infrastructure. These features enable a new iteration cycle for developing MLIR compilers: we can now do rapid prototyping of dialects and rewrites in a high-level language without having a compiler in the loop!",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_morel.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "mlir-iteration cycle goes brrr: defining ops and rewrites in python",
       "_speakerLower": "rolf morel",
@@ -750,12 +750,11 @@
         }
       ],
       "abstract": "Instruction selection is responsible for turning high-level languages into efficient, reliable machine code. Yet, today’s LLVM backends often introduce subtle bugs through complex optimizing rewrites which are coupled with code generation passes. Fully verified backends like CompCert's avoid these issues at the cost of heavy, complex manual proofs. We present an LLVM instruction selector verified in Lean, which benefits from a small trusted base, strong automation, and relies on authoritative RISC-V semantics. Using Sail’s new Lean backend, we formalize the RISC-V ISA and automatically verify real LLVM instruction selection and optimization patterns, exploiting Lean’s bitvector library and its verified bitblaster. Our selector achieves performance comparable to LLVM’s GlobalISel (11.9% more cycles estimated with MCA, geomean) while providing machine-checked correctness. This demonstrates that practical, trustworthy verification can scale to modern, rapidly evolving compiler ecosystems.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_cicolini_kuhn.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
       "githubReferences": [
         "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
         "https://github.com/opencompl/riscv-lean",
@@ -814,6 +813,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "scaling certified instruction selection for llvm ir through bitblasting",
       "_speakerLower": "sarah linh kuhn luisa cicolini",
@@ -1065,16 +1065,16 @@
         }
       ],
       "abstract": "LLVM’s release process is an ever-evolving chaos machine. Since our last talk on it in 2023, we have shipped six releases and made a number of changes to how we plan, cut, and stabilize a release. This talk is a practical status update on what changed, why it changed, what works well today, and what still creates stress for release managers and contributors. I’ll also introduce our two new Release Managers and close with ideas for where the process should go next, with the goal of fewer surprises when “the release is coming.”",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_hieta_rhoades_yung.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "the llvm release process, a status update",
       "_speakerLower": "tobias hieta cullen rhodes douglas yung",
@@ -1260,12 +1260,11 @@
         }
       ],
       "abstract": "LLVM contains thousands of bitwidth-dependent rewrites that are hard to maintain and reason about. We introduce new parametric bitvector algorithms that automatically generalize these rewrites across all widths. By applying a mixed unary–binary encoding and finite-state reasoning, our solver lifts concrete LLVM test cases into true width-independent identities, recovering parametric rewrites from LLVM's test suite that has fixed width rewrites. This moves LLVM toward a declarative InstCombine specification, where rewrite rules are uniform, provably correct, and mechanically derived.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_bhat.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/opencompl/lean-mlir/tree/main/Blase",
       "tags": [],
+      "projectGithub": "https://github.com/opencompl/lean-mlir/tree/main/Blase",
       "githubReferences": [
         "https://github.com/opencompl/lean-mlir/tree/main/Blase"
       ],
@@ -1290,6 +1289,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "toward a more declarative instcombine: generalization & parametric bitvector algorithms",
       "_speakerLower": "siddharth bhat",
@@ -1461,16 +1461,16 @@
         }
       ],
       "abstract": "CHERI and Rust may, at first, appear as two mutually exclusive and clashing philosophies that want to solve the same problems. We claim that it is the opposite: Rust and CHERI (and CHERIoT, in particular) are complementary and work best when used together, as Rust provides compile-time guarantees for safe code whereas CHERI provides runtime guarantees for every fragment of unsafe code. In this talk we will show evidence to back our claim, presents recent work to bring production-quality Rust support to CHERIoT leveraging to the maturity of the CHERIoT port of LLVM and Rust’s strict provenance model (which aligns naturally with CHERI’s capabilities) and discuss our plans to engage with the Rust and LLVM communities.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_marangoni.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "rust or cheri?",
       "_speakerLower": "edoardo marangoni",
@@ -1676,16 +1676,16 @@
         }
       ],
       "abstract": "Compiler warnings are an effective tool for developers to catch potential security, compatibility, and correctness problems — however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. This talk describes how we have extended Clang's diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining (i.e., reporting only newly introduced warnings) and backslide prevention (informing project maintainers when a warning has accidentally been turned off).",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_bartolomeo.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "tracking warnings at scale: extending clang diagnostics to support issue baselining and backslide prevention",
       "_speakerLower": "dave bartolomeo",
@@ -1864,12 +1864,11 @@
         }
       ],
       "abstract": "Last year, a new project was added to the LLVM family: Lighthouse. Its main purpose to guide the development and testing of MLIR based compilers. Like the LLVM test-suite, it should be a common ground for validating upstream assumptions about code, IR, dialects. At the same time, it enables building specific compilers in minutes, using the evolving Python API and MLIR’s Python bindings. In this talk, we’ll show the project main structure, including its components and how to use them to build a simple compiler. We’ll then show the infrastructure that uses those components to validate assumptions in MLIR (canonical forms, invariants, applicability of transforms and passes, correctness tests, etc), and how you can create your own on top of that. Finally, we’ll provide a number of pipeline examples, going from generic PyTorch models to performant execution on various targets.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_golin.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/lighthouse/tree/main/examples",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/lighthouse/tree/main/examples",
       "githubReferences": [
         "https://github.com/llvm/lighthouse",
         "https://github.com/llvm/lighthouse/tree/main/examples",
@@ -2013,6 +2012,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "lighthouse: infrastructure for end-to-end mlir-compilers and testing",
       "_speakerLower": "renato golin",
@@ -2244,16 +2244,16 @@
         }
       ],
       "abstract": "In this talk, which is targeted at compiler implementers and languages designers, we will give a high-level overview of the security benefits of pointer authentication and why LLVM-based compilers should adopt it.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_hunt.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "what compiler implementers and language designers need to know about pointer authentication",
       "_speakerLower": "oliver hunt",
@@ -2383,12 +2383,11 @@
         }
       ],
       "abstract": "This talk explores strategies that have worked well when writing custom clang-tidy checks for Simcenter STAR-CCM+, a complex real-world codebase. It is intended to be intermediate level, so some familiarity with clang-tidy is assumed. In particular, participants should be familiar with writing Clang AST matchers.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_james.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/llvm-project/pull/154746",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/llvm-project/pull/154746",
       "githubReferences": [
         "https://github.com/llvm/llvm",
         "https://github.com/llvm/llvm-project/pull/154746"
@@ -2430,6 +2429,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "effective clang tidy",
       "_speakerLower": "tom james",
@@ -2563,12 +2563,11 @@
         }
       ],
       "abstract": "CppInterOp provides compiler-as-a-service capabilities using Clang-REPL, enabling dynamic languages to interoperate with C++. This talk covers its technical architecture, including runtime template instantiation, C++ overload resolution, and JitCall - a lightweight runtime wrapper generator. We demonstrate how CppInterOp's API, built on Clang's AST, enables practical Python-C++ interoperability, including use cases like invoking CUDA kernels from Python and cross-language inheritance between Python and C++ classes.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_jomy.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/compiler-research/CppInterOp",
       "tags": [],
+      "projectGithub": "https://github.com/compiler-research/CppInterOp",
       "githubReferences": [
         "https://github.com/compiler-research/CppInterOp",
         "https://github.com/compiler-research/CppJIT",
@@ -2661,6 +2660,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "cppinterop: interactive c++ as a service and advanced language interoperability",
       "_speakerLower": "aaron jomy",
@@ -2818,16 +2818,16 @@
         }
       ],
       "abstract": "We're building clang-reforge, an automatic source code rewriting tool that enables adoption of bounds-safety in large existing C++ codebases. clang-reforge analyzes source code to identify unsafe pointer operations and capture pointer flow. It replaces built-in pointers with bounds-safe types in pointer flow segments from allocation sites to unsafe operations, such as pointer arithmetic. We have a working internal prototype and we're now rebuilding it on top of clang's Scalable Static Analysis Framework.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_korous.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "clang-reforge: automatic whole-codebase source code rewriting tool for security hardening",
       "_speakerLower": "jan korous",
@@ -2997,12 +2997,11 @@
         }
       ],
       "abstract": "Clang Static Analyzer provides a configurable taint analysis checker optin.taint.GenericTaint and a few specialized taint checkers (in the optin.taint group) which can identify potential improper input validation security vulnerabilities. Although promising, the current implementation is still in its early stages, and its limitations prevent it from efficient industrial use. We were able to identify key issues after taking measurements on both the synthetic Juliet test suite and real-world projects. Based on these findings, we propose some improvements to the current solution, which we prototyped and evaluated.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_krupp.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/llvm-project/pull/67352",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/llvm-project/pull/67352",
       "githubReferences": [
         "https://github.com/llvm/llvm-project/pull/67352",
         "https://github.com/dkrupp/llvm-project/tree/taint_partial_array",
@@ -3112,6 +3111,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "finding injection vulnerabilities: improvements of the taint analysis of the clang static analyzer",
       "_speakerLower": "daniel krupp",
@@ -3297,16 +3297,16 @@
         }
       ],
       "abstract": "This talk presents my improvements in the checker `security.ArrayBound`, which become ready for production use in April 2025. In addition to the results, I will also showcase an educational issue that had plagued the older prototype-quality bounds validator checker; and briefly speak about the planned generalizations that would extend my improvements to other related checkers.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_nagy.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "bounds checking with the clang static analyzer: improvements and insights",
       "_speakerLower": "donat nagy",
@@ -3459,16 +3459,16 @@
         }
       ],
       "abstract": "This technical talk summarizes recent improvements to MLIR’s floating-point type infrastructure, focusing on how to represent and lower the rapidly growing zoo of low-precision and block-scaled formats used in modern ML workloads. It introduces the \"FloatTypeInterface\", explains the interaction with LLVM’s \"APFloat\" and \"fltSemantics\", and shows step-by-step how to add new floating-point types, from extending \"APFloat\" to defining lowering rules and dialect design for \"special\" FP types across high-level and low-level dialects. The talk also covers the new \"arith-to-apfloat\" infrastructure for software emulation of low-precision FP arithmetics on CPUs, discusses current limitations of adding FP types without patching LLVM, and outlines future directions for more extensible, vendor-friendly floating-point type systems in MLIR.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_springer.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "floating-point types in mlir: infrastructure, new types and dialect design",
       "_speakerLower": "matthias springer",
@@ -3679,12 +3679,11 @@
         }
       ],
       "abstract": "Optimizing LLVM for AArch64 has in the past mostly concentrated on big cores which prioritized performance over efficiency. As the market has become more interested in smaller AArch64 cores outside of mobile phones, we have been putting effort into optimizing LLVM for these more constrained cores, which flirt with the embedded space. In this talk we discuss why LLVM has left performance off the table for these smaller cores, and we will give some examples of how we improved this. We will also touch on how benchmarking for these cores differs from benchmarking the bigger AArch64 cores.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_stuij.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/arm/arm-toolchain",
       "tags": [],
+      "projectGithub": "https://github.com/arm/arm-toolchain",
       "githubReferences": [
         "https://github.com/arm/arm-toolchain"
       ],
@@ -3709,6 +3708,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "optimising small aarch64 cores: stories from the trenches",
       "_speakerLower": "ties stuij",
@@ -3902,16 +3902,16 @@
         }
       ],
       "abstract": "Overview of ongoing efforts to develop and document a formal execution model for the execution synchronization primitives (barriers) of the AMDGPU backend, and how they integrate with the LLVM and AMDGPU target-specific memory models. The talk will also cover the motivation for this work, the benefits for users and developers, and the challenges we faced and are still facing.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_van_houtryve.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "writing a formal execution and memory model for execution synchronization primitives on amd gpus.",
       "_speakerLower": "pierre van houtryve",
@@ -4070,12 +4070,11 @@
         }
       ],
       "abstract": "At Google, our team has been working on reducing null pointer dereference crashes in a huge and diverse C++ codebase by: (a) adopting the Clang nullability annotations and (b) implementing a flow-sensitive intra-procedural dataflow analysis in ClangTidy that verifies that code adheres to the contracts of the annotations. However, to get the most coverage, we need to introduce the annotations to millions of lines of code. To assist with that, we've developed an inter-TU annotation inference tool, and added inferred annotations through a \"large-scale change\". This talk introduces how the ClangTidy verification and inference tools work, but also discusses the practical experience and the challenges we faced attempting to infer the annotations in \"legacy\" C++.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_voung.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
       "tags": [],
+      "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
       "githubReferences": [
         "https://github.com/google/crubit/tree/main/nullability"
       ],
@@ -4100,6 +4099,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "adding nullability checking and annotations to many millions of lines of code",
       "_speakerLower": "jan voung",
@@ -4307,12 +4307,11 @@
         }
       ],
       "abstract": "This talk presents rocMLIR, a kernel generator for AMD GPUs using MLIR. We present the compilation flow from high-level IR (TOSA and Linalg dialects) to low-level code generation using downstream and upstream MLIR dialects (AMDGPU and ROCDL). We focus on implementing MI300X/MI350X features in MLIR, including double-rate MFMAs, DirectToLDS, and support for MXFP4/FP4 data types. We also cover application-specific optimizations such as SplitK for GEMMs and KV Cache for attention, along with fusion strategies.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_martinez.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
       "tags": [],
+      "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
       "githubReferences": [
         "https://github.com/ROCm/AMDMIGraphX",
         "https://github.com/ROCm/rocMLIR"
@@ -4354,6 +4353,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "rocmlir: high-performance ml compilation for amd gpus with mlir",
       "_speakerLower": "pablo antonio martinez",
@@ -4530,16 +4530,16 @@
         }
       ],
       "abstract": "The LLVM Foundation Board of Directors gives an update on status of the LLVM Foundation.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/llvm_foundation/llvm_foundation_updates.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "llvm foundation updates",
       "_speakerLower": "llvm foundation board of directors",
@@ -4648,16 +4648,16 @@
         }
       ],
       "abstract": "This tutorial introduces \"alias analysis\", which is the fundamental building block for most memory optimizations. The tutorial covers both high-level concepts and usage of alias analysis, as well as important aspects of the alias analysis implementation.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_popov.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "all about alias analysis",
       "_speakerLower": "nikita popov",
@@ -4783,12 +4783,11 @@
         }
       ],
       "abstract": "Few will need to create a new runtime library for LLVM, and it is not actually the goal of this tutorial. We intend to illustrate the inner workings and conventions of the LLVM build system. Currently, our runtimes (compiler-rt, libc++, openmp, ...) build code is still mostly based on the patterns from when each runtime had its own SVN repository, had to be able to be built independently, and therefore all runtimes implement their own boilerplate. Eventually, they should converge instead of each runtime introducing their own solutions to their build problems.\n\nIn addition to an introduction to the history of the LLVM_ENABLE_RUNTIMES system and its rationale, what better way to establish a common ground for our runtimes than creating a new runtime that does not suffer from the burden of breaking existing builds? Let's build a template runtime from scratch in 15 steps:\n\n1. Register with the LLVM Build System\n2. Build a Library Artifact\n3. Create an Program Using the Library\n4. Build Modes\n5. CMake Cache Files\n6. Artifact Output Location\n7. Installation\n8. Shared and Static Libraries\n9. Regression Testing\n10. Unittests\n11. Sphinx Docs\n12. Doxygen Docs\n13. Cross-Compilation\n14. Accelerator Offloading\n15. Depending on Other LLVM Libraries\n\nSome basic knowledge of CMake is expected. The primary intended target audience is LLVM runtime-library and downstream maintainers who have to keep their build working and regularly have to adapt CMake code. Also join if you just want to know what happens when you run `ninja check-compiler-rt`. In this tutorial we will create a new runtime to exemplify the working of the often misunderstood LLVM_ENABLE_RUNTIMES system. Few contributors will ever feel the need to create a new runtime from scratch, but understanding it helps identifying and fixing build issues for configuration that no CI is actively testing. The talk will go into details of how multi-stage bootstrapping, cross-compilation, multilib, GPU-offloading, multi-compiler support, and inter-dependent runtimes are designed to work. We also explore configuration options and which corners could still be improved.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_kruse.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
       "tags": [],
+      "projectGithub": "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
       "githubReferences": [
         "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
         "https://github.com/Meinersbur/llvm-dublin/tree/dublin-1-basic",
@@ -5034,6 +5033,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "creating a runtime using the llvm_enable_runtimes system",
       "_speakerLower": "michael kruse",
@@ -5480,16 +5480,16 @@
         }
       ],
       "abstract": "Huawei Ascend NPUs combine DaVinci AI cores with a rich memory/synchronization hierarchy and, on newer generations, a SIMD+SIMT execution model, making performance-oriented compilation challenging. We present HIVM, an open-source family of MLIR dialects that lowers PyTorch/Inductor -> Triton -> MLIR (HIVM) -> LLVM IR, enabling Ascend-specific optimizations such as layout assignment/propagation, vector intrinsic selection/legalization, and explicit DMA/transfer scheduling with synchronization. The pipeline ultimately targets the BiSheng LLVM-based backend to produce executable code for Ascend chips. The talk walks step-by-step through the key IR levels and transformation passes, serving as a practical baseline for developers building MLIR toolchains for Ascend.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_tarasov.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "hivm: mlir dialect stack for ascend npu compilation",
       "_speakerLower": "vladislav tarasov hugo trachino andrey bokhanko",
@@ -5690,12 +5690,11 @@
         }
       ],
       "abstract": "This tutorial teaches how to use Clang as a library to build a C++ REPL with incremental compilation by splitting translation units into partial compilation steps. We demonstrate how to create a compiler-as-a-service that enables programmatic instantiation and invocation of C++ template functions from client code. Finally, we integrate these components with the Python runtime to examine practical cross-language interoperability.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_jomy.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/compiler-research/eurollvm26-tutorial",
       "tags": [],
+      "projectGithub": "https://github.com/compiler-research/eurollvm26-tutorial",
       "githubReferences": [
         "https://github.com/compiler-research/eurollvm26-tutorial"
       ],
@@ -5720,6 +5719,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "hands-on using clang as a library",
       "_speakerLower": "aaron jomy",
@@ -5867,16 +5867,16 @@
         }
       ],
       "abstract": "The C++26 standard introduces std::simd for portable data parallelism. We present a complete implementation built on LLVM using a layered architecture: a minimal base layer interfaces with LLVM's SIMD capabilities, while higher-level features build on this foundation. Multi-target support emerges naturally by building upon LLVM's own architecture support, and a dispatch tag system isolates target-specific code to minimal locations. This design has proven particularly effective for x86, cleanly handling the many ISA variants (SSE, AVX, AVX-512, etc.), and should extend naturally to any SIMD target LLVM supports. As the compiler's support improves, the library improves too. We'll share our architectural patterns, performance results, and areas where LLVM could be enhanced to enable better code generation. The authors have been involved in the C++ standardisation process for this the library and our goal is to release it as open source.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_towner.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "implementing c++26 std::simd with llvm: a layered, compiler-first approach",
       "_speakerLower": "daniel towner",
@@ -6110,16 +6110,16 @@
         }
       ],
       "abstract": "BOLT is increasingly adopted as it can provide additional performance uplift on top of LTO+PGO optimized binaries. At the same time, AArch64 binaries are commonly deployed with Control Flow Integrity features (PAC and BTI) enabled. This creates a practical challenge: until recently, BOLT couldn’t optimize such binaries. It would either crash, or worse: emit incorrect binaries, crashing at runtime. The talk introduces our work on enabling these features, and describes key engineering challenges, including how implementing such features differs from their compiler counterparts.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_balint.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "challenges in binary rewriting: enabling bolt to optimize cfi-hardened binaries",
       "_speakerLower": "gergely balint",
@@ -6302,16 +6302,16 @@
         }
       ],
       "abstract": "linalg.pack and linalg.unpack enable explicit data-tiling and layout transformations in MLIR, but their use in data-tiled compilation flows raises subtle questions about alignment, legality, and vectorization. This talk explores how these operations interact with MLIR’s tiling and vectorization infrastructure, focusing on alignment constraints, masking semantics, and performance implications. Using an end-to-end data-tiled matmul example, the talk highlights practical guidance and performance gains for developers building high-performance tensor pipelines.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_beysel.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "anatomy of tiling and vectorizing linalg.pack and linalg.unpack",
       "_speakerLower": "ege beysel",
@@ -6483,12 +6483,11 @@
         }
       ],
       "abstract": "The post-link optimizer BOLT has provided a bunch of binary-level optimizations which mostly focus on code layout and effectively reduce front-end stalls in the Top-Down performance analysis view. In addition, we found that BOLT could also be a handy tool to emit prefetching instructions in binaries and to alleviate back-end stalls resulting from cache misses. In this talk, we will cover how to leverage BOLT to improve data prefetching for AArch64 binaries. A new pass is added to BOLT to provide prefetching support for different variations of AArch64 load instructions. And the existing dataflow analysis framework in BOLT is also enabled for AArch64 to provide register liveness information for prefetching addresses. In addition, the ARM SPE-based profiling technique is employed to provide valuable insights into memory operations and to complete the overall profile-guided data prefetching optimization in BOLT.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_chen_wei.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/llvm-project/pull/189304",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/llvm-project/pull/189304",
       "githubReferences": [
         "https://github.com/llvm/llvm-project/pull/189304",
         "https://github.com/llvm/llvm-project/pull/183298",
@@ -6547,6 +6546,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "leveraging bolt to improve data prefetching for aarch64 binaries",
       "_speakerLower": "shanzhi chen wei wei",
@@ -6781,16 +6781,16 @@
         }
       ],
       "abstract": "Mojo supports powerful compile time meta-programming that helps to unlock performance on heterogeneous accelerators by enabling generic abstractions across different targets. Almost any runtime Mojo code can be moved to compile-time to trade for runtime performance while constants evaluated at compile-time can be materialized into runtime values. In this talk, we will dive into the architecture of Mojo’s MLIR based compile-time interpreter which is at the core of materializing generic code into concrete form during compilation. We'll share implementation insights, performance challenges, and lessons learned, while fostering discussion on building meta-programming compilers with MLIR.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_chen.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "mojo compile-time interpreter in mlir",
       "_speakerLower": "weiwei chen",
@@ -6991,12 +6991,11 @@
         }
       ],
       "abstract": "We present an MLIR-based approach for generating target-specific, highly optimized GEMM kernels that is fully self-contained within the LLVM/MLIR compiler infrastructure and does not rely on external libraries such as LIBXSMM, Intel MKL, or oneDNN. Building on prior work in the TPP-MLIR compiler, we upstream FP32, BF16, and INT8 code-generation techniques into MLIR and propose a transform schedule that combines existing and newly upstreamed passes to lower matmul, batch matmul, and batch-reduce matmul operations into optimized kernels, achieving performance competitive with the LIBXSMM library. As a future work, we plan to leverage auto-tuning techniques to select efficient tile sizes based on hardware characteristics and problem dimensions.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_golin_morel_siemieniuk.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/libxsmm/tpp-mlir/tree/main/benchmarks",
       "tags": [],
+      "projectGithub": "https://github.com/libxsmm/tpp-mlir/tree/main/benchmarks",
       "githubReferences": [
         "https://github.com/libxsmm/tpp",
         "https://github.com/libxsmm/libxsmm",
@@ -7072,6 +7071,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "self-contained, target-specific gemm code generation in mlir",
       "_speakerLower": "adam siemieniuk renato golin rolf morel",
@@ -7278,16 +7278,16 @@
         }
       ],
       "abstract": "LLVM's JIT can now run arbitrary real-world applications, as demonstrated by Xcode's Previews feature. Despite this success, enormous opportunities for improvement remain—especially in performance, memory consumption, tooling, and optimization. This talk will describe the most promising opportunities in these areas, sketch a roadmap for tackling them, and discuss how the community can collaborate to accelerate progress.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_hames.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "llvm jit — upcoming challenges and opportunities",
       "_speakerLower": "lang hames",
@@ -7438,16 +7438,16 @@
         }
       ],
       "abstract": "Mojo's powerful compile-time meta-programming system and unified syntax make it exceptionally well-suited for heterogeneous accelerator programming, with proven success on CUDA and ROCm platforms. As many developers work on Apple products (such as iMacs, MacBooks, Mac Studios etc) adding Apple GPU support to Mojo is a natural next step. However, unlike CUDA and ROCm, which have open-source compiler toolchains in upstream LLVM, Apple's GPU compiler stack is proprietary. We will present chosen design and discuss challenges of Apple GPU’s integration into Mojo.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_panchenko.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "apple gpu support in mojo",
       "_speakerLower": "kolya panchenko",
@@ -7623,16 +7623,16 @@
         }
       ],
       "abstract": "Compiling coroutines with full debug information shouldn't be dramatically slower than with line tables — but we found CoroSplitPass running over 100x slower, adding minutes to compilation time. The cause traced back to LLVM's function cloning, where processing debug info metadata was O(Module) rather than O(Function). This talk covers the investigation, the upstream patches, and how the fix ended up benefiting all users of the function cloning API.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_pianykh.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "attack of the clones: speeding up coroutine compilation",
       "_speakerLower": "artem pianykh",
@@ -7795,12 +7795,11 @@
         }
       ],
       "abstract": "This talk presents a source-location-driven approach for tracking the evolution of MLIR operations across deep pass pipelines. Motivated by real-world optimization work on quantized convolutions in IREE, it shows how preserved source locations can be used to reconstruct operation lineage across IR stages, enabling systematic reasoning about transformation effects. The talk surveys source location semantics under common MLIR transformations and demonstrates a reusable Python-based tool that supports interactive, cross-stage operation tracking for improved debuggability in large MLIR programs.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_walbroel.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/RooflineAI/mlir",
       "tags": [],
+      "projectGithub": "https://github.com/RooflineAI/mlir",
       "githubReferences": [
         "https://github.com/RooflineAI/mlir",
         "https://github.com/RooflineAI/mlir-track-src"
@@ -7842,6 +7841,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "tracking operations through mlir pass pipelines using source locations",
       "_speakerLower": "florian walbroel",
@@ -8013,16 +8013,16 @@
         }
       ],
       "abstract": "Linalg dialect of MLIR recently added `category ops` as an intermediate abstraction between the two existing forms: named ops and generic ops. A mechanism (-linalg-morph-ops=_-to-_) to move between these forms was also introduced. When something new appears, adoption is often slow due to existing workflows and lack of awareness. This talk will: (a) Motivate the reason for this additional representation (b) Explain what now exists and how to benefit from it (c) Show how category ops can help certain compilation flows.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_absar.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "using mlir linalg category ops for smarter compilation",
       "_speakerLower": "javed absar",
@@ -8194,16 +8194,16 @@
         }
       ],
       "abstract": "C++ backtraces tend to be hard to read because function names are hidden amongst many layers of namespaces, template arguments and function parameters. In the debugger, a user often wants to simply get a quick overview of the function callstack. But traditionally this has been difficult to decipher. To improve readability, LLDB recently gained the ability to selectively hide or format various parts of C++ function names. This talk describes how we implemented this by extending the LLVM demangler and how other language plugins can take advantage of this infrastructure.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_buch.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "highlighting function names in lldb backtraces",
       "_speakerLower": "michael buch",
@@ -8385,12 +8385,11 @@
         }
       ],
       "abstract": "Developing a compiler for Agentic AI workloads presents a unique challenge because the runtime demands the safety and ergonomics of Rust while the optimization pipeline requires the mature infrastructure of MLIR. This talk presents the architecture of a toolchain designed to leverage the strengths of both ecosystems. We discuss how we structured a hybrid build system where Rust drives the compilation process and defines runtime semantics, while C++ manages the core MLIR dialect and transformations. The session covers the practical engineering required to bridge these worlds, from orchestrating CMake and Cargo to managing the boundary between Rust runtime metadata and MLIR operation definitions. We share lessons learned about the complexity of linking, the tradeoffs of code generation, and the reality of maintaining a custom dialect across the language barrier.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_cardenas.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/randreshg/a-pxm",
       "tags": [],
+      "projectGithub": "https://github.com/randreshg/a-pxm",
       "githubReferences": [
         "https://github.com/randreshg/a-pxm"
       ],
@@ -8415,6 +8414,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "engineering a hybrid rust and mlir toolchain for ai agents",
       "_speakerLower": "miguel cárdenas",
@@ -8640,16 +8640,16 @@
         }
       ],
       "abstract": "ELF unwind information is encoded as DWARF bytecode for most architectures, which results in a large size overhead and is complex to interpret, precluding its use in e.g. tracing profilers. This talk will present a compact format for asynchronous unwind info that can accurately represent almost all functions generated by LLVM -O3 for x86-64 with a substantially smaller size. We will also discuss portability to other architectures, differences from other unwinding/tracing formats, and interoperability with other toolchains.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_engelke.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "compact unwind information for elf",
       "_speakerLower": "alexis engelke",
@@ -8818,16 +8818,16 @@
         }
       ],
       "abstract": "The LIT test suite, whilst extensive, still leaves many parts of the LLVM codebase uncovered. Compiling large real-world C++ code from Sony Interactive Entertainment’s downstream integration test suite routinely exercises code paths that the upstream LIT suite never reaches. To shift this testing leftwards, we have built a tool that uses coverage-directed reduction to automatically turn such high-coverage sources into minimal, self-contained LLVM IR fragments suitable for inclusion as upstream LIT tests. This lightning talk describes how the tool works, the challenges encountered when trying to automate test reduction at scale, and whether increasing coverage alone is sufficient motivation for new upstream LIT tests.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_fewtrell.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "coverage directed codebase reduction for the procedural generation of lit tests",
       "_speakerLower": "freya fewtrell",
@@ -9029,12 +9029,11 @@
         }
       ],
       "abstract": "The DemandedBits analysis is utilized in some optimization passes, such as vectorization and dead code elimination; a similar analysis is employed in InstCombine. We improve DemandedBits reasoning for all basic shift operations, enabling more precise bit-level information propagation. Our improvements reduced code size, enabled additional loop-invariant code motion, and lead to more instruction-level simplifications.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_karouzakis.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
       "tags": [],
+      "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
       "githubReferences": [
         "https://github.com/llvm/llvm-project/pull/148880"
       ],
@@ -9059,6 +9058,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "improving demandedbits analysis for shift operations in llvm",
       "_speakerLower": "panagiotis karouzakis",
@@ -9207,16 +9207,16 @@
         }
       ],
       "abstract": "The string table(STRTAB) accounts for a significant portion of object file overhead at Google, with long mangled names, such as those from Protos, frequently reaching 35% of the total file size. Optimizing this space is the key to faster builds and leaner binaries. In this talk, we propose an approach to reduce the string table through hashing its entries, demonstrating a reduction in overall binary size",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_nguyen.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "strtab hash & slash: reducing strtab size by hashing its entries",
       "_speakerLower": "vy nguyen",
@@ -9376,16 +9376,16 @@
         }
       ],
       "abstract": "Clang features an intra-procedural, flow-sensitive lifetime analysis designed to catch temporal safety errors like use-after-free, use-after-scope, and use-after-return. The talk presents work on leveraging this analysis to verify [[clang::noescape]] annotations. This effort focuses on applying the \"Origins and Loans\" model to enforce memory safety guarantees that were previously unverified by the compiler.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_pradeep.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "extending lifetime safety: verification of [[clang:noescape]] annotation",
       "_speakerLower": "abhinav pradeep",
@@ -9533,16 +9533,16 @@
         }
       ],
       "abstract": "BOLT needs large, realistic binaries for integration testing, but distributing binaries directly creates governance and supply-chain problems and makes it hard to reproduce the exact toolchains and build flags that shape BOLT behaviour. We show our pinned, auditable Nixpkgs build recipes (including emit-relocs Chromium) and discuss how this enables teams to reproduce identical workloads, generate provenance/SBOMs, and compare results consistently across machines and CI.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_waller.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "reproducible large-workload recipes for bolt with nixpkgs",
       "_speakerLower": "peter waller",
@@ -9701,16 +9701,16 @@
         }
       ],
       "abstract": "We've been improving LLDB and LLDB-DAP on Windows, adding key features like STDIO support, Unicode handling, better Python integration, and switching to an open-source PDB implementation to bring Windows debugging up to par with other platforms.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_zablit.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "what’s new in lldb on windows",
       "_speakerLower": "charles zablit",
@@ -9838,16 +9838,16 @@
         }
       ],
       "abstract": "IR2Vec is a widely adopted framework for generating vector embeddings from LLVM IR to enable machine-learning–driven compiler optimizations. This work introduces native Python bindings for IR2Vec using pybind11, enabling seamless and efficient integration with Python-based ML ecosystems such as PyTorch and TensorFlow. By replacing subprocess-based CLI invocation with a direct programmatic interface, the bindings eliminate process overhead, provide inbuilt C++–Python type conversion, and support robust exception handling. The implementation and usage are demonstrated through practical embedding-generation examples. The project is currently under active development for upstream integration into the LLVM monorepo, with multiple pull requests already accepted, and is available in beta form via TestPyPI.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_sachdeva.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "ir2vec python bindings: native integration for pythonic, ml workflows",
       "_speakerLower": "nishant sachdeva",
@@ -10050,16 +10050,16 @@
         }
       ],
       "abstract": "In this talk we compare the performance of Rust's `std:offload` interface on various benchmarks with C++ OpenMP, CUDA, and ROCm implementations. We show the impact of a new set of LLVM-IR optimizations, and the performance difference between \"safe\" and \"unsafe\" Rust. We briefly introduce two aliasing models that are under consideration in the Rust community, and how higher-level Rust alias info can be combined with our lower-level LLVM-IR opt pass.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_dominguez.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "gpu optimizations, and where rust knows more than llvm",
       "_speakerLower": "marcelo domínguez",
@@ -10239,16 +10239,16 @@
         }
       ],
       "abstract": "LLVM pass ordering auto-tuning can outperform standard -O3, but it is often hindered by an enormous search space and the high overhead of hundreds of dynamic measurements. This talk presents an efficient auto-tuning framework that minimizes expensive measurements using a profile-guided relative cost model and calibrated beam search. Evaluation on cBench shows an average 10.46% speedup over -O3 with only ​20 dynamic measurements​, significantly accelerating the search for optimal pass sequences.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_gao.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "accelerating pass order auto-tuning via profile-guided cost modeling",
       "_speakerLower": "bingyu gao wei wei",
@@ -10442,16 +10442,16 @@
         }
       ],
       "abstract": "A moderated panel with AMD, Intel, Sony, and Microsoft will examine how Clang/LLVM power real-world game production, from platform SDKs and build pipelines to shader compilers and security tooling and identify where upstream collaboration can have the biggest impact.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/panel/panel_bieneman_haehnle_hieta_klinge_morse.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "clang and llvm in modern gaming platforms",
       "_speakerLower": "nicolai hähnle tobias hieta felix klinge chris bieneman jeremy morse",
@@ -10593,16 +10593,16 @@
         }
       ],
       "abstract": "IR2Vec is a widely adopted framework for generating program embeddings from LLVM IR, supporting both Symbolic and Flow-Aware inference modes. The Flow-Aware mode captures data dependencies by computing reaching definitions over memory operations, but its original implementation relies on a custom control-flow graph traversal, effectively reimplementing analyses already available in LLVM. This work replaces the custom reaching-definitions logic with LLVM’s MemorySSA framework, yielding more semantically rich embeddings while significantly simplifying the implementation. By leveraging MemorySSA’s def-use chains, the new approach correctly handles complex memory behaviors including pointer indirection, loop-carried dependencies, structured data access, and dynamic allocation. Through detailed IR case studies, we demonstrate how the MemorySSA-based design eliminates spurious dependencies and enables richer, more accurate flow-aware embeddings.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_sachdeva.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "memoryssa-based reaching definitions for ir2vec flow-aware embeddings",
       "_speakerLower": "nishant sachdeva",
@@ -10811,12 +10811,11 @@
         }
       ],
       "abstract": "While LLVM and MLIR have revolutionized portable code generation for machine learning, a significant \"runtime gap\" remains: the inability to dynamically introspect hardware and dispatch kernels across heterogeneous NVIDIA, AMD, and CPU environments without per-target recompilation. We explore the architecture of vendor-agnostic rerouting, and existing works like SYCL alongside lightweight, header-only approaches.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_akash.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/Akasxh/libkdl",
       "tags": [],
+      "projectGithub": "https://github.com/Akasxh/libkdl",
       "githubReferences": [
         "https://github.com/Akasxh/libkdl"
       ],
@@ -10841,6 +10840,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "bridging runtime gaps in llvm: vendor-agnostic dispatch for ml kernels",
       "_speakerLower": "s akash",
@@ -10991,16 +10991,16 @@
         }
       ],
       "abstract": "This work bridges the gap between floating-point arithmetic in MLIR and circuit-level hardware representations in CIRCT. While many accelerators are dominated by floating-point datapaths, existing flows either defer floating-point realization to HLS-oriented dialects or rely on external generators, limiting compiler visibility at the stage where hardware-specific trade-offs are most naturally expressed. The approach restructures FloPoCo to expose arithmetic hardware as explicit combinational graphs and introduces a new MLIR lowering pass that progressively translates floating-point regions into CIRCT-compatible datapaths. Multiple lowering strategies are supported, ranging from IEEE-754–preserving operator mappings to fused and specialized datapaths that reduce rounding, area, and numerical error. As a concrete result, a floating-point kernel extracted from a PyTorch LLaMA layer is compiled end-to-end to a 1.5 mm² chip in a 130 nm process node.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_cochard_de_dinechin_ledoux.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "floating-point datapaths in circt via flopoco ast export and flopoco-arith-to-comb lowering",
       "_speakerLower": "louis ledoux",
@@ -11220,12 +11220,11 @@
         }
       ],
       "abstract": "Once a program has been compiled into a binary, it is nigh impossible to lift it back into a higher-level representation that is well-suited for analyses, instrumentation, and patching. Disassemblers run into undecidable problems such as \"which bytes are instructions?\" or \"how are the data sections structured?\". Producing a representation that can be recompiled correctly is even harder. Standard debugging formats such as DWARF do not contain enough information to make this task possible. However, at some point during the compilation process, the compiler knew all this information. In this talk, we explore which information can be extracted from the standard ELF format, which information clang can already emit, and which remains inaccessible.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_engel.pdf",
       "posterUrl": "",
-      "projectGithub": "https://github.com/ssrg-vt/ELLF",
       "tags": [],
+      "projectGithub": "https://github.com/ssrg-vt/ELLF",
       "githubReferences": [
         "https://github.com/ssrg-vt/ELLF"
       ],
@@ -11250,6 +11249,7 @@
         }
       ],
       "keywords": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "adding compilation metadata to binaries to make disassembly decidable",
       "_speakerLower": "daniel engel",
@@ -11462,16 +11462,16 @@
         }
       ],
       "abstract": "We present an autotuning pipeline for IREE’s LLVM-CPU backend that enables Transform Dialect–driven, compile-time multi-level tiling with CPU-specific constraints. In single-dispatch experiments, our constrained tuning flow achieves up to 20% speedup. We also outline next steps toward joint tuning of per-layer sub-FP8 precision variants and tiling using an XGBoost-guided, budgeted evaluation strategy under a quality floor.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_huang_lee.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "a cpu autotuning pipeline for mlir-iree",
       "_speakerLower": "chun lin huang jenq kuen lee",
@@ -11623,16 +11623,16 @@
         }
       ],
       "abstract": "We present an unconventional way of emitting RVV segment access instructions based on a loop-vectorize pass that emits strided accesses instead of gathers and scatters. We implement a pass that groups consecutive strided accesses, represented as VP intrinsics, and, if feasible, lowers them to RVV intrinsics of segment instructions. Then, we reuse the analysis part of this pass to cost groups of recipes as a single segment instruction, which enables the vectorization of loops that otherwise were going to be deemed unprofitable.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_kastoras.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "a stride towards generating segment accesses in rvv",
       "_speakerLower": "athanasios kastoras",
@@ -11811,16 +11811,16 @@
         }
       ],
       "abstract": "We present our work on representing e-graphs directly in MLIR IR. We extend the PDL dialect with new operations to allow for non-destructive rewriting. We implement our approach both in xDSL (Python) and MLIR, which makes equality saturation at multiple levels of abstraction accessible to compiler developers. Finally, we show that this system can be used to achieve comparable results to Herbie, a state-of-the-art tool to optimize floating-point expressions for accuracy.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_lopoukhine_merckx.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "non-destructive pdl rewriting for multi-level equality saturation",
       "_speakerLower": "jules merckx sasha lopoukhine",
@@ -11985,16 +11985,16 @@
         }
       ],
       "abstract": "The Clang Static Analyzer has enjoyed almost 2 decades of industrial adoption, with more and more focus on its usability. Prior research indicated that, among other things, warning message quality is a leading source of dissatisfaction with static analysis tools, which developers of the Clang Static Analyzer tackled but never conclusively proved the benefits of these changes. This talk fills this gap by presenting a method for measuring warning message quality through a human experiment. We sent out surveys in three stages to fine-tune our methodology, with our final one receiving 64 responses from regular static analysis users. We were able to confirm many long-suspected but never confirmed theories circulating among the Clang Static Analyzer contributors: the value of summarizing functions, trimming bug reports, and simplifying low-level code. Based on these results, we also created and landed a bug report improvement, which is available since Clang 19.0.0.",
-      "videoUrl": "",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_umann.pdf",
       "posterUrl": "",
-      "projectGithub": "",
       "tags": [],
       "keywords": [],
       "resourceActions": [],
+      "projectGithub": "",
       "githubReferences": [],
       "githubReferenceItems": [],
+      "videoUrl": "",
       "sourceUrl": "",
       "_titleLower": "confirming the impact of warning message quality in the clang static analyzer",
       "_speakerLower": "kristóf umann",
@@ -110212,7 +110212,7 @@
     },
     {
       "id": "2023-05-049",
-      "meeting": "2023-07-13-mlir-open-design-meeting",
+      "meeting": "2023-05",
       "meetingName": "2023 EuroLLVM Developers' Meeting",
       "meetingLocation": "Glasgow, Scotland",
       "meetingDate": "May 10-11, 2023",
@@ -110227,15 +110227,13 @@
           "twitter": ""
         }
       ],
-      "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as “isConstant”. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
+      "abstract": "This talk will introduce mlir-query, a query language tool designed to simplify the exploration of the Intermediate Representation (IR) of code in MLIR. mlir-query aims to provide a more efficient means of understanding and debugging the IR, which can be challenging without a query language. The presentation will showcase the tool's basic queries, such as operation, hasName, resultOf, and constant queries, along with a demo of its usefulness.",
       "videoUrl": "https://youtu.be/3ELHZARBmYs",
       "videoId": "3ELHZARBmYs",
       "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf",
       "tags": [
         "IR",
-        "MLIR",
-        "About MLIR and MLIR Components",
-        "Open Design Meeting"
+        "MLIR"
       ],
       "projectGithub": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
       "githubReferences": [
@@ -110259,35 +110257,15 @@
           "kind": "github",
           "label": "GitHub",
           "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
-        },
-        {
-          "kind": "recording",
-          "label": "Recording",
-          "url": "https://youtu.be/3ELHZARBmYs"
-        },
-        {
-          "kind": "slides",
-          "label": "Slides",
-          "url": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf"
-        },
-        {
-          "kind": "slides",
-          "label": "Slides",
-          "url": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf"
-        },
-        {
-          "kind": "recording",
-          "label": "Recording",
-          "url": "https://youtu.be/eFNS4ubazO4"
         }
       ],
       "keywords": [],
       "posterUrl": "",
-      "sourceUrl": "https://mlir.llvm.org/talks/",
+      "sourceUrl": "",
       "_titleLower": "mlir query tool for easier exploration of the ir",
       "_speakerLower": "devajith valaparambil sreeramaswamy",
-      "_abstractLower": "in this presentation devajith introduces mlir-query: a tool to query mlir ir dynamically. the tool has a repl (or command-line) interface to enable users to query various properties of mlir code, such as “isconstant”. the tool is intended to be similar to clang-query, which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
-      "_tagsLower": "ir mlir clang clang-tools-extra",
+      "_abstractLower": "this talk will introduce mlir-query, a query language tool designed to simplify the exploration of the intermediate representation (ir) of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir, which can be challenging without a query language. the presentation will showcase the tool's basic queries, such as operation, hasname, resultof, and constant queries, along with a demo of its usefulness.",
+      "_tagsLower": "ir mlir",
       "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
       "_year": "2023",
       "_searchDoc": {
@@ -110315,12 +110293,10 @@
             ]
           },
           "tags": {
-            "text": "ir mlir clang clang-tools-extra",
+            "text": "ir mlir",
             "words": [
               "ir",
-              "mlir",
-              "clang",
-              "clang-tools-extra"
+              "mlir"
             ]
           },
           "meeting": {
@@ -110338,78 +110314,72 @@
             ]
           },
           "abstract": {
-            "text": "in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
+            "text": "this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness.",
             "words": [
-              "in",
               "this",
-              "presentation",
-              "devajith",
-              "introduces",
+              "talk",
+              "will",
+              "introduce",
               "mlir-query",
-              "tool",
-              "to",
               "query",
-              "mlir",
-              "ir",
-              "dynamically.",
+              "language",
+              "tool",
+              "designed",
+              "to",
+              "simplify",
               "the",
-              "tool",
-              "has",
-              "repl",
-              "or",
-              "command-line",
-              "interface",
-              "to",
-              "enable",
-              "users",
-              "to",
-              "query",
-              "various",
-              "properties",
+              "exploration",
               "of",
-              "mlir",
-              "code",
-              "such",
-              "as",
-              "isconstant",
               "the",
-              "tool",
-              "is",
-              "intended",
-              "to",
-              "be",
-              "similar",
-              "to",
-              "clang-query",
-              "which",
-              "allows",
-              "developers",
-              "to",
-              "match",
-              "ast",
-              "expressions",
-              "in",
-              "c++",
+              "intermediate",
+              "representation",
+              "ir",
+              "of",
               "code",
-              "using",
-              "tui",
-              "with",
-              "autocomplete",
+              "in",
+              "mlir.",
+              "mlir-query",
+              "aims",
+              "to",
+              "provide",
+              "more",
+              "efficient",
+              "means",
+              "of",
+              "understanding",
               "and",
-              "other",
-              "features.",
+              "debugging",
+              "the",
+              "ir",
+              "which",
+              "can",
+              "be",
+              "challenging",
+              "without",
+              "query",
+              "language.",
               "the",
               "presentation",
               "will",
-              "cover",
+              "showcase",
               "the",
-              "progress",
-              "so",
-              "far",
+              "tools",
+              "basic",
+              "queries",
+              "such",
+              "as",
+              "operation",
+              "hasname",
+              "resultof",
               "and",
-              "the",
-              "implementation",
-              "details."
+              "constant",
+              "queries",
+              "along",
+              "with",
+              "demo",
+              "of",
+              "its",
+              "usefulness."
             ]
           },
           "category": {
@@ -110427,9 +110397,7 @@
         },
         "year": 2023
       },
-      "_searchBlob": "mlir query tool for easier exploration of the ir in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-07-13-mlir-open-design-meeting technical-talk devajith valaparambil sreeramaswamy ir mlir clang clang-tools-extra",
-      "detailUrl": "talks/talk.html?id=mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
-      "_mlirSourceUpstream": true
+      "_searchBlob": "mlir query tool for easier exploration of the ir this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk devajith valaparambil sreeramaswamy ir mlir"
     },
     {
       "id": "2023-05-050",
@@ -351618,22 +351586,7 @@
       "id": "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2",
       "title": "Discussion on the next steps on Properties",
       "abstract": "In this meeting we're discussing the next steps on the migration to properties.",
-      "speakers": [
-        {
-          "name": "Krzysztof Drewniak",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Fabian Mora Cordero",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -351675,7 +351628,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "discussion on the next steps on properties",
-      "_speakerLower": "krzysztof drewniak fabian mora cordero",
+      "_speakerLower": "",
       "_abstractLower": "in this meeting we're discussing the next steps on the migration to properties.",
       "_tagsLower": "mlir",
       "_meetingLower": "mlir open design meeting  2025-08-14",
@@ -351695,14 +351648,8 @@
             ]
           },
           "speakers": {
-            "text": "krzysztof drewniak fabian mora cordero",
-            "words": [
-              "krzysztof",
-              "drewniak",
-              "fabian",
-              "mora",
-              "cordero"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir",
@@ -351753,35 +351700,13 @@
         },
         "year": 2025
       },
-      "_searchBlob": "discussion on the next steps on properties in this meeting were discussing the next steps on the migration to properties. mlir open design meeting 2025-08-14 2025-08-14-mlir-open-design-meeting open-design-meeting krzysztof drewniak fabian mora cordero mlir"
+      "_searchBlob": "discussion on the next steps on properties in this meeting were discussing the next steps on the migration to properties. mlir open design meeting 2025-08-14 2025-08-14-mlir-open-design-meeting open-design-meeting mlir"
     },
     {
       "id": "mlir-talk-2025-06-26-webassembly-dialect-slides",
-      "title": "WebAssembly support in MLIR",
+      "title": "WebAssembly Dialect",
       "abstract": "An open design meeting on the proposed WebAssembly Dialect for MLIR.",
-      "speakers": [
-        {
-          "name": "Ferdinand Lemaire",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Jessica Paquette",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Luc Forget",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -351817,8 +351742,8 @@
       "keywords": [],
       "githubReferences": [],
       "githubReferenceItems": [],
-      "_titleLower": "webassembly support in mlir",
-      "_speakerLower": "ferdinand lemaire jessica paquette luc forget",
+      "_titleLower": "webassembly dialect",
+      "_speakerLower": "",
       "_abstractLower": "an open design meeting on the proposed webassembly dialect for mlir.",
       "_tagsLower": "mlir wasm",
       "_meetingLower": "mlir open design meeting  2025-06-26",
@@ -351826,24 +351751,15 @@
       "_searchDoc": {
         "fields": {
           "title": {
-            "text": "webassembly support in mlir",
+            "text": "webassembly dialect",
             "words": [
               "webassembly",
-              "support",
-              "in",
-              "mlir"
+              "dialect"
             ]
           },
           "speakers": {
-            "text": "ferdinand lemaire jessica paquette luc forget",
-            "words": [
-              "ferdinand",
-              "lemaire",
-              "jessica",
-              "paquette",
-              "luc",
-              "forget"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir wasm",
@@ -351893,7 +351809,7 @@
         },
         "year": 2025
       },
-      "_searchBlob": "webassembly support in mlir an open design meeting on the proposed webassembly dialect for mlir. mlir open design meeting 2025-06-26 2025-06-26-mlir-open-design-meeting open-design-meeting ferdinand lemaire jessica paquette luc forget mlir wasm"
+      "_searchBlob": "webassembly dialect an open design meeting on the proposed webassembly dialect for mlir. mlir open design meeting 2025-06-26 2025-06-26-mlir-open-design-meeting open-design-meeting mlir wasm"
     },
     {
       "id": "mlir-talk-2025-06-12-rank-0-vectors-slides",
@@ -352894,31 +352810,9 @@
     },
     {
       "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
-      "title": "An MPI Dialect for MLIR",
+      "title": "A MPI Dialect Proposal",
       "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. This presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
-      "speakers": [
-        {
-          "name": "Anton Lydike",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Tobias Grosser",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Nick Brown",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -352954,8 +352848,8 @@
       "keywords": [],
       "githubReferences": [],
       "githubReferenceItems": [],
-      "_titleLower": "an mpi dialect for mlir",
-      "_speakerLower": "anton lydike tobias grosser nick brown",
+      "_titleLower": "a mpi dialect proposal",
+      "_speakerLower": "",
       "_abstractLower": "mpi is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
       "_tagsLower": "mlir performance",
       "_meetingLower": "mlir open design meeting  2023-11-02",
@@ -352963,25 +352857,16 @@
       "_searchDoc": {
         "fields": {
           "title": {
-            "text": "an mpi dialect for mlir",
+            "text": "a mpi dialect proposal",
             "words": [
-              "an",
               "mpi",
               "dialect",
-              "for",
-              "mlir"
+              "proposal"
             ]
           },
           "speakers": {
-            "text": "anton lydike tobias grosser nick brown",
-            "words": [
-              "anton",
-              "lydike",
-              "tobias",
-              "grosser",
-              "nick",
-              "brown"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir performance",
@@ -353140,28 +353025,13 @@
         },
         "year": 2023
       },
-      "_searchBlob": "an mpi dialect for mlir mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting anton lydike tobias grosser nick brown mlir performance"
+      "_searchBlob": "a mpi dialect proposal mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting mlir performance"
     },
     {
       "id": "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides",
       "title": "A Polynomial Dialect Proposal",
       "abstract": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
-      "speakers": [
-        {
-          "name": "Alexander Viand",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Intel Jeremy Kun",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -353285,7 +353155,7 @@
       "videoId": "wsKP-guEB5s",
       "keywords": [],
       "_titleLower": "a polynomial dialect proposal",
-      "_speakerLower": "alexander viand intel jeremy kun",
+      "_speakerLower": "",
       "_abstractLower": "this is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. this is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including fully homomorphic encryption (fhe). at a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. more details in the rfc thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
       "_tagsLower": "mlir llvm",
       "_meetingLower": "mlir open design meeting  2023-10-26",
@@ -353301,14 +353171,8 @@
             ]
           },
           "speakers": {
-            "text": "alexander viand intel jeremy kun",
-            "words": [
-              "alexander",
-              "viand",
-              "intel",
-              "jeremy",
-              "kun"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir llvm",
@@ -353420,7 +353284,7 @@
         },
         "year": 2023
       },
-      "_searchBlob": "a polynomial dialect proposal this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891 mlir open design meeting 2023-10-26 2023-10-26-mlir-open-design-meeting open-design-meeting alexander viand intel jeremy kun mlir llvm"
+      "_searchBlob": "a polynomial dialect proposal this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891 mlir open design meeting 2023-10-26 2023-10-26-mlir-open-design-meeting open-design-meeting mlir llvm"
     },
     {
       "id": "mlir-talk-2023-09-28-sharding-framework-for-device-mesh-slides",
@@ -353649,6 +353513,211 @@
       "_searchBlob": "sharding framework for device mesh nowadays a robust sharding infrastructure is imperative for distributed computing in particular for ml and large language models regardless of whether sharding is determined manually or automatically. meanwhile mesh-like deep learning clusters are being extensively employed. for instance the tpu 3d torus is explicitly defined as a mesh-like cluster and several dgx boxes could be regarded as a 2-d mesh-like cluster. the motivation of this presentation is to propose the design of the mesh dialect aiming to represent the mesh cluster and the sharding along with collective communication operations on it. additionally it will outline a typical workflow for undertaking sharding annotation from frontends performing sharding propagation and optimization and converting the ir to spmd format. mlir open design meeting 2023-09-28 2023-09-28-mlir-open-design-meeting open-design-meeting device mesh mlir optimizations infrastructure ml"
     },
     {
+      "id": "mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
+      "title": "mlir-query: Tool to query MLIR IR dynamically",
+      "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as “isConstant”. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
+      "speakers": [
+        {
+          "name": "Devajith Valaparambil Sreeramaswamy",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "resourceActions": [
+        {
+          "kind": "slides",
+          "label": "Slides",
+          "url": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf"
+        },
+        {
+          "kind": "recording",
+          "label": "Recording",
+          "url": "https://youtu.be/eFNS4ubazO4"
+        },
+        {
+          "kind": "github",
+          "label": "GitHub",
+          "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
+        }
+      ],
+      "category": "open-design-meeting",
+      "tags": [
+        "MLIR",
+        "About MLIR and MLIR Components",
+        "Open Design Meeting"
+      ],
+      "meeting": "2023-07-13-mlir-open-design-meeting",
+      "meetingName": "MLIR Open Design Meeting",
+      "meetingDate": "2023-07-13",
+      "meetingLocation": "",
+      "videoUrl": "https://youtu.be/eFNS4ubazO4",
+      "slidesUrl": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf",
+      "posterUrl": "",
+      "projectGithub": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
+      "sourceUrl": "https://mlir.llvm.org/talks/",
+      "detailUrl": "talks/talk.html?id=mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
+      "mlirSection": "Open design meeting presentations",
+      "mlirGroup": "About MLIR and MLIR Components",
+      "_mlirSourceUpstream": true,
+      "githubReferences": [
+        "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
+      ],
+      "githubReferenceItems": [
+        {
+          "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
+          "source": "slides",
+          "label": "R&D UK 🧑‍🎓 MSc Computing Student @ Cardiff University 🌐 📧 devajithvs@gmail.com 2 mailto:devajithvs@gmail.com",
+          "context": "R&D UK 🧑‍🎓 MSc Computing Student @ Cardiff University 🌐 📧 devajithvs@gmail.com 2 mailto:devajithvs@gmail.com",
+          "library": "llvm-project",
+          "repository": "devajithvs/llvm-project",
+          "fileName": "",
+          "filePath": "",
+          "referencePath": "devajith.mlir-query"
+        }
+      ],
+      "videoId": "eFNS4ubazO4",
+      "keywords": [],
+      "_titleLower": "mlir-query: tool to query mlir ir dynamically",
+      "_speakerLower": "devajith valaparambil sreeramaswamy",
+      "_abstractLower": "in this presentation devajith introduces mlir-query: a tool to query mlir ir dynamically. the tool has a repl (or command-line) interface to enable users to query various properties of mlir code, such as “isconstant”. the tool is intended to be similar to clang-query, which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
+      "_tagsLower": "mlir clang clang-tools-extra",
+      "_meetingLower": "mlir open design meeting  2023-07-13",
+      "_year": "2023",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "mlir-query tool to query mlir ir dynamically",
+            "words": [
+              "mlir-query",
+              "tool",
+              "to",
+              "query",
+              "mlir",
+              "ir",
+              "dynamically"
+            ]
+          },
+          "speakers": {
+            "text": "devajith valaparambil sreeramaswamy",
+            "words": [
+              "devajith",
+              "valaparambil",
+              "sreeramaswamy"
+            ]
+          },
+          "tags": {
+            "text": "mlir clang clang-tools-extra",
+            "words": [
+              "mlir",
+              "clang",
+              "clang-tools-extra"
+            ]
+          },
+          "meeting": {
+            "text": "mlir open design meeting 2023-07-13",
+            "words": [
+              "mlir",
+              "open",
+              "design",
+              "meeting",
+              "2023-07-13"
+            ]
+          },
+          "abstract": {
+            "text": "in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
+            "words": [
+              "in",
+              "this",
+              "presentation",
+              "devajith",
+              "introduces",
+              "mlir-query",
+              "tool",
+              "to",
+              "query",
+              "mlir",
+              "ir",
+              "dynamically.",
+              "the",
+              "tool",
+              "has",
+              "repl",
+              "or",
+              "command-line",
+              "interface",
+              "to",
+              "enable",
+              "users",
+              "to",
+              "query",
+              "various",
+              "properties",
+              "of",
+              "mlir",
+              "code",
+              "such",
+              "as",
+              "isconstant",
+              "the",
+              "tool",
+              "is",
+              "intended",
+              "to",
+              "be",
+              "similar",
+              "to",
+              "clang-query",
+              "which",
+              "allows",
+              "developers",
+              "to",
+              "match",
+              "ast",
+              "expressions",
+              "in",
+              "c++",
+              "code",
+              "using",
+              "tui",
+              "with",
+              "autocomplete",
+              "and",
+              "other",
+              "features.",
+              "the",
+              "presentation",
+              "will",
+              "cover",
+              "the",
+              "progress",
+              "so",
+              "far",
+              "and",
+              "the",
+              "implementation",
+              "details."
+            ]
+          },
+          "category": {
+            "text": "open-design-meeting",
+            "words": [
+              "open-design-meeting"
+            ]
+          },
+          "year": {
+            "text": "2023",
+            "words": [
+              "2023"
+            ]
+          }
+        },
+        "year": 2023
+      },
+      "_searchBlob": "mlir-query tool to query mlir ir dynamically in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details. mlir open design meeting 2023-07-13 2023-07-13-mlir-open-design-meeting open-design-meeting devajith valaparambil sreeramaswamy mlir clang clang-tools-extra"
+    },
+    {
       "id": "mlir-talk-2023-07-06-rfc-on-pattern-matching-for-library-and-acceleration-instruction-rewriting-slides",
       "title": "RFC on Pattern Matching for Library and Acceleration Instruction Rewriting",
       "abstract": "In this presentation, Vinicius Espindola presents an approach to Pattern Matching for Library and Acceleration Instruction Rewriting. The motivation for this work is to support modern ISA extensions and hardware accelerators which created the demand for raising program idioms to acceleration instructions or optimized library calls. Although recent works have proposed different ways of raising code abstraction, they rely on specialized languages, compiler recompilation, or in-depth dialect knowledge. With this in mind, we developed Source-based Matching and Rewriting (SMR), an MLIR based user-oriented tool for pattern matching and rewriting that relies on source code to simplify pattern and replacement specifications.",
@@ -353871,7 +353940,7 @@
       "abstract": "This is a review and discussion of the RFC on creating a ArmSME Dialect. We will first have an introduction into Arm’s Scalable Matrix Extension, including the MLIR codegen perspective, the work done so far to target SME from MLIR, and discuss what’s the best way to target “CPU accelerators” from MLIR. Then we will have a second part to detail the proposal for this dialect.",
       "speakers": [
         {
-          "name": "Frank Fang Gao",
+          "name": "SME Dialect",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -353919,7 +353988,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "targeting arm sme from mlir and sme dialect",
-      "_speakerLower": "frank fang gao",
+      "_speakerLower": "sme dialect",
       "_abstractLower": "this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arm’s scalable matrix extension, including the mlir codegen perspective, the work done so far to target sme from mlir, and discuss what’s the best way to target “cpu accelerators” from mlir. then we will have a second part to detail the proposal for this dialect.",
       "_tagsLower": "mlir code generation",
       "_meetingLower": "mlir open design meeting  2023-06-22",
@@ -353940,11 +354009,10 @@
             ]
           },
           "speakers": {
-            "text": "frank fang gao",
+            "text": "sme dialect",
             "words": [
-              "frank",
-              "fang",
-              "gao"
+              "sme",
+              "dialect"
             ]
           },
           "tags": {
@@ -354048,7 +354116,7 @@
         },
         "year": 2023
       },
-      "_searchBlob": "targeting arm sme from mlir and sme dialect this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arms scalable matrix extension including the mlir codegen perspective the work done so far to target sme from mlir and discuss whats the best way to target cpu accelerators from mlir. then we will have a second part to detail the proposal for this dialect. mlir open design meeting 2023-06-22 2023-06-22-mlir-open-design-meeting open-design-meeting frank fang gao mlir code generation"
+      "_searchBlob": "targeting arm sme from mlir and sme dialect this is a review and discussion of the rfc on creating a armsme dialect. we will first have an introduction into arms scalable matrix extension including the mlir codegen perspective the work done so far to target sme from mlir and discuss whats the best way to target cpu accelerators from mlir. then we will have a second part to detail the proposal for this dialect. mlir open design meeting 2023-06-22 2023-06-22-mlir-open-design-meeting open-design-meeting sme dialect mlir code generation"
     },
     {
       "id": "mlir-talk-2023-05-25-distinct-attributes-modeling-llvm-s-distinct-metadata-in-mlir-slides",
@@ -354196,28 +354264,7 @@
       "abstract": "In this talk, Maksim Levental presents Nelli: a Python embedded domain-specific language for emitting MLIR. It builds on top of existing MLIR Python bindings to map Python primitives (such as if s, for s, and class es) to various MLIR dialects. The foremost goal of Nelli is to make MLIR more ergonomic to use and thereby more accessible. A secondary goal is to enable compiler engineers to easily write “micro-kernels” that are performant and compatible with various MLIR dialects. Nelli realizes these aims by remaining “Pythonic” while preserving the semantics of MLIR (vis-a-vis the in-tree Python bindings).",
       "speakers": [
         {
-          "name": "Max Levental",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Alok Kamatar",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Ryan Chard",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Kyle Chard",
+          "name": "Maksim Levental",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -354260,7 +354307,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "nelli, a lightweight, pythonic, frontend for mlir",
-      "_speakerLower": "max levental alok kamatar ryan chard kyle chard",
+      "_speakerLower": "maksim levental",
       "_abstractLower": "in this talk, maksim levental presents nelli: a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives (such as if s, for s, and class es) to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write “micro-kernels” that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining “pythonic” while preserving the semantics of mlir (vis-a-vis the in-tree python bindings).",
       "_tagsLower": "mlir embedded",
       "_meetingLower": "mlir open design meeting  2023-03-23",
@@ -354279,16 +354326,10 @@
             ]
           },
           "speakers": {
-            "text": "max levental alok kamatar ryan chard kyle chard",
+            "text": "maksim levental",
             "words": [
-              "max",
-              "levental",
-              "alok",
-              "kamatar",
-              "ryan",
-              "chard",
-              "kyle",
-              "chard"
+              "maksim",
+              "levental"
             ]
           },
           "tags": {
@@ -354421,7 +354462,7 @@
         },
         "year": 2023
       },
-      "_searchBlob": "nelli a lightweight pythonic frontend for mlir in this talk maksim levental presents nelli a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives such as if s for s and class es to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write micro-kernels that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining pythonic while preserving the semantics of mlir vis-a-vis the in-tree python bindings . mlir open design meeting 2023-03-23 2023-03-23-mlir-open-design-meeting open-design-meeting max levental alok kamatar ryan chard kyle chard mlir embedded"
+      "_searchBlob": "nelli a lightweight pythonic frontend for mlir in this talk maksim levental presents nelli a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives such as if s for s and class es to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write micro-kernels that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining pythonic while preserving the semantics of mlir vis-a-vis the in-tree python bindings . mlir open design meeting 2023-03-23 2023-03-23-mlir-open-design-meeting open-design-meeting maksim levental mlir embedded"
     },
     {
       "id": "mlir-talk-2023-03-09-integrating-convolution-optimization-into-mlir-to-improve-performance-beyond-im2col-gemm-slides",
@@ -354800,7 +354841,7 @@
       "abstract": "In this presentation, Mehdi AMINI will introduce some of the nitty-gritty aspects of MLIR internal core data-structures. If you ever wondered what happens when you create an Operation or an Attribute in MLIR, this may be interesting! Then we introduce Operation Properties as a new concept to potentially replace inherent Attributes on Operation. More info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
       "speakers": [
         {
-          "name": "Mehdi Amini",
+          "name": "towards Properties",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -354843,7 +354884,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "deep dive on mlir internals, operation&attribute, towards properties",
-      "_speakerLower": "mehdi amini",
+      "_speakerLower": "towards properties",
       "_abstractLower": "in this presentation, mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir, this may be interesting! then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
       "_tagsLower": "mlir llvm",
       "_meetingLower": "mlir open design meeting  2023-02-09",
@@ -354866,10 +354907,10 @@
             ]
           },
           "speakers": {
-            "text": "mehdi amini",
+            "text": "towards properties",
             "words": [
-              "mehdi",
-              "amini"
+              "towards",
+              "properties"
             ]
           },
           "tags": {
@@ -354969,7 +355010,7 @@
         },
         "year": 2023
       },
-      "_searchBlob": "deep dive on mlir internals operation and attribute towards properties in this presentation mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir this may be interesting then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse https discourse.llvm.org t open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties 68297 mlir open design meeting 2023-02-09 2023-02-09-mlir-open-design-meeting open-design-meeting mehdi amini mlir llvm"
+      "_searchBlob": "deep dive on mlir internals operation and attribute towards properties in this presentation mehdi amini will introduce some of the nitty-gritty aspects of mlir internal core data-structures. if you ever wondered what happens when you create an operation or an attribute in mlir this may be interesting then we introduce operation properties as a new concept to potentially replace inherent attributes on operation. more info on discourse https discourse.llvm.org t open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties 68297 mlir open design meeting 2023-02-09 2023-02-09-mlir-open-design-meeting open-design-meeting towards properties mlir llvm"
     },
     {
       "id": "mlir-talk-2023-01-26-controllable-transformations-in-mlir",
@@ -355355,13 +355396,6 @@
           "github": "",
           "linkedin": "",
           "twitter": ""
-        },
-        {
-          "name": "Théo Degioanni",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
         }
       ],
       "resourceActions": [
@@ -355400,7 +355434,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "irdl, a dialect to represent ir definitions",
-      "_speakerLower": "mathieu fehr théo degioanni",
+      "_speakerLower": "mathieu fehr",
       "_abstractLower": "irdl can represent types, attributes, and operations in a similar manner than tablegen, and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa, which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects, as well as to more easily reason about the dialect definitions.",
       "_tagsLower": "mlir ir",
       "_meetingLower": "mlir open design meeting  2022-06-02",
@@ -355419,12 +355453,10 @@
             ]
           },
           "speakers": {
-            "text": "mathieu fehr theo degioanni",
+            "text": "mathieu fehr",
             "words": [
               "mathieu",
-              "fehr",
-              "theo",
-              "degioanni"
+              "fehr"
             ]
           },
           "tags": {
@@ -355538,7 +355570,7 @@
         },
         "year": 2022
       },
-      "_searchBlob": "irdl a dialect to represent ir definitions irdl can represent types attributes and operations in a similar manner than tablegen and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects as well as to more easily reason about the dialect definitions. mlir open design meeting 2022-06-02 2022-06-02-mlir-open-design-meeting open-design-meeting mathieu fehr theo degioanni mlir ir"
+      "_searchBlob": "irdl a dialect to represent ir definitions irdl can represent types attributes and operations in a similar manner than tablegen and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects as well as to more easily reason about the dialect definitions. mlir open design meeting 2022-06-02 2022-06-02-mlir-open-design-meeting open-design-meeting mathieu fehr mlir ir"
     },
     {
       "id": "mlir-talk-2022-03-17-interfaces-and-dialects-for-precise-ir-transformation-control",
@@ -356161,15 +356193,7 @@
       "id": "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides",
       "title": "End-to-end flow for ML Compilation",
       "abstract": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf At the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We’ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.",
-      "speakers": [
-        {
-          "name": "Stephen Neuendorffer",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -356225,7 +356249,7 @@
       "videoId": "NCMme4H_HYQ",
       "keywords": [],
       "_titleLower": "end-to-end flow for ml compilation",
-      "_speakerLower": "stephen neuendorffer",
+      "_speakerLower": "",
       "_abstractLower": "this was a discussion about how to achieve upstream an end-to-end flow for ml compilation, intro slides are here: https://mlir.llvm.org/openmeetings/2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. compared to other ml frameworks (like xla or tvm), mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently, several projects in-tree (tosa) and out-of-tree (torch-mlir, iree) have made significant progress and we seem to have most of the pieces to build a complete flow. we’ll discuss what might a community end-to-end ml flow would look like and strategize about how to build it.",
       "_tagsLower": "mlir llvm ml",
       "_meetingLower": "mlir open design meeting  2021-12-02",
@@ -356243,11 +356267,8 @@
             ]
           },
           "speakers": {
-            "text": "stephen neuendorffer",
-            "words": [
-              "stephen",
-              "neuendorffer"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir llvm ml",
@@ -356420,21 +356441,13 @@
         },
         "year": 2021
       },
-      "_searchBlob": "end-to-end flow for ml compilation this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it. mlir open design meeting 2021-12-02 2021-12-02-mlir-open-design-meeting open-design-meeting stephen neuendorffer mlir llvm ml"
+      "_searchBlob": "end-to-end flow for ml compilation this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it. mlir open design meeting 2021-12-02 2021-12-02-mlir-open-design-meeting open-design-meeting mlir llvm ml"
     },
     {
       "id": "mlir-talk-2021-11-04-pdll-a-frontend-for-pdl",
       "title": "PDLL: a Frontend for PDL",
       "abstract": "This presentation assumes some background on PDL, see previous talks on this topic on: https://mlir.llvm.org/talks/ 2021-04-15: Pattern Descriptor Language 2019-12-19: Interpreted Pattern Match Execution",
-      "speakers": [
-        {
-          "name": "River Riddle",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -356471,7 +356484,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "pdll: a frontend for pdl",
-      "_speakerLower": "river riddle",
+      "_speakerLower": "",
       "_abstractLower": "this presentation assumes some background on pdl, see previous talks on this topic on: https://mlir.llvm.org/talks/ 2021-04-15: pattern descriptor language 2019-12-19: interpreted pattern match execution",
       "_tagsLower": "mlir llvm",
       "_meetingLower": "mlir open design meeting  2021-11-04",
@@ -356488,11 +356501,8 @@
             ]
           },
           "speakers": {
-            "text": "river riddle",
-            "words": [
-              "river",
-              "riddle"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir llvm",
@@ -356557,7 +356567,7 @@
         },
         "year": 2021
       },
-      "_searchBlob": "pdll a frontend for pdl this presentation assumes some background on pdl see previous talks on this topic on https mlir.llvm.org talks 2021-04-15 pattern descriptor language 2019-12-19 interpreted pattern match execution mlir open design meeting 2021-11-04 2021-11-04-mlir-open-design-meeting open-design-meeting river riddle mlir llvm"
+      "_searchBlob": "pdll a frontend for pdl this presentation assumes some background on pdl see previous talks on this topic on https mlir.llvm.org talks 2021-04-15 pattern descriptor language 2019-12-19 interpreted pattern match execution mlir open design meeting 2021-11-04 2021-11-04-mlir-open-design-meeting open-design-meeting mlir llvm"
     },
     {
       "id": "mlir-talk-2021-09-09-an-ml-driven-autoconfigurator-for-sparse-tensor-kernels-in-mlir",
@@ -356565,14 +356575,7 @@
       "abstract": "Gus Smith presents the results of his work on “ML-Driven Auto-Configurator for Sparse Tensor Kernels in MLIR”.",
       "speakers": [
         {
-          "name": "Aart Bik",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Penporn Koanantakool",
+          "name": "Gus Smith",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -356615,7 +356618,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "an ml-driven autoconfigurator for sparse tensor kernels in mlir",
-      "_speakerLower": "aart bik penporn koanantakool",
+      "_speakerLower": "gus smith",
       "_abstractLower": "gus smith presents the results of his work on “ml-driven auto-configurator for sparse tensor kernels in mlir”.",
       "_tagsLower": "mlir ml",
       "_meetingLower": "mlir open design meeting  2021-09-09",
@@ -356637,12 +356640,10 @@
             ]
           },
           "speakers": {
-            "text": "aart bik penporn koanantakool",
+            "text": "gus smith",
             "words": [
-              "aart",
-              "bik",
-              "penporn",
-              "koanantakool"
+              "gus",
+              "smith"
             ]
           },
           "tags": {
@@ -356699,21 +356700,13 @@
         },
         "year": 2021
       },
-      "_searchBlob": "an ml-driven autoconfigurator for sparse tensor kernels in mlir gus smith presents the results of his work on ml-driven auto-configurator for sparse tensor kernels in mlir . mlir open design meeting 2021-09-09 2021-09-09-mlir-open-design-meeting open-design-meeting aart bik penporn koanantakool mlir ml"
+      "_searchBlob": "an ml-driven autoconfigurator for sparse tensor kernels in mlir gus smith presents the results of his work on ml-driven auto-configurator for sparse tensor kernels in mlir . mlir open design meeting 2021-09-09 2021-09-09-mlir-open-design-meeting open-design-meeting gus smith mlir ml"
     },
     {
       "id": "mlir-talk-2021-08-26-high-performance-gpu-tensor-corecode-generation-for-matmul-using-mlir",
       "title": "High Performance GPU Tensor CoreCode Generation for Matmul Using MLIR",
       "abstract": "2021 08 26 High Performance GPU Tensor CoreCode Generation for Matmul Using MLIR",
-      "speakers": [
-        {
-          "name": "Uday Bondhugula PolyMage Labs",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -356750,7 +356743,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "high performance gpu tensor corecode generation for matmul using mlir",
-      "_speakerLower": "uday bondhugula polymage labs",
+      "_speakerLower": "",
       "_abstractLower": "2021 08 26 high performance gpu tensor corecode generation for matmul using mlir",
       "_tagsLower": "mlir performance gpu",
       "_meetingLower": "mlir open design meeting  2021-08-26",
@@ -356773,13 +356766,8 @@
             ]
           },
           "speakers": {
-            "text": "uday bondhugula polymage labs",
-            "words": [
-              "uday",
-              "bondhugula",
-              "polymage",
-              "labs"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir performance gpu",
@@ -356832,7 +356820,7 @@
         },
         "year": 2021
       },
-      "_searchBlob": "high performance gpu tensor corecode generation for matmul using mlir 2021 08 26 high performance gpu tensor corecode generation for matmul using mlir mlir open design meeting 2021-08-26 2021-08-26-mlir-open-design-meeting open-design-meeting uday bondhugula polymage labs mlir performance gpu"
+      "_searchBlob": "high performance gpu tensor corecode generation for matmul using mlir 2021 08 26 high performance gpu tensor corecode generation for matmul using mlir mlir open design meeting 2021-08-26 2021-08-26-mlir-open-design-meeting open-design-meeting mlir performance gpu"
     },
     {
       "id": "mlir-talk-2021-07-22-mlir-data-visualization-using-passinstrumentation",
@@ -356974,7 +356962,7 @@
     },
     {
       "id": "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree",
-      "title": "From MHLO to Linalg on tensors Learnings from transitioning to Linalg on tensors",
+      "title": "From MHLO To Linalg in IREE",
       "abstract": "Initially IREE used MHLO dialect as the input dialect for its compilation stack. Over time it became apparent that MHLO is at a higher level abstraction than what is needed within IREEs core compilation stack. As a result, the IREE core compilation stack was moved to use Linalg on Tensors as its input dialect. In this talk, Mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in IREE as well as Linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
       "speakers": [],
       "resourceActions": [
@@ -357012,7 +357000,7 @@
       "keywords": [],
       "githubReferences": [],
       "githubReferenceItems": [],
-      "_titleLower": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+      "_titleLower": "from mhlo to linalg in iree",
       "_speakerLower": "",
       "_abstractLower": "initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result, the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk, mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
       "_tagsLower": "mlir",
@@ -357021,21 +357009,14 @@
       "_searchDoc": {
         "fields": {
           "title": {
-            "text": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+            "text": "from mhlo to linalg in iree",
             "words": [
               "from",
               "mhlo",
               "to",
               "linalg",
-              "on",
-              "tensors",
-              "learnings",
-              "from",
-              "transitioning",
-              "to",
-              "linalg",
-              "on",
-              "tensors"
+              "in",
+              "iree"
             ]
           },
           "speakers": {
@@ -357173,7 +357154,7 @@
         },
         "year": 2021
       },
-      "_searchBlob": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively. mlir open design meeting 2021-07-15 2021-07-15-mlir-open-design-meeting open-design-meeting mlir"
+      "_searchBlob": "from mhlo to linalg in iree initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively. mlir open design meeting 2021-07-15 2021-07-15-mlir-open-design-meeting open-design-meeting mlir"
     },
     {
       "id": "mlir-talk-2021-06-24-typedefs-in-mlir",
@@ -357478,15 +357459,7 @@
       "id": "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files",
       "title": "MLIR Language Server (Modern IDE features for .mlir files",
       "abstract": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.",
-      "speakers": [
-        {
-          "name": "Language Server River Riddle",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -357523,7 +357496,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "mlir language server (modern ide features for .mlir files",
-      "_speakerLower": "language server river riddle",
+      "_speakerLower": "",
       "_abstractLower": "language servers such as clangd provide powerful ide features, such as goto-definition/find-references, to developers. in this talk, river riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with visual studio code.",
       "_tagsLower": "mlir clang",
       "_meetingLower": "mlir open design meeting  2021-06-10",
@@ -357545,13 +357518,8 @@
             ]
           },
           "speakers": {
-            "text": "language server river riddle",
-            "words": [
-              "language",
-              "server",
-              "river",
-              "riddle"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir clang",
@@ -357642,7 +357610,7 @@
         },
         "year": 2021
       },
-      "_searchBlob": "mlir language server modern ide features for .mlir files language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code. mlir open design meeting 2021-06-10 2021-06-10-mlir-open-design-meeting open-design-meeting language server river riddle mlir clang"
+      "_searchBlob": "mlir language server modern ide features for .mlir files language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code. mlir open design meeting 2021-06-10 2021-06-10-mlir-open-design-meeting open-design-meeting mlir clang"
     },
     {
       "id": "mlir-talk-2021-05-06-alibaba-group-disc-revisit-future-discussion",
@@ -361105,15 +361073,7 @@
       "id": "mlir-talk-2024-10-17-shaderpulse-a-glsl-frontend-for-mlir-spir-v",
       "title": "Shaderpulse, a GLSL Frontend for MLIR SPIR-V",
       "abstract": "In this meeting, talks about Shaderpulse: a new GLSL frontend for MLIR SPIR-V. He walks through the project through example compute shaders, and show how the Shaderpulse AST maps to the SPIR-V MLIR Dialect.",
-      "speakers": [
-        {
-          "name": "Ahmed Harmouche",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -361150,7 +361110,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "shaderpulse, a glsl frontend for mlir spir-v",
-      "_speakerLower": "ahmed harmouche",
+      "_speakerLower": "",
       "_abstractLower": "in this meeting, talks about shaderpulse: a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders, and show how the shaderpulse ast maps to the spir-v mlir dialect.",
       "_tagsLower": "mlir",
       "_meetingLower": "mlir open design meeting  2024-10-17",
@@ -361169,11 +361129,8 @@
             ]
           },
           "speakers": {
-            "text": "ahmed harmouche",
-            "words": [
-              "ahmed",
-              "harmouche"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir",
@@ -361244,7 +361201,7 @@
         },
         "year": 2024
       },
-      "_searchBlob": "shaderpulse a glsl frontend for mlir spir-v in this meeting talks about shaderpulse a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders and show how the shaderpulse ast maps to the spir-v mlir dialect. mlir open design meeting 2024-10-17 2024-10-17-mlir-open-design-meeting open-design-meeting ahmed harmouche mlir"
+      "_searchBlob": "shaderpulse a glsl frontend for mlir spir-v in this meeting talks about shaderpulse a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders and show how the shaderpulse ast maps to the spir-v mlir dialect. mlir open design meeting 2024-10-17 2024-10-17-mlir-open-design-meeting open-design-meeting mlir"
     },
     {
       "id": "mlir-talk-2024-09-12-xla-indexing-maps",
@@ -362228,21 +362185,7 @@
       "abstract": "In this MLIR Open Meeting, Dumitru Potop-Butucaru presents their work on Embedded Reactive Programming in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 Today’s machine learning (ML) frameworks (TensorFlow, PyTorch…) and compilers (MLIR, Glow…) allow the specification and efficient implementation of deep neural networks (DNNs) that have ever-increasing precision when applied to Big Data that is already stored in large databases. By contrast, in various applications, a clear need emerges for reactive ML applications that operate in a stateful fashion on streams of data, in time (in RNNs, attention-based approaches, reinforcement learning - RL - or even when scheduling convolutional networks in time to reduce memory requirements). Beyond this view focused on ML algorithmic design, the field of embedded ML, where ML components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. Existing ML frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. The situation has reached a point where ML algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - RL- or in transformers) is largely distinct from embedded ML engineering, the latter focusing on simpler (often stateless) network architectures. Ad hoc remedies are proposed in the literature for specific and limited cases. For instance, the time dimension of RL applications is traversed using (interpreted) Python code unsuitable for an embedded implementation. Modifications to the Python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
       "speakers": [
         {
-          "name": "Hugo Pompougnac",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
           "name": "Dumitru Potop-Butucaru",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Albert Cohen",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -362304,7 +362247,7 @@
       "videoId": "euws5GvM3oo",
       "keywords": [],
       "_titleLower": "embedded reactive programming in mlir",
-      "_speakerLower": "hugo pompougnac dumitru potop-butucaru albert cohen",
+      "_speakerLower": "dumitru potop-butucaru",
       "_abstractLower": "in this mlir open meeting, dumitru potop-butucaru presents their work on embedded reactive programming in mlir: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 today’s machine learning (ml) frameworks (tensorflow, pytorch…) and compilers (mlir, glow…) allow the specification and efficient implementation of deep neural networks (dnns) that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast, in various applications, a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data, in time (in rnns, attention-based approaches, reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements). beyond this view focused on ml algorithmic design, the field of embedded ml, where ml components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - rl- or in transformers) is largely distinct from embedded ml engineering, the latter focusing on simpler (often stateless) network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance, the time dimension of rl applications is traversed using (interpreted) python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
       "_tagsLower": "mlir llvm embedded ml",
       "_meetingLower": "mlir open design meeting  2022-12-15",
@@ -362322,14 +362265,10 @@
             ]
           },
           "speakers": {
-            "text": "hugo pompougnac dumitru potop-butucaru albert cohen",
+            "text": "dumitru potop-butucaru",
             "words": [
-              "hugo",
-              "pompougnac",
               "dumitru",
-              "potop-butucaru",
-              "albert",
-              "cohen"
+              "potop-butucaru"
             ]
           },
           "tags": {
@@ -362619,7 +362558,7 @@
         },
         "year": 2022
       },
-      "_searchBlob": "embedded reactive programming in mlir in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness . mlir open design meeting 2022-12-15 2022-12-15-mlir-open-design-meeting open-design-meeting hugo pompougnac dumitru potop-butucaru albert cohen mlir llvm embedded ml"
+      "_searchBlob": "embedded reactive programming in mlir in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness . mlir open design meeting 2022-12-15 2022-12-15-mlir-open-design-meeting open-design-meeting dumitru potop-butucaru mlir llvm embedded ml"
     },
     {
       "id": "mlir-talk-2022-10-06-coordinate-transformations-in-amd-s-rocmlir",
@@ -362769,15 +362708,7 @@
       "id": "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
       "title": "HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
       "abstract": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations. With the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
-      "speakers": [
-        {
-          "name": "Shaojie Xiang",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -362814,7 +362745,7 @@
       "githubReferences": [],
       "githubReferenceItems": [],
       "_titleLower": "heterocl, an mlir-based intermediate representation for accelerator design with decoupled customizations",
-      "_speakerLower": "shaojie xiang",
+      "_speakerLower": "",
       "_abstractLower": "hongzheng chen & niansong zhang (cornell) will present heterocl: an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as gpus and fpgas. however, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with fpgas. as a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
       "_tagsLower": "mlir ir performance gpu",
       "_meetingLower": "mlir open design meeting  2022-08-11",
@@ -362838,11 +362769,8 @@
             ]
           },
           "speakers": {
-            "text": "shaojie xiang",
-            "words": [
-              "shaojie",
-              "xiang"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir ir performance gpu",
@@ -362970,7 +362898,7 @@
         },
         "year": 2022
       },
-      "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting shaojie xiang mlir ir performance gpu"
+      "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting mlir ir performance gpu"
     },
     {
       "id": "mlir-talk-2022-02-17-iree-s-ml-input-dialects",
@@ -363161,49 +363089,7 @@
       "abstract": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR. DaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
       "speakers": [
         {
-          "name": "Fine Licht",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Nikolaos Ziogas",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Timo Schneider",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Philipp Schaad",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Oliver Rausch",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Andrei Ivanov",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Tal Ben",
+          "name": "Berke Ates",
           "affiliation": "",
           "github": "",
           "linkedin": "",
@@ -363265,7 +363151,7 @@
       "videoId": "VxUifMWaHeI",
       "keywords": [],
       "_titleLower": "a data-centric model for performance portability on heterogeneous architectures",
-      "_speakerLower": "fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben",
+      "_speakerLower": "berke ates",
       "_abstractLower": "tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python/numpy and other programming languages, and maps it to high-performance cpu, gpu, and fpga programs, which can be optimized to achieve state-of-the-art. internally, dace uses the stateful dataflow multigraph (sdfg) data-centric intermediate representation : a transformable, interactive representation of code based on data movement. since the input code and the sdfg are separate, it is possible to optimize a program without changing its source, so that it stays readable. on the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. with data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
       "_tagsLower": "mlir ir performance optimizations gpu",
       "_meetingLower": "mlir open design meeting  2022-01-20",
@@ -363286,22 +363172,10 @@
             ]
           },
           "speakers": {
-            "text": "fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben",
+            "text": "berke ates",
             "words": [
-              "fine",
-              "licht",
-              "nikolaos",
-              "ziogas",
-              "timo",
-              "schneider",
-              "philipp",
-              "schaad",
-              "oliver",
-              "rausch",
-              "andrei",
-              "ivanov",
-              "tal",
-              "ben"
+              "berke",
+              "ates"
             ]
           },
           "tags": {
@@ -363475,7 +363349,7 @@
         },
         "year": 2022
       },
-      "_searchBlob": "a data-centric model for performance portability on heterogeneous architectures tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python numpy and other programming languages and maps it to high-performance cpu gpu and fpga programs which can be optimized to achieve state-of-the-art. internally dace uses the stateful dataflow multigraph sdfg data-centric intermediate representation a transformable interactive representation of code based on data movement. since the input code and the sdfg are separate it is possible to optimize a program without changing its source so that it stays readable. on the other hand transformations are customizable and user-extensible so they can be written once and reused in many applications. with data-centric parallel programming we enable direct knowledge transfer of performance optimization regardless of the application or the target processor. mlir open design meeting 2022-01-20 2022-01-20-mlir-open-design-meeting open-design-meeting fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben mlir ir performance optimizations gpu"
+      "_searchBlob": "a data-centric model for performance portability on heterogeneous architectures tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python numpy and other programming languages and maps it to high-performance cpu gpu and fpga programs which can be optimized to achieve state-of-the-art. internally dace uses the stateful dataflow multigraph sdfg data-centric intermediate representation a transformable interactive representation of code based on data movement. since the input code and the sdfg are separate it is possible to optimize a program without changing its source so that it stays readable. on the other hand transformations are customizable and user-extensible so they can be written once and reused in many applications. with data-centric parallel programming we enable direct knowledge transfer of performance optimization regardless of the application or the target processor. mlir open design meeting 2022-01-20 2022-01-20-mlir-open-design-meeting open-design-meeting berke ates mlir ir performance optimizations gpu"
     },
     {
       "id": "mlir-talk-2021-10-7-the-torch-mlir-project",
@@ -363629,29 +363503,7 @@
       "id": "mlir-talk-2021-05-27-quantum-classical-compilation-with-mlir",
       "title": "Quantum-Classical Compilation with MLIR",
       "abstract": "2021 05 27 Quantum Classical Compilation with MLIR",
-      "speakers": [
-        {
-          "name": "Thien Nguyen",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Eugene Dumitrescu",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        },
-        {
-          "name": "Dmitry Liakh",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
+      "speakers": [],
       "resourceActions": [
         {
           "kind": "slides",
@@ -363724,7 +363576,7 @@
       "videoId": "_qXCzP5YAZY",
       "keywords": [],
       "_titleLower": "quantum-classical compilation with mlir",
-      "_speakerLower": "thien nguyen eugene dumitrescu dmitry liakh",
+      "_speakerLower": "",
       "_abstractLower": "2021 05 27 quantum classical compilation with mlir",
       "_tagsLower": "mlir",
       "_meetingLower": "mlir open design meeting  2021-05-27",
@@ -363741,15 +363593,8 @@
             ]
           },
           "speakers": {
-            "text": "thien nguyen eugene dumitrescu dmitry liakh",
-            "words": [
-              "thien",
-              "nguyen",
-              "eugene",
-              "dumitrescu",
-              "dmitry",
-              "liakh"
-            ]
+            "text": "",
+            "words": []
           },
           "tags": {
             "text": "mlir",
@@ -363795,7 +363640,7 @@
         },
         "year": 2021
       },
-      "_searchBlob": "quantum-classical compilation with mlir 2021 05 27 quantum classical compilation with mlir mlir open design meeting 2021-05-27 2021-05-27-mlir-open-design-meeting open-design-meeting thien nguyen eugene dumitrescu dmitry liakh mlir"
+      "_searchBlob": "quantum-classical compilation with mlir 2021 05 27 quantum classical compilation with mlir mlir open design meeting 2021-05-27 2021-05-27-mlir-open-design-meeting open-design-meeting mlir"
     },
     {
       "id": "mlir-talk-2021-04-29-tensor-processing-primitives",
@@ -366837,7 +366682,7 @@
       },
       {
         "label": "MLIR",
-        "count": 325
+        "count": 326
       },
       {
         "label": "Infrastructure",
@@ -367126,16 +366971,16 @@
         "count": 15
       },
       {
-        "label": "Mehdi Amini",
-        "count": 14
-      },
-      {
         "label": "Michael Kruse",
         "count": 14
       },
       {
+        "label": "Mehdi Amini",
+        "count": 13
+      },
+      {
         "label": "Tobias Grosser",
-        "count": 14
+        "count": 13
       },
       {
         "label": "Simon Cook",
@@ -367358,10 +367203,6 @@
         "count": 5
       },
       {
-        "label": "Jessica Paquette",
-        "count": 5
-      },
-      {
         "label": "Jiangning Liu",
         "count": 5
       },
@@ -367458,10 +367299,6 @@
         "count": 4
       },
       {
-        "label": "Albert Cohen",
-        "count": 4
-      },
-      {
         "label": "Alexis Engelke",
         "count": 4
       },
@@ -367522,6 +367359,10 @@
         "count": 4
       },
       {
+        "label": "Jessica Paquette",
+        "count": 4
+      },
+      {
         "label": "John McCall",
         "count": 4
       },
@@ -367562,10 +367403,6 @@
         "count": 4
       },
       {
-        "label": "River Riddle",
-        "count": 4
-      },
-      {
         "label": "Russell Gallop",
         "count": 4
       },
@@ -367587,10 +367424,6 @@
       },
       {
         "label": "Tanya Lattner",
-        "count": 4
-      },
-      {
-        "label": "Théo Degioanni",
         "count": 4
       },
       {
@@ -367618,15 +367451,15 @@
         "count": 3
       },
       {
+        "label": "Albert Cohen",
+        "count": 3
+      },
+      {
         "label": "Alessandro Di Federico",
         "count": 3
       },
       {
         "label": "Alex Lorenz",
-        "count": 3
-      },
-      {
-        "label": "Alexander Viand",
         "count": 3
       },
       {
@@ -367722,10 +367555,6 @@
         "count": 3
       },
       {
-        "label": "Fabian Mora Cordero",
-        "count": 3
-      },
-      {
         "label": "Gabriel Hjort Blindell",
         "count": 3
       },
@@ -367771,10 +367600,6 @@
       },
       {
         "label": "Kiran Chandramohan",
-        "count": 3
-      },
-      {
-        "label": "Krzysztof Drewniak",
         "count": 3
       },
       {
@@ -367870,6 +367695,10 @@
         "count": 3
       },
       {
+        "label": "River Riddle",
+        "count": 3
+      },
+      {
         "label": "Roberto Castañeda Lozano",
         "count": 3
       },
@@ -367903,6 +367732,10 @@
       },
       {
         "label": "Teresa Johnson",
+        "count": 3
+      },
+      {
+        "label": "Théo Degioanni",
         "count": 3
       },
       {
@@ -367954,10 +367787,6 @@
         "count": 2
       },
       {
-        "label": "Aart Bik",
-        "count": 2
-      },
-      {
         "label": "Abdul Dakkak",
         "count": 2
       },
@@ -367990,6 +367819,10 @@
         "count": 2
       },
       {
+        "label": "Alexander Viand",
+        "count": 2
+      },
+      {
         "label": "Alexandre Ganea",
         "count": 2
       },
@@ -368019,10 +367852,6 @@
       },
       {
         "label": "Andy Thomason",
-        "count": 2
-      },
-      {
-        "label": "Anton Lydike",
         "count": 2
       },
       {
@@ -368122,6 +367951,10 @@
         "count": 2
       },
       {
+        "label": "Devajith Valaparambil Sreeramaswamy",
+        "count": 2
+      },
+      {
         "label": "Diana Chen",
         "count": 2
       },
@@ -368183,6 +368016,10 @@
       },
       {
         "label": "Evgeniy Tyurin",
+        "count": 2
+      },
+      {
+        "label": "Fabian Mora Cordero",
         "count": 2
       },
       {
@@ -368382,6 +368219,10 @@
         "count": 2
       },
       {
+        "label": "Krzysztof Drewniak",
+        "count": 2
+      },
+      {
         "label": "Krzysztof Parzyszek",
         "count": 2
       },
@@ -368403,10 +368244,6 @@
       },
       {
         "label": "Louis Ledoux",
-        "count": 2
-      },
-      {
-        "label": "Luc Forget",
         "count": 2
       },
       {
@@ -368734,10 +368571,6 @@
         "count": 2
       },
       {
-        "label": "Stephen Neuendorffer",
-        "count": 2
-      },
-      {
         "label": "Steve Naroff",
         "count": 2
       },
@@ -368910,6 +368743,10 @@
         "count": 1
       },
       {
+        "label": "Aart Bik",
+        "count": 1
+      },
+      {
         "label": "Aaryan Shukla",
         "count": 1
       },
@@ -368943,10 +368780,6 @@
       },
       {
         "label": "Aditya Nandakumar",
-        "count": 1
-      },
-      {
-        "label": "Ahmed Harmouche",
         "count": 1
       },
       {
@@ -369058,10 +368891,6 @@
         "count": 1
       },
       {
-        "label": "Alok Kamatar",
-        "count": 1
-      },
-      {
         "label": "Alok Mishra",
         "count": 1
       },
@@ -369107,10 +368936,6 @@
       },
       {
         "label": "Andrei Homescu",
-        "count": 1
-      },
-      {
-        "label": "Andrei Ivanov",
         "count": 1
       },
       {
@@ -369195,6 +369020,10 @@
       },
       {
         "label": "Anton Johansson",
+        "count": 1
+      },
+      {
+        "label": "Anton Lydike",
         "count": 1
       },
       {
@@ -369315,6 +369144,10 @@
       },
       {
         "label": "Benjamin Mikek",
+        "count": 1
+      },
+      {
+        "label": "Berke Ates",
         "count": 1
       },
       {
@@ -369706,10 +369539,6 @@
         "count": 1
       },
       {
-        "label": "Devajith Valaparambil Sreeramaswamy",
-        "count": 1
-      },
-      {
         "label": "Devang Patel",
         "count": 1
       },
@@ -369735,10 +369564,6 @@
       },
       {
         "label": "Divya Shanmughan",
-        "count": 1
-      },
-      {
-        "label": "Dmitry Liakh",
         "count": 1
       },
       {
@@ -369858,10 +369683,6 @@
         "count": 1
       },
       {
-        "label": "Eugene Dumitrescu",
-        "count": 1
-      },
-      {
         "label": "Evan Ovadia",
         "count": 1
       },
@@ -369910,19 +369731,11 @@
         "count": 1
       },
       {
-        "label": "Ferdinand Lemaire",
-        "count": 1
-      },
-      {
         "label": "Fernando Salas",
         "count": 1
       },
       {
         "label": "Filip Pizlo",
-        "count": 1
-      },
-      {
-        "label": "Fine Licht",
         "count": 1
       },
       {
@@ -369971,10 +369784,6 @@
       },
       {
         "label": "François de Ferrière",
-        "count": 1
-      },
-      {
-        "label": "Frank Fang Gao",
         "count": 1
       },
       {
@@ -370126,6 +369935,10 @@
         "count": 1
       },
       {
+        "label": "Gus Smith",
+        "count": 1
+      },
+      {
         "label": "Guy Blank",
         "count": 1
       },
@@ -370222,10 +370035,6 @@
         "count": 1
       },
       {
-        "label": "Hugo Pompougnac",
-        "count": 1
-      },
-      {
         "label": "Huimin Cui",
         "count": 1
       },
@@ -370263,10 +370072,6 @@
       },
       {
         "label": "Ilya Kuklin",
-        "count": 1
-      },
-      {
-        "label": "Intel Jeremy Kun",
         "count": 1
       },
       {
@@ -370790,10 +370595,6 @@
         "count": 1
       },
       {
-        "label": "Kyle Chard",
-        "count": 1
-      },
-      {
         "label": "L. Cordeiro",
         "count": 1
       },
@@ -370819,10 +370620,6 @@
       },
       {
         "label": "Lane Schwartz",
-        "count": 1
-      },
-      {
-        "label": "Language Server River Riddle",
         "count": 1
       },
       {
@@ -370907,6 +370704,10 @@
       },
       {
         "label": "Lu Zhao",
+        "count": 1
+      },
+      {
+        "label": "Luc Forget",
         "count": 1
       },
       {
@@ -371019,6 +370820,10 @@
       },
       {
         "label": "Maksim Ivanov",
+        "count": 1
+      },
+      {
+        "label": "Maksim Levental",
         "count": 1
       },
       {
@@ -371159,10 +370964,6 @@
       },
       {
         "label": "Mattias Holm",
-        "count": 1
-      },
-      {
-        "label": "Max Levental",
         "count": 1
       },
       {
@@ -371370,19 +371171,11 @@
         "count": 1
       },
       {
-        "label": "Nick Brown",
-        "count": 1
-      },
-      {
         "label": "Nicolas Celik",
         "count": 1
       },
       {
         "label": "Nikita Baksalyar",
-        "count": 1
-      },
-      {
-        "label": "Nikolaos Ziogas",
         "count": 1
       },
       {
@@ -371399,10 +371192,6 @@
       },
       {
         "label": "Olaf Krzikalla",
-        "count": 1
-      },
-      {
-        "label": "Oliver Rausch",
         "count": 1
       },
       {
@@ -371502,10 +371291,6 @@
         "count": 1
       },
       {
-        "label": "Penporn Koanantakool",
-        "count": 1
-      },
-      {
         "label": "Per Larsen",
         "count": 1
       },
@@ -371535,10 +371320,6 @@
       },
       {
         "label": "Philip Pfaffe",
-        "count": 1
-      },
-      {
-        "label": "Philipp Schaad",
         "count": 1
       },
       {
@@ -371830,10 +371611,6 @@
         "count": 1
       },
       {
-        "label": "Ryan Chard",
-        "count": 1
-      },
-      {
         "label": "Ryotaro Kasuga",
         "count": 1
       },
@@ -372018,10 +371795,6 @@
         "count": 1
       },
       {
-        "label": "Shaojie Xiang",
-        "count": 1
-      },
-      {
         "label": "Sharjeel Khan",
         "count": 1
       },
@@ -372083,6 +371856,10 @@
       },
       {
         "label": "Slava Pestov",
+        "count": 1
+      },
+      {
+        "label": "SME Dialect",
         "count": 1
       },
       {
@@ -372154,6 +371931,10 @@
         "count": 1
       },
       {
+        "label": "Stephen Neuendorffer",
+        "count": 1
+      },
+      {
         "label": "Steve Canon",
         "count": 1
       },
@@ -372190,10 +371971,6 @@
         "count": 1
       },
       {
-        "label": "Tal Ben",
-        "count": 1
-      },
-      {
         "label": "Tal Garfinkel",
         "count": 1
       },
@@ -372223,10 +372000,6 @@
       },
       {
         "label": "Theodoros Theodoridis",
-        "count": 1
-      },
-      {
-        "label": "Thien Nguyen",
         "count": 1
       },
       {
@@ -372275,10 +372048,6 @@
       },
       {
         "label": "Timm Baeder",
-        "count": 1
-      },
-      {
-        "label": "Timo Schneider",
         "count": 1
       },
       {
@@ -372338,6 +372107,10 @@
         "count": 1
       },
       {
+        "label": "towards Properties",
+        "count": 1
+      },
+      {
         "label": "TU Darmstadt",
         "count": 1
       },
@@ -372363,10 +372136,6 @@
       },
       {
         "label": "Uday Bondhugula",
-        "count": 1
-      },
-      {
-        "label": "Uday Bondhugula PolyMage Labs",
         "count": 1
       },
       {
@@ -372924,6 +372693,10 @@
         "count": 1
       },
       {
+        "label": "A MPI Dialect Proposal",
+        "count": 1
+      },
+      {
         "label": "A Multidimensional Array Indexing Intrinsics",
         "count": 1
       },
@@ -373301,10 +373074,6 @@
       },
       {
         "label": "An MLIR Dialect for High-Level Optimization of Fortran",
-        "count": 1
-      },
-      {
-        "label": "An MPI Dialect for MLIR",
         "count": 1
       },
       {
@@ -375256,7 +375025,7 @@
         "count": 1
       },
       {
-        "label": "From MHLO to Linalg on tensors Learnings from transitioning to Linalg on tensors",
+        "label": "From MHLO To Linalg in IREE",
         "count": 1
       },
       {
@@ -377321,6 +377090,10 @@
       },
       {
         "label": "mlir-meminfo : A Memory Model for MLIR",
+        "count": 1
+      },
+      {
+        "label": "mlir-query: Tool to query MLIR IR dynamically",
         "count": 1
       },
       {
@@ -379672,7 +379445,7 @@
         "count": 1
       },
       {
-        "label": "WebAssembly support in MLIR",
+        "label": "WebAssembly Dialect",
         "count": 1
       },
       {

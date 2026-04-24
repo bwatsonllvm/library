@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2023-08-07-004": {
       "talk": {
@@ -2563,28 +2563,7 @@
         "abstract": "In this talk, Maksim Levental presents Nelli: a Python embedded domain-specific language for emitting MLIR. It builds on top of existing MLIR Python bindings to map Python primitives (such as if s, for s, and class es) to various MLIR dialects. The foremost goal of Nelli is to make MLIR more ergonomic to use and thereby more accessible. A secondary goal is to enable compiler engineers to easily write “micro-kernels” that are performant and compatible with various MLIR dialects. Nelli realizes these aims by remaining “Pythonic” while preserving the semantics of MLIR (vis-a-vis the in-tree Python bindings).",
         "speakers": [
           {
-            "name": "Max Levental",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Alok Kamatar",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Ryan Chard",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Kyle Chard",
+            "name": "Maksim Levental",
             "affiliation": "",
             "github": "",
             "linkedin": "",
@@ -2627,7 +2606,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "nelli, a lightweight, pythonic, frontend for mlir",
-        "_speakerLower": "max levental alok kamatar ryan chard kyle chard",
+        "_speakerLower": "maksim levental",
         "_abstractLower": "in this talk, maksim levental presents nelli: a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives (such as if s, for s, and class es) to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write “micro-kernels” that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining “pythonic” while preserving the semantics of mlir (vis-a-vis the in-tree python bindings).",
         "_tagsLower": "mlir embedded",
         "_meetingLower": "mlir open design meeting  2023-03-23",
@@ -2646,16 +2625,10 @@
               ]
             },
             "speakers": {
-              "text": "max levental alok kamatar ryan chard kyle chard",
+              "text": "maksim levental",
               "words": [
-                "max",
-                "levental",
-                "alok",
-                "kamatar",
-                "ryan",
-                "chard",
-                "kyle",
-                "chard"
+                "maksim",
+                "levental"
               ]
             },
             "tags": {
@@ -2788,7 +2761,7 @@
           },
           "year": 2023
         },
-        "_searchBlob": "nelli a lightweight pythonic frontend for mlir in this talk maksim levental presents nelli a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives such as if s for s and class es to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write micro-kernels that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining pythonic while preserving the semantics of mlir vis-a-vis the in-tree python bindings . mlir open design meeting 2023-03-23 2023-03-23-mlir-open-design-meeting open-design-meeting max levental alok kamatar ryan chard kyle chard mlir embedded"
+        "_searchBlob": "nelli a lightweight pythonic frontend for mlir in this talk maksim levental presents nelli a python embedded domain-specific language for emitting mlir. it builds on top of existing mlir python bindings to map python primitives such as if s for s and class es to various mlir dialects. the foremost goal of nelli is to make mlir more ergonomic to use and thereby more accessible. a secondary goal is to enable compiler engineers to easily write micro-kernels that are performant and compatible with various mlir dialects. nelli realizes these aims by remaining pythonic while preserving the semantics of mlir vis-a-vis the in-tree python bindings . mlir open design meeting 2023-03-23 2023-03-23-mlir-open-design-meeting open-design-meeting maksim levental mlir embedded"
       },
       "meeting": null
     },
@@ -2799,49 +2772,7 @@
         "abstract": "Tal Ben-Nun and Berke Ates will talk about their work on a data-centric dialect for MLIR. DaCe is a parallel programming framework that takes code in Python/NumPy and other programming languages, and maps it to high-performance CPU, GPU, and FPGA programs, which can be optimized to achieve state-of-the-art. Internally, DaCe uses the Stateful DataFlow multiGraph (SDFG) data-centric intermediate representation : A transformable, interactive representation of code based on data movement. Since the input code and the SDFG are separate, it is possible to optimize a program without changing its source, so that it stays readable. On the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. With data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
         "speakers": [
           {
-            "name": "Fine Licht",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Nikolaos Ziogas",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Timo Schneider",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Philipp Schaad",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Oliver Rausch",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Andrei Ivanov",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Tal Ben",
+            "name": "Berke Ates",
             "affiliation": "",
             "github": "",
             "linkedin": "",
@@ -2903,7 +2834,7 @@
         "videoId": "VxUifMWaHeI",
         "keywords": [],
         "_titleLower": "a data-centric model for performance portability on heterogeneous architectures",
-        "_speakerLower": "fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben",
+        "_speakerLower": "berke ates",
         "_abstractLower": "tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python/numpy and other programming languages, and maps it to high-performance cpu, gpu, and fpga programs, which can be optimized to achieve state-of-the-art. internally, dace uses the stateful dataflow multigraph (sdfg) data-centric intermediate representation : a transformable, interactive representation of code based on data movement. since the input code and the sdfg are separate, it is possible to optimize a program without changing its source, so that it stays readable. on the other hand, transformations are customizable and user-extensible, so they can be written once and reused in many applications. with data-centric parallel programming, we enable direct knowledge transfer of performance optimization, regardless of the application or the target processor.",
         "_tagsLower": "mlir ir performance optimizations gpu",
         "_meetingLower": "mlir open design meeting  2022-01-20",
@@ -2924,22 +2855,10 @@
               ]
             },
             "speakers": {
-              "text": "fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben",
+              "text": "berke ates",
               "words": [
-                "fine",
-                "licht",
-                "nikolaos",
-                "ziogas",
-                "timo",
-                "schneider",
-                "philipp",
-                "schaad",
-                "oliver",
-                "rausch",
-                "andrei",
-                "ivanov",
-                "tal",
-                "ben"
+                "berke",
+                "ates"
               ]
             },
             "tags": {
@@ -3113,7 +3032,7 @@
           },
           "year": 2022
         },
-        "_searchBlob": "a data-centric model for performance portability on heterogeneous architectures tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python numpy and other programming languages and maps it to high-performance cpu gpu and fpga programs which can be optimized to achieve state-of-the-art. internally dace uses the stateful dataflow multigraph sdfg data-centric intermediate representation a transformable interactive representation of code based on data movement. since the input code and the sdfg are separate it is possible to optimize a program without changing its source so that it stays readable. on the other hand transformations are customizable and user-extensible so they can be written once and reused in many applications. with data-centric parallel programming we enable direct knowledge transfer of performance optimization regardless of the application or the target processor. mlir open design meeting 2022-01-20 2022-01-20-mlir-open-design-meeting open-design-meeting fine licht nikolaos ziogas timo schneider philipp schaad oliver rausch andrei ivanov tal ben mlir ir performance optimizations gpu"
+        "_searchBlob": "a data-centric model for performance portability on heterogeneous architectures tal ben-nun and berke ates will talk about their work on a data-centric dialect for mlir. dace is a parallel programming framework that takes code in python numpy and other programming languages and maps it to high-performance cpu gpu and fpga programs which can be optimized to achieve state-of-the-art. internally dace uses the stateful dataflow multigraph sdfg data-centric intermediate representation a transformable interactive representation of code based on data movement. since the input code and the sdfg are separate it is possible to optimize a program without changing its source so that it stays readable. on the other hand transformations are customizable and user-extensible so they can be written once and reused in many applications. with data-centric parallel programming we enable direct knowledge transfer of performance optimization regardless of the application or the target processor. mlir open design meeting 2022-01-20 2022-01-20-mlir-open-design-meeting open-design-meeting berke ates mlir ir performance optimizations gpu"
       },
       "meeting": null
     }

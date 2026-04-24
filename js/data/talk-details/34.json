@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2026-04-013": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "CppInterOp provides compiler-as-a-service capabilities using Clang-REPL, enabling dynamic languages to interoperate with C++. This talk covers its technical architecture, including runtime template instantiation, C++ overload resolution, and JitCall - a lightweight runtime wrapper generator. We demonstrate how CppInterOp's API, built on Clang's AST, enables practical Python-C++ interoperability, including use cases like invoking CUDA kernels from Python and cross-language inheritance between Python and C++ classes.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_jomy.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/compiler-research/CppInterOp",
         "tags": [],
+        "projectGithub": "https://github.com/compiler-research/CppInterOp",
         "githubReferences": [
           "https://github.com/compiler-research/CppInterOp",
           "https://github.com/compiler-research/CppJIT",
@@ -119,6 +118,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "cppinterop: interactive c++ as a service and advanced language interoperability",
         "_speakerLower": "aaron jomy",
@@ -286,16 +286,16 @@
           }
         ],
         "abstract": "Compiling coroutines with full debug information shouldn't be dramatically slower than with line tables — but we found CoroSplitPass running over 100x slower, adding minutes to compilation time. The cause traced back to LLVM's function cloning, where processing debug info metadata was O(Module) rather than O(Function). This talk covers the investigation, the upstream patches, and how the fix ended up benefiting all users of the function cloning API.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_pianykh.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "attack of the clones: speeding up coroutine compilation",
         "_speakerLower": "artem pianykh",
@@ -475,16 +475,16 @@
           }
         ],
         "abstract": "We present our work on representing e-graphs directly in MLIR IR. We extend the PDL dialect with new operations to allow for non-destructive rewriting. We implement our approach both in xDSL (Python) and MLIR, which makes equality saturation at multiple levels of abstraction accessible to compiler developers. Finally, we show that this system can be used to achieve comparable results to Herbie, a state-of-the-art tool to optimize floating-point expressions for accuracy.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_lopoukhine_merckx.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "non-destructive pdl rewriting for multi-level equality saturation",
         "_speakerLower": "jules merckx sasha lopoukhine",

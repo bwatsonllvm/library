@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "papers": {
     "openalex-w7130529454": {
       "paper": {
@@ -88,10 +88,11 @@
           "mlir"
         ],
         "id": "openalex-w7130529454",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -433,10 +434,11 @@
           "llvm"
         ],
         "id": "openalex-w4415274658",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -799,10 +801,11 @@
           "llvm"
         ],
         "id": "openalex-w4390784292",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -2153,6 +2156,7 @@
         "openalexId": "https://openalex.org/W4405651814",
         "citationCount": 0,
         "doi": "10.1007/978-3-031-74430-3_6",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -2372,8 +2376,9 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W4405181102",
-        "citationCount": 1,
+        "citationCount": 2,
         "doi": "10.1145/3658644.3670308",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -2387,7 +2392,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 2,
         "_titleLower": "boosting practical control-flow integrity with complete field sensitivity and origin awareness",
         "_authorLower": "hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics",
         "_authorsLower": "hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics",
@@ -2768,7 +2773,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 1
+          "citationCount": 2
         },
         "_searchBlob": "boosting practical control-flow integrity with complete field sensitivity and origin awareness control-flow integrity cfi is a strong and efficient defense mechanism against memory-corruption attacks.the practical versions of cfi which have been integrated into compilers employ static analysis to collect all possibly valid target functions of indirect calls.they are however less effective because the static analysis is imprecise.while more precise cfi techniques have been proposed such as dynamic cfi they are not yet practical due to issues on performance compatibility and deployability.we believe that to be practical cfi based on static analysis is still the promising direction.however these years have not seen much progress on the effectiveness of such practical cfi.this paper aims to boost the effectiveness of practical cfi by dramatically optimizing the target-function sets aka equivalence class or ec of indirect calls.we first identify two fundamental limitations that lead to the imprecision of static indirect-call analysis incomplete field sensitivity due to variable field indexes and the unawareness of the origins of point-to targets.we then propose two novel analysis techniques complete field sensitivity and origin awareness which handle variable field indexes and distinguish target origins.the techniques dramatically reduce the size of target functions.to enforce the origin awareness we further employ intel memory protection keys to safely store the origin information.we implement our techniques as a system called eccut.the evaluation results show that compared to the mainline llvm cfi eccut achieves a substantial reduction of 94.8 and 90.3 in the average and the largest ec sizes.while compared to the state-of-the-art origin-aware cfi i.e. os-cfi eccut reduces the average and the largest ec sizes by 90.2 and 89.3 respectively.additionally proceedings of 2024 on acm sigsac conference on computer and communications security proceedings of 2024 on acm sigsac conference on computer and communications security 2024 research-paper hao xiang xidian university zhuoyu cheng xidian university jinku li xidian university jianfeng ma xidian university kangjie lu twin cities orthopedics performance static analysis performance static analysis",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -2870,15 +2875,16 @@
           "llvm"
         ],
         "id": "openalex-w4386907353",
+        "citationCount": 7,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 7,
         "_titleLower": "julia as a unifying end-to-end workflow language on the frontier exascale system",
         "_authorLower": "william f. godoy oak ridge national laboratory pedro valero‐lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "william f. godoy oak ridge national laboratory pedro valero‐lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -3196,7 +3202,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 7
         },
         "_searchBlob": "julia as a unifying end-to-end workflow language on the frontier exascale system we evaluate julia as a single language and ecosystem paradigm powered by llvm to develop workflow components for high-performance computing. we run a gray-scott 2-variable diffusion-reaction application using a memory-bound 7-point stencil kernel on frontier the us department of energys first exascale supercomputer. we evaluate the performance scaling and trade-offs of i the computational kernel on amds mi250x gpus ii weak scaling up to 4 096 mpi processes gpus or 512 nodes iii parallel i o writes using the adios2 library bindings and iv jupyter notebooks for interactive analysis. results suggest that although julia generates a reasonable llvm-ir a nearly 50 performance difference exists vs. native amd hip stencil codes when running on the gpus. as expected we observed near-zero overhead when using mpi and parallel i o bindings for system-wide installed implementations. consequently julia emerges as a compelling high-performance and high-productivity workflow composition language as measured on the fastest supercomputer in the world. proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper william f. godoy oak ridge national laboratory pedro valero lara oak ridge national laboratory caira anderson oak ridge national laboratory katrina w. lee oak ridge national laboratory ana gainaru oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory llvm ir performance gpu hip llvm ir performance gpu hip workflow language kernel mpi frontier exascale llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3262,6 +3268,7 @@
         "citationCount": 8,
         "sourceUrl": "https://doi.org/10.1109/cluster48925.2021.00044",
         "doi": "10.1109/cluster48925.2021.00044",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -3603,10 +3610,11 @@
           "Programming Languages"
         ],
         "openalexId": "https://openalex.org/W3026033607",
-        "citationCount": 31,
-        "sourceUrl": "",
+        "citationCount": 32,
         "doi": "10.1109/pdp50117.2020.00041",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -3625,7 +3633,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 31,
+        "_citationCount": 32,
         "_titleLower": "lessons learned from comparing c-cuda and python-numba for gpu-computing",
         "_authorLower": "lena oden university of hagen",
         "_authorsLower": "lena oden university of hagen",
@@ -4558,7 +4566,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 31
+          "citationCount": 32
         },
         "_searchBlob": "lessons learned from comparing c-cuda and python-numba for gpu-computing python as programming language is increasingly gaining importance especially in data science scientific and parallel programming. it is faster and easier to learn than classical programming languages such as c. however usability often comes at the cost of performance and applications written in python are considered to be much slower than applications written in c or fortran. further it does not allow the usage of gpus-besides of pre-compiled libraries.however the numba package promises performance similar to c code for compute intensive parts of a python application and it supports cuda which allows the use of gpus inside a python application.in this paper we compare the performance of numba-cuda and c -cuda for different kinds of applications. for compute intensive benchmarks the performance of the numba version only reaches between 50 and 85 performance of the ccuda version despite the reduction operation where the numba version outperforms cuda. analyzing the ptx code and cuda performance counters revealed that index-calculation is one limiting factor in numba. another problem is the type interference for single precision computations as some values are computed in double precision. by optimizing this within the numba package the performance of numba improves. however c-cuda applications still outperform the numba versions. further analysis with the cloverleav mini app shows that numba performance further decreases for applications with multiple different compute kernels. the non-gpu part slows down these applications due to the slow python interpreter. this leads to a worse gpu utilization.today python is widely used in industry and academia and has been the first choice of coding languages among software programmers in the last years. currently according to the tiobe index 5 it is the 3rd most popular programming language and the number one in ieee spectrums fifth annual interactive ranking of the top programming languages 4 . one reason for this is that is easier to learn than classical programming languages like c. however the other reason is the increasing popularity of data science where python is the most used language. a collection of libraries such as numpy 22 and matplotlib 1 or scipy 8 provide a rich set of functions for scientific computing 16 . packages like dask 19 pycompss 21 and mpi for python 6 allow running python applications on large parallel machines promising high performance. however the performance of python is considered slow compared to compiled languages such as c c++ and fortran especially for heavy computations. in recent years more and more tools have been developed to counter this prejudice. numpy 22 for example uses c-like arrays to store data and offers fast functions implemented in c to speed up calculations. the cupy 14 package provides a similar set of functions but these functions are implemented for gpus using cuda. the scipy library is based on numpy and provides a rich set on functionalities for scientific computing. still the high performance of these libraries is provided by the underling c-implementations. internally they use libraries like openblas or intelmkl to reach high performance and therefore they are limited by the functions which are provided by theses libraries. therefore a performance problem always arises when the required functionality is not implemented within these libraries. in this case the application falls back to the python interpreter. compared to bare metal code interpreted code is slow. in addition in python it is not possible to use gpus or other accelerators directly as the python interpreter cannot execute code on these machines. therefore the usage is only possible with precompiled libraries. to overcome this limitation different approaches where developed to mix c cuda or opencl with python. cython 2 allows integrating c-code in python applications to improve performance of critical sections. it also allows an easy development of wrappers for c-libraries. similar packages such as pycuda and pyopencl 9 support wrappers for cuda or opencl code within a python script. both approaches require the mixture of different programming languages.numba 10 follows a different approach. instead of merging c cuda code with python it allows the development of efficient applications for both cpus and gpus in python style. when a python script using numba is executed marked functions are compiled just-in-time jit using the llvm framework. using python for gpu programming can mean a considerable simplification in the development of parallel applications.but often a simplification of comes at the expense of performance and one expects a performance loss from python compared to pure c code. in this paper we want to understand the differences between native c-cuda code and cuda-code written in python with numba. we also want to share some basic tips how to improve the performance of applications written in numba.we will first analyse a few micro benchmarks in detail. we are using these simple benchmarks as it is easier to understand the differences with small code examples. we will use the collected information to derive some optimization for numba. finally we evaluate and compare the performance of a more application like mini-app written in c-cuda and numba accelerated python. we will evaluate if our insights from the microbenchmarks to real applications. 2020 28th euromicro international conference on parallel distributed and network-based processing pdp 2020 28th euromicro international conference on parallel distributed and network-based processing pdp 2020 research-paper lena oden university of hagen c++ cuda gpu jit libraries opencl performance programming languages c++ cuda gpu jit libraries opencl performance programming languages",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4596,8 +4604,9 @@
         ],
         "openalexId": "https://openalex.org/W2977296237",
         "citationCount": 12,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -4913,15 +4922,16 @@
           "clang"
         ],
         "id": "openalex-w2906875436",
+        "citationCount": 13,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 13,
         "_titleLower": "full-speed fuzzing: reducing fuzzing overhead through coverage-guided tracing",
         "_authorLower": "stefan nagy virginia tech matthew hicks virginia tech",
         "_authorsLower": "stefan nagy virginia tech matthew hicks virginia tech",
@@ -5294,7 +5304,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 0
+          "citationCount": 13
         },
         "_searchBlob": "full-speed fuzzing reducing fuzzing overhead through coverage-guided tracing of coverage-guided fuzzings three main components 1 testcase generation 2 code coverage tracing and 3 crash triage code coverage tracing is a dominant source of overhead. coverage-guided fuzzers trace every testcases code coverage through either static or dynamic binary instrumentation or more recently using hardware support. unfortunately tracing all testcases incurs significant performance penalties---even when the overwhelming majority of testcases and their coverage information are discarded because they do not increase code coverage. to eliminate needless tracing by coverage-guided fuzzers we introduce the notion of coverage-guided tracing. coverage-guided tracing leverages two observations 1 only a fraction of generated testcases increase coverage and thus require tracing and 2 coverage-increasing testcases become less frequent over time. coverage-guided tracing works by encoding the current frontier of code coverage in the target binary so that it self-reports when a testcase produces new coverage---without tracing. this acts as a filter for tracing restricting the expense of tracing to only coverage-increasing testcases. thus coverage-guided tracing chooses to tradeoff increased coverage-increasing-testcase handling time for the ability to execute testcases initially at native speed. to show the potential of coverage-guided tracing we create an implementation based on the static binary instrumentor dyninst called untracer. we evaluate untracer using eight real-world binaries commonly used by the fuzzing community. experiments show that after only an hour of fuzzing untracers average overhead is below 1 and after 24-hours of fuzzing untracer approaches 0 overhead while tracing every testcase with popular white- and black-box-binary tracers afl-clang afl-qemu and afl-dyninst incurs overheads of 36 612 and 518 respectively. 2019 ieee symposium on security and privacy sp 2019 ieee symposium on security and privacy sp 2019 research-paper stefan nagy virginia tech matthew hicks virginia tech clang testing security performance clang testing security performance fuzzing coverage guided tracing testcases full speed fuzzing reducing fuzzing overhead coverage increasing testcases binary fuzzing untracer coverage guided fuzzers coverage tracing clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5336,9 +5346,10 @@
         ],
         "openalexId": "https://openalex.org/W2968263576",
         "citationCount": 7,
-        "sourceUrl": "",
         "doi": "10.1109/les.2019.2935052",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5627,9 +5638,10 @@
         ],
         "openalexId": "https://openalex.org/W2888165129",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1049/iet-ifs.2018.5142",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5944,9 +5956,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2769560632",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/icecct.2017.8117820",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6218,6 +6231,7 @@
         "openalexId": "https://openalex.org/W2811284039",
         "citationCount": 0,
         "sourceUrl": "https://theses.hal.science/tel-01823521",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -6620,9 +6634,10 @@
         ],
         "openalexId": "https://openalex.org/W2736544726",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1109/icasi.2017.7988587",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8068,9 +8083,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2475052715",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-39077-2_10",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -8280,9 +8296,10 @@
         ],
         "openalexId": "https://openalex.org/W2215262239",
         "citationCount": 134,
-        "sourceUrl": "",
         "doi": "10.1145/2843859.2843867",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9531,9 +9548,10 @@
         ],
         "openalexId": "https://openalex.org/W2341540919",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1109/indicon.2015.7443611",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9909,8 +9927,9 @@
         ],
         "openalexId": "https://openalex.org/W2599131637",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10189,8 +10208,9 @@
         ],
         "openalexId": "https://openalex.org/W389227731",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10340,10 +10360,11 @@
         "paperUrl": "https://doi.org/10.1007/978-3-319-10936-7_20",
         "tags": [],
         "openalexId": "https://openalex.org/W951859702",
-        "citationCount": 35,
-        "sourceUrl": "",
+        "citationCount": 36,
         "doi": "10.1007/978-3-319-10936-7_20",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -10353,7 +10374,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 35,
+        "_citationCount": 36,
         "_titleLower": "region-based selective flow-sensitive pointer analysis",
         "_authorLower": "sen ye yulei sui jingling xue",
         "_authorsLower": "sen ye yulei sui jingling xue",
@@ -10672,7 +10693,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 35
+          "citationCount": 36
         },
         "_searchBlob": "region-based selective flow-sensitive pointer analysis flow-sensitive pointer analysis constitutes an essential component of precise program analysis for accurately modeling pointer behaviors by incorporating control flows. flow-sensitive pointer analysis is extensively used in alias analysis taint analysis program understanding compiler optimization etc. existing flow-sensitive pointer analysis approaches which are conducted based on control flow graphs have significantly advanced the precision of pointer analysis via sophisticated techniques to leverage control flow information. however they inevitably suffer from computational inefficiencies when resolving points-to information due to the inherent complex structures of control flow graphs. we present cg-fspta a flow-sensitive constraint graph fsconsg based flow-sensitive pointer analysis to overcome the inefficiency of control-flow-graph-based analysis. cg-fspta uses a flow-sensitive variant to leverage the structural advantages of set-constraint graphs which are commonly used in flow-insensitive pointer analysis while keeping the flow sensitivity of variable definitions and uses allowing the incorporation of sophisticated graph optimization and dynamic solving techniques. in this way cg-fspta achieves significant efficiency improvements while keeping the precision of flow-sensitive analysis. experimental evaluations on benchmark programs demonstrate that cg-fspta significantly reduces both memory usage and execution time while maintaining precision. in particular by solving in the fsconsg cg-fspta achieves an average memory reduction of 33.05 and accelerates flow-sensitive pointer analysis by 7.27x compared to the state-of-art method. these experimental results underscore the efficacy of cg-fspta as a scalable solution to analyze large-scale software systems establishing a robust foundation for future advancements in efficient program analysis frameworks. lecture notes in computer science lecture notes in computer science 2014 research-paper sen ye yulei sui jingling xue",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11905,9 +11926,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2139210439",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-14896-0_12",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -12091,9 +12113,10 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2294628582",
-        "citationCount": 270,
+        "citationCount": 274,
         "sourceUrl": "https://doi.org/10.1145/2490301.2451150",
         "doi": "10.1145/2451116.2451150",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12106,7 +12129,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 270,
+        "_citationCount": 274,
         "_titleLower": "stochastic superoptimization",
         "_authorLower": "eric schkufza stanford university rahul sharma stanford university alex aiken stanford university",
         "_authorsLower": "eric schkufza stanford university rahul sharma stanford university alex aiken stanford university",
@@ -12340,7 +12363,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 270
+          "citationCount": 274
         },
         "_searchBlob": "stochastic superoptimization we formulate the loop-free binary superoptimization task as a stochastic search problem. the competing constraints of transformation correctness and performance improvement are encoded as terms in a cost function and a markov chain monte carlo sampler is used to rapidly explore the space of all possible programs to find one that is an optimization of a given target program. although our method sacrifices completeness the scope of programs we are able to consider and the resulting quality of the programs that we produce far exceed those of existing superoptimizers. beginning from binaries compiled by llvm -o0 for 64-bit x86 our prototype implementation stoke is able to produce programs which either match or outperform the code produced by gcc -o3 icc -o3 and in some cases expert handwritten assembly. proceedings of eighteenth international conference on architectural support for programming languages and operating systems proceedings of eighteenth international conference on architectural support for programming languages and operating systems 2013 research-paper eric schkufza stanford university rahul sharma stanford university alex aiken stanford university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12405,6 +12428,7 @@
         "openalexId": "https://openalex.org/W2144494905",
         "citationCount": 12,
         "doi": "10.1109/sp.2013.11",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12735,9 +12759,10 @@
         ],
         "openalexId": "https://openalex.org/W2049191224",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1109/telfor.2013.6716404",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12983,9 +13008,10 @@
         ],
         "openalexId": "https://openalex.org/W2068573906",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1109/fccm.2013.36",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13572,8 +13598,8 @@
         ],
         "sourceName": "LLVM Publications",
         "publication": "ACM SIGPLAN Erlang Workshop",
-        "sourceUrl": "",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "citationCount": 0,
@@ -14428,7 +14454,7 @@
         "venue": "Proceedings of 2009 ACM SIGPLAN workshop on Partial evaluation and program manipulation",
         "type": "research-paper",
         "abstract": "The goal of the Parfait project is to find bugs in C source code in a scalable and precise way. To this end, Parfait was designed as a framework with layers of sound program analyses, multiple layers per bug type, to identify bugs in a program more quickly and accurately.",
-        "paperUrl": "https://doi.org/10.1145/1480945.1480947",
+        "paperUrl": "https://llvm.org/pubs/2009-01-PEPM-Parfait.pdf",
         "sourceUrl": "https://llvm.org/pubs/2009-01-PEPM-Parfait.html",
         "tags": [
           "Security"
@@ -14437,10 +14463,11 @@
         "publication": "Proceedings of 2009 ACM SIGPLAN workshop on Partial evaluation and program manipulation",
         "openalexId": "https://openalex.org/W2081388122",
         "doi": "10.1145/1480945.1480947",
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Security"
         ],
@@ -14450,7 +14477,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "program analysis for bug detection using parfait",
         "_authorLower": "cristina cifuentes nathan keynes lian li bernhard scholz",
         "_authorsLower": "cristina cifuentes nathan keynes lian li bernhard scholz",
@@ -14603,7 +14630,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "program analysis for bug detection using parfait the goal of the parfait project is to find bugs in c source code in a scalable and precise way. to this end parfait was designed as a framework with layers of sound program analyses multiple layers per bug type to identify bugs in a program more quickly and accurately. proceedings of 2009 acm sigplan workshop on partial evaluation and program manipulation proceedings of 2009 acm sigplan workshop on partial evaluation and program manipulation 2009 research-paper cristina cifuentes nathan keynes lian li bernhard scholz security security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -14645,7 +14672,7 @@
         "type": "research-paper",
         "abstract": "We propose an automatic instrumentation method for embedded software annotation to enable performance modeling in high level hardware/software co-simulation environments. The proposed cross-annotation technique consists of extending a retargetable compiler infrastructure to allow the automatic instrumentation of embedded software at the basic block level. Thus, target and annotated native binaries are guaranteed to have isomorphic control flow graphs (CFG). The proposed method takes into account the processor-specific optimizations at the compiler level and proves to be accurate with low simulation overhead.",
         "paperUrl": "https://www.aspdac.com/aspdac2009/archive/pdf/6A-1.pdf",
-        "sourceUrl": "https://doi.org/10.5555/1509633.1509762",
+        "sourceUrl": "https://llvm.org/pubs/2009-01-ASP-DAC-Automatic_Instrumentation.html",
         "tags": [
           "Embedded",
           "Infrastructure",
@@ -14656,10 +14683,11 @@
         "publication": "Asia and South Pacific Design Automation Conference",
         "openalexId": "https://openalex.org/W2168830726",
         "doi": "10.5555/1509633.1509762",
+        "citationCount": 45,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Embedded",
           "Infrastructure",
@@ -14672,7 +14700,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 45,
         "_titleLower": "automatic instrumentation of embedded software for high level hardware/software co-simulation",
         "_authorLower": "aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frédéric pétrot institut polytechnique de grenoble",
         "_authorsLower": "aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frédéric pétrot institut polytechnique de grenoble",
@@ -14875,7 +14903,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 45
         },
         "_searchBlob": "automatic instrumentation of embedded software for high level hardware software co-simulation we propose an automatic instrumentation method for embedded software annotation to enable performance modeling in high level hardware software co-simulation environments. the proposed cross-annotation technique consists of extending a retargetable compiler infrastructure to allow the automatic instrumentation of embedded software at the basic block level. thus target and annotated native binaries are guaranteed to have isomorphic control flow graphs cfg . the proposed method takes into account the processor-specific optimizations at the compiler level and proves to be accurate with low simulation overhead. asia and south pacific design automation conference asia and south pacific design automation conference 2009 research-paper aimen bouchhima institut polytechnique de grenoble patrice gerin techniques of informatics and microelectronics for integrated systems architecture frederic petrot institut polytechnique de grenoble embedded infrastructure optimizations performance embedded infrastructure optimizations performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -14917,10 +14945,11 @@
         "sourceName": "LLVM Publications",
         "publication": "ACM SIGPLAN Workshop on Transactional Computing (TRANSACT 2008)",
         "openalexId": "https://openalex.org/W1569183949",
+        "citationCount": 18,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "C++"
         ],
@@ -14931,7 +14960,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 18,
         "_titleLower": "making object-based stm practical in unmanaged environments",
         "_authorLower": "torvald riegel hochschule für technik und wirtschaft dresden – university of applied sciences diogo becker de brum hochschule für technik und wirtschaft dresden – university of applied sciences",
         "_authorsLower": "torvald riegel hochschule für technik und wirtschaft dresden – university of applied sciences diogo becker de brum hochschule für technik und wirtschaft dresden – university of applied sciences",
@@ -15202,7 +15231,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 0
+          "citationCount": 18
         },
         "_searchBlob": "making object-based stm practical in unmanaged environments current transactifying compilers for unmanaged environments e.g. systems software written in c c++ target only word-based software transactional memories stms because the compiler cannot easily infer whether it is safe to transform a transactional access to a certain memory location in an object-based way. to use objectbased stms in these environments programmers must use explicit calls to the stm or use a restricted language dialect both of which are not practical. in this paper we show how an existing pointer analysis can be used to let a transactifying compiler for c c++ use objectbased accesses whenever this is possible and safe while falling back to word-based accesses otherwise. programmers do not need to provide any annotations and do not have to use a restricted language. our evaluation also shows that an object-based stm can be significantly faster than a word-based stm with an otherwise identical design and implementation even if the parameters of the latter have been tuned. acm sigplan workshop on transactional computing transact 2008 acm sigplan workshop on transactional computing transact 2008 salt lake city utah 2008 research-paper torvald riegel hochschule fur technik und wirtschaft dresden university of applied sciences diogo becker de brum hochschule fur technik und wirtschaft dresden university of applied sciences c++ c++",
         "addedAt": "2026-02-20T23:08:48.000Z",

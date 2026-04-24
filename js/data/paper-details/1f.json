@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "papers": {
     "openalex-w4416203904": {
       "paper": {
@@ -49,9 +49,10 @@
         ],
         "openalexId": "https://openalex.org/W4416203904",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1145/3712285.3759808",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -435,16 +436,17 @@
           "mlir"
         ],
         "id": "openalex-w4414790426",
-        "sourceUrl": "",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "mojo: mlir-based performance-portable hpc science kernels on gpus for the python ecosystem",
         "_authorLower": "william f. godoy oak ridge national laboratory tatiana melnichenko knoxville college pedro valero‐lara oak ridge national laboratory wael elwasif oak ridge national laboratory philip w. fackler oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory keita teranishi oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
         "_authorsLower": "william f. godoy oak ridge national laboratory tatiana melnichenko knoxville college pedro valero‐lara oak ridge national laboratory wael elwasif oak ridge national laboratory philip w. fackler oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory keita teranishi oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory",
@@ -786,7 +788,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "mojo mlir-based performance-portable hpc science kernels on gpus for the python ecosystem we explore the performance and portability of the novel mojo language for scientific computing workloads on gpus. as the first language based on the llvms multi-level intermediate representation mlir compiler infrastructure mojo aims to close performance and productivity gaps by combining pythons interoperability and cuda-like syntax for compile-time portable gpu programming. we target four scientific workloads a seven-point stencil memory-bound babelstream memory-bound minibude compute-bound and hartree-fock compute-bound with atomic operations and compare their performance against vendor baselines on nvidia h100 and amd mi300a gpus. we show that mojos performance is competitive with cuda and hip for memory-bound kernels whereas gaps exist on amd gpus for atomic operations and for fast-math compute-bound kernels on both amd and nvidia gpus. although the learning curve and programming requirements are still fairly low-level mojo can close significant gaps in the fragmented python ecosystem in the convergence of scientific computing and ai. proceedings of sc 25 workshops of the international conference for high performance computing networking storage and analysis proceedings of sc 25 workshops of the international conference for high performance computing networking storage and analysis 2025 research-paper william f. godoy oak ridge national laboratory tatiana melnichenko knoxville college pedro valero lara oak ridge national laboratory wael elwasif oak ridge national laboratory philip w. fackler oak ridge national laboratory rafael ferreira da silva oak ridge national laboratory keita teranishi oak ridge national laboratory jeffrey s. vetter oak ridge national laboratory llvm mlir ir performance infrastructure gpu cuda hip ai mojo llvm mlir performance infrastructure gpu cuda hip ai mojo intermediate representation performance portable hpc compute bound memory bound bound kernels llvm mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -838,9 +840,10 @@
         ],
         "openalexId": "https://openalex.org/W4410087409",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/ccnc54725.2025.10976036",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1293,10 +1296,11 @@
         "matchedSubprojects": [
           "llvm"
         ],
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -1752,10 +1756,11 @@
           "runtimes"
         ],
         "id": "openalex-w4415002715",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2025",
         "_publishedDate": "",
@@ -2169,6 +2174,7 @@
         "openalexId": "https://openalex.org/W4409981688",
         "citationCount": 0,
         "doi": "10.1002/smr.70026",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -2647,15 +2653,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 5,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 5,
         "_titleLower": "performance portable monte carlo particle transport on intel, nvidia, and amd gpus",
         "_authorLower": "john tramm paul romano patrick shriwise amanda lund johannes doerfert patrick steinbrecher andrew siegel gavin ridley",
         "_authorsLower": "john tramm paul romano patrick shriwise amanda lund johannes doerfert patrick steinbrecher andrew siegel gavin ridley",
@@ -2936,7 +2943,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 5
         },
         "_searchBlob": "performance portable monte carlo particle transport on intel nvidia and amd gpus openmc is an open source monte carlo neutral particle transport application that has recently been ported to gpu using the openmp target offloading model. we examine the performance of openmc at scale on the frontier polaris and aurora supercomputers demonstrating that performance portability has been achieved by openmc across all three major gpu vendors amd nvidia and intel . openmcs gpu performance is compared to both the traditional cpu-based version of openmc as well as several other state-of-the-art cpu-based monte carlo particle transport applications. we also provide historical context by analyzing openmcs performance on several legacy gpu and cpu architectures. this work includes some of the first published results for a scientific simulation application at scale on a supercomputer featuring intels max series ponte vecchio gpus. it is also one of the first demonstrations of a large scientific production application using the openmp target offloading model to achieve high performance on all three major gpu platforms. arxiv arxiv 2024 research-paper john tramm paul romano patrick shriwise amanda lund johannes doerfert patrick steinbrecher andrew siegel gavin ridley openmp performance gpu openmp performance gpu offloading performance portable monte openmc three major gpu monte carlo particle carlo particle transport all three major openmp target offloading cpu portable monte carlo intel nvidia openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -4077,10 +4084,11 @@
         "matchedSubprojects": [
           "llvm"
         ],
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -4408,6 +4416,7 @@
         "citationCount": 0,
         "sourceUrl": "https://doi.org/10.1109/scw63240.2024.00135",
         "doi": "10.1109/scw63240.2024.00135",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -4897,15 +4906,16 @@
           "llvm"
         ],
         "id": "openalex-w4395065809",
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "a cross-platform execution engine for the quantum intermediate representation",
         "_authorLower": "elaine wong vicente leyton ortega daniel claudino s. r. johnson sharmin afrose meenambika gowrishankar anthony m. cabrera travis s. humble travis s. humble",
         "_authorsLower": "elaine wong vicente leyton ortega daniel claudino s. r. johnson sharmin afrose meenambika gowrishankar anthony m. cabrera travis s. humble travis s. humble",
@@ -5164,7 +5174,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "a cross-platform execution engine for the quantum intermediate representation hybrid languages like the quantum intermediate representation qir are essential for programming systems that mix quantum and conventional computing models while execution of these programs is often deferred to a system-specific implementation. here we develop the qir execution engine qir-ee for parsing interpreting and executing qir across multiple hardware platforms. qir-ee uses llvm to execute hybrid instructions specifying quantum programs and by design presents extension points that support customized runtime and hardware environments. we demonstrate an implementation that uses the xacc quantum hardware-accelerator library to dispatch prototypical quantum programs on different commercial quantum platforms and numerical simulators and we validate execution of qir-ee on ionq quantinuum and ibm hardware. our results highlight the efficiency of hybrid executable architectures for handling mixed instructions managing mixed data and integrating with quantum computing frameworks to realize cross-platform execution. arxiv arxiv 2024 research-paper elaine wong vicente leyton ortega daniel claudino s. r. johnson sharmin afrose meenambika gowrishankar anthony m. cabrera travis s. humble travis s. humble llvm ir quantum computing llvm ir quantum computing intermediate representation quantum compilation quantum intermediate representation hardware cross platform execution platform execution engine hybrid quantum programs llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5223,8 +5233,9 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W4318541515",
-        "citationCount": 10,
+        "citationCount": 12,
         "doi": "10.1145/3575693.3575720",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -5240,7 +5251,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 12,
         "_titleLower": "where did my variable go? poking holes in incomplete debug information",
         "_authorLower": "cristian assaiante sapienza university of rome daniele cono d’elia sapienza university of rome giuseppe antonio di luna sapienza university of rome leonardo querzoni sapienza university of rome",
         "_authorsLower": "cristian assaiante sapienza university of rome daniele cono d’elia sapienza university of rome giuseppe antonio di luna sapienza university of rome leonardo querzoni sapienza university of rome",
@@ -5454,7 +5465,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 10
+          "citationCount": 12
         },
         "_searchBlob": "where did my variable go poking holes in incomplete debug information the availability of debug information for optimized executables can largely ease crucial tasks such as crash analysis. source-level debuggers use this information to display program state in terms of source code allowing users to reason on it even when optimizations alter program structure extensively. a few recent endeavors have proposed effective methodologies for identifying incorrect instances of debug information which can mislead users by presenting them with an inconsistent program state. proceedings of 28th acm international conference on architectural support for programming languages and operating systems proceedings of 28th acm international conference on architectural support for programming languages and operating systems 2023 research-paper cristian assaiante sapienza university of rome daniele cono delia sapienza university of rome giuseppe antonio di luna sapienza university of rome leonardo querzoni sapienza university of rome clang debug information lldb optimizations clang debug information lldb optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -5508,9 +5519,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4388429180",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-031-46077-7_13",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -5734,15 +5746,16 @@
           "mlir"
         ],
         "id": "openalex-w4310283529",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "unified language frontend for physic-informed ai/ml",
         "_authorLower": "brian kelley sandia national laboratories california sivasankaran rajamanickam sandia national laboratories california",
         "_authorsLower": "brian kelley sandia national laboratories california sivasankaran rajamanickam sandia national laboratories california",
@@ -6118,7 +6131,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "unified language frontend for physic-informed ai ml artificial intelligence and machine learning ai ml are becoming important tools for scientific modeling and simulation as in several other fields such as image analysis and natural language processing. ml techniques can leverage the computing power available in modern systems and reduce the human effort needed to configure experiments interpret and visualize results draw conclusions from huge quantities of raw data and build surrogates for physics based models. domain scientists in fields like fluid dynamics microelectronics and chemistry can automate many of their most difficult and repetitive tasks or improve the design times by use of the faster ml-surrogates. however modern ml and traditional scientific highperformance computing hpc tend to use completely different software ecosystems. while ml frameworks like pytorch and tensorflow provide python apis most hpc applications and libraries are written in c++. direct interoperability between the two languages is possible but is tedious and error-prone. in this work we show that a compiler-based approach can bridge the gap between ml frameworks and scientific software with less developer effort and better efficiency. we use the mlir multi-level intermediate representation ecosystem to compile a pre-trained convolutional neural network cnn in pytorch to freestanding c++ source code in the kokkos programming model. kokkos is a programming model widely used in hpc to write portable shared-memory parallel code that can natively target a variety of cpu and gpu architectures. our compiler-generated source code can be directly integrated into any kokkosbased application with no dependencies on python or cross-language interfaces. osti oai u.s. department of energy office of scientific and technical information osti oai u.s. department of energy office of scientific and technical information 2022 research-paper brian kelley sandia national laboratories california sivasankaran rajamanickam sandia national laboratories california mlir ir frontend libraries gpu ai ml mlir frontend libraries gpu ai intermediate representation ml frameworks hpc scientific unified language frontend physic informed mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6198,15 +6211,16 @@
           "mlir"
         ],
         "id": "openalex-w4318256736",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "towards supporting semiring in mlir-based comet compiler",
         "_authorLower": "luanzheng guo pacific northwest national laboratory rizwan a. ashraf pacific northwest national laboratory ryan friese pacific northwest national laboratory gökçen kestor pacific northwest national laboratory",
         "_authorsLower": "luanzheng guo pacific northwest national laboratory rizwan a. ashraf pacific northwest national laboratory ryan friese pacific northwest national laboratory gökçen kestor pacific northwest national laboratory",
@@ -6481,7 +6495,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "towards supporting semiring in mlir-based comet compiler semirings are widely used in large-scale scientific applications of high-dimensional data and graph analytics for linear algebra computations. in this work we propose a semiring compiler for todays high-performance computing hpc systems often armed with heterogeneous devices as an alternative to library-based approaches. in particular we extend a domain-specific language dsl and compiler framework to automatically generate kernel code for semiring operations within the compiler for extreme targets comet based on the multi-level intermediate representation mlir framework. we provide a high-level programming abstraction representing various semiring operations with the familiar einstein notation. we also build a semiring dialect and efficient code generation based on mlirs extensible framework that can process a variety of semiring operators. by leveraging high-level semantics information and progressive lowering in code generation we achieved better performance with up to 3.8x speedup compared with operations in the lagraph library. proceedings of international conference on parallel architectures and compilation techniques proceedings of international conference on parallel architectures and compilation techniques 2022 research-paper luanzheng guo pacific northwest national laboratory rizwan a. ashraf pacific northwest national laboratory ryan friese pacific northwest national laboratory gokcen kestor pacific northwest national laboratory mlir ir backend code generation performance mlir backend code generation performance intermediate representation semiring operations comet compiler supporting semiring mlir",
         "addedAt": "2026-02-23T18:01:35.000Z",
@@ -6545,9 +6559,10 @@
         ],
         "openalexId": "https://openalex.org/W4289828073",
         "citationCount": 13,
-        "sourceUrl": "",
         "doi": "10.1109/ipdpsw55747.2022.00112",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6949,10 +6964,11 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W3178385707",
-        "citationCount": 8,
-        "sourceUrl": "",
+        "citationCount": 9,
         "doi": "10.1145/3460319.3469079",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6964,7 +6980,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 9,
         "_titleLower": "c4: the c compiler concurrency checker",
         "_authorLower": "matt windsor university of york alastair f. donaldson imperial college london john wickerson imperial college london",
         "_authorsLower": "matt windsor university of york alastair f. donaldson imperial college london john wickerson imperial college london",
@@ -7163,7 +7179,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 8
+          "citationCount": 9
         },
         "_searchBlob": "c4 the c compiler concurrency checker the correct compilation of atomic-action concurrency is vital now that multicore processors are ubiquitous. despite much recent work on automated compiler testing little existing tooling can test how real-world compilers handle compilation of atomic-action code. we demonstrate c4 a tool for exploring the concurrency behaviour of real-world c compilers such as gcc and llvm. c4 automates a workflow based on generating fuzzing and executing litmus tests. so far c4 has found two new control-flow bugs in gcc and ibm xl and reproduced two historic concurrency bugs in gcc 4. proceedings of 30th acm sigsoft international symposium on software testing and analysis proceedings of 30th acm sigsoft international symposium on software testing and analysis 2021 research-paper matt windsor university of york alastair f. donaldson imperial college london john wickerson imperial college london testing testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7249,9 +7265,10 @@
         ],
         "openalexId": "https://openalex.org/W3111809341",
         "citationCount": 11,
-        "sourceUrl": "",
         "doi": "10.1145/3400302.3415781",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7607,6 +7624,7 @@
         "openalexId": "https://openalex.org/W3090813146",
         "citationCount": 0,
         "doi": "10.1145/3410463.3414663",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -7772,9 +7790,10 @@
         ],
         "openalexId": "https://openalex.org/W3096606274",
         "citationCount": 5,
-        "sourceUrl": "",
         "doi": "10.1109/eurosp48549.2020.00011",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8339,15 +8358,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 4,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 4,
         "_titleLower": "libmpnode",
         "_authorLower": "robert lyerly virginia tech sang-hoon kim ajou university binoy ravindran virginia tech",
         "_authorsLower": "robert lyerly virginia tech sang-hoon kim ajou university binoy ravindran virginia tech",
@@ -8584,7 +8604,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 0
+          "citationCount": 4
         },
         "_searchBlob": "libmpnode in this work we describe libmpnode an openmp runtime designed for efficient multithreaded execution across systems composed of multiple non-cache-coherent domains. rather than requiring extensive compiler-level transformations or building new programming model abstractions libmpnode builds on recent works that allow developers to use a traditional shared-memory programming model to build applications that are migratable between incoherent domains. libmpnode handles migrating threads between domains or nodes and optimizes many openmp mechanisms to reduce cross-node communication. while applications may not scale as written we describe early experiences in simple code refactoring techniques that help scale performance by only changing a handful of lines of code. we describe and evaluate the current implementation report on experiences using the runtime and describe future research directions for multi-domain openmp. proceedings of 10th international workshop on programming models and applications for multicores and manycores proceedings of 10th international workshop on programming models and applications for multicores and manycores 2019 research-paper robert lyerly virginia tech sang-hoon kim ajou university binoy ravindran virginia tech openmp performance openmp performance libmpnode describe domains openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -8669,10 +8689,11 @@
         "matchedSubprojects": [
           "llvm"
         ],
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
@@ -8990,6 +9011,7 @@
         "openalexId": "https://openalex.org/W2957284992",
         "citationCount": 6,
         "doi": "10.1007/978-3-030-25543-5_25",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -9319,6 +9341,7 @@
         "openalexId": "https://openalex.org/W2889582214",
         "citationCount": 30,
         "doi": "10.1145/3243734.3243766",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -9693,9 +9716,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2787282940",
         "citationCount": 5,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-75178-8_35",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -9883,6 +9907,7 @@
         "openalexId": "https://openalex.org/W2768127606",
         "citationCount": 0,
         "doi": "10.11896/j.issn.1002-137x.2017.11.029",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -10029,9 +10054,10 @@
         ],
         "openalexId": "https://openalex.org/W2730044517",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-61542-4_30",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10264,15 +10290,16 @@
           "clang",
           "openmp"
         ],
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "comparison of parallelisation approaches, languages, and compilers for unstructured mesh algorithms on gpus",
         "_authorLower": "gábor dániel balogh istván z. reguly gihan r. mudalige",
         "_authorsLower": "gábor dániel balogh istván z. reguly gihan r. mudalige",
@@ -10534,7 +10561,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "comparison of parallelisation approaches languages and compilers for unstructured mesh algorithms on gpus efficiently exploiting gpus is increasingly essential in scientific computing as many current and upcoming supercomputers are built using them. to facilitate this there are a number of programming approaches such as cuda openacc and openmp 4 supporting different programming languages mainly c c++ and fortran . there are also several compiler suites clang nvcc pgi xl each supporting different combinations of languages. in this study we take a detailed look at some of the currently available options and carry out a comprehensive analysis and comparison using computational loops and applications from the domain of unstructured mesh computations. beyond runtimes and performance metrics gb s we explore factors that influence performance such as register counts occupancy usage of different memory types instruction counts and algorithmic differences. results of this work show how clangs cuda compiler frequently outperform nvidias nvcc performance issues with directive-based approaches on complex kernels and openmp 4 support maturing in clang and xl currently around 10 slower than cuda. arxiv arxiv 2017 research-paper gabor daniel balogh istvan z. reguly gihan r. mudalige clang openmp performance gpu cuda programming languages clang openmp performance gpu cuda programming languages unstructured mesh parallelisation clang openmp",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -12415,8 +12442,9 @@
         ],
         "openalexId": "https://openalex.org/W2549396874",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12792,8 +12820,9 @@
         ],
         "openalexId": "https://openalex.org/W2619378247",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12957,8 +12986,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W331137753",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13096,9 +13126,10 @@
         ],
         "openalexId": "https://openalex.org/W1687555718",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-22969-0_19",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13330,9 +13361,10 @@
         ],
         "openalexId": "https://openalex.org/W1905460592",
         "citationCount": 28,
-        "sourceUrl": "",
         "doi": "10.1109/vlsi-soc.2015.7314386",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18773,9 +18805,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2402670008",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-26529-2_4",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -18953,10 +18986,11 @@
           "PGO"
         ],
         "openalexId": "https://openalex.org/W4252857370",
-        "citationCount": 15,
-        "sourceUrl": "",
+        "citationCount": 16,
         "doi": "10.1109/llvm-hpc.2014.8",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18970,7 +19004,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 15,
+        "_citationCount": 16,
         "_titleLower": "samplepgo - the power of profile guided optimizations without the usability burden",
         "_authorLower": "diego novillo google",
         "_authorsLower": "diego novillo google",
@@ -19244,7 +19278,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 15
+          "citationCount": 16
         },
         "_searchBlob": "samplepgo - the power of profile guided optimizations without the usability burden profile-guided optimizations pgo offer more optimization opportunities that are typically hard to obtain with static heuristics and techniques. in several application domains significant performance can be gained by using runtime profiles to guide optimization. however traditional pgo techniques that rely on compiler instrumentation are difficult enough to use that they have not become very popular.this paper describes samplepgo an llvm implementation of a profile-guided technique that addresses the usability problem. instead of using compiler-generated instrumentation to generate profiles it relies on profile information gathered by external sampling profilers. these profilers use commonly available hardware counters to inspect the execution of a program.in our experience with large applications in video image processing logs processing web search and ads we have obtained in our gcc implementation performance improvements of up to 30 using samplepgo over statically optimized code.while the llvm implementation is fully functional as of llvm 3.5 not many optimization passes in llvm make use of profile information. therefore the speedups we have been able to obtain using llvm are much more modest up to 5 over statically optimized code . 2014 llvm compiler infrastructure in hpc 2014 llvm compiler infrastructure in hpc 2014 research-paper diego novillo google optimizations performance pgo optimizations performance pgo",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -19300,9 +19334,10 @@
         ],
         "openalexId": "https://openalex.org/W2029483359",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/icsai.2014.7009310",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20529,15 +20564,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 53,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 53,
         "_titleLower": "automatic and portable mapping of data parallel programs to opencl for gpu-based heterogeneous systems",
         "_authorLower": "zheng wang lancaster university dominik grewe university of edinburgh michael o’boyle university of edinburgh",
         "_authorsLower": "zheng wang lancaster university dominik grewe university of edinburgh michael o’boyle university of edinburgh",
@@ -20822,7 +20858,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 0
+          "citationCount": 53
         },
         "_searchBlob": "automatic and portable mapping of data parallel programs to opencl for gpu-based heterogeneous systems general-purpose gpu-based systems are highly attractive as they give potentially massive performance at little cost. realizing such potential is challenging due to the complexity of programming. this article presents a compiler-based approach to automatically generate optimized opencl code from data parallel openmp programs for gpus. a key feature of our scheme is that it leverages existing transformations especially data transformations to improve performance on gpu architectures and uses automatic machine learning to build a predictive model to determine if it is worthwhile running the opencl code on the gpu or openmp code on the multicore host. we applied our approach to the entire nas parallel benchmark suite and evaluated it on distinct gpu-based systems. we achieved average up to speedups of 4.51 and 4.20 143 and 67 on core i7 nvidia geforce gtx580 and core i7 amd radeon 7970 platforms respectively over a sequential baseline. our approach achieves on average greater than 10 speedups over two state-of-the-art automatic gpu code generators. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 11 issue 4 2014 research-paper zheng wang lancaster university dominik grewe university of edinburgh michael oboyle university of edinburgh openmp optimizations performance gpu opencl ml openmp optimizations performance gpu opencl ml parallel programs portable mapping openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -21548,6 +21584,7 @@
         "openalexId": "https://openalex.org/W2017069727",
         "citationCount": 25,
         "doi": "10.1145/2512432",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -21972,9 +22009,10 @@
         ],
         "openalexId": "https://openalex.org/W2021080349",
         "citationCount": 19,
-        "sourceUrl": "",
         "doi": "10.1145/2451512.2451541",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22241,9 +22279,10 @@
         ],
         "openalexId": "https://openalex.org/W4251987281",
         "citationCount": 65,
-        "sourceUrl": "",
         "doi": "10.1145/1993498.1993522",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -22577,7 +22616,7 @@
         "venue": "Proceedings of 32nd ACM/IEEE International Conference on Software Engineering - Volume 1",
         "type": "research-paper",
         "abstract": "Many computations exhibit a trade off between execution time and quality of service. A video encoder, for example, can often encode frames more quickly if it is given the freedom to produce slightly lower quality video. A developer attempting to optimize such computations must navigate a complex trade-off space to find optimizations that appropriately balance quality of service and performance.",
-        "paperUrl": "https://doi.org/10.1145/1806799.1806808",
+        "paperUrl": "https://llvm.org/pubs/2010-05-ICSE-QualityOfService.pdf",
         "sourceUrl": "https://llvm.org/pubs/2010-05-ICSE-QualityOfService.html",
         "tags": [
           "Optimizations",
@@ -22587,10 +22626,11 @@
         "publication": "Proceedings of 32nd ACM/IEEE International Conference on Software Engineering - Volume 1",
         "openalexId": "https://openalex.org/W2165448367",
         "doi": "10.1145/1806799.1806808",
+        "citationCount": 223,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Optimizations",
           "Performance"
@@ -22601,7 +22641,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 223,
         "_titleLower": "quality of service profiling",
         "_authorLower": "saša misailovíc stelios sidiroglou henry hoffmann martin rinard",
         "_authorsLower": "saša misailovíc stelios sidiroglou henry hoffmann martin rinard",
@@ -22761,7 +22801,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 0
+          "citationCount": 223
         },
         "_searchBlob": "quality of service profiling many computations exhibit a trade off between execution time and quality of service. a video encoder for example can often encode frames more quickly if it is given the freedom to produce slightly lower quality video. a developer attempting to optimize such computations must navigate a complex trade-off space to find optimizations that appropriately balance quality of service and performance. proceedings of 32nd acm ieee international conference on software engineering - volume 1 proceedings of 32nd acm ieee international conference on software engineering - volume 1 2010 research-paper sasa misailovic stelios sidiroglou henry hoffmann martin rinard optimizations performance optimizations performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -22816,7 +22856,7 @@
         "venue": "Lecture Notes in Computer Science",
         "type": "research-paper",
         "abstract": "The Integer-Overflow-to-Buffer-Overflow (IO2BO) vulnerability is an underestimated threat. Automatically identifying and fixing this kind of vulnerability are critical for software security. In this paper, we present the design and implementation of IntPatch, a compiler extension for automatically fixing IO2BO vulnerabilities in C/C++ programs at compile time. IntPatch utilizes classic type theory and dataflow analysis framework to identify potential IO2BO vulnerabilities, and then instruments programs with runtime checks. Moreover, IntPatch provides an interface for programmers to facilitate checking integer overflows. We evaluate IntPatch on a number of real-world applications. It has caught all 46 previously known IO2BO vulnerabilities in our test suite and found 21 new bugs. Applications patched by IntPatch have a negligible runtime performance loss which is averaging about 1%.",
-        "paperUrl": "https://doi.org/10.1007/978-3-642-15497-3_5",
+        "paperUrl": "https://llvm.org/pubs/2010-09-ESORICS-FixOverflows.pdf",
         "sourceUrl": "https://llvm.org/pubs/2010-09-ESORICS-FixOverflows.html",
         "tags": [
           "C++",
@@ -22827,10 +22867,11 @@
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1542462119",
         "doi": "10.1007/978-3-642-15497-3_5",
+        "citationCount": 49,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "C++",
           "Performance",
@@ -22842,7 +22883,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 49,
         "_titleLower": "intpatch: automatically fix integer-overflow-to-buffer-overflow vulnerability at compile-time",
         "_authorLower": "chao zhang peking university tielei wang czech academy of sciences, institute of computer science tao wei peking university yu chen czech academy of sciences, institute of computer science wei zou czech academy of sciences, institute of computer science",
         "_authorsLower": "chao zhang peking university tielei wang czech academy of sciences, institute of computer science tao wei peking university yu chen czech academy of sciences, institute of computer science wei zou czech academy of sciences, institute of computer science",
@@ -23086,7 +23127,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 0
+          "citationCount": 49
         },
         "_searchBlob": "intpatch automatically fix integer-overflow-to-buffer-overflow vulnerability at compile-time the integer-overflow-to-buffer-overflow io2bo vulnerability is an underestimated threat. automatically identifying and fixing this kind of vulnerability are critical for software security. in this paper we present the design and implementation of intpatch a compiler extension for automatically fixing io2bo vulnerabilities in c c++ programs at compile time. intpatch utilizes classic type theory and dataflow analysis framework to identify potential io2bo vulnerabilities and then instruments programs with runtime checks. moreover intpatch provides an interface for programmers to facilitate checking integer overflows. we evaluate intpatch on a number of real-world applications. it has caught all 46 previously known io2bo vulnerabilities in our test suite and found 21 new bugs. applications patched by intpatch have a negligible runtime performance loss which is averaging about 1 . lecture notes in computer science lecture notes in computer science 2010 research-paper chao zhang peking university tielei wang czech academy of sciences institute of computer science tao wei peking university yu chen czech academy of sciences institute of computer science wei zou czech academy of sciences institute of computer science c++ performance security c++ performance security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -23453,7 +23494,7 @@
         "venue": "Proceedings of 14th ACM SIGPLAN symposium on Principles and practice of parallel programming",
         "type": "research-paper",
         "abstract": "The efficient mapping of program parallelism to multi-core processors is highly dependent on the underlying architecture. This paper proposes a portable and automatic compiler-based approach to mapping such parallelism using machine learning. It develops two predictors: a data sensitive and a data insensitive predictor to select the best mapping for parallel programs. They predict the number of threads and the scheduling policy for any given program using a model learnt off-line. By using low-cost profiling runs, they predict the mapping for a new unseen program across multiple input data sets. We evaluate our approach by selecting parallelism mapping configurations for OpenMP programs on two representative but different multi-core platforms (the Intel Xeon and the Cell processors). Performance of our technique is stable across programs and architectures. On average, it delivers above 96% performance of the maximum available on both platforms. It achieve, on average, a 37% (up to 17.5 times) performance improvement over the OpenMP runtime default scheme on the Cell platform. Compared to two recent prediction models, our predictors achieve better performance with a significant lower profiling cost.",
-        "paperUrl": "https://doi.org/10.1145/1504176.1504189",
+        "paperUrl": "https://llvm.org/pubs/2009-02-PPoPP-MappingParallelism.pdf",
         "sourceUrl": "https://llvm.org/pubs/2009-02-PPoPP-MappingParallelism.html",
         "tags": [
           "Performance"
@@ -23462,10 +23503,11 @@
         "publication": "Proceedings of 14th ACM SIGPLAN symposium on Principles and practice of parallel programming",
         "openalexId": "https://openalex.org/W2166536280",
         "doi": "10.1145/1504176.1504189",
+        "citationCount": 189,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -23475,7 +23517,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 189,
         "_titleLower": "mapping parallelism to multi-cores",
         "_authorLower": "zheng wang university of edinburgh michael o’boyle university of edinburgh",
         "_authorsLower": "zheng wang university of edinburgh michael o’boyle university of edinburgh",
@@ -23755,7 +23797,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 189
         },
         "_searchBlob": "mapping parallelism to multi-cores the efficient mapping of program parallelism to multi-core processors is highly dependent on the underlying architecture. this paper proposes a portable and automatic compiler-based approach to mapping such parallelism using machine learning. it develops two predictors a data sensitive and a data insensitive predictor to select the best mapping for parallel programs. they predict the number of threads and the scheduling policy for any given program using a model learnt off-line. by using low-cost profiling runs they predict the mapping for a new unseen program across multiple input data sets. we evaluate our approach by selecting parallelism mapping configurations for openmp programs on two representative but different multi-core platforms the intel xeon and the cell processors . performance of our technique is stable across programs and architectures. on average it delivers above 96 performance of the maximum available on both platforms. it achieve on average a 37 up to 17.5 times performance improvement over the openmp runtime default scheme on the cell platform. compared to two recent prediction models our predictors achieve better performance with a significant lower profiling cost. proceedings of 14th acm sigplan symposium on principles and practice of parallel programming proceedings of 14th acm sigplan symposium on principles and practice of parallel programming 2009 research-paper zheng wang university of edinburgh michael oboyle university of edinburgh performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -23784,7 +23826,7 @@
         "venue": "2008 IEEE Symposium on Interactive Ray Tracing",
         "type": "research-paper",
         "abstract": "We propose the use of run-time code generation for materials. This retains the flexibility of a run-time parameterizable material system and allows for performance improvement by elimination of branches and folding of constants. Noting that code generation is non-trivial and time consuming to implement, particularly when dealing with multiple platforms, we suggest the use of the low-level virtual machine (LLVM) for this purpose.",
-        "paperUrl": "https://doi.org/10.1109/rt.2008.4634651",
+        "paperUrl": "https://llvm.org/pubs/2008-08-RTCodegen.pdf",
         "tags": [
           "Performance"
         ],
@@ -23792,6 +23834,7 @@
         "citationCount": 0,
         "sourceUrl": "https://llvm.org/pubs/2008-08-RTCodegen.html",
         "doi": "10.1109/rt.2008.4634651",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -23996,7 +24039,7 @@
         "venue": "Proceedings of 2005 international conference on Compilers, architectures and synthesis for embedded systems",
         "type": "research-paper",
         "abstract": "The lack of virtual memory protection is a serious source of unreliability in many embedded systems. Without the segment-level protection it provides, these systems are subject to memory access violations, stemming from programmer error, whose results can be dangerous and catastrophic in safety-critical systems. The traditional method of testing embedded software before its deployment is an insufficient means of detecting and debugging all software errors, and the reliance on this practice is a severe gamble when the reliable performance of the embedded device is critical. Additionally, the use of safe languages and programming semantic restrictions as prevention mechanisms is often infeasible when considering the adoptability and compatibility of these languages since most embedded applications are written in C and C++.This work improves system reliability by providing a completely automatic software technique for guaranteeing segment protection for embedded systems lacking virtual memory. This is done by inserting optimized run-time checks before memory accesses that detect segmentation violations in cases in which there would otherwise be no error, enabling remedial action before system failure or corruption. This feature is invaluable for safety-critical embedded systems. Other advantages of our method include its low overhead, lack of any programming language or semantic restrictions, and ease of implementation. Our compile-time analysis, known as intended segment analysis, is a uniquely structured analysis that allows for the realization of optimizations used to reduce the number of required run-time checks and foster our technique into a truly viable solution for providing segment protection in embedded systems lacking virtual memory.Our experimental results show that these optimizations are effective at reducing the performance overheads associated with providing software segment protection to low, and in many cases, negligible levels. For the eight evaluated embedded benchmarks, the average increase in run-time is 0.72%, the average increase in energy consumption is 0.44%, and the average increase in code size is 3.60%.",
-        "paperUrl": "https://doi.org/10.1145/1086297.1086307",
+        "paperUrl": "https://llvm.org/pubs/2005-09-25-CASES05-SegmentProtection.pdf",
         "sourceUrl": "https://llvm.org/pubs/2005-09-25-CASES05-SegmentProtection.html",
         "tags": [
           "C++",
@@ -24009,10 +24052,11 @@
         "publication": "Proceedings of 2005 international conference on Compilers, architectures and synthesis for embedded systems",
         "openalexId": "https://openalex.org/W2013377579",
         "doi": "10.1145/1086297.1086307",
+        "citationCount": 21,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "C++",
           "Embedded",
@@ -24026,7 +24070,7 @@
         "_year": "2005",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 21,
         "_titleLower": "segment protection for embedded systems using run-time checks",
         "_authorLower": "matthew simpson university of maryland, college park bhuvan middha university of maryland, college park rajeev barua university of maryland, college park",
         "_authorsLower": "matthew simpson university of maryland, college park bhuvan middha university of maryland, college park rajeev barua university of maryland, college park",
@@ -24459,7 +24503,7 @@
             }
           },
           "year": 2005,
-          "citationCount": 0
+          "citationCount": 21
         },
         "_searchBlob": "segment protection for embedded systems using run-time checks the lack of virtual memory protection is a serious source of unreliability in many embedded systems. without the segment-level protection it provides these systems are subject to memory access violations stemming from programmer error whose results can be dangerous and catastrophic in safety-critical systems. the traditional method of testing embedded software before its deployment is an insufficient means of detecting and debugging all software errors and the reliance on this practice is a severe gamble when the reliable performance of the embedded device is critical. additionally the use of safe languages and programming semantic restrictions as prevention mechanisms is often infeasible when considering the adoptability and compatibility of these languages since most embedded applications are written in c and c++.this work improves system reliability by providing a completely automatic software technique for guaranteeing segment protection for embedded systems lacking virtual memory. this is done by inserting optimized run-time checks before memory accesses that detect segmentation violations in cases in which there would otherwise be no error enabling remedial action before system failure or corruption. this feature is invaluable for safety-critical embedded systems. other advantages of our method include its low overhead lack of any programming language or semantic restrictions and ease of implementation. our compile-time analysis known as intended segment analysis is a uniquely structured analysis that allows for the realization of optimizations used to reduce the number of required run-time checks and foster our technique into a truly viable solution for providing segment protection in embedded systems lacking virtual memory.our experimental results show that these optimizations are effective at reducing the performance overheads associated with providing software segment protection to low and in many cases negligible levels. for the eight evaluated embedded benchmarks the average increase in run-time is 0.72 the average increase in energy consumption is 0.44 and the average increase in code size is 3.60 . proceedings of 2005 international conference on compilers architectures and synthesis for embedded systems proceedings of 2005 international conference on compilers architectures and synthesis for embedded systems 2005 research-paper matthew simpson university of maryland college park bhuvan middha university of maryland college park rajeev barua university of maryland college park c++ embedded optimizations performance testing c++ embedded optimizations performance testing",
         "addedAt": "2026-02-20T23:08:48.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2026-04-004": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "This is a tutorial on MLIR’s new Python bindings for defining (1) dialects and ops, via an embedded op-definition DSL, as well as (2) writing rewrites (passes, pattern rewrites, and transform ops) that integrate with the existing infrastructure. These features enable a new iteration cycle for developing MLIR compilers: we can now do rapid prototyping of dialects and rewrites in a high-level language without having a compiler in the loop!",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_morel.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "mlir-iteration cycle goes brrr: defining ops and rewrites in python",
         "_speakerLower": "rolf morel",
@@ -202,12 +202,11 @@
           }
         ],
         "abstract": "This tutorial teaches how to use Clang as a library to build a C++ REPL with incremental compilation by splitting translation units into partial compilation steps. We demonstrate how to create a compiler-as-a-service that enables programmatic instantiation and invocation of C++ template functions from client code. Finally, we integrate these components with the Python runtime to examine practical cross-language interoperability.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_jomy.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/compiler-research/eurollvm26-tutorial",
         "tags": [],
+        "projectGithub": "https://github.com/compiler-research/eurollvm26-tutorial",
         "githubReferences": [
           "https://github.com/compiler-research/eurollvm26-tutorial"
         ],
@@ -232,6 +231,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "hands-on using clang as a library",
         "_speakerLower": "aaron jomy",
@@ -389,16 +389,16 @@
           }
         ],
         "abstract": "In this talk we compare the performance of Rust's `std:offload` interface on various benchmarks with C++ OpenMP, CUDA, and ROCm implementations. We show the impact of a new set of LLVM-IR optimizations, and the performance difference between \"safe\" and \"unsafe\" Rust. We briefly introduce two aliasing models that are under consideration in the Rust community, and how higher-level Rust alias info can be combined with our lower-level LLVM-IR opt pass.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_dominguez.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "gpu optimizations, and where rust knows more than llvm",
         "_speakerLower": "marcelo domínguez",
@@ -10011,15 +10011,7 @@
         "id": "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides",
         "title": "End-to-end flow for ML Compilation",
         "abstract": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf At the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We’ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.",
-        "speakers": [
-          {
-            "name": "Stephen Neuendorffer",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -10075,7 +10067,7 @@
         "videoId": "NCMme4H_HYQ",
         "keywords": [],
         "_titleLower": "end-to-end flow for ml compilation",
-        "_speakerLower": "stephen neuendorffer",
+        "_speakerLower": "",
         "_abstractLower": "this was a discussion about how to achieve upstream an end-to-end flow for ml compilation, intro slides are here: https://mlir.llvm.org/openmeetings/2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. compared to other ml frameworks (like xla or tvm), mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently, several projects in-tree (tosa) and out-of-tree (torch-mlir, iree) have made significant progress and we seem to have most of the pieces to build a complete flow. we’ll discuss what might a community end-to-end ml flow would look like and strategize about how to build it.",
         "_tagsLower": "mlir llvm ml",
         "_meetingLower": "mlir open design meeting  2021-12-02",
@@ -10093,11 +10085,8 @@
               ]
             },
             "speakers": {
-              "text": "stephen neuendorffer",
-              "words": [
-                "stephen",
-                "neuendorffer"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir llvm ml",
@@ -10270,7 +10259,7 @@
           },
           "year": 2021
         },
-        "_searchBlob": "end-to-end flow for ml compilation this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it. mlir open design meeting 2021-12-02 2021-12-02-mlir-open-design-meeting open-design-meeting stephen neuendorffer mlir llvm ml"
+        "_searchBlob": "end-to-end flow for ml compilation this was a discussion about how to achieve upstream an end-to-end flow for ml compilation intro slides are here https mlir.llvm.org openmeetings 2021-12-02-end2end-ml-compiler-flow.pdf at the moment there exists no end-to-end machine learning flow upstream at least not in a packaged and ready-to-use way. compared to other ml frameworks like xla or tvm mlir has primarily focused on compiler building blocks. the lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. recently several projects in-tree tosa and out-of-tree torch-mlir iree have made significant progress and we seem to have most of the pieces to build a complete flow. well discuss what might a community end-to-end ml flow would look like and strategize about how to build it. mlir open design meeting 2021-12-02 2021-12-02-mlir-open-design-meeting open-design-meeting mlir llvm ml"
       },
       "meeting": null
     },

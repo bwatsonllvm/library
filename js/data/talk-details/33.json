@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-8653c25da7b2",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-ec9fcc784202",
+  "generatedAt": "2026-04-24T05:45:58.000Z",
   "talks": {
     "2026-04-012": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "This talk explores strategies that have worked well when writing custom clang-tidy checks for Simcenter STAR-CCM+, a complex real-world codebase. It is intended to be intermediate level, so some familiarity with clang-tidy is assumed. In particular, participants should be familiar with writing Clang AST matchers.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_james.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/pull/154746",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/154746",
         "githubReferences": [
           "https://github.com/llvm/llvm",
           "https://github.com/llvm/llvm-project/pull/154746"
@@ -68,6 +67,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "effective clang tidy",
         "_speakerLower": "tom james",
@@ -211,16 +211,16 @@
           }
         ],
         "abstract": "Mojo's powerful compile-time meta-programming system and unified syntax make it exceptionally well-suited for heterogeneous accelerator programming, with proven success on CUDA and ROCm platforms. As many developers work on Apple products (such as iMacs, MacBooks, Mac Studios etc) adding Apple GPU support to Mojo is a natural next step. However, unlike CUDA and ROCm, which have open-source compiler toolchains in upstream LLVM, Apple's GPU compiler stack is proprietary. We will present chosen design and discuss challenges of Apple GPU’s integration into Mojo.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_panchenko.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "apple gpu support in mojo",
         "_speakerLower": "kolya panchenko",
@@ -406,16 +406,16 @@
           }
         ],
         "abstract": "We present an unconventional way of emitting RVV segment access instructions based on a loop-vectorize pass that emits strided accesses instead of gathers and scatters. We implement a pass that groups consecutive strided accesses, represented as VP intrinsics, and, if feasible, lowers them to RVV intrinsics of segment instructions. Then, we reuse the analysis part of this pass to cost groups of recipes as a single segment instruction, which enables the vectorization of loops that otherwise were going to be deemed unprofitable.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_kastoras.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "a stride towards generating segment accesses in rvv",
         "_speakerLower": "athanasios kastoras",

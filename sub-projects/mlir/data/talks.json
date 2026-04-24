@@ -1,9 +1,9 @@
 {
-  "dataVersion": "2026-04-21-mlir-talks",
-  "generatedAt": "2026-04-22T02:34:15Z",
+  "dataVersion": "2026-04-24-mlir-talks",
+  "generatedAt": "2026-04-24T05:45:58Z",
   "title": "MLIR Talks",
   "sourceUrl": "https://mlir.llvm.org/talks/",
-  "sourcePath": "/Users/britton/Documents/GitHub/mlir-www/website/content/talks/_index.md",
+  "sourcePath": "https://raw.githubusercontent.com/llvm/mlir-www/main/website/content/talks/_index.md",
   "sections": [
     {
       "id": "tutorials",
@@ -659,17 +659,7 @@
               "id": "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2",
               "displayTitle": "Discussion on the next steps on Properties",
               "abstract": "In this meeting we're discussing the next steps on the migration to properties.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Krzysztof Drewniak",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Fabian Mora Cordero",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2025-06-26: WebAssembly Dialect slides",
@@ -688,23 +678,9 @@
                 }
               ],
               "id": "mlir-talk-2025-06-26-webassembly-dialect-slides",
-              "displayTitle": "WebAssembly support in MLIR",
+              "displayTitle": "WebAssembly Dialect",
               "abstract": "An open design meeting on the proposed WebAssembly Dialect for MLIR.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Ferdinand Lemaire",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Jessica Paquette",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Luc Forget",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2025-06-12: Rank-0 Vectors slides",
@@ -878,23 +854,9 @@
                 }
               ],
               "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
-              "displayTitle": "An MPI Dialect for MLIR",
+              "displayTitle": "A MPI Dialect Proposal",
               "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads.\n\nThis presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Anton Lydike",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Tobias Grosser",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Nick Brown",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2023-10-26: A Polynomial Dialect Proposal slides",
@@ -915,17 +877,7 @@
               "id": "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides",
               "displayTitle": "A Polynomial Dialect Proposal",
               "abstract": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Alexander Viand",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Intel Jeremy Kun",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2023-09-28: Sharding Framework for Device Mesh slides",
@@ -960,16 +912,6 @@
               "text": "2023-07-13: mlir-query: Tool to query MLIR IR dynamically slides - recording",
               "actions": [
                 {
-                  "kind": "recording",
-                  "label": "Recording",
-                  "url": "https://youtu.be/3ELHZARBmYs"
-                },
-                {
-                  "kind": "slides",
-                  "label": "Slides",
-                  "url": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf"
-                },
-                {
                   "kind": "slides",
                   "label": "Slides",
                   "url": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf"
@@ -981,7 +923,7 @@
                 }
               ],
               "id": "mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
-              "displayTitle": "MLIR QUERY TOOL FOR EASIER EXPLORATION OF THE IR",
+              "displayTitle": "mlir-query: Tool to query MLIR IR dynamically",
               "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as \u201cisConstant\u201d. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
               "abstractSource": "youtube",
               "speakers": [
@@ -1042,13 +984,7 @@
               "id": "mlir-talk-2023-06-22-targeting-arm-sme-from-mlir-and-sme-dialect-slides-part-1",
               "displayTitle": "Targeting ARM SME from MLIR and SME Dialect",
               "abstract": "This is a review and discussion of the RFC on creating a ArmSME Dialect. We will first have an introduction into Arm\u2019s Scalable Matrix Extension, including the MLIR codegen perspective, the work done so far to target SME from MLIR, and discuss what\u2019s the best way to target \u201cCPU accelerators\u201d from MLIR. Then we will have a second part to detail the proposal for this dialect.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Frank Fang Gao",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2023-05-25: Distinct Attributes: Modeling LLVM's distinct metadata in MLIR slides",
@@ -1099,19 +1035,7 @@
               "abstractSource": "youtube",
               "speakers": [
                 {
-                  "name": "Max Levental",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Alok Kamatar",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Ryan Chard",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Kyle Chard",
+                  "name": "Maksim Levental",
                   "affiliation": ""
                 }
               ]
@@ -1183,13 +1107,7 @@
               "id": "mlir-talk-2023-02-09-deep-dive-on-mlir-internals-operation-attribute-towards-properties-slides",
               "displayTitle": "Deep Dive on MLIR Internals, Operation&Attribute, towards Properties",
               "abstract": "In this presentation, Mehdi AMINI will introduce some of the nitty-gritty aspects of MLIR internal core data-structures. If you ever wondered what happens when you create an Operation or an Attribute in MLIR, this may be interesting! Then we introduce Operation Properties as a new concept to potentially replace inherent Attributes on Operation. More info on Discourse: https://discourse.llvm.org/t/open-mlir-meeting-2-9-2023-deep-dive-on-mlir-internals-operation-attribute-towards-properties/68297",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Mehdi Amini",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2023-01-26: Controllable Transformations in MLIR",
@@ -1262,10 +1180,6 @@
               "speakers": [
                 {
                   "name": "Mathieu Fehr",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Th\u00e9o Degioanni",
                   "affiliation": ""
                 }
               ]
@@ -1397,13 +1311,7 @@
               "id": "mlir-talk-2021-12-02-end-to-end-flow-for-ml-compilation-slides",
               "displayTitle": "End-to-end flow for ML Compilation",
               "abstract": "This was a discussion about how to achieve upstream an end-to-end flow for ML compilation, intro slides are here: https://mlir.llvm.org/OpenMeetings/2021-12-02-End2End-ML-Compiler-Flow.pdf\n\nAt the moment there exists no end-to-end machine learning flow upstream, at least not in a packaged and ready-to-use way. Compared to other ML frameworks (Like XLA or TVM), MLIR has primarily focused on compiler building blocks. The lack of an in-tree flow is also a significant barrier to entry for compiler builders because we each have to figure out how all the pieces together to make a working system. Recently, several projects in-tree (TOSA) and out-of-tree (Torch-MLIR, IREE) have made significant progress and we seem to have most of the pieces to build a complete flow. We\u2019ll discuss what might a community end-to-end ML flow would look like and strategize about how to build it.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Stephen Neuendorffer",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2021-11-04: PDLL: a Frontend for PDL",
@@ -1424,13 +1332,7 @@
               "id": "mlir-talk-2021-11-04-pdll-a-frontend-for-pdl",
               "displayTitle": "PDLL: a Frontend for PDL",
               "abstract": "This presentation assumes some background on PDL, see previous talks on this topic on: https://mlir.llvm.org/talks/\n\n2021-04-15: Pattern Descriptor Language 2019-12-19: Interpreted Pattern Match Execution",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "River Riddle",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2021-09-09: An ML-Driven Autoconfigurator for Sparse Tensor Kernels in MLIR",
@@ -1454,11 +1356,7 @@
               "abstractSource": "youtube",
               "speakers": [
                 {
-                  "name": "Aart Bik",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Penporn Koanantakool",
+                  "name": "Gus Smith",
                   "affiliation": ""
                 }
               ]
@@ -1480,13 +1378,7 @@
                 }
               ],
               "id": "mlir-talk-2021-08-26-high-performance-gpu-tensor-corecode-generation-for-matmul-using-mlir",
-              "displayTitle": "High Performance GPU Tensor CoreCode Generation for Matmul Using MLIR",
-              "speakers": [
-                {
-                  "name": "Uday Bondhugula PolyMage Labs",
-                  "affiliation": ""
-                }
-              ]
+              "displayTitle": "High Performance GPU Tensor CoreCode Generation for Matmul Using MLIR"
             },
             {
               "title": "2021-07-22: MLIR data visualization using PassInstrumentation",
@@ -1532,7 +1424,7 @@
                 }
               ],
               "id": "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree",
-              "displayTitle": "From MHLO to Linalg on tensors Learnings from transitioning to Linalg on tensors",
+              "displayTitle": "From MHLO To Linalg in IREE",
               "abstract": "Initially IREE used MHLO dialect as the input dialect for its compilation stack. Over time it became apparent that MHLO is at a higher level abstraction than what is needed within IREEs core compilation stack. As a result, the IREE core compilation stack was moved to use Linalg on Tensors as its input dialect. In this talk, Mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in IREE as well as Linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
               "abstractSource": "youtube"
             },
@@ -1603,13 +1495,7 @@
               "id": "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files",
               "displayTitle": "MLIR Language Server (Modern IDE features for .mlir files",
               "abstract": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Language Server River Riddle",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2021-05-06: Alibaba Group: Disc revisit & future discussion",
@@ -2247,13 +2133,7 @@
               "id": "mlir-talk-2024-10-17-shaderpulse-a-glsl-frontend-for-mlir-spir-v",
               "displayTitle": "Shaderpulse, a GLSL Frontend for MLIR SPIR-V",
               "abstract": "In this meeting, talks about Shaderpulse: a new GLSL frontend for MLIR SPIR-V. He walks through the project through example compute shaders, and show how the Shaderpulse AST maps to the SPIR-V MLIR Dialect.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Ahmed Harmouche",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2024-09-12: XLA Indexing Maps",
@@ -2400,15 +2280,7 @@
               "abstractSource": "youtube",
               "speakers": [
                 {
-                  "name": "Hugo Pompougnac",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Dumitru Potop -Butucaru",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Albert Cohen",
+                  "name": "Dumitru Potop-Butucaru",
                   "affiliation": ""
                 }
               ]
@@ -2459,13 +2331,7 @@
               "id": "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
               "displayTitle": "HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
               "abstract": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations.\n\nWith the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
-              "abstractSource": "youtube",
-              "speakers": [
-                {
-                  "name": "Shaojie Xiang",
-                  "affiliation": ""
-                }
-              ]
+              "abstractSource": "youtube"
             },
             {
               "title": "2022-02-17: IREE's ML input dialects",
@@ -2516,31 +2382,7 @@
               "abstractSource": "youtube",
               "speakers": [
                 {
-                  "name": "Fine Licht",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Nikolaos Ziogas",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Timo Schneider",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Philipp Schaad",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Oliver Rausch",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Andrei Ivanov",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Tal Ben",
+                  "name": "Berke Ates",
                   "affiliation": ""
                 }
               ]
@@ -2583,21 +2425,7 @@
                 }
               ],
               "id": "mlir-talk-2021-05-27-quantum-classical-compilation-with-mlir",
-              "displayTitle": "Quantum-Classical Compilation with MLIR",
-              "speakers": [
-                {
-                  "name": "Thien Nguyen",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Eugene Dumitrescu",
-                  "affiliation": ""
-                },
-                {
-                  "name": "Dmitry Liakh",
-                  "affiliation": ""
-                }
-              ]
+              "displayTitle": "Quantum-Classical Compilation with MLIR"
             },
             {
               "title": "2021-04-29: Tensor Processing Primitives",
