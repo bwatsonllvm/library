@@ -385,7 +385,13 @@ ul, ol {
 }
 
 .nav-link--mlir {
-  gap: var(--space-1);
+  gap: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nav-link--mlir > span {
+  display: none;
 }
 
 .nav-link-logo {
@@ -396,8 +402,8 @@ ul, ol {
 }
 
 .nav-link-logo--mlir {
-  width: 22px;
-  height: 22px;
+  width: 74px;
+  height: 28px;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -763,7 +769,11 @@ ul, ol {
 }
 
 .mobile-nav-link--mlir {
-  gap: var(--space-2);
+  gap: 0;
+}
+
+.mobile-nav-link--mlir span {
+  display: none;
 }
 
 .mobile-nav-link-logo {
@@ -774,8 +784,8 @@ ul, ol {
 }
 
 .mobile-nav-link--mlir .mobile-nav-link-logo {
-  width: 20px;
-  height: 20px;
+  width: 82px;
+  height: 28px;
 }
 
 .mobile-nav-link:hover,
