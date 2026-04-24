@@ -1167,7 +1167,7 @@ function renderPaperCard(paper, tokens) {
       </a>
       <p class="card-speakers paper-authors">${renderAuthorButtons(paper.authors || [], tokens)}</p>
       ${tagsHtml}
-      ${(pdfLink || detailLink || paperLink || citationHtml) ? `<div class="card-footer">${pdfLink}${detailLink}${paperLink}${citationHtml}</div>` : ''}
+      ${(pdfLink || paperLink || detailLink || citationHtml) ? `<div class="card-footer">${pdfLink}${paperLink}${detailLink}${citationHtml}</div>` : ''}
     </article>`;
 }
 

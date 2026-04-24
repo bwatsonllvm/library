@@ -26,6 +26,8 @@ let topicLabelByNormalized = new Map();
 const ALL_WORK_PAGE_PATH = 'work.html';
 const MAX_TOPIC_FILTERS = 220;
 const MIN_TOPIC_FILTER_COUNT = 2;
+const TOPIC_SORT_STORAGE_KEY = 'llvm-hub-topic-sort';
+const TOPIC_SORT_MODES = new Set(['alpha', 'common']);
 const TALK_SORT_MODES = new Set(['relevance', 'newest', 'oldest', 'title']);
 const PAGE_REQUIRED_TAGS = String(document.body && document.body.dataset ? document.body.dataset.requiredTags || '' : '')
   .split(',')
@@ -48,6 +50,7 @@ const state = {
   meeting: '',       // slug filter set when arriving from meetings page
   meetingName: '',   // display name for the meeting pill
   sortBy: 'relevance',
+  topicSort: 'alpha',
 };
 
 // Category display names and order
@@ -366,10 +369,10 @@ function sortTalkResults(results, tokens) {
   return results;
 }
 
-function filterAndSort() {
+function getSearchMatchedTalks() {
   let results = searchIndex;
   const tokens = state.query.length >= 2 ? tokenize(state.query) : [];
-  searchMode = tokens.length > 0 ? 'exact' : 'browse';
+  let mode = tokens.length > 0 ? 'exact' : 'browse';
   if (tokens.length > 0) {
     results = rankTalksByQuery(results, state.query);
 
@@ -387,35 +390,53 @@ function filterAndSort() {
         return String(a.talk.title || '').localeCompare(String(b.talk.title || ''));
       });
       results = fuzzy.map((entry) => entry.talk);
-      if (results.length > 0) searchMode = 'fuzzy';
+      if (results.length > 0) mode = 'fuzzy';
     }
   }
 
-  if (state.meeting) {
-    results = results.filter(t => t.meeting === state.meeting);
+  return { results, tokens, mode };
+}
+
+function applyTalkFilters(results, options = {}) {
+  let filtered = Array.isArray(results) ? results : [];
+  const skipFacet = String(options.skipFacet || '').trim();
+
+  if (state.meeting && skipFacet !== 'meeting') {
+    filtered = filtered.filter(t => t.meeting === state.meeting);
   }
   if (state.speaker) {
     const selectedSpeaker = state.speaker;
-    results = results.filter(t =>
+    filtered = filtered.filter(t =>
       (t.speakers || []).some((s) => samePersonName(s.name, selectedSpeaker))
     );
   }
-  if (state.activeTag) {
+  if (state.activeTag && skipFacet !== 'tag') {
     const activeTopic = normalizeFilterValue(state.activeTag);
-    results = results.filter((talk) =>
+    filtered = filtered.filter((talk) =>
       getTalkKeyTopics(talk).some((topic) => normalizeFilterValue(topic) === activeTopic)
     );
   }
-  if (state.categories.size > 0) {
-    results = results.filter(t => state.categories.has(t.category));
+  if (state.categories.size > 0 && skipFacet !== 'category') {
+    filtered = filtered.filter(t => state.categories.has(t.category));
   }
-  if (state.years.size > 0) {
-    results = results.filter(t => state.years.has(t._year));
+  if (state.years.size > 0 && skipFacet !== 'year') {
+    filtered = filtered.filter(t => state.years.has(t._year));
   }
-  if (state.hasVideo)  results = results.filter(t => t.videoUrl);
-  if (state.hasSlides) results = results.filter(t => t.slidesUrl);
+  if (state.hasVideo && skipFacet !== 'video') filtered = filtered.filter(t => t.videoUrl);
+  if (state.hasSlides && skipFacet !== 'slides') filtered = filtered.filter(t => t.slidesUrl);
 
-  return sortTalkResults(results, tokens);
+  return filtered;
+}
+
+function getFacetBaseResults(skipFacet) {
+  const search = getSearchMatchedTalks();
+  return applyTalkFilters(search.results, { skipFacet });
+}
+
+function filterAndSort() {
+  const search = getSearchMatchedTalks();
+  searchMode = search.mode;
+  return sortTalkResults(applyTalkFilters(search.results), search.tokens);
 }
 
 // ============================================================
@@ -982,20 +1003,180 @@ function buildMeetingOptions() {
   meetingOptions = Array.from(map.values()).sort((a, b) => b.slug.localeCompare(a.slug));
 }
 
+function addFacetCount(map, key, amount = 1) {
+  const normalizedKey = String(key || '').trim();
+  if (!normalizedKey) return;
+  map.set(normalizedKey, Number(map.get(normalizedKey) || 0) + amount);
+}
+
+function countCategoryFacets(talks) {
+  const counts = new Map();
+  for (const talk of talks || []) {
+    addFacetCount(counts, talk.category || 'other');
+  }
+  return counts;
+}
+
+function countYearFacets(talks) {
+  const counts = new Map();
+  for (const talk of talks || []) {
+    addFacetCount(counts, talk._year || (talk.meeting ? String(talk.meeting).slice(0, 4) : ''));
+  }
+  return counts;
+}
+
+function countMeetingFacets(talks) {
+  const counts = new Map();
+  for (const talk of talks || []) {
+    addFacetCount(counts, talk.meeting);
+  }
+  return counts;
+}
+
+function countTopicFacets(talks) {
+  const counts = new Map();
+  for (const talk of talks || []) {
+    for (const topic of getTalkKeyTopics(talk, 12)) {
+      const label = String(topic || '').trim();
+      if (!label || label.length > 48) continue;
+      const key = normalizeFilterValue(label);
+      if (!key) continue;
+      const entry = counts.get(key) || {
+        key,
+        label: topicLabelByNormalized.get(key) || label,
+        count: 0,
+      };
+      entry.count += 1;
+      counts.set(key, entry);
+    }
+  }
+  return counts;
+}
+
+function hasFacetContext(skipFacet = '') {
+  const skip = String(skipFacet || '').trim();
+  return !!(
+    state.query ||
+    state.speaker ||
+    (state.meeting && skip !== 'meeting') ||
+    (state.activeTag && skip !== 'tag') ||
+    (state.categories.size > 0 && skip !== 'category') ||
+    (state.years.size > 0 && skip !== 'year') ||
+    (state.hasVideo && skip !== 'video') ||
+    (state.hasSlides && skip !== 'slides')
+  );
+}
+
+function syncChipCount(chip, count, options = {}) {
+  if (!chip) return;
+  const numericCount = Math.max(0, Number(count || 0));
+  const active = !!options.active;
+  const hideUnavailable = !!options.hideUnavailable;
+  const countEl = chip.querySelector('.filter-chip-count');
+  if (countEl) countEl.textContent = numericCount.toLocaleString();
+  chip.hidden = hideUnavailable && !active && numericCount <= 0;
+  chip.disabled = !active && numericCount <= 0;
+  chip.setAttribute('aria-disabled', chip.disabled ? 'true' : 'false');
+}
+
+function normalizeTopicSortMode(value) {
+  const mode = String(value || '').trim().toLowerCase();
+  return TOPIC_SORT_MODES.has(mode) ? mode : 'alpha';
+}
+
+function compareTopicEntriesAlpha(a, b) {
+  return String(a && a.label || '').localeCompare(String(b && b.label || ''));
+}
+
+function compareTopicEntriesMostCommon(a, b) {
+  const countDiff = Number(b && b.count || 0) - Number(a && a.count || 0);
+  if (countDiff !== 0) return countDiff;
+  return compareTopicEntriesAlpha(a, b);
+}
+
+function syncTopicSortControl() {
+  document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]').forEach((button) => {
+    const active = normalizeTopicSortMode(button.dataset.topicSort) === state.topicSort;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function initTopicSortControl() {
+  state.topicSort = normalizeTopicSortMode(safeStorageGet(TOPIC_SORT_STORAGE_KEY));
+  syncTopicSortControl();
+  document.querySelectorAll('.filter-topic-sort-btn[data-topic-sort]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextSort = normalizeTopicSortMode(button.dataset.topicSort);
+      if (state.topicSort === nextSort) return;
+      state.topicSort = nextSort;
+      safeStorageSet(TOPIC_SORT_STORAGE_KEY, state.topicSort);
+      syncTopicSortControl();
+      render();
+    });
+  });
+}
+
+function renderTopicFilterChips(topicCounts, options = {}) {
+  const tagContainer = document.getElementById('filter-tags');
+  if (!tagContainer) return;
+
+  const contextual = !!options.contextual;
+  const activeTopic = normalizeFilterValue(state.activeTag);
+  const entries = Array.from((topicCounts || new Map()).values())
+    .filter((entry) => {
+      if (!entry || !entry.label) return false;
+      if (activeTopic && entry.key === activeTopic) return true;
+      return contextual ? Number(entry.count || 0) > 0 : Number(entry.count || 0) >= MIN_TOPIC_FILTER_COUNT;
+    })
+    .sort(state.topicSort === 'common' ? compareTopicEntriesMostCommon : compareTopicEntriesAlpha)
+    .slice(0, MAX_TOPIC_FILTERS);
+
+  tagContainer.innerHTML = entries.map((entry) => {
+    const active = activeTopic && entry.key === activeTopic;
+    return `
+      <button class="filter-chip filter-chip--tag${active ? ' active' : ''}" data-type="tag" data-value="${escapeHtml(entry.label)}"
+              role="switch" aria-checked="${active ? 'true' : 'false'}">
+        ${escapeHtml(entry.label)}
+        <span class="filter-chip-count">${Number(entry.count || 0).toLocaleString()}</span>
+      </button>`;
+  }).join('');
+  syncTopicSortControl();
+}
+
+function syncResourceFacetCount(buttonId, count, active, hideUnavailable) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return;
+  let countEl = btn.querySelector('.filter-chip-count');
+  if (!countEl) {
+    countEl = document.createElement('span');
+    countEl.className = 'filter-chip-count';
+    btn.appendChild(countEl);
+  }
+  syncChipCount(btn, count, { active, hideUnavailable });
+}
+
 function renderMeetingFilterOptions() {
   const select = document.getElementById('filter-meeting-select');
   const hint = document.getElementById('filter-meeting-hint');
   if (!select) return;
 
+  const meetingCounts = countMeetingFacets(getFacetBaseResults('meeting'));
+  const contextual = hasFacetContext('meeting');
   const hasYearFilter = state.years.size > 0;
   const visibleOptions = hasYearFilter
     ? meetingOptions.filter((option) => state.years.has(option.year))
     : meetingOptions;
+  const countedOptions = contextual
+    ? visibleOptions.filter((option) => Number(meetingCounts.get(option.slug) || 0) > 0 || option.slug === state.meeting)
+    : visibleOptions;
 
-  select.innerHTML = `<option value="">All events</option>${visibleOptions.map((option) =>
-    `<option value="${escapeHtml(option.slug)}">${escapeHtml(option.label)}</option>`).join('')}`;
+  select.innerHTML = `<option value="">All events</option>${countedOptions.map((option) => {
+    const count = Number(meetingCounts.get(option.slug) || 0);
+    return `<option value="${escapeHtml(option.slug)}">${escapeHtml(option.label)} (${count.toLocaleString()})</option>`;
+  }).join('')}`;
 
-  if (state.meeting && visibleOptions.some((option) => option.slug === state.meeting)) {
+  if (state.meeting && countedOptions.some((option) => option.slug === state.meeting)) {
     select.value = state.meeting;
   } else {
     if (state.meeting) {
@@ -1006,12 +1187,12 @@ function renderMeetingFilterOptions() {
   }
 
   if (!hint) return;
-  if (visibleOptions.length === 0) {
-    hint.textContent = 'No events match selected year filters';
+  if (countedOptions.length === 0) {
+    hint.textContent = contextual ? 'No events match selected filters' : 'No events match selected year filters';
   } else if (hasYearFilter) {
-    hint.textContent = `${visibleOptions.length} event${visibleOptions.length === 1 ? '' : 's'} in selected year${state.years.size === 1 ? '' : 's'}`;
+    hint.textContent = `${countedOptions.length} event${countedOptions.length === 1 ? '' : 's'} in selected year${state.years.size === 1 ? '' : 's'}`;
   } else {
-    hint.textContent = `${visibleOptions.length} total events`;
+    hint.textContent = `${countedOptions.length} total events`;
   }
 }
 
@@ -1031,6 +1212,39 @@ function syncMeetingFilterForState() {
 
   state.meetingName = state.meetingName || option.name;
   renderMeetingFilterOptions();
+}
+
+function syncFilterFacetCounts() {
+  const categoryCounts = countCategoryFacets(getFacetBaseResults('category'));
+  const hideUnavailableCategories = hasFacetContext('category');
+  document.querySelectorAll('.filter-chip[data-type="category"]').forEach((chip) => {
+    const value = chip.dataset.value || 'other';
+    const active = state.categories.has(value);
+    chip.classList.toggle('active', active);
+    chip.setAttribute('aria-checked', active ? 'true' : 'false');
+    syncChipCount(chip, categoryCounts.get(value), { active, hideUnavailable: hideUnavailableCategories });
+  });
+
+  const yearCounts = countYearFacets(getFacetBaseResults('year'));
+  const hideUnavailableYears = hasFacetContext('year');
+  document.querySelectorAll('.filter-chip[data-type="year"]').forEach((chip) => {
+    const value = chip.dataset.value || '';
+    const active = state.years.has(value);
+    chip.classList.toggle('active', active);
+    chip.setAttribute('aria-checked', active ? 'true' : 'false');
+    syncChipCount(chip, yearCounts.get(value), { active, hideUnavailable: hideUnavailableYears });
+  });
+
+  renderMeetingFilterOptions();
+
+  renderTopicFilterChips(countTopicFacets(getFacetBaseResults('tag')), {
+    contextual: hasFacetContext('tag'),
+  });
+
+  const videoCount = getFacetBaseResults('video').filter((talk) => talk.videoUrl).length;
+  const slidesCount = getFacetBaseResults('slides').filter((talk) => talk.slidesUrl).length;
+  syncResourceFacetCount('filter-video', videoCount, state.hasVideo, hasFacetContext('video'));
+  syncResourceFacetCount('filter-slides', slidesCount, state.hasSlides, hasFacetContext('slides'));
 }
 
 function initFilters() {
@@ -1094,34 +1308,23 @@ function initFilters() {
   }
 
   // Key Topic filters — alphabetical for predictable scanning
-  const tagCounts = {};
-  for (const t of allTalks) {
-    for (const topic of getTalkKeyTopics(t, 12)) {
-      if (String(topic || '').length > 48) continue;
-      tagCounts[topic] = (tagCounts[topic] || 0) + 1;
-    }
-  }
-  const activeTags = Object.entries(tagCounts)
-    .filter(([, count]) => count >= MIN_TOPIC_FILTER_COUNT)
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
-    .slice(0, MAX_TOPIC_FILTERS)
-    .map(([topic]) => topic)
-    .sort((a, b) => a.localeCompare(b));
   const tagContainer = document.getElementById('filter-tags');
   if (tagContainer) {
-    tagContainer.innerHTML = activeTags.map(tag => `
-      <button class="filter-chip filter-chip--tag" data-type="tag" data-value="${escapeHtml(tag)}"
-              role="switch" aria-checked="false">
-        ${escapeHtml(tag)}
-        <span class="filter-chip-count">${(tagCounts[tag] || 0).toLocaleString()}</span>
-      </button>`).join('');
+    renderTopicFilterChips(countTopicFacets(allTalks), { contextual: false });
+    tagContainer.addEventListener('click', (event) => {
+      const chip = event.target.closest('.filter-chip[data-type="tag"]');
+      if (!chip || !tagContainer.contains(chip) || chip.disabled) return;
+      applyAutocompleteSelection('tag', chip.dataset.value, 'sidebar');
+    });
   }
 
   // Wire up chip clicks
-  document.querySelectorAll('.filter-chip[data-type]').forEach(chip => {
+  document.querySelectorAll('.filter-chip[data-type="category"], .filter-chip[data-type="year"]').forEach(chip => {
     chip.addEventListener('click', () => {
       const type = chip.dataset.type;
       const value = chip.dataset.value;
+
+      if (chip.disabled) return;
 
       if (type === 'category') {
         if (state.categories.has(value)) {
@@ -1152,9 +1355,6 @@ function initFilters() {
           }
         }
         renderMeetingFilterOptions();
-      } else if (type === 'tag') {
-        applyAutocompleteSelection('tag', value, 'sidebar');
-        return;
       }
 
       updateClearBtn();
@@ -1928,6 +2128,7 @@ function syncHeaderGlobalSearchInput() {
 }
 
 function render() {
+  syncFilterFacetCounts();
   const results = filterAndSort();
   renderCards(results);
   renderResultCount(results.length);
@@ -2818,6 +3019,7 @@ async function init() {
 
   buildSearchIndex();
   updateHeroCount();
+  initTopicSortControl();
   initFilters();
   initFilterAccordions();
   initFilterSidebarCollapse();

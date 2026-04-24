@@ -2670,7 +2670,7 @@ function renderPaperCard(paper, tokensOverride = null) {
       </a>
       ${authorsHtml ? `<p class="card-speakers paper-authors">${authorsHtml}</p>` : ''}
       ${renderTagLinks(topics, tokens)}
-      ${(pdfLink || detailLink || paperLink || citationHtml) ? `<div class="card-footer">${pdfLink}${detailLink}${paperLink}${citationHtml}</div>` : ''}
+      ${(pdfLink || paperLink || detailLink || citationHtml) ? `<div class="card-footer">${pdfLink}${paperLink}${detailLink}${citationHtml}</div>` : ''}
     </article>`;
 }
 

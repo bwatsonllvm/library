@@ -3030,8 +3030,45 @@ body.filter-collapsed .filter-collapse-btn svg {
 .filter-tags-header {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-2);
   margin-bottom: var(--space-2);
+}
+
+.filter-topic-sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  flex-shrink: 0;
+}
+
+.filter-topic-sort-btn {
+  min-height: 28px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: calc(var(--radius-md) - 2px);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.filter-topic-sort-btn:hover {
+  color: var(--color-text);
+  background: var(--color-surface-hover);
+}
+
+.filter-topic-sort-btn.active {
+  color: var(--color-state-active-text);
+  background: var(--color-state-active-bg);
 }
 
 .filter-group--wrap {
@@ -4530,6 +4567,7 @@ html[data-theme="dark"] .subproject-research-note {
 .nav-dropdown-toggle:focus-visible,
 .nav-dropdown-link:focus-visible,
 .filter-event-select:focus-visible,
+.filter-topic-sort-btn:focus-visible,
 .card-tag:focus-visible,
 .suggestion-chip:focus-visible,
 .empty-action-btn:focus-visible,
