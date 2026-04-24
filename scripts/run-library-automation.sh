@@ -270,6 +270,8 @@ run_prepare_pages() {
   run test -f _site/mlir/index.html
   run test -f _site/learn/index.html
   run test -f _site/community/index.html
+  run test -f _site/js/data/youtube-view-counts-snapshot.json
+  run test ! -f _site/js/data/youtube-view-counts.json
   run test -f _site/mlir/talks/index.html
   run test -f _site/mlir/talks/talk.html
   run test -f _site/mlir/pubs/index.html

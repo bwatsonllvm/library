@@ -62,6 +62,7 @@ for f in \
   js/data/talks-catalog.json \
   js/data/viewer-artifacts.json \
   js/data/work-search-corpus.json \
+  js/data/youtube-view-counts-snapshot.json \
   sub-projects/mlir/data/talks.json \
   sub-projects/mlir/data/publications.json \
   templates/site-header.html \

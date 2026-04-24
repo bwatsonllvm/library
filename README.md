@@ -148,7 +148,8 @@ The `talks/` **Most views** sort uses YouTube's own `viewCount` statistics when 
 - Production Pages deploys can build `api/youtube-view-counts.json` with `scripts/build-youtube-view-counts-endpoint.mjs` and `YOUTUBE_API_KEY`.
 - The deployed endpoint is generated into `_site/` during `prepare-pages`; it is not committed to the repository.
 - The Pages workflow runs daily so the static endpoint can refresh without browser-side YouTube API calls or exposed API keys.
-- Local prototypes may still use an ignored `js/data/youtube-view-counts.json` fallback for offline testing.
+- If the generated endpoint is not available, the viewer falls back to `js/data/youtube-view-counts-snapshot.json` so the sort does not collapse to all-zero view counts.
+- Local prototypes may still use an ignored `js/data/youtube-view-counts.json` file for fresher offline testing.
 
 ### URL/state behavior
 

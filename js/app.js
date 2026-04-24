@@ -26,6 +26,7 @@ let youtubeViewCounts = new Map();
 const YOUTUBE_VIEW_COUNT_SOURCE_URLS = [
   'api/youtube-view-counts.json',
   'js/data/youtube-view-counts.json',
+  'js/data/youtube-view-counts-snapshot.json',
 ];
 
 const ALL_WORK_PAGE_PATH = 'work.html';
