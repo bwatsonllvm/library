@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-014": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "We're building clang-reforge, an automatic source code rewriting tool that enables adoption of bounds-safety in large existing C++ codebases. clang-reforge analyzes source code to identify unsafe pointer operations and capture pointer flow. It replaces built-in pointers with bounds-safe types in pointer flow segments from allocation sites to unsafe operations, such as pointer arithmetic. We have a working internal prototype and we're now rebuilding it on top of clang's Scalable Static Analysis Framework.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_korous.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "clang-reforge: automatic whole-codebase source code rewriting tool for security hardening",
         "_speakerLower": "jan korous",
@@ -210,12 +210,11 @@
           }
         ],
         "abstract": "This talk presents a source-location-driven approach for tracking the evolution of MLIR operations across deep pass pipelines. Motivated by real-world optimization work on quantized convolutions in IREE, it shows how preserved source locations can be used to reconstruct operation lineage across IR stages, enabling systematic reasoning about transformation effects. The talk surveys source location semantics under common MLIR transformations and demonstrates a reusable Python-based tool that supports interactive, cross-stage operation tracking for improved debuggability in large MLIR programs.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_walbroel.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/RooflineAI/mlir",
         "tags": [],
+        "projectGithub": "https://github.com/RooflineAI/mlir",
         "githubReferences": [
           "https://github.com/RooflineAI/mlir",
           "https://github.com/RooflineAI/mlir-track-src"
@@ -257,6 +256,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "tracking operations through mlir pass pipelines using source locations",
         "_speakerLower": "florian walbroel",
@@ -438,16 +438,16 @@
           }
         ],
         "abstract": "The Clang Static Analyzer has enjoyed almost 2 decades of industrial adoption, with more and more focus on its usability. Prior research indicated that, among other things, warning message quality is a leading source of dissatisfaction with static analysis tools, which developers of the Clang Static Analyzer tackled but never conclusively proved the benefits of these changes. This talk fills this gap by presenting a method for measuring warning message quality through a human experiment. We sent out surveys in three stages to fine-tune our methodology, with our final one receiving 64 responses from regular static analysis users. We were able to confirm many long-suspected but never confirmed theories circulating among the Clang Static Analyzer contributors: the value of summarizing functions, trimming bug reports, and simplifying low-level code. Based on these results, we also created and landed a bug report improvement, which is available since Clang 19.0.0.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_umann.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "confirming the impact of warning message quality in the clang static analyzer",
         "_speakerLower": "kristóf umann",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2025-06-006": {
       "talk": {
@@ -1207,7 +1207,7 @@
     "2023-05-049": {
       "talk": {
         "id": "2023-05-049",
-        "meeting": "2023-07-13-mlir-open-design-meeting",
+        "meeting": "2023-05",
         "meetingName": "2023 EuroLLVM Developers' Meeting",
         "meetingLocation": "Glasgow, Scotland",
         "meetingDate": "May 10-11, 2023",
@@ -1222,15 +1222,13 @@
             "twitter": ""
           }
         ],
-        "abstract": "In this presentation Devajith introduces mlir-query: a tool to query MLIR IR dynamically. The tool has a REPL (or command-line) interface to enable users to query various properties of MLIR code, such as “isConstant”. The tool is intended to be similar to clang-query, which allows developers to match AST expressions in C++ code using a TUI with autocomplete and other features. The presentation will cover the progress so far and the implementation details.",
+        "abstract": "This talk will introduce mlir-query, a query language tool designed to simplify the exploration of the Intermediate Representation (IR) of code in MLIR. mlir-query aims to provide a more efficient means of understanding and debugging the IR, which can be challenging without a query language. The presentation will showcase the tool's basic queries, such as operation, hasName, resultOf, and constant queries, along with a demo of its usefulness.",
         "videoUrl": "https://youtu.be/3ELHZARBmYs",
         "videoId": "3ELHZARBmYs",
         "slidesUrl": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf",
         "tags": [
           "IR",
-          "MLIR",
-          "About MLIR and MLIR Components",
-          "Open Design Meeting"
+          "MLIR"
         ],
         "projectGithub": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query",
         "githubReferences": [
@@ -1254,35 +1252,15 @@
             "kind": "github",
             "label": "GitHub",
             "url": "https://github.com/devajithvs/llvm-project/tree/devajith.mlir-query"
-          },
-          {
-            "kind": "recording",
-            "label": "Recording",
-            "url": "https://youtu.be/3ELHZARBmYs"
-          },
-          {
-            "kind": "slides",
-            "label": "Slides",
-            "url": "https://llvm.org/devmtg/2023-05/slides/StudentTalks-May11/04-Sreeramaswamy-MLIRQueryTool.pdf"
-          },
-          {
-            "kind": "slides",
-            "label": "Slides",
-            "url": "https://mlir.llvm.org/OpenMeetings/2023-07-13-MLIR-query.pdf"
-          },
-          {
-            "kind": "recording",
-            "label": "Recording",
-            "url": "https://youtu.be/eFNS4ubazO4"
           }
         ],
         "keywords": [],
         "posterUrl": "",
-        "sourceUrl": "https://mlir.llvm.org/talks/",
+        "sourceUrl": "",
         "_titleLower": "mlir query tool for easier exploration of the ir",
         "_speakerLower": "devajith valaparambil sreeramaswamy",
-        "_abstractLower": "in this presentation devajith introduces mlir-query: a tool to query mlir ir dynamically. the tool has a repl (or command-line) interface to enable users to query various properties of mlir code, such as “isconstant”. the tool is intended to be similar to clang-query, which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
-        "_tagsLower": "ir mlir clang clang-tools-extra",
+        "_abstractLower": "this talk will introduce mlir-query, a query language tool designed to simplify the exploration of the intermediate representation (ir) of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir, which can be challenging without a query language. the presentation will showcase the tool's basic queries, such as operation, hasname, resultof, and constant queries, along with a demo of its usefulness.",
+        "_tagsLower": "ir mlir",
         "_meetingLower": "2023 eurollvm developers' meeting glasgow, scotland may 10-11, 2023",
         "_year": "2023",
         "_searchDoc": {
@@ -1310,12 +1288,10 @@
               ]
             },
             "tags": {
-              "text": "ir mlir clang clang-tools-extra",
+              "text": "ir mlir",
               "words": [
                 "ir",
-                "mlir",
-                "clang",
-                "clang-tools-extra"
+                "mlir"
               ]
             },
             "meeting": {
@@ -1333,78 +1309,72 @@
               ]
             },
             "abstract": {
-              "text": "in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details.",
+              "text": "this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness.",
               "words": [
-                "in",
                 "this",
-                "presentation",
-                "devajith",
-                "introduces",
+                "talk",
+                "will",
+                "introduce",
                 "mlir-query",
-                "tool",
-                "to",
                 "query",
-                "mlir",
-                "ir",
-                "dynamically.",
+                "language",
+                "tool",
+                "designed",
+                "to",
+                "simplify",
                 "the",
-                "tool",
-                "has",
-                "repl",
-                "or",
-                "command-line",
-                "interface",
-                "to",
-                "enable",
-                "users",
-                "to",
-                "query",
-                "various",
-                "properties",
+                "exploration",
                 "of",
-                "mlir",
-                "code",
-                "such",
-                "as",
-                "isconstant",
                 "the",
-                "tool",
-                "is",
-                "intended",
-                "to",
-                "be",
-                "similar",
-                "to",
-                "clang-query",
-                "which",
-                "allows",
-                "developers",
-                "to",
-                "match",
-                "ast",
-                "expressions",
-                "in",
-                "c++",
+                "intermediate",
+                "representation",
+                "ir",
+                "of",
                 "code",
-                "using",
-                "tui",
-                "with",
-                "autocomplete",
+                "in",
+                "mlir.",
+                "mlir-query",
+                "aims",
+                "to",
+                "provide",
+                "more",
+                "efficient",
+                "means",
+                "of",
+                "understanding",
                 "and",
-                "other",
-                "features.",
+                "debugging",
+                "the",
+                "ir",
+                "which",
+                "can",
+                "be",
+                "challenging",
+                "without",
+                "query",
+                "language.",
                 "the",
                 "presentation",
                 "will",
-                "cover",
+                "showcase",
                 "the",
-                "progress",
-                "so",
-                "far",
+                "tools",
+                "basic",
+                "queries",
+                "such",
+                "as",
+                "operation",
+                "hasname",
+                "resultof",
                 "and",
-                "the",
-                "implementation",
-                "details."
+                "constant",
+                "queries",
+                "along",
+                "with",
+                "demo",
+                "of",
+                "its",
+                "usefulness."
               ]
             },
             "category": {
@@ -1422,11 +1392,16 @@
           },
           "year": 2023
         },
-        "_searchBlob": "mlir query tool for easier exploration of the ir in this presentation devajith introduces mlir-query a tool to query mlir ir dynamically. the tool has a repl or command-line interface to enable users to query various properties of mlir code such as isconstant . the tool is intended to be similar to clang-query which allows developers to match ast expressions in c++ code using a tui with autocomplete and other features. the presentation will cover the progress so far and the implementation details. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-07-13-mlir-open-design-meeting technical-talk devajith valaparambil sreeramaswamy ir mlir clang clang-tools-extra",
-        "detailUrl": "talks/talk.html?id=mlir-talk-2023-07-13-mlir-query-tool-to-query-mlir-ir-dynamically-slides",
-        "_mlirSourceUpstream": true
+        "_searchBlob": "mlir query tool for easier exploration of the ir this talk will introduce mlir-query a query language tool designed to simplify the exploration of the intermediate representation ir of code in mlir. mlir-query aims to provide a more efficient means of understanding and debugging the ir which can be challenging without a query language. the presentation will showcase the tools basic queries such as operation hasname resultof and constant queries along with a demo of its usefulness. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 technical-talk devajith valaparambil sreeramaswamy ir mlir"
       },
-      "meeting": null
+      "meeting": {
+        "slug": "2023-05",
+        "name": "2023 EuroLLVM Developers' Meeting",
+        "date": "May 10-11, 2023",
+        "location": "Glasgow, Scotland",
+        "canceled": false,
+        "talkCount": 60
+      }
     },
     "2022-11-009": {
       "talk": {
@@ -4209,21 +4184,7 @@
         "abstract": "In this MLIR Open Meeting, Dumitru Potop-Butucaru presents their work on Embedded Reactive Programming in MLIR: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 Today’s machine learning (ML) frameworks (TensorFlow, PyTorch…) and compilers (MLIR, Glow…) allow the specification and efficient implementation of deep neural networks (DNNs) that have ever-increasing precision when applied to Big Data that is already stored in large databases. By contrast, in various applications, a clear need emerges for reactive ML applications that operate in a stateful fashion on streams of data, in time (in RNNs, attention-based approaches, reinforcement learning - RL - or even when scheduling convolutional networks in time to reduce memory requirements). Beyond this view focused on ML algorithmic design, the field of embedded ML, where ML components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. Existing ML frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. The situation has reached a point where ML algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - RL- or in transformers) is largely distinct from embedded ML engineering, the latter focusing on simpler (often stateless) network architectures. Ad hoc remedies are proposed in the literature for specific and limited cases. For instance, the time dimension of RL applications is traversed using (interpreted) Python code unsuitable for an embedded implementation. Modifications to the Python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
         "speakers": [
           {
-            "name": "Hugo Pompougnac",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
             "name": "Dumitru Potop-Butucaru",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Albert Cohen",
             "affiliation": "",
             "github": "",
             "linkedin": "",
@@ -4285,7 +4246,7 @@
         "videoId": "euws5GvM3oo",
         "keywords": [],
         "_titleLower": "embedded reactive programming in mlir",
-        "_speakerLower": "hugo pompougnac dumitru potop-butucaru albert cohen",
+        "_speakerLower": "dumitru potop-butucaru",
         "_abstractLower": "in this mlir open meeting, dumitru potop-butucaru presents their work on embedded reactive programming in mlir: https://discourse.llvm.org/t/open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc/66317 today’s machine learning (ml) frameworks (tensorflow, pytorch…) and compilers (mlir, glow…) allow the specification and efficient implementation of deep neural networks (dnns) that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast, in various applications, a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data, in time (in rnns, attention-based approaches, reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements). beyond this view focused on ml algorithmic design, the field of embedded ml, where ml components are placed in the feedback loop of real-time embedded control applications (along with data pre- and post-processing routines) is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation (which largely embraces approaches that process data in time, like in reinforcement learning - rl- or in transformers) is largely distinct from embedded ml engineering, the latter focusing on simpler (often stateless) network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance, the time dimension of rl applications is traversed using (interpreted) python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications (a sub-case of general-purpose reactiveness).",
         "_tagsLower": "mlir llvm embedded ml",
         "_meetingLower": "mlir open design meeting  2022-12-15",
@@ -4303,14 +4264,10 @@
               ]
             },
             "speakers": {
-              "text": "hugo pompougnac dumitru potop-butucaru albert cohen",
+              "text": "dumitru potop-butucaru",
               "words": [
-                "hugo",
-                "pompougnac",
                 "dumitru",
-                "potop-butucaru",
-                "albert",
-                "cohen"
+                "potop-butucaru"
               ]
             },
             "tags": {
@@ -4600,7 +4557,7 @@
           },
           "year": 2022
         },
-        "_searchBlob": "embedded reactive programming in mlir in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness . mlir open design meeting 2022-12-15 2022-12-15-mlir-open-design-meeting open-design-meeting hugo pompougnac dumitru potop-butucaru albert cohen mlir llvm embedded ml"
+        "_searchBlob": "embedded reactive programming in mlir in this mlir open meeting dumitru potop-butucaru presents their work on embedded reactive programming in mlir https discourse.llvm.org t open-mlir-meeting-11-3-2022-modeling-ub-in-mlir-the-poison-semantics-rfc 66317 todays machine learning ml frameworks tensorflow pytorch... and compilers mlir glow... allow the specification and efficient implementation of deep neural networks dnns that have ever-increasing precision when applied to big data that is already stored in large databases. by contrast in various applications a clear need emerges for reactive ml applications that operate in a stateful fashion on streams of data in time in rnns attention-based approaches reinforcement learning - rl - or even when scheduling convolutional networks in time to reduce memory requirements . beyond this view focused on ml algorithmic design the field of embedded ml where ml components are placed in the feedback loop of real-time embedded control applications along with data pre- and post-processing routines is becoming both a reality and an industrial necessity. existing ml frameworks and compilers cannot adequately handle the specification and the implementation of reactive aspects. the situation has reached a point where ml algorithmic innovation which largely embraces approaches that process data in time like in reinforcement learning - rl- or in transformers is largely distinct from embedded ml engineering the latter focusing on simpler often stateless network architectures. ad hoc remedies are proposed in the literature for specific and limited cases. for instance the time dimension of rl applications is traversed using interpreted python code unsuitable for an embedded implementation. modifications to the python front-end also provide the solution to streaming applications a sub-case of general-purpose reactiveness . mlir open design meeting 2022-12-15 2022-12-15-mlir-open-design-meeting open-design-meeting dumitru potop-butucaru mlir llvm embedded ml"
       },
       "meeting": null
     }

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-017": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "This technical talk summarizes recent improvements to MLIR’s floating-point type infrastructure, focusing on how to represent and lower the rapidly growing zoo of low-precision and block-scaled formats used in modern ML workloads. It introduces the \"FloatTypeInterface\", explains the interaction with LLVM’s \"APFloat\" and \"fltSemantics\", and shows step-by-step how to add new floating-point types, from extending \"APFloat\" to defining lowering rules and dialect design for \"special\" FP types across high-level and low-level dialects. The talk also covers the new \"arith-to-apfloat\" infrastructure for software emulation of low-precision FP arithmetics on CPUs, discusses current limitations of adding FP types without patching LLVM, and outlines future directions for more extensible, vendor-friendly floating-point type systems in MLIR.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_springer.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "floating-point types in mlir: infrastructure, new types and dialect design",
         "_speakerLower": "matthias springer",
@@ -251,12 +251,11 @@
           }
         ],
         "abstract": "Developing a compiler for Agentic AI workloads presents a unique challenge because the runtime demands the safety and ergonomics of Rust while the optimization pipeline requires the mature infrastructure of MLIR. This talk presents the architecture of a toolchain designed to leverage the strengths of both ecosystems. We discuss how we structured a hybrid build system where Rust drives the compilation process and defines runtime semantics, while C++ manages the core MLIR dialect and transformations. The session covers the practical engineering required to bridge these worlds, from orchestrating CMake and Cargo to managing the boundary between Rust runtime metadata and MLIR operation definitions. We share lessons learned about the complexity of linking, the tradeoffs of code generation, and the reality of maintaining a custom dialect across the language barrier.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_cardenas.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/randreshg/a-pxm",
         "tags": [],
+        "projectGithub": "https://github.com/randreshg/a-pxm",
         "githubReferences": [
           "https://github.com/randreshg/a-pxm"
         ],
@@ -281,6 +280,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "engineering a hybrid rust and mlir toolchain for ai agents",
         "_speakerLower": "miguel cárdenas",

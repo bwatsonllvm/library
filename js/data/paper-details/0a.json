@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "papers": {
     "openalex-w7111544135": {
       "paper": {
@@ -56,8 +56,9 @@
         ],
         "openalexId": "https://openalex.org/W7111544135",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -357,6 +358,7 @@
         "openalexId": "https://openalex.org/W4412913574",
         "citationCount": 1,
         "doi": "10.18522/2311-3103-2025-3-264-273",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -860,16 +862,17 @@
           "mlir"
         ],
         "id": "openalex-w4412610590",
-        "sourceUrl": "",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "vcnn: a compiler of cnns based on mlir for multi-core vector accelerators",
         "_authorLower": "xiaorong chen national university of defense technology cheng li national university of defense technology zhong liu b national university of defense technology",
         "_authorsLower": "xiaorong chen national university of defense technology cheng li national university of defense technology zhong liu b national university of defense technology",
@@ -1294,7 +1297,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "vcnn a compiler of cnns based on mlir for multi-core vector accelerators convolutional neural network cnn is one of the representative algorithms of machine learning and deep learning. multi-core vector accelerators are becoming increasingly popular due to their high performance and low power consumption. in the previous methods of deploying cnns to vector accelerators three issues are of concern. 1 multi-core tasks are divided according to the image data dimension which has limitations in low-latency real-time detection application scenarios. 2 many memory optimization strategies only consider the impact of tensor size or tensor life ignoring the inherent computational characteristics of operator types. 3 manual mapping methods require a lot of engineering effort and are prone to introducing errors. therefore the vcnn proposed in this paper is a compiler based on mlir for vector accelerators. the vcnn can automatically map cnn models to vector accelerators. it includes 1 a multi-core parallel convolution algorithm mpc that is more suitable for low-latency real-time detection application scenarios. 2 an adaptive memory reuse method amr . it not only considers the size or lifetime of tensors but also the inherent computational characteristics of operator types. 3 a quantization pass that quantizes the model and reshuffles the data. experimental results show that the vcnn can effectively utilize the parallel processing capabilities of hardware when performing convolutions of different sizes and achieve a parallel computing efficiency of up to 95.75 . in addition we evaluated the performance of alexnet vgg16 and yolov5s models. the results show that vcnn has a computational efficiency of more than 2x+ that of tvm tensorrt and onnxruntime and a power efficiency of more than 7x+ that of them. additionally the vcnn inference model using float16 is twice as energy efficient as that using float32. furthermore the vcnn achieves a higher memory reuse rate compared to traditional memory reuse methods. 2024 ieee international conference on high performance computing and communications hpcc 2024 ieee international conference on high performance computing and communications hpcc 2024 research-paper xiaorong chen national university of defense technology cheng li national university of defense technology zhong liu b national university of defense technology mlir optimizations performance ml mlir optimizations performance parallel computing core vector accelerators multi core vector memory reuse inherent computational characteristics efficiency latency real operator types mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -1365,8 +1368,9 @@
           "Infrastructure"
         ],
         "openalexId": "https://openalex.org/W4391983995",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.1145/3640537.3641565",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -1380,7 +1384,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "unifico: thread migration in heterogeneous-isa cpus without state transformation",
         "_authorLower": "nikolaos mavrogeorgis university of edinburgh christos vasiladiotis university of edinburgh pei mu university of edinburgh amir khordadi university of edinburgh björn franke university of edinburgh antonio barbalace university of edinburgh",
         "_authorsLower": "nikolaos mavrogeorgis university of edinburgh christos vasiladiotis university of edinburgh pei mu university of edinburgh amir khordadi university of edinburgh björn franke university of edinburgh antonio barbalace university of edinburgh",
@@ -1722,7 +1726,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "unifico thread migration in heterogeneous-isa cpus without state transformation heterogeneous-isa processor designs have attracted considerable research interest. however unlike their homogeneous-isa counterparts explicit software support for bridging isa heterogeneity is required. the lack of a compilation toolchain ready to support heterogeneous-isa targets has been a major factor hindering research in this exciting emerging area. for any such compiler getting right the mechanics involved in state transformation upon migration and doing this efficiently is of critical importance. in particular any runtime conversion of the current program stack from one architecture to another would be prohibitively expensive. in this paper we design and develop unifico a new multi-isa compiler that generates binaries that maintain the same stack layout during their execution on either architecture. unifico avoids the need for runtime stack transformation thus eliminating overheads associated with isa migration. additional responsibilities of the unifico compiler backend include maintenance of a uniform abi and virtual address space across isas. unifico is implemented using the llvm compiler infrastructure and we are currently targeting the x86-64 and armv8 isas. we have evaluated unifico across a range of compute-intensive nas benchmarks and show its minimal impact on overall execution time where less than 6 overhead is introduced on average. when compared against the state-of-the-art popcorn compiler unifico reduces binary size overhead from 200 to 10 whilst eliminating the stack transformation overhead during isa migration. proceedings of 33rd acm sigplan international conference on compiler construction proceedings of 33rd acm sigplan international conference on compiler construction 2024 research-paper nikolaos mavrogeorgis university of edinburgh christos vasiladiotis university of edinburgh pei mu university of edinburgh amir khordadi university of edinburgh bjorn franke university of edinburgh antonio barbalace university of edinburgh backend infrastructure backend infrastructure",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -1785,10 +1789,11 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W4394999238",
-        "citationCount": 7,
-        "sourceUrl": "",
+        "citationCount": 10,
         "doi": "10.1145/3620665.3640382",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1801,7 +1806,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 10,
         "_titleLower": "plankton: reconciling binary code and debug information",
         "_authorLower": "anshunkang zhou hong kong university of science and technology chengfeng ye hong kong university of science and technology heqing huang city university of hong kong yuandao cai hong kong university of science and technology charles zhang hong kong university of science and technology",
         "_authorsLower": "anshunkang zhou hong kong university of science and technology chengfeng ye hong kong university of science and technology heqing huang city university of hong kong yuandao cai hong kong university of science and technology charles zhang hong kong university of science and technology",
@@ -2096,7 +2101,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 7
+          "citationCount": 10
         },
         "_searchBlob": "plankton reconciling binary code and debug information static analysis has been widely used in large-scale software defect detection. despite recent advances it is still not practical enough because it requires compilation interference to obtain analyzable code. directly translating the binary code using a binary lifter mitigates this practicality problem by being non-intrusive to the building system. however existing binary lifters cannot produce precise enough code for rigorous static analysis even in the presence of the debug information. in this paper we propose a new binary lifter plankton together with two new algorithms that can fill the gaps between the low- and high-level code to produce high-quality llvm intermediate representations irs from binaries with debug information enabling full-fledged static analysis with minor precision loss. plankton shows comparable static analysis results with traditional compilation interference solutions producing only 17.2 differences while being much more practical outperforming existing lifters by 76.9 on average. proceedings of 29th acm international conference on architectural support for programming languages and operating systems proceedings of 29th acm international conference on architectural support for programming languages and operating systems 2024 research-paper anshunkang zhou hong kong university of science and technology chengfeng ye hong kong university of science and technology heqing huang city university of hong kong yuandao cai hong kong university of science and technology charles zhang hong kong university of science and technology debug information static analysis debug information static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -2145,9 +2150,10 @@
         ],
         "openalexId": "https://openalex.org/W4394995399",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1109/nnice61279.2024.10499062",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2545,15 +2551,16 @@
           "llvm"
         ],
         "id": "openalex-w4405426061",
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "cage: hardware-accelerated safe webassembly",
         "_authorLower": "martin fink dimitrios stavrakakis dennis sprokholt soham chakraborty jan-erik ekberg pramod bhatotia",
         "_authorsLower": "martin fink dimitrios stavrakakis dennis sprokholt soham chakraborty jan-erik ekberg pramod bhatotia",
@@ -2900,7 +2907,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "cage hardware-accelerated safe webassembly webassembly wasm is an immensely versatile and increasingly popular compilation target. it executes applications written in several languages e.g. c c++ with near-native performance in various domains e.g. mobile edge cloud . despite wasms sandboxing feature which isolates applications from other instances and the host platform wasm does not inherently provide any memory safety guarantees for applications written in low-level unsafe languages. to this end we propose cage a hardware-accelerated toolchain for wasm that supports unmodified applications compiled to wasm and utilizes diverse arm hardware features aiming to enrich the memory safety properties of wasm. precisely cage leverages arms memory tagging extension mte to i provide spatial and temporal memory safety for heap and stack allocations and ii improve the performance of wasms sandboxing mechanism. cage further employs arms pointer authentication pac to prevent leaked pointers from being reused by other wasm instances thus enhancing wasms security properties. we implement our system based on 64-bit wasm. we provide a wasm compiler and runtime with support for arms mte and pac. on top of that cages llvm-based compiler toolchain transforms unmodified applications to provide spatial and temporal memory safety for stack and heap allocations and prevent function pointer reuse. our evaluation on real hardware shows that cage incurs minimal runtime and lt 5.8 and memory and lt 3.7 overheads and can improve the performance of wasms sandboxing mechanism achieving a speedup of over 5.1 while offering efficient memory safety guarantees. arxiv arxiv 2024 research-paper martin fink dimitrios stavrakakis dennis sprokholt soham chakraborty jan-erik ekberg pramod bhatotia llvm security performance infrastructure wasm llvm security performance infrastructure wasm memory safety memory safety guarantees cage hardware accelerated arm provide spatial temporal memory safety sandboxing mechanism accelerated safe webassembly llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3037,16 +3044,17 @@
           "mlir"
         ],
         "id": "openalex-w4395106400",
-        "sourceUrl": "",
+        "citationCount": 8,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 8,
         "_titleLower": "a shared compilation stack for distributed-memory parallelism in stencil dsls",
         "_authorLower": "george bisbas imperial college london anton lydike university of edinburgh emilien bauer university of edinburgh nick brown university of edinburgh mathieu fehr university of edinburgh lawrence mitchell gabriel rodriguez‐canal university of edinburgh maurice jamieson university of edinburgh paul h. j. kelly imperial college london michel steuwer technische universität berlin tobias grosser university of cambridge",
         "_authorsLower": "george bisbas imperial college london anton lydike university of edinburgh emilien bauer university of edinburgh nick brown university of edinburgh mathieu fehr university of edinburgh lawrence mitchell gabriel rodriguez‐canal university of edinburgh maurice jamieson university of edinburgh paul h. j. kelly imperial college london michel steuwer technische universität berlin tobias grosser university of cambridge",
@@ -3382,7 +3390,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 8
         },
         "_searchBlob": "a shared compilation stack for distributed-memory parallelism in stencil dsls domain specific languages dsls increase programmer productivity and provide high performance. their targeted abstractions allow scientists to express problems at a high level providing rich details that optimizing compilers can exploit to target current- and next-generation supercomputers. the convenience and performance of dsls come with significant development and maintenance costs. the siloed design of dsl compilers and the resulting inability to benefit from shared infrastructure cause uncertainties around longevity and the adoption of dsls at scale. by tailoring the broadly-adopted mlir compiler framework to hpc we bring the same synergies that the machine learning community already exploits across their dsls e.g. tensorflow pytorch to the finite-difference stencil hpc community. we introduce new hpc-specific abstractions for message passing targeting distributed stencil computations. we demonstrate the sharing of common components across three distinct hpc stencil-dsl compilers devito psyclone and the open earth compiler showing that our framework generates high-performance executables based upon a shared compiler ecosystem. proceedings of 29th acm international conference on architectural support for programming languages and operating systems proceedings of 29th acm international conference on architectural support for programming languages and operating systems 2024 research-paper george bisbas imperial college london anton lydike university of edinburgh emilien bauer university of edinburgh nick brown university of edinburgh mathieu fehr university of edinburgh lawrence mitchell gabriel rodriguez canal university of edinburgh maurice jamieson university of edinburgh paul h. j. kelly imperial college london michel steuwer technische universitat berlin tobias grosser university of cambridge mlir performance infrastructure ml programming languages mlir performance infrastructure programming languages dsls stencil dsls hpc dsl compilers distributed memory parallelism shared compilation stack mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3462,10 +3470,11 @@
           "runtimes"
         ],
         "id": "openalex-w4367704652",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -3785,10 +3794,11 @@
           "mlir"
         ],
         "id": "openalex-w4360995224",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -4233,10 +4243,11 @@
           "openmp"
         ],
         "id": "openalex-w4390678977",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -4603,15 +4614,16 @@
           "openmp"
         ],
         "id": "openalex-w4386269033",
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "introducing moldable tasks in openmp",
         "_authorLower": "pierre-étienne polet université claude bernard lyon 1 ramy fantar thales thierry gautier université claude bernard lyon 1",
         "_authorsLower": "pierre-étienne polet université claude bernard lyon 1 ramy fantar thales thierry gautier université claude bernard lyon 1",
@@ -4846,7 +4858,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "introducing moldable tasks in openmp this paper introduces a new approach to handle implicit parallelism in library functions. if the library already utilizes a thirdparty programming model like openmp it may run in parallel. otherwise if the library remains sequential openmp directives in client code cannot be used for direct parallelization. to express implicit parallelism and in the meanwhile dynamically adjust the parallel degree of a task when its starts we propose to use moldable tasks. we handle this by introducing a new construct called taskmoldable that generates multiples tasks from a single function call and an iteration space. for the lapack cholesky factorization algorithm our taskmoldable directive allows simple code annotation to express parallelism between tiles and improves programmability. performance results on a beamforming application indicates that our moldable implementation is slightly faster by 5 in mean than a parallel execution achieved with intel mkl. lecture notes in computer science lecture notes in computer science 2023 research-paper pierre-etienne polet universite claude bernard lyon 1 ramy fantar thales thierry gautier universite claude bernard lyon 1 openmp openmp introducing moldable tasks openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -4936,15 +4948,16 @@
           "clang"
         ],
         "id": "openalex-w4385750097",
+        "citationCount": 10,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 10,
         "_titleLower": "fuzz4all: universal fuzzing with large language models",
         "_authorLower": "chunqiu steven xia matteo paltenghi jia le tian michael pradel lingming zhang",
         "_authorsLower": "chunqiu steven xia matteo paltenghi jia le tian michael pradel lingming zhang",
@@ -5326,7 +5339,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 10
         },
         "_searchBlob": "fuzz4all universal fuzzing with large language models fuzzing has achieved tremendous success in discovering bugs and vulnerabilities in various software systems. systems under test suts that take in programming or formal language as inputs e.g. compilers runtime engines constraint solvers and software libraries with accessible apis are especially important as they are fundamental building blocks of software development. however existing fuzzers for such systems often target a specific language and thus cannot be easily applied to other languages or even other versions of the same language. moreover the inputs generated by existing fuzzers are often limited to specific features of the input language and thus can hardly reveal bugs related to other or new features. this paper presents fuzz4all the first fuzzer that is universal in the sense that it can target many different input languages and many different features of these languages. the key idea behind fuzz4all is to leverage large language models llms as an input generation and mutation engine which enables the approach to produce diverse and realistic inputs for any practically relevant language. to realize this potential we present a novel autoprompting technique which creates llm prompts that are wellsuited for fuzzing and a novel llm-powered fuzzing loop which iteratively updates the prompt to create new fuzzing inputs. we evaluate fuzz4all on nine systems under test that take in six different languages c c++ go smt2 java and python as inputs. the evaluation shows across all six languages that universal fuzzing achieves higher coverage than existing language-specific fuzzers. furthermore fuzz4all has identified 98 bugs in widely used systems such as gcc clang z3 cvc5 openjdk and the qiskit quantum computing platform with 64 bugs already confirmed by developers as previously unknown. arxiv arxiv 2023 research-paper chunqiu steven xia matteo paltenghi jia le tian michael pradel lingming zhang clang testing libraries quantum computing clang testing libraries quantum computing fuzzing quantum compilation fuzz4all inputs fuzz4all universal fuzzing fuzzers specific clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5389,15 +5402,16 @@
           "llvm"
         ],
         "id": "openalex-w4361193180",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "formalization of quantum intermediate representations for code safety",
         "_authorLower": "junjie luo jianjun zhao",
         "_authorsLower": "junjie luo jianjun zhao",
@@ -5617,7 +5631,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "formalization of quantum intermediate representations for code safety quantum intermediate representation qir is a microsoft-developed llvm-based intermediate representation for quantum program compilers. qir aims to provide a general solution for quantum program compilers independent of front-end languages and back-end hardware thus avoiding duplicate development of intermediate representations and compilers. since it is still under development qir is described in natural language and lacks a formal definition leading to ambiguity in its interpretation and a lack of rigor in implementing quantum functions. in this paper we provide formal definitions for the data types and instruction sets of qir aiming to provide correctness and security guarantees for operations and intermediate code conversions in qir. to validate our design we show some samples of unsafe qir code where errors can be detected by our formal approach. arxiv arxiv 2023 research-paper junjie luo jianjun zhao llvm ir security llvm ir security intermediate representation quantum program compilers intermediate representations quantum intermediate representations formalization provide llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -5692,15 +5706,16 @@
         "matchedSubprojects": [
           "llvm"
         ],
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "compiler auto-tuning through multiple phase learning",
         "_authorLower": "mingxuan zhu dan hao junjie chen",
         "_authorsLower": "mingxuan zhu dan hao junjie chen",
@@ -6019,7 +6034,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "compiler auto-tuning through multiple phase learning widely used compilers like gcc and llvm usually have hundreds of optimizations controlled by optimization flags which are enabled or disabled during compilation to improve runtime performance e.g. small execution time of the compiler program. due to the large number of optimization flags and their combination it is difficult for compiler users to manually tune compiler optimization flags. in the literature a number of auto-tuning techniques have been proposed which tune optimization flags for a compiled program by comparing its actual runtime performance with different optimization flag combination. due to the huge search space and heavy actual runtime cost these techniques suffer from the widely-recognized efficiency problem. to reduce the heavy runtime cost in this paper we propose a lightweight learning approach which uses a small number of actual runtime performance data to predict the runtime performance of a compiled program with various optimization flag combination. furthermore to reduce the search space we design a novel particle swarm algorithm which tunes compiler optimization flags with the prediction model. to evaluate the performance of the proposed approach comptuner we conduct an extensive experimental study on two popular c compilers gcc and llvm with two widely used benchmarks cbench and polybench. the experimental results show that comptuner significantly outperforms the five compared techniques including the state-of-art technique boca. arxiv arxiv 2023 research-paper mingxuan zhu dan hao junjie chen llvm optimizations performance llvm optimizations performance compiler optimization flags runtime performance actual runtime performance optimization flag combination compiler auto tuning compiled program runtime cost search space gcc phase learning llvm",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6115,16 +6130,17 @@
           "mlir"
         ],
         "id": "openalex-w4321496380",
-        "sourceUrl": "",
+        "citationCount": 7,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 7,
         "_titleLower": "code generation for in-place stencils",
         "_authorLower": "mohamed essadki office national d'études et de recherches aérospatiales bertrand michel office national d'études et de recherches aérospatiales bruno maugars office national d'études et de recherches aérospatiales alex zinenko nicolas vasilache google albert cohen",
         "_authorsLower": "mohamed essadki office national d'études et de recherches aérospatiales bertrand michel office national d'études et de recherches aérospatiales bruno maugars office national d'études et de recherches aérospatiales alex zinenko nicolas vasilache google albert cohen",
@@ -6418,7 +6434,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 7
         },
         "_searchBlob": "code generation for in-place stencils numerical simulation often resorts to iterative in-place stencils such as the gauss-seidel or successive overrelaxation sor methods. writing high performance implementations of such stencils requires significant effort and time it also involves non-local transformations beyond the stencil kernel itself. while automated code generation is a mature technology for image processing stencils convolutions and out-of-place iterative stencils such as the jacobi method the optimization of in-place stencils requires manual craftsmanship. building on recent advances in tensor compiler construction we propose the first domain-specific code generator for iterative in-place stencils. starting from a generic tensor compiler implemented in the mlir framework tensor abstractions are incrementally refined and lowered down to parallel tiled fused and vectorized code. we used our generator to implement a realistic implicit solver for structured meshes and demonstrate results competitive with an industrial computational fluid dynamics framework. we also compare with stand-alone stencil kernels for dense tensors. proceedings of 21st acm ieee international symposium on code generation and optimization proceedings of 21st acm ieee international symposium on code generation and optimization 2023 research-paper mohamed essadki office national detudes et de recherches aerospatiales bertrand michel office national detudes et de recherches aerospatiales bruno maugars office national detudes et de recherches aerospatiales alex zinenko nicolas vasilache google albert cohen mlir backend code generation optimizations performance mlir backend code generation optimizations performance place stencils iterative tensor compiler stencils requires mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6460,9 +6476,10 @@
         ],
         "openalexId": "https://openalex.org/W4285134373",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-031-09484-2_6",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6666,6 +6683,7 @@
         "openalexId": "https://openalex.org/W4214849268",
         "citationCount": 8,
         "doi": "10.1145/3494516",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -7245,10 +7263,11 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4220800565",
-        "citationCount": 25,
-        "sourceUrl": "",
+        "citationCount": 26,
         "doi": "10.1145/3508362",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7261,7 +7280,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 25,
+        "_citationCount": 26,
         "_titleLower": "boosting compiler testing via compiler optimization exploration",
         "_authorLower": "junjie chen tianjin university chenyao suo tianjin university",
         "_authorsLower": "junjie chen tianjin university chenyao suo tianjin university",
@@ -7694,7 +7713,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 25
+          "citationCount": 26
         },
         "_searchBlob": "boosting compiler testing via compiler optimization exploration compilers are a kind of important software and similar to the quality assurance of other software compiler testing is one of the most widely-used ways of guaranteeing their quality. compiler bugs tend to occur in compiler optimizations. detecting optimization bugs needs to consider two main factors 1 the optimization flags controlling the accessability of the compiler buggy code should be turned on and 2 the test program should be able to trigger the buggy code. however existing compiler testing approaches only consider the latter to generate effective test programs but just run them under several pre-defined optimization levels e.g. -o0 -o1 -o2 -o3 -os in gcc . to better understand the influence of compiler optimizations on compiler testing we conduct the first empirical study and find that 1 all the bugs detected under the widely-used optimization levels are also detected under the explored optimization settings we call a combination of optimization flags turned on for compilation an optimization setting while 83.54 of bugs are only detected under the latter 2 there exist both inhibition effect and promotion effect among optimization flags for compiler testing indicating the necessity and challenges of considering the factor of compiler optimizations in compiler testing. we then propose the first approach called cotest by considering both factors to test compilers. specifically cotest first adopts machine-learning the xgboost algorithm to model the relationship between test programs and optimization settings to predict the bug-triggering probability of a test program under an optimization setting. then it designs a diversity augmentation strategy to select a set of diverse candidate optimization settings for prediction for a test program. finally top-k optimization settings are selected for compiler testing according to the predicted bug-triggering probabilities. then it designs a diversity augmentation strategy to select a set of diverse candidate optimization settings for prediction for a test program. finally top-k optimization settings are selected for compiler testing according to the predicted bug-triggering probabilities. the experiments on gcc and llvm demonstrate its effectiveness especially cotest detects 17 previously unknown bugs 11 of which have been fixed or confirmed by developers. acm transactions on software engineering and methodology acm transactions on software engineering and methodology vol. 31 issue 4 2022 research-paper junjie chen tianjin university chenyao suo tianjin university optimizations testing optimizations testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7753,15 +7772,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 4,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 4,
         "_titleLower": "spray: sparse reductions of arrays in openmp",
         "_authorLower": "jan hückelheim argonne national laboratory johannes doerfert argonne national laboratory",
         "_authorsLower": "jan hückelheim argonne national laboratory johannes doerfert argonne national laboratory",
@@ -8069,7 +8089,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 0
+          "citationCount": 4
         },
         "_searchBlob": "spray sparse reductions of arrays in openmp we present spray an open-source header-only c++ library for sparse reductions of arrays. spray is meant for applications in which a large array is collaboratively updated by multiple threads using an associative and commutative operation such as + . especially when each thread accesses only parts of the array spray can perform significantly better than openmps built-in reduction clause or atomic updates while also using less memory than the former. spray provides both an easy-to-use interface that can serve as a drop-in replacement for openmp reductions and a selection of reducer objects that accumulate the final result in different thread-safe ways. we demonstrate spray through multiple test cases including the lulesh shock hydrodynamics code and a transpose-matrix-vector multiplication for sparse matrices stored in csr format. spray reductions outperform built-in openmp reductions consistently in some cases improving run time and memory overhead by 20x and even beating domain-specific approaches such as intel mkl by over 2x in some cases. furthermore spray reductions have a minimal impact on the code base requiring only a few lines of source code changes. once in place spray reduction schemes can be switched easily allowing performance portability and tuning opportunities by separating performance-critical implementation details from application code. 2021 ieee international parallel and distributed processing symposium ipdps 2021 ieee international parallel and distributed processing symposium ipdps 2021 research-paper jan huckelheim argonne national laboratory johannes doerfert argonne national laboratory openmp performance openmp performance spray reductions openmp reductions spray sparse reductions memory openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -8149,6 +8169,7 @@
         "openalexId": "https://openalex.org/W3175004880",
         "citationCount": 19,
         "doi": "10.1145/3459010",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -8586,15 +8607,16 @@
           "openmp"
         ],
         "id": "openalex-w4200478241",
+        "citationCount": 23,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 23,
         "_titleLower": "comparing julia to performance portable parallel programming models for hpc",
         "_authorLower": "wei-chen lin university of bristol simon mcintosh‐smith university of bristol",
         "_authorsLower": "wei-chen lin university of bristol simon mcintosh‐smith university of bristol",
@@ -8953,7 +8975,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 0
+          "citationCount": 23
         },
         "_searchBlob": "comparing julia to performance portable parallel programming models for hpc julia is a general-purpose managed strongly and dynamically-typed programming language with emphasis on high performance scientific computing. traditionally hpc software development uses languages such as c c++ and fortran which compile to unmanaged code. this offers the programmer near bare-metal performance at the expense of safety properties that a managed runtime would otherwise provide. julia on the other hand combines novel programming language design approaches to achieve high levels of productivity without sacrificing performance while using a fully managed runtime. this study provides an evaluation of julia and #x0027 s suitability for hpc applications from a performance point of view across a diverse range of cpu and gpu platforms. we select representative memory-bandwidth bound and compute bound mini-apps port them to julia and conduct benchmarks across a wide range of current hpc cpus and gpus from vendors such as intel sup and #x00ae sup amd and #x00ae nvidia and #x00ae marvell sup and #x00ae sup and fujitsu sup and #x00ae sup we then compare and characterise the results against existing parallel programming frameworks such as openmp and #x00ae kokkos opencl and #x2122 and first-party frameworks such as cuda and #x00ae hip and #x2122 and oneapi and #x2122 sycl and #x2122 . finally we show that julia and #x0027 s performance either matches the competition or is only a short way behind. 2021 international workshop on performance modeling benchmarking and simulation of high performance computer systems pmbs 2021 international workshop on performance modeling benchmarking and simulation of high performance computer systems pmbs 2021 research-paper wei-chen lin university of bristol simon mcintosh smith university of bristol openmp performance gpu cuda opencl hip programming languages openmp performance gpu cuda opencl hip programming languages parallel computing sup x00ae performance portable parallel hpc x00ae sup x2122 portable parallel programming libsycl openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -9004,6 +9026,7 @@
         "openalexId": "https://openalex.org/W3126630191",
         "citationCount": 2,
         "doi": "10.14232/actacyb.282969",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -9344,15 +9367,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 1,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "using openmp to detect and speculate dynamic doall loops",
         "_authorLower": "bruno chinelato honorio universidade estadual de campinas joão p. l. de carvalho universidade estadual de campinas munir s. skaf universidade estadual de campinas guido araújo universidade estadual de campinas",
         "_authorsLower": "bruno chinelato honorio universidade estadual de campinas joão p. l. de carvalho universidade estadual de campinas munir s. skaf universidade estadual de campinas guido araújo universidade estadual de campinas",
@@ -9475,7 +9499,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "using openmp to detect and speculate dynamic doall loops no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2020 research-paper bruno chinelato honorio universidade estadual de campinas joao p. l. de carvalho universidade estadual de campinas munir s. skaf universidade estadual de campinas guido araujo universidade estadual de campinas openmp openmp openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -9527,6 +9551,7 @@
         "openalexId": "https://openalex.org/W3007718266",
         "citationCount": 16,
         "doi": "10.1145/3368826.3377918",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -9961,9 +9986,10 @@
         ],
         "openalexId": "https://openalex.org/W3035917943",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.26907/1562-5419-2020-23-3-473-493",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10405,16 +10431,17 @@
           "mlir"
         ],
         "id": "openalex-w3130803778",
-        "sourceUrl": "",
+        "citationCount": 5,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 5,
         "_titleLower": "codir: towards an mlir codelet model dialect",
         "_authorLower": "ryan kabrick university of delaware diego a. roa perdomo university of delaware siddhisanket raskar university of delaware jose m. monsalve diaz university of delaware dawson fox university of delaware guang r. gao university of delaware",
         "_authorsLower": "ryan kabrick university of delaware diego a. roa perdomo university of delaware siddhisanket raskar university of delaware jose m. monsalve diaz university of delaware dawson fox university of delaware guang r. gao university of delaware",
@@ -10829,7 +10856,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 0
+          "citationCount": 5
         },
         "_searchBlob": "codir towards an mlir codelet model dialect since ibm first introduced the instruction set architecture isa there has been tremendous research conducted on novel hardware architectures and new high-level software frameworks perhaps to a fault. with innovation came an ever growing gap between a programs description and how it is executed on hardware. successful exploitation of these innovations calls for a unifying contract to be in place which distinguishes the program description from the low-level execution on target hardware namely a program execution model pxm . by decoupling the programming api from the hardware description the obstacles imposed by low-level architectures and high-level language interoperability are avoided by utilizing program manipulation source-level optimizations and eventual lowering into machine code across a wide variety of different heterogeneous hardware. to achieve these goals in software compilers must adapt to the ever-changing climate of hardware and software development. they must be able to represent data at varying levels so as to provide maximum opportunities for optimizations based on information which would otherwise be lost without utilizing progressive lowering. the target hardware should also not limit the amount of possible software-based optimizations. we propose codir the codelet model domain-specific language extension and intermediate representation built using the already existing multi-level intermediate representation mlir compiler infrastructure. it aims to progressively lower a high-level language to an intermediate representation well suited for maximizing optimization opportunities available to the compiler while additionally providing a plethora of hardware support. underlying codir is the codelet model which we believe to be a sound program execution model for mapping computation to the machine and utilizing all available hardware resources. 2020 ieee acm fourth annual workshop on emerging parallel and distributed runtime systems and middleware ipdrm 2020 ieee acm fourth annual workshop on emerging parallel and distributed runtime systems and middleware ipdrm vol. abs 1512 1274 2020 research-paper ryan kabrick university of delaware diego a. roa perdomo university of delaware siddhisanket raskar university of delaware jose m. monsalve diaz university of delaware dawson fox university of delaware guang r. gao university of delaware mlir ir optimizations infrastructure mlir optimizations infrastructure intermediate representation target hardware codelet description program execution mlir codelet mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -10868,8 +10895,9 @@
         ],
         "openalexId": "https://openalex.org/W3086782141",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11214,8 +11242,9 @@
         ],
         "openalexId": "https://openalex.org/W2982314074",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11513,8 +11542,9 @@
         ],
         "openalexId": "https://openalex.org/W3183434851",
         "citationCount": 4,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11859,9 +11889,10 @@
         ],
         "openalexId": "https://openalex.org/W2803281868",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1007/s11265-018-1377-4",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12058,8 +12089,9 @@
         ],
         "openalexId": "https://openalex.org/W2884824143",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12384,16 +12416,17 @@
           "addresssanitizer"
         ],
         "id": "openalex-w2792800398",
-        "sourceUrl": "",
+        "citationCount": 29,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 29,
         "_titleLower": "enhancing memory error detection for large-scale applications and fuzz testing",
         "_authorLower": "wookhyun han purdue university west lafayette byunggill joe university of california, riverside byoungyoung lee purdue university west lafayette chengyu song kootenay association for science & technology insik shin purdue university west lafayette",
         "_authorsLower": "wookhyun han purdue university west lafayette byunggill joe university of california, riverside byoungyoung lee purdue university west lafayette chengyu song kootenay association for science & technology insik shin purdue university west lafayette",
@@ -12778,7 +12811,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 0
+          "citationCount": 29
         },
         "_searchBlob": "enhancing memory error detection for large-scale applications and fuzz testing memory errors are one of the most common vulnerabilities for the popularity of memory unsafe languages including c and c++. once exploited it can easily lead to system crash i.e. denial-of-service attacks or allow adversaries to fully compromise the victim system. this paper proposes meds a practical memory error detector. meds significantly enhances its detection capability by approximating two ideal properties called an infinite gap and an infinite heap. the approximated infinite gap of meds setups large inaccessible memory region between objects i.e. 4 mb and the approximated infinite heap allows meds to fully utilize virtual address space i.e. 45-bits memory space . the key idea of meds in achieving these properties is a novel user-space memory allocation mechanism medsalloc. medsalloc leverages a page aliasing mechanism which allows meds to maximize the virtual memory space utilization but minimize the physical memory uses. to highlight the detection capability and practical impacts of meds we evaluated and then compared to googles state-of-the-art detection tool ad-dresssanitizer. meds showed three times better detection rates on four real-world vulnerabilities in chrome and firefox. more importantly when used for a fuzz testing meds was able to identify 68.3 more memory errors than addresssanitizer for the same amount of a testing time highlighting its practical aspects in the software testing area. in terms of performance overhead meds slowed down 108 and 86 compared to native execution and addresssanitizer respectively on real-world applications including chrome firefox apache nginx and openssl. proceedings 2018 network and distributed system security symposium proceedings 2018 network and distributed system security symposium 2018 research-paper wookhyun han purdue university west lafayette byunggill joe university of california riverside byoungyoung lee purdue university west lafayette chengyu song kootenay association for science and technology insik shin purdue university west lafayette testing security performance testing security performance fuzzing sanitizers memory errors detection capability approximated infinite fuzz testing allows meds infinite gap infinite heap memory space real world addresssanitizer",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -12842,9 +12875,10 @@
         ],
         "openalexId": "https://openalex.org/W2908481963",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1109/candarw.2018.00097",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13206,9 +13240,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3010232283",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.5445/diva/2018-253",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13455,8 +13490,9 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2751901133",
-        "citationCount": 89,
+        "citationCount": 91,
         "doi": "10.1145/3124452",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -13470,7 +13506,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 89,
+        "_citationCount": 91,
         "_titleLower": "micomp",
         "_authorLower": "amir h. ashouri university of toronto andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano sameer g. kulkarni university of delaware john cavazos university of delaware",
         "_authorsLower": "amir h. ashouri university of toronto andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano sameer g. kulkarni university of delaware john cavazos university of delaware",
@@ -13936,7 +13972,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 89
+          "citationCount": 91
         },
         "_searchBlob": "micomp recent compilers offer a vast number of multilayered optimizations targeting different code segments of an application. choosing among these optimizations can significantly impact the performance of the code being optimized. the selection of the right set of compiler optimizations for a particular code segment is a very hard problem but finding the best ordering of these optimizations adds further complexity. finding the best ordering represents a long standing problem in compilation research named the phase-ordering problem. the traditional approach of constructing compiler heuristics to solve this problem simply cannot cope with the enormous complexity of choosing the right ordering of optimizations for every code segment in an application. this article proposes an automatic optimization framework we call micomp which and lt u and gt mi and lt u and gt tigates the and lt u and gt com and lt u and gt piler and lt u and gt p and lt u and gt hase-ordering problem. we perform phase ordering of the optimizations in llvms highest optimization level using optimization sub-sequences and machine learning. the idea is to cluster the optimization passes of llvms o3 setting into different clusters to predict the speedup of a complete sequence of all the optimization clusters instead of having to deal with the ordering of more than 60 different individual optimizations. the predictive model uses 1 dynamic features 2 an encoded version of the compiler sequence and 3 an exploration heuristic to tackle the problem. experimental results using the llvm compiler framework and the cbench suite show the effectiveness of the proposed clustering and encoding techniques to application-based reordering of passes while using a number of predictive models. we perform statistical analysis on the results and compare against 1 random iterative compilation 2 standard optimization levels and 3 two recent prediction approaches. we show that micomps iterative compilation using its sub-sequences can reach an average performance speedup of 1.31 up to 1.51 . additionally we demonstrate that micomps prediction model outperforms the -o1 -o2 and -o3 optimization levels within using just a few predictions and reduces the prediction error rate down to only 5 . overall it achieves 90 of the available speedup by exploring less than 0.001 of the optimization space. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 14 issue 3 2017 research-paper amir h. ashouri university of toronto andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano sameer g. kulkarni university of delaware john cavazos university of delaware optimizations performance optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13990,9 +14026,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2790577034",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1109/icsima.2017.8312022",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -14288,6 +14325,7 @@
         "openalexId": "https://openalex.org/W2466104094",
         "citationCount": 37,
         "doi": "10.1007/s00236-016-0275-0",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -14644,15 +14682,16 @@
         "matchedSubprojects": [
           "clang"
         ],
+        "citationCount": 72,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 72,
         "_titleLower": "finding and analyzing compiler warning defects",
         "_authorLower": "c. p. sun university of california, davis vu le university of california, davis zhendong su university of california, davis",
         "_authorsLower": "c. p. sun university of california, davis vu le university of california, davis zhendong su university of california, davis",
@@ -14838,7 +14877,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 0
+          "citationCount": 72
         },
         "_searchBlob": "finding and analyzing compiler warning defects good compiler diagnostic warnings facilitate software development as they indicate likely programming mistakes or code smells. however due to compiler bugs the warnings may be erroneous superfluous or missing even for mature production compilers like gcc and clang. in this paper we 1 propose the first randomized differential testing technique to detect compiler warning defects and 2 describe our extensive evaluation in finding warning defects in widely-used c compilers. proceedings of 38th international conference on software engineering proceedings of 38th international conference on software engineering 2016 research-paper c. p. sun university of california davis vu le university of california davis zhendong su university of california davis clang testing clang testing differential testing compiler warning defects analyzing compiler warning clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -14928,10 +14967,11 @@
         "openalexId": "https://openalex.org/W2488548811",
         "sourceUrl": "https://doi.org/10.1109/ipdps.2016.68",
         "doi": "10.1109/ipdps.2016.68",
+        "citationCount": 78,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -14939,7 +14979,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 78,
         "_titleLower": "archer: effectively spotting data races in large openmp applications",
         "_authorLower": "simone atzeni university of utah ganesh gopalakrishnan university of utah zvonimir rakamarić university of utah dong h. ahn lawrence livermore national laboratory ignacio laguna lawrence livermore national laboratory martin schulz lawrence livermore national laboratory gregory l. lee lawrence livermore national laboratory joachim protze rwth aachen university matthias müller rwth aachen university",
         "_authorsLower": "simone atzeni university of utah ganesh gopalakrishnan university of utah zvonimir rakamarić university of utah dong h. ahn lawrence livermore national laboratory ignacio laguna lawrence livermore national laboratory martin schulz lawrence livermore national laboratory gregory l. lee lawrence livermore national laboratory joachim protze rwth aachen university matthias müller rwth aachen university",
@@ -15191,7 +15231,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 0
+          "citationCount": 78
         },
         "_searchBlob": "archer effectively spotting data races in large openmp applications openmp plays a growing role as a portable programming model to harness on-node parallelism yet existing data race checkers for openmp have high overheads and generate many false positives. in this paper we propose the first openmp data race checker archer that achieves high accuracy low overheads on large applications and portability. archer incorporates scalable happens-before tracking exploits structured parallelism via combined static and dynamic analysis and modularly interfaces with openmp runtimes. archer significantly outperforms tsan and intel inspector xe while providing the same or better precision. it has helped detect critical data races in the hypre library that is central to many projects at lawrence livermore national laboratory and elsewhere. 2016 ieee international parallel and distributed processing symposium ipdps 2016 ieee international parallel and distributed processing symposium ipdps 2016 research-paper simone atzeni university of utah ganesh gopalakrishnan university of utah zvonimir rakamaric university of utah dong h. ahn lawrence livermore national laboratory ignacio laguna lawrence livermore national laboratory martin schulz lawrence livermore national laboratory gregory l. lee lawrence livermore national laboratory joachim protze rwth aachen university matthias muller rwth aachen university",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -15248,9 +15288,10 @@
         ],
         "openalexId": "https://openalex.org/W2621026180",
         "citationCount": 59,
-        "sourceUrl": "",
         "doi": "10.1145/2743019",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17000,12 +17041,13 @@
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of 36th ACM SIGPLAN Conference on Programming Language Design and Implementation",
         "openalexId": "https://openalex.org/W2050298645",
-        "sourceUrl": "",
         "doi": "10.1145/2737924.2737994",
+        "citationCount": 6,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -17013,7 +17055,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 6,
         "_titleLower": "laminarir: compile-time queues for structured streams",
         "_authorLower": "yousun ko yonsei university bernd burgstaller yonsei university bernhard scholz university of sydney",
         "_authorsLower": "yousun ko yonsei university bernd burgstaller yonsei university bernhard scholz university of sydney",
@@ -17342,7 +17384,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 0
+          "citationCount": 6
         },
         "_searchBlob": "laminarir compile-time queues for structured streams stream programming languages employ fifo first-in first-out semantics to model data channels between producers and consumers. a fifo data channel stores tokens in a buffer that is accessed indirectly via read- and write-pointers. this indirect token-access decouples a producers write-operations from the read-operations of the consumer thereby making dataflow implicit. for a compiler indirect token-access obscures data-dependencies which renders standard optimizations ineffective and impacts stream program performance negatively. in this paper we propose a transformation for structured stream programming languages such as streamit that shifts fifo buffer management from run-time to compile-time and eliminates splitters and joiners whose task is to distribute and merge streams. to show the effectiveness of our lowering transformation we have implemented a streamit to c compilation framework. we have developed our own intermediate representation ir called laminarir which facilitates the transformation. we report on the enabling effect of the laminarir on llvms optimizations which required the conversion of several standard streamit benchmarks from static to randomized input to prevent computation of partial results at compile-time. we conducted our experimental evaluation on the intel i7-2600k amd opteron 6378 intel xeon phi 3120a and arm cortex-a15 platforms. our laminarir reduces data-communication on average by 35.9 and achieves platform-specific speedups between 3.73x and 4.98x over streamit. we reduce memory accesses by more than 60 and achieve energy savings of up to 93.6 on the intel i7-2600k. proceedings of 36th acm sigplan conference on programming language design and implementation proceedings of 36th acm sigplan conference on programming language design and implementation 2015 research-paper yousun ko yonsei university bernd burgstaller yonsei university bernhard scholz university of sydney",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17391,9 +17433,10 @@
         ],
         "openalexId": "https://openalex.org/W2294006311",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1145/2833157.2833160",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -17750,9 +17793,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W1672036380",
         "citationCount": 6,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-319-03089-0_1",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -17951,10 +17995,11 @@
         "publication": "2012 Innovative Parallel Computing (InPar)",
         "openalexId": "https://openalex.org/W2067635581",
         "doi": "10.1109/inpar.2012.6339601",
+        "citationCount": 186,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "C++",
           "GPU",
@@ -17968,7 +18013,7 @@
         "_year": "2012",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 186,
         "_titleLower": "ispc: a spmd compiler for high-performance cpu programming",
         "_authorLower": "matt pharr intel william r. mark intel",
         "_authorsLower": "matt pharr intel william r. mark intel",
@@ -18279,7 +18324,7 @@
             }
           },
           "year": 2012,
-          "citationCount": 0
+          "citationCount": 186
         },
         "_searchBlob": "ispc a spmd compiler for high-performance cpu programming simd parallelism has become an increasingly important mechanism for delivering performance in modern cpus due its power efficiency and relatively low cost in die area compared to other forms of parallelism. unfortunately languages and compilers for cpus have not kept up with the hardwares capabilities. existing cpu parallel programming models focus primarily on multi-core parallelism neglecting the substantial computational capabilities that are available in cpu simd vector units. gpu-oriented languages like opencl support simd but lack capabilities needed to achieve maximum efficiency on cpus and suffer from gpu-driven constraints that impair ease of use on cpus. we have developed a compiler the intel r spmd program compiler ispc that delivers very high performance on cpus thanks to effective use of both multiple processor cores and simd vector units. ispc draws from gpu programming languages which have shown that for many applications the easiest way to program simd units is to use a single-program multiple-data spmd model with each instance of the program mapped to one simd lane. we discuss language features that make ispc easy to adopt and use productively with existing software systems and show that ispc delivers up to 35x speedups on a 4-core system and up to 240 speedups on a 40-core system for complex workloads compared to serial c++ code . 2012 innovative parallel computing inpar 2012 innovative parallel computing inpar 2012 research-paper matt pharr intel william r. mark intel c++ gpu opencl performance programming languages c++ gpu opencl performance programming languages",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -18333,8 +18378,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W633155986",
         "citationCount": 5,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -18609,8 +18655,9 @@
         ],
         "openalexId": "https://openalex.org/W57885061",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -18897,7 +18944,7 @@
         "venue": "Proceedings of 8th ACM international conference on Embedded software",
         "type": "research-paper",
         "abstract": "C's volatile qualifier is intended to provide a reliable link between operations at the source-code level and operations at the memory-system level. We tested thirteen production-quality C compilers and, for each, found situations in which the compiler generated incorrect code for accessing volatile variables. This result is disturbing because it implies that embedded software and operating systems---both typically coded in C, both being bases for many mission-critical and safety-critical applications, and both relying on the correct translation of volatiles---may be being miscompiled.",
-        "paperUrl": "https://doi.org/10.1145/1450058.1450093",
+        "paperUrl": "https://llvm.org/pubs/2008-10-EMSOFT-Volatiles.pdf",
         "sourceUrl": "https://llvm.org/pubs/2008-10-EMSOFT-Volatiles.html",
         "tags": [
           "Embedded",
@@ -18907,10 +18954,11 @@
         "publication": "Proceedings of 8th ACM international conference on Embedded software",
         "openalexId": "https://openalex.org/W2096698236",
         "doi": "10.1145/1450058.1450093",
+        "citationCount": 75,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Embedded",
           "Testing"
@@ -18921,7 +18969,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 75,
         "_titleLower": "volatiles are miscompiled, and what to do about it",
         "_authorLower": "eric eide university of utah john regehr university of utah",
         "_authorsLower": "eric eide university of utah john regehr university of utah",
@@ -19107,7 +19155,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 0
+          "citationCount": 75
         },
         "_searchBlob": "volatiles are miscompiled and what to do about it cs volatile qualifier is intended to provide a reliable link between operations at the source-code level and operations at the memory-system level. we tested thirteen production-quality c compilers and for each found situations in which the compiler generated incorrect code for accessing volatile variables. this result is disturbing because it implies that embedded software and operating systems---both typically coded in c both being bases for many mission-critical and safety-critical applications and both relying on the correct translation of volatiles---may be being miscompiled. proceedings of 8th acm international conference on embedded software proceedings of 8th acm international conference on embedded software 2008 research-paper eric eide university of utah john regehr university of utah embedded testing embedded testing",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -19169,7 +19217,7 @@
         "venue": "2008 IEEE/ACM International Conference on Computer-Aided Design",
         "type": "research-paper",
         "abstract": "The ability to integrate diverse components such as processor cores, memories, custom hardware blocks and complex network-on-chip (NoC) communication frameworks onto a single chip has greatly increased the design space available for system-on-chip (SoC) designers. Efficient and accurate performance estimation tools are needed to assist the designer in making design decisions. In this paper, we present MC-Sim, a heterogeneous multi-core simulator framework which is capable of accurately simulating a variety of processor, memory, NoC configurations and application specific coprocessors. We also describe a methodology to automatically generate fast, cycle-true behavioral, C-based simulators for coprocessors using a high-level synthesis tool and integrate them with MC-Sim, thus augmenting it with the capacity to simulate coprocessors. Our C-based simulators provide on an average 45times improvement in simulation speed over that of RTL descriptions. We have used this framework to simulate a number of real-life applications such as the MPEG4 decoder and litho-simulation, and experimented with a number of design choices. Our simulator framework is able to accurately model the performance of these applications (only 7% off the actual implementation) and allows us to explore the design space rapidly and achieve interesting design implementations.",
-        "paperUrl": "https://doi.org/10.1109/iccad.2008.4681599",
+        "paperUrl": "https://llvm.org/pubs/2008-11-ICCAD-MCSim.pdf",
         "sourceUrl": "https://llvm.org/pubs/2008-11-ICCAD-MCSim.html",
         "tags": [
           "Performance"
@@ -19178,10 +19226,11 @@
         "publication": "2008 IEEE/ACM International Conference on Computer-Aided Design",
         "openalexId": "https://openalex.org/W3151365514",
         "doi": "10.1109/iccad.2008.4681599",
+        "citationCount": 19,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -19191,7 +19240,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 19,
         "_titleLower": "mc-sim: an efficient simulation tool for mpsoc designs",
         "_authorLower": "jason cong university of california, los angeles karthik gururaj university of california, los angeles guoling han university of california, los angeles adam kaplan university of california, los angeles mishali naik university of california, los angeles glenn reinman university of california, los angeles",
         "_authorsLower": "jason cong university of california, los angeles karthik gururaj university of california, los angeles guoling han university of california, los angeles adam kaplan university of california, los angeles mishali naik university of california, los angeles glenn reinman university of california, los angeles",
@@ -19507,7 +19556,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 0
+          "citationCount": 19
         },
         "_searchBlob": "mc-sim an efficient simulation tool for mpsoc designs the ability to integrate diverse components such as processor cores memories custom hardware blocks and complex network-on-chip noc communication frameworks onto a single chip has greatly increased the design space available for system-on-chip soc designers. efficient and accurate performance estimation tools are needed to assist the designer in making design decisions. in this paper we present mc-sim a heterogeneous multi-core simulator framework which is capable of accurately simulating a variety of processor memory noc configurations and application specific coprocessors. we also describe a methodology to automatically generate fast cycle-true behavioral c-based simulators for coprocessors using a high-level synthesis tool and integrate them with mc-sim thus augmenting it with the capacity to simulate coprocessors. our c-based simulators provide on an average 45times improvement in simulation speed over that of rtl descriptions. we have used this framework to simulate a number of real-life applications such as the mpeg4 decoder and litho-simulation and experimented with a number of design choices. our simulator framework is able to accurately model the performance of these applications only 7 off the actual implementation and allows us to explore the design space rapidly and achieve interesting design implementations. 2008 ieee acm international conference on computer-aided design 2008 ieee acm international conference on computer-aided design 2008 research-paper jason cong university of california los angeles karthik gururaj university of california los angeles guoling han university of california los angeles adam kaplan university of california los angeles mishali naik university of california los angeles glenn reinman university of california los angeles performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -19541,7 +19590,7 @@
         "venue": "ACM SIGPLAN Notices | Vol. 38 (Issue 2 supplement)",
         "type": "research-paper",
         "abstract": "This paper presents an analysis technique and a novel program transformation that can enable powerful optimizations for entire linked data structures. The fully automatic transformation converts ordinary programs to use pool (aka region) allocation for heap-based data structures. The transformation relies on an efficient link-time interprocedural analysis to identify disjoint data structures in the program, to check whether these data structures are accessed in a type-safe manner, and to construct a Disjoint Data Structure Graph that describes the connectivity pattern within such structures. We present preliminary experimental results showing that the data structure analysis and pool allocation are effective for a set of pointer intensive programs in the Olden benchmark suite. To illustrate the optimizations that can be enabled by these techniques, we describe a novel pointer compression transformation and briefly discuss several other optimization possibilities for linked data structures.",
-        "paperUrl": "https://doi.org/10.1145/773039.773041",
+        "paperUrl": "https://llvm.org/pubs/2002-06-AutomaticPoolAllocation.pdf",
         "sourceUrl": "https://llvm.org/pubs/2002-06-AutomaticPoolAllocation.html",
         "tags": [
           "Optimizations"
@@ -19550,10 +19599,11 @@
         "publication": "ACM SIGPLAN Notices",
         "openalexId": "https://openalex.org/W2114496697",
         "doi": "10.1145/773039.773041",
+        "citationCount": 30,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -19563,7 +19613,7 @@
         "_year": "2002",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 30,
         "_titleLower": "automatic pool allocation for disjoint data structures",
         "_authorLower": "chris lattner university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
         "_authorsLower": "chris lattner university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
@@ -19795,7 +19845,7 @@
             }
           },
           "year": 2002,
-          "citationCount": 0
+          "citationCount": 30
         },
         "_searchBlob": "automatic pool allocation for disjoint data structures this paper presents an analysis technique and a novel program transformation that can enable powerful optimizations for entire linked data structures. the fully automatic transformation converts ordinary programs to use pool aka region allocation for heap-based data structures. the transformation relies on an efficient link-time interprocedural analysis to identify disjoint data structures in the program to check whether these data structures are accessed in a type-safe manner and to construct a disjoint data structure graph that describes the connectivity pattern within such structures. we present preliminary experimental results showing that the data structure analysis and pool allocation are effective for a set of pointer intensive programs in the olden benchmark suite. to illustrate the optimizations that can be enabled by these techniques we describe a novel pointer compression transformation and briefly discuss several other optimization possibilities for linked data structures. acm sigplan notices acm sigplan notices vol. 38 issue 2 supplement 2002 research-paper chris lattner university of illinois urbana-champaign vikram adve university of illinois urbana-champaign optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-003": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "LLVM's fast-math flags allow users to specify which floating-point transformations they want to see. Unfortunately, their semantics are both not entirely respected by LLVM and underspecified. This talk covers a number of fast-math issues, an overview of efforts to address them and gives an outlook for the future, more systemic approach to fast-math flags.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_pirog.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "fast-math flags: a bag of issues and a handful of solutions",
         "_speakerLower": "mikolag pirog",
@@ -202,16 +202,16 @@
           }
         ],
         "abstract": "Huawei Ascend NPUs combine DaVinci AI cores with a rich memory/synchronization hierarchy and, on newer generations, a SIMD+SIMT execution model, making performance-oriented compilation challenging. We present HIVM, an open-source family of MLIR dialects that lowers PyTorch/Inductor -> Triton -> MLIR (HIVM) -> LLVM IR, enabling Ascend-specific optimizations such as layout assignment/propagation, vector intrinsic selection/legalization, and explicit DMA/transfer scheduling with synchronization. The pipeline ultimately targets the BiSheng LLVM-based backend to produce executable code for Ascend chips. The talk walks step-by-step through the key IR levels and transformation passes, serving as a practical baseline for developers building MLIR toolchains for Ascend.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_tarasov.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "hivm: mlir dialect stack for ascend npu compilation",
         "_speakerLower": "vladislav tarasov hugo trachino andrey bokhanko",
@@ -422,16 +422,16 @@
           }
         ],
         "abstract": "IR2Vec is a widely adopted framework for generating vector embeddings from LLVM IR to enable machine-learning–driven compiler optimizations. This work introduces native Python bindings for IR2Vec using pybind11, enabling seamless and efficient integration with Python-based ML ecosystems such as PyTorch and TensorFlow. By replacing subprocess-based CLI invocation with a direct programmatic interface, the bindings eliminate process overhead, provide inbuilt C++–Python type conversion, and support robust exception handling. The implementation and usage are demonstrated through practical embedding-generation examples. The project is currently under active development for upstream integration into the LLVM monorepo, with multiple pull requests already accepted, and is available in beta form via TestPyPI.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_sachdeva.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "ir2vec python bindings: native integration for pythonic, ml workflows",
         "_speakerLower": "nishant sachdeva",
@@ -11399,15 +11399,7 @@
         "id": "mlir-talk-2024-10-17-shaderpulse-a-glsl-frontend-for-mlir-spir-v",
         "title": "Shaderpulse, a GLSL Frontend for MLIR SPIR-V",
         "abstract": "In this meeting, talks about Shaderpulse: a new GLSL frontend for MLIR SPIR-V. He walks through the project through example compute shaders, and show how the Shaderpulse AST maps to the SPIR-V MLIR Dialect.",
-        "speakers": [
-          {
-            "name": "Ahmed Harmouche",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -11444,7 +11436,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "shaderpulse, a glsl frontend for mlir spir-v",
-        "_speakerLower": "ahmed harmouche",
+        "_speakerLower": "",
         "_abstractLower": "in this meeting, talks about shaderpulse: a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders, and show how the shaderpulse ast maps to the spir-v mlir dialect.",
         "_tagsLower": "mlir",
         "_meetingLower": "mlir open design meeting  2024-10-17",
@@ -11463,11 +11455,8 @@
               ]
             },
             "speakers": {
-              "text": "ahmed harmouche",
-              "words": [
-                "ahmed",
-                "harmouche"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir",
@@ -11538,7 +11527,7 @@
           },
           "year": 2024
         },
-        "_searchBlob": "shaderpulse a glsl frontend for mlir spir-v in this meeting talks about shaderpulse a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders and show how the shaderpulse ast maps to the spir-v mlir dialect. mlir open design meeting 2024-10-17 2024-10-17-mlir-open-design-meeting open-design-meeting ahmed harmouche mlir"
+        "_searchBlob": "shaderpulse a glsl frontend for mlir spir-v in this meeting talks about shaderpulse a new glsl frontend for mlir spir-v. he walks through the project through example compute shaders and show how the shaderpulse ast maps to the spir-v mlir dialect. mlir open design meeting 2024-10-17 2024-10-17-mlir-open-design-meeting open-design-meeting mlir"
       },
       "meeting": null
     }
