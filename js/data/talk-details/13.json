@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-86cb3359390b",
-  "generatedAt": "2026-04-28T06:27:58.000Z",
+  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
+  "generatedAt": "2026-04-28T22:46:50.000Z",
   "talks": {
     "2026-04-001": {
       "talk": {
@@ -197,7 +197,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-023": {
@@ -342,7 +342,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-045": {
@@ -520,7 +520,318 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-067": {
+      "talk": {
+        "id": "2026-04-067",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "mlir-workshop",
+        "title": "MLIR-RAJA: Bridging AI Models and HPC Performance Portability",
+        "speakers": [
+          {
+            "name": "Tai-Hsiang Peng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hung-Ming Lai",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Chun-Lin Huang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Wei-Shen Huang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jenq-Kuen Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "RAJA, originally developed by Lawrence Livermore National Lab, is a C++ template library widely used in High-Performance Computing (HPC). It ensures that code can run efficiently on different hardware, such as CPUs and GPUs, without needing to be rewritten. At the same time, AI models are becoming essential tools for modern scientific discovery. To connect these two worlds, we introduce MLIR-RAJA, a MLIR dialect that links high-level AI frameworks with the performance benefits of RAJA. Our work defines a specific RAJA Dialect in MLIR to build an automated end-to-end flow, capable of translating AI models directly into optimized RAJA C++. This solution eliminates the barrier between AI development and HPC execution, enabling the automatic generation of portable code for AI Models. Experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. Furthermore, these performance gains extend to OpenMP-enabled parallel execution. Finally, we flow MLIR RAJA dialects into LLVM to utilize a variety of backends to support MLIR RAJA computations.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_pang.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir-raja: bridging ai models and hpc performance portability",
+        "_speakerLower": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+        "_abstractLower": "raja, originally developed by lawrence livermore national lab, is a c++ template library widely used in high-performance computing (hpc). it ensures that code can run efficiently on different hardware, such as cpus and gpus, without needing to be rewritten. at the same time, ai models are becoming essential tools for modern scientific discovery. to connect these two worlds, we introduce mlir-raja, a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow, capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution, enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore, these performance gains extend to openmp-enabled parallel execution. finally, we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+        "_tagsLower": "llvm mlir openmp performance optimizations gpu ai",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir-raja bridging ai models and hpc performance portability",
+              "words": [
+                "mlir-raja",
+                "bridging",
+                "ai",
+                "models",
+                "and",
+                "hpc",
+                "performance",
+                "portability"
+              ]
+            },
+            "speakers": {
+              "text": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+              "words": [
+                "tai-hsiang",
+                "peng",
+                "hung-ming",
+                "lai",
+                "chun-lin",
+                "huang",
+                "wei-shen",
+                "huang",
+                "jenq-kuen",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir openmp performance optimizations gpu ai",
+              "words": [
+                "llvm",
+                "mlir",
+                "openmp",
+                "performance",
+                "optimizations",
+                "gpu",
+                "ai"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+              "words": [
+                "raja",
+                "originally",
+                "developed",
+                "by",
+                "lawrence",
+                "livermore",
+                "national",
+                "lab",
+                "is",
+                "c++",
+                "template",
+                "library",
+                "widely",
+                "used",
+                "in",
+                "high-performance",
+                "computing",
+                "hpc",
+                "it",
+                "ensures",
+                "that",
+                "code",
+                "can",
+                "run",
+                "efficiently",
+                "on",
+                "different",
+                "hardware",
+                "such",
+                "as",
+                "cpus",
+                "and",
+                "gpus",
+                "without",
+                "needing",
+                "to",
+                "be",
+                "rewritten.",
+                "at",
+                "the",
+                "same",
+                "time",
+                "ai",
+                "models",
+                "are",
+                "becoming",
+                "essential",
+                "tools",
+                "for",
+                "modern",
+                "scientific",
+                "discovery.",
+                "to",
+                "connect",
+                "these",
+                "two",
+                "worlds",
+                "we",
+                "introduce",
+                "mlir-raja",
+                "mlir",
+                "dialect",
+                "that",
+                "links",
+                "high-level",
+                "ai",
+                "frameworks",
+                "with",
+                "the",
+                "performance",
+                "benefits",
+                "of",
+                "raja.",
+                "our",
+                "work",
+                "defines",
+                "specific",
+                "raja",
+                "dialect",
+                "in",
+                "mlir",
+                "to",
+                "build",
+                "an",
+                "automated",
+                "end-to-end",
+                "flow",
+                "capable",
+                "of",
+                "translating",
+                "ai",
+                "models",
+                "directly",
+                "into",
+                "optimized",
+                "raja",
+                "c++.",
+                "this",
+                "solution",
+                "eliminates",
+                "the",
+                "barrier",
+                "between",
+                "ai",
+                "development",
+                "and",
+                "hpc",
+                "execution",
+                "enabling",
+                "the",
+                "automatic",
+                "generation",
+                "of",
+                "portable",
+                "code",
+                "for",
+                "ai",
+                "models.",
+                "experimental",
+                "results",
+                "demonstrate",
+                "that",
+                "our",
+                "structure-aware",
+                "optimizations",
+                "achieve",
+                "significant",
+                "improvement",
+                "in",
+                "sequential",
+                "execution",
+                "over",
+                "baseline.",
+                "furthermore",
+                "these",
+                "performance",
+                "gains",
+                "extend",
+                "to",
+                "openmp-enabled",
+                "parallel",
+                "execution.",
+                "finally",
+                "we",
+                "flow",
+                "mlir",
+                "raja",
+                "dialects",
+                "into",
+                "llvm",
+                "to",
+                "utilize",
+                "variety",
+                "of",
+                "backends",
+                "to",
+                "support",
+                "mlir",
+                "raja",
+                "computations."
+              ]
+            },
+            "category": {
+              "text": "mlir-workshop",
+              "words": [
+                "mlir-workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "mlir-raja bridging ai models and hpc performance portability raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee llvm mlir openmp performance optimizations gpu ai"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-004": {

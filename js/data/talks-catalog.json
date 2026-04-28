@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-86cb3359390b",
-  "generatedAt": "2026-04-28T06:27:58.000Z",
+  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
+  "generatedAt": "2026-04-28T22:46:50.000Z",
   "talks": [
     {
       "id": "2026-04-001",
@@ -12217,6 +12217,2318 @@
         "year": 2026
       },
       "_searchBlob": "confirming the impact of warning message quality in the clang static analyzer the clang static analyzer has enjoyed almost 2 decades of industrial adoption with more and more focus on its usability. prior research indicated that among other things warning message quality is a leading source of dissatisfaction with static analysis tools which developers of the clang static analyzer tackled but never conclusively proved the benefits of these changes. this talk fills this gap by presenting a method for measuring warning message quality through a human experiment. we sent out surveys in three stages to fine-tune our methodology with our final one receiving 64 responses from regular static analysis users. we were able to confirm many long-suspected but never confirmed theories circulating among the clang static analyzer contributors the value of summarizing functions trimming bug reports and simplifying low-level code. based on these results we also created and landed a bug report improvement which is available since clang 19.0.0. 2026 eurollvm developers meeting clayton hotel burlington road dublin ireland april 14-15 2026 2026-04 poster kristof umann clang static analysis"
+    },
+    {
+      "id": "2026-04-059",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "CUDA Tile IR: Lessons from a Tile-Centric CUDA Dialect for MLIR",
+      "speakers": [
+        {
+          "name": "Matthias Springer",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Lorenzo Chelini",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "This talk presents CUDA Tile IR, a tile-based CUDA dialect for MLIR, focusing on the design trade-offs that differentiate it from upstream dialects such as arith, tensor, memref, linalg, and async. Using concrete examples (e.g., matrix multiplication, TMA–friendly load/store patterns, and token-based ordering), the talk contrasts CUDA Tile IR’s type system, operations, and overall dialect design with existing MLIR abstractions, and highlights practical lessons for developers designing their own vendor-specific dialects.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_springer.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "cuda tile ir: lessons from a tile-centric cuda dialect for mlir",
+      "_speakerLower": "matthias springer lorenzo chelini",
+      "_abstractLower": "this talk presents cuda tile ir, a tile-based cuda dialect for mlir, focusing on the design trade-offs that differentiate it from upstream dialects such as arith, tensor, memref, linalg, and async. using concrete examples (e.g., matrix multiplication, tma–friendly load/store patterns, and token-based ordering), the talk contrasts cuda tile ir’s type system, operations, and overall dialect design with existing mlir abstractions, and highlights practical lessons for developers designing their own vendor-specific dialects.",
+      "_tagsLower": "mlir cuda",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "cuda tile ir lessons from a tile-centric cuda dialect for mlir",
+            "words": [
+              "cuda",
+              "tile",
+              "ir",
+              "lessons",
+              "from",
+              "tile-centric",
+              "cuda",
+              "dialect",
+              "for",
+              "mlir"
+            ]
+          },
+          "speakers": {
+            "text": "matthias springer lorenzo chelini",
+            "words": [
+              "matthias",
+              "springer",
+              "lorenzo",
+              "chelini"
+            ]
+          },
+          "tags": {
+            "text": "mlir cuda",
+            "words": [
+              "mlir",
+              "cuda"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "this talk presents cuda tile ir a tile-based cuda dialect for mlir focusing on the design trade-offs that differentiate it from upstream dialects such as arith tensor memref linalg and async. using concrete examples e.g. matrix multiplication tma friendly load store patterns and token-based ordering the talk contrasts cuda tile irs type system operations and overall dialect design with existing mlir abstractions and highlights practical lessons for developers designing their own vendor-specific dialects.",
+            "words": [
+              "this",
+              "talk",
+              "presents",
+              "cuda",
+              "tile",
+              "ir",
+              "tile-based",
+              "cuda",
+              "dialect",
+              "for",
+              "mlir",
+              "focusing",
+              "on",
+              "the",
+              "design",
+              "trade-offs",
+              "that",
+              "differentiate",
+              "it",
+              "from",
+              "upstream",
+              "dialects",
+              "such",
+              "as",
+              "arith",
+              "tensor",
+              "memref",
+              "linalg",
+              "and",
+              "async.",
+              "using",
+              "concrete",
+              "examples",
+              "e.g.",
+              "matrix",
+              "multiplication",
+              "tma",
+              "friendly",
+              "load",
+              "store",
+              "patterns",
+              "and",
+              "token-based",
+              "ordering",
+              "the",
+              "talk",
+              "contrasts",
+              "cuda",
+              "tile",
+              "irs",
+              "type",
+              "system",
+              "operations",
+              "and",
+              "overall",
+              "dialect",
+              "design",
+              "with",
+              "existing",
+              "mlir",
+              "abstractions",
+              "and",
+              "highlights",
+              "practical",
+              "lessons",
+              "for",
+              "developers",
+              "designing",
+              "their",
+              "own",
+              "vendor-specific",
+              "dialects."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "cuda tile ir lessons from a tile-centric cuda dialect for mlir this talk presents cuda tile ir a tile-based cuda dialect for mlir focusing on the design trade-offs that differentiate it from upstream dialects such as arith tensor memref linalg and async. using concrete examples e.g. matrix multiplication tma friendly load store patterns and token-based ordering the talk contrasts cuda tile irs type system operations and overall dialect design with existing mlir abstractions and highlights practical lessons for developers designing their own vendor-specific dialects. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop matthias springer lorenzo chelini mlir cuda"
+    },
+    {
+      "id": "2026-04-060",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "ASTER: MLIR-Based Assembly Tooling and Representations",
+      "speakers": [
+        {
+          "name": "Nicolas Vasilache",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Fabian Mora Corder",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Kunwar Grover",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Today, achieving peak performance on modern AI accelerators often requires control over low-level hardware features. This trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. As Dark Silicon trends continue, hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used (e.g. with warp/wave specialization, the low-level programming model increasingly resembles MPI/MIMD-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp/wave scheduling and specialization). AMD’s open approach to hardware ISA documentation creates a unique opportunity to build world-class assembly tooling in the open, making AMDGPU ASM accessible to a broader community as well as higher-level tools, while maintaining expert-level control. To reap the benefits of modern and future HW we believe an order of magnitude better low-level tooling is needed. Aster builds the foundations for highly-controllable assembly production and pushes the boundaries of what’s possible in low‑level performance tooling.",
+      "videoId": null,
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "slidesUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "aster: mlir-based assembly tooling and representations",
+      "_speakerLower": "nicolas vasilache fabian mora corder kunwar grover",
+      "_abstractLower": "today, achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue, hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used (e.g. with warp/wave specialization, the low-level programming model increasingly resembles mpi/mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp/wave scheduling and specialization). amd’s open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open, making amdgpu asm accessible to a broader community as well as higher-level tools, while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of what’s possible in low‑level performance tooling.",
+      "_tagsLower": "mlir performance ai",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "aster mlir-based assembly tooling and representations",
+            "words": [
+              "aster",
+              "mlir-based",
+              "assembly",
+              "tooling",
+              "and",
+              "representations"
+            ]
+          },
+          "speakers": {
+            "text": "nicolas vasilache fabian mora corder kunwar grover",
+            "words": [
+              "nicolas",
+              "vasilache",
+              "fabian",
+              "mora",
+              "corder",
+              "kunwar",
+              "grover"
+            ]
+          },
+          "tags": {
+            "text": "mlir performance ai",
+            "words": [
+              "mlir",
+              "performance",
+              "ai"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "today achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used e.g. with warp wave specialization the low-level programming model increasingly resembles mpi mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp wave scheduling and specialization . amds open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open making amdgpu asm accessible to a broader community as well as higher-level tools while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of whats possible in low level performance tooling.",
+            "words": [
+              "today",
+              "achieving",
+              "peak",
+              "performance",
+              "on",
+              "modern",
+              "ai",
+              "accelerators",
+              "often",
+              "requires",
+              "control",
+              "over",
+              "low-level",
+              "hardware",
+              "features.",
+              "this",
+              "trend",
+              "is",
+              "expected",
+              "to",
+              "further",
+              "exacerbate",
+              "as",
+              "more",
+              "asynchronicity",
+              "and",
+              "dynamism",
+              "are",
+              "built",
+              "first-class",
+              "in",
+              "the",
+              "hardware.",
+              "as",
+              "dark",
+              "silicon",
+              "trends",
+              "continue",
+              "hardware",
+              "is",
+              "expected",
+              "to",
+              "expose",
+              "coarser-grain",
+              "primitives",
+              "and",
+              "coarser-grain",
+              "programming",
+              "models",
+              "must",
+              "be",
+              "used",
+              "e.g.",
+              "with",
+              "warp",
+              "wave",
+              "specialization",
+              "the",
+              "low-level",
+              "programming",
+              "model",
+              "increasingly",
+              "resembles",
+              "mpi",
+              "mimd-style",
+              "parallelism",
+              "but",
+              "complexified",
+              "by",
+              "low-level",
+              "hardware",
+              "constraints",
+              "such",
+              "as",
+              "instruction",
+              "issue",
+              "ports",
+              "or",
+              "warp",
+              "wave",
+              "scheduling",
+              "and",
+              "specialization",
+              "amds",
+              "open",
+              "approach",
+              "to",
+              "hardware",
+              "isa",
+              "documentation",
+              "creates",
+              "unique",
+              "opportunity",
+              "to",
+              "build",
+              "world-class",
+              "assembly",
+              "tooling",
+              "in",
+              "the",
+              "open",
+              "making",
+              "amdgpu",
+              "asm",
+              "accessible",
+              "to",
+              "broader",
+              "community",
+              "as",
+              "well",
+              "as",
+              "higher-level",
+              "tools",
+              "while",
+              "maintaining",
+              "expert-level",
+              "control.",
+              "to",
+              "reap",
+              "the",
+              "benefits",
+              "of",
+              "modern",
+              "and",
+              "future",
+              "hw",
+              "we",
+              "believe",
+              "an",
+              "order",
+              "of",
+              "magnitude",
+              "better",
+              "low-level",
+              "tooling",
+              "is",
+              "needed.",
+              "aster",
+              "builds",
+              "the",
+              "foundations",
+              "for",
+              "highly-controllable",
+              "assembly",
+              "production",
+              "and",
+              "pushes",
+              "the",
+              "boundaries",
+              "of",
+              "whats",
+              "possible",
+              "in",
+              "low",
+              "level",
+              "performance",
+              "tooling."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "aster mlir-based assembly tooling and representations today achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used e.g. with warp wave specialization the low-level programming model increasingly resembles mpi mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp wave scheduling and specialization . amds open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open making amdgpu asm accessible to a broader community as well as higher-level tools while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of whats possible in low level performance tooling. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop nicolas vasilache fabian mora corder kunwar grover mlir performance ai"
+    },
+    {
+      "id": "2026-04-061",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Auto-tuning MLIR schedules: a case study targeting Intel GPUs",
+      "speakers": [
+        {
+          "name": "Tuomas Karna",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Rolf Morel",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "We present an end-to-end MLIR schedule for ML workloads and the auto-tuning thereof. The schedule targets Intel Battlemage GPUs and takes kernels all the way from Linalg-dialect ingress to LLVM IR. Alongside scheduling ops for, e.g., tiling, the schedule encodes its auto-tuning problem through tuneable “knob” ops and encodes the many hardware-imposed constraints on parameters as ops as well. We present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream MLIR and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_karna.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "projectGithub": "https://github.com/llvm/lighthouse",
+      "githubReferences": [
+        "https://github.com/llvm/lighthouse"
+      ],
+      "githubReferenceItems": [
+        {
+          "url": "https://github.com/llvm/lighthouse",
+          "source": "slides",
+          "label": "performance comparable to the state - of - the - art Implemented in Lighthouse",
+          "context": "performance comparable to the state - of - the - art Implemented in Lighthouse",
+          "library": "lighthouse",
+          "repository": "llvm/lighthouse",
+          "fileName": "",
+          "filePath": "",
+          "referencePath": ""
+        }
+      ],
+      "resourceActions": [
+        {
+          "kind": "github",
+          "label": "GitHub",
+          "url": "https://github.com/llvm/lighthouse"
+        }
+      ],
+      "keywords": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "auto-tuning mlir schedules: a case study targeting intel gpus",
+      "_speakerLower": "tuomas karna rolf morel",
+      "_abstractLower": "we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for, e.g., tiling, the schedule encodes its auto-tuning problem through tuneable “knob” ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+      "_tagsLower": "llvm mlir ir performance optimizations gpu ml",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "auto-tuning mlir schedules a case study targeting intel gpus",
+            "words": [
+              "auto-tuning",
+              "mlir",
+              "schedules",
+              "case",
+              "study",
+              "targeting",
+              "intel",
+              "gpus"
+            ]
+          },
+          "speakers": {
+            "text": "tuomas karna rolf morel",
+            "words": [
+              "tuomas",
+              "karna",
+              "rolf",
+              "morel"
+            ]
+          },
+          "tags": {
+            "text": "llvm mlir ir performance optimizations gpu ml",
+            "words": [
+              "llvm",
+              "mlir",
+              "ir",
+              "performance",
+              "optimizations",
+              "gpu",
+              "ml"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for e.g. tiling the schedule encodes its auto-tuning problem through tuneable knob ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+            "words": [
+              "we",
+              "present",
+              "an",
+              "end-to-end",
+              "mlir",
+              "schedule",
+              "for",
+              "ml",
+              "workloads",
+              "and",
+              "the",
+              "auto-tuning",
+              "thereof.",
+              "the",
+              "schedule",
+              "targets",
+              "intel",
+              "battlemage",
+              "gpus",
+              "and",
+              "takes",
+              "kernels",
+              "all",
+              "the",
+              "way",
+              "from",
+              "linalg-dialect",
+              "ingress",
+              "to",
+              "llvm",
+              "ir.",
+              "alongside",
+              "scheduling",
+              "ops",
+              "for",
+              "e.g.",
+              "tiling",
+              "the",
+              "schedule",
+              "encodes",
+              "its",
+              "auto-tuning",
+              "problem",
+              "through",
+              "tuneable",
+              "knob",
+              "ops",
+              "and",
+              "encodes",
+              "the",
+              "many",
+              "hardware-imposed",
+              "constraints",
+              "on",
+              "parameters",
+              "as",
+              "ops",
+              "as",
+              "well.",
+              "we",
+              "present",
+              "harness",
+              "that",
+              "performs",
+              "automatic",
+              "optimization",
+              "of",
+              "such",
+              "auto-tuneable",
+              "schedules",
+              "and",
+              "show",
+              "how",
+              "our",
+              "approach",
+              "using",
+              "upstream",
+              "mlir",
+              "and",
+              "without",
+              "user-specified",
+              "tiling",
+              "can",
+              "achieve",
+              "performance",
+              "comparable",
+              "to",
+              "state-of-the-art",
+              "frameworks."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "auto-tuning mlir schedules a case study targeting intel gpus we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for e.g. tiling the schedule encodes its auto-tuning problem through tuneable knob ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop tuomas karna rolf morel llvm mlir ir performance optimizations gpu ml"
+    },
+    {
+      "id": "2026-04-062",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Progressive Arithmetic Lowering from Tensor Kernels to Synthesizable Datapaths",
+      "speakers": [
+        {
+          "name": "Louis Ledoux",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Pierre Cochard",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Florent de Dinechin",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "This work presents an end-to-end MLIR-based compilation flow that lowers high-level machine-learning and DSP kernels to explicit combinational and sequential datapaths suitable for CIRCT and RTL export. The flow treats arithmetic as a multi-level concern, progressively exposing numeric intent, structured control, and hardware structure from tensor programs down to circuit-level IR. It integrates real-number expression recovery, configurable floating- and fixed-point lowering, and direct construction of circuit-level datapaths using CIRCT-compatible representations. The approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary, supporting fine-grained trade-offs in precision, performance, and area. The flow has been validated on real silicon, including a taped-out DSP design using the GF180MCU open-source PDK and an end-to-end compilation of a PyTorch LLaMA layer into a synthesized Sky130 process-node.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_ledoux.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths",
+      "_speakerLower": "louis ledoux pierre cochard florent de dinechin",
+      "_abstractLower": "this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern, progressively exposing numeric intent, structured control, and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery, configurable floating- and fixed-point lowering, and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary, supporting fine-grained trade-offs in precision, performance, and area. the flow has been validated on real silicon, including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node.",
+      "_tagsLower": "mlir circt performance",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths",
+            "words": [
+              "progressive",
+              "arithmetic",
+              "lowering",
+              "from",
+              "tensor",
+              "kernels",
+              "to",
+              "synthesizable",
+              "datapaths"
+            ]
+          },
+          "speakers": {
+            "text": "louis ledoux pierre cochard florent de dinechin",
+            "words": [
+              "louis",
+              "ledoux",
+              "pierre",
+              "cochard",
+              "florent",
+              "de",
+              "dinechin"
+            ]
+          },
+          "tags": {
+            "text": "mlir circt performance",
+            "words": [
+              "mlir",
+              "circt",
+              "performance"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern progressively exposing numeric intent structured control and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery configurable floating- and fixed-point lowering and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary supporting fine-grained trade-offs in precision performance and area. the flow has been validated on real silicon including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node.",
+            "words": [
+              "this",
+              "work",
+              "presents",
+              "an",
+              "end-to-end",
+              "mlir-based",
+              "compilation",
+              "flow",
+              "that",
+              "lowers",
+              "high-level",
+              "machine-learning",
+              "and",
+              "dsp",
+              "kernels",
+              "to",
+              "explicit",
+              "combinational",
+              "and",
+              "sequential",
+              "datapaths",
+              "suitable",
+              "for",
+              "circt",
+              "and",
+              "rtl",
+              "export.",
+              "the",
+              "flow",
+              "treats",
+              "arithmetic",
+              "as",
+              "multi-level",
+              "concern",
+              "progressively",
+              "exposing",
+              "numeric",
+              "intent",
+              "structured",
+              "control",
+              "and",
+              "hardware",
+              "structure",
+              "from",
+              "tensor",
+              "programs",
+              "down",
+              "to",
+              "circuit-level",
+              "ir.",
+              "it",
+              "integrates",
+              "real-number",
+              "expression",
+              "recovery",
+              "configurable",
+              "floating-",
+              "and",
+              "fixed-point",
+              "lowering",
+              "and",
+              "direct",
+              "construction",
+              "of",
+              "circuit-level",
+              "datapaths",
+              "using",
+              "circt-compatible",
+              "representations.",
+              "the",
+              "approach",
+              "enables",
+              "floating-point",
+              "and",
+              "specialized",
+              "arithmetic",
+              "to",
+              "remain",
+              "first-class",
+              "up",
+              "to",
+              "the",
+              "circuit",
+              "boundary",
+              "supporting",
+              "fine-grained",
+              "trade-offs",
+              "in",
+              "precision",
+              "performance",
+              "and",
+              "area.",
+              "the",
+              "flow",
+              "has",
+              "been",
+              "validated",
+              "on",
+              "real",
+              "silicon",
+              "including",
+              "taped-out",
+              "dsp",
+              "design",
+              "using",
+              "the",
+              "gf180mcu",
+              "open-source",
+              "pdk",
+              "and",
+              "an",
+              "end-to-end",
+              "compilation",
+              "of",
+              "pytorch",
+              "llama",
+              "layer",
+              "into",
+              "synthesized",
+              "sky130",
+              "process-node."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern progressively exposing numeric intent structured control and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery configurable floating- and fixed-point lowering and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary supporting fine-grained trade-offs in precision performance and area. the flow has been validated on real silicon including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop louis ledoux pierre cochard florent de dinechin mlir circt performance"
+    },
+    {
+      "id": "2026-04-063",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Multi Stage Sequential Reinforcement Learning Environment for MLIR Meta-Optimization",
+      "speakers": [
+        {
+          "name": "Prakanth Thilakaraj",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Machine learning–guided compiler optimization has recently attracted significant attention, with applications such as optimization pass prediction in LLVM IR and heuristic tuning in domain-specific language (DSL) compilers. In this work, we extend this paradigm to the Multi-Level Intermediate Representation (MLIR), a compiler infrastructure for DSL development that is widely used in AI compiler stacks. We present MLIRCompilerEnv, a reinforcement learning (RL) environment for predicting optimization passes and pass options in MLIR-based compiler pipelines, and evaluate it in the context of AI compilation. Our design targets the linalg, affine, and scf dialect levels, while remaining extensible to other MLIR-based compiler stacks for meta-optimization. We formulate the compiler optimization passes as a multi-stage RL problem, where each dialect stage is associated with a dedicated agent responsible for predicting optimization passes and their corresponding options. A message-passing graph neural network serves as a shared backbone across agents extracting structural features from the intermediate representations (IR). Agents operate sequentially to mirror the ordering of stages in the MLIR lowering pipeline, and end-to-end execution runtime is used as the reward signal to guide learning. To support structured learning over compiler IRs, we introduce a graph construction framework that fuses control-flow and data-flow information into a unified graph representation, covering MLIR dialects including linalg, scf, affine, arith, and math. We illustrate how this design naturally generalizes beyond AI compilers and facilitates extension to other MLIR-based compiler stacks such as stencil compilers. Initial results demonstrate the feasibility of the approach and we discuss performance trade-offs and compilation overhead introduced by the learning-based framework. The framework is currently being further developed to include matching optimization passes to the MLIR based IREE compiler for a comprehensive like-for-like comparison and analysis.",
+      "videoId": null,
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "slidesUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "multi stage sequential reinforcement learning environment for mlir meta-optimization",
+      "_speakerLower": "prakanth thilakaraj",
+      "_abstractLower": "machine learning–guided compiler optimization has recently attracted significant attention, with applications such as optimization pass prediction in llvm ir and heuristic tuning in domain-specific language (dsl) compilers. in this work, we extend this paradigm to the multi-level intermediate representation (mlir), a compiler infrastructure for dsl development that is widely used in ai compiler stacks. we present mlircompilerenv, a reinforcement learning (rl) environment for predicting optimization passes and pass options in mlir-based compiler pipelines, and evaluate it in the context of ai compilation. our design targets the linalg, affine, and scf dialect levels, while remaining extensible to other mlir-based compiler stacks for meta-optimization. we formulate the compiler optimization passes as a multi-stage rl problem, where each dialect stage is associated with a dedicated agent responsible for predicting optimization passes and their corresponding options. a message-passing graph neural network serves as a shared backbone across agents extracting structural features from the intermediate representations (ir). agents operate sequentially to mirror the ordering of stages in the mlir lowering pipeline, and end-to-end execution runtime is used as the reward signal to guide learning. to support structured learning over compiler irs, we introduce a graph construction framework that fuses control-flow and data-flow information into a unified graph representation, covering mlir dialects including linalg, scf, affine, arith, and math. we illustrate how this design naturally generalizes beyond ai compilers and facilitates extension to other mlir-based compiler stacks such as stencil compilers. initial results demonstrate the feasibility of the approach and we discuss performance trade-offs and compilation overhead introduced by the learning-based framework. the framework is currently being further developed to include matching optimization passes to the mlir based iree compiler for a comprehensive like-for-like comparison and analysis.",
+      "_tagsLower": "llvm mlir ir performance optimizations infrastructure ai ml",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "multi stage sequential reinforcement learning environment for mlir meta-optimization",
+            "words": [
+              "multi",
+              "stage",
+              "sequential",
+              "reinforcement",
+              "learning",
+              "environment",
+              "for",
+              "mlir",
+              "meta-optimization"
+            ]
+          },
+          "speakers": {
+            "text": "prakanth thilakaraj",
+            "words": [
+              "prakanth",
+              "thilakaraj"
+            ]
+          },
+          "tags": {
+            "text": "llvm mlir ir performance optimizations infrastructure ai ml",
+            "words": [
+              "llvm",
+              "mlir",
+              "ir",
+              "performance",
+              "optimizations",
+              "infrastructure",
+              "ai",
+              "ml"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "machine learning guided compiler optimization has recently attracted significant attention with applications such as optimization pass prediction in llvm ir and heuristic tuning in domain-specific language dsl compilers. in this work we extend this paradigm to the multi-level intermediate representation mlir a compiler infrastructure for dsl development that is widely used in ai compiler stacks. we present mlircompilerenv a reinforcement learning rl environment for predicting optimization passes and pass options in mlir-based compiler pipelines and evaluate it in the context of ai compilation. our design targets the linalg affine and scf dialect levels while remaining extensible to other mlir-based compiler stacks for meta-optimization. we formulate the compiler optimization passes as a multi-stage rl problem where each dialect stage is associated with a dedicated agent responsible for predicting optimization passes and their corresponding options. a message-passing graph neural network serves as a shared backbone across agents extracting structural features from the intermediate representations ir . agents operate sequentially to mirror the ordering of stages in the mlir lowering pipeline and end-to-end execution runtime is used as the reward signal to guide learning. to support structured learning over compiler irs we introduce a graph construction framework that fuses control-flow and data-flow information into a unified graph representation covering mlir dialects including linalg scf affine arith and math. we illustrate how this design naturally generalizes beyond ai compilers and facilitates extension to other mlir-based compiler stacks such as stencil compilers. initial results demonstrate the feasibility of the approach and we discuss performance trade-offs and compilation overhead introduced by the learning-based framework. the framework is currently being further developed to include matching optimization passes to the mlir based iree compiler for a comprehensive like-for-like comparison and analysis.",
+            "words": [
+              "machine",
+              "learning",
+              "guided",
+              "compiler",
+              "optimization",
+              "has",
+              "recently",
+              "attracted",
+              "significant",
+              "attention",
+              "with",
+              "applications",
+              "such",
+              "as",
+              "optimization",
+              "pass",
+              "prediction",
+              "in",
+              "llvm",
+              "ir",
+              "and",
+              "heuristic",
+              "tuning",
+              "in",
+              "domain-specific",
+              "language",
+              "dsl",
+              "compilers.",
+              "in",
+              "this",
+              "work",
+              "we",
+              "extend",
+              "this",
+              "paradigm",
+              "to",
+              "the",
+              "multi-level",
+              "intermediate",
+              "representation",
+              "mlir",
+              "compiler",
+              "infrastructure",
+              "for",
+              "dsl",
+              "development",
+              "that",
+              "is",
+              "widely",
+              "used",
+              "in",
+              "ai",
+              "compiler",
+              "stacks.",
+              "we",
+              "present",
+              "mlircompilerenv",
+              "reinforcement",
+              "learning",
+              "rl",
+              "environment",
+              "for",
+              "predicting",
+              "optimization",
+              "passes",
+              "and",
+              "pass",
+              "options",
+              "in",
+              "mlir-based",
+              "compiler",
+              "pipelines",
+              "and",
+              "evaluate",
+              "it",
+              "in",
+              "the",
+              "context",
+              "of",
+              "ai",
+              "compilation.",
+              "our",
+              "design",
+              "targets",
+              "the",
+              "linalg",
+              "affine",
+              "and",
+              "scf",
+              "dialect",
+              "levels",
+              "while",
+              "remaining",
+              "extensible",
+              "to",
+              "other",
+              "mlir-based",
+              "compiler",
+              "stacks",
+              "for",
+              "meta-optimization.",
+              "we",
+              "formulate",
+              "the",
+              "compiler",
+              "optimization",
+              "passes",
+              "as",
+              "multi-stage",
+              "rl",
+              "problem",
+              "where",
+              "each",
+              "dialect",
+              "stage",
+              "is",
+              "associated",
+              "with",
+              "dedicated",
+              "agent",
+              "responsible",
+              "for",
+              "predicting",
+              "optimization",
+              "passes",
+              "and",
+              "their",
+              "corresponding",
+              "options.",
+              "message-passing",
+              "graph",
+              "neural",
+              "network",
+              "serves",
+              "as",
+              "shared",
+              "backbone",
+              "across",
+              "agents",
+              "extracting",
+              "structural",
+              "features",
+              "from",
+              "the",
+              "intermediate",
+              "representations",
+              "ir",
+              "agents",
+              "operate",
+              "sequentially",
+              "to",
+              "mirror",
+              "the",
+              "ordering",
+              "of",
+              "stages",
+              "in",
+              "the",
+              "mlir",
+              "lowering",
+              "pipeline",
+              "and",
+              "end-to-end",
+              "execution",
+              "runtime",
+              "is",
+              "used",
+              "as",
+              "the",
+              "reward",
+              "signal",
+              "to",
+              "guide",
+              "learning.",
+              "to",
+              "support",
+              "structured",
+              "learning",
+              "over",
+              "compiler",
+              "irs",
+              "we",
+              "introduce",
+              "graph",
+              "construction",
+              "framework",
+              "that",
+              "fuses",
+              "control-flow",
+              "and",
+              "data-flow",
+              "information",
+              "into",
+              "unified",
+              "graph",
+              "representation",
+              "covering",
+              "mlir",
+              "dialects",
+              "including",
+              "linalg",
+              "scf",
+              "affine",
+              "arith",
+              "and",
+              "math.",
+              "we",
+              "illustrate",
+              "how",
+              "this",
+              "design",
+              "naturally",
+              "generalizes",
+              "beyond",
+              "ai",
+              "compilers",
+              "and",
+              "facilitates",
+              "extension",
+              "to",
+              "other",
+              "mlir-based",
+              "compiler",
+              "stacks",
+              "such",
+              "as",
+              "stencil",
+              "compilers.",
+              "initial",
+              "results",
+              "demonstrate",
+              "the",
+              "feasibility",
+              "of",
+              "the",
+              "approach",
+              "and",
+              "we",
+              "discuss",
+              "performance",
+              "trade-offs",
+              "and",
+              "compilation",
+              "overhead",
+              "introduced",
+              "by",
+              "the",
+              "learning-based",
+              "framework.",
+              "the",
+              "framework",
+              "is",
+              "currently",
+              "being",
+              "further",
+              "developed",
+              "to",
+              "include",
+              "matching",
+              "optimization",
+              "passes",
+              "to",
+              "the",
+              "mlir",
+              "based",
+              "iree",
+              "compiler",
+              "for",
+              "comprehensive",
+              "like-for-like",
+              "comparison",
+              "and",
+              "analysis."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "multi stage sequential reinforcement learning environment for mlir meta-optimization machine learning guided compiler optimization has recently attracted significant attention with applications such as optimization pass prediction in llvm ir and heuristic tuning in domain-specific language dsl compilers. in this work we extend this paradigm to the multi-level intermediate representation mlir a compiler infrastructure for dsl development that is widely used in ai compiler stacks. we present mlircompilerenv a reinforcement learning rl environment for predicting optimization passes and pass options in mlir-based compiler pipelines and evaluate it in the context of ai compilation. our design targets the linalg affine and scf dialect levels while remaining extensible to other mlir-based compiler stacks for meta-optimization. we formulate the compiler optimization passes as a multi-stage rl problem where each dialect stage is associated with a dedicated agent responsible for predicting optimization passes and their corresponding options. a message-passing graph neural network serves as a shared backbone across agents extracting structural features from the intermediate representations ir . agents operate sequentially to mirror the ordering of stages in the mlir lowering pipeline and end-to-end execution runtime is used as the reward signal to guide learning. to support structured learning over compiler irs we introduce a graph construction framework that fuses control-flow and data-flow information into a unified graph representation covering mlir dialects including linalg scf affine arith and math. we illustrate how this design naturally generalizes beyond ai compilers and facilitates extension to other mlir-based compiler stacks such as stencil compilers. initial results demonstrate the feasibility of the approach and we discuss performance trade-offs and compilation overhead introduced by the learning-based framework. the framework is currently being further developed to include matching optimization passes to the mlir based iree compiler for a comprehensive like-for-like comparison and analysis. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop prakanth thilakaraj llvm mlir ir performance optimizations infrastructure ai ml"
+    },
+    {
+      "id": "2026-04-064",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "From Graphs to Warps: Semantic Interoperability Across MLIR Abstraction Levels",
+      "speakers": [
+        {
+          "name": "Nachiketa Gargi",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Modern ML compiler stacks span multiple semantic abstraction levels, from graph-level program representations to tile-based computation and SIMT kernels. Composing these layers reliably remains challenging in practice, particularly in GPU compilers, where execution semantics, memory hierarchy, and parallelism are explicit and tightly coupled to performance. This talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries, such as loss of semantic information during lowering, conflicting ownership of layout and scheduling decisions, and non-composable cost models. Using examples drawn from the MLIR ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. The goal of this talk is to frame semantic interoperability as a first-class problem in MLIR-based compiler design and to outline open research questions.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_gargi.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "from graphs to warps: semantic interoperability across mlir abstraction levels",
+      "_speakerLower": "nachiketa gargi",
+      "_abstractLower": "modern ml compiler stacks span multiple semantic abstraction levels, from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice, particularly in gpu compilers, where execution semantics, memory hierarchy, and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries, such as loss of semantic information during lowering, conflicting ownership of layout and scheduling decisions, and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions.",
+      "_tagsLower": "mlir performance gpu ml",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "from graphs to warps semantic interoperability across mlir abstraction levels",
+            "words": [
+              "from",
+              "graphs",
+              "to",
+              "warps",
+              "semantic",
+              "interoperability",
+              "across",
+              "mlir",
+              "abstraction",
+              "levels"
+            ]
+          },
+          "speakers": {
+            "text": "nachiketa gargi",
+            "words": [
+              "nachiketa",
+              "gargi"
+            ]
+          },
+          "tags": {
+            "text": "mlir performance gpu ml",
+            "words": [
+              "mlir",
+              "performance",
+              "gpu",
+              "ml"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "modern ml compiler stacks span multiple semantic abstraction levels from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice particularly in gpu compilers where execution semantics memory hierarchy and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries such as loss of semantic information during lowering conflicting ownership of layout and scheduling decisions and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions.",
+            "words": [
+              "modern",
+              "ml",
+              "compiler",
+              "stacks",
+              "span",
+              "multiple",
+              "semantic",
+              "abstraction",
+              "levels",
+              "from",
+              "graph-level",
+              "program",
+              "representations",
+              "to",
+              "tile-based",
+              "computation",
+              "and",
+              "simt",
+              "kernels.",
+              "composing",
+              "these",
+              "layers",
+              "reliably",
+              "remains",
+              "challenging",
+              "in",
+              "practice",
+              "particularly",
+              "in",
+              "gpu",
+              "compilers",
+              "where",
+              "execution",
+              "semantics",
+              "memory",
+              "hierarchy",
+              "and",
+              "parallelism",
+              "are",
+              "explicit",
+              "and",
+              "tightly",
+              "coupled",
+              "to",
+              "performance.",
+              "this",
+              "talk",
+              "characterizes",
+              "recurring",
+              "interoperability",
+              "failures",
+              "that",
+              "arise",
+              "when",
+              "crossing",
+              "abstraction",
+              "boundaries",
+              "such",
+              "as",
+              "loss",
+              "of",
+              "semantic",
+              "information",
+              "during",
+              "lowering",
+              "conflicting",
+              "ownership",
+              "of",
+              "layout",
+              "and",
+              "scheduling",
+              "decisions",
+              "and",
+              "non-composable",
+              "cost",
+              "models.",
+              "using",
+              "examples",
+              "drawn",
+              "from",
+              "the",
+              "mlir",
+              "ecosystem",
+              "we",
+              "illustrate",
+              "why",
+              "these",
+              "interoperability",
+              "failures",
+              "are",
+              "fundamental",
+              "rather",
+              "than",
+              "incidental.",
+              "the",
+              "goal",
+              "of",
+              "this",
+              "talk",
+              "is",
+              "to",
+              "frame",
+              "semantic",
+              "interoperability",
+              "as",
+              "first-class",
+              "problem",
+              "in",
+              "mlir-based",
+              "compiler",
+              "design",
+              "and",
+              "to",
+              "outline",
+              "open",
+              "research",
+              "questions."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "from graphs to warps semantic interoperability across mlir abstraction levels modern ml compiler stacks span multiple semantic abstraction levels from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice particularly in gpu compilers where execution semantics memory hierarchy and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries such as loss of semantic information during lowering conflicting ownership of layout and scheduling decisions and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop nachiketa gargi mlir performance gpu ml"
+    },
+    {
+      "id": "2026-04-065",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Beyond Constants: Mojo’s Attribute-Based Expression System",
+      "speakers": [
+        {
+          "name": "Billy Zhu",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "The Mojo programming language leverages MLIR’s attribute system to represent compile-time expressions as attribute trees, enabling parametric IR where operations are “staged” with expression attributes that evaluate to constants during the compilation pipeline. Our expression language is built on a typed lambda calculus using de Bruijn indices for bound variables, with dialects contributing their own types and operators to create a rich, extensible system. To evaluate these expressions, we developed a custom AttrTypeReplacer with depth-aware caching (handling de Bruijn index-based references) and context-aware replacement (providing access to outer symbol tables). This talk presents our representation and our evaluator design as a case study for programming language developers using MLIR for high-level IR, demonstrating how MLIR’s attribute system can be so much more than just for “constants”.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_zhu.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "beyond constants: mojo’s attribute-based expression system",
+      "_speakerLower": "billy zhu",
+      "_abstractLower": "the mojo programming language leverages mlir’s attribute system to represent compile-time expressions as attribute trees, enabling parametric ir where operations are “staged” with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables, with dialects contributing their own types and operators to create a rich, extensible system. to evaluate these expressions, we developed a custom attrtypereplacer with depth-aware caching (handling de bruijn index-based references) and context-aware replacement (providing access to outer symbol tables). this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir, demonstrating how mlir’s attribute system can be so much more than just for “constants”.",
+      "_tagsLower": "mlir mojo",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "beyond constants mojos attribute-based expression system",
+            "words": [
+              "beyond",
+              "constants",
+              "mojos",
+              "attribute-based",
+              "expression",
+              "system"
+            ]
+          },
+          "speakers": {
+            "text": "billy zhu",
+            "words": [
+              "billy",
+              "zhu"
+            ]
+          },
+          "tags": {
+            "text": "mlir mojo",
+            "words": [
+              "mlir",
+              "mojo"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "the mojo programming language leverages mlirs attribute system to represent compile-time expressions as attribute trees enabling parametric ir where operations are staged with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables with dialects contributing their own types and operators to create a rich extensible system. to evaluate these expressions we developed a custom attrtypereplacer with depth-aware caching handling de bruijn index-based references and context-aware replacement providing access to outer symbol tables . this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir demonstrating how mlirs attribute system can be so much more than just for constants .",
+            "words": [
+              "the",
+              "mojo",
+              "programming",
+              "language",
+              "leverages",
+              "mlirs",
+              "attribute",
+              "system",
+              "to",
+              "represent",
+              "compile-time",
+              "expressions",
+              "as",
+              "attribute",
+              "trees",
+              "enabling",
+              "parametric",
+              "ir",
+              "where",
+              "operations",
+              "are",
+              "staged",
+              "with",
+              "expression",
+              "attributes",
+              "that",
+              "evaluate",
+              "to",
+              "constants",
+              "during",
+              "the",
+              "compilation",
+              "pipeline.",
+              "our",
+              "expression",
+              "language",
+              "is",
+              "built",
+              "on",
+              "typed",
+              "lambda",
+              "calculus",
+              "using",
+              "de",
+              "bruijn",
+              "indices",
+              "for",
+              "bound",
+              "variables",
+              "with",
+              "dialects",
+              "contributing",
+              "their",
+              "own",
+              "types",
+              "and",
+              "operators",
+              "to",
+              "create",
+              "rich",
+              "extensible",
+              "system.",
+              "to",
+              "evaluate",
+              "these",
+              "expressions",
+              "we",
+              "developed",
+              "custom",
+              "attrtypereplacer",
+              "with",
+              "depth-aware",
+              "caching",
+              "handling",
+              "de",
+              "bruijn",
+              "index-based",
+              "references",
+              "and",
+              "context-aware",
+              "replacement",
+              "providing",
+              "access",
+              "to",
+              "outer",
+              "symbol",
+              "tables",
+              "this",
+              "talk",
+              "presents",
+              "our",
+              "representation",
+              "and",
+              "our",
+              "evaluator",
+              "design",
+              "as",
+              "case",
+              "study",
+              "for",
+              "programming",
+              "language",
+              "developers",
+              "using",
+              "mlir",
+              "for",
+              "high-level",
+              "ir",
+              "demonstrating",
+              "how",
+              "mlirs",
+              "attribute",
+              "system",
+              "can",
+              "be",
+              "so",
+              "much",
+              "more",
+              "than",
+              "just",
+              "for",
+              "constants"
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "beyond constants mojos attribute-based expression system the mojo programming language leverages mlirs attribute system to represent compile-time expressions as attribute trees enabling parametric ir where operations are staged with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables with dialects contributing their own types and operators to create a rich extensible system. to evaluate these expressions we developed a custom attrtypereplacer with depth-aware caching handling de bruijn index-based references and context-aware replacement providing access to outer symbol tables . this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir demonstrating how mlirs attribute system can be so much more than just for constants . 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop billy zhu mlir mojo"
+    },
+    {
+      "id": "2026-04-066",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Tamagoyaki: MLIR-Native Equality Saturation",
+      "speakers": [
+        {
+          "name": "Sasha Lopoukhine",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Jules Merckx",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Sam Coward",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Jianyi Cheng",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Bjorn De Sutter",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Tobias Grosser",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "Equality saturation (EqSat) is an expression rewriting technique based on efficiently representing equivalent expressions. In recent years, it has successfully been applied in many different domains. Applying EqSat on MLIR code, however, requires additional effort for converting rewrite patterns and IR to formats that are understood by external tools. We present Tamagoyaki, an MLIR (and xDSL) framework to represent equivalences directly in your IR. Building on pdl, we apply rewrite patterns on this representation. By encoding equivalences explicitly in IR, we open the door to including more complex compiler passes in EqSat. As a case study, we replicate the core procedure of Herbie, a floating point accuracy optimizer, directly in MLIR. Additionally we show how Tamagoyaki can easily be applied to other MLIR projects such as CIRCT.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_merckx.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "tamagoyaki: mlir-native equality saturation",
+      "_speakerLower": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+      "_abstractLower": "equality saturation (eqsat) is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years, it has successfully been applied in many different domains. applying eqsat on mlir code, however, requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki, an mlir (and xdsl) framework to represent equivalences directly in your ir. building on pdl, we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir, we open the door to including more complex compiler passes in eqsat. as a case study, we replicate the core procedure of herbie, a floating point accuracy optimizer, directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+      "_tagsLower": "mlir circt",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "tamagoyaki mlir-native equality saturation",
+            "words": [
+              "tamagoyaki",
+              "mlir-native",
+              "equality",
+              "saturation"
+            ]
+          },
+          "speakers": {
+            "text": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+            "words": [
+              "sasha",
+              "lopoukhine",
+              "jules",
+              "merckx",
+              "sam",
+              "coward",
+              "jianyi",
+              "cheng",
+              "bjorn",
+              "de",
+              "sutter",
+              "tobias",
+              "grosser"
+            ]
+          },
+          "tags": {
+            "text": "mlir circt",
+            "words": [
+              "mlir",
+              "circt"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+            "words": [
+              "equality",
+              "saturation",
+              "eqsat",
+              "is",
+              "an",
+              "expression",
+              "rewriting",
+              "technique",
+              "based",
+              "on",
+              "efficiently",
+              "representing",
+              "equivalent",
+              "expressions.",
+              "in",
+              "recent",
+              "years",
+              "it",
+              "has",
+              "successfully",
+              "been",
+              "applied",
+              "in",
+              "many",
+              "different",
+              "domains.",
+              "applying",
+              "eqsat",
+              "on",
+              "mlir",
+              "code",
+              "however",
+              "requires",
+              "additional",
+              "effort",
+              "for",
+              "converting",
+              "rewrite",
+              "patterns",
+              "and",
+              "ir",
+              "to",
+              "formats",
+              "that",
+              "are",
+              "understood",
+              "by",
+              "external",
+              "tools.",
+              "we",
+              "present",
+              "tamagoyaki",
+              "an",
+              "mlir",
+              "and",
+              "xdsl",
+              "framework",
+              "to",
+              "represent",
+              "equivalences",
+              "directly",
+              "in",
+              "your",
+              "ir.",
+              "building",
+              "on",
+              "pdl",
+              "we",
+              "apply",
+              "rewrite",
+              "patterns",
+              "on",
+              "this",
+              "representation.",
+              "by",
+              "encoding",
+              "equivalences",
+              "explicitly",
+              "in",
+              "ir",
+              "we",
+              "open",
+              "the",
+              "door",
+              "to",
+              "including",
+              "more",
+              "complex",
+              "compiler",
+              "passes",
+              "in",
+              "eqsat.",
+              "as",
+              "case",
+              "study",
+              "we",
+              "replicate",
+              "the",
+              "core",
+              "procedure",
+              "of",
+              "herbie",
+              "floating",
+              "point",
+              "accuracy",
+              "optimizer",
+              "directly",
+              "in",
+              "mlir.",
+              "additionally",
+              "we",
+              "show",
+              "how",
+              "tamagoyaki",
+              "can",
+              "easily",
+              "be",
+              "applied",
+              "to",
+              "other",
+              "mlir",
+              "projects",
+              "such",
+              "as",
+              "circt."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "tamagoyaki mlir-native equality saturation equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser mlir circt"
+    },
+    {
+      "id": "2026-04-067",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "MLIR-RAJA: Bridging AI Models and HPC Performance Portability",
+      "speakers": [
+        {
+          "name": "Tai-Hsiang Peng",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Hung-Ming Lai",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Chun-Lin Huang",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Wei-Shen Huang",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        },
+        {
+          "name": "Jenq-Kuen Lee",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "RAJA, originally developed by Lawrence Livermore National Lab, is a C++ template library widely used in High-Performance Computing (HPC). It ensures that code can run efficiently on different hardware, such as CPUs and GPUs, without needing to be rewritten. At the same time, AI models are becoming essential tools for modern scientific discovery. To connect these two worlds, we introduce MLIR-RAJA, a MLIR dialect that links high-level AI frameworks with the performance benefits of RAJA. Our work defines a specific RAJA Dialect in MLIR to build an automated end-to-end flow, capable of translating AI models directly into optimized RAJA C++. This solution eliminates the barrier between AI development and HPC execution, enabling the automatic generation of portable code for AI Models. Experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. Furthermore, these performance gains extend to OpenMP-enabled parallel execution. Finally, we flow MLIR RAJA dialects into LLVM to utilize a variety of backends to support MLIR RAJA computations.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_pang.pdf",
+      "posterUrl": "",
+      "tags": [],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "videoUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "mlir-raja: bridging ai models and hpc performance portability",
+      "_speakerLower": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+      "_abstractLower": "raja, originally developed by lawrence livermore national lab, is a c++ template library widely used in high-performance computing (hpc). it ensures that code can run efficiently on different hardware, such as cpus and gpus, without needing to be rewritten. at the same time, ai models are becoming essential tools for modern scientific discovery. to connect these two worlds, we introduce mlir-raja, a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow, capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution, enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore, these performance gains extend to openmp-enabled parallel execution. finally, we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+      "_tagsLower": "llvm mlir openmp performance optimizations gpu ai",
+      "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+      "_year": "2026",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "mlir-raja bridging ai models and hpc performance portability",
+            "words": [
+              "mlir-raja",
+              "bridging",
+              "ai",
+              "models",
+              "and",
+              "hpc",
+              "performance",
+              "portability"
+            ]
+          },
+          "speakers": {
+            "text": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+            "words": [
+              "tai-hsiang",
+              "peng",
+              "hung-ming",
+              "lai",
+              "chun-lin",
+              "huang",
+              "wei-shen",
+              "huang",
+              "jenq-kuen",
+              "lee"
+            ]
+          },
+          "tags": {
+            "text": "llvm mlir openmp performance optimizations gpu ai",
+            "words": [
+              "llvm",
+              "mlir",
+              "openmp",
+              "performance",
+              "optimizations",
+              "gpu",
+              "ai"
+            ]
+          },
+          "meeting": {
+            "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+            "words": [
+              "2026",
+              "eurollvm",
+              "developers",
+              "meeting",
+              "dublin",
+              "ireland",
+              "april",
+              "13-15",
+              "2026"
+            ]
+          },
+          "abstract": {
+            "text": "raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+            "words": [
+              "raja",
+              "originally",
+              "developed",
+              "by",
+              "lawrence",
+              "livermore",
+              "national",
+              "lab",
+              "is",
+              "c++",
+              "template",
+              "library",
+              "widely",
+              "used",
+              "in",
+              "high-performance",
+              "computing",
+              "hpc",
+              "it",
+              "ensures",
+              "that",
+              "code",
+              "can",
+              "run",
+              "efficiently",
+              "on",
+              "different",
+              "hardware",
+              "such",
+              "as",
+              "cpus",
+              "and",
+              "gpus",
+              "without",
+              "needing",
+              "to",
+              "be",
+              "rewritten.",
+              "at",
+              "the",
+              "same",
+              "time",
+              "ai",
+              "models",
+              "are",
+              "becoming",
+              "essential",
+              "tools",
+              "for",
+              "modern",
+              "scientific",
+              "discovery.",
+              "to",
+              "connect",
+              "these",
+              "two",
+              "worlds",
+              "we",
+              "introduce",
+              "mlir-raja",
+              "mlir",
+              "dialect",
+              "that",
+              "links",
+              "high-level",
+              "ai",
+              "frameworks",
+              "with",
+              "the",
+              "performance",
+              "benefits",
+              "of",
+              "raja.",
+              "our",
+              "work",
+              "defines",
+              "specific",
+              "raja",
+              "dialect",
+              "in",
+              "mlir",
+              "to",
+              "build",
+              "an",
+              "automated",
+              "end-to-end",
+              "flow",
+              "capable",
+              "of",
+              "translating",
+              "ai",
+              "models",
+              "directly",
+              "into",
+              "optimized",
+              "raja",
+              "c++.",
+              "this",
+              "solution",
+              "eliminates",
+              "the",
+              "barrier",
+              "between",
+              "ai",
+              "development",
+              "and",
+              "hpc",
+              "execution",
+              "enabling",
+              "the",
+              "automatic",
+              "generation",
+              "of",
+              "portable",
+              "code",
+              "for",
+              "ai",
+              "models.",
+              "experimental",
+              "results",
+              "demonstrate",
+              "that",
+              "our",
+              "structure-aware",
+              "optimizations",
+              "achieve",
+              "significant",
+              "improvement",
+              "in",
+              "sequential",
+              "execution",
+              "over",
+              "baseline.",
+              "furthermore",
+              "these",
+              "performance",
+              "gains",
+              "extend",
+              "to",
+              "openmp-enabled",
+              "parallel",
+              "execution.",
+              "finally",
+              "we",
+              "flow",
+              "mlir",
+              "raja",
+              "dialects",
+              "into",
+              "llvm",
+              "to",
+              "utilize",
+              "variety",
+              "of",
+              "backends",
+              "to",
+              "support",
+              "mlir",
+              "raja",
+              "computations."
+            ]
+          },
+          "category": {
+            "text": "mlir-workshop",
+            "words": [
+              "mlir-workshop"
+            ]
+          },
+          "year": {
+            "text": "2026",
+            "words": [
+              "2026"
+            ]
+          }
+        },
+        "year": 2026
+      },
+      "_searchBlob": "mlir-raja bridging ai models and hpc performance portability raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee llvm mlir openmp performance optimizations gpu ai"
     },
     {
       "id": "2026-03-wict-001",
@@ -112648,6 +114960,247 @@
       "_searchBlob": "forcefully embedding mlir into python foundation is dedicated to providing an inclusive and safe experience for everyone. we do not tolerate harassment of participants in any form. by registering for this event we expect you to have read and agree to the llvm code of conduct. 2023 eurollvm developers meeting glasgow scotland may 10-11 2023 2023-05 poster george mitenkov community building mlir llvm"
     },
     {
+      "id": "2023-02-wict-001",
+      "meeting": "2023-02-wict",
+      "meetingName": "2023 Women in Compilers and Tools Meetup Series",
+      "meetingLocation": "virtual",
+      "meetingDate": "2023",
+      "category": "workshop",
+      "title": "An Introduction to Verification Using Automated Reasoning",
+      "speakers": [
+        {
+          "name": "Petra Hozzova",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "A WiCT meetup introduction to software verification with automated reasoning techniques.",
+      "videoUrl": "https://youtu.be/L_jgDoIuA6Q",
+      "videoId": "L_jgDoIuA6Q",
+      "tags": [
+        "WiCT",
+        "Community.o",
+        "D&I",
+        "Testing"
+      ],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "slidesUrl": "",
+      "posterUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "an introduction to verification using automated reasoning",
+      "_speakerLower": "petra hozzova",
+      "_abstractLower": "a wict meetup introduction to software verification with automated reasoning techniques.",
+      "_tagsLower": "wict community.o d&i testing",
+      "_meetingLower": "2023 women in compilers and tools meetup series virtual 2023",
+      "_year": "2023",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "an introduction to verification using automated reasoning",
+            "words": [
+              "an",
+              "introduction",
+              "to",
+              "verification",
+              "using",
+              "automated",
+              "reasoning"
+            ]
+          },
+          "speakers": {
+            "text": "petra hozzova",
+            "words": [
+              "petra",
+              "hozzova"
+            ]
+          },
+          "tags": {
+            "text": "wict community.o d and i testing",
+            "words": [
+              "wict",
+              "community.o",
+              "and",
+              "testing"
+            ]
+          },
+          "meeting": {
+            "text": "2023 women in compilers and tools meetup series virtual 2023",
+            "words": [
+              "2023",
+              "women",
+              "in",
+              "compilers",
+              "and",
+              "tools",
+              "meetup",
+              "series",
+              "virtual",
+              "2023"
+            ]
+          },
+          "abstract": {
+            "text": "a wict meetup introduction to software verification with automated reasoning techniques.",
+            "words": [
+              "wict",
+              "meetup",
+              "introduction",
+              "to",
+              "software",
+              "verification",
+              "with",
+              "automated",
+              "reasoning",
+              "techniques."
+            ]
+          },
+          "category": {
+            "text": "workshop",
+            "words": [
+              "workshop"
+            ]
+          },
+          "year": {
+            "text": "2023",
+            "words": [
+              "2023"
+            ]
+          }
+        },
+        "year": 2023
+      },
+      "_searchBlob": "an introduction to verification using automated reasoning a wict meetup introduction to software verification with automated reasoning techniques. 2023 women in compilers and tools meetup series virtual 2023 2023-02-wict workshop petra hozzova wict community.o d and i testing"
+    },
+    {
+      "id": "2023-02-wict-002",
+      "meeting": "2023-02-wict",
+      "meetingName": "2023 Women in Compilers and Tools Meetup Series",
+      "meetingLocation": "virtual",
+      "meetingDate": "2023",
+      "category": "workshop",
+      "title": "Career Chat and Tech Talk with Professor Alexa VanHattum",
+      "speakers": [
+        {
+          "name": "Alexa VanHattum",
+          "affiliation": "",
+          "github": "",
+          "linkedin": "",
+          "twitter": ""
+        }
+      ],
+      "abstract": "A WiCT meetup combining career discussion with a technical talk from Alexa VanHattum.",
+      "videoUrl": "https://youtu.be/Qhl6DD8fh78",
+      "videoId": "Qhl6DD8fh78",
+      "tags": [
+        "WiCT",
+        "Community.o",
+        "D&I",
+        "Community Building",
+        "Programming Languages"
+      ],
+      "keywords": [],
+      "resourceActions": [],
+      "projectGithub": "",
+      "githubReferences": [],
+      "githubReferenceItems": [],
+      "slidesUrl": "",
+      "posterUrl": "",
+      "sourceUrl": "",
+      "_titleLower": "career chat and tech talk with professor alexa vanhattum",
+      "_speakerLower": "alexa vanhattum",
+      "_abstractLower": "a wict meetup combining career discussion with a technical talk from alexa vanhattum.",
+      "_tagsLower": "wict community.o d&i community building programming languages",
+      "_meetingLower": "2023 women in compilers and tools meetup series virtual 2023",
+      "_year": "2023",
+      "_searchDoc": {
+        "fields": {
+          "title": {
+            "text": "career chat and tech talk with professor alexa vanhattum",
+            "words": [
+              "career",
+              "chat",
+              "and",
+              "tech",
+              "talk",
+              "with",
+              "professor",
+              "alexa",
+              "vanhattum"
+            ]
+          },
+          "speakers": {
+            "text": "alexa vanhattum",
+            "words": [
+              "alexa",
+              "vanhattum"
+            ]
+          },
+          "tags": {
+            "text": "wict community.o d and i community building programming languages",
+            "words": [
+              "wict",
+              "community.o",
+              "and",
+              "community",
+              "building",
+              "programming",
+              "languages"
+            ]
+          },
+          "meeting": {
+            "text": "2023 women in compilers and tools meetup series virtual 2023",
+            "words": [
+              "2023",
+              "women",
+              "in",
+              "compilers",
+              "and",
+              "tools",
+              "meetup",
+              "series",
+              "virtual",
+              "2023"
+            ]
+          },
+          "abstract": {
+            "text": "a wict meetup combining career discussion with a technical talk from alexa vanhattum.",
+            "words": [
+              "wict",
+              "meetup",
+              "combining",
+              "career",
+              "discussion",
+              "with",
+              "technical",
+              "talk",
+              "from",
+              "alexa",
+              "vanhattum."
+            ]
+          },
+          "category": {
+            "text": "workshop",
+            "words": [
+              "workshop"
+            ]
+          },
+          "year": {
+            "text": "2023",
+            "words": [
+              "2023"
+            ]
+          }
+        },
+        "year": 2023
+      },
+      "_searchBlob": "career chat and tech talk with professor alexa vanhattum a wict meetup combining career discussion with a technical talk from alexa vanhattum. 2023 women in compilers and tools meetup series virtual 2023 2023-02-wict workshop alexa vanhattum wict community.o d and i community building programming languages"
+    },
+    {
       "id": "2023-02-25-001",
       "meeting": "2023-02-25",
       "meetingName": "2023 Seventh LLVM Performance Workshop @ CGO",
@@ -114323,247 +116876,6 @@
         "year": 2023
       },
       "_searchBlob": "solid work-group synchronization on cpus more and more frameworks and simulations are developed using heterogeneous programming models such as cuda hip sycl or opencl. their hierarchical kernel models are easily mapped to the gpus resource hierarchy their massive number of threads and lightweight synchronization. for compatibility with cpu-only high-performance computing facilities e.g. fugaku or for splitting work across gpus and cpus it is beneficial if the kernels written for those programming models can also be executed on cpus. a significant hurdle to achieving this in a performance-portable manner is that implementing barriers for such kernels on cpus requires providing forward-progress guarantees. these guarantees can only be provided by using sufficient concurrency by means of threads or fibers or compiler transformations that split the kernels at the barriers. while new variants and improvements are still being proposed the compiler transformations are similar in spirit. this means that the base transformations are regularly re-implemented in research and production runtimes of the heterogeneous programming models. we propose to have one of these implementations upstream in llvm to allow for reusing a mature and optimized implementation. 2023 seventh llvm performance workshop cgo seventh llvm performance workshop cgo in person - hybrid february 25 2023 2023-02-25 technical-talk cuda gpu opencl performance llvm libsycl hip"
-    },
-    {
-      "id": "2023-02-wict-001",
-      "meeting": "2023-02-wict",
-      "meetingName": "2023 Women in Compilers and Tools Meetup Series",
-      "meetingLocation": "virtual",
-      "meetingDate": "2023",
-      "category": "workshop",
-      "title": "An Introduction to Verification Using Automated Reasoning",
-      "speakers": [
-        {
-          "name": "Petra Hozzova",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
-      "abstract": "A WiCT meetup introduction to software verification with automated reasoning techniques.",
-      "videoUrl": "https://youtu.be/L_jgDoIuA6Q",
-      "videoId": "L_jgDoIuA6Q",
-      "tags": [
-        "WiCT",
-        "Community.o",
-        "D&I",
-        "Testing"
-      ],
-      "keywords": [],
-      "resourceActions": [],
-      "projectGithub": "",
-      "githubReferences": [],
-      "githubReferenceItems": [],
-      "slidesUrl": "",
-      "posterUrl": "",
-      "sourceUrl": "",
-      "_titleLower": "an introduction to verification using automated reasoning",
-      "_speakerLower": "petra hozzova",
-      "_abstractLower": "a wict meetup introduction to software verification with automated reasoning techniques.",
-      "_tagsLower": "wict community.o d&i testing",
-      "_meetingLower": "2023 women in compilers and tools meetup series virtual 2023",
-      "_year": "2023",
-      "_searchDoc": {
-        "fields": {
-          "title": {
-            "text": "an introduction to verification using automated reasoning",
-            "words": [
-              "an",
-              "introduction",
-              "to",
-              "verification",
-              "using",
-              "automated",
-              "reasoning"
-            ]
-          },
-          "speakers": {
-            "text": "petra hozzova",
-            "words": [
-              "petra",
-              "hozzova"
-            ]
-          },
-          "tags": {
-            "text": "wict community.o d and i testing",
-            "words": [
-              "wict",
-              "community.o",
-              "and",
-              "testing"
-            ]
-          },
-          "meeting": {
-            "text": "2023 women in compilers and tools meetup series virtual 2023",
-            "words": [
-              "2023",
-              "women",
-              "in",
-              "compilers",
-              "and",
-              "tools",
-              "meetup",
-              "series",
-              "virtual",
-              "2023"
-            ]
-          },
-          "abstract": {
-            "text": "a wict meetup introduction to software verification with automated reasoning techniques.",
-            "words": [
-              "wict",
-              "meetup",
-              "introduction",
-              "to",
-              "software",
-              "verification",
-              "with",
-              "automated",
-              "reasoning",
-              "techniques."
-            ]
-          },
-          "category": {
-            "text": "workshop",
-            "words": [
-              "workshop"
-            ]
-          },
-          "year": {
-            "text": "2023",
-            "words": [
-              "2023"
-            ]
-          }
-        },
-        "year": 2023
-      },
-      "_searchBlob": "an introduction to verification using automated reasoning a wict meetup introduction to software verification with automated reasoning techniques. 2023 women in compilers and tools meetup series virtual 2023 2023-02-wict workshop petra hozzova wict community.o d and i testing"
-    },
-    {
-      "id": "2023-02-wict-002",
-      "meeting": "2023-02-wict",
-      "meetingName": "2023 Women in Compilers and Tools Meetup Series",
-      "meetingLocation": "virtual",
-      "meetingDate": "2023",
-      "category": "workshop",
-      "title": "Career Chat and Tech Talk with Professor Alexa VanHattum",
-      "speakers": [
-        {
-          "name": "Alexa VanHattum",
-          "affiliation": "",
-          "github": "",
-          "linkedin": "",
-          "twitter": ""
-        }
-      ],
-      "abstract": "A WiCT meetup combining career discussion with a technical talk from Alexa VanHattum.",
-      "videoUrl": "https://youtu.be/Qhl6DD8fh78",
-      "videoId": "Qhl6DD8fh78",
-      "tags": [
-        "WiCT",
-        "Community.o",
-        "D&I",
-        "Community Building",
-        "Programming Languages"
-      ],
-      "keywords": [],
-      "resourceActions": [],
-      "projectGithub": "",
-      "githubReferences": [],
-      "githubReferenceItems": [],
-      "slidesUrl": "",
-      "posterUrl": "",
-      "sourceUrl": "",
-      "_titleLower": "career chat and tech talk with professor alexa vanhattum",
-      "_speakerLower": "alexa vanhattum",
-      "_abstractLower": "a wict meetup combining career discussion with a technical talk from alexa vanhattum.",
-      "_tagsLower": "wict community.o d&i community building programming languages",
-      "_meetingLower": "2023 women in compilers and tools meetup series virtual 2023",
-      "_year": "2023",
-      "_searchDoc": {
-        "fields": {
-          "title": {
-            "text": "career chat and tech talk with professor alexa vanhattum",
-            "words": [
-              "career",
-              "chat",
-              "and",
-              "tech",
-              "talk",
-              "with",
-              "professor",
-              "alexa",
-              "vanhattum"
-            ]
-          },
-          "speakers": {
-            "text": "alexa vanhattum",
-            "words": [
-              "alexa",
-              "vanhattum"
-            ]
-          },
-          "tags": {
-            "text": "wict community.o d and i community building programming languages",
-            "words": [
-              "wict",
-              "community.o",
-              "and",
-              "community",
-              "building",
-              "programming",
-              "languages"
-            ]
-          },
-          "meeting": {
-            "text": "2023 women in compilers and tools meetup series virtual 2023",
-            "words": [
-              "2023",
-              "women",
-              "in",
-              "compilers",
-              "and",
-              "tools",
-              "meetup",
-              "series",
-              "virtual",
-              "2023"
-            ]
-          },
-          "abstract": {
-            "text": "a wict meetup combining career discussion with a technical talk from alexa vanhattum.",
-            "words": [
-              "wict",
-              "meetup",
-              "combining",
-              "career",
-              "discussion",
-              "with",
-              "technical",
-              "talk",
-              "from",
-              "alexa",
-              "vanhattum."
-            ]
-          },
-          "category": {
-            "text": "workshop",
-            "words": [
-              "workshop"
-            ]
-          },
-          "year": {
-            "text": "2023",
-            "words": [
-              "2023"
-            ]
-          }
-        },
-        "year": 2023
-      },
-      "_searchBlob": "career chat and tech talk with professor alexa vanhattum a wict meetup combining career discussion with a technical talk from alexa vanhattum. 2023 women in compilers and tools meetup series virtual 2023 2023-02-wict workshop alexa vanhattum wict community.o d and i community building programming languages"
     },
     {
       "id": "2022-11-001",
@@ -368022,7 +370334,7 @@
       "date": "April 14-15, 2026",
       "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
       "canceled": false,
-      "talkCount": 58
+      "talkCount": 67
     },
     {
       "slug": "2026-03-wict",
@@ -368137,20 +370449,20 @@
       "talkCount": 0
     },
     {
-      "slug": "2023-02-25",
-      "name": "2023 Seventh LLVM Performance Workshop @ CGO",
-      "date": "February 25, 2023",
-      "location": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
-      "canceled": false,
-      "talkCount": 5
-    },
-    {
       "slug": "2023-02-wict",
       "name": "2023 Women in Compilers and Tools Meetup Series",
       "date": "2023",
       "location": "virtual",
       "canceled": false,
       "talkCount": 2
+    },
+    {
+      "slug": "2023-02-25",
+      "name": "2023 Seventh LLVM Performance Workshop @ CGO",
+      "date": "February 25, 2023",
+      "location": "Seventh LLVM Performance Workshop @ CGO, In person - Hybrid",
+      "canceled": false,
+      "talkCount": 5
     },
     {
       "slug": "2022-11",
@@ -368637,15 +370949,15 @@
     "tags": [
       {
         "label": "LLVM",
-        "count": 1046
+        "count": 1049
       },
       {
         "label": "Performance",
-        "count": 455
+        "count": 461
       },
       {
         "label": "Optimizations",
-        "count": 454
+        "count": 457
       },
       {
         "label": "Clang",
@@ -368653,15 +370965,15 @@
       },
       {
         "label": "MLIR",
-        "count": 326
+        "count": 335
       },
       {
         "label": "Infrastructure",
-        "count": 270
+        "count": 271
       },
       {
         "label": "IR",
-        "count": 255
+        "count": 257
       },
       {
         "label": "Backend",
@@ -368669,7 +370981,7 @@
       },
       {
         "label": "GPU",
-        "count": 141
+        "count": 144
       },
       {
         "label": "Autovectorization",
@@ -368681,7 +370993,7 @@
       },
       {
         "label": "ML",
-        "count": 96
+        "count": 99
       },
       {
         "label": "Testing",
@@ -368712,11 +371024,11 @@
         "count": 72
       },
       {
-        "label": "LLDB",
-        "count": 70
+        "label": "OpenMP",
+        "count": 71
       },
       {
-        "label": "OpenMP",
+        "label": "LLDB",
         "count": 70
       },
       {
@@ -368748,16 +371060,16 @@
         "count": 53
       },
       {
+        "label": "AI",
+        "count": 52
+      },
+      {
         "label": "LTO",
         "count": 52
       },
       {
         "label": "Loop transformations",
         "count": 51
-      },
-      {
-        "label": "AI",
-        "count": 49
       },
       {
         "label": "Dynamic Analysis",
@@ -368793,7 +371105,7 @@
       },
       {
         "label": "CUDA",
-        "count": 34
+        "count": 35
       },
       {
         "label": "Sanitizers",
@@ -368832,7 +371144,15 @@
         "count": 16
       },
       {
+        "label": "Mojo",
+        "count": 16
+      },
+      {
         "label": "BOLT",
+        "count": 15
+      },
+      {
+        "label": "CIRCT",
         "count": 15
       },
       {
@@ -368841,10 +371161,6 @@
       },
       {
         "label": "Libraries",
-        "count": 15
-      },
-      {
-        "label": "Mojo",
         "count": 15
       },
       {
@@ -368862,10 +371178,6 @@
       {
         "label": "LLVM Foundation",
         "count": 14
-      },
-      {
-        "label": "CIRCT",
-        "count": 13
       },
       {
         "label": "WiCT",
@@ -368958,11 +371270,11 @@
         "count": 14
       },
       {
-        "label": "Mehdi Amini",
-        "count": 13
+        "label": "Tobias Grosser",
+        "count": 14
       },
       {
-        "label": "Tobias Grosser",
+        "label": "Mehdi Amini",
         "count": 13
       },
       {
@@ -369006,6 +371318,10 @@
         "count": 9
       },
       {
+        "label": "Matthias Springer",
+        "count": 9
+      },
+      {
         "label": "Chandler Carruth",
         "count": 8
       },
@@ -369019,10 +371335,6 @@
       },
       {
         "label": "Mathieu Fehr",
-        "count": 8
-      },
-      {
-        "label": "Matthias Springer",
         "count": 8
       },
       {
@@ -369142,6 +371454,14 @@
         "count": 6
       },
       {
+        "label": "Rolf Morel",
+        "count": 6
+      },
+      {
+        "label": "Sasha Lopoukhine",
+        "count": 6
+      },
+      {
         "label": "Tilmann Scheller",
         "count": 6
       },
@@ -369183,6 +371503,10 @@
       },
       {
         "label": "Guray Ozen",
+        "count": 5
+      },
+      {
+        "label": "Jenq-Kuen Lee",
         "count": 5
       },
       {
@@ -369247,14 +371571,6 @@
       },
       {
         "label": "Pierre-Andre Saulais",
-        "count": 5
-      },
-      {
-        "label": "Rolf Morel",
-        "count": 5
-      },
-      {
-        "label": "Sasha Lopoukhine",
         "count": 5
       },
       {
@@ -369350,10 +371666,6 @@
         "count": 4
       },
       {
-        "label": "Jenq-Kuen Lee",
-        "count": 4
-      },
-      {
         "label": "Jeremy Morse",
         "count": 4
       },
@@ -369363,6 +371675,10 @@
       },
       {
         "label": "Karine Heydemann",
+        "count": 4
+      },
+      {
+        "label": "Kunwar Grover",
         "count": 4
       },
       {
@@ -369379,6 +371695,10 @@
       },
       {
         "label": "Neil Hickey",
+        "count": 4
+      },
+      {
+        "label": "Nicolas Vasilache",
         "count": 4
       },
       {
@@ -369494,6 +371814,10 @@
         "count": 3
       },
       {
+        "label": "Billy Zhu",
+        "count": 3
+      },
+      {
         "label": "Christian Schulte",
         "count": 3
       },
@@ -369590,7 +371914,11 @@
         "count": 3
       },
       {
-        "label": "Kunwar Grover",
+        "label": "Lorenzo Chelini",
+        "count": 3
+      },
+      {
+        "label": "Louis Ledoux",
         "count": 3
       },
       {
@@ -369639,10 +371967,6 @@
       },
       {
         "label": "Nico Weber",
-        "count": 3
-      },
-      {
-        "label": "Nicolas Vasilache",
         "count": 3
       },
       {
@@ -369858,10 +372182,6 @@
         "count": 2
       },
       {
-        "label": "Billy Zhu",
-        "count": 2
-      },
-      {
         "label": "Brian Kidney",
         "count": 2
       },
@@ -369891,6 +372211,10 @@
       },
       {
         "label": "Christopher Di Bella",
+        "count": 2
+      },
+      {
+        "label": "Chun Lin Huang",
         "count": 2
       },
       {
@@ -370010,6 +372334,10 @@
         "count": 2
       },
       {
+        "label": "Florent de Dinechin",
+        "count": 2
+      },
+      {
         "label": "Fraser Cormack",
         "count": 2
       },
@@ -370075,6 +372403,10 @@
       },
       {
         "label": "Hugo Trachino",
+        "count": 2
+      },
+      {
+        "label": "Hung-Ming Lai",
         "count": 2
       },
       {
@@ -370170,6 +372502,10 @@
         "count": 2
       },
       {
+        "label": "Jules Merckx",
+        "count": 2
+      },
+      {
         "label": "Kai-Ting Amy Wang",
         "count": 2
       },
@@ -370223,14 +372559,6 @@
       },
       {
         "label": "Leonid Kholodov",
-        "count": 2
-      },
-      {
-        "label": "lorenzo chelini",
-        "count": 2
-      },
-      {
-        "label": "Louis Ledoux",
         "count": 2
       },
       {
@@ -371178,6 +373506,10 @@
         "count": 1
       },
       {
+        "label": "Bjorn De Sutter",
+        "count": 1
+      },
+      {
         "label": "Boaz Ouriel",
         "count": 1
       },
@@ -371375,10 +373707,6 @@
       },
       {
         "label": "Chuck Rose III",
-        "count": 1
-      },
-      {
-        "label": "Chun Lin Huang",
         "count": 1
       },
       {
@@ -371706,6 +374034,10 @@
         "count": 1
       },
       {
+        "label": "Fabian Mora Corder",
+        "count": 1
+      },
+      {
         "label": "Fabian Yamaguchi",
         "count": 1
       },
@@ -371743,10 +374075,6 @@
       },
       {
         "label": "Flang)",
-        "count": 1
-      },
-      {
-        "label": "Florent de Dinechin",
         "count": 1
       },
       {
@@ -372042,10 +374370,6 @@
         "count": 1
       },
       {
-        "label": "Hung-Ming Lai",
-        "count": 1
-      },
-      {
         "label": "Hyoukjoong Lee",
         "count": 1
       },
@@ -372262,6 +374586,10 @@
         "count": 1
       },
       {
+        "label": "Jianyi Cheng",
+        "count": 1
+      },
+      {
         "label": "Jim Grosbach",
         "count": 1
       },
@@ -372391,10 +374719,6 @@
       },
       {
         "label": "Juergen Ributzka",
-        "count": 1
-      },
-      {
-        "label": "Jules Merckx",
         "count": 1
       },
       {
@@ -373138,6 +375462,10 @@
         "count": 1
       },
       {
+        "label": "Nachiketa Gargi",
+        "count": 1
+      },
+      {
         "label": "Nader Boushehrinejad Moradi",
         "count": 1
       },
@@ -373346,6 +375674,10 @@
         "count": 1
       },
       {
+        "label": "Pierre Cochard",
+        "count": 1
+      },
+      {
         "label": "Pierrick Brunet",
         "count": 1
       },
@@ -373367,6 +375699,10 @@
       },
       {
         "label": "Pradeep Kumar",
+        "count": 1
+      },
+      {
+        "label": "Prakanth Thilakaraj",
         "count": 1
       },
       {
@@ -373686,6 +376022,10 @@
         "count": 1
       },
       {
+        "label": "Sam Coward",
+        "count": 1
+      },
+      {
         "label": "Sam McCall",
         "count": 1
       },
@@ -373990,6 +376330,10 @@
         "count": 1
       },
       {
+        "label": "Tai-Hsiang Peng",
+        "count": 1
+      },
+      {
         "label": "Takahiro Kawashima",
         "count": 1
       },
@@ -374143,6 +376487,10 @@
       },
       {
         "label": "Tung D. Le",
+        "count": 1
+      },
+      {
+        "label": "Tuomas Karna",
         "count": 1
       },
       {
@@ -374339,6 +376687,10 @@
       },
       {
         "label": "Wei Xiao",
+        "count": 1
+      },
+      {
+        "label": "Wei-Shen Huang",
         "count": 1
       },
       {
@@ -375236,6 +377588,10 @@
         "count": 1
       },
       {
+        "label": "ASTER: MLIR-Based Assembly Tooling and Representations",
+        "count": 1
+      },
+      {
         "label": "ASTImporter: Merging Clang ASTs",
         "count": 1
       },
@@ -375269,6 +377625,10 @@
       },
       {
         "label": "Attributor, a Framework for Interprocedural Information Deduction",
+        "count": 1
+      },
+      {
+        "label": "Auto-tuning MLIR schedules: a case study targeting Intel GPUs",
         "count": 1
       },
       {
@@ -375417,6 +377777,10 @@
       },
       {
         "label": "Better Performance Models for MLGO Training",
+        "count": 1
+      },
+      {
+        "label": "Beyond Constants: Mojo’s Attribute-Based Expression System",
         "count": 1
       },
       {
@@ -376226,6 +378590,10 @@
       {
         "label": "Cross-Translation Unit Optimization via Annotated Headers",
         "count": 2
+      },
+      {
+        "label": "CUDA Tile IR: Lessons from a Tile-Centric CUDA Dialect for MLIR",
+        "count": 1
       },
       {
         "label": "CUDA-OMP — Or, Breaking the Vendor Lock",
@@ -377069,6 +379437,10 @@
       },
       {
         "label": "From Fallbacks to Performance: Towards Better GlobalISel Performance on AArch64 Advanced SIMD Platforms",
+        "count": 1
+      },
+      {
+        "label": "From Graphs to Warps: Semantic Interoperability Across MLIR Abstraction Levels",
         "count": 1
       },
       {
@@ -379160,6 +381532,10 @@
         "count": 1
       },
       {
+        "label": "MLIR-RAJA: Bridging AI Models and HPC Performance Portability",
+        "count": 1
+      },
+      {
         "label": "MLIR: Accelerating AI",
         "count": 1
       },
@@ -379245,6 +381621,10 @@
       },
       {
         "label": "MPI Dialect For MLIR",
+        "count": 1
+      },
+      {
+        "label": "Multi Stage Sequential Reinforcement Learning Environment for MLIR Meta-Optimization",
         "count": 1
       },
       {
@@ -379917,6 +382297,10 @@
       },
       {
         "label": "Profiling the Profiler: New metrics to evaluate and improve profile guided optimization",
+        "count": 1
+      },
+      {
+        "label": "Progressive Arithmetic Lowering from Tensor Kernels to Synthesizable Datapaths",
         "count": 1
       },
       {
@@ -380725,6 +383109,10 @@
       },
       {
         "label": "Taking the Slang Shading Language from Research to Production",
+        "count": 1
+      },
+      {
+        "label": "Tamagoyaki: MLIR-Native Equality Saturation",
         "count": 1
       },
       {

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-86cb3359390b",
-  "generatedAt": "2026-04-28T06:27:58.000Z",
+  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
+  "generatedAt": "2026-04-28T22:46:50.000Z",
   "talks": {
     "2026-04-022": {
       "talk": {
@@ -127,7 +127,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-044": {
@@ -294,7 +294,284 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-066": {
+      "talk": {
+        "id": "2026-04-066",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "mlir-workshop",
+        "title": "Tamagoyaki: MLIR-Native Equality Saturation",
+        "speakers": [
+          {
+            "name": "Sasha Lopoukhine",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jules Merckx",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Sam Coward",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jianyi Cheng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Bjorn De Sutter",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tobias Grosser",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Equality saturation (EqSat) is an expression rewriting technique based on efficiently representing equivalent expressions. In recent years, it has successfully been applied in many different domains. Applying EqSat on MLIR code, however, requires additional effort for converting rewrite patterns and IR to formats that are understood by external tools. We present Tamagoyaki, an MLIR (and xDSL) framework to represent equivalences directly in your IR. Building on pdl, we apply rewrite patterns on this representation. By encoding equivalences explicitly in IR, we open the door to including more complex compiler passes in EqSat. As a case study, we replicate the core procedure of Herbie, a floating point accuracy optimizer, directly in MLIR. Additionally we show how Tamagoyaki can easily be applied to other MLIR projects such as CIRCT.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_merckx.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "tamagoyaki: mlir-native equality saturation",
+        "_speakerLower": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+        "_abstractLower": "equality saturation (eqsat) is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years, it has successfully been applied in many different domains. applying eqsat on mlir code, however, requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki, an mlir (and xdsl) framework to represent equivalences directly in your ir. building on pdl, we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir, we open the door to including more complex compiler passes in eqsat. as a case study, we replicate the core procedure of herbie, a floating point accuracy optimizer, directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+        "_tagsLower": "mlir circt",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tamagoyaki mlir-native equality saturation",
+              "words": [
+                "tamagoyaki",
+                "mlir-native",
+                "equality",
+                "saturation"
+              ]
+            },
+            "speakers": {
+              "text": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+              "words": [
+                "sasha",
+                "lopoukhine",
+                "jules",
+                "merckx",
+                "sam",
+                "coward",
+                "jianyi",
+                "cheng",
+                "bjorn",
+                "de",
+                "sutter",
+                "tobias",
+                "grosser"
+              ]
+            },
+            "tags": {
+              "text": "mlir circt",
+              "words": [
+                "mlir",
+                "circt"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+              "words": [
+                "equality",
+                "saturation",
+                "eqsat",
+                "is",
+                "an",
+                "expression",
+                "rewriting",
+                "technique",
+                "based",
+                "on",
+                "efficiently",
+                "representing",
+                "equivalent",
+                "expressions.",
+                "in",
+                "recent",
+                "years",
+                "it",
+                "has",
+                "successfully",
+                "been",
+                "applied",
+                "in",
+                "many",
+                "different",
+                "domains.",
+                "applying",
+                "eqsat",
+                "on",
+                "mlir",
+                "code",
+                "however",
+                "requires",
+                "additional",
+                "effort",
+                "for",
+                "converting",
+                "rewrite",
+                "patterns",
+                "and",
+                "ir",
+                "to",
+                "formats",
+                "that",
+                "are",
+                "understood",
+                "by",
+                "external",
+                "tools.",
+                "we",
+                "present",
+                "tamagoyaki",
+                "an",
+                "mlir",
+                "and",
+                "xdsl",
+                "framework",
+                "to",
+                "represent",
+                "equivalences",
+                "directly",
+                "in",
+                "your",
+                "ir.",
+                "building",
+                "on",
+                "pdl",
+                "we",
+                "apply",
+                "rewrite",
+                "patterns",
+                "on",
+                "this",
+                "representation.",
+                "by",
+                "encoding",
+                "equivalences",
+                "explicitly",
+                "in",
+                "ir",
+                "we",
+                "open",
+                "the",
+                "door",
+                "to",
+                "including",
+                "more",
+                "complex",
+                "compiler",
+                "passes",
+                "in",
+                "eqsat.",
+                "as",
+                "case",
+                "study",
+                "we",
+                "replicate",
+                "the",
+                "core",
+                "procedure",
+                "of",
+                "herbie",
+                "floating",
+                "point",
+                "accuracy",
+                "optimizer",
+                "directly",
+                "in",
+                "mlir.",
+                "additionally",
+                "we",
+                "show",
+                "how",
+                "tamagoyaki",
+                "can",
+                "easily",
+                "be",
+                "applied",
+                "to",
+                "other",
+                "mlir",
+                "projects",
+                "such",
+                "as",
+                "circt."
+              ]
+            },
+            "category": {
+              "text": "mlir-workshop",
+              "words": [
+                "mlir-workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "tamagoyaki mlir-native equality saturation equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser mlir circt"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-003": {
