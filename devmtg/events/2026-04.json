@@ -5,7 +5,7 @@
     "date": "April 14-15, 2026",
     "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
     "canceled": false,
-    "talkCount": 58
+    "talkCount": 67
   },
   "talks": [
     {
@@ -1233,6 +1233,244 @@
       "abstract": "The Clang Static Analyzer has enjoyed almost 2 decades of industrial adoption, with more and more focus on its usability. Prior research indicated that, among other things, warning message quality is a leading source of dissatisfaction with static analysis tools, which developers of the Clang Static Analyzer tackled but never conclusively proved the benefits of these changes. This talk fills this gap by presenting a method for measuring warning message quality through a human experiment. We sent out surveys in three stages to fine-tune our methodology, with our final one receiving 64 responses from regular static analysis users. We were able to confirm many long-suspected but never confirmed theories circulating among the Clang Static Analyzer contributors: the value of summarizing functions, trimming bug reports, and simplifying low-level code. Based on these results, we also created and landed a bug report improvement, which is available since Clang 19.0.0.",
       "videoId": null,
       "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_umann.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-059",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "CUDA Tile IR: Lessons from a Tile-Centric CUDA Dialect for MLIR",
+      "speakers": [
+        {
+          "name": "Matthias Springer",
+          "affiliation": ""
+        },
+        {
+          "name": "Lorenzo Chelini",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "This talk presents CUDA Tile IR, a tile-based CUDA dialect for MLIR, focusing on the design trade-offs that differentiate it from upstream dialects such as arith, tensor, memref, linalg, and async. Using concrete examples (e.g., matrix multiplication, TMA–friendly load/store patterns, and token-based ordering), the talk contrasts CUDA Tile IR’s type system, operations, and overall dialect design with existing MLIR abstractions, and highlights practical lessons for developers designing their own vendor-specific dialects.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_springer.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-060",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "ASTER: MLIR-Based Assembly Tooling and Representations",
+      "speakers": [
+        {
+          "name": "Nicolas Vasilache",
+          "affiliation": ""
+        },
+        {
+          "name": "Fabian Mora Corder",
+          "affiliation": ""
+        },
+        {
+          "name": "Kunwar Grover",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "Today, achieving peak performance on modern AI accelerators often requires control over low-level hardware features. This trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. As Dark Silicon trends continue, hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used (e.g. with warp/wave specialization, the low-level programming model increasingly resembles MPI/MIMD-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp/wave scheduling and specialization). AMD’s open approach to hardware ISA documentation creates a unique opportunity to build world-class assembly tooling in the open, making AMDGPU ASM accessible to a broader community as well as higher-level tools, while maintaining expert-level control. To reap the benefits of modern and future HW we believe an order of magnitude better low-level tooling is needed. Aster builds the foundations for highly-controllable assembly production and pushes the boundaries of what’s possible in low‑level performance tooling.",
+      "videoId": null,
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-061",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Auto-tuning MLIR schedules: a case study targeting Intel GPUs",
+      "speakers": [
+        {
+          "name": "Tuomas Karna",
+          "affiliation": ""
+        },
+        {
+          "name": "Rolf Morel",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "We present an end-to-end MLIR schedule for ML workloads and the auto-tuning thereof. The schedule targets Intel Battlemage GPUs and takes kernels all the way from Linalg-dialect ingress to LLVM IR. Alongside scheduling ops for, e.g., tiling, the schedule encodes its auto-tuning problem through tuneable “knob” ops and encodes the many hardware-imposed constraints on parameters as ops as well. We present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream MLIR and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_karna.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-062",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Progressive Arithmetic Lowering from Tensor Kernels to Synthesizable Datapaths",
+      "speakers": [
+        {
+          "name": "Louis Ledoux",
+          "affiliation": ""
+        },
+        {
+          "name": "Pierre Cochard",
+          "affiliation": ""
+        },
+        {
+          "name": "Florent de Dinechin",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "This work presents an end-to-end MLIR-based compilation flow that lowers high-level machine-learning and DSP kernels to explicit combinational and sequential datapaths suitable for CIRCT and RTL export. The flow treats arithmetic as a multi-level concern, progressively exposing numeric intent, structured control, and hardware structure from tensor programs down to circuit-level IR. It integrates real-number expression recovery, configurable floating- and fixed-point lowering, and direct construction of circuit-level datapaths using CIRCT-compatible representations. The approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary, supporting fine-grained trade-offs in precision, performance, and area. The flow has been validated on real silicon, including a taped-out DSP design using the GF180MCU open-source PDK and an end-to-end compilation of a PyTorch LLaMA layer into a synthesized Sky130 process-node.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_ledoux.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-063",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Multi Stage Sequential Reinforcement Learning Environment for MLIR Meta-Optimization",
+      "speakers": [
+        {
+          "name": "Prakanth Thilakaraj",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "Machine learning–guided compiler optimization has recently attracted significant attention, with applications such as optimization pass prediction in LLVM IR and heuristic tuning in domain-specific language (DSL) compilers. In this work, we extend this paradigm to the Multi-Level Intermediate Representation (MLIR), a compiler infrastructure for DSL development that is widely used in AI compiler stacks. We present MLIRCompilerEnv, a reinforcement learning (RL) environment for predicting optimization passes and pass options in MLIR-based compiler pipelines, and evaluate it in the context of AI compilation. Our design targets the linalg, affine, and scf dialect levels, while remaining extensible to other MLIR-based compiler stacks for meta-optimization. We formulate the compiler optimization passes as a multi-stage RL problem, where each dialect stage is associated with a dedicated agent responsible for predicting optimization passes and their corresponding options. A message-passing graph neural network serves as a shared backbone across agents extracting structural features from the intermediate representations (IR). Agents operate sequentially to mirror the ordering of stages in the MLIR lowering pipeline, and end-to-end execution runtime is used as the reward signal to guide learning. To support structured learning over compiler IRs, we introduce a graph construction framework that fuses control-flow and data-flow information into a unified graph representation, covering MLIR dialects including linalg, scf, affine, arith, and math. We illustrate how this design naturally generalizes beyond AI compilers and facilitates extension to other MLIR-based compiler stacks such as stencil compilers. Initial results demonstrate the feasibility of the approach and we discuss performance trade-offs and compilation overhead introduced by the learning-based framework. The framework is currently being further developed to include matching optimization passes to the MLIR based IREE compiler for a comprehensive like-for-like comparison and analysis.",
+      "videoId": null,
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-064",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "From Graphs to Warps: Semantic Interoperability Across MLIR Abstraction Levels",
+      "speakers": [
+        {
+          "name": "Nachiketa Gargi",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "Modern ML compiler stacks span multiple semantic abstraction levels, from graph-level program representations to tile-based computation and SIMT kernels. Composing these layers reliably remains challenging in practice, particularly in GPU compilers, where execution semantics, memory hierarchy, and parallelism are explicit and tightly coupled to performance. This talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries, such as loss of semantic information during lowering, conflicting ownership of layout and scheduling decisions, and non-composable cost models. Using examples drawn from the MLIR ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. The goal of this talk is to frame semantic interoperability as a first-class problem in MLIR-based compiler design and to outline open research questions.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_gargi.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-065",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Beyond Constants: Mojo’s Attribute-Based Expression System",
+      "speakers": [
+        {
+          "name": "Billy Zhu",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "The Mojo programming language leverages MLIR’s attribute system to represent compile-time expressions as attribute trees, enabling parametric IR where operations are “staged” with expression attributes that evaluate to constants during the compilation pipeline. Our expression language is built on a typed lambda calculus using de Bruijn indices for bound variables, with dialects contributing their own types and operators to create a rich, extensible system. To evaluate these expressions, we developed a custom AttrTypeReplacer with depth-aware caching (handling de Bruijn index-based references) and context-aware replacement (providing access to outer symbol tables). This talk presents our representation and our evaluator design as a case study for programming language developers using MLIR for high-level IR, demonstrating how MLIR’s attribute system can be so much more than just for “constants”.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_zhu.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-066",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "Tamagoyaki: MLIR-Native Equality Saturation",
+      "speakers": [
+        {
+          "name": "Sasha Lopoukhine",
+          "affiliation": ""
+        },
+        {
+          "name": "Jules Merckx",
+          "affiliation": ""
+        },
+        {
+          "name": "Sam Coward",
+          "affiliation": ""
+        },
+        {
+          "name": "Jianyi Cheng",
+          "affiliation": ""
+        },
+        {
+          "name": "Bjorn De Sutter",
+          "affiliation": ""
+        },
+        {
+          "name": "Tobias Grosser",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "Equality saturation (EqSat) is an expression rewriting technique based on efficiently representing equivalent expressions. In recent years, it has successfully been applied in many different domains. Applying EqSat on MLIR code, however, requires additional effort for converting rewrite patterns and IR to formats that are understood by external tools. We present Tamagoyaki, an MLIR (and xDSL) framework to represent equivalences directly in your IR. Building on pdl, we apply rewrite patterns on this representation. By encoding equivalences explicitly in IR, we open the door to including more complex compiler passes in EqSat. As a case study, we replicate the core procedure of Herbie, a floating point accuracy optimizer, directly in MLIR. Additionally we show how Tamagoyaki can easily be applied to other MLIR projects such as CIRCT.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_merckx.pdf",
+      "posterUrl": null,
+      "tags": []
+    },
+    {
+      "id": "2026-04-067",
+      "meeting": "2026-04",
+      "meetingName": "2026 EuroLLVM Developers' Meeting",
+      "meetingLocation": "Dublin, Ireland",
+      "meetingDate": "April 13-15 2026",
+      "category": "mlir-workshop",
+      "title": "MLIR-RAJA: Bridging AI Models and HPC Performance Portability",
+      "speakers": [
+        {
+          "name": "Tai-Hsiang Peng",
+          "affiliation": ""
+        },
+        {
+          "name": "Hung-Ming Lai",
+          "affiliation": ""
+        },
+        {
+          "name": "Chun-Lin Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Wei-Shen Huang",
+          "affiliation": ""
+        },
+        {
+          "name": "Jenq-Kuen Lee",
+          "affiliation": ""
+        }
+      ],
+      "abstract": "RAJA, originally developed by Lawrence Livermore National Lab, is a C++ template library widely used in High-Performance Computing (HPC). It ensures that code can run efficiently on different hardware, such as CPUs and GPUs, without needing to be rewritten. At the same time, AI models are becoming essential tools for modern scientific discovery. To connect these two worlds, we introduce MLIR-RAJA, a MLIR dialect that links high-level AI frameworks with the performance benefits of RAJA. Our work defines a specific RAJA Dialect in MLIR to build an automated end-to-end flow, capable of translating AI models directly into optimized RAJA C++. This solution eliminates the barrier between AI development and HPC execution, enabling the automatic generation of portable code for AI Models. Experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. Furthermore, these performance gains extend to OpenMP-enabled parallel execution. Finally, we flow MLIR RAJA dialects into LLVM to utilize a variety of backends to support MLIR RAJA computations.",
+      "videoId": null,
+      "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_pang.pdf",
       "posterUrl": null,
       "tags": []
     }

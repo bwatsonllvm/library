@@ -1,7 +1,240 @@
 {
-  "dataVersion": "viewer-precomputed-v1-86cb3359390b",
-  "generatedAt": "2026-04-28T06:27:58.000Z",
+  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
+  "generatedAt": "2026-04-28T22:46:50.000Z",
   "talks": {
+    "2026-04-061": {
+      "talk": {
+        "id": "2026-04-061",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "mlir-workshop",
+        "title": "Auto-tuning MLIR schedules: a case study targeting Intel GPUs",
+        "speakers": [
+          {
+            "name": "Tuomas Karna",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Rolf Morel",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "We present an end-to-end MLIR schedule for ML workloads and the auto-tuning thereof. The schedule targets Intel Battlemage GPUs and takes kernels all the way from Linalg-dialect ingress to LLVM IR. Alongside scheduling ops for, e.g., tiling, the schedule encodes its auto-tuning problem through tuneable “knob” ops and encodes the many hardware-imposed constraints on parameters as ops as well. We present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream MLIR and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_karna.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "projectGithub": "https://github.com/llvm/lighthouse",
+        "githubReferences": [
+          "https://github.com/llvm/lighthouse"
+        ],
+        "githubReferenceItems": [
+          {
+            "url": "https://github.com/llvm/lighthouse",
+            "source": "slides",
+            "label": "performance comparable to the state - of - the - art Implemented in Lighthouse",
+            "context": "performance comparable to the state - of - the - art Implemented in Lighthouse",
+            "library": "lighthouse",
+            "repository": "llvm/lighthouse",
+            "fileName": "",
+            "filePath": "",
+            "referencePath": ""
+          }
+        ],
+        "resourceActions": [
+          {
+            "kind": "github",
+            "label": "GitHub",
+            "url": "https://github.com/llvm/lighthouse"
+          }
+        ],
+        "keywords": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "auto-tuning mlir schedules: a case study targeting intel gpus",
+        "_speakerLower": "tuomas karna rolf morel",
+        "_abstractLower": "we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for, e.g., tiling, the schedule encodes its auto-tuning problem through tuneable “knob” ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+        "_tagsLower": "llvm mlir ir performance optimizations gpu ml",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "auto-tuning mlir schedules a case study targeting intel gpus",
+              "words": [
+                "auto-tuning",
+                "mlir",
+                "schedules",
+                "case",
+                "study",
+                "targeting",
+                "intel",
+                "gpus"
+              ]
+            },
+            "speakers": {
+              "text": "tuomas karna rolf morel",
+              "words": [
+                "tuomas",
+                "karna",
+                "rolf",
+                "morel"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir ir performance optimizations gpu ml",
+              "words": [
+                "llvm",
+                "mlir",
+                "ir",
+                "performance",
+                "optimizations",
+                "gpu",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for e.g. tiling the schedule encodes its auto-tuning problem through tuneable knob ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks.",
+              "words": [
+                "we",
+                "present",
+                "an",
+                "end-to-end",
+                "mlir",
+                "schedule",
+                "for",
+                "ml",
+                "workloads",
+                "and",
+                "the",
+                "auto-tuning",
+                "thereof.",
+                "the",
+                "schedule",
+                "targets",
+                "intel",
+                "battlemage",
+                "gpus",
+                "and",
+                "takes",
+                "kernels",
+                "all",
+                "the",
+                "way",
+                "from",
+                "linalg-dialect",
+                "ingress",
+                "to",
+                "llvm",
+                "ir.",
+                "alongside",
+                "scheduling",
+                "ops",
+                "for",
+                "e.g.",
+                "tiling",
+                "the",
+                "schedule",
+                "encodes",
+                "its",
+                "auto-tuning",
+                "problem",
+                "through",
+                "tuneable",
+                "knob",
+                "ops",
+                "and",
+                "encodes",
+                "the",
+                "many",
+                "hardware-imposed",
+                "constraints",
+                "on",
+                "parameters",
+                "as",
+                "ops",
+                "as",
+                "well.",
+                "we",
+                "present",
+                "harness",
+                "that",
+                "performs",
+                "automatic",
+                "optimization",
+                "of",
+                "such",
+                "auto-tuneable",
+                "schedules",
+                "and",
+                "show",
+                "how",
+                "our",
+                "approach",
+                "using",
+                "upstream",
+                "mlir",
+                "and",
+                "without",
+                "user-specified",
+                "tiling",
+                "can",
+                "achieve",
+                "performance",
+                "comparable",
+                "to",
+                "state-of-the-art",
+                "frameworks."
+              ]
+            },
+            "category": {
+              "text": "mlir-workshop",
+              "words": [
+                "mlir-workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "auto-tuning mlir schedules a case study targeting intel gpus we present an end-to-end mlir schedule for ml workloads and the auto-tuning thereof. the schedule targets intel battlemage gpus and takes kernels all the way from linalg-dialect ingress to llvm ir. alongside scheduling ops for e.g. tiling the schedule encodes its auto-tuning problem through tuneable knob ops and encodes the many hardware-imposed constraints on parameters as ops as well. we present a harness that performs automatic optimization of such auto-tuneable schedules and show how our approach - using upstream mlir and without user-specified tiling - can achieve performance comparable to state-of-the-art frameworks. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop tuomas karna rolf morel llvm mlir ir performance optimizations gpu ml"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
+      }
+    },
     "2025-10-021": {
       "talk": {
         "id": "2025-10-021",

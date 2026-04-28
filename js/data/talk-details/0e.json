@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-86cb3359390b",
-  "generatedAt": "2026-04-28T06:27:58.000Z",
+  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
+  "generatedAt": "2026-04-28T22:46:50.000Z",
   "talks": {
     "2026-04-040": {
       "talk": {
@@ -187,7 +187,259 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-062": {
+      "talk": {
+        "id": "2026-04-062",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "mlir-workshop",
+        "title": "Progressive Arithmetic Lowering from Tensor Kernels to Synthesizable Datapaths",
+        "speakers": [
+          {
+            "name": "Louis Ledoux",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Pierre Cochard",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Florent de Dinechin",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This work presents an end-to-end MLIR-based compilation flow that lowers high-level machine-learning and DSP kernels to explicit combinational and sequential datapaths suitable for CIRCT and RTL export. The flow treats arithmetic as a multi-level concern, progressively exposing numeric intent, structured control, and hardware structure from tensor programs down to circuit-level IR. It integrates real-number expression recovery, configurable floating- and fixed-point lowering, and direct construction of circuit-level datapaths using CIRCT-compatible representations. The approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary, supporting fine-grained trade-offs in precision, performance, and area. The flow has been validated on real silicon, including a taped-out DSP design using the GF180MCU open-source PDK and an end-to-end compilation of a PyTorch LLaMA layer into a synthesized Sky130 process-node.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_ledoux.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths",
+        "_speakerLower": "louis ledoux pierre cochard florent de dinechin",
+        "_abstractLower": "this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern, progressively exposing numeric intent, structured control, and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery, configurable floating- and fixed-point lowering, and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary, supporting fine-grained trade-offs in precision, performance, and area. the flow has been validated on real silicon, including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node.",
+        "_tagsLower": "mlir circt performance",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths",
+              "words": [
+                "progressive",
+                "arithmetic",
+                "lowering",
+                "from",
+                "tensor",
+                "kernels",
+                "to",
+                "synthesizable",
+                "datapaths"
+              ]
+            },
+            "speakers": {
+              "text": "louis ledoux pierre cochard florent de dinechin",
+              "words": [
+                "louis",
+                "ledoux",
+                "pierre",
+                "cochard",
+                "florent",
+                "de",
+                "dinechin"
+              ]
+            },
+            "tags": {
+              "text": "mlir circt performance",
+              "words": [
+                "mlir",
+                "circt",
+                "performance"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern progressively exposing numeric intent structured control and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery configurable floating- and fixed-point lowering and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary supporting fine-grained trade-offs in precision performance and area. the flow has been validated on real silicon including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node.",
+              "words": [
+                "this",
+                "work",
+                "presents",
+                "an",
+                "end-to-end",
+                "mlir-based",
+                "compilation",
+                "flow",
+                "that",
+                "lowers",
+                "high-level",
+                "machine-learning",
+                "and",
+                "dsp",
+                "kernels",
+                "to",
+                "explicit",
+                "combinational",
+                "and",
+                "sequential",
+                "datapaths",
+                "suitable",
+                "for",
+                "circt",
+                "and",
+                "rtl",
+                "export.",
+                "the",
+                "flow",
+                "treats",
+                "arithmetic",
+                "as",
+                "multi-level",
+                "concern",
+                "progressively",
+                "exposing",
+                "numeric",
+                "intent",
+                "structured",
+                "control",
+                "and",
+                "hardware",
+                "structure",
+                "from",
+                "tensor",
+                "programs",
+                "down",
+                "to",
+                "circuit-level",
+                "ir.",
+                "it",
+                "integrates",
+                "real-number",
+                "expression",
+                "recovery",
+                "configurable",
+                "floating-",
+                "and",
+                "fixed-point",
+                "lowering",
+                "and",
+                "direct",
+                "construction",
+                "of",
+                "circuit-level",
+                "datapaths",
+                "using",
+                "circt-compatible",
+                "representations.",
+                "the",
+                "approach",
+                "enables",
+                "floating-point",
+                "and",
+                "specialized",
+                "arithmetic",
+                "to",
+                "remain",
+                "first-class",
+                "up",
+                "to",
+                "the",
+                "circuit",
+                "boundary",
+                "supporting",
+                "fine-grained",
+                "trade-offs",
+                "in",
+                "precision",
+                "performance",
+                "and",
+                "area.",
+                "the",
+                "flow",
+                "has",
+                "been",
+                "validated",
+                "on",
+                "real",
+                "silicon",
+                "including",
+                "taped-out",
+                "dsp",
+                "design",
+                "using",
+                "the",
+                "gf180mcu",
+                "open-source",
+                "pdk",
+                "and",
+                "an",
+                "end-to-end",
+                "compilation",
+                "of",
+                "pytorch",
+                "llama",
+                "layer",
+                "into",
+                "synthesized",
+                "sky130",
+                "process-node."
+              ]
+            },
+            "category": {
+              "text": "mlir-workshop",
+              "words": [
+                "mlir-workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "progressive arithmetic lowering from tensor kernels to synthesizable datapaths this work presents an end-to-end mlir-based compilation flow that lowers high-level machine-learning and dsp kernels to explicit combinational and sequential datapaths suitable for circt and rtl export. the flow treats arithmetic as a multi-level concern progressively exposing numeric intent structured control and hardware structure from tensor programs down to circuit-level ir. it integrates real-number expression recovery configurable floating- and fixed-point lowering and direct construction of circuit-level datapaths using circt-compatible representations. the approach enables floating-point and specialized arithmetic to remain first-class up to the circuit boundary supporting fine-grained trade-offs in precision performance and area. the flow has been validated on real silicon including a taped-out dsp design using the gf180mcu open-source pdk and an end-to-end compilation of a pytorch llama layer into a synthesized sky130 process-node. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 mlir-workshop louis ledoux pierre cochard florent de dinechin mlir circt performance"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2025-10-022": {
