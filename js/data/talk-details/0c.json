@@ -1,7 +1,292 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
+    "2026-04-060": {
+      "talk": {
+        "id": "2026-04-060",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "ASTER: MLIR-Based Assembly Tooling and Representations",
+        "speakers": [
+          {
+            "name": "Nicolas Vasilache",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Fabian Mora Corder",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kunwar Grover",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Today, achieving peak performance on modern AI accelerators often requires control over low-level hardware features. This trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. As Dark Silicon trends continue, hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used (e.g. with warp/wave specialization, the low-level programming model increasingly resembles MPI/MIMD-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp/wave scheduling and specialization). AMD’s open approach to hardware ISA documentation creates a unique opportunity to build world-class assembly tooling in the open, making AMDGPU ASM accessible to a broader community as well as higher-level tools, while maintaining expert-level control. To reap the benefits of modern and future HW we believe an order of magnitude better low-level tooling is needed. Aster builds the foundations for highly-controllable assembly production and pushes the boundaries of what’s possible in low‑level performance tooling.",
+        "videoId": null,
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "slidesUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "aster: mlir-based assembly tooling and representations",
+        "_speakerLower": "nicolas vasilache fabian mora corder kunwar grover",
+        "_abstractLower": "today, achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue, hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used (e.g. with warp/wave specialization, the low-level programming model increasingly resembles mpi/mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp/wave scheduling and specialization). amd’s open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open, making amdgpu asm accessible to a broader community as well as higher-level tools, while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of what’s possible in low‑level performance tooling.",
+        "_tagsLower": "mlir performance ai",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "aster mlir-based assembly tooling and representations",
+              "words": [
+                "aster",
+                "mlir-based",
+                "assembly",
+                "tooling",
+                "and",
+                "representations"
+              ]
+            },
+            "speakers": {
+              "text": "nicolas vasilache fabian mora corder kunwar grover",
+              "words": [
+                "nicolas",
+                "vasilache",
+                "fabian",
+                "mora",
+                "corder",
+                "kunwar",
+                "grover"
+              ]
+            },
+            "tags": {
+              "text": "mlir performance ai",
+              "words": [
+                "mlir",
+                "performance",
+                "ai"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "today achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used e.g. with warp wave specialization the low-level programming model increasingly resembles mpi mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp wave scheduling and specialization . amds open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open making amdgpu asm accessible to a broader community as well as higher-level tools while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of whats possible in low level performance tooling.",
+              "words": [
+                "today",
+                "achieving",
+                "peak",
+                "performance",
+                "on",
+                "modern",
+                "ai",
+                "accelerators",
+                "often",
+                "requires",
+                "control",
+                "over",
+                "low-level",
+                "hardware",
+                "features.",
+                "this",
+                "trend",
+                "is",
+                "expected",
+                "to",
+                "further",
+                "exacerbate",
+                "as",
+                "more",
+                "asynchronicity",
+                "and",
+                "dynamism",
+                "are",
+                "built",
+                "first-class",
+                "in",
+                "the",
+                "hardware.",
+                "as",
+                "dark",
+                "silicon",
+                "trends",
+                "continue",
+                "hardware",
+                "is",
+                "expected",
+                "to",
+                "expose",
+                "coarser-grain",
+                "primitives",
+                "and",
+                "coarser-grain",
+                "programming",
+                "models",
+                "must",
+                "be",
+                "used",
+                "e.g.",
+                "with",
+                "warp",
+                "wave",
+                "specialization",
+                "the",
+                "low-level",
+                "programming",
+                "model",
+                "increasingly",
+                "resembles",
+                "mpi",
+                "mimd-style",
+                "parallelism",
+                "but",
+                "complexified",
+                "by",
+                "low-level",
+                "hardware",
+                "constraints",
+                "such",
+                "as",
+                "instruction",
+                "issue",
+                "ports",
+                "or",
+                "warp",
+                "wave",
+                "scheduling",
+                "and",
+                "specialization",
+                "amds",
+                "open",
+                "approach",
+                "to",
+                "hardware",
+                "isa",
+                "documentation",
+                "creates",
+                "unique",
+                "opportunity",
+                "to",
+                "build",
+                "world-class",
+                "assembly",
+                "tooling",
+                "in",
+                "the",
+                "open",
+                "making",
+                "amdgpu",
+                "asm",
+                "accessible",
+                "to",
+                "broader",
+                "community",
+                "as",
+                "well",
+                "as",
+                "higher-level",
+                "tools",
+                "while",
+                "maintaining",
+                "expert-level",
+                "control.",
+                "to",
+                "reap",
+                "the",
+                "benefits",
+                "of",
+                "modern",
+                "and",
+                "future",
+                "hw",
+                "we",
+                "believe",
+                "an",
+                "order",
+                "of",
+                "magnitude",
+                "better",
+                "low-level",
+                "tooling",
+                "is",
+                "needed.",
+                "aster",
+                "builds",
+                "the",
+                "foundations",
+                "for",
+                "highly-controllable",
+                "assembly",
+                "production",
+                "and",
+                "pushes",
+                "the",
+                "boundaries",
+                "of",
+                "whats",
+                "possible",
+                "in",
+                "low",
+                "level",
+                "performance",
+                "tooling."
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "aster mlir-based assembly tooling and representations today achieving peak performance on modern ai accelerators often requires control over low-level hardware features. this trend is expected to further exacerbate as more asynchronicity and dynamism are built first-class in the hardware. as dark silicon trends continue hardware is expected to expose coarser-grain primitives and coarser-grain programming models must be used e.g. with warp wave specialization the low-level programming model increasingly resembles mpi mimd-style parallelism but complexified by low-level hardware constraints such as instruction issue ports or warp wave scheduling and specialization . amds open approach to hardware isa documentation creates a unique opportunity to build world-class assembly tooling in the open making amdgpu asm accessible to a broader community as well as higher-level tools while maintaining expert-level control. to reap the benefits of modern and future hw we believe an order of magnitude better low-level tooling is needed. aster builds the foundations for highly-controllable assembly production and pushes the boundaries of whats possible in low level performance tooling. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop nicolas vasilache fabian mora corder kunwar grover mlir performance ai"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
+      }
+    },
     "2025-10-020": {
       "talk": {
         "id": "2025-10-020",
@@ -6526,14 +6811,7 @@
         "abstract": "Gus Smith presents the results of his work on “ML-Driven Auto-Configurator for Sparse Tensor Kernels in MLIR”.",
         "speakers": [
           {
-            "name": "Aart Bik",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Penporn Koanantakool",
+            "name": "Gus Smith",
             "affiliation": "",
             "github": "",
             "linkedin": "",
@@ -6576,7 +6854,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "an ml-driven autoconfigurator for sparse tensor kernels in mlir",
-        "_speakerLower": "aart bik penporn koanantakool",
+        "_speakerLower": "gus smith",
         "_abstractLower": "gus smith presents the results of his work on “ml-driven auto-configurator for sparse tensor kernels in mlir”.",
         "_tagsLower": "mlir ml",
         "_meetingLower": "mlir open design meeting  2021-09-09",
@@ -6598,12 +6876,10 @@
               ]
             },
             "speakers": {
-              "text": "aart bik penporn koanantakool",
+              "text": "gus smith",
               "words": [
-                "aart",
-                "bik",
-                "penporn",
-                "koanantakool"
+                "gus",
+                "smith"
               ]
             },
             "tags": {
@@ -6660,7 +6936,7 @@
           },
           "year": 2021
         },
-        "_searchBlob": "an ml-driven autoconfigurator for sparse tensor kernels in mlir gus smith presents the results of his work on ml-driven auto-configurator for sparse tensor kernels in mlir . mlir open design meeting 2021-09-09 2021-09-09-mlir-open-design-meeting open-design-meeting aart bik penporn koanantakool mlir ml"
+        "_searchBlob": "an ml-driven autoconfigurator for sparse tensor kernels in mlir gus smith presents the results of his work on ml-driven auto-configurator for sparse tensor kernels in mlir . mlir open design meeting 2021-09-09 2021-09-09-mlir-open-design-meeting open-design-meeting gus smith mlir ml"
       },
       "meeting": null
     },

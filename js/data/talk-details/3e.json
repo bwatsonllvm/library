@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2025-06-009": {
       "talk": {
@@ -1571,7 +1571,7 @@
     "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree": {
       "talk": {
         "id": "mlir-talk-2021-07-15-from-mhlo-to-linalg-in-iree",
-        "title": "From MHLO to Linalg on tensors Learnings from transitioning to Linalg on tensors",
+        "title": "From MHLO To Linalg in IREE",
         "abstract": "Initially IREE used MHLO dialect as the input dialect for its compilation stack. Over time it became apparent that MHLO is at a higher level abstraction than what is needed within IREEs core compilation stack. As a result, the IREE core compilation stack was moved to use Linalg on Tensors as its input dialect. In this talk, Mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in IREE as well as Linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
         "speakers": [],
         "resourceActions": [
@@ -1609,7 +1609,7 @@
         "keywords": [],
         "githubReferences": [],
         "githubReferenceItems": [],
-        "_titleLower": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+        "_titleLower": "from mhlo to linalg in iree",
         "_speakerLower": "",
         "_abstractLower": "initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result, the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk, mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively.",
         "_tagsLower": "mlir",
@@ -1618,21 +1618,14 @@
         "_searchDoc": {
           "fields": {
             "title": {
-              "text": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors",
+              "text": "from mhlo to linalg in iree",
               "words": [
                 "from",
                 "mhlo",
                 "to",
                 "linalg",
-                "on",
-                "tensors",
-                "learnings",
-                "from",
-                "transitioning",
-                "to",
-                "linalg",
-                "on",
-                "tensors"
+                "in",
+                "iree"
               ]
             },
             "speakers": {
@@ -1770,7 +1763,7 @@
           },
           "year": 2021
         },
-        "_searchBlob": "from mhlo to linalg on tensors learnings from transitioning to linalg on tensors initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively. mlir open design meeting 2021-07-15 2021-07-15-mlir-open-design-meeting open-design-meeting mlir"
+        "_searchBlob": "from mhlo to linalg in iree initially iree used mhlo dialect as the input dialect for its compilation stack. over time it became apparent that mhlo is at a higher level abstraction than what is needed within irees core compilation stack. as a result the iree core compilation stack was moved to use linalg on tensors as its input dialect. in this talk mahesh will walk through the issues that this move helped us resolve and also do a deep dive into the changes in iree as well as linalg-on-tensors that were needed to bridge several abstraction gaps to make this all work cohesively. mlir open design meeting 2021-07-15 2021-07-15-mlir-open-design-meeting open-design-meeting mlir"
       },
       "meeting": null
     },

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-021": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "This talk presents rocMLIR, a kernel generator for AMD GPUs using MLIR. We present the compilation flow from high-level IR (TOSA and Linalg dialects) to low-level code generation using downstream and upstream MLIR dialects (AMDGPU and ROCDL). We focus on implementing MI300X/MI350X features in MLIR, including double-rate MFMAs, DirectToLDS, and support for MXFP4/FP4 data types. We also cover application-specific optimizations such as SplitK for GEMMs and KV Cache for attention, along with fusion strategies.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_martinez.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
         "tags": [],
+        "projectGithub": "https://github.com/ROCm/AMDMIGraphX",
         "githubReferences": [
           "https://github.com/ROCm/AMDMIGraphX",
           "https://github.com/ROCm/rocMLIR"
@@ -68,6 +67,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "rocmlir: high-performance ml compilation for amd gpus with mlir",
         "_speakerLower": "pablo antonio martinez",
@@ -232,7 +232,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-043": {
@@ -254,16 +254,16 @@
           }
         ],
         "abstract": "The string table(STRTAB) accounts for a significant portion of object file overhead at Google, with long mangled names, such as those from Protos, frequently reaching 35% of the total file size. Optimizing this space is the key to faster builds and leaner binaries. In this talk, we propose an approach to reduce the string table through hashing its entries, demonstrating a reduction in overall binary size",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_nguyen.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "strtab hash & slash: reducing strtab size by hashing its entries",
         "_speakerLower": "vy nguyen",
@@ -411,7 +411,237 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-065": {
+      "talk": {
+        "id": "2026-04-065",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "Beyond Constants: Mojo’s Attribute-Based Expression System",
+        "speakers": [
+          {
+            "name": "Billy Zhu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "The Mojo programming language leverages MLIR’s attribute system to represent compile-time expressions as attribute trees, enabling parametric IR where operations are “staged” with expression attributes that evaluate to constants during the compilation pipeline. Our expression language is built on a typed lambda calculus using de Bruijn indices for bound variables, with dialects contributing their own types and operators to create a rich, extensible system. To evaluate these expressions, we developed a custom AttrTypeReplacer with depth-aware caching (handling de Bruijn index-based references) and context-aware replacement (providing access to outer symbol tables). This talk presents our representation and our evaluator design as a case study for programming language developers using MLIR for high-level IR, demonstrating how MLIR’s attribute system can be so much more than just for “constants”.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_zhu.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "beyond constants: mojo’s attribute-based expression system",
+        "_speakerLower": "billy zhu",
+        "_abstractLower": "the mojo programming language leverages mlir’s attribute system to represent compile-time expressions as attribute trees, enabling parametric ir where operations are “staged” with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables, with dialects contributing their own types and operators to create a rich, extensible system. to evaluate these expressions, we developed a custom attrtypereplacer with depth-aware caching (handling de bruijn index-based references) and context-aware replacement (providing access to outer symbol tables). this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir, demonstrating how mlir’s attribute system can be so much more than just for “constants”.",
+        "_tagsLower": "mlir mojo",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "beyond constants mojos attribute-based expression system",
+              "words": [
+                "beyond",
+                "constants",
+                "mojos",
+                "attribute-based",
+                "expression",
+                "system"
+              ]
+            },
+            "speakers": {
+              "text": "billy zhu",
+              "words": [
+                "billy",
+                "zhu"
+              ]
+            },
+            "tags": {
+              "text": "mlir mojo",
+              "words": [
+                "mlir",
+                "mojo"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "the mojo programming language leverages mlirs attribute system to represent compile-time expressions as attribute trees enabling parametric ir where operations are staged with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables with dialects contributing their own types and operators to create a rich extensible system. to evaluate these expressions we developed a custom attrtypereplacer with depth-aware caching handling de bruijn index-based references and context-aware replacement providing access to outer symbol tables . this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir demonstrating how mlirs attribute system can be so much more than just for constants .",
+              "words": [
+                "the",
+                "mojo",
+                "programming",
+                "language",
+                "leverages",
+                "mlirs",
+                "attribute",
+                "system",
+                "to",
+                "represent",
+                "compile-time",
+                "expressions",
+                "as",
+                "attribute",
+                "trees",
+                "enabling",
+                "parametric",
+                "ir",
+                "where",
+                "operations",
+                "are",
+                "staged",
+                "with",
+                "expression",
+                "attributes",
+                "that",
+                "evaluate",
+                "to",
+                "constants",
+                "during",
+                "the",
+                "compilation",
+                "pipeline.",
+                "our",
+                "expression",
+                "language",
+                "is",
+                "built",
+                "on",
+                "typed",
+                "lambda",
+                "calculus",
+                "using",
+                "de",
+                "bruijn",
+                "indices",
+                "for",
+                "bound",
+                "variables",
+                "with",
+                "dialects",
+                "contributing",
+                "their",
+                "own",
+                "types",
+                "and",
+                "operators",
+                "to",
+                "create",
+                "rich",
+                "extensible",
+                "system.",
+                "to",
+                "evaluate",
+                "these",
+                "expressions",
+                "we",
+                "developed",
+                "custom",
+                "attrtypereplacer",
+                "with",
+                "depth-aware",
+                "caching",
+                "handling",
+                "de",
+                "bruijn",
+                "index-based",
+                "references",
+                "and",
+                "context-aware",
+                "replacement",
+                "providing",
+                "access",
+                "to",
+                "outer",
+                "symbol",
+                "tables",
+                "this",
+                "talk",
+                "presents",
+                "our",
+                "representation",
+                "and",
+                "our",
+                "evaluator",
+                "design",
+                "as",
+                "case",
+                "study",
+                "for",
+                "programming",
+                "language",
+                "developers",
+                "using",
+                "mlir",
+                "for",
+                "high-level",
+                "ir",
+                "demonstrating",
+                "how",
+                "mlirs",
+                "attribute",
+                "system",
+                "can",
+                "be",
+                "so",
+                "much",
+                "more",
+                "than",
+                "just",
+                "for",
+                "constants"
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "beyond constants mojos attribute-based expression system the mojo programming language leverages mlirs attribute system to represent compile-time expressions as attribute trees enabling parametric ir where operations are staged with expression attributes that evaluate to constants during the compilation pipeline. our expression language is built on a typed lambda calculus using de bruijn indices for bound variables with dialects contributing their own types and operators to create a rich extensible system. to evaluate these expressions we developed a custom attrtypereplacer with depth-aware caching handling de bruijn index-based references and context-aware replacement providing access to outer symbol tables . this talk presents our representation and our evaluator design as a case study for programming language developers using mlir for high-level ir demonstrating how mlirs attribute system can be so much more than just for constants . 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop billy zhu mlir mojo"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-002": {
@@ -11715,15 +11945,7 @@
         "id": "mlir-talk-2022-08-11-heterocl-an-mlir-based-intermediate-representation-for-accelerator-design-with-decoupled-customizations",
         "title": "HeteroCL, an MLIR-based Intermediate Representation for Accelerator Design with Decoupled Customizations",
         "abstract": "Hongzheng Chen & Niansong Zhang (Cornell) will present HeteroCL: an MILR-based Intermediate Representation for Accelerator Design with Decoupled Customizations. With the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as GPUs and FPGAs. However, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with FPGAs. As a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
-        "speakers": [
-          {
-            "name": "Shaojie Xiang",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -11760,7 +11982,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "heterocl, an mlir-based intermediate representation for accelerator design with decoupled customizations",
-        "_speakerLower": "shaojie xiang",
+        "_speakerLower": "",
         "_abstractLower": "hongzheng chen & niansong zhang (cornell) will present heterocl: an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints, there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators, such as gpus and fpgas. however, although these heterogeneous computing platforms are becoming widely available, they are very difficult to program especially with fpgas. as a result, the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge.",
         "_tagsLower": "mlir ir performance gpu",
         "_meetingLower": "mlir open design meeting  2022-08-11",
@@ -11784,11 +12006,8 @@
               ]
             },
             "speakers": {
-              "text": "shaojie xiang",
-              "words": [
-                "shaojie",
-                "xiang"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir ir performance gpu",
@@ -11916,7 +12135,7 @@
           },
           "year": 2022
         },
-        "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting shaojie xiang mlir ir performance gpu"
+        "_searchBlob": "heterocl an mlir-based intermediate representation for accelerator design with decoupled customizations hongzheng chen and niansong zhang cornell will present heterocl an milr-based intermediate representation for accelerator design with decoupled customizations. with the pursuit of improving compute performance under strict power constraints there is an increasing need for deploying applications to heterogeneous hardware architectures with accelerators such as gpus and fpgas. however although these heterogeneous computing platforms are becoming widely available they are very difficult to program especially with fpgas. as a result the use of such platforms has been limited to a small subset of programmers with specialized hardware knowledge. mlir open design meeting 2022-08-11 2022-08-11-mlir-open-design-meeting open-design-meeting mlir ir performance gpu"
       },
       "meeting": null
     },

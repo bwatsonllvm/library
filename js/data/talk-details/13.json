@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-001": {
       "talk": {
@@ -35,16 +35,16 @@
           }
         ],
         "abstract": "Support for the CHERI capability architecture and its embedded derivative, CHERIoT, is being upstreamed to LLVM. This talk explores what that means for LLVM developers, which parts of the toolchain are affected, and how these changes may interact with existing frontend, optimizer, backend, and linker work. We’ll take a look at work to date, the status of upstreaming, and open problems where community involvement could help.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/keynote/keynote_anderson.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "capabilities great and small: cheri, cheriot, and llvm",
         "_speakerLower": "owen anderson edoardo marangoni david chisnall",
@@ -197,7 +197,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-023": {
@@ -219,16 +219,16 @@
           }
         ],
         "abstract": "This tutorial introduces \"alias analysis\", which is the fundamental building block for most memory optimizations. The tutorial covers both high-level concepts and usage of alias analysis, as well as important aspects of the alias analysis implementation.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_popov.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "all about alias analysis",
         "_speakerLower": "nikita popov",
@@ -342,7 +342,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-045": {
@@ -364,16 +364,16 @@
           }
         ],
         "abstract": "BOLT needs large, realistic binaries for integration testing, but distributing binaries directly creates governance and supply-chain problems and makes it hard to reproduce the exact toolchains and build flags that shape BOLT behaviour. We show our pinned, auditable Nixpkgs build recipes (including emit-relocs Chromium) and discuss how this enables teams to reproduce identical workloads, generate provenance/SBOMs, and compare results consistently across machines and CI.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_waller.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "reproducible large-workload recipes for bolt with nixpkgs",
         "_speakerLower": "peter waller",
@@ -520,7 +520,318 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-067": {
+      "talk": {
+        "id": "2026-04-067",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "MLIR-RAJA: Bridging AI Models and HPC Performance Portability",
+        "speakers": [
+          {
+            "name": "Tai-Hsiang Peng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hung-Ming Lai",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Chun-Lin Huang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Wei-Shen Huang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jenq-Kuen Lee",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "RAJA, originally developed by Lawrence Livermore National Lab, is a C++ template library widely used in High-Performance Computing (HPC). It ensures that code can run efficiently on different hardware, such as CPUs and GPUs, without needing to be rewritten. At the same time, AI models are becoming essential tools for modern scientific discovery. To connect these two worlds, we introduce MLIR-RAJA, a MLIR dialect that links high-level AI frameworks with the performance benefits of RAJA. Our work defines a specific RAJA Dialect in MLIR to build an automated end-to-end flow, capable of translating AI models directly into optimized RAJA C++. This solution eliminates the barrier between AI development and HPC execution, enabling the automatic generation of portable code for AI Models. Experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. Furthermore, these performance gains extend to OpenMP-enabled parallel execution. Finally, we flow MLIR RAJA dialects into LLVM to utilize a variety of backends to support MLIR RAJA computations.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_pang.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "mlir-raja: bridging ai models and hpc performance portability",
+        "_speakerLower": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+        "_abstractLower": "raja, originally developed by lawrence livermore national lab, is a c++ template library widely used in high-performance computing (hpc). it ensures that code can run efficiently on different hardware, such as cpus and gpus, without needing to be rewritten. at the same time, ai models are becoming essential tools for modern scientific discovery. to connect these two worlds, we introduce mlir-raja, a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow, capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution, enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore, these performance gains extend to openmp-enabled parallel execution. finally, we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+        "_tagsLower": "llvm mlir openmp performance optimizations gpu ai",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "mlir-raja bridging ai models and hpc performance portability",
+              "words": [
+                "mlir-raja",
+                "bridging",
+                "ai",
+                "models",
+                "and",
+                "hpc",
+                "performance",
+                "portability"
+              ]
+            },
+            "speakers": {
+              "text": "tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee",
+              "words": [
+                "tai-hsiang",
+                "peng",
+                "hung-ming",
+                "lai",
+                "chun-lin",
+                "huang",
+                "wei-shen",
+                "huang",
+                "jenq-kuen",
+                "lee"
+              ]
+            },
+            "tags": {
+              "text": "llvm mlir openmp performance optimizations gpu ai",
+              "words": [
+                "llvm",
+                "mlir",
+                "openmp",
+                "performance",
+                "optimizations",
+                "gpu",
+                "ai"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations.",
+              "words": [
+                "raja",
+                "originally",
+                "developed",
+                "by",
+                "lawrence",
+                "livermore",
+                "national",
+                "lab",
+                "is",
+                "c++",
+                "template",
+                "library",
+                "widely",
+                "used",
+                "in",
+                "high-performance",
+                "computing",
+                "hpc",
+                "it",
+                "ensures",
+                "that",
+                "code",
+                "can",
+                "run",
+                "efficiently",
+                "on",
+                "different",
+                "hardware",
+                "such",
+                "as",
+                "cpus",
+                "and",
+                "gpus",
+                "without",
+                "needing",
+                "to",
+                "be",
+                "rewritten.",
+                "at",
+                "the",
+                "same",
+                "time",
+                "ai",
+                "models",
+                "are",
+                "becoming",
+                "essential",
+                "tools",
+                "for",
+                "modern",
+                "scientific",
+                "discovery.",
+                "to",
+                "connect",
+                "these",
+                "two",
+                "worlds",
+                "we",
+                "introduce",
+                "mlir-raja",
+                "mlir",
+                "dialect",
+                "that",
+                "links",
+                "high-level",
+                "ai",
+                "frameworks",
+                "with",
+                "the",
+                "performance",
+                "benefits",
+                "of",
+                "raja.",
+                "our",
+                "work",
+                "defines",
+                "specific",
+                "raja",
+                "dialect",
+                "in",
+                "mlir",
+                "to",
+                "build",
+                "an",
+                "automated",
+                "end-to-end",
+                "flow",
+                "capable",
+                "of",
+                "translating",
+                "ai",
+                "models",
+                "directly",
+                "into",
+                "optimized",
+                "raja",
+                "c++.",
+                "this",
+                "solution",
+                "eliminates",
+                "the",
+                "barrier",
+                "between",
+                "ai",
+                "development",
+                "and",
+                "hpc",
+                "execution",
+                "enabling",
+                "the",
+                "automatic",
+                "generation",
+                "of",
+                "portable",
+                "code",
+                "for",
+                "ai",
+                "models.",
+                "experimental",
+                "results",
+                "demonstrate",
+                "that",
+                "our",
+                "structure-aware",
+                "optimizations",
+                "achieve",
+                "significant",
+                "improvement",
+                "in",
+                "sequential",
+                "execution",
+                "over",
+                "baseline.",
+                "furthermore",
+                "these",
+                "performance",
+                "gains",
+                "extend",
+                "to",
+                "openmp-enabled",
+                "parallel",
+                "execution.",
+                "finally",
+                "we",
+                "flow",
+                "mlir",
+                "raja",
+                "dialects",
+                "into",
+                "llvm",
+                "to",
+                "utilize",
+                "variety",
+                "of",
+                "backends",
+                "to",
+                "support",
+                "mlir",
+                "raja",
+                "computations."
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "mlir-raja bridging ai models and hpc performance portability raja originally developed by lawrence livermore national lab is a c++ template library widely used in high-performance computing hpc . it ensures that code can run efficiently on different hardware such as cpus and gpus without needing to be rewritten. at the same time ai models are becoming essential tools for modern scientific discovery. to connect these two worlds we introduce mlir-raja a mlir dialect that links high-level ai frameworks with the performance benefits of raja. our work defines a specific raja dialect in mlir to build an automated end-to-end flow capable of translating ai models directly into optimized raja c++. this solution eliminates the barrier between ai development and hpc execution enabling the automatic generation of portable code for ai models. experimental results demonstrate that our structure-aware optimizations achieve significant improvement in sequential execution over baseline. furthermore these performance gains extend to openmp-enabled parallel execution. finally we flow mlir raja dialects into llvm to utilize a variety of backends to support mlir raja computations. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop tai-hsiang peng hung-ming lai chun-lin huang wei-shen huang jenq-kuen lee llvm mlir openmp performance optimizations gpu ai"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-004": {
@@ -11327,31 +11638,9 @@
     "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides": {
       "talk": {
         "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
-        "title": "An MPI Dialect for MLIR",
+        "title": "A MPI Dialect Proposal",
         "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. This presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
-        "speakers": [
-          {
-            "name": "Anton Lydike",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Tobias Grosser",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Nick Brown",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -11387,8 +11676,8 @@
         "keywords": [],
         "githubReferences": [],
         "githubReferenceItems": [],
-        "_titleLower": "an mpi dialect for mlir",
-        "_speakerLower": "anton lydike tobias grosser nick brown",
+        "_titleLower": "a mpi dialect proposal",
+        "_speakerLower": "",
         "_abstractLower": "mpi is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
         "_tagsLower": "mlir performance",
         "_meetingLower": "mlir open design meeting  2023-11-02",
@@ -11396,25 +11685,16 @@
         "_searchDoc": {
           "fields": {
             "title": {
-              "text": "an mpi dialect for mlir",
+              "text": "a mpi dialect proposal",
               "words": [
-                "an",
                 "mpi",
                 "dialect",
-                "for",
-                "mlir"
+                "proposal"
               ]
             },
             "speakers": {
-              "text": "anton lydike tobias grosser nick brown",
-              "words": [
-                "anton",
-                "lydike",
-                "tobias",
-                "grosser",
-                "nick",
-                "brown"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir performance",
@@ -11573,7 +11853,7 @@
           },
           "year": 2023
         },
-        "_searchBlob": "an mpi dialect for mlir mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting anton lydike tobias grosser nick brown mlir performance"
+        "_searchBlob": "a mpi dialect proposal mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting mlir performance"
       },
       "meeting": null
     }

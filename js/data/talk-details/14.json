@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-002": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "LLVM is foundational software, so stakes for making changes to it are very high, and most downstream vendors of LLVM have elaborate testing pipelines to validate all of the properties they care about. However, because these private pipelines are often slow and disconnected from the community, detecting defects is expensive and leads to labor-intensive negotiations over misaligned technical requirements. To improve the experience for both contributors and downstreams, this talk shares lessons from 15 years of LLVM continuous integration experience to advocate for shared upstream CI infrastructure that \"shifts left\" on testing, to create a better, more harmonious experience for contributors and consumers alike.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/keynote/keynote_kleckner.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "the testing funnel: validating llvm at scale",
         "_speakerLower": "reid kleckner",
@@ -216,7 +216,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-024": {
@@ -238,12 +238,11 @@
           }
         ],
         "abstract": "Few will need to create a new runtime library for LLVM, and it is not actually the goal of this tutorial. We intend to illustrate the inner workings and conventions of the LLVM build system. Currently, our runtimes (compiler-rt, libc++, openmp, ...) build code is still mostly based on the patterns from when each runtime had its own SVN repository, had to be able to be built independently, and therefore all runtimes implement their own boilerplate. Eventually, they should converge instead of each runtime introducing their own solutions to their build problems.\n\nIn addition to an introduction to the history of the LLVM_ENABLE_RUNTIMES system and its rationale, what better way to establish a common ground for our runtimes than creating a new runtime that does not suffer from the burden of breaking existing builds? Let's build a template runtime from scratch in 15 steps:\n\n1. Register with the LLVM Build System\n2. Build a Library Artifact\n3. Create an Program Using the Library\n4. Build Modes\n5. CMake Cache Files\n6. Artifact Output Location\n7. Installation\n8. Shared and Static Libraries\n9. Regression Testing\n10. Unittests\n11. Sphinx Docs\n12. Doxygen Docs\n13. Cross-Compilation\n14. Accelerator Offloading\n15. Depending on Other LLVM Libraries\n\nSome basic knowledge of CMake is expected. The primary intended target audience is LLVM runtime-library and downstream maintainers who have to keep their build working and regularly have to adapt CMake code. Also join if you just want to know what happens when you run `ninja check-compiler-rt`. In this tutorial we will create a new runtime to exemplify the working of the often misunderstood LLVM_ENABLE_RUNTIMES system. Few contributors will ever feel the need to create a new runtime from scratch, but understanding it helps identifying and fixing build issues for configuration that no CI is actively testing. The talk will go into details of how multi-stage bootstrapping, cross-compilation, multilib, GPU-offloading, multi-compiler support, and inter-dependent runtimes are designed to work. We also explore configuration options and which corners could still be improved.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_kruse.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
         "tags": [],
+        "projectGithub": "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
         "githubReferences": [
           "https://github.com/Meinersbur/llvm-dublin/tree/dublin-0-main",
           "https://github.com/Meinersbur/llvm-dublin/tree/dublin-1-basic",
@@ -489,6 +488,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "creating a runtime using the llvm_enable_runtimes system",
         "_speakerLower": "michael kruse",
@@ -909,7 +909,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-046": {
@@ -931,16 +931,16 @@
           }
         ],
         "abstract": "We've been improving LLDB and LLDB-DAP on Windows, adding key features like STDIO support, Unicode handling, better Python integration, and switching to an open-source PDB implementation to bring Windows debugging up to par with other platforms.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_zablit.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "what’s new in lldb on windows",
         "_speakerLower": "charles zablit",
@@ -1056,7 +1056,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-01-005": {
@@ -12125,15 +12125,7 @@
         "id": "mlir-talk-2021-06-10-mlir-language-server-modern-ide-features-for-mlir-files",
         "title": "MLIR Language Server (Modern IDE features for .mlir files",
         "abstract": "Language servers such as clangd provide powerful IDE features, such as goto-definition/find-references, to developers. In this talk, River Riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with Visual Studio Code.",
-        "speakers": [
-          {
-            "name": "Language Server River Riddle",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -12170,7 +12162,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "mlir language server (modern ide features for .mlir files",
-        "_speakerLower": "language server river riddle",
+        "_speakerLower": "",
         "_abstractLower": "language servers such as clangd provide powerful ide features, such as goto-definition/find-references, to developers. in this talk, river riddle details how we are bringing some of these features to `.mlir` files, how you can hook your dialect into them, and a live demo of these features in action with visual studio code.",
         "_tagsLower": "mlir clang",
         "_meetingLower": "mlir open design meeting  2021-06-10",
@@ -12192,13 +12184,8 @@
               ]
             },
             "speakers": {
-              "text": "language server river riddle",
-              "words": [
-                "language",
-                "server",
-                "river",
-                "riddle"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir clang",
@@ -12289,7 +12276,7 @@
           },
           "year": 2021
         },
-        "_searchBlob": "mlir language server modern ide features for .mlir files language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code. mlir open design meeting 2021-06-10 2021-06-10-mlir-open-design-meeting open-design-meeting language server river riddle mlir clang"
+        "_searchBlob": "mlir language server modern ide features for .mlir files language servers such as clangd provide powerful ide features such as goto-definition find-references to developers. in this talk river riddle details how we are bringing some of these features to .mlir files how you can hook your dialect into them and a live demo of these features in action with visual studio code. mlir open design meeting 2021-06-10 2021-06-10-mlir-open-design-meeting open-design-meeting mlir clang"
       },
       "meeting": null
     },

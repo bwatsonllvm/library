@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-030": {
       "talk": {
@@ -28,12 +28,11 @@
           }
         ],
         "abstract": "The post-link optimizer BOLT has provided a bunch of binary-level optimizations which mostly focus on code layout and effectively reduce front-end stalls in the Top-Down performance analysis view. In addition, we found that BOLT could also be a handy tool to emit prefetching instructions in binaries and to alleviate back-end stalls resulting from cache misses. In this talk, we will cover how to leverage BOLT to improve data prefetching for AArch64 binaries. A new pass is added to BOLT to provide prefetching support for different variations of AArch64 load instructions. And the existing dataflow analysis framework in BOLT is also enabled for AArch64 to provide register liveness information for prefetching addresses. In addition, the ARM SPE-based profiling technique is employed to provide valuable insights into memory operations and to complete the overall profile-guided data prefetching optimization in BOLT.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_chen_wei.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/pull/189304",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/189304",
         "githubReferences": [
           "https://github.com/llvm/llvm-project/pull/189304",
           "https://github.com/llvm/llvm-project/pull/183298",
@@ -92,6 +91,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "leveraging bolt to improve data prefetching for aarch64 binaries",
         "_speakerLower": "shanzhi chen wei wei",
@@ -314,7 +314,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-052": {
@@ -336,12 +336,11 @@
           }
         ],
         "abstract": "While LLVM and MLIR have revolutionized portable code generation for machine learning, a significant \"runtime gap\" remains: the inability to dynamically introspect hardware and dispatch kernels across heterogeneous NVIDIA, AMD, and CPU environments without per-target recompilation. We explore the architecture of vendor-agnostic rerouting, and existing works like SYCL alongside lightweight, header-only approaches.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_akash.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/Akasxh/libkdl",
         "tags": [],
+        "projectGithub": "https://github.com/Akasxh/libkdl",
         "githubReferences": [
           "https://github.com/Akasxh/libkdl"
         ],
@@ -366,6 +365,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "bridging runtime gaps in llvm: vendor-agnostic dispatch for ml kernels",
         "_speakerLower": "s akash",
@@ -504,7 +504,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2025-10-012": {

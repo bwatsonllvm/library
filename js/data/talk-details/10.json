@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-020": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "At Google, our team has been working on reducing null pointer dereference crashes in a huge and diverse C++ codebase by: (a) adopting the Clang nullability annotations and (b) implementing a flow-sensitive intra-procedural dataflow analysis in ClangTidy that verifies that code adheres to the contracts of the annotations. However, to get the most coverage, we need to introduce the annotations to millions of lines of code. To assist with that, we've developed an inter-TU annotation inference tool, and added inferred annotations through a \"large-scale change\". This talk introduces how the ClangTidy verification and inference tools work, but also discusses the practical experience and the challenges we faced attempting to infer the annotations in \"legacy\" C++.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_voung.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
         "tags": [],
+        "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
         "githubReferences": [
           "https://github.com/google/crubit/tree/main/nullability"
         ],
@@ -51,6 +50,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "adding nullability checking and annotations to many millions of lines of code",
         "_speakerLower": "jan voung",
@@ -246,7 +246,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-042": {
@@ -268,12 +268,11 @@
           }
         ],
         "abstract": "The DemandedBits analysis is utilized in some optimization passes, such as vectorization and dead code elimination; a similar analysis is employed in InstCombine. We improve DemandedBits reasoning for all basic shift operations, enabling more precise bit-level information propagation. Our improvements reduced code size, enabled additional loop-invariant code motion, and lead to more instruction-level simplifications.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_karouzakis.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
         "githubReferences": [
           "https://github.com/llvm/llvm-project/pull/148880"
         ],
@@ -298,6 +297,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "improving demandedbits analysis for shift operations in llvm",
         "_speakerLower": "panagiotis karouzakis",
@@ -434,7 +434,238 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-064": {
+      "talk": {
+        "id": "2026-04-064",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "From Graphs to Warps: Semantic Interoperability Across MLIR Abstraction Levels",
+        "speakers": [
+          {
+            "name": "Nachiketa Gargi",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Modern ML compiler stacks span multiple semantic abstraction levels, from graph-level program representations to tile-based computation and SIMT kernels. Composing these layers reliably remains challenging in practice, particularly in GPU compilers, where execution semantics, memory hierarchy, and parallelism are explicit and tightly coupled to performance. This talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries, such as loss of semantic information during lowering, conflicting ownership of layout and scheduling decisions, and non-composable cost models. Using examples drawn from the MLIR ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. The goal of this talk is to frame semantic interoperability as a first-class problem in MLIR-based compiler design and to outline open research questions.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_gargi.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "from graphs to warps: semantic interoperability across mlir abstraction levels",
+        "_speakerLower": "nachiketa gargi",
+        "_abstractLower": "modern ml compiler stacks span multiple semantic abstraction levels, from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice, particularly in gpu compilers, where execution semantics, memory hierarchy, and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries, such as loss of semantic information during lowering, conflicting ownership of layout and scheduling decisions, and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions.",
+        "_tagsLower": "mlir performance gpu ml",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "from graphs to warps semantic interoperability across mlir abstraction levels",
+              "words": [
+                "from",
+                "graphs",
+                "to",
+                "warps",
+                "semantic",
+                "interoperability",
+                "across",
+                "mlir",
+                "abstraction",
+                "levels"
+              ]
+            },
+            "speakers": {
+              "text": "nachiketa gargi",
+              "words": [
+                "nachiketa",
+                "gargi"
+              ]
+            },
+            "tags": {
+              "text": "mlir performance gpu ml",
+              "words": [
+                "mlir",
+                "performance",
+                "gpu",
+                "ml"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "modern ml compiler stacks span multiple semantic abstraction levels from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice particularly in gpu compilers where execution semantics memory hierarchy and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries such as loss of semantic information during lowering conflicting ownership of layout and scheduling decisions and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions.",
+              "words": [
+                "modern",
+                "ml",
+                "compiler",
+                "stacks",
+                "span",
+                "multiple",
+                "semantic",
+                "abstraction",
+                "levels",
+                "from",
+                "graph-level",
+                "program",
+                "representations",
+                "to",
+                "tile-based",
+                "computation",
+                "and",
+                "simt",
+                "kernels.",
+                "composing",
+                "these",
+                "layers",
+                "reliably",
+                "remains",
+                "challenging",
+                "in",
+                "practice",
+                "particularly",
+                "in",
+                "gpu",
+                "compilers",
+                "where",
+                "execution",
+                "semantics",
+                "memory",
+                "hierarchy",
+                "and",
+                "parallelism",
+                "are",
+                "explicit",
+                "and",
+                "tightly",
+                "coupled",
+                "to",
+                "performance.",
+                "this",
+                "talk",
+                "characterizes",
+                "recurring",
+                "interoperability",
+                "failures",
+                "that",
+                "arise",
+                "when",
+                "crossing",
+                "abstraction",
+                "boundaries",
+                "such",
+                "as",
+                "loss",
+                "of",
+                "semantic",
+                "information",
+                "during",
+                "lowering",
+                "conflicting",
+                "ownership",
+                "of",
+                "layout",
+                "and",
+                "scheduling",
+                "decisions",
+                "and",
+                "non-composable",
+                "cost",
+                "models.",
+                "using",
+                "examples",
+                "drawn",
+                "from",
+                "the",
+                "mlir",
+                "ecosystem",
+                "we",
+                "illustrate",
+                "why",
+                "these",
+                "interoperability",
+                "failures",
+                "are",
+                "fundamental",
+                "rather",
+                "than",
+                "incidental.",
+                "the",
+                "goal",
+                "of",
+                "this",
+                "talk",
+                "is",
+                "to",
+                "frame",
+                "semantic",
+                "interoperability",
+                "as",
+                "first-class",
+                "problem",
+                "in",
+                "mlir-based",
+                "compiler",
+                "design",
+                "and",
+                "to",
+                "outline",
+                "open",
+                "research",
+                "questions."
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "from graphs to warps semantic interoperability across mlir abstraction levels modern ml compiler stacks span multiple semantic abstraction levels from graph-level program representations to tile-based computation and simt kernels. composing these layers reliably remains challenging in practice particularly in gpu compilers where execution semantics memory hierarchy and parallelism are explicit and tightly coupled to performance. this talk characterizes recurring interoperability failures that arise when crossing abstraction boundaries such as loss of semantic information during lowering conflicting ownership of layout and scheduling decisions and non-composable cost models. using examples drawn from the mlir ecosystem we illustrate why these interoperability failures are fundamental rather than incidental. the goal of this talk is to frame semantic interoperability as a first-class problem in mlir-based compiler design and to outline open research questions. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop nachiketa gargi mlir performance gpu ml"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-001": {

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-022": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "The LLVM Foundation Board of Directors gives an update on status of the LLVM Foundation.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/llvm_foundation/llvm_foundation_updates.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "llvm foundation updates",
         "_speakerLower": "llvm foundation board of directors",
@@ -127,7 +127,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-044": {
@@ -149,16 +149,16 @@
           }
         ],
         "abstract": "Clang features an intra-procedural, flow-sensitive lifetime analysis designed to catch temporal safety errors like use-after-free, use-after-scope, and use-after-return. The talk presents work on leveraging this analysis to verify [[clang::noescape]] annotations. This effort focuses on applying the \"Origins and Loans\" model to enforce memory safety guarantees that were previously unverified by the compiler.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_pradeep.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "extending lifetime safety: verification of [[clang:noescape]] annotation",
         "_speakerLower": "abhinav pradeep",
@@ -294,7 +294,284 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-066": {
+      "talk": {
+        "id": "2026-04-066",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "Tamagoyaki: MLIR-Native Equality Saturation",
+        "speakers": [
+          {
+            "name": "Sasha Lopoukhine",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jules Merckx",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Sam Coward",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jianyi Cheng",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Bjorn De Sutter",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Tobias Grosser",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "Equality saturation (EqSat) is an expression rewriting technique based on efficiently representing equivalent expressions. In recent years, it has successfully been applied in many different domains. Applying EqSat on MLIR code, however, requires additional effort for converting rewrite patterns and IR to formats that are understood by external tools. We present Tamagoyaki, an MLIR (and xDSL) framework to represent equivalences directly in your IR. Building on pdl, we apply rewrite patterns on this representation. By encoding equivalences explicitly in IR, we open the door to including more complex compiler passes in EqSat. As a case study, we replicate the core procedure of Herbie, a floating point accuracy optimizer, directly in MLIR. Additionally we show how Tamagoyaki can easily be applied to other MLIR projects such as CIRCT.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_merckx.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "tamagoyaki: mlir-native equality saturation",
+        "_speakerLower": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+        "_abstractLower": "equality saturation (eqsat) is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years, it has successfully been applied in many different domains. applying eqsat on mlir code, however, requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki, an mlir (and xdsl) framework to represent equivalences directly in your ir. building on pdl, we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir, we open the door to including more complex compiler passes in eqsat. as a case study, we replicate the core procedure of herbie, a floating point accuracy optimizer, directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+        "_tagsLower": "mlir circt",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "tamagoyaki mlir-native equality saturation",
+              "words": [
+                "tamagoyaki",
+                "mlir-native",
+                "equality",
+                "saturation"
+              ]
+            },
+            "speakers": {
+              "text": "sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser",
+              "words": [
+                "sasha",
+                "lopoukhine",
+                "jules",
+                "merckx",
+                "sam",
+                "coward",
+                "jianyi",
+                "cheng",
+                "bjorn",
+                "de",
+                "sutter",
+                "tobias",
+                "grosser"
+              ]
+            },
+            "tags": {
+              "text": "mlir circt",
+              "words": [
+                "mlir",
+                "circt"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt.",
+              "words": [
+                "equality",
+                "saturation",
+                "eqsat",
+                "is",
+                "an",
+                "expression",
+                "rewriting",
+                "technique",
+                "based",
+                "on",
+                "efficiently",
+                "representing",
+                "equivalent",
+                "expressions.",
+                "in",
+                "recent",
+                "years",
+                "it",
+                "has",
+                "successfully",
+                "been",
+                "applied",
+                "in",
+                "many",
+                "different",
+                "domains.",
+                "applying",
+                "eqsat",
+                "on",
+                "mlir",
+                "code",
+                "however",
+                "requires",
+                "additional",
+                "effort",
+                "for",
+                "converting",
+                "rewrite",
+                "patterns",
+                "and",
+                "ir",
+                "to",
+                "formats",
+                "that",
+                "are",
+                "understood",
+                "by",
+                "external",
+                "tools.",
+                "we",
+                "present",
+                "tamagoyaki",
+                "an",
+                "mlir",
+                "and",
+                "xdsl",
+                "framework",
+                "to",
+                "represent",
+                "equivalences",
+                "directly",
+                "in",
+                "your",
+                "ir.",
+                "building",
+                "on",
+                "pdl",
+                "we",
+                "apply",
+                "rewrite",
+                "patterns",
+                "on",
+                "this",
+                "representation.",
+                "by",
+                "encoding",
+                "equivalences",
+                "explicitly",
+                "in",
+                "ir",
+                "we",
+                "open",
+                "the",
+                "door",
+                "to",
+                "including",
+                "more",
+                "complex",
+                "compiler",
+                "passes",
+                "in",
+                "eqsat.",
+                "as",
+                "case",
+                "study",
+                "we",
+                "replicate",
+                "the",
+                "core",
+                "procedure",
+                "of",
+                "herbie",
+                "floating",
+                "point",
+                "accuracy",
+                "optimizer",
+                "directly",
+                "in",
+                "mlir.",
+                "additionally",
+                "we",
+                "show",
+                "how",
+                "tamagoyaki",
+                "can",
+                "easily",
+                "be",
+                "applied",
+                "to",
+                "other",
+                "mlir",
+                "projects",
+                "such",
+                "as",
+                "circt."
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "tamagoyaki mlir-native equality saturation equality saturation eqsat is an expression rewriting technique based on efficiently representing equivalent expressions. in recent years it has successfully been applied in many different domains. applying eqsat on mlir code however requires additional effort for converting rewrite patterns and ir to formats that are understood by external tools. we present tamagoyaki an mlir and xdsl framework to represent equivalences directly in your ir. building on pdl we apply rewrite patterns on this representation. by encoding equivalences explicitly in ir we open the door to including more complex compiler passes in eqsat. as a case study we replicate the core procedure of herbie a floating point accuracy optimizer directly in mlir. additionally we show how tamagoyaki can easily be applied to other mlir projects such as circt. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop sasha lopoukhine jules merckx sam coward jianyi cheng bjorn de sutter tobias grosser mlir circt"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2026-01-003": {
@@ -12406,22 +12683,7 @@
         "id": "mlir-talk-2025-08-14-discussion-on-the-next-steps-on-properties-slides-1-and-slides-2",
         "title": "Discussion on the next steps on Properties",
         "abstract": "In this meeting we're discussing the next steps on the migration to properties.",
-        "speakers": [
-          {
-            "name": "Krzysztof Drewniak",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Fabian Mora Cordero",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -12463,7 +12725,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "discussion on the next steps on properties",
-        "_speakerLower": "krzysztof drewniak fabian mora cordero",
+        "_speakerLower": "",
         "_abstractLower": "in this meeting we're discussing the next steps on the migration to properties.",
         "_tagsLower": "mlir",
         "_meetingLower": "mlir open design meeting  2025-08-14",
@@ -12483,14 +12745,8 @@
               ]
             },
             "speakers": {
-              "text": "krzysztof drewniak fabian mora cordero",
-              "words": [
-                "krzysztof",
-                "drewniak",
-                "fabian",
-                "mora",
-                "cordero"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir",
@@ -12541,7 +12797,7 @@
           },
           "year": 2025
         },
-        "_searchBlob": "discussion on the next steps on properties in this meeting were discussing the next steps on the migration to properties. mlir open design meeting 2025-08-14 2025-08-14-mlir-open-design-meeting open-design-meeting krzysztof drewniak fabian mora cordero mlir"
+        "_searchBlob": "discussion on the next steps on properties in this meeting were discussing the next steps on the migration to properties. mlir open design meeting 2025-08-14 2025-08-14-mlir-open-design-meeting open-design-meeting mlir"
       },
       "meeting": null
     },

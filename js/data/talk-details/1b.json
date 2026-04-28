@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-009": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "Compiler warnings are an effective tool for developers to catch potential security, compatibility, and correctness problems — however a challenging problem is ensuring that specific warnings are actually enabled across codebases and that diagnostics are addressed over time. This talk describes how we have extended Clang's diagnostic infrastructure to enable developers to build a policy enforcement system that supports issue baselining (i.e., reporting only newly introduced warnings) and backslide prevention (informing project maintainers when a warning has accidentally been turned off).",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_bartolomeo.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "tracking warnings at scale: extending clang diagnostics to support issue baselining and backslide prevention",
         "_speakerLower": "dave bartolomeo",
@@ -197,7 +197,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2025-06-017": {
@@ -4528,13 +4528,6 @@
             "github": "",
             "linkedin": "",
             "twitter": ""
-          },
-          {
-            "name": "Théo Degioanni",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
           }
         ],
         "resourceActions": [
@@ -4573,7 +4566,7 @@
         "githubReferences": [],
         "githubReferenceItems": [],
         "_titleLower": "irdl, a dialect to represent ir definitions",
-        "_speakerLower": "mathieu fehr théo degioanni",
+        "_speakerLower": "mathieu fehr",
         "_abstractLower": "irdl can represent types, attributes, and operations in a similar manner than tablegen, and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa, which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects, as well as to more easily reason about the dialect definitions.",
         "_tagsLower": "mlir ir",
         "_meetingLower": "mlir open design meeting  2022-06-02",
@@ -4592,12 +4585,10 @@
               ]
             },
             "speakers": {
-              "text": "mathieu fehr theo degioanni",
+              "text": "mathieu fehr",
               "words": [
                 "mathieu",
-                "fehr",
-                "theo",
-                "degioanni"
+                "fehr"
               ]
             },
             "tags": {
@@ -4711,7 +4702,7 @@
           },
           "year": 2022
         },
-        "_searchBlob": "irdl a dialect to represent ir definitions irdl can represent types attributes and operations in a similar manner than tablegen and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects as well as to more easily reason about the dialect definitions. mlir open design meeting 2022-06-02 2022-06-02-mlir-open-design-meeting open-design-meeting mathieu fehr theo degioanni mlir ir"
+        "_searchBlob": "irdl a dialect to represent ir definitions irdl can represent types attributes and operations in a similar manner than tablegen and register them at runtime without having to compile to c++. irdl also compiles to irdl-ssa which is an ssa-based representation of dialect definitions that are easier to generate and modify. the hope is that irdl and irdl-ssa will allow users to more easily define dialects from other languages and projects as well as to more easily reason about the dialect definitions. mlir open design meeting 2022-06-02 2022-06-02-mlir-open-design-meeting open-design-meeting mathieu fehr mlir ir"
       },
       "meeting": null
     },

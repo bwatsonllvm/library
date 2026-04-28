@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e5ebe0a46a89",
+  "generatedAt": "2026-04-28T21:49:40.000Z",
   "talks": {
     "2026-04-015": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "Clang Static Analyzer provides a configurable taint analysis checker optin.taint.GenericTaint and a few specialized taint checkers (in the optin.taint group) which can identify potential improper input validation security vulnerabilities. Although promising, the current implementation is still in its early stages, and its limitations prevent it from efficient industrial use. We were able to identify key issues after taking measurements on both the synthetic Juliet test suite and real-world projects. Based on these findings, we propose some improvements to the current solution, which we prototyped and evaluated.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_krupp.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/pull/67352",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/67352",
         "githubReferences": [
           "https://github.com/llvm/llvm-project/pull/67352",
           "https://github.com/dkrupp/llvm-project/tree/taint_partial_array",
@@ -136,6 +135,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "finding injection vulnerabilities: improvements of the taint analysis of the clang static analyzer",
         "_speakerLower": "daniel krupp",
@@ -309,7 +309,7 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
       }
     },
     "2026-04-037": {
@@ -331,16 +331,16 @@
           }
         ],
         "abstract": "Linalg dialect of MLIR recently added `category ops` as an intermediate abstraction between the two existing forms: named ops and generic ops. A mechanism (-linalg-morph-ops=_-to-_) to move between these forms was also introduced. When something new appears, adoption is often slow due to existing workflows and lack of awareness. This talk will: (a) Motivate the reason for this additional representation (b) Explain what now exists and how to benefit from it (c) Show how category ops can help certain compilation flows.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_absar.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "using mlir linalg category ops for smarter compilation",
         "_speakerLower": "javed absar",
@@ -500,7 +500,200 @@
         "date": "April 14-15, 2026",
         "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
         "canceled": false,
-        "talkCount": 58
+        "talkCount": 67
+      }
+    },
+    "2026-04-059": {
+      "talk": {
+        "id": "2026-04-059",
+        "meeting": "2026-04",
+        "meetingName": "2026 EuroLLVM Developers' Meeting",
+        "meetingLocation": "Dublin, Ireland",
+        "meetingDate": "April 13-15 2026",
+        "category": "workshop",
+        "title": "CUDA Tile IR: Lessons from a Tile-Centric CUDA Dialect for MLIR",
+        "speakers": [
+          {
+            "name": "Matthias Springer",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Lorenzo Chelini",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "abstract": "This talk presents CUDA Tile IR, a tile-based CUDA dialect for MLIR, focusing on the design trade-offs that differentiate it from upstream dialects such as arith, tensor, memref, linalg, and async. Using concrete examples (e.g., matrix multiplication, TMA–friendly load/store patterns, and token-based ordering), the talk contrasts CUDA Tile IR’s type system, operations, and overall dialect design with existing MLIR abstractions, and highlights practical lessons for developers designing their own vendor-specific dialects.",
+        "videoId": null,
+        "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/mlir/mlir_springer.pdf",
+        "posterUrl": "",
+        "tags": [],
+        "keywords": [],
+        "resourceActions": [],
+        "projectGithub": "",
+        "githubReferences": [],
+        "githubReferenceItems": [],
+        "videoUrl": "",
+        "sourceUrl": "",
+        "_titleLower": "cuda tile ir: lessons from a tile-centric cuda dialect for mlir",
+        "_speakerLower": "matthias springer lorenzo chelini",
+        "_abstractLower": "this talk presents cuda tile ir, a tile-based cuda dialect for mlir, focusing on the design trade-offs that differentiate it from upstream dialects such as arith, tensor, memref, linalg, and async. using concrete examples (e.g., matrix multiplication, tma–friendly load/store patterns, and token-based ordering), the talk contrasts cuda tile ir’s type system, operations, and overall dialect design with existing mlir abstractions, and highlights practical lessons for developers designing their own vendor-specific dialects.",
+        "_tagsLower": "mlir cuda",
+        "_meetingLower": "2026 eurollvm developers' meeting dublin, ireland april 13-15 2026",
+        "_year": "2026",
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "cuda tile ir lessons from a tile-centric cuda dialect for mlir",
+              "words": [
+                "cuda",
+                "tile",
+                "ir",
+                "lessons",
+                "from",
+                "tile-centric",
+                "cuda",
+                "dialect",
+                "for",
+                "mlir"
+              ]
+            },
+            "speakers": {
+              "text": "matthias springer lorenzo chelini",
+              "words": [
+                "matthias",
+                "springer",
+                "lorenzo",
+                "chelini"
+              ]
+            },
+            "tags": {
+              "text": "mlir cuda",
+              "words": [
+                "mlir",
+                "cuda"
+              ]
+            },
+            "meeting": {
+              "text": "2026 eurollvm developers meeting dublin ireland april 13-15 2026",
+              "words": [
+                "2026",
+                "eurollvm",
+                "developers",
+                "meeting",
+                "dublin",
+                "ireland",
+                "april",
+                "13-15",
+                "2026"
+              ]
+            },
+            "abstract": {
+              "text": "this talk presents cuda tile ir a tile-based cuda dialect for mlir focusing on the design trade-offs that differentiate it from upstream dialects such as arith tensor memref linalg and async. using concrete examples e.g. matrix multiplication tma friendly load store patterns and token-based ordering the talk contrasts cuda tile irs type system operations and overall dialect design with existing mlir abstractions and highlights practical lessons for developers designing their own vendor-specific dialects.",
+              "words": [
+                "this",
+                "talk",
+                "presents",
+                "cuda",
+                "tile",
+                "ir",
+                "tile-based",
+                "cuda",
+                "dialect",
+                "for",
+                "mlir",
+                "focusing",
+                "on",
+                "the",
+                "design",
+                "trade-offs",
+                "that",
+                "differentiate",
+                "it",
+                "from",
+                "upstream",
+                "dialects",
+                "such",
+                "as",
+                "arith",
+                "tensor",
+                "memref",
+                "linalg",
+                "and",
+                "async.",
+                "using",
+                "concrete",
+                "examples",
+                "e.g.",
+                "matrix",
+                "multiplication",
+                "tma",
+                "friendly",
+                "load",
+                "store",
+                "patterns",
+                "and",
+                "token-based",
+                "ordering",
+                "the",
+                "talk",
+                "contrasts",
+                "cuda",
+                "tile",
+                "irs",
+                "type",
+                "system",
+                "operations",
+                "and",
+                "overall",
+                "dialect",
+                "design",
+                "with",
+                "existing",
+                "mlir",
+                "abstractions",
+                "and",
+                "highlights",
+                "practical",
+                "lessons",
+                "for",
+                "developers",
+                "designing",
+                "their",
+                "own",
+                "vendor-specific",
+                "dialects."
+              ]
+            },
+            "category": {
+              "text": "workshop",
+              "words": [
+                "workshop"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026
+        },
+        "_searchBlob": "cuda tile ir lessons from a tile-centric cuda dialect for mlir this talk presents cuda tile ir a tile-based cuda dialect for mlir focusing on the design trade-offs that differentiate it from upstream dialects such as arith tensor memref linalg and async. using concrete examples e.g. matrix multiplication tma friendly load store patterns and token-based ordering the talk contrasts cuda tile irs type system operations and overall dialect design with existing mlir abstractions and highlights practical lessons for developers designing their own vendor-specific dialects. 2026 eurollvm developers meeting dublin ireland april 13-15 2026 2026-04 workshop matthias springer lorenzo chelini mlir cuda"
+      },
+      "meeting": {
+        "slug": "2026-04",
+        "name": "2026 EuroLLVM Developers' Meeting",
+        "date": "April 14-15, 2026",
+        "location": "Clayton Hotel Burlington Road , Dublin, Ireland",
+        "canceled": false,
+        "talkCount": 67
       }
     },
     "2025-10-019": {
@@ -9981,22 +10174,7 @@
         "id": "mlir-talk-2023-10-26-a-polynomial-dialect-proposal-slides",
         "title": "A Polynomial Dialect Proposal",
         "abstract": "This is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. This is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including Fully Homomorphic Encryption (FHE). At a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. More details in the RFC thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
-        "speakers": [
-          {
-            "name": "Alexander Viand",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Intel Jeremy Kun",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -10120,7 +10298,7 @@
         "videoId": "wsKP-guEB5s",
         "keywords": [],
         "_titleLower": "a polynomial dialect proposal",
-        "_speakerLower": "alexander viand intel jeremy kun",
+        "_speakerLower": "",
         "_abstractLower": "this is a presentation of the proposal for a \"poly\" dialect for polynomial arithmetic. this is motivated by the use of such (high-degree) polynomials in a variety of post-quantum cryptography, including fully homomorphic encryption (fhe). at a high level, poly will contain a type representing a polynomial, attributes specifying the domain of the polynomials (e.g., integer or real coefficients), and ops representing addition, multiplication, division/remainder, polynomial evaluation, etc. more details in the rfc thread: https://discourse.llvm.org/t/rfc-a-poly-dialect-for-polynomial-arithmetic/73891",
         "_tagsLower": "mlir llvm",
         "_meetingLower": "mlir open design meeting  2023-10-26",
@@ -10136,14 +10314,8 @@
               ]
             },
             "speakers": {
-              "text": "alexander viand intel jeremy kun",
-              "words": [
-                "alexander",
-                "viand",
-                "intel",
-                "jeremy",
-                "kun"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir llvm",
@@ -10255,7 +10427,7 @@
           },
           "year": 2023
         },
-        "_searchBlob": "a polynomial dialect proposal this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891 mlir open design meeting 2023-10-26 2023-10-26-mlir-open-design-meeting open-design-meeting alexander viand intel jeremy kun mlir llvm"
+        "_searchBlob": "a polynomial dialect proposal this is a presentation of the proposal for a poly dialect for polynomial arithmetic. this is motivated by the use of such high-degree polynomials in a variety of post-quantum cryptography including fully homomorphic encryption fhe . at a high level poly will contain a type representing a polynomial attributes specifying the domain of the polynomials e.g. integer or real coefficients and ops representing addition multiplication division remainder polynomial evaluation etc. more details in the rfc thread https discourse.llvm.org t rfc-a-poly-dialect-for-polynomial-arithmetic 73891 mlir open design meeting 2023-10-26 2023-10-26-mlir-open-design-meeting open-design-meeting mlir llvm"
       },
       "meeting": null
     },
