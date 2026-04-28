@@ -35,6 +35,8 @@ CATEGORY_MAP: dict[str, str] = {
     "keynotes": "keynote",
     "technical talk": "technical-talk",
     "technical talks": "technical-talk",
+    "mlir workshop": "mlir-workshop",
+    "mlir workshops": "mlir-workshop",
     "student technical talk": "student-talk",
     "student technical talks": "student-talk",
     "tutorial": "tutorial",
@@ -509,6 +511,8 @@ def normalize_talk_title_for_matching(title: str) -> str:
     for prefix in (
         "keynote:",
         "tutorial:",
+        "mlir workshop:",
+        "mlir workshops:",
         "workshop:",
         "panel:",
         "quick talk:",
@@ -580,6 +584,8 @@ def legacy_category_marker_from_title(title: str) -> str | None:
         return "lightning-talk"
     if clean in {"poster", "posters"}:
         return "poster"
+    if clean in {"mlir workshop", "mlir workshops"}:
+        return "mlir-workshop"
     if clean in {"bof", "bofs", "birds of a feather"}:
         return "bof"
     return None
@@ -592,6 +598,10 @@ def parse_inline_category_title(raw_title: str, default_category: str) -> tuple[
         return "keynote", collapse_ws(title.split(":", 1)[1])
     if lower.startswith("tutorial:"):
         return "tutorial", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("mlir workshop:"):
+        return "mlir-workshop", collapse_ws(title.split(":", 1)[1])
+    if lower.startswith("mlir workshops:"):
+        return "mlir-workshop", collapse_ws(title.split(":", 1)[1])
     if lower.startswith("workshop:"):
         return "workshop", collapse_ws(title.split(":", 1)[1])
     if lower.startswith("panel:"):

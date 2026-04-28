@@ -130,6 +130,23 @@ class SyncDevMtgProgrammeTests(unittest.TestCase):
             [("Yi-Hong Lyu", "Institute of Information Science, Academia Sinica")],
         )
 
+    def test_mlir_workshop_category_is_preserved(self):
+        self.assertEqual(self.module.category_from_heading("MLIR Workshop"), "mlir-workshop")
+        self.assertEqual(self.module.category_from_heading("MLIR Workshop Talks"), "mlir-workshop")
+        self.assertEqual(self.module.legacy_category_marker_from_title("MLIR Workshops:"), "mlir-workshop")
+        self.assertEqual(
+            self.module.parse_inline_category_title("MLIR Workshop: Tamagoyaki", "technical-talk"),
+            ("mlir-workshop", "Tamagoyaki"),
+        )
+        self.assertEqual(
+            self.module.parse_inline_category_title("MLIR Workshops: Tamagoyaki", "technical-talk"),
+            ("mlir-workshop", "Tamagoyaki"),
+        )
+        self.assertEqual(
+            self.module.normalize_talk_title_for_matching("MLIR Workshop: Tamagoyaki"),
+            "Tamagoyaki",
+        )
+
     def test_clean_abstract_text_strips_virtual_presenter_metadata(self):
         abstract = self.module.clean_abstract_text(
             "presented by Wei Wei LLVM pass ordering auto-tuning can outperform standard -O3.",

@@ -1233,6 +1233,7 @@
       'open-design-meeting': 'Open Design Meeting',
       bof: 'BoF',
       poster: 'Poster',
+      'mlir-workshop': 'MLIR Workshop',
       workshop: 'Workshop',
       other: 'Other',
     }[key]) || (key ? key.replace(/-/g, ' ').replace(/\b\w/g, (match) => match.toUpperCase()) : 'Other');
@@ -1309,7 +1310,7 @@
 
   function placeholderSvgForCategory(category) {
     const key = collapseWhitespace(category).toLowerCase();
-    return ({ workshop: CARD_SVG_TOOL, panel: CARD_SVG_CHAT, bof: CARD_SVG_CHAT, 'open-design-meeting': CARD_SVG_CHAT }[key]) || CARD_SVG_DOC;
+    return ({ 'mlir-workshop': CARD_SVG_TOOL, workshop: CARD_SVG_TOOL, panel: CARD_SVG_CHAT, bof: CARD_SVG_CHAT, 'open-design-meeting': CARD_SVG_CHAT }[key]) || CARD_SVG_DOC;
   }
 
   function mediaPlaceholderForTalk(talk) {

@@ -15,8 +15,9 @@
     'open-design-meeting': 8,
     'bof': 9,
     'poster': 10,
-    'workshop': 11,
-    'other': 12,
+    'mlir-workshop': 11,
+    'workshop': 12,
+    'other': 13,
   };
   const KNOWN_TALK_CATEGORIES = new Set(Object.keys(CATEGORY_ORDER));
   const TALK_CATEGORY_ALIAS_MAP = {
@@ -79,6 +80,9 @@
 
     poster: 'poster',
     posters: 'poster',
+
+    'mlir-workshop': 'mlir-workshop',
+    'mlir-workshops': 'mlir-workshop',
 
     workshop: 'workshop',
     workshops: 'workshop',

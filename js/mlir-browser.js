@@ -58,6 +58,7 @@
     'open-design-meeting': 'Open Design Meeting',
     bof: 'BoF',
     poster: 'Poster',
+    'mlir-workshop': 'MLIR Workshop',
     workshop: 'Workshop',
     other: 'Other',
   });
@@ -73,8 +74,9 @@
     'open-design-meeting': 8,
     bof: 9,
     poster: 10,
-    workshop: 11,
-    other: 12,
+    'mlir-workshop': 11,
+    workshop: 12,
+    other: 13,
   });
   const SCOPE_LABELS = Object.freeze({
     all: 'Works',

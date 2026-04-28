@@ -19,6 +19,7 @@
     'open-design-meeting': 'Open Design Meeting',
     bof: 'BoF',
     poster: 'Poster',
+    'mlir-workshop': 'MLIR Workshop',
     workshop: 'Workshop',
     other: 'Other',
   };
