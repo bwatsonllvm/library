@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "papers": {
     "openalex-w7134954462": {
       "paper": {
@@ -72,11 +72,12 @@
           "llvm"
         ],
         "id": "openalex-w7134954462",
-        "sourceUrl": "",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -2635,15 +2636,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "towards an optimized heterogeneous distributed task scheduler in openmp cluster",
         "_authorLower": "rémy neveu universidade estadual de campinas rodrigo ceccato universidade estadual de campinas gustavo leite universidade estadual de campinas guido araújo universidade estadual de campinas jose m. monsalve diaz universidade estadual de campinas hervé yviquel universidade estadual de campinas",
         "_authorsLower": "rémy neveu universidade estadual de campinas rodrigo ceccato universidade estadual de campinas gustavo leite universidade estadual de campinas guido araújo universidade estadual de campinas jose m. monsalve diaz universidade estadual de campinas hervé yviquel universidade estadual de campinas",
@@ -3024,7 +3026,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "towards an optimized heterogeneous distributed task scheduler in openmp cluster this paper addresses the challenges of optimizing task scheduling for a distributed task-based execution model in openmp for cluster computing environments. traditional openmp implementations are primarily designed for shared-memory parallelism and offer limited control over task scheduling. however improved scheduling mechanisms are critical to achieving performance and portability in distributed and heterogeneous environments. openmp cluster ompc was introduced to overcome these limitations extending openmp with the heterogeneous earliest finish time heft task scheduling algorithm tailored for large-scale systems. to improve scheduling and enable better system utilization the runtime system must resolve challenges such as changes in the application balance amount of parallelism and varying communication latencies.this work presents three key contributions first the refactoring of the ompc runtime to unify task scheduling across devices and hosts second the optimization of the heft-based scheduling algorithm to ensure efficient task execution in distributed environments and third an extensive evaluation of work stealing and heft scheduling mechanisms in real-world clusters. while the heft implementation in ompc is not fully optimized this work provides a significant step toward improving distributed task scheduling in cluster computing offering insights and incremental advancements that support the development of scalable and high-performance applications. results show improvements of up to 24 in scheduling time while opening up to more extensions in the scheduling methods. sc24-w workshops of the international conference for high performance computing networking storage and analysis sc24-w workshops of the international conference for high performance computing networking storage and analysis 2024 research-paper remy neveu universidade estadual de campinas rodrigo ceccato universidade estadual de campinas gustavo leite universidade estadual de campinas guido araujo universidade estadual de campinas jose m. monsalve diaz universidade estadual de campinas herve yviquel universidade estadual de campinas openmp optimizations performance openmp optimizations performance task scheduling distributed task scheduler openmp cluster heterogeneous distributed task environments cluster computing scheduling mechanisms parallelism optimized heterogeneous distributed openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -3101,15 +3103,16 @@
           "openmp"
         ],
         "id": "openalex-w4390689279",
+        "citationCount": 2,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "preliminary report: initial evaluation of stdpar implementations on amd gpus for hpc",
         "_authorLower": "wei-chen lin simon mcintosh‐smith tom deakin",
         "_authorsLower": "wei-chen lin simon mcintosh‐smith tom deakin",
@@ -3431,7 +3434,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "preliminary report initial evaluation of stdpar implementations on amd gpus for hpc recently amd platforms have not supported offloading c++17 pstl stdpar programs to the gpu. our previous work highlights how stdpar is able to achieve good performance across nvidia and intel gpu platforms. in that work we acknowledged amds past effort such as hcc which unfortunately is deprecated and does not support newer hardware platforms. recent developments by amd codeplay and adaptivecpp previously known as hipsycl or opensycl have enabled multiple paths for stdpar programs to run on amd gpus. this informal report discusses our experiences and evaluation of currently available stdpar implementations for amd gpus. we conduct benchmarks using our suite of hpc mini-apps with ports in many heterogeneous programming models including stdpar. we then compare the performance of stdpar using all available stdpar compilers to contemporary heterogeneous programming models supported on amd gpus hip opencl thrust kokkos openmp sycl. where appropriate we discuss issues encountered and workarounds applied during our evaluation. finally the stdpar model discussed in this report largely depends on unified shared memory usm performance and very few amd gpus have proper support for this feature. as such this report demonstrates a proof-of-concept host-side userspace pagefault solution for models that use the hip api. we discuss performance improvements achieved with our solution using the same set of benchmarks. arxiv arxiv 2024 research-paper wei-chen lin simon mcintosh smith tom deakin openmp performance gpu opencl hip openmp performance gpu opencl hip offloading stdpar programs amd gpus preliminary report initial platforms heterogeneous programming hpc libsycl offload openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -3757,15 +3760,16 @@
           "openmp"
         ],
         "id": "openalex-w4362717258",
+        "citationCount": 67,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 67,
         "_titleLower": "petsc/tao users manual (rev. 3.19)",
         "_authorLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne université dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory josé e. román consejo superior de investigaciones científicas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory",
         "_authorsLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne université dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory josé e. román consejo superior de investigaciones científicas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory",
@@ -4512,7 +4516,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 67
         },
         "_searchBlob": "petsc tao users manual rev. 3.19 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations and related problems on high-performance computers. petsc tao is a suite of data structures and routines that provide the building blocks for the implementation of large-scale application codes on parallel and serial computers. petsc uses the mpi standard for all distributed memory communication. petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and opti mization that may be used in application codes written in fortran c c++ and python via petsc4py see getting started . petsc provides many of the mechanisms needed within parallel application codes such as parallel matrix and vector assembly routines. the library is organized hierarchically enabling users to employ the level of abstraction that is most appropriate for a particular problem. by using techniques of object-oriented programming petsc provides enormous flexibility for users. petsc is a sophisticated set of software tools as such for some users it initially has a much steeper learning curve than packages such as matlab or a simple subroutine library. in particular for individuals without some computer science background experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use. however the power of the petsc design and the algorithms it incorporates may make the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. there are several packages built on petsc that may satisfy your needs without requiring directly using petsc. we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code. this approach cannot provide extremely large improvements in the application time by utilizing large numbers of mpi processes but can still improve the performance. certainly all parts of a previously sequential code need not be parallelized but the matrix generation portion must be parallelized to expect true scalability to large numbers of mpi processes. see pcmpi for details on how to utilize the petsc mpi linear solver server. since petsc is under continued development small changes in usage and calling sequences of routines will occur. petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support. osti oai u.s. department of energy office of scientific and technical information osti oai u.s. department of energy office of scientific and technical information 2023 research-paper satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcin king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne universite dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory jose e. roman consejo superior de investigaciones cientificas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory lldb openmp optimizations performance lldb openmp optimizations performance mpi processes petsc tao users linear solver matlab packages provide routines computers petsc parallel linear tao users manual lldb openmp",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -4584,10 +4588,11 @@
           "mlir"
         ],
         "id": "openalex-w4321649880",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -5053,10 +5058,11 @@
           "llvm"
         ],
         "id": "openalex-w4389912041",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
@@ -5392,9 +5398,10 @@
         ],
         "openalexId": "https://openalex.org/W4283724762",
         "citationCount": 12,
-        "sourceUrl": "",
         "doi": "10.1109/rtas54340.2022.00027",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5745,8 +5752,9 @@
         ],
         "openalexId": "https://openalex.org/W7120796472",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -6084,9 +6092,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4213291706",
         "citationCount": 21,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-030-95953-1_4",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6290,9 +6299,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4312805110",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1109/vissoft55257.2022.00024",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6750,9 +6760,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4293025174",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1145/3489517.3530626",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -7212,15 +7223,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 7,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 7,
         "_titleLower": "outcomes of openmp hackathon: openmp application experiences with the offloading model (part i)",
         "_authorLower": "barbara chapman brookhaven national laboratory buu q. pham iowa state university charlene yang nvidia christopher daley lawrence berkeley national laboratory colleen bertoni argonne national laboratory dhruva kulkarni lawrence berkeley national laboratory dossay oryspayev brookhaven national laboratory ed d’azevedo oak ridge national laboratory johannes doerfert argonne national laboratory keren zhou rice university k. ravikumar georgia institute of technology mark s. gordon iowa state university mauro del ben lawrence berkeley national laboratory meifeng lin brookhaven national laboratory melisa alkan iowa state university michael kruse argonne national laboratory óscar hernández oak ridge national laboratory p. k. yeung georgia institute of technology paul lin lawrence berkeley national laboratory peng xu iowa state university swaroop pophale oak ridge national laboratory tosaporn sattasathuchana iowa state university vivek kale brookhaven national laboratory william huhn argonne national laboratory yun he lawrence berkeley national laboratory",
         "_authorsLower": "barbara chapman brookhaven national laboratory buu q. pham iowa state university charlene yang nvidia christopher daley lawrence berkeley national laboratory colleen bertoni argonne national laboratory dhruva kulkarni lawrence berkeley national laboratory dossay oryspayev brookhaven national laboratory ed d’azevedo oak ridge national laboratory johannes doerfert argonne national laboratory keren zhou rice university k. ravikumar georgia institute of technology mark s. gordon iowa state university mauro del ben lawrence berkeley national laboratory meifeng lin brookhaven national laboratory melisa alkan iowa state university michael kruse argonne national laboratory óscar hernández oak ridge national laboratory p. k. yeung georgia institute of technology paul lin lawrence berkeley national laboratory peng xu iowa state university swaroop pophale oak ridge national laboratory tosaporn sattasathuchana iowa state university vivek kale brookhaven national laboratory william huhn argonne national laboratory yun he lawrence berkeley national laboratory",
@@ -7460,7 +7472,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 0
+          "citationCount": 7
         },
         "_searchBlob": "outcomes of openmp hackathon openmp application experiences with the offloading model part i no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2021 research-paper barbara chapman brookhaven national laboratory buu q. pham iowa state university charlene yang nvidia christopher daley lawrence berkeley national laboratory colleen bertoni argonne national laboratory dhruva kulkarni lawrence berkeley national laboratory dossay oryspayev brookhaven national laboratory ed dazevedo oak ridge national laboratory johannes doerfert argonne national laboratory keren zhou rice university k. ravikumar georgia institute of technology mark s. gordon iowa state university mauro del ben lawrence berkeley national laboratory meifeng lin brookhaven national laboratory melisa alkan iowa state university michael kruse argonne national laboratory oscar hernandez oak ridge national laboratory p. k. yeung georgia institute of technology paul lin lawrence berkeley national laboratory peng xu iowa state university swaroop pophale oak ridge national laboratory tosaporn sattasathuchana iowa state university vivek kale brookhaven national laboratory william huhn argonne national laboratory yun he lawrence berkeley national laboratory openmp gpu openmp gpu offloading hackathon openmp openmp hackathon openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -7503,9 +7515,10 @@
         ],
         "openalexId": "https://openalex.org/W3192107477",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1109/islped52811.2021.9502501",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7852,9 +7865,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W3091802558",
         "citationCount": 4,
-        "sourceUrl": "",
         "doi": "10.1109/etfa46521.2020.9211921",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -8083,6 +8097,7 @@
         "openalexId": "https://openalex.org/W3023977240",
         "citationCount": 2,
         "doi": "10.7488/era/309",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -8634,9 +8649,10 @@
         ],
         "openalexId": "https://openalex.org/W3166190926",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.31577/cai_2020_6_1117",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8899,10 +8915,11 @@
           "AI"
         ],
         "openalexId": "https://openalex.org/W3000516990",
-        "citationCount": 24,
-        "sourceUrl": "",
+        "citationCount": 25,
         "doi": "10.1016/j.buildenv.2020.106671",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8914,7 +8931,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 24,
+        "_citationCount": 25,
         "_titleLower": "development of self-adaptive low-dimension ventilation models using openfoam: towards the application of ai based on cfd data",
         "_authorLower": "jie ren southeast university shi‐jie cao southeast university",
         "_authorsLower": "jie ren southeast university shi‐jie cao southeast university",
@@ -9022,7 +9039,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 24
+          "citationCount": 25
         },
         "_searchBlob": "development of self-adaptive low-dimension ventilation models using openfoam towards the application of ai based on cfd data no abstract available in openalex metadata. building and environment building and environment vol. 171 2020 research-paper jie ren southeast university shi jie cao southeast university ai ai",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9080,6 +9097,7 @@
         "openalexId": "https://openalex.org/W3109233608",
         "citationCount": 21,
         "doi": "10.1145/3428245",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -9432,9 +9450,10 @@
         ],
         "openalexId": "https://openalex.org/W3081656884",
         "citationCount": 17,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-030-58144-2_3",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -9683,15 +9702,16 @@
           "offload"
         ],
         "id": "openalex-w2938200218",
+        "citationCount": 8,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 8,
         "_titleLower": "transparent acceleration for heterogeneous platforms with compilation to opencl",
         "_authorLower": "heinrich riebler paderborn university gavin vaz paderborn university tobias kenter paderborn university christian plessl paderborn university",
         "_authorsLower": "heinrich riebler paderborn university gavin vaz paderborn university tobias kenter paderborn university christian plessl paderborn university",
@@ -10032,7 +10052,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 0
+          "citationCount": 8
         },
         "_searchBlob": "transparent acceleration for heterogeneous platforms with compilation to opencl multi-accelerator platforms combine cpus and different accelerator architectures within a single compute node. such systems are capable of processing parallel workloads very efficiently while being more energy efficient than regular systems consisting of cpus only. however the architectures of such systems are diverse forcing developers to port applications to each accelerator using different programming languages models tools and compilers. developers not only require domain-specific knowledge but also need to understand the low-level accelerator details leading to an increase in the design effort and costs. to tackle this challenge we propose a compilation approach and a practical realization called ht r op that is completely transparent to the user. ht r op is able to automatically analyze a sequential cpu application detect computational hotspots and generate parallel opencl host and kernel code. the potential of ht r op is demonstrated by offloading hotspots to different opencl-enabled resources currently the cpu the general-purpose gpu and the manycore intel xeon phi for a broad set of benchmark applications. we present an in-depth evaluation of our approach in terms of performance gains and energy savings taking into account all static and dynamic overheads. we are able to achieve speedups and energy savings of up to two orders of magnitude if an application has sufficient computational intensity when compared to a natively compiled application. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 16 issue 2 2019 research-paper heinrich riebler paderborn university gavin vaz paderborn university tobias kenter paderborn university christian plessl paderborn university optimizations performance gpu opencl programming languages optimizations performance gpu opencl programming languages offloading accelerator energy savings compilation cpu heterogeneous platforms transparent acceleration offload",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -10097,6 +10117,7 @@
         "openalexId": "https://openalex.org/W2766283616",
         "citationCount": 3,
         "doi": "10.1145/3130265.3130322",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -10424,8 +10445,9 @@
         ],
         "openalexId": "https://openalex.org/W2973859370",
         "citationCount": 1,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11081,6 +11103,7 @@
         "openalexId": "https://openalex.org/W2606592810",
         "citationCount": 3,
         "doi": "10.4204/eptcs.248.9",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -11420,9 +11443,10 @@
         ],
         "openalexId": "https://openalex.org/W2791988791",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1109/igcc.2017.8323602",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11800,12 +11824,13 @@
         "sourceName": "LLVM Publications",
         "publication": "2017 IEEE Cybersecurity Development (SecDev)",
         "openalexId": "https://openalex.org/W2766770255",
-        "sourceUrl": "",
         "doi": "10.1109/secdev.2017.18",
+        "citationCount": 8,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -11813,7 +11838,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 8,
         "_titleLower": "a software solution for hardware vulnerabilities",
         "_authorLower": "komail dharsee university of rochester ethan johnson university of rochester john criswell university of rochester",
         "_authorsLower": "komail dharsee university of rochester ethan johnson university of rochester john criswell university of rochester",
@@ -12024,7 +12049,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 0
+          "citationCount": 8
         },
         "_searchBlob": "a software solution for hardware vulnerabilities modern processors are becoming increasingly complex with features that improve performance and add new functionality. however such improvements are a double-edged sword they improve performance and functionality but also introduce security-critical bugs into the processor that attackers can leverage to bypass a systems security policies. existing solutions require hardware extensions and often lack the flexibility of software. we present the design of a software-only solution to prevent exploitation of these bugs. our design builds on the secure virtual architecture and employs both static analysis and run-time checks to prevent applications and operating system kernels from triggering security-critical processor bugs. our evaluation examines security-critical processor bugs identified in amd processors and analyzes how they can be mitigated by our design. 2017 ieee cybersecurity development secdev 2017 ieee cybersecurity development secdev 2017 research-paper komail dharsee university of rochester ethan johnson university of rochester john criswell university of rochester",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -12072,6 +12097,7 @@
         "citationCount": 24,
         "sourceUrl": "https://doi.org/10.5555/3019083.3019087",
         "doi": "10.1109/pyhpc.2016.008",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12503,9 +12529,10 @@
         ],
         "openalexId": "https://openalex.org/W2509561326",
         "citationCount": 12,
-        "sourceUrl": "",
         "doi": "10.1109/fccm.2016.38",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12844,8 +12871,9 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W364774736",
-        "citationCount": 32,
+        "citationCount": 34,
         "doi": "10.1007/978-3-662-46663-6_9",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -12858,7 +12886,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 32,
+        "_citationCount": 34,
         "_titleLower": "optgen: a generator for local optimizations",
         "_authorLower": "sebastian buchwald karlsruhe institute of technology",
         "_authorsLower": "sebastian buchwald karlsruhe institute of technology",
@@ -12984,7 +13012,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 32
+          "citationCount": 34
         },
         "_searchBlob": "optgen a generator for local optimizations every compiler comes with a set of local optimization rules such as x + 0 x and x and x x that do not require any global analysis. these rules reflect the wisdom of the compiler developers about mathematical identities that hold for the operations... lecture notes in computer science lecture notes in computer science 2015 research-paper sebastian buchwald karlsruhe institute of technology optimizations optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13624,8 +13652,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2319990208",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13764,8 +13793,9 @@
         ],
         "openalexId": "https://openalex.org/W2274457392",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14183,6 +14213,7 @@
         "openalexId": "https://openalex.org/W182099716",
         "citationCount": 1,
         "doi": "10.15514/ispras-2014-26(1)-13",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -15376,6 +15407,7 @@
         ],
         "openalexId": "https://openalex.org/W2141229660",
         "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -15642,6 +15674,7 @@
         "openalexId": "https://openalex.org/W4301438392",
         "citationCount": 0,
         "doi": "10.5753/sbseg.2013.19547",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -15968,9 +16001,10 @@
         ],
         "openalexId": "https://openalex.org/W3005899092",
         "citationCount": 1,
-        "sourceUrl": "",
         "doi": "10.1145/2517326.2451519",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16457,9 +16491,10 @@
         ],
         "openalexId": "https://openalex.org/W2134828100",
         "citationCount": 25,
-        "sourceUrl": "",
         "doi": "10.1145/2366231.2337211",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -16808,17 +16843,18 @@
         "venue": "Proceedings of 36th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages",
         "type": "research-paper",
         "abstract": "Pointer analysis is a prerequisite for many program analyses, and the effectiveness of these analyses depends on the precision of the pointer information they receive. Two major axes of pointer analysis precision are flow-sensitivity and context-sensitivity, and while there has been significant recent progress regarding scalable context-sensitive pointer analysis, relatively little progress has been made in improving the scalability of flow-sensitive pointer analysis.",
-        "paperUrl": "https://doi.org/10.1145/1480881.1480911",
+        "paperUrl": "https://llvm.org/pubs/2009-01-POPL-PointerAnalysis.pdf",
         "sourceUrl": "https://llvm.org/pubs/2009-01-POPL-PointerAnalysis.html",
         "tags": [],
         "sourceName": "LLVM Publications",
         "publication": "Proceedings of 36th annual ACM SIGPLAN-SIGACT symposium on Principles of programming languages",
         "openalexId": "https://openalex.org/W2154847114",
         "doi": "10.1145/1480881.1480911",
+        "citationCount": 121,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [],
         "matchedAuthors": [],
         "matchedSubprojects": [],
@@ -16826,7 +16862,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 121,
         "_titleLower": "semi-sparse flow-sensitive pointer analysis",
         "_authorLower": "ben hardekopf the university of texas at austin calvin lin the university of texas at austin",
         "_authorsLower": "ben hardekopf the university of texas at austin calvin lin the university of texas at austin",
@@ -16997,7 +17033,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 121
         },
         "_searchBlob": "semi-sparse flow-sensitive pointer analysis pointer analysis is a prerequisite for many program analyses and the effectiveness of these analyses depends on the precision of the pointer information they receive. two major axes of pointer analysis precision are flow-sensitivity and context-sensitivity and while there has been significant recent progress regarding scalable context-sensitive pointer analysis relatively little progress has been made in improving the scalability of flow-sensitive pointer analysis. proceedings of 36th annual acm sigplan-sigact symposium on principles of programming languages proceedings of 36th annual acm sigplan-sigact symposium on principles of programming languages 2009 research-paper ben hardekopf the university of texas at austin calvin lin the university of texas at austin",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17052,8 +17088,8 @@
         "venue": "2009 ICSE Workshop on Multicore Software Engineering",
         "type": "research-paper",
         "abstract": "The widespread adoption of multicores has renewed the emphasis on the use of parallelism to improve performance. The present and growing diversity in hardware architectures and software environments, however, continues to pose difficulties in the effective use of parallelism thus delaying a quick and smooth transition to the concurrency era. In this paper, we describe the research being conducted at Columbia University on a system called COMPASS that aims to simplify this transition by providing advice to programmers while they reengineer their code for parallelism. The advice proffered to the programmer is based on the wisdom collected from programmers who have already parallelized some similar code. The utility of COMPASS rests, not only on its ability to collect the wisdom unintrusively but also on its ability to automatically seek, find and synthesize this wisdom into advice that is tailored to the task at hand, i.e., the code the user is considering parallelizing and the environment in which the optimized program is planned to execute. COMPASS provides a platform and an extensible framework for sharing human expertise about code parallelization - widely, and on diverse hardware and software. By leveraging the ldquowisdom of crowdsrdquo model [30], which has been conjectured to scale exponentially and which has successfully worked for wikis, COMPASS aims to enable rapid propagation of knowledge about code parallelization in the context of the actual parallelization reengineering, and thus continue to extend the benefits of Moores law scaling to science and society.",
-        "paperUrl": "https://doi.org/10.7916/d8tf045v",
-        "sourceUrl": "https://doi.org/10.1109/iwmse.2009.5071382",
+        "paperUrl": "https://llvm.org/pubs/2009-05-IWMSE-COMPASS.pdf",
+        "sourceUrl": "https://llvm.org/pubs/2009-05-IWMSE-COMPASS.html",
         "tags": [
           "Performance"
         ],
@@ -17061,10 +17097,11 @@
         "publication": "2009 ICSE Workshop on Multicore Software Engineering",
         "openalexId": "https://openalex.org/W2012240960",
         "doi": "10.1109/iwmse.2009.5071382",
+        "citationCount": 7,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -17074,7 +17111,7 @@
         "_year": "2009",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 7,
         "_titleLower": "compass: a community-driven parallelization advisor for sequential software",
         "_authorLower": "simha sethumadhavan columbia university nipun arora columbia university ravindra babu ganapathi columbia university john demme columbia university gail e. kaiser columbia university",
         "_authorsLower": "simha sethumadhavan columbia university nipun arora columbia university ravindra babu ganapathi columbia university john demme columbia university gail e. kaiser columbia university",
@@ -17424,7 +17461,7 @@
             }
           },
           "year": 2009,
-          "citationCount": 0
+          "citationCount": 7
         },
         "_searchBlob": "compass a community-driven parallelization advisor for sequential software the widespread adoption of multicores has renewed the emphasis on the use of parallelism to improve performance. the present and growing diversity in hardware architectures and software environments however continues to pose difficulties in the effective use of parallelism thus delaying a quick and smooth transition to the concurrency era. in this paper we describe the research being conducted at columbia university on a system called compass that aims to simplify this transition by providing advice to programmers while they reengineer their code for parallelism. the advice proffered to the programmer is based on the wisdom collected from programmers who have already parallelized some similar code. the utility of compass rests not only on its ability to collect the wisdom unintrusively but also on its ability to automatically seek find and synthesize this wisdom into advice that is tailored to the task at hand i.e. the code the user is considering parallelizing and the environment in which the optimized program is planned to execute. compass provides a platform and an extensible framework for sharing human expertise about code parallelization - widely and on diverse hardware and software. by leveraging the ldquowisdom of crowdsrdquo model 30 which has been conjectured to scale exponentially and which has successfully worked for wikis compass aims to enable rapid propagation of knowledge about code parallelization in the context of the actual parallelization reengineering and thus continue to extend the benefits of moores law scaling to science and society. 2009 icse workshop on multicore software engineering 2009 icse workshop on multicore software engineering 2009 research-paper simha sethumadhavan columbia university nipun arora columbia university ravindra babu ganapathi columbia university john demme columbia university gail e. kaiser columbia university performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17465,7 +17502,7 @@
         "venue": "Proceedings of conference on Design, automation and test in Europe",
         "type": "research-paper",
         "abstract": "This paper presents a novel cycle-approximate performance estimation technique for automatically generated transaction level models (TLMs) for heterogeneous multi-core designs. The inputs are application C processes and their mapping to processing units in the platform. The processing unit model consists of pipelined datapath, memory hierarchy and branch delay model. Using the processing unit model, the basic blocks in the C processes are analyzed and annotated with estimated delays. This is followed by a code generation phase where delay-annotated C code is generated and linked with a SystemC wrapper consisting of inter-process communication channels. The generated TLM is compiled and executed natively on the host machine. Our key contribution is that the estimation technique is close to cycle-accurate, it can be applied to any multi-core platform and it produces high-speed native compiled TLMs. For experiments, timed TLMs for industrial scale designs such as MP3 decoder were automatically generated for 4 heterogeneous multi-processor platforms with up to 5 PEs under 1 minute. Each TLM simulated under 1 second, compared to 3--4 hrs of instruction set simulation (ISS) and 15--18 hrs of RTL simulation. Comparison to on-board measurement showed only 8% error on average in estimated number of cycles.",
-        "paperUrl": "https://doi.org/10.1145/1403375.1403380",
+        "paperUrl": "https://llvm.org/pubs/2008-03-DATE-TLM_Estimation.pdf",
         "sourceUrl": "https://llvm.org/pubs/2008-03-DATE-TLM_Estimation.html",
         "tags": [
           "Performance"
@@ -17474,10 +17511,11 @@
         "publication": "Proceedings of conference on Design, automation and test in Europe",
         "openalexId": "https://openalex.org/W2139354295",
         "doi": "10.1145/1403375.1403380",
+        "citationCount": 97,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -17487,7 +17525,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 97,
         "_titleLower": "cycle-approximate retargetable performance estimation at the transaction level",
         "_authorLower": "yonghyun hwang university of california, irvine samar abdi university of california, irvine daniel d. gajski university of california, irvine",
         "_authorsLower": "yonghyun hwang university of california, irvine samar abdi university of california, irvine daniel d. gajski university of california, irvine",
@@ -17787,7 +17825,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 0
+          "citationCount": 97
         },
         "_searchBlob": "cycle-approximate retargetable performance estimation at the transaction level this paper presents a novel cycle-approximate performance estimation technique for automatically generated transaction level models tlms for heterogeneous multi-core designs. the inputs are application c processes and their mapping to processing units in the platform. the processing unit model consists of pipelined datapath memory hierarchy and branch delay model. using the processing unit model the basic blocks in the c processes are analyzed and annotated with estimated delays. this is followed by a code generation phase where delay-annotated c code is generated and linked with a systemc wrapper consisting of inter-process communication channels. the generated tlm is compiled and executed natively on the host machine. our key contribution is that the estimation technique is close to cycle-accurate it can be applied to any multi-core platform and it produces high-speed native compiled tlms. for experiments timed tlms for industrial scale designs such as mp3 decoder were automatically generated for 4 heterogeneous multi-processor platforms with up to 5 pes under 1 minute. each tlm simulated under 1 second compared to 3--4 hrs of instruction set simulation iss and 15--18 hrs of rtl simulation. comparison to on-board measurement showed only 8 error on average in estimated number of cycles. proceedings of conference on design automation and test in europe proceedings of conference on design automation and test in europe 2008 research-paper yonghyun hwang university of california irvine samar abdi university of california irvine daniel d. gajski university of california irvine performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -17842,7 +17880,7 @@
         "venue": "2006 IEEE International SOC Conference",
         "type": "research-paper",
         "abstract": "With the rapid increase of complexity in system-on-a-chip (SoC) design, the electronic design automation (EDA) community is moving from RTL (Register Transfer Level) synthesis to behavioral-level and system-level synthesis. The needs of system-level verification and software/hardware co-design also prefer behavior-level executable specifications, such as C or SystemC. In this paper we present the platform-based synthesis system, named xPilot, being developed at UCLA. The first objective of xPilot is to provide novel behavioral synthesis capability for automatically generating efficient RTL code from a C or SystemC description for a given system platform and optimizing the logic, interconnects, performance, and power simultaneously. The second objective of xPilot is to provide a platform-based system-level synthesis capability, including both synthesis for application-specific configurable processors and heterogeneous multi-core systems. Preliminary experiments on FPGAs demonstrate the efficacy of our approach on a wide range of applications and its value in exploring various design tradeoffs.",
-        "paperUrl": "https://doi.org/10.1109/socc.2006.283880",
+        "paperUrl": "https://llvm.org/pubs/2006-09-SOC-Synthesis.pdf",
         "sourceUrl": "https://llvm.org/pubs/2006-09-SOC-Synthesis.html",
         "tags": [
           "Performance"
@@ -17851,10 +17889,11 @@
         "publication": "2006 IEEE International SOC Conference",
         "openalexId": "https://openalex.org/W2156420848",
         "doi": "10.1109/socc.2006.283880",
+        "citationCount": 74,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance"
         ],
@@ -17864,7 +17903,7 @@
         "_year": "2006",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 74,
         "_titleLower": "platform-based behavior-level and system-level synthesis",
         "_authorLower": "jason cong university of california, los angeles yiping fan university of california, los angeles guoling han university of california, los angeles wei jiang university of california, los angeles zhiru zhang university of california, los angeles",
         "_authorsLower": "jason cong university of california, los angeles yiping fan university of california, los angeles guoling han university of california, los angeles wei jiang university of california, los angeles zhiru zhang university of california, los angeles",
@@ -18125,7 +18164,7 @@
             }
           },
           "year": 2006,
-          "citationCount": 0
+          "citationCount": 74
         },
         "_searchBlob": "platform-based behavior-level and system-level synthesis with the rapid increase of complexity in system-on-a-chip soc design the electronic design automation eda community is moving from rtl register transfer level synthesis to behavioral-level and system-level synthesis. the needs of system-level verification and software hardware co-design also prefer behavior-level executable specifications such as c or systemc. in this paper we present the platform-based synthesis system named xpilot being developed at ucla. the first objective of xpilot is to provide novel behavioral synthesis capability for automatically generating efficient rtl code from a c or systemc description for a given system platform and optimizing the logic interconnects performance and power simultaneously. the second objective of xpilot is to provide a platform-based system-level synthesis capability including both synthesis for application-specific configurable processors and heterogeneous multi-core systems. preliminary experiments on fpgas demonstrate the efficacy of our approach on a wide range of applications and its value in exploring various design tradeoffs. 2006 ieee international soc conference 2006 ieee international soc conference 2006 research-paper jason cong university of california los angeles yiping fan university of california los angeles guoling han university of california los angeles wei jiang university of california los angeles zhiru zhang university of california los angeles performance performance",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -18159,7 +18198,7 @@
         "venue": "ACM SIGSOFT Software Engineering Notes | Vol. 31 (Issue 1)",
         "type": "research-paper",
         "abstract": "Software testing and retesting occurs continuously during the software development lifecycle to detect errors as early as possible and to ensure that changes to existing software do not break the software. Test suites once developed are reused and updated frequently as the software evolves. As a result, some test cases in the test suite may become redundant as the software is modified over time since the requirements covered by them are also covered by other test cases. Due to the resource and time constraints for re-executing large test suites, it is important to develop techniques to minimize available test suites by removing redundant test cases. In general, the test suite minimization problem is NP complete. In this paper, we present a new greedy heuristic algorithm for selecting a minimal subset of a test suite T that covers all the requirements covered by T. We show how our algorithm was inspired by the concept analysis framework. We conducted experiments to measure the extent of test suite reduction obtained by our algorithm and prior heuristics for test suite minimization. In our experiments, our algorithm always selected same size or smaller size test suite than that selected by prior heuristics and had comparable time performance.",
-        "paperUrl": "https://doi.org/10.1145/1108768.1108802",
+        "paperUrl": "https://llvm.org/pubs/2005-09-PASTE-GreedySuiteMinimization.pdf",
         "sourceUrl": "https://llvm.org/pubs/2005-09-PASTE-GreedySuiteMinimization.html",
         "tags": [
           "Performance",
@@ -18169,10 +18208,11 @@
         "publication": "ACM SIGSOFT Software Engineering Notes",
         "openalexId": "https://openalex.org/W2165965482",
         "doi": "10.1145/1108768.1108802",
+        "citationCount": 169,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Performance",
           "Testing"
@@ -18183,7 +18223,7 @@
         "_year": "2005",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 169,
         "_titleLower": "a concept analysis inspired greedy algorithm for test suite minimization",
         "_authorLower": "sriraman tallam university of arizona neelam gupta university of arizona",
         "_authorsLower": "sriraman tallam university of arizona neelam gupta university of arizona",
@@ -18482,7 +18522,7 @@
             }
           },
           "year": 2005,
-          "citationCount": 0
+          "citationCount": 169
         },
         "_searchBlob": "a concept analysis inspired greedy algorithm for test suite minimization software testing and retesting occurs continuously during the software development lifecycle to detect errors as early as possible and to ensure that changes to existing software do not break the software. test suites once developed are reused and updated frequently as the software evolves. as a result some test cases in the test suite may become redundant as the software is modified over time since the requirements covered by them are also covered by other test cases. due to the resource and time constraints for re-executing large test suites it is important to develop techniques to minimize available test suites by removing redundant test cases. in general the test suite minimization problem is np complete. in this paper we present a new greedy heuristic algorithm for selecting a minimal subset of a test suite t that covers all the requirements covered by t. we show how our algorithm was inspired by the concept analysis framework. we conducted experiments to measure the extent of test suite reduction obtained by our algorithm and prior heuristics for test suite minimization. in our experiments our algorithm always selected same size or smaller size test suite than that selected by prior heuristics and had comparable time performance. acm sigsoft software engineering notes acm sigsoft software engineering notes vol. 31 issue 1 2005 research-paper sriraman tallam university of arizona neelam gupta university of arizona performance testing performance testing",
         "addedAt": "2026-02-20T23:08:48.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-031": {
       "talk": {
@@ -21,16 +21,16 @@
           }
         ],
         "abstract": "Mojo supports powerful compile time meta-programming that helps to unlock performance on heterogeneous accelerators by enabling generic abstractions across different targets. Almost any runtime Mojo code can be moved to compile-time to trade for runtime performance while constants evaluated at compile-time can be materialized into runtime values. In this talk, we will dive into the architecture of Mojo’s MLIR based compile-time interpreter which is at the core of materializing generic code into concrete form during compilation. We'll share implementation insights, performance challenges, and lessons learned, while fostering discussion on building meta-programming compilers with MLIR.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_chen.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "mojo compile-time interpreter in mlir",
         "_speakerLower": "weiwei chen",
@@ -227,16 +227,16 @@
           }
         ],
         "abstract": "This work bridges the gap between floating-point arithmetic in MLIR and circuit-level hardware representations in CIRCT. While many accelerators are dominated by floating-point datapaths, existing flows either defer floating-point realization to HLS-oriented dialects or rely on external generators, limiting compiler visibility at the stage where hardware-specific trade-offs are most naturally expressed. The approach restructures FloPoCo to expose arithmetic hardware as explicit combinational graphs and introduces a new MLIR lowering pass that progressively translates floating-point regions into CIRCT-compatible datapaths. Multiple lowering strategies are supported, ranging from IEEE-754–preserving operator mappings to fused and specialized datapaths that reduce rounding, area, and numerical error. As a concrete result, a floating-point kernel extracted from a PyTorch LLaMA layer is compiled end-to-end to a 1.5 mm² chip in a 130 nm process node.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_cochard_de_dinechin_ledoux.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "floating-point datapaths in circt via flopoco ast export and flopoco-arith-to-comb lowering",
         "_speakerLower": "louis ledoux",

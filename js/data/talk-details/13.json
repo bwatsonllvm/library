@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-001": {
       "talk": {
@@ -35,16 +35,16 @@
           }
         ],
         "abstract": "Support for the CHERI capability architecture and its embedded derivative, CHERIoT, is being upstreamed to LLVM. This talk explores what that means for LLVM developers, which parts of the toolchain are affected, and how these changes may interact with existing frontend, optimizer, backend, and linker work. We’ll take a look at work to date, the status of upstreaming, and open problems where community involvement could help.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/keynote/keynote_anderson.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "capabilities great and small: cheri, cheriot, and llvm",
         "_speakerLower": "owen anderson edoardo marangoni david chisnall",
@@ -219,16 +219,16 @@
           }
         ],
         "abstract": "This tutorial introduces \"alias analysis\", which is the fundamental building block for most memory optimizations. The tutorial covers both high-level concepts and usage of alias analysis, as well as important aspects of the alias analysis implementation.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_popov.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "all about alias analysis",
         "_speakerLower": "nikita popov",
@@ -364,16 +364,16 @@
           }
         ],
         "abstract": "BOLT needs large, realistic binaries for integration testing, but distributing binaries directly creates governance and supply-chain problems and makes it hard to reproduce the exact toolchains and build flags that shape BOLT behaviour. We show our pinned, auditable Nixpkgs build recipes (including emit-relocs Chromium) and discuss how this enables teams to reproduce identical workloads, generate provenance/SBOMs, and compare results consistently across machines and CI.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_waller.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "reproducible large-workload recipes for bolt with nixpkgs",
         "_speakerLower": "peter waller",
@@ -11327,31 +11327,9 @@
     "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides": {
       "talk": {
         "id": "mlir-talk-2023-11-02-a-mpi-dialect-proposal-slides",
-        "title": "An MPI Dialect for MLIR",
+        "title": "A MPI Dialect Proposal",
         "abstract": "MPI is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. With MLIR having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing MLIR scale up as a compiler for more massively parallel workloads. We are interested in bringing an MPI dialect into MLIR to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. This presentation proposes a first patch that introduces a small subset of the MPI dialect. We want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
-        "speakers": [
-          {
-            "name": "Anton Lydike",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Tobias Grosser",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Nick Brown",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
+        "speakers": [],
         "resourceActions": [
           {
             "kind": "slides",
@@ -11387,8 +11365,8 @@
         "keywords": [],
         "githubReferences": [],
         "githubReferenceItems": [],
-        "_titleLower": "an mpi dialect for mlir",
-        "_speakerLower": "anton lydike tobias grosser nick brown",
+        "_titleLower": "a mpi dialect proposal",
+        "_speakerLower": "",
         "_abstractLower": "mpi is at the heart of most modern massively parallel workloads, serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already, there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development.",
         "_tagsLower": "mlir performance",
         "_meetingLower": "mlir open design meeting  2023-11-02",
@@ -11396,25 +11374,16 @@
         "_searchDoc": {
           "fields": {
             "title": {
-              "text": "an mpi dialect for mlir",
+              "text": "a mpi dialect proposal",
               "words": [
-                "an",
                 "mpi",
                 "dialect",
-                "for",
-                "mlir"
+                "proposal"
               ]
             },
             "speakers": {
-              "text": "anton lydike tobias grosser nick brown",
-              "words": [
-                "anton",
-                "lydike",
-                "tobias",
-                "grosser",
-                "nick",
-                "brown"
-              ]
+              "text": "",
+              "words": []
             },
             "tags": {
               "text": "mlir performance",
@@ -11573,7 +11542,7 @@
           },
           "year": 2023
         },
-        "_searchBlob": "an mpi dialect for mlir mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting anton lydike tobias grosser nick brown mlir performance"
+        "_searchBlob": "a mpi dialect proposal mpi is at the heart of most modern massively parallel workloads serving as the fundamental building blocks on which high-performance codes are built. with mlir having proven itself well as a compiler for single-node workloads already there is a lot interest in seeing mlir scale up as a compiler for more massively parallel workloads. we are interested in bringing an mpi dialect into mlir to serve as the foundation for a robust and efficient stack of dialects for distributed and even massively parallel workloads. this presentation proposes a first patch that introduces a small subset of the mpi dialect. we want to discuss and review the design decisions made while creating this patch with the community and talk about the direction and scope of further development. mlir open design meeting 2023-11-02 2023-11-02-mlir-open-design-meeting open-design-meeting mlir performance"
       },
       "meeting": null
     }

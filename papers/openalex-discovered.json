@@ -786,6 +786,61 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "StreamAlloc: A Framework for Analyzing and Transforming CUDA Code to Enable Asynchronous Execution",
+      "authors": [
+        {
+          "name": "Soumik Kumar Basu",
+          "affiliation": "Indian Institute of Technology Hyderabad"
+        },
+        {
+          "name": "Jyothi Vedurada",
+          "affiliation": "Indian Institute of Technology Hyderabad"
+        }
+      ],
+      "year": "2026",
+      "publication": "ACM Transactions on Programming Languages and Systems",
+      "venue": "ACM Transactions on Programming Languages and Systems",
+      "type": "research-paper",
+      "abstract": "In the CUDA programming model, data transfers on the default stream are synchronous, and, similarly, device kernels launched on the default stream cannot overlap with other kernel computations and data transfers. Overlapping execution can be enabled using asynchronous APIs and streams in CUDA. Using them, however, requires careful handling of data dependencies across multiple data-transfer calls, host operations, and kernel computations to ensure program correctness. Moreover, numerous data transfer calls and kernel calls in a program make it even more challenging to manually assign the appropriate stream identifier for each such call. This challenge remains daunting for non-expert programmers because they lack the right tools and expertise. To address this, we propose sync2async, a novel optimization technique that transforms synchronous data transfers and kernel launches into non-default-stream asynchronous calls by allocating stream identifiers (and adding stream synchronizations at appropriate places) to maximize parallelizability while preserving dependencies. To identify sync2async opportunities and apply transformations, we introduce StreamAlloc, a data-flow-analysis-based framework with four components: (1) inter-procedural compositional read-write analysis to identify variables read and written at call sites, (2) intra-procedural flow-sensitive Can-Run-Asynchronously (CRA) analysis to detect data-transfer and kernel calls that can run asynchronously, (3) Data Flow Stream Assignment (DFSA) algorithm to schedule such asynchronous calls to different non-default streams, and (4) a transformation framework to apply sync2async and automatically optimize the input program. We have implemented StreamAlloc using LLVM/Clang. On P100, A4000, and A100 GPUs, sync2async achieves geomean speedups of 1.49x, 1.63x, and 2.02x over the baseline, respectively.",
+      "paperUrl": "https://doi.org/10.1145/3799893",
+      "openalexId": "https://openalex.org/W7140842654",
+      "doi": "10.1145/3799893",
+      "tags": [
+        "LLVM",
+        "Clang",
+        "Optimizations",
+        "GPU",
+        "CUDA",
+        "Programming Languages"
+      ],
+      "keywords": [
+        "LLVM",
+        "Clang",
+        "Optimizations",
+        "GPU",
+        "CUDA",
+        "Programming Languages",
+        "Default Stream",
+        "Kernel Calls",
+        "Asynchronous Calls",
+        "Sync2async",
+        "Transforming CUDA",
+        "Streamalloc",
+        "Transfers",
+        "Kernel Computations"
+      ],
+      "matchedAuthors": [
+        "Jyothi Vedurada"
+      ],
+      "matchedSubprojects": [
+        "clang",
+        "llvm"
+      ],
+      "id": "openalex-w7140842654"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "SecSwift, a Compiler-Based Framework for Software Countermeasures in Cybersecurity",
       "authors": [
         {
@@ -1942,6 +1997,62 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Low-Compilation-Cost Register Allocation in LLVM-Based Binary Translation",
+      "authors": [
+        {
+          "name": "Xiangwei Meng",
+          "affiliation": "Lanzhou University"
+        },
+        {
+          "name": "Chen Gao",
+          "affiliation": "Lanzhou University"
+        },
+        {
+          "name": "Wei Li",
+          "affiliation": "Tsinghua University"
+        },
+        {
+          "name": "Fengyuan Ren",
+          "affiliation": "Lanzhou University"
+        }
+      ],
+      "year": "2026",
+      "publication": "Proceedings of the 21st European Conference on Computer Systems",
+      "venue": "Proceedings of the 21st European Conference on Computer Systems",
+      "type": "research-paper",
+      "abstract": "Efficiently allocating guest architecture registers to host registers is a crucial technique for improving performance in dynamic binary translation. Translators typically enlarge code regions to reduce context-switching overhead and expose more optimization opportunities. Traditional approaches load guest registers upon entering a code region and save them upon exiting, aiming to retain guest registers in host registers for as long as possible. However, as the size of code region increases, the growing number of intermediate variables and the increasing complexity of control flow lead to higher computational costs for register allocation, thereby increasing compilation overhead.",
+      "paperUrl": "https://doi.org/10.1145/3767295.3803591",
+      "openalexId": "https://openalex.org/W7155518022",
+      "doi": "10.1145/3767295.3803591",
+      "tags": [
+        "LLVM",
+        "Optimizations",
+        "Register Allocation",
+        "Performance"
+      ],
+      "keywords": [
+        "LLVM",
+        "Optimizations",
+        "Register Allocation",
+        "Performance",
+        "Binary Translation",
+        "Guest Registers",
+        "Cost Register Allocation",
+        "Host Registers",
+        "Compilation Cost Register"
+      ],
+      "matchedAuthors": [
+        "Fengyuan Ren",
+        "Wei Li"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7155518022"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Leveraging Large Language Models for Generalizing Peephole Optimizations",
       "authors": [
         {
@@ -2763,6 +2874,63 @@
     {
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Going MLIR-native: Demonstrating a Future for DSL compilers on a NumPy-like Example",
+      "authors": [
+        {
+          "name": "Karl F. A. Friebel",
+          "affiliation": ""
+        },
+        {
+          "name": "Jascha A. Ohlmann",
+          "affiliation": ""
+        },
+        {
+          "name": "Jeronimo Castrillon",
+          "affiliation": ""
+        }
+      ],
+      "year": "2026",
+      "publication": "arXiv",
+      "venue": "arXiv",
+      "type": "research-paper",
+      "abstract": "Compilers for general-purpose languages have been shown to be at a disadvantage when it comes to specialized application domains as opposed to their Domain-Specific Language (DSL) counterparts. However, the field of DSL compilers features little consolidation in terms of compiler frameworks and adjacent software ecosystems. As a result, considerable work is duplicated, lost to maintenance issues, or remains undiscovered, and most DSLs are never considered \"production-ready\". One notable development is the introduction of the Multi-Level Intermediate Representation (MLIR), which promises a similar impact on DSL compilers as LLVM had on general-purpose tooling. In this work, we present a NumPy-like DSL made for offloading numeric tensor kernels that is entirely MLIR-native. In a first for open-source, it implements all frontend actions and semantic analyses directly within MLIR. Most notably, this is made possible by our new dialect-agnostic MLIR type checker, created for the future of DSLs in MLIR. We implement a simple, yet effective, parallel-first lowering scheme that connects our language to another MLIR dataflow dialect for seamless offloading. We show that our approach performs well in real-world use cases from the domain of weather modeling and Computational Fluid Dynamics (CFD) in Fortran.",
+      "paperUrl": "https://doi.org/10.48550/arxiv.2604.19906",
+      "openalexId": "https://openalex.org/W7155370812",
+      "doi": "10.48550/arxiv.2604.19906",
+      "tags": [
+        "LLVM",
+        "MLIR",
+        "IR",
+        "Frontend",
+        "GPU"
+      ],
+      "keywords": [
+        "LLVM",
+        "MLIR",
+        "Frontend",
+        "GPU",
+        "Intermediate Representation",
+        "Offloading",
+        "Going MLIR Native",
+        "DSL Compilers",
+        "Numpy Like",
+        "DSLs",
+        "MLIR Native Demonstrating"
+      ],
+      "matchedAuthors": [
+        "Jeronimo Castrillon",
+        "Karl F. A. Friebel"
+      ],
+      "matchedSubprojects": [
+        "llvm",
+        "mlir",
+        "offload"
+      ],
+      "id": "openalex-w7155370812"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "From Loop Nests to Silicon: Mapping AI Workloads onto AMD NPUs with MLIR-AIR",
       "authors": [
         {
@@ -2912,6 +3080,60 @@
         "mlir"
       ],
       "id": "openalex-w7124680514"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Evaluating compiler optimizations for faster and greener web browsing",
+      "authors": [
+        {
+          "name": "José Miguel Aragón-Jurado",
+          "affiliation": "Universidad de Cádiz"
+        },
+        {
+          "name": "Bernabè Dorronsoro",
+          "affiliation": "Universidad de Cádiz"
+        },
+        {
+          "name": "Patricia Ruiz",
+          "affiliation": "Universidad de Cádiz"
+        }
+      ],
+      "year": "2026",
+      "publication": "Information and Software Technology",
+      "venue": "Information and Software Technology | Vol. 196",
+      "type": "research-paper",
+      "abstract": "Web browsers are essential in the digital era, enabling seamless access to information and content. However, their intensive resource usage raises energy efficiency concerns, especially in battery-powered devices. Excessive consumption accelerates battery depletion, shortens device lifespan, and contributes to electronic waste and environmental degradation. This study aims to empirically assess the impact of compiler optimization flags on the energy efficiency of modern web browsers, focusing on both Rust- and LLVM-based configurations. Three widely used browsers, namely Firefox, LibreWolf, and Chromium, were evaluated under two benchmark conditions: one browser-specific and one common across all browsers. For each configuration, runtime, energy consumption, and memory usage were measured to quantify performance gains resulting from different optimization strategies. The experiments show that compiler optimizations substantially improve runtime, energy efficiency, and memory utilization, with maximum gains of 76.39%, 76.37%, and 76.22%, respectively. Firefox achieved the best overall performance in energy and runtime metrics, while Chromium showed superior memory efficiency. Rust-specific optimizations alone produced inconsistent outcomes, but combining them with LLVM optimizations yielded more reliable improvements. Compiler optimizations significantly enhance browser performance and energy efficiency. Achieving consistent gains, however, requires carefully combining optimization levels to balance performance and energy use.",
+      "paperUrl": "https://doi.org/10.1016/j.infsof.2026.108153",
+      "openalexId": "https://openalex.org/W7155091306",
+      "doi": "10.1016/j.infsof.2026.108153",
+      "tags": [
+        "LLVM",
+        "Optimizations",
+        "Performance",
+        "Rust"
+      ],
+      "keywords": [
+        "LLVM",
+        "Optimizations",
+        "Performance",
+        "Rust",
+        "Energy Efficiency",
+        "Evaluating Compiler Optimizations",
+        "Web Browsers",
+        "Memory",
+        "Runtime Energy",
+        "Greener Web Browsing"
+      ],
+      "matchedAuthors": [
+        "Bernabè Dorronsoro",
+        "José Miguel Aragón-Jurado",
+        "Patricia Ruiz"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w7155091306"
     },
     {
       "source": "openalex-discovery",
@@ -20757,7 +20979,6 @@
       ]
     },
     {
-      "id": "openalex-w4391272839",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Application of performance portability solutions for GPUs and many-core CPUs to track reconstruction kernels",
@@ -20863,7 +21084,8 @@
       ],
       "matchedSubprojects": [
         "libsycl"
-      ]
+      ],
+      "id": "openalex-w4391272839"
     },
     {
       "source": "openalex-discovery",
@@ -22414,6 +22636,7 @@
       "id": "openalex-w4390436893"
     },
     {
+      "id": "openalex-w4386528112",
       "source": "openalex-discovery",
       "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
       "title": "Unified Shared Memory: Friend or Foe? Understanding the Implications of Unified Memory on Managed Heaps",
@@ -22473,12 +22696,16 @@
         "Unified Memory"
       ],
       "matchedAuthors": [
-        "Christos Kotselidis"
+        "Athanasios Stratikopoulos",
+        "Christos Kotselidis",
+        "Florin Blanaru",
+        "Juan Fumero",
+        "Sandhya Viswanathan",
+        "Steve Dohrmann"
       ],
       "matchedSubprojects": [
         "runtimes"
-      ],
-      "id": "openalex-w4386528112"
+      ]
     },
     {
       "source": "openalex-discovery",
@@ -34916,6 +35143,70 @@
         "mlir"
       ],
       "id": "openalex-w4318256778"
+    },
+    {
+      "source": "openalex-discovery",
+      "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+      "title": "Loop Rolling for Code Size Reduction",
+      "authors": [
+        {
+          "name": "Rodrigo C. O. Rocha",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Pavlos Petoumenos",
+          "affiliation": "University of Manchester"
+        },
+        {
+          "name": "Björn Franke",
+          "affiliation": "University of Edinburgh"
+        },
+        {
+          "name": "Pramod Bhatotia",
+          "affiliation": "Technical University of Munich"
+        },
+        {
+          "name": "Michael O’Boyle",
+          "affiliation": "University of Edinburgh"
+        }
+      ],
+      "year": "2022",
+      "publication": "2022 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)",
+      "venue": "2022 IEEE/ACM International Symposium on Code Generation and Optimization (CGO)",
+      "type": "research-paper",
+      "abstract": "Code size is critical for resource-constrained devices, where memory and storage are limited. Compilers, therefore, should offer optimizations aimed at code reduction. One such optimization is loop rerolling, which transforms a partially unrolled loop into a fully rolled one. However, existing techniques are limited and rarely applicable to real-world programs. They are incapable of handling partial rerolling or straight-line code. In this paper, we propose RoLAG, a novel code-size optimization that creates loops out of straight-line code. It identifies isomorphic code by aligning SSA graphs in a bottom-up fashion. The aligned code is later rolled into a loop. In addition, we propose several optimizations that increase the amount of aligned code by identifying specific patterns of code. Finally, an analysis is used to estimate the profitability of the rolled loop before deciding which version should be kept in the code.Our evaluation of RoLAG on full programs from MiBench and SPEC 2017 show absolute reductions of up to 88 KB while LLVM’s technique is hardly distinguishable from the baseline with no rerolling. Finally, our results show that RoLAG is highly applicable to real-world code extracted from popular GitHub repositories. RoLAG is triggered several orders of magnitude more often than LLVM’s rerolling, resulting in meaningful reductions on real-world functions.",
+      "paperUrl": "https://research.manchester.ac.uk/en/publications/ac8137a9-9803-4bef-ae87-bb9a39bec3a9",
+      "sourceUrl": "https://doi.org/10.1109/cgo53902.2022.9741256",
+      "openalexId": "https://openalex.org/W4220706374",
+      "doi": "10.1109/cgo53902.2022.9741256",
+      "tags": [
+        "LLVM",
+        "Backend",
+        "Code Generation",
+        "Optimizations"
+      ],
+      "keywords": [
+        "LLVM",
+        "Backend",
+        "Code Generation",
+        "Optimizations",
+        "Static Single Assignment",
+        "Real World",
+        "Straight Line",
+        "Loop Rolling",
+        "Size Reduction"
+      ],
+      "matchedAuthors": [
+        "Björn Franke",
+        "Michael O’Boyle",
+        "Pavlos Petoumenos",
+        "Pramod Bhatotia",
+        "Rodrigo C. O. Rocha"
+      ],
+      "matchedSubprojects": [
+        "llvm"
+      ],
+      "id": "openalex-w4220706374"
     },
     {
       "source": "openalex-discovery",

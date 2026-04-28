@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-020": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "At Google, our team has been working on reducing null pointer dereference crashes in a huge and diverse C++ codebase by: (a) adopting the Clang nullability annotations and (b) implementing a flow-sensitive intra-procedural dataflow analysis in ClangTidy that verifies that code adheres to the contracts of the annotations. However, to get the most coverage, we need to introduce the annotations to millions of lines of code. To assist with that, we've developed an inter-TU annotation inference tool, and added inferred annotations through a \"large-scale change\". This talk introduces how the ClangTidy verification and inference tools work, but also discusses the practical experience and the challenges we faced attempting to infer the annotations in \"legacy\" C++.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_voung.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
         "tags": [],
+        "projectGithub": "https://github.com/google/crubit/tree/main/nullability",
         "githubReferences": [
           "https://github.com/google/crubit/tree/main/nullability"
         ],
@@ -51,6 +50,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "adding nullability checking and annotations to many millions of lines of code",
         "_speakerLower": "jan voung",
@@ -268,12 +268,11 @@
           }
         ],
         "abstract": "The DemandedBits analysis is utilized in some optimization passes, such as vectorization and dead code elimination; a similar analysis is employed in InstCombine. We improve DemandedBits reasoning for all basic shift operations, enabling more precise bit-level information propagation. Our improvements reduced code size, enabled additional loop-invariant code motion, and lead to more instruction-level simplifications.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/lightning_talk/lightning_talk_karouzakis.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/pull/148880",
         "githubReferences": [
           "https://github.com/llvm/llvm-project/pull/148880"
         ],
@@ -298,6 +297,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "improving demandedbits analysis for shift operations in llvm",
         "_speakerLower": "panagiotis karouzakis",

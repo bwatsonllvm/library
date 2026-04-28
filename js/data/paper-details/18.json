@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "papers": {
     "openalex-w7131071118": {
       "paper": {
@@ -87,11 +87,12 @@
           "llvm"
         ],
         "id": "openalex-w7131071118",
-        "sourceUrl": "",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -750,11 +751,12 @@
           "mlir"
         ],
         "id": "openalex-w7124680514",
-        "sourceUrl": "",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2026",
         "_publishedDate": "",
@@ -1272,9 +1274,10 @@
         ],
         "openalexId": "https://openalex.org/W4411088314",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1145/3713081.3732932",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -1525,9 +1528,10 @@
         ],
         "openalexId": "https://openalex.org/W4416800559",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/ispa67752.2025.00069",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -2201,16 +2205,17 @@
           "openmp"
         ],
         "id": "openalex-w4404169347",
-        "sourceUrl": "",
+        "citationCount": 12,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 12,
         "_titleLower": "petsc/tao users manual revision 3.22",
         "_authorLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcín argonne national laboratory v. eijkhout argonne national laboratory václav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory josé e. román argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory",
         "_authorsLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcín argonne national laboratory v. eijkhout argonne national laboratory václav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory josé e. román argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory",
@@ -3133,7 +3138,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 12
         },
         "_searchBlob": "petsc tao users manual revision 3.22 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations pdes and related problems on high-performance computers.petsc tao is a suite of data structures and routines that provide the building blocks for implementing large-scale application codes on parallel and serial computers.petsc uses the mpi standard for all distributed memory communication.petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and optimizers that may be used in application codes written in fortran c c++ and python via petsc4py see getting started .the library is organized hierarchically enabling users to employ the abstraction level most appropriate for a particular problem.by using techniques of object-oriented programming petsc provides enormous flexibility for users.petsc is a sophisticated set of software tools it initially has a steeper learning curve than packages such as matlab or a simple subroutine library.in particular for individuals without some experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use.however the power of the petsc design and the algorithms it incorporates makes the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. several packages listed on https petsc.org built on petsc may satisfy your needs without requiring directly using petsc.we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code.this approach can provide modest improvements in the application time by utilizing modest numbers of mpi processes.see pcmpi for details on how to utilize the petsc mpi linear solver server.since petsc is under continued development small changes in usage and calling sequences of routines will occur.petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support.petsc tao users manual release 3.22.0dm interfacing between solvers and models discretizations details how a users models and discretizations can easily be interfaced with the solvers by using the dm construct.additional information describes a variety of useful information including profiling the options database viewers error handling and some details of petsc design.visual studio code eclipse emacs and vim users may find their development environments options for searching in the source code are useful for exploring the petsc source code.details of this feature are provided in developer environments.note to fortran programmers in most of the manual the examples and calling sequences are given for the c c++ family of programming languages.however fortran programmers can use all of the functionality of petsc from fortran with only minor differences in the user interface.petsc for fortran users provides a discussion of the differences between using petsc from fortran and c as well as several complete fortran examples. note to python programmers to program with petsc in python you need to enable python bindings i.e.petsc4py with the configure option --with-petsc4py 1.see the petsc installation guide for more details. mpiexec -n 8 . petsc program namepetsc optionspetsc also provides a script that automatically uses the correct mpiexec for your configuration. petsc dir lib petsc bin petscmpiexec -n 8 . petsc program namepetsc options certain options are supported by all petsc programs.we list a few particularly useful ones below a complete list can be obtained by running any petsc program with the option -help. -log view -summarize the programs performance see profiling -fp trap -stop on floating-point exceptions for example divide by zero -malloc dump -enable memory tracing dump list of unfreed memory at conclusion of the run see detecting memory allocation problems and memory usage kspcreate mpi comm comm argonne national laboratory anl argonne national laboratory anl 2024 research-paper satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcin argonne national laboratory v. eijkhout argonne national laboratory vaclav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory jose e. roman argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory lldb openmp optimizations performance programming languages lldb openmp optimizations performance programming languages fortran petsc tao users memory mpi python tao users manual petsc program namepetsc options solvers lldb openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -3189,8 +3194,9 @@
           "Flang"
         ],
         "openalexId": "https://openalex.org/W4406157762",
-        "citationCount": 2,
+        "citationCount": 0,
         "doi": "10.1109/scw63240.2024.00134",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -3203,7 +3209,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "parallel runtime interface for fortran (prif): a multi-image solution for llvm flang",
         "_authorLower": "dan bonachea national energy research scientific computing center katherine rasmussen lawrence berkeley national laboratory brad richardson national energy research scientific computing center damian rouson lawrence berkeley national laboratory",
         "_authorsLower": "dan bonachea national energy research scientific computing center katherine rasmussen lawrence berkeley national laboratory brad richardson national energy research scientific computing center damian rouson lawrence berkeley national laboratory",
@@ -3481,7 +3487,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "parallel runtime interface for fortran prif a multi-image solution for llvm flang fortran compilers that provide support for fortrans native parallel features often do so with a runtime library that depends on details of both the compiler implementation and the communication library while others provide limited or no support at all. this paper introduces a new generalized interface that is both compiler- and runtime-library-agnostic providing flexibility while fully supporting all of fortrans parallel features. the parallel runtime interface for fortran prif was developed to be portable across shared- and distributed-memory systems with varying operating systems toolchains and architectures. it achieves this by defining a set of fortran procedures corresponding to each of the parallel features defined in the fortran standard that may be invoked by a fortran compiler and implemented by a runtime library. prif aims to be used as the solution for llvm flang to provide parallel fortran support. this paper also briefly describes our prif prototype implementation caffeine. sc24-w workshops of the international conference for high performance computing networking storage and analysis sc24-w workshops of the international conference for high performance computing networking storage and analysis 2024 research-paper dan bonachea national energy research scientific computing center katherine rasmussen lawrence berkeley national laboratory brad richardson national energy research scientific computing center damian rouson lawrence berkeley national laboratory flang flang",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -3578,10 +3584,11 @@
           "offload"
         ],
         "id": "openalex-w4403746936",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -3902,6 +3909,7 @@
         "openalexId": "https://openalex.org/W4405300598",
         "citationCount": 0,
         "doi": "10.11578/dc.20241104.6",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -4277,9 +4285,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4400490265",
         "citationCount": 3,
-        "sourceUrl": "",
         "doi": "10.1109/cscwd61410.2024.10580120",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -4734,10 +4743,11 @@
           "libsycl"
         ],
         "id": "openalex-w4402673831",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2024",
         "_publishedDate": "",
@@ -5093,9 +5103,10 @@
         ],
         "openalexId": "https://openalex.org/W4408018742",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/icercs63125.2024.10895129",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -5535,15 +5546,16 @@
           "openmp"
         ],
         "id": "openalex-w4388581324",
+        "citationCount": 4,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 4,
         "_titleLower": "openmp kernel language extensions for performance portable gpu codes",
         "_authorLower": "shilei tian stony brook university tom scogland lawrence livermore national laboratory barbara chapman stony brook university johannes doerfert lawrence livermore national laboratory",
         "_authorsLower": "shilei tian stony brook university tom scogland lawrence livermore national laboratory barbara chapman stony brook university johannes doerfert lawrence livermore national laboratory",
@@ -5764,7 +5776,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 4
         },
         "_searchBlob": "openmp kernel language extensions for performance portable gpu codes in contemporary high-performance computing architectures the integration of gpu accelerators has become increasingly prevalent. to harness the full potential of these accelerators developers often resort to vendor-specific kernel languages such as cuda. while this approach ensures optimal efficiency it inherently compromises portability and engenders vendor dependency. existing portable programming models such as openmp while promising demand extensive code rewriting due to their foundamental difference from kernel languages. proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis proceedings of sc 23 workshops of the international conference on high performance computing network storage and analysis 2023 research-paper shilei tian stony brook university tom scogland lawrence livermore national laboratory barbara chapman stony brook university johannes doerfert lawrence livermore national laboratory openmp performance gpu cuda openmp performance gpu cuda kernel languages performance portable gpu openmp kernel language kernel language extensions portable gpu codes openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -5841,15 +5853,16 @@
           "offload"
         ],
         "id": "openalex-w4388665859",
+        "citationCount": 3,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 3,
         "_titleLower": "hpac-offload: accelerating hpc applications with portable approximate computing on the gpu",
         "_authorLower": "zane fink university of illinois urbana-champaign konstantinos parasyris lawrence livermore national laboratory giorgis georgakoudis lawrence livermore national laboratory harshitha menon lawrence livermore national laboratory",
         "_authorsLower": "zane fink university of illinois urbana-champaign konstantinos parasyris lawrence livermore national laboratory giorgis georgakoudis lawrence livermore national laboratory harshitha menon lawrence livermore national laboratory",
@@ -6060,7 +6073,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 3
         },
         "_searchBlob": "hpac-offload accelerating hpc applications with portable approximate computing on the gpu the end of dennard scaling and the slowdown of moores law led to a shift in technology trends towards parallel architectures particularly in hpc systems. to continue providing performance benefits hpc should embrace approximate computing ac which trades application quality loss for improved performance. however existing ac techniques have not been extensively applied and evaluated in state-of-the-art hardware architectures such as gpus the primary execution vehicle for hpc applications today. proceedings of international conference for high performance computing networking storage and analysis proceedings of international conference for high performance computing networking storage and analysis 2023 research-paper zane fink university of illinois urbana-champaign konstantinos parasyris lawrence livermore national laboratory giorgis georgakoudis lawrence livermore national laboratory harshitha menon lawrence livermore national laboratory offload performance gpu offload performance gpu offloading offload accelerating hpc portable approximate computing hpac offload accelerating offload",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -6100,9 +6113,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W4379165412",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1007/978-981-99-1252-0_41",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -6525,6 +6539,7 @@
         "openalexId": "https://openalex.org/W4308632664",
         "citationCount": 1,
         "doi": "10.17586/2226-1494-2022-22-5-982-991",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -6967,9 +6982,10 @@
         ],
         "openalexId": "https://openalex.org/W4311263204",
         "citationCount": 6,
-        "sourceUrl": "",
         "doi": "10.1109/iiswc55918.2022.00014",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -7354,15 +7370,16 @@
           "runtimes"
         ],
         "id": "openalex-w4226443139",
+        "citationCount": 15,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 15,
         "_titleLower": "composable and modular code generation in mlir: a structured and retargetable approach to tensor compiler construction",
         "_authorLower": "nicolas vasilache university of cambridge aart j. c. bik university of edinburgh m. ravishankar university of amsterdam thomas raoux university of cambridge",
         "_authorsLower": "nicolas vasilache university of cambridge aart j. c. bik university of edinburgh m. ravishankar university of amsterdam thomas raoux university of cambridge",
@@ -7608,7 +7625,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 0
+          "citationCount": 15
         },
         "_searchBlob": "composable and modular code generation in mlir a structured and retargetable approach to tensor compiler construction despite significant investment in software infrastructure machine learning systems runtimes and compilers do not compose properly. we propose a new design aiming at providing unprecedented degrees of modularity composability and genericity. this paper discusses a structured approach to the construction of domain-specific code generators for tensor compilers with the stated goal of improving the productivity of both compiler engineers and end-users. the approach leverages the natural structure of tensor algebra. it has been the main driver for the design of progressive lowering paths in mlir. the proposed abstractions and transformations span data structures and control flow with both functional ssa form and imperative side-effecting semantics. we discuss the implications of this infrastructure on compiler construction and present preliminary experimental results. arxiv arxiv 2022 research-paper nicolas vasilache university of cambridge aart j. c. bik university of edinburgh m. ravishankar university of amsterdam thomas raoux university of cambridge mlir runtimes backend code generation infrastructure ml mlir runtimes backend code generation infrastructure static single assignment compiler construction tensor compiler construction mlir runtimes",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -7674,9 +7691,10 @@
         ],
         "openalexId": "https://openalex.org/W4225270187",
         "citationCount": 2,
-        "sourceUrl": "",
         "doi": "10.1145/3529538.3530001",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -8001,6 +8019,7 @@
         "openalexId": "https://openalex.org/W4313212316",
         "citationCount": 3,
         "doi": "10.15514/ispras-2022-34(4)-4",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -8323,15 +8342,16 @@
         "matchedSubprojects": [
           "openmp"
         ],
+        "citationCount": 3,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 3,
         "_titleLower": "autoparbench: a unified test framework for openmp-based parallelizers",
         "_authorLower": "gleison souza diniz mendonça fernando magno quintão pereira universidade federal de minas gerais chunhua liao lawrence livermore national laboratory",
         "_authorsLower": "gleison souza diniz mendonça fernando magno quintão pereira universidade federal de minas gerais chunhua liao lawrence livermore national laboratory",
@@ -8578,7 +8598,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 0
+          "citationCount": 3
         },
         "_searchBlob": "autoparbench a unified test framework for openmp-based parallelizers after decades of advances in techniques of automatic parallelization software developers can count today on many different tools that transform a program so that it runs in parallel. yet most of these tools are still considered research artifacts. they contain latent bugs often consequence of a sparsity of testing frameworks for autoparallelizers. this dissertation describes one such framework autoparbench - the product of a cooperation between ufmgs compilers lab and lawrence livermore national laboratory. autoparbench is today publicly available and has been successfully used to find three zero-day bugs in the intel c compiler. its usage also uncovered problems in more research-oriented tools 2 bugs in dawncc 4 in rose autopar and 2 in cetus. all these bugs have been confirmed and some of them have been already fixed as an aftermath of this work. anais do xxxiv concurso de teses e dissertacoes da sbc ctd-sbc 2021 anais do xxxiv concurso de teses e dissertacoes da sbc ctd-sbc 2021 2021 research-paper gleison souza diniz mendonca fernando magno quintao pereira universidade federal de minas gerais chunhua liao lawrence livermore national laboratory openmp testing openmp testing autoparbench openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -8833,10 +8853,11 @@
           "addresssanitizer",
           "clang"
         ],
+        "citationCount": 0,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2020",
         "_publishedDate": "",
@@ -10510,10 +10531,11 @@
           "Quantum Computing"
         ],
         "openalexId": "https://openalex.org/W3018653512",
-        "citationCount": 10,
-        "sourceUrl": "",
+        "citationCount": 11,
         "doi": "10.1088/2058-9565/ab8c2c",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -10526,7 +10548,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 11,
         "_titleLower": "an updated llvm-based quantum research compiler with further openqasm support",
         "_authorLower": "andrew litteken university of chicago yung-ching fan university of chicago devina singh princeton university margaret martonosi princeton university frederic t. chong university of chicago",
         "_authorsLower": "andrew litteken university of chicago yung-ching fan university of chicago devina singh princeton university margaret martonosi princeton university frederic t. chong university of chicago",
@@ -10837,7 +10859,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 10
+          "citationCount": 11
         },
         "_searchBlob": "an updated llvm-based quantum research compiler with further openqasm support abstract quantum computing is a rapidly growing field with the potential to change how we solve previously intractable problems. emerging hardware is approaching a complexity that requires increasingly sophisticated programming and control. scaffold is an older quantum programming language that was originally designed for resource estimation for far-future large quantum machines and scaffcc is the corresponding llvm-based compiler. for the first time we provide a full and complete overview of the language itself the compiler as well as its pass structure. while previous works abhari et al 2015 parallel comput. 45 2 17 abhari et al 2012 scaffold quantum programming language https cs.princeton.edu research techreps tr-934-12 have piecemeal descriptions of different portions of this toolchain we provide a more full and complete description in this paper. we also introduce updates to scaffcc including conditional measurement and multidimensional qubit arrays designed to keep in step with modern quantum assembly languages as well as an alternate toolchain targeted at maintaining correctness and low resource count for noisy-intermediate scale quantum nisq machines and compatibility with current versions of llvm and clang. our goal is to provide the research community with a functional llvm framework for quantum program analysis optimization and generation of executable code. quantum science and technology quantum science and technology vol. 5 issue 3 2020 research-paper andrew litteken university of chicago yung-ching fan university of chicago devina singh princeton university margaret martonosi princeton university frederic t. chong university of chicago clang quantum computing clang quantum computing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -10929,15 +10951,16 @@
           "bolt"
         ],
         "id": "openalex-w2920143100",
+        "citationCount": 25,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "bodyText": "",
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 25,
         "_titleLower": "performance contracts for software network functions",
         "_authorLower": "rishabh iyer luis pedrosa arseniy zaostrovnykh solal pirelli katerina argyraki george candea",
         "_authorsLower": "rishabh iyer luis pedrosa arseniy zaostrovnykh solal pirelli katerina argyraki george candea",
@@ -11231,7 +11254,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 0
+          "citationCount": 25
         },
         "_searchBlob": "performance contracts for software network functions software network functions nfs or middleboxes promise flexibility and easy deployment of network services but face the serious challenge of unexpected performance behaviour. we propose the notion of a performance contract a construct formulated in terms of performance critical variables that provides a precise description of nf performance. performance contracts enable fine-grained prediction and scrutiny of nf performance for arbitrary workloads without having to run the nf itself. we describe bolt a technique and tool for computing such performance contracts for the entire software stack of nfs written in c including the core nf logic dpdk packet processing framework and nic driver. bolt takes as input the nf implementation code and outputs the corresponding contract. under the covers it combines pre-analysis of a library of stateful nf data structures with automated symbolic execution of the nfs code. we evaluate bolt on four nfs a maglev-like load balancer a nat an lpm router and a mac bridge and show that its performance contracts predict the dynamic instruction count and memory access count with a maximum gap of 7 between the real execution and the conservatively predicted upper bound. with further engineering this gap can be reduced. infoscience ecole polytechnique federale de lausanne infoscience ecole polytechnique federale de lausanne 2019 research-paper rishabh iyer luis pedrosa arseniy zaostrovnykh solal pirelli katerina argyraki george candea bolt dynamic analysis performance bolt dynamic analysis performance symbolic execution performance contracts network bolt",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -11267,8 +11290,9 @@
         ],
         "openalexId": "https://openalex.org/W7119244567",
         "citationCount": 0,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -11584,9 +11608,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2981521527",
         "citationCount": 7,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-030-31784-3_14",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11776,8 +11801,9 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3016059855",
-        "citationCount": 53,
+        "citationCount": 54,
         "doi": "10.48550/arxiv.1912.08788",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -11792,7 +11818,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 53,
+        "_citationCount": 54,
         "_titleLower": "binsec/rel: efficient relational symbolic execution for constant-time at\\n binary-level",
         "_authorLower": "lesly-ann daniel université paris-saclay sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives tamara rezk institut national de recherche en sciences et technologies du numérique",
         "_authorsLower": "lesly-ann daniel université paris-saclay sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives tamara rezk institut national de recherche en sciences et technologies du numérique",
@@ -12105,7 +12131,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 53
+          "citationCount": 54
         },
         "_searchBlob": "binsec rel efficient relational symbolic execution for constant-time at n binary-level the constant-time programming discipline ct is an efficient countermeasure nagainst timing side-channel attacks requiring the control flow and the memory naccesses to be independent from the secrets. yet writing ct code is nchallenging as it demands to reason about pairs of execution traces 2- nhypersafety property and it is generally not preserved by the compiler nrequiring binary-level analysis. unfortunately current verification tools for nct either reason at higher level c or llvm or sacrifice bug-finding or nbounded-verification or do not scale. we tackle the problem of designing an nefficient binary-level verification tool for ct providing both bug-finding and nbounded-verification. the technique builds on relational symbolic execution nenhanced with new optimizations dedicated to information flow and binary-level nanalysis yielding a dramatic improvement over prior work based on symbolic nexecution. we implement a prototype binsec rel and perform extensive nexperiments on a set of 338 cryptographic implementations demonstrating the nbenefits of our approach in both bug-finding and bounded-verification. using nbinsec rel we also automate a previous manual study of ct preservation by ncompilers. interestingly we discovered that gcc -o0 and backend passes of nclang introduce violations of ct in implementations that were previously deemed nsecure by a state-of-the-art ct verification tool operating at llvm level nshowing the importance of reasoning at binary-level. n arxiv arxiv 2019 research-paper lesly-ann daniel universite paris-saclay sebastien bardin commissariat a lenergie atomique et aux energies alternatives tamara rezk institut national de recherche en sciences et technologies du numerique backend clang optimizations backend clang optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12168,9 +12194,10 @@
         ],
         "openalexId": "https://openalex.org/W2884512978",
         "citationCount": 19,
-        "sourceUrl": "",
         "doi": "10.1109/dsn.2018.00073",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12589,9 +12616,10 @@
         ],
         "openalexId": "https://openalex.org/W2883422009",
         "citationCount": 21,
-        "sourceUrl": "",
         "doi": "10.1145/3196321.3197546",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12897,10 +12925,11 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2889788853",
-        "citationCount": 47,
-        "sourceUrl": "",
+        "citationCount": 49,
         "doi": "10.1109/secdev.2018.00015",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12913,7 +12942,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 47,
+        "_citationCount": 49,
         "_titleLower": "checked c: making c safe by extension",
         "_authorLower": "archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland, college park",
         "_authorsLower": "archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland, college park",
@@ -13100,7 +13129,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 47
+          "citationCount": 49
         },
         "_searchBlob": "checked c making c safe by extension this paper presents checked c an extension to c designed to support spatial safety implemented in clang and llvm. checked cs design is distinguished by its focus on backward-compatibility incremental conversion developer control and enabling highly performant code. like past approaches to a safer c checked c employs a form of checked pointer whose accesses can be statically or dynamically verified. performance evaluation on a set of standard benchmark programs shows overheads to be relatively low. more interestingly checked c introduces the notions of a checked region and bounds-safe interfaces. 2018 ieee cybersecurity development secdev 2018 ieee cybersecurity development secdev 2018 research-paper archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland college park clang performance clang performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13154,9 +13183,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2605779468",
         "citationCount": 6,
-        "sourceUrl": "",
         "doi": "10.1007/s11227-017-2042-6",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -13500,10 +13530,11 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2741661236",
-        "citationCount": 151,
-        "sourceUrl": "",
+        "citationCount": 153,
         "doi": "10.1109/asap.2017.7995277",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -13515,7 +13546,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 151,
+        "_citationCount": 153,
         "_titleLower": "cgra-me: a unified framework for cgra modelling and exploration",
         "_authorLower": "s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara–azumi national institute of information and communications technology jason h. anderson university of toronto",
         "_authorsLower": "s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara–azumi national institute of information and communications technology jason h. anderson university of toronto",
@@ -13788,7 +13819,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 151
+          "citationCount": 153
         },
         "_searchBlob": "cgra-me a unified framework for cgra modelling and exploration coarse-grained reconfigurable arrays cgras are a style of programmable logic device situated between fpgas and custom asics on the spectrum of programmability performance power and cost. cgras have been proposed by both academia and industry however prior works have been mainly self-contained without broad architectural exploration and comparisons with competing cgras. we present cgra-me - a unified cgra framework that encompasses generic architecture description architecture modelling application mapping and physical implementation. within this framework we discuss our architecture description language cgra-adl a generic llvm-based simulated annealing mapper and a standard cell flow for physical implementation. an architecture exploration case study is presented highlighting the capabilities of cgra-me by exploring a variety of architectures with varying functionality interconnect array size and execution contexts through the mapping of application benchmarks and the production of standard cell designs. 2017 ieee 28th international conference on application-specific systems architectures and processors asap 2017 ieee 28th international conference on application-specific systems architectures and processors asap 2017 research-paper s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara azumi national institute of information and communications technology jason h. anderson university of toronto performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13821,9 +13852,10 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2476796405",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1016/j.cl.2016.07.006",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -14171,9 +14203,10 @@
         ],
         "openalexId": "https://openalex.org/W2515768547",
         "citationCount": 25,
-        "sourceUrl": "",
         "doi": "10.1007/978-3-662-53413-7_16",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14359,9 +14392,10 @@
         ],
         "openalexId": "https://openalex.org/W2296195116",
         "citationCount": 0,
-        "sourceUrl": "",
         "doi": "10.1109/icicse.2015.13",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -14653,6 +14687,7 @@
         "openalexId": "https://openalex.org/W2132396668",
         "citationCount": 2,
         "doi": "10.4230/oasics.wpte.2014.15",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -14911,11 +14946,12 @@
         "sourceName": "LLVM Publications",
         "publication": "Ph.D. Dissertation, University of Illinois at Urbana-Champaign",
         "openalexId": "https://openalex.org/W596441830",
-        "sourceUrl": "",
+        "citationCount": 3,
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Security"
         ],
@@ -14926,7 +14962,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 3,
         "_titleLower": "secure virtual architecture: security for commodity software systems",
         "_authorLower": "john criswell",
         "_authorsLower": "john criswell",
@@ -15060,7 +15096,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 0
+          "citationCount": 3
         },
         "_searchBlob": "secure virtual architecture security for commodity software systems no abstract available in llvm.org pubs metadata. ph.d. dissertation university of illinois at urbana-champaign ph.d. dissertation university of illinois at urbana-champaign received the 2015 david j. kuck outstanding ph.d. thesis award the honorable mention for the 2014 acm sigops dennis m. ritchie doctoral dissertation award and an honorable mention for the 2014 acm doctoral dissertation award 2014 research-paper john criswell security security",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -18902,6 +18938,7 @@
         "openalexId": "https://openalex.org/W4236063321",
         "citationCount": 0,
         "doi": "10.1109/llvm-hpc.2014.3",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -19222,6 +19259,7 @@
         "openalexId": "https://openalex.org/W2121056548",
         "citationCount": 6,
         "doi": "10.1002/spe.2297",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -19754,6 +19792,7 @@
         "openalexId": "https://openalex.org/W39963699",
         "citationCount": 0,
         "doi": "10.15368/theses.2014.14",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -20110,6 +20149,7 @@
         "openalexId": "https://openalex.org/W2318065140",
         "citationCount": 2,
         "doi": "10.15514/ispras-2014-26(1)-11",
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -20353,9 +20393,10 @@
         ],
         "openalexId": "https://openalex.org/W1966849847",
         "citationCount": 9,
-        "sourceUrl": "",
         "doi": "10.1109/estimedia.2012.6507031",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20630,10 +20671,11 @@
           "C++"
         ],
         "openalexId": "https://openalex.org/W2156487548",
-        "citationCount": 228,
-        "sourceUrl": "",
+        "citationCount": 231,
         "doi": "10.1145/2048147.2048224",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -20645,7 +20687,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 228,
+        "_citationCount": 231,
         "_titleLower": "emscripten",
         "_authorLower": "alon zakai mozilla foundation",
         "_authorsLower": "alon zakai mozilla foundation",
@@ -20850,7 +20892,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 228
+          "citationCount": 231
         },
         "_searchBlob": "emscripten we present emscripten a compiler from llvm low level virtual machine assembly to javascript. this opens up two avenues for running code written in languages other than javascript on the web 1 compile code directly into llvm assembly and then compile that into javascript using emscripten or 2 compile a languages entire runtime into llvm and then javascript as in the previous approach and then use the compiled runtime to run code written in that language. for example the former approach can work for c and c++ while the latter can work for python all three examples open up new opportunities for running code on the web. proceedings of acm international conference companion on object oriented programming systems languages and applications companion proceedings of acm international conference companion on object oriented programming systems languages and applications companion 2011 research-paper alon zakai mozilla foundation c++ c++",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -20904,8 +20946,9 @@
         "tags": [],
         "openalexId": "https://openalex.org/W2188103726",
         "citationCount": 9,
-        "sourceUrl": "",
+        "citationCountSource": "openalex",
         "publishedDate": "",
+        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -21136,7 +21179,7 @@
         "venue": "2008 23rd IEEE/ACM International Conference on Automated Software Engineering | Vol. 31",
         "type": "research-paper",
         "abstract": "Many approaches to software verification are currently semi-automatic: a human must provide key logical insights - e.g., loop invariants, class invariants, and frame axioms that limit the scope of changes that must be analyzed. This paper describes a technique for automatically inferring frame axioms of procedures and loops using static analysis. The technique builds on a pointer analysis that generates limited information about all data structures in the heap. Our technique uses that information to over-approximate a potentially unbounded set of memory locations modified by each procedure/loop; this over- approximation is a candidate frame axiom. We have tested this approach on the buffer-overflow benchmarks from ASE 2007. With manually provided specifications and invariants/axioms, our tool could verify/falsify 226 of the 289 benchmarks. With our automatically inferred frame axioms, the tool could verify/falsify 203 of the 289, demonstrating the effectiveness of our approach.",
-        "paperUrl": "https://doi.org/10.1109/ase.2008.19",
+        "paperUrl": "https://llvm.org/pubs/2008-09-ASE-FrameAxioms.pdf",
         "sourceUrl": "https://llvm.org/pubs/2008-09-ASE-FrameAxioms.html",
         "tags": [
           "Static Analysis"
@@ -21145,10 +21188,11 @@
         "publication": "2008 23rd IEEE/ACM International Conference on Automated Software Engineering",
         "openalexId": "https://openalex.org/W2106712039",
         "doi": "10.1109/ase.2008.19",
+        "citationCount": 9,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Static Analysis"
         ],
@@ -21158,7 +21202,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 9,
         "_titleLower": "automatic inference of frame axioms using static analysis",
         "_authorLower": "zvonimir rakamarić university of british columbia alan j. hu university of british columbia",
         "_authorsLower": "zvonimir rakamarić university of british columbia alan j. hu university of british columbia",
@@ -21411,7 +21455,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 0
+          "citationCount": 9
         },
         "_searchBlob": "automatic inference of frame axioms using static analysis many approaches to software verification are currently semi-automatic a human must provide key logical insights - e.g. loop invariants class invariants and frame axioms that limit the scope of changes that must be analyzed. this paper describes a technique for automatically inferring frame axioms of procedures and loops using static analysis. the technique builds on a pointer analysis that generates limited information about all data structures in the heap. our technique uses that information to over-approximate a potentially unbounded set of memory locations modified by each procedure loop this over- approximation is a candidate frame axiom. we have tested this approach on the buffer-overflow benchmarks from ase 2007. with manually provided specifications and invariants axioms our tool could verify falsify 226 of the 289 benchmarks. with our automatically inferred frame axioms the tool could verify falsify 203 of the 289 demonstrating the effectiveness of our approach. 2008 23rd ieee acm international conference on automated software engineering 2008 23rd ieee acm international conference on automated software engineering vol. 31 2008 research-paper zvonimir rakamaric university of british columbia alan j. hu university of british columbia static analysis static analysis",
         "addedAt": "2026-02-20T23:08:48.000Z",
@@ -21459,7 +21503,7 @@
         "venue": "Proceedings of 6th joint meeting of the European software engineering conference and the ACM SIGSOFT symposium on The foundations of software engineering",
         "type": "research-paper",
         "abstract": "Soft real-time applications lack a formal methodology for their design optimization. Well-established techniques from hard real-time systems cannot be directly applied to soft real-time applications, without losing key benefits of the soft real-time paradigm. We introduce a statistical analysis framework that is well-suited for discovering opportunities for optimization of soft real-time applications. We demonstrate how programmers can use the analysis provided by our framework to perform aggressive soft real-time design optimizations on their applications. The paper introduces the Context Execution Tree (CET) representation for capturing the statistical properties of function calls in the context of their execution in the program. The CET is constructed from an offline-profile of the application. Statistical measures are coupled with techniques that extract runtime distinguishable call-chains. This combination of techniques is applied to the CET to find statistically significant patterns of activity that i) expose slack in the execution of the application with respect to its soft real-time requirements, and ii) can be predicted with low overhead and high reliability during the normal execution of the application.",
-        "paperUrl": "https://doi.org/10.1145/1287624.1287702",
+        "paperUrl": "https://llvm.org/pubs/2007-09-ESEC-FSE-DesignOptzn.pdf",
         "sourceUrl": "https://llvm.org/pubs/2007-09-ESEC-FSE-DesignOptzn.html",
         "tags": [
           "Optimizations"
@@ -21468,10 +21512,11 @@
         "publication": "Proceedings of 6th joint meeting of the European software engineering conference and the ACM SIGSOFT symposium on The foundations of software engineering",
         "openalexId": "https://openalex.org/W2140564855",
         "doi": "10.1145/1287624.1287702",
+        "citationCount": 8,
+        "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
-        "citationCount": 0,
         "keywords": [
           "Optimizations"
         ],
@@ -21481,7 +21526,7 @@
         "_year": "2007",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 8,
         "_titleLower": "a profile-driven statistical analysis framework for the design optimization of soft real-time applications",
         "_authorLower": "tushar kumar georgia institute of technology jaswanth sreeram georgia institute of technology romain clédat georgia institute of technology santosh pande georgia institute of technology",
         "_authorsLower": "tushar kumar georgia institute of technology jaswanth sreeram georgia institute of technology romain clédat georgia institute of technology santosh pande georgia institute of technology",
@@ -21798,7 +21843,7 @@
             }
           },
           "year": 2007,
-          "citationCount": 0
+          "citationCount": 8
         },
         "_searchBlob": "a profile-driven statistical analysis framework for the design optimization of soft real-time applications soft real-time applications lack a formal methodology for their design optimization. well-established techniques from hard real-time systems cannot be directly applied to soft real-time applications without losing key benefits of the soft real-time paradigm. we introduce a statistical analysis framework that is well-suited for discovering opportunities for optimization of soft real-time applications. we demonstrate how programmers can use the analysis provided by our framework to perform aggressive soft real-time design optimizations on their applications. the paper introduces the context execution tree cet representation for capturing the statistical properties of function calls in the context of their execution in the program. the cet is constructed from an offline-profile of the application. statistical measures are coupled with techniques that extract runtime distinguishable call-chains. this combination of techniques is applied to the cet to find statistically significant patterns of activity that i expose slack in the execution of the application with respect to its soft real-time requirements and ii can be predicted with low overhead and high reliability during the normal execution of the application. proceedings of 6th joint meeting of the european software engineering conference and the acm sigsoft symposium on the foundations of software engineering proceedings of 6th joint meeting of the european software engineering conference and the acm sigsoft symposium on the foundations of software engineering 2007 research-paper tushar kumar georgia institute of technology jaswanth sreeram georgia institute of technology romain cledat georgia institute of technology santosh pande georgia institute of technology optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",

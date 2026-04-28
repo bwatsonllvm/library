@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-005": {
       "talk": {
@@ -28,12 +28,11 @@
           }
         ],
         "abstract": "Instruction selection is responsible for turning high-level languages into efficient, reliable machine code. Yet, today’s LLVM backends often introduce subtle bugs through complex optimizing rewrites which are coupled with code generation passes. Fully verified backends like CompCert's avoid these issues at the cost of heavy, complex manual proofs. We present an LLVM instruction selector verified in Lean, which benefits from a small trusted base, strong automation, and relies on authoritative RISC-V semantics. Using Sail’s new Lean backend, we formalize the RISC-V ISA and automatically verify real LLVM instruction selection and optimization patterns, exploiting Lean’s bitvector library and its verified bitblaster. Our selector achieves performance comparable to LLVM’s GlobalISel (11.9% more cycles estimated with MCA, geomean) while providing machine-checked correctness. This demonstrates that practical, trustworthy verification can scale to modern, rapidly evolving compiler ecosystems.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_cicolini_kuhn.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
         "githubReferences": [
           "https://github.com/llvm/llvm-project/tree/main/llvm/test/Transforms/InstCombine",
           "https://github.com/opencompl/riscv-lean",
@@ -92,6 +91,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "scaling certified instruction selection for llvm ir through bitblasting",
         "_speakerLower": "sarah linh kuhn luisa cicolini",
@@ -339,16 +339,16 @@
           }
         ],
         "abstract": "The C++26 standard introduces std::simd for portable data parallelism. We present a complete implementation built on LLVM using a layered architecture: a minimal base layer interfaces with LLVM's SIMD capabilities, while higher-level features build on this foundation. Multi-target support emerges naturally by building upon LLVM's own architecture support, and a dispatch tag system isolates target-specific code to minimal locations. This design has proven particularly effective for x86, cleanly handling the many ISA variants (SSE, AVX, AVX-512, etc.), and should extend naturally to any SIMD target LLVM supports. As the compiler's support improves, the library improves too. We'll share our architectural patterns, performance results, and areas where LLVM could be enhanced to enable better code generation. The authors have been involved in the C++ standardisation process for this the library and our goal is to release it as open source.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/tutorial/tutorial_towner.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "implementing c++26 std::simd with llvm: a layered, compiler-first approach",
         "_speakerLower": "daniel towner",
@@ -599,16 +599,16 @@
           }
         ],
         "abstract": "LLVM pass ordering auto-tuning can outperform standard -O3, but it is often hindered by an enormous search space and the high overhead of hundreds of dynamic measurements. This talk presents an efficient auto-tuning framework that minimizes expensive measurements using a profile-guided relative cost model and calibrated beam search. Evaluation on cBench shows an average 10.46% speedup over -O3 with only ​20 dynamic measurements​, significantly accelerating the search for optimal pass sequences.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/student_technical_talk/student_technical_talk_gao.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "accelerating pass order auto-tuning via profile-guided cost modeling",
         "_speakerLower": "bingyu gao wei wei",

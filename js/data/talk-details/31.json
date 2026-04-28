@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-010": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "Last year, a new project was added to the LLVM family: Lighthouse. Its main purpose to guide the development and testing of MLIR based compilers. Like the LLVM test-suite, it should be a common ground for validating upstream assumptions about code, IR, dialects. At the same time, it enables building specific compilers in minutes, using the evolving Python API and MLIR’s Python bindings. In this talk, we’ll show the project main structure, including its components and how to use them to build a simple compiler. We’ll then show the infrastructure that uses those components to validate assumptions in MLIR (canonical forms, invariants, applicability of transforms and passes, correctness tests, etc), and how you can create your own on top of that. Finally, we’ll provide a number of pipeline examples, going from generic PyTorch models to performant execution on various targets.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_golin.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/llvm/lighthouse/tree/main/examples",
         "tags": [],
+        "projectGithub": "https://github.com/llvm/lighthouse/tree/main/examples",
         "githubReferences": [
           "https://github.com/llvm/lighthouse",
           "https://github.com/llvm/lighthouse/tree/main/examples",
@@ -170,6 +169,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "lighthouse: infrastructure for end-to-end mlir-compilers and testing",
         "_speakerLower": "renato golin",
@@ -425,12 +425,11 @@
           }
         ],
         "abstract": "We present an MLIR-based approach for generating target-specific, highly optimized GEMM kernels that is fully self-contained within the LLVM/MLIR compiler infrastructure and does not rely on external libraries such as LIBXSMM, Intel MKL, or oneDNN. Building on prior work in the TPP-MLIR compiler, we upstream FP32, BF16, and INT8 code-generation techniques into MLIR and propose a transform schedule that combines existing and newly upstreamed passes to lower matmul, batch matmul, and batch-reduce matmul operations into optimized kernels, achieving performance competitive with the LIBXSMM library. As a future work, we plan to leverage auto-tuning techniques to select efficient tile sizes based on hardware characteristics and problem dimensions.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_golin_morel_siemieniuk.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/libxsmm/tpp-mlir/tree/main/benchmarks",
         "tags": [],
+        "projectGithub": "https://github.com/libxsmm/tpp-mlir/tree/main/benchmarks",
         "githubReferences": [
           "https://github.com/libxsmm/tpp",
           "https://github.com/libxsmm/libxsmm",
@@ -506,6 +505,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "self-contained, target-specific gemm code generation in mlir",
         "_speakerLower": "adam siemieniuk renato golin rolf morel",
@@ -722,12 +722,11 @@
           }
         ],
         "abstract": "Once a program has been compiled into a binary, it is nigh impossible to lift it back into a higher-level representation that is well-suited for analyses, instrumentation, and patching. Disassemblers run into undecidable problems such as \"which bytes are instructions?\" or \"how are the data sections structured?\". Producing a representation that can be recompiled correctly is even harder. Standard debugging formats such as DWARF do not contain enough information to make this task possible. However, at some point during the compilation process, the compiler knew all this information. In this talk, we explore which information can be extracted from the standard ELF format, which information clang can already emit, and which remains inaccessible.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/poster/poster_engel.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/ssrg-vt/ELLF",
         "tags": [],
+        "projectGithub": "https://github.com/ssrg-vt/ELLF",
         "githubReferences": [
           "https://github.com/ssrg-vt/ELLF"
         ],
@@ -752,6 +751,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "adding compilation metadata to binaries to make disassembly decidable",
         "_speakerLower": "daniel engel",

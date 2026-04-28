@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-16a4ed53fa4e",
-  "generatedAt": "2026-04-22T22:08:38.000Z",
+  "dataVersion": "viewer-precomputed-v1-e4a0273869d0",
+  "generatedAt": "2026-04-28T06:27:58.000Z",
   "talks": {
     "2026-04-007": {
       "talk": {
@@ -21,12 +21,11 @@
           }
         ],
         "abstract": "LLVM contains thousands of bitwidth-dependent rewrites that are hard to maintain and reason about. We introduce new parametric bitvector algorithms that automatically generalize these rewrites across all widths. By applying a mixed unary–binary encoding and finite-state reasoning, our solver lifts concrete LLVM test cases into true width-independent identities, recovering parametric rewrites from LLVM's test suite that has fixed width rewrites. This moves LLVM toward a declarative InstCombine specification, where rewrite rules are uniform, provably correct, and mechanically derived.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/technical_talk/technical_talk_bhat.pdf",
         "posterUrl": "",
-        "projectGithub": "https://github.com/opencompl/lean-mlir/tree/main/Blase",
         "tags": [],
+        "projectGithub": "https://github.com/opencompl/lean-mlir/tree/main/Blase",
         "githubReferences": [
           "https://github.com/opencompl/lean-mlir/tree/main/Blase"
         ],
@@ -51,6 +50,7 @@
           }
         ],
         "keywords": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "toward a more declarative instcombine: generalization & parametric bitvector algorithms",
         "_speakerLower": "siddharth bhat",
@@ -232,16 +232,16 @@
           }
         ],
         "abstract": "linalg.pack and linalg.unpack enable explicit data-tiling and layout transformations in MLIR, but their use in data-tiled compilation flows raises subtle questions about alignment, legality, and vectorization. This talk explores how these operations interact with MLIR’s tiling and vectorization infrastructure, focusing on alignment constraints, masking semantics, and performance implications. Using an end-to-end data-tiled matmul example, the talk highlights practical guidance and performance gains for developers building high-performance tensor pipelines.",
-        "videoUrl": "",
         "videoId": null,
         "slidesUrl": "https://llvm.org/devmtg/2026-04/slides/quick_talk/quick_talk_beysel.pdf",
         "posterUrl": "",
-        "projectGithub": "",
         "tags": [],
         "keywords": [],
         "resourceActions": [],
+        "projectGithub": "",
         "githubReferences": [],
         "githubReferenceItems": [],
+        "videoUrl": "",
         "sourceUrl": "",
         "_titleLower": "anatomy of tiling and vectorizing linalg.pack and linalg.unpack",
         "_speakerLower": "ege beysel",
