@@ -58,8 +58,10 @@ jobs:
         run: scripts/run-library-automation.sh papers-sync
 
       - name: Create Pull Request
+        id: cpr
         if: steps.content.outputs.has_changes == 'true'
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
+        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           base: main
@@ -79,3 +81,51 @@ jobs:
             - rebuilds `updates/index.json`
             - regenerates viewer artifacts
             - validates the library bundle
+
+      - name: Ensure Pull Request Exists
+        if: steps.content.outputs.has_changes == 'true' && steps.cpr.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_BASE: main
+          PR_BRANCH: library/automated-sync-papers-update
+          PR_TITLE: Library papers sync (blogs, papers)
+          PR_BODY: |
+            Automated papers and blogs sync.
+
+            This PR:
+            - syncs LLVM blog posts from `llvm-blog-www`
+            - refreshes OpenAlex-discovered papers
+            - rebuilds the canonical papers collation
+            - backfills direct paper PDF links via OpenAlex + Unpaywall
+            - syncs MLIR subproject talks/publications used by shared views
+            - rebuilds `updates/index.json`
+            - regenerates viewer artifacts
+            - validates the library bundle
+        run: |
+          set -euo pipefail
+
+          existing_pr="$(
+            gh pr list \
+              --repo "$GH_REPO" \
+              --head "$PR_BRANCH" \
+              --base "$PR_BASE" \
+              --state open \
+              --json number \
+              --jq '.[0].number // ""'
+          )"
+
+          if [ -n "$existing_pr" ]; then
+            gh pr edit "$existing_pr" \
+              --repo "$GH_REPO" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY"
+            echo "Recovered existing pull request #$existing_pr after create-pull-request failure."
+          else
+            gh pr create \
+              --repo "$GH_REPO" \
+              --head "$PR_BRANCH" \
+              --base "$PR_BASE" \
+              --title "$PR_TITLE" \
+              --body "$PR_BODY"
+          fi
