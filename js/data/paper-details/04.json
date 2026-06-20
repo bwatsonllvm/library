@@ -1,7 +1,456 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
+    "openalex-w7161498495": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Array-Carrying Symbolic Execution for Function Contract Generation",
+        "authors": [
+          {
+            "name": "Weitian Lu",
+            "affiliation": "Shanghai Jiao Tong University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jingyu Ke",
+            "affiliation": "Shanghai Jiao Tong University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hongfei Fu",
+            "affiliation": "Shanghai University of Finance and Economics",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Zhouyue Sun",
+            "affiliation": "Shanghai Jiao Tong University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Y Zhou",
+            "affiliation": "Shanghai Jiao Tong University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "G Y Li",
+            "affiliation": "Shanghai Jiao Tong University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hui Li",
+            "affiliation": "Peking University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2026",
+        "publication": "Lecture Notes in Computer Science",
+        "venue": "Lecture Notes in Computer Science",
+        "type": "research-paper",
+        "abstract": "Abstract Function contract generation is a classical problem in program analysis that targets the automated analysis of functions in a program with multiple procedures. The problem is fundamental in interprocedural analysis where properties of functions are first obtained via the generation of function contracts and then the generated contracts are used as building blocks to analyze the whole program. Typical objectives in function contract generation include pre-/post-conditions and assigns information (that specifies the modification information over program variables and memory segments during function execution). In programs with array manipulations, a crucial point in function contract generation is the treatment of array segments that imposes challenges in inferring invariants and assigns information over such segments. To address this challenge, we propose a novel symbolic execution framework that carries invariants and assigns information over contiguous segments of arrays. We implement our framework as a prototype within LLVM, and further integrate our prototype with the ANSI/ISO C Specification Language (ACSL) assertion format and the Frama-C software verification platform. Experimental evaluation over a variety of benchmarks from the literature and functions from realistic libraries shows that our framework is capable of handling array manipulating functions that indeed involve the carry of array information and are beyond existing approaches.",
+        "paperUrl": "https://link.springer.com/content/pdf/10.1007/978-3-032-26204-2_21.pdf",
+        "sourceUrl": "https://doi.org/10.1007/978-3-032-26204-2_21",
+        "openalexId": "https://openalex.org/W7161498495",
+        "doi": "10.1007/978-3-032-26204-2_21",
+        "tags": [
+          "LLVM",
+          "Dynamic Analysis",
+          "Libraries"
+        ],
+        "keywords": [
+          "LLVM",
+          "Dynamic Analysis",
+          "Libraries",
+          "Symbolic Execution",
+          "Contract Generation",
+          "Segments",
+          "Carrying Symbolic Execution",
+          "Assigns",
+          "Array Carrying Symbolic"
+        ],
+        "matchedAuthors": [
+          "Hui Li"
+        ],
+        "matchedSubprojects": [
+          "llvm"
+        ],
+        "id": "openalex-w7161498495",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2026",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "array-carrying symbolic execution for function contract generation",
+        "_authorLower": "weitian lu shanghai jiao tong university jingyu ke shanghai jiao tong university hongfei fu shanghai university of finance and economics zhouyue sun shanghai jiao tong university y zhou shanghai jiao tong university g y li shanghai jiao tong university hui li peking university",
+        "_authorsLower": "weitian lu shanghai jiao tong university jingyu ke shanghai jiao tong university hongfei fu shanghai university of finance and economics zhouyue sun shanghai jiao tong university y zhou shanghai jiao tong university g y li shanghai jiao tong university hui li peking university",
+        "_abstractLower": "abstract function contract generation is a classical problem in program analysis that targets the automated analysis of functions in a program with multiple procedures. the problem is fundamental in interprocedural analysis where properties of functions are first obtained via the generation of function contracts and then the generated contracts are used as building blocks to analyze the whole program. typical objectives in function contract generation include pre-/post-conditions and assigns information (that specifies the modification information over program variables and memory segments during function execution). in programs with array manipulations, a crucial point in function contract generation is the treatment of array segments that imposes challenges in inferring invariants and assigns information over such segments. to address this challenge, we propose a novel symbolic execution framework that carries invariants and assigns information over contiguous segments of arrays. we implement our framework as a prototype within llvm, and further integrate our prototype with the ansi/iso c specification language (acsl) assertion format and the frama-c software verification platform. experimental evaluation over a variety of benchmarks from the literature and functions from realistic libraries shows that our framework is capable of handling array manipulating functions that indeed involve the carry of array information and are beyond existing approaches.",
+        "_tagsLower": "llvm dynamic analysis libraries",
+        "_keywordsLower": "llvm dynamic analysis libraries symbolic execution contract generation segments carrying symbolic execution assigns array carrying symbolic",
+        "_topicsLower": "llvm dynamic analysis libraries llvm dynamic analysis libraries symbolic execution contract generation segments carrying symbolic execution assigns array carrying symbolic llvm",
+        "_contentLower": "",
+        "_publicationLower": "lecture notes in computer science",
+        "_venueLower": "lecture notes in computer science",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2026",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "array-carrying symbolic execution for function contract generation",
+              "words": [
+                "array-carrying",
+                "symbolic",
+                "execution",
+                "for",
+                "function",
+                "contract",
+                "generation"
+              ]
+            },
+            "authors": {
+              "text": "weitian lu shanghai jiao tong university jingyu ke shanghai jiao tong university hongfei fu shanghai university of finance and economics zhouyue sun shanghai jiao tong university y zhou shanghai jiao tong university g y li shanghai jiao tong university hui li peking university",
+              "words": [
+                "weitian",
+                "lu",
+                "shanghai",
+                "jiao",
+                "tong",
+                "university",
+                "jingyu",
+                "ke",
+                "shanghai",
+                "jiao",
+                "tong",
+                "university",
+                "hongfei",
+                "fu",
+                "shanghai",
+                "university",
+                "of",
+                "finance",
+                "and",
+                "economics",
+                "zhouyue",
+                "sun",
+                "shanghai",
+                "jiao",
+                "tong",
+                "university",
+                "zhou",
+                "shanghai",
+                "jiao",
+                "tong",
+                "university",
+                "li",
+                "shanghai",
+                "jiao",
+                "tong",
+                "university",
+                "hui",
+                "li",
+                "peking",
+                "university"
+              ]
+            },
+            "topics": {
+              "text": "llvm dynamic analysis libraries llvm dynamic analysis libraries symbolic execution contract generation segments carrying symbolic execution assigns array carrying symbolic llvm",
+              "words": [
+                "llvm",
+                "dynamic",
+                "analysis",
+                "libraries",
+                "llvm",
+                "dynamic",
+                "analysis",
+                "libraries",
+                "symbolic",
+                "execution",
+                "contract",
+                "generation",
+                "segments",
+                "carrying",
+                "symbolic",
+                "execution",
+                "assigns",
+                "array",
+                "carrying",
+                "symbolic",
+                "llvm"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "abstract function contract generation is a classical problem in program analysis that targets the automated analysis of functions in a program with multiple procedures. the problem is fundamental in interprocedural analysis where properties of functions are first obtained via the generation of function contracts and then the generated contracts are used as building blocks to analyze the whole program. typical objectives in function contract generation include pre- post-conditions and assigns information that specifies the modification information over program variables and memory segments during function execution . in programs with array manipulations a crucial point in function contract generation is the treatment of array segments that imposes challenges in inferring invariants and assigns information over such segments. to address this challenge we propose a novel symbolic execution framework that carries invariants and assigns information over contiguous segments of arrays. we implement our framework as a prototype within llvm and further integrate our prototype with the ansi iso c specification language acsl assertion format and the frama-c software verification platform. experimental evaluation over a variety of benchmarks from the literature and functions from realistic libraries shows that our framework is capable of handling array manipulating functions that indeed involve the carry of array information and are beyond existing approaches.",
+              "words": [
+                "abstract",
+                "function",
+                "contract",
+                "generation",
+                "is",
+                "classical",
+                "problem",
+                "in",
+                "program",
+                "analysis",
+                "that",
+                "targets",
+                "the",
+                "automated",
+                "analysis",
+                "of",
+                "functions",
+                "in",
+                "program",
+                "with",
+                "multiple",
+                "procedures.",
+                "the",
+                "problem",
+                "is",
+                "fundamental",
+                "in",
+                "interprocedural",
+                "analysis",
+                "where",
+                "properties",
+                "of",
+                "functions",
+                "are",
+                "first",
+                "obtained",
+                "via",
+                "the",
+                "generation",
+                "of",
+                "function",
+                "contracts",
+                "and",
+                "then",
+                "the",
+                "generated",
+                "contracts",
+                "are",
+                "used",
+                "as",
+                "building",
+                "blocks",
+                "to",
+                "analyze",
+                "the",
+                "whole",
+                "program.",
+                "typical",
+                "objectives",
+                "in",
+                "function",
+                "contract",
+                "generation",
+                "include",
+                "pre-",
+                "post-conditions",
+                "and",
+                "assigns",
+                "information",
+                "that",
+                "specifies",
+                "the",
+                "modification",
+                "information",
+                "over",
+                "program",
+                "variables",
+                "and",
+                "memory",
+                "segments",
+                "during",
+                "function",
+                "execution",
+                "in",
+                "programs",
+                "with",
+                "array",
+                "manipulations",
+                "crucial",
+                "point",
+                "in",
+                "function",
+                "contract",
+                "generation",
+                "is",
+                "the",
+                "treatment",
+                "of",
+                "array",
+                "segments",
+                "that",
+                "imposes",
+                "challenges",
+                "in",
+                "inferring",
+                "invariants",
+                "and",
+                "assigns",
+                "information",
+                "over",
+                "such",
+                "segments.",
+                "to",
+                "address",
+                "this",
+                "challenge",
+                "we",
+                "propose",
+                "novel",
+                "symbolic",
+                "execution",
+                "framework",
+                "that",
+                "carries",
+                "invariants",
+                "and",
+                "assigns",
+                "information",
+                "over",
+                "contiguous",
+                "segments",
+                "of",
+                "arrays.",
+                "we",
+                "implement",
+                "our",
+                "framework",
+                "as",
+                "prototype",
+                "within",
+                "llvm",
+                "and",
+                "further",
+                "integrate",
+                "our",
+                "prototype",
+                "with",
+                "the",
+                "ansi",
+                "iso",
+                "specification",
+                "language",
+                "acsl",
+                "assertion",
+                "format",
+                "and",
+                "the",
+                "frama-c",
+                "software",
+                "verification",
+                "platform.",
+                "experimental",
+                "evaluation",
+                "over",
+                "variety",
+                "of",
+                "benchmarks",
+                "from",
+                "the",
+                "literature",
+                "and",
+                "functions",
+                "from",
+                "realistic",
+                "libraries",
+                "shows",
+                "that",
+                "our",
+                "framework",
+                "is",
+                "capable",
+                "of",
+                "handling",
+                "array",
+                "manipulating",
+                "functions",
+                "that",
+                "indeed",
+                "involve",
+                "the",
+                "carry",
+                "of",
+                "array",
+                "information",
+                "and",
+                "are",
+                "beyond",
+                "existing",
+                "approaches."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "lecture notes in computer science",
+              "words": [
+                "lecture",
+                "notes",
+                "in",
+                "computer",
+                "science"
+              ]
+            },
+            "venue": {
+              "text": "lecture notes in computer science",
+              "words": [
+                "lecture",
+                "notes",
+                "in",
+                "computer",
+                "science"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026,
+          "citationCount": 0
+        },
+        "_searchBlob": "array-carrying symbolic execution for function contract generation abstract function contract generation is a classical problem in program analysis that targets the automated analysis of functions in a program with multiple procedures. the problem is fundamental in interprocedural analysis where properties of functions are first obtained via the generation of function contracts and then the generated contracts are used as building blocks to analyze the whole program. typical objectives in function contract generation include pre- post-conditions and assigns information that specifies the modification information over program variables and memory segments during function execution . in programs with array manipulations a crucial point in function contract generation is the treatment of array segments that imposes challenges in inferring invariants and assigns information over such segments. to address this challenge we propose a novel symbolic execution framework that carries invariants and assigns information over contiguous segments of arrays. we implement our framework as a prototype within llvm and further integrate our prototype with the ansi iso c specification language acsl assertion format and the frama-c software verification platform. experimental evaluation over a variety of benchmarks from the literature and functions from realistic libraries shows that our framework is capable of handling array manipulating functions that indeed involve the carry of array information and are beyond existing approaches. lecture notes in computer science lecture notes in computer science 2026 research-paper weitian lu shanghai jiao tong university jingyu ke shanghai jiao tong university hongfei fu shanghai university of finance and economics zhouyue sun shanghai jiao tong university y zhou shanghai jiao tong university g y li shanghai jiao tong university hui li peking university llvm dynamic analysis libraries llvm dynamic analysis libraries symbolic execution contract generation segments carrying symbolic execution assigns array carrying symbolic llvm",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
+    },
     "openalex-w4409683945": {
       "paper": {
         "id": "openalex-w4409683945",
@@ -1724,6 +2173,233 @@
         "_addedAtTs": 1771652392000
       },
       "source": "openalex-llvm-query"
+    },
+    "openalex-w4391984220": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Fast Template-Based Code Generation for MLIR",
+        "authors": [
+          {
+            "name": "Florian Drescher",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Alexis Engelke",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2024",
+        "publication": "Proceedings of 33rd ACM SIGPLAN International Conference on Compiler Construction",
+        "venue": "Proceedings of 33rd ACM SIGPLAN International Conference on Compiler Construction",
+        "type": "research-paper",
+        "abstract": "Fast compilation is essential for JIT-compilation use cases like dynamic languages or databases as well as development productivity when compiling static languages. Template-based compilation allows fast compilation times, but in existing approaches, templates are generally handwritten, limiting flexibility and causing substantial engineering effort.",
+        "paperUrl": "https://doi.org/10.1145/3640537.3641567",
+        "openalexId": "https://openalex.org/W4391984220",
+        "doi": "10.1145/3640537.3641567",
+        "tags": [
+          "MLIR",
+          "Backend",
+          "Code Generation",
+          "JIT"
+        ],
+        "keywords": [
+          "MLIR",
+          "Backend",
+          "Code Generation",
+          "JIT",
+          "JIT Compilation",
+          "Fast Compilation",
+          "Fast Template"
+        ],
+        "matchedAuthors": [
+          "Alexis Engelke",
+          "Florian Drescher"
+        ],
+        "matchedSubprojects": [
+          "mlir"
+        ],
+        "id": "openalex-w4391984220",
+        "citationCount": 1,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "sourceUrl": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2024",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 1,
+        "_titleLower": "fast template-based code generation for mlir",
+        "_authorLower": "florian drescher alexis engelke",
+        "_authorsLower": "florian drescher alexis engelke",
+        "_abstractLower": "fast compilation is essential for jit-compilation use cases like dynamic languages or databases as well as development productivity when compiling static languages. template-based compilation allows fast compilation times, but in existing approaches, templates are generally handwritten, limiting flexibility and causing substantial engineering effort.",
+        "_tagsLower": "mlir backend code generation jit",
+        "_keywordsLower": "mlir backend code generation jit jit compilation fast compilation fast template",
+        "_topicsLower": "mlir backend code generation jit mlir backend code generation jit jit compilation fast compilation fast template mlir",
+        "_contentLower": "",
+        "_publicationLower": "proceedings of 33rd acm sigplan international conference on compiler construction",
+        "_venueLower": "proceedings of 33rd acm sigplan international conference on compiler construction",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2024",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "fast template-based code generation for mlir",
+              "words": [
+                "fast",
+                "template-based",
+                "code",
+                "generation",
+                "for",
+                "mlir"
+              ]
+            },
+            "authors": {
+              "text": "florian drescher alexis engelke",
+              "words": [
+                "florian",
+                "drescher",
+                "alexis",
+                "engelke"
+              ]
+            },
+            "topics": {
+              "text": "mlir backend code generation jit mlir backend code generation jit jit compilation fast compilation fast template mlir",
+              "words": [
+                "mlir",
+                "backend",
+                "code",
+                "generation",
+                "jit",
+                "mlir",
+                "backend",
+                "code",
+                "generation",
+                "jit",
+                "jit",
+                "compilation",
+                "fast",
+                "compilation",
+                "fast",
+                "template",
+                "mlir"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "fast compilation is essential for jit-compilation use cases like dynamic languages or databases as well as development productivity when compiling static languages. template-based compilation allows fast compilation times but in existing approaches templates are generally handwritten limiting flexibility and causing substantial engineering effort.",
+              "words": [
+                "fast",
+                "compilation",
+                "is",
+                "essential",
+                "for",
+                "jit-compilation",
+                "use",
+                "cases",
+                "like",
+                "dynamic",
+                "languages",
+                "or",
+                "databases",
+                "as",
+                "well",
+                "as",
+                "development",
+                "productivity",
+                "when",
+                "compiling",
+                "static",
+                "languages.",
+                "template-based",
+                "compilation",
+                "allows",
+                "fast",
+                "compilation",
+                "times",
+                "but",
+                "in",
+                "existing",
+                "approaches",
+                "templates",
+                "are",
+                "generally",
+                "handwritten",
+                "limiting",
+                "flexibility",
+                "and",
+                "causing",
+                "substantial",
+                "engineering",
+                "effort."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "proceedings of 33rd acm sigplan international conference on compiler construction",
+              "words": [
+                "proceedings",
+                "of",
+                "33rd",
+                "acm",
+                "sigplan",
+                "international",
+                "conference",
+                "on",
+                "compiler",
+                "construction"
+              ]
+            },
+            "venue": {
+              "text": "proceedings of 33rd acm sigplan international conference on compiler construction",
+              "words": [
+                "proceedings",
+                "of",
+                "33rd",
+                "acm",
+                "sigplan",
+                "international",
+                "conference",
+                "on",
+                "compiler",
+                "construction"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024,
+          "citationCount": 1
+        },
+        "_searchBlob": "fast template-based code generation for mlir fast compilation is essential for jit-compilation use cases like dynamic languages or databases as well as development productivity when compiling static languages. template-based compilation allows fast compilation times but in existing approaches templates are generally handwritten limiting flexibility and causing substantial engineering effort. proceedings of 33rd acm sigplan international conference on compiler construction proceedings of 33rd acm sigplan international conference on compiler construction 2024 research-paper florian drescher alexis engelke mlir backend code generation jit mlir backend code generation jit jit compilation fast compilation fast template mlir",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
     },
     "openalex-w4391725335": {
       "paper": {
@@ -8147,7 +8823,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W2890606672",
-        "citationCount": 7,
+        "citationCount": 8,
         "doi": "10.1145/3274694.3274728",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -8162,7 +8838,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 8,
         "_titleLower": "pointing in the right direction - securing memory accesses in a faulty world",
         "_authorLower": "robert schilling know center research gmbh mario werner graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology",
         "_authorsLower": "robert schilling know center research gmbh mario werner graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology",
@@ -8356,7 +9032,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 7
+          "citationCount": 8
         },
         "_searchBlob": "pointing in the right direction - securing memory accesses in a faulty world reading and writing memory are besides computation the most common operations a processor performs. the correctness of these operations is therefore essential for the proper execution of any program. however as soon as fault attacks are considered assuming that the hardware performs its memory operations as instructed is not valid anymore. in particular attackers may induce faults with the goal of reading or writing incorrectly addressed memory which can have various critical safety and security implications. proceedings of 34th annual computer security applications conference proceedings of 34th annual computer security applications conference 2018 research-paper robert schilling know center research gmbh mario werner graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology security security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9328,7 +10004,7 @@
           "GPU"
         ],
         "openalexId": "https://openalex.org/W2735225819",
-        "citationCount": 14,
+        "citationCount": 15,
         "doi": "10.1007/978-3-319-63387-9_25",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -9344,7 +10020,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 15,
         "_titleLower": "gpudrano: detecting uncoalesced accesses in gpu programs",
         "_authorLower": "rajeev alur philadelphia university joseph devietti philadelphia university omar s. navarro leija philadelphia university nimit singhania university of pennsylvania",
         "_authorsLower": "rajeev alur philadelphia university joseph devietti philadelphia university omar s. navarro leija philadelphia university nimit singhania university of pennsylvania",
@@ -9484,7 +10160,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 14
+          "citationCount": 15
         },
         "_searchBlob": "gpudrano detecting uncoalesced accesses in gpu programs graphics processing units gpus have become widespread and popular over the past decade. fully utilizing the parallel compute and memory resources that gpus present remains a significant challenge however. in this paper we describe gpudrano a scalable static... lecture notes in computer science lecture notes in computer science 2017 research-paper rajeev alur philadelphia university joseph devietti philadelphia university omar s. navarro leija philadelphia university nimit singhania university of pennsylvania gpu gpu",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12959,6 +13635,7 @@
     },
     "openalex-w2339131307": {
       "paper": {
+        "id": "openalex-w2339131307",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Clang matchers for verified usage of the C++ Standard Template Library",
@@ -13006,7 +13683,6 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "id": "openalex-w2339131307",
         "citationCount": 16,
         "citationCountSource": "openalex",
         "publishedDate": "",

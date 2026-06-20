@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7125374165": {
       "paper": {
@@ -469,6 +469,374 @@
         "addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAt": "2026-02-21T03:54:27.000Z",
         "_addedAtTs": 1771646067000
+      },
+      "source": "openalex-discovery"
+    },
+    "openalex-w7154864967": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Nautilus: An Auto-Scheduling Tensor Compiler for Efficient Tiled GPU Kernels",
+        "authors": [
+          {
+            "name": "Yifan Zhao",
+            "affiliation": "University of Illinois Urbana-Champaign",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Yuchen Yang",
+            "affiliation": "University of Illinois Urbana-Champaign",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Matei Budiu",
+            "affiliation": "University of Illinois Urbana-Champaign",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Saša Misailovíc",
+            "affiliation": "University of Illinois Urbana-Champaign",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2026",
+        "publication": "arXiv",
+        "venue": "arXiv",
+        "type": "research-paper",
+        "abstract": "We present Nautilus, a novel tensor compiler that moves toward fully automated math-to-kernel optimization. Nautilus compiles a high-level algebraic specification of tensor operators into efficient tiled GPU kernels. Nautilus's successive lowering design allows high-level optimizations, expression rewrites, and tile optimizations to be jointly applied in a single end-to-end system. Nautilus presents a novel auto-scheduler that discovers sequences of high-level optimizations, while preserving the regular program structure needed by tile optimizers. Nautilus's auto-scheduler captures complex interactions and trade-offs in the high-level optimizations, including aggressive global transformations like advanced reduction fusion. Nautilus is the first end-to-end tensor compiler capable of starting from a math-like description of attention and automatically discovering FlashAttention-3-like kernels, offloading the entire burden of optimization from the programmer to the compiler. Across five transformer-based models and 150 evaluation configurations on NVIDIA GH200 and RTX 5090 GPUs, Nautilus achieves up to 23% higher throughput than state-of-the-art compilers on GH200 and up to 42% on RTX 5090, while matching or exceeding manually written cuDNN kernels on many long-sequence configurations.",
+        "paperUrl": "https://arxiv.org/pdf/2604.14825",
+        "sourceUrl": "https://arxiv.org/abs/2604.14825",
+        "openalexId": "https://openalex.org/W7154864967",
+        "doi": "",
+        "tags": [
+          "Optimizations",
+          "GPU"
+        ],
+        "keywords": [
+          "Optimizations",
+          "GPU",
+          "Offloading",
+          "Nautilus",
+          "Scheduling Tensor Compiler",
+          "Tiled GPU Kernels",
+          "Auto Scheduler",
+          "Gh200",
+          "Auto Scheduling Tensor"
+        ],
+        "matchedAuthors": [
+          "Saša Misailovíc"
+        ],
+        "matchedSubprojects": [
+          "offload"
+        ],
+        "id": "openalex-w7154864967",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2026",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "nautilus: an auto-scheduling tensor compiler for efficient tiled gpu kernels",
+        "_authorLower": "yifan zhao university of illinois urbana-champaign yuchen yang university of illinois urbana-champaign matei budiu university of illinois urbana-champaign saša misailovíc university of illinois urbana-champaign",
+        "_authorsLower": "yifan zhao university of illinois urbana-champaign yuchen yang university of illinois urbana-champaign matei budiu university of illinois urbana-champaign saša misailovíc university of illinois urbana-champaign",
+        "_abstractLower": "we present nautilus, a novel tensor compiler that moves toward fully automated math-to-kernel optimization. nautilus compiles a high-level algebraic specification of tensor operators into efficient tiled gpu kernels. nautilus's successive lowering design allows high-level optimizations, expression rewrites, and tile optimizations to be jointly applied in a single end-to-end system. nautilus presents a novel auto-scheduler that discovers sequences of high-level optimizations, while preserving the regular program structure needed by tile optimizers. nautilus's auto-scheduler captures complex interactions and trade-offs in the high-level optimizations, including aggressive global transformations like advanced reduction fusion. nautilus is the first end-to-end tensor compiler capable of starting from a math-like description of attention and automatically discovering flashattention-3-like kernels, offloading the entire burden of optimization from the programmer to the compiler. across five transformer-based models and 150 evaluation configurations on nvidia gh200 and rtx 5090 gpus, nautilus achieves up to 23% higher throughput than state-of-the-art compilers on gh200 and up to 42% on rtx 5090, while matching or exceeding manually written cudnn kernels on many long-sequence configurations.",
+        "_tagsLower": "optimizations gpu",
+        "_keywordsLower": "optimizations gpu offloading nautilus scheduling tensor compiler tiled gpu kernels auto scheduler gh200 auto scheduling tensor",
+        "_topicsLower": "optimizations gpu optimizations gpu offloading nautilus scheduling tensor compiler tiled gpu kernels auto scheduler gh200 auto scheduling tensor offload",
+        "_contentLower": "",
+        "_publicationLower": "arxiv",
+        "_venueLower": "arxiv",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2026",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "nautilus an auto-scheduling tensor compiler for efficient tiled gpu kernels",
+              "words": [
+                "nautilus",
+                "an",
+                "auto-scheduling",
+                "tensor",
+                "compiler",
+                "for",
+                "efficient",
+                "tiled",
+                "gpu",
+                "kernels"
+              ]
+            },
+            "authors": {
+              "text": "yifan zhao university of illinois urbana-champaign yuchen yang university of illinois urbana-champaign matei budiu university of illinois urbana-champaign sasa misailovic university of illinois urbana-champaign",
+              "words": [
+                "yifan",
+                "zhao",
+                "university",
+                "of",
+                "illinois",
+                "urbana-champaign",
+                "yuchen",
+                "yang",
+                "university",
+                "of",
+                "illinois",
+                "urbana-champaign",
+                "matei",
+                "budiu",
+                "university",
+                "of",
+                "illinois",
+                "urbana-champaign",
+                "sasa",
+                "misailovic",
+                "university",
+                "of",
+                "illinois",
+                "urbana-champaign"
+              ]
+            },
+            "topics": {
+              "text": "optimizations gpu optimizations gpu offloading nautilus scheduling tensor compiler tiled gpu kernels auto scheduler gh200 auto scheduling tensor offload",
+              "words": [
+                "optimizations",
+                "gpu",
+                "optimizations",
+                "gpu",
+                "offloading",
+                "nautilus",
+                "scheduling",
+                "tensor",
+                "compiler",
+                "tiled",
+                "gpu",
+                "kernels",
+                "auto",
+                "scheduler",
+                "gh200",
+                "auto",
+                "scheduling",
+                "tensor",
+                "offload"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "we present nautilus a novel tensor compiler that moves toward fully automated math-to-kernel optimization. nautilus compiles a high-level algebraic specification of tensor operators into efficient tiled gpu kernels. nautiluss successive lowering design allows high-level optimizations expression rewrites and tile optimizations to be jointly applied in a single end-to-end system. nautilus presents a novel auto-scheduler that discovers sequences of high-level optimizations while preserving the regular program structure needed by tile optimizers. nautiluss auto-scheduler captures complex interactions and trade-offs in the high-level optimizations including aggressive global transformations like advanced reduction fusion. nautilus is the first end-to-end tensor compiler capable of starting from a math-like description of attention and automatically discovering flashattention-3-like kernels offloading the entire burden of optimization from the programmer to the compiler. across five transformer-based models and 150 evaluation configurations on nvidia gh200 and rtx 5090 gpus nautilus achieves up to 23 higher throughput than state-of-the-art compilers on gh200 and up to 42 on rtx 5090 while matching or exceeding manually written cudnn kernels on many long-sequence configurations.",
+              "words": [
+                "we",
+                "present",
+                "nautilus",
+                "novel",
+                "tensor",
+                "compiler",
+                "that",
+                "moves",
+                "toward",
+                "fully",
+                "automated",
+                "math-to-kernel",
+                "optimization.",
+                "nautilus",
+                "compiles",
+                "high-level",
+                "algebraic",
+                "specification",
+                "of",
+                "tensor",
+                "operators",
+                "into",
+                "efficient",
+                "tiled",
+                "gpu",
+                "kernels.",
+                "nautiluss",
+                "successive",
+                "lowering",
+                "design",
+                "allows",
+                "high-level",
+                "optimizations",
+                "expression",
+                "rewrites",
+                "and",
+                "tile",
+                "optimizations",
+                "to",
+                "be",
+                "jointly",
+                "applied",
+                "in",
+                "single",
+                "end-to-end",
+                "system.",
+                "nautilus",
+                "presents",
+                "novel",
+                "auto-scheduler",
+                "that",
+                "discovers",
+                "sequences",
+                "of",
+                "high-level",
+                "optimizations",
+                "while",
+                "preserving",
+                "the",
+                "regular",
+                "program",
+                "structure",
+                "needed",
+                "by",
+                "tile",
+                "optimizers.",
+                "nautiluss",
+                "auto-scheduler",
+                "captures",
+                "complex",
+                "interactions",
+                "and",
+                "trade-offs",
+                "in",
+                "the",
+                "high-level",
+                "optimizations",
+                "including",
+                "aggressive",
+                "global",
+                "transformations",
+                "like",
+                "advanced",
+                "reduction",
+                "fusion.",
+                "nautilus",
+                "is",
+                "the",
+                "first",
+                "end-to-end",
+                "tensor",
+                "compiler",
+                "capable",
+                "of",
+                "starting",
+                "from",
+                "math-like",
+                "description",
+                "of",
+                "attention",
+                "and",
+                "automatically",
+                "discovering",
+                "flashattention-3-like",
+                "kernels",
+                "offloading",
+                "the",
+                "entire",
+                "burden",
+                "of",
+                "optimization",
+                "from",
+                "the",
+                "programmer",
+                "to",
+                "the",
+                "compiler.",
+                "across",
+                "five",
+                "transformer-based",
+                "models",
+                "and",
+                "150",
+                "evaluation",
+                "configurations",
+                "on",
+                "nvidia",
+                "gh200",
+                "and",
+                "rtx",
+                "5090",
+                "gpus",
+                "nautilus",
+                "achieves",
+                "up",
+                "to",
+                "23",
+                "higher",
+                "throughput",
+                "than",
+                "state-of-the-art",
+                "compilers",
+                "on",
+                "gh200",
+                "and",
+                "up",
+                "to",
+                "42",
+                "on",
+                "rtx",
+                "5090",
+                "while",
+                "matching",
+                "or",
+                "exceeding",
+                "manually",
+                "written",
+                "cudnn",
+                "kernels",
+                "on",
+                "many",
+                "long-sequence",
+                "configurations."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "venue": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026,
+          "citationCount": 0
+        },
+        "_searchBlob": "nautilus an auto-scheduling tensor compiler for efficient tiled gpu kernels we present nautilus a novel tensor compiler that moves toward fully automated math-to-kernel optimization. nautilus compiles a high-level algebraic specification of tensor operators into efficient tiled gpu kernels. nautiluss successive lowering design allows high-level optimizations expression rewrites and tile optimizations to be jointly applied in a single end-to-end system. nautilus presents a novel auto-scheduler that discovers sequences of high-level optimizations while preserving the regular program structure needed by tile optimizers. nautiluss auto-scheduler captures complex interactions and trade-offs in the high-level optimizations including aggressive global transformations like advanced reduction fusion. nautilus is the first end-to-end tensor compiler capable of starting from a math-like description of attention and automatically discovering flashattention-3-like kernels offloading the entire burden of optimization from the programmer to the compiler. across five transformer-based models and 150 evaluation configurations on nvidia gh200 and rtx 5090 gpus nautilus achieves up to 23 higher throughput than state-of-the-art compilers on gh200 and up to 42 on rtx 5090 while matching or exceeding manually written cudnn kernels on many long-sequence configurations. arxiv arxiv 2026 research-paper yifan zhao university of illinois urbana-champaign yuchen yang university of illinois urbana-champaign matei budiu university of illinois urbana-champaign sasa misailovic university of illinois urbana-champaign optimizations gpu optimizations gpu offloading nautilus scheduling tensor compiler tiled gpu kernels auto scheduler gh200 auto scheduling tensor offload",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
       },
       "source": "openalex-discovery"
     },
@@ -1028,7 +1396,7 @@
           "llvm"
         ],
         "id": "openalex-w7153120136",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -1038,7 +1406,7 @@
         "_year": "2026",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "decompiling for constant-time analysis",
         "_authorLower": "santiago arranz olmos max planck institute for security and privacy gilles barthe max planck institute for security and privacy lionel blatter max planck institute for security and privacy youcef bouzid cea paris-saclay sören van der wall technische universität braunschweig zhiyuan zhang max planck institute for security and privacy",
         "_authorsLower": "santiago arranz olmos max planck institute for security and privacy gilles barthe max planck institute for security and privacy lionel blatter max planck institute for security and privacy youcef bouzid cea paris-saclay sören van der wall technische universität braunschweig zhiyuan zhang max planck institute for security and privacy",
@@ -1494,7 +1862,7 @@
             }
           },
           "year": 2026,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "decompiling for constant-time analysis the constant-time programming discipline is commonly used to protect cryptographic libraries against side-channel attacks. however it is hard to write constant-time code moreover compilers can introduce constant-time violations. therefore it is important to ensure that assembly code is constant-time. one approach is to show that source programs are constant-time and that constant-timeness is preserved by compilation. in this paper we explore the methodological soundness and scalability of the decompile-then-analyze approach a less conventional alternative that has been suggested in the broader setting of static analysis. informally the decompile-then-analyze approach uses decompilers a front-end for static analysis tools. as a motivation for our study we show that current decompilers eliminate ct vulnerabilities before ct analysis leading to non-ct programs being accepted as constant-time. independently we provide constructed examples of non-ct exploitable programs that are accepted by two popular ct analysis tools in both cases the culprit are program transformations that are used internally prior to ct analysis and eliminate ct violations. while our examples do not invalidate the general approach of these tools they emphasize the need for studying the decompile-then-analyze approach. on the methodological side we define the notion of ct transparency. informally a program transformation is ct transparent if does not eliminate nor introduce ct violations. we also provide general methods for proving that a transformation is ct transparent and show that several transformations of interest are transparent. we also sketch an extension of ct transparency to speculative constant-time which is used by cryptographic software as a protection against spectre attacks. on the practical side we build a ct-transparent version of the popular llvm-based decompiler retdec and combine it with ct-llvm an existing ct verification tool for llvm. we evaluate the resulting tool called ct-retdec on a benchmark set of real-world vulnerabilities in binaries and show that the modifications had significant impact on how well ct-retdec performs. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 10 issue oopsla1 2026 research-paper santiago arranz olmos max planck institute for security and privacy gilles barthe max planck institute for security and privacy lionel blatter max planck institute for security and privacy youcef bouzid cea paris-saclay soren van der wall technische universitat braunschweig zhiyuan zhang max planck institute for security and privacy llvm static analysis libraries programming languages llvm static analysis libraries programming languages constant transparent analyze decompilers eliminate retdec violations llvm",
         "addedAt": "2026-04-12T09:38:46.000Z",
@@ -1737,7 +2105,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4416004095",
-        "citationCount": 3,
+        "citationCount": 4,
         "doi": "10.1145/3731599.3767546",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -1755,7 +2123,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 4,
         "_titleLower": "towards supporting qir",
         "_authorLower": "yannick stade technical university of munich lukas burgholzer technical university of munich robert wille technical university of munich",
         "_authorsLower": "yannick stade technical university of munich lukas burgholzer technical university of munich robert wille technical university of munich",
@@ -2026,7 +2394,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 3
+          "citationCount": 4
         },
         "_searchBlob": "towards supporting qir intermediate representations irs play a crucial role in the software stack of a quantum computer to facilitate efficient optimizations for executing an application on hardware. one of those irs is the quantum intermediate representation qir which builds on the classical llvm compiler infrastructure. in this article we outline different approaches to how qir can be adopted. this exploration culminates in a demonstration of what it takes to turn an existing quantum circuit simulator into a qir runtime and that such a transition is less daunting than it might seem at first. we further show that switching to qir does not entail any performance deficits compared to the original simulator. on the contrary the presented steps effortlessly allow adding support for arbitrary classical control flow to any classical simulator. we conclude with an outlook on future directions using qir. the implemented qir runtime is available under https github.com munich-quantum-toolkit core. proceedings of sc 25 workshops of the international conference for high performance computing networking storage and analysis proceedings of sc 25 workshops of the international conference for high performance computing networking storage and analysis 2025 research-paper yannick stade technical university of munich lukas burgholzer technical university of munich robert wille technical university of munich infrastructure optimizations performance infrastructure optimizations performance",
         "addedAt": "2026-02-21T05:34:08.000Z",
@@ -3862,7 +4230,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4407944890",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1145/3708493.3712693",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -3878,7 +4246,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "biotite: a high-performance static binary translator using source-level information",
         "_authorLower": "c. chen the university of tokyo shu sugita the university of tokyo yuichiro nada the university of tokyo hidetsugu irie the university of tokyo shuichi sakai the university of tokyo ryota shioya the university of tokyo",
         "_authorsLower": "c. chen the university of tokyo shu sugita the university of tokyo yuichiro nada the university of tokyo hidetsugu irie the university of tokyo shuichi sakai the university of tokyo ryota shioya the university of tokyo",
@@ -4193,7 +4561,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "biotite a high-performance static binary translator using source-level information research on novel instruction set architectures isas is actively pursued however it requires extensive efforts to develop and maintain comprehensive compilation toolchains for each new isa. binary translation can provide a practical solution for isa researchers to port target programs to novel isas when such a level of toolchain support is not available. however to ensure the correct handling of indirect jumps existing binary translators rely on complex runtime systems whose implementation on primitive research isas demands significant efforts. isa researchers generally have access to additional source-level information including the symbol table and source code when using binary translators. the symbol table can provide potential jump targets for optimizing indirect jumps and isa-independent functions in source code can be directly compiled without translation. leveraging source-level information as additional input in this paper we propose biotite a high-performance static binary translator that correctly handles arbitrary indirect jumps. currently biotite supports the translation of rv64gc linux binaries to self-contained llvm ir. our evaluation shows that biotite successfully translates all benchmarks in spec cpu 2017 and achieves a 2.346 performance improvement over qemu for the integer benchmark suite. proceedings of 34th acm sigplan international conference on compiler construction proceedings of 34th acm sigplan international conference on compiler construction 2025 research-paper c. chen the university of tokyo shu sugita the university of tokyo yuichiro nada the university of tokyo hidetsugu irie the university of tokyo shuichi sakai the university of tokyo ryota shioya the university of tokyo ir performance ir performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -15465,6 +15833,7 @@
     },
     "openalex-w3008964021": {
       "paper": {
+        "id": "openalex-w3008964021",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "High Performance Code Generation in MLIR: An Early Case Study with GEMM",
@@ -15510,7 +15879,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3008964021",
         "citationCount": 27,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17025,7 +17393,7 @@
         "paperUrl": "https://doi.org/10.1016/j.cose.2020.101821",
         "tags": [],
         "openalexId": "https://openalex.org/W3013932215",
-        "citationCount": 11,
+        "citationCount": 12,
         "doi": "10.1016/j.cose.2020.101821",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17039,7 +17407,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 12,
         "_titleLower": "compile-time code virtualization for android applications",
         "_authorLower": "yujie zhao northwest university zhanyong tang northwest university guixin ye northwest university dongxu peng northwest university dingyi fang northwest university xiaojiang chen northwest university zheng wang",
         "_authorsLower": "yujie zhao northwest university zhanyong tang northwest university guixin ye northwest university dongxu peng northwest university dingyi fang northwest university xiaojiang chen northwest university zheng wang",
@@ -17287,7 +17655,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 11
+          "citationCount": 12
         },
         "_searchBlob": "compile-time code virtualization for android applications we propose a new framework for compile-time ciphertext synthesis in fully homomorphic encryption fhe systems. instead of invoking encryption algorithms at runtime our method synthesizes ciphertexts from precomputed encrypted basis vectors using only homomorphic additions scalar multiplications and randomized encryptions of zero. this decouples ciphertext generation from encryption and enables efficient batch encoding through algebraic reuse. we formalize this technique as a randomized module morphism and prove that it satisfies ind-cpa security. our proof uses a hybrid game framework that interpolates between encrypted vector instances and reduces the adversarial advantage to the indistinguishability advantage of the underlying fhe scheme. this reduction structure captures the security implications of ciphertext basis reuse and structured noise injection. the proposed synthesis primitive supports fast encryption-free ingestion in outsourced database systems and other high-throughput fhe pipelines. it is compatible with standard fhe apis and preserves layout semantics for downstream homomorphic operations. computers and security computers and security vol. 94 2020 research-paper yujie zhao northwest university zhanyong tang northwest university guixin ye northwest university dongxu peng northwest university dingyi fang northwest university xiaojiang chen northwest university zheng wang",
         "addedAt": "2026-02-21T05:39:52.000Z",

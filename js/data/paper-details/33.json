@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131082795": {
       "paper": {
@@ -2811,7 +2811,7 @@
           "libfuzzer"
         ],
         "id": "openalex-w4402527119",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -2821,7 +2821,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "webassembly as a fuzzing compilation target (registered report)",
         "_authorLower": "florian bauckholt helmholtz center for information security thorsten holz helmholtz center for information security",
         "_authorsLower": "florian bauckholt helmholtz center for information security thorsten holz helmholtz center for information security",
@@ -3144,7 +3144,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "webassembly as a fuzzing compilation target registered report by monitoring the execution of the program under test fuzzers can gather feedback on how different inputs affect the programs behavior and detect crashes and other abnormal behaviors. to achieve these objectives fuzzers typically rely on a static instrumentation phase which can be cumbersome to extend and experiment with. in this paper we explore a different strategy by compiling to a common high-level compilation target we can retain most of the instrumentation opportunities with the potential for dynamic instrumentation. compiling to an intermediate target disentangles instrumentation from the harness build process and produces fuzzer-independent harness artifacts. more specifically we propose to use webassembly wasm as a suitable target due to its widespread language support deterministic and isolated nature and simple and easy-to-jit instruction set. to explore this approach we present and discuss wasmfuzz a fuzzer for webassembly binaries that bridges the gap between native and wasm fuzzing. to enable meaningful webassembly fuzzer comparisons we demonstrate a generic way to retrofit wasm modules into source-based fuzzers through wasm2c. this approach already raises the performance baseline of webassembly fuzzing significantly. in our preliminary evaluation wasmfuzz achieves on average more basic blocks per target compared to other webassembly fuzzers and seems competitive with native setups like cargo-fuzz libfuzzer . proceedings of 3rd acm international fuzzing workshop proceedings of 3rd acm international fuzzing workshop 2024 research-paper florian bauckholt helmholtz center for information security thorsten holz helmholtz center for information security jit testing performance wasm jit testing performance wasm jit compilation fuzzing compilation target registered fuzzers instrumentation fuzzing compilation target target registered report libfuzzer",
         "addedAt": "2026-02-23T18:01:35.000Z",
@@ -9193,6 +9193,7 @@
     },
     "openalex-w3173462777": {
       "paper": {
+        "id": "openalex-w3173462777",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Predictive data locality optimization for higher-order tensor computations",
@@ -9246,6 +9247,7 @@
         "type": "research-paper",
         "abstract": "Automating locality optimization is still an open problem for compiler writers. Compiler-based approaches, guided by analytical cost models have achieved some success in matching high performance libraries on a restricted set of computations such as general matrix multiply (GEMM). On the other hand, library-based approaches may present some open scalability concerns. Recent developments in convolutional neural networks has seen an explosion of models, each with differing combinations of parameters. Manually tuning each of these configurations can take many development months. Further, these operations are called multiple times during machine learning training, which necessitates highly optimized implementations. 2D convolutional operators are unique in that they consist of 7-deep loop nests with different loops carrying reuse for different tensors, making the problem of identifying an optimal loop ordering hard. We devise a machine learning-based compiler which learns a regression model, correlating performance with the loop order. We integrate this model with other traditional compiler analysis for transformations such as loop unrolling and vectorization, relying on the MultiLevel Intermediate Representation (MLIR) compiler framework. We achieve an average speedup of 1.67x and 1.41x against oneDNN for 2D convolution forward and weight update kernels respectively. We are also at 0.88x and 0.96x the performance of oneDNN's best performing implementation which applies additional data layout transformations.",
         "paperUrl": "https://doi.org/10.1145/3460945.3464955",
+        "sourceUrl": "https://openalex.org/W3173462777",
         "openalexId": "https://openalex.org/W3173462777",
         "doi": "10.1145/3460945.3464955",
         "tags": [
@@ -9283,11 +9285,9 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3173462777",
         "citationCount": 3,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -10326,6 +10326,7 @@
     },
     "openalex-w3161395920": {
       "paper": {
+        "id": "openalex-w3161395920",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "DISC",
@@ -10407,6 +10408,7 @@
         "type": "research-paper",
         "abstract": "Many recent machine learning models show dynamic shape characteristics. However, existing AI compiler optimization systems suffer a lot from problems brought by dynamic shape models, including compilation overhead, memory usage, optimization pipeline and deployment complexity. This paper provides a compiler system to natively support optimization for dynamic shape workloads, named DISC. DISC enriches a set of IR to form a fully dynamic shape representation. It generates the runtime flow at compile time to support processing dynamic shape based logic, which avoids the interpretation overhead at runtime and enlarges the opportunity of host-device co-optimization. It addresses the kernel fusion problem of dynamic shapes with shape propagation and constraints collecting methods. This is the first work to demonstrate how to build an end-to-end dynamic shape compiler based on MLIR infrastructure. Experiments show that DISC achieves up to 3.3× speedup than TensorFlow/PyTorch, and 1.8× than Nimble.",
         "paperUrl": "https://doi.org/10.1145/3437984.3458838",
+        "sourceUrl": "https://openalex.org/W3161395920",
         "openalexId": "https://openalex.org/W3161395920",
         "doi": "10.1145/3437984.3458838",
         "tags": [
@@ -10438,18 +10440,16 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3161395920",
-        "citationCount": 23,
+        "citationCount": 25,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 23,
+        "_citationCount": 25,
         "_titleLower": "disc",
         "_authorLower": "kai zhu alibaba group wenyi zhao alibaba group zhen zheng alibaba group tianyou guo alibaba group peijun zhao alibaba group junjie bai alibaba group jun yang alibaba group xiaoyang liu alibaba group lansong diao alibaba group wei lin alibaba group",
         "_authorsLower": "kai zhu alibaba group wenyi zhao alibaba group zhen zheng alibaba group tianyou guo alibaba group peijun zhao alibaba group junjie bai alibaba group jun yang alibaba group xiaoyang liu alibaba group lansong diao alibaba group wei lin alibaba group",
@@ -10725,7 +10725,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 23
+          "citationCount": 25
         },
         "_searchBlob": "disc many recent machine learning models show dynamic shape characteristics. however existing ai compiler optimization systems suffer a lot from problems brought by dynamic shape models including compilation overhead memory usage optimization pipeline and deployment complexity. this paper provides a compiler system to natively support optimization for dynamic shape workloads named disc. disc enriches a set of ir to form a fully dynamic shape representation. it generates the runtime flow at compile time to support processing dynamic shape based logic which avoids the interpretation overhead at runtime and enlarges the opportunity of host-device co-optimization. it addresses the kernel fusion problem of dynamic shapes with shape propagation and constraints collecting methods. this is the first work to demonstrate how to build an end-to-end dynamic shape compiler based on mlir infrastructure. experiments show that disc achieves up to 3.3 speedup than tensorflow pytorch and 1.8 than nimble. proceedings of 1st workshop on machine learning and systems proceedings of 1st workshop on machine learning and systems 2021 research-paper kai zhu alibaba group wenyi zhao alibaba group zhen zheng alibaba group tianyou guo alibaba group peijun zhao alibaba group junjie bai alibaba group jun yang alibaba group xiaoyang liu alibaba group lansong diao alibaba group wei lin alibaba group mlir ir optimizations infrastructure ai ml mlir optimizations infrastructure ai mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -11214,6 +11214,7 @@
     },
     "openalex-w3043598779": {
       "paper": {
+        "id": "openalex-w3043598779",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "AutoParallel: Automatic parallelisation and distributed execution of affine loop nests in Python",
@@ -11287,7 +11288,6 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "id": "openalex-w3043598779",
         "citationCount": 3,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12434,6 +12434,7 @@
     },
     "openalex-w3008843498": {
       "paper": {
+        "id": "openalex-w3008843498",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Parallel Training via Computation Graph Transformation",
@@ -12473,6 +12474,7 @@
         "type": "research-paper",
         "abstract": "Parallel training can speed up the convergence of machine learning models via splitting the workload into multiple accelerators by the wide array of possible parallel paradigms (e.g., data parallelism, model parallelism, attribute parallelism, and pipelining parallelism). However, most machine learning frameworks lack sufficient support for these flexible and sometimes complex parallel training schemes (e.g., TensorFlow does not provide convenient APIs for any paradigm other than data parallelism), and the engineering effort to support all parallelisms in all machine learning frameworks seems gigantic. In this paper, we demonstrate that most parallel training designs/paradigms can be abstracted as a computation graph transformation problem, so that they are realized via computation graph duplication, splitting, augmentation, and assignment to different accelerators, which are then connected by send/recv channels for tensor communications. Furthermore, conducting such computation graph transformations in a por table I R allows the engineering efforts of parallel training to be widely applied across machine learning frameworks. We propose an extensible parallel training search space which describes parallel training schemes in a declarative fashion. We then implement a computation graph transformation compiler that can instantiate the parallel schemes into explicit execution plans, which are readily executable on modern machine learning frameworks (such as TensorFlow). We maximize code reuse by handling parallel configurations and computation graph transformations in extended ONNX, which can be ported to machine learning frameworks by adapting their existing ONNX frontend/backend implementations. Our design reflects a few good themes in machine learning frameworks, including code reuse via powerful IR (as in MLIR) and separation of declaration and realization (as in Halide/TVM).",
         "paperUrl": "https://doi.org/10.1109/bigdata47090.2019.9006180",
+        "sourceUrl": "https://openalex.org/W3008843498",
         "openalexId": "https://openalex.org/W3008843498",
         "doi": "10.1109/bigdata47090.2019.9006180",
         "tags": [
@@ -12500,11 +12502,9 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3008843498",
         "citationCount": 3,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -12908,6 +12908,7 @@
     },
     "openalex-w2943963155": {
       "paper": {
+        "id": "openalex-w2943963155",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "MLIR Primer: A Compiler Infrastructure for the End of Moore’s Law",
@@ -12933,6 +12934,7 @@
         "type": "research-paper",
         "abstract": "No abstract available in discovery metadata.",
         "paperUrl": "http://ai.google/research/pubs/pub48035/",
+        "sourceUrl": "https://openalex.org/W2943963155",
         "openalexId": "https://openalex.org/W2943963155",
         "doi": "",
         "tags": [
@@ -12951,11 +12953,9 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w2943963155",
         "citationCount": 11,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -13441,7 +13441,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2954767663",
-        "citationCount": 12,
+        "citationCount": 13,
         "doi": "10.1109/gi.2019.00014",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -13459,7 +13459,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "genetic improvement of gpu code",
         "_authorLower": "jhe-yu liou arizona state university stephanie forrest arizona state university carole-jean wu arizona state university",
         "_authorsLower": "jhe-yu liou arizona state university stephanie forrest arizona state university carole-jean wu arizona state university",
@@ -13775,7 +13775,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "genetic improvement of gpu code as the programming stack and tool support for gpu have matured gpus have become accessible to programmers who often lack domain-specific knowledge of the underlying architecture and fail to fully leverage the gpus computation power. this paper presents gevo gpu evolution a tool for automatically tuning the performance of gpu kernels in the llvm representation to meet desired criteria. gevo uses population-based search to find edits to programs compiled to llvm-ir that improve performance on desired criteria and retain required functionality. gevo extends earlier gi work by operating directly on the llvm-ir without custom representations or other manual interventions. we demonstrate that gevo improves runtime on nvidia tesla p100 for many programs in the rodinia benchmark suite and a supervised machine learning code thundersvm. for the rodinia benchmark gevo improves gpu kernel runtime performance by an average of 13.87 and as much as 43 over the fully compiler-optimized baseline. if the kernel output accuracy is relaxed to tolerate 1 error gevo can find kernel variants that outperform the baseline version by an average of 15.47 . for thundersvm gevo reduces entire model training time by 50 and 24.8 for mnist handwriting recognition dataset and a9a income prediction where the accuracy of trained model are improved by 0.17 and 0.04 respectively. 2019 ieee acm international workshop on genetic improvement gi 2019 ieee acm international workshop on genetic improvement gi 2019 research-paper jhe-yu liou arizona state university stephanie forrest arizona state university carole-jean wu arizona state university gpu ir performance gpu ir performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -26508,7 +26508,7 @@
         "publication": "Proceedings of eighteenth international conference on Architectural support for programming languages and operating systems",
         "openalexId": "https://openalex.org/W2096659083",
         "doi": "10.1145/2451116.2451152",
-        "citationCount": 57,
+        "citationCount": 58,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -26521,7 +26521,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 57,
+        "_citationCount": 58,
         "_titleLower": "verifying systems rules using rule-directed symbolic execution",
         "_authorLower": "heming cui columbia university gang hu columbia university jingyue wu columbia university junfeng yang columbia university",
         "_authorsLower": "heming cui columbia university gang hu columbia university jingyue wu columbia university junfeng yang columbia university",
@@ -26715,7 +26715,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 57
+          "citationCount": 58
         },
         "_searchBlob": "verifying systems rules using rule-directed symbolic execution systems code must obey many rules such as opened files must be closed. one approach to verifying rules is static analysis but this technique cannot infer precise runtime effects of code often emitting many false positives. an alternative is symbolic execution a technique that verifies program paths over all inputs up to a bounded size. however when applied to verify rules existing symbolic execution systems often blindly explore many redundant program paths while missing relevant ones that may contain bugs. proceedings of eighteenth international conference on architectural support for programming languages and operating systems proceedings of eighteenth international conference on architectural support for programming languages and operating systems 2013 research-paper heming cui columbia university gang hu columbia university jingyue wu columbia university junfeng yang columbia university",
         "addedAt": "2026-02-20T23:08:48.000Z",

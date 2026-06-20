@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131377983": {
       "paper": {
@@ -1097,7 +1097,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4411259483",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1145/3735452.3735526",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -1112,7 +1112,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "zoozve: a strip-mining-free risc-v vector extension with arbitrary register grouping compilation support (wip)",
         "_authorLower": "siyi xu shanghai university limin jiang shanghai university yintao liu shanghai university yihao shen shanghai university yi shi shanghai university shan cao shanghai university zhiyuan jiang shanghai university",
         "_authorsLower": "siyi xu shanghai university limin jiang shanghai university yintao liu shanghai university yihao shen shanghai university yi shi shanghai university shan cao shanghai university zhiyuan jiang shanghai university",
@@ -1401,7 +1401,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "zoozve a strip-mining-free risc-v vector extension with arbitrary register grouping compilation support wip vector processing is crucial for boosting processor performance and efficiency particularly with data-parallel tasks. the risc-v v vector extension rvv enhances algorithm efficiency by supporting vector registers of dynamic sizes and their grouping. nevertheless for very long vectors the static number of rvv vector registers and its power-of-two grouping can lead to performance restrictions. to counteract this limitation this work introduces zoozve a risc-v vector instruction extension that eliminates the need for strip-mining. zoozve allows for flexible vector register length and count configurations to boost data computation parallelism. with a data-adaptive register allocation approach zoozve permits any register groupings and accurately aligns vector lengths cutting down register overhead and alleviating performance declines from strip-mining. additionally the paper details zoozves compiler and hardware implementations using llvm and systemverilog. initial results indicate zoozve yields a minimum 10.10 reduction in dynamic instruction count for fast fourier transform fft with a mere 5.2 increase in overall silicon area. proceedings of 26th acm sigplan sigbed international conference on languages compilers and tools for embedded systems proceedings of 26th acm sigplan sigbed international conference on languages compilers and tools for embedded systems 2025 research-paper siyi xu shanghai university limin jiang shanghai university yintao liu shanghai university yihao shen shanghai university yi shi shanghai university shan cao shanghai university zhiyuan jiang shanghai university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -2339,7 +2339,7 @@
           "JIT"
         ],
         "openalexId": "https://openalex.org/W4394745579",
-        "citationCount": 19,
+        "citationCount": 20,
         "doi": "10.1145/3597503.3639189",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2355,7 +2355,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 20,
         "_titleLower": "translation validation for jit compiler in the v8 javascript engine",
         "_authorLower": "seungwan kwon jaeseong kwon korea advanced institute of science and technology wooseok kang korea advanced institute of science and technology juneyoung lee amazon kihong heo korea advanced institute of science and technology",
         "_authorsLower": "seungwan kwon jaeseong kwon korea advanced institute of science and technology wooseok kang korea advanced institute of science and technology juneyoung lee amazon kihong heo korea advanced institute of science and technology",
@@ -2679,7 +2679,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 19
+          "citationCount": 20
         },
         "_searchBlob": "translation validation for jit compiler in the v8 javascript engine we present turbotv a translation validator for the javascript js just-in-time jit compiler of v8. while js engines have become a crucial part of various software systems their emerging adaption of jit compilation makes it increasingly challenging to ensure their correctness. we tackle this problem with an smt-based translation validation tv that checks whether a specific compilation is semantically correct. we formally define the semantics of ir of turbofan jit compiler of v8 as smt encoding. for efficient validation we design a staged strategy for js jit compilers. this allows us to decompose the whole correctness checking into simpler ones. furthermore we utilize fuzzing to achieve practical tv. we generate a large number of js functions using a fuzzer to trigger various optimization passes of turbofan and validate their compilation using turbotv. lastly we demonstrate that turbotv can also be used for cross-language tv. we show that turbotv can validate the translation chain from llvm ir to turbofan ir collaborating with an off-the-shelf tv tool for llvm. we evaluated turbotv on various sets of js and llvm programs. turbotv effectively validated a large number of compilations of turbofan with a low false positive rate and discovered a new miscompilation in llvm. proceedings of ieee acm 46th international conference on software engineering proceedings of ieee acm 46th international conference on software engineering 2024 research-paper seungwan kwon jaeseong kwon korea advanced institute of science and technology wooseok kang korea advanced institute of science and technology juneyoung lee amazon kihong heo korea advanced institute of science and technology ir jit ir jit",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4165,7 +4165,6 @@
     },
     "openalex-w4362703965": {
       "paper": {
-        "id": "openalex-w4362703965",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Efficient and Accurate Automatic Python Bindings with cppyy & Cling",
@@ -4228,6 +4227,7 @@
           "clang",
           "llvm"
         ],
+        "id": "openalex-w4362703965",
         "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6585,7 +6585,7 @@
         "matchedSubprojects": [
           "openmp"
         ],
-        "citationCount": 8,
+        "citationCount": 9,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -6594,7 +6594,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 9,
         "_titleLower": "just-in-time compilation and link-time optimization for openmp target offloading",
         "_authorLower": "shilei tian stony brook university joseph huber oak ridge national laboratory john tramm argonne national laboratory barbara chapman stony brook university johannes doerfert argonne national laboratory",
         "_authorsLower": "shilei tian stony brook university joseph huber oak ridge national laboratory john tramm argonne national laboratory barbara chapman stony brook university johannes doerfert argonne national laboratory",
@@ -6723,7 +6723,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 8
+          "citationCount": 9
         },
         "_searchBlob": "just-in-time compilation and link-time optimization for openmp target offloading no abstract available in discovery metadata. lecture notes in computer science lecture notes in computer science 2022 research-paper shilei tian stony brook university joseph huber oak ridge national laboratory john tramm argonne national laboratory barbara chapman stony brook university johannes doerfert argonne national laboratory openmp optimizations gpu openmp optimizations gpu offloading openmp target offloading compilation openmp",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -14381,7 +14381,7 @@
         "paperUrl": "https://doi.org/10.1016/j.scs.2019.101673",
         "tags": [],
         "openalexId": "https://openalex.org/W2956808672",
-        "citationCount": 128,
+        "citationCount": 129,
         "doi": "10.1016/j.scs.2019.101673",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -14395,7 +14395,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 128,
+        "_citationCount": 129,
         "_titleLower": "development and application of linear ventilation and temperature models for indoor environmental prediction and hvac systems control",
         "_authorLower": "chen ren guangzhou university shi‐jie cao guangzhou academy of building research",
         "_authorsLower": "chen ren guangzhou university shi‐jie cao guangzhou academy of building research",
@@ -14749,7 +14749,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 128
+          "citationCount": 129
         },
         "_searchBlob": "development and application of linear ventilation and temperature models for indoor environmental prediction and hvac systems control abstract it has been of great importance to develop better control techniques for heating ventilation and air conditioning hvac systems to provide occupancy driven energy and comfort management due to the significance of building energy conservation. following with our previous work where low-dimensional linear ventilation model llvm and artificial neural network ann were incorporated to realize online control of indoor air quality iaq we continued to expand the work on indoor thermal comfort itc with low-dimensional linear temperature model lltm and contribution ratio of indoor climate cri to provide dependable support for hvac online control. two steps were required to be implemented respectively considering pollutant and temperature responses. as a premise for control the database was constructed by cfd which was verified by the corresponding experiments. linear ventilation model lvm and linear temperature model ltm could be well employed to expand the cfd database. then combined with satisfying ann and cri along with low-dimensional linear model llm for database reconstruction llvm-based ann and lltm-based cri could rapidly predict the distribution of indoor environmental parameters e.g. co2 concentration and temperature within acceptable errors. next the comprehensive evaluation indices were defined to provide weighting factors for indoor environment iaq and itc and air conditioning energy. by using the current control strategy the hvac energy consumption resulting from ventilation and air conditioning loads could be significantly decreased up to 50 and 32 respectively. this study will further promote an intelligent control strategy to improve the deteriorated condition between occupant comfort and hvac energy conservation. sustainable cities and society sustainable cities and society vol. 51 2019 research-paper chen ren guangzhou university shi jie cao guangzhou academy of building research",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -19910,7 +19910,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4247464060",
-        "citationCount": 217,
+        "citationCount": 220,
         "doi": "10.1109/spro.2015.10",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -19927,7 +19927,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 217,
+        "_citationCount": 220,
         "_titleLower": "obfuscator-llvm -- software protection for the masses",
         "_authorLower": "pascal junod hes-so university of applied sciences and arts western switzerland julien rinaldini hes-so university of applied sciences and arts western switzerland johan wehrli hes-so university of applied sciences and arts western switzerland julie michielin kudelski",
         "_authorsLower": "pascal junod hes-so university of applied sciences and arts western switzerland julien rinaldini hes-so university of applied sciences and arts western switzerland johan wehrli hes-so university of applied sciences and arts western switzerland julie michielin kudelski",
@@ -20208,7 +20208,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 217
+          "citationCount": 220
         },
         "_searchBlob": "obfuscator-llvm -- software protection for the masses software security with respect to reverse-engineering is a challenging discipline that has been researched for several years and which is still active. at the same time this field is inherently practical and thus of industrial relevance indeed protecting a piece of software against tampering malicious modifications or reverse-engineering is a very difficult task. in this paper we present and discuss a software obfuscation prototype tool based on the llvm compilation suite. our tool is built as different passes where some of them have been open-sourced and are freely available that work on the llvm intermediate representation ir code. this approach brings several advantages including the fact that it is language-agnostic and mostly independent of the target architecture. our current prototype supports basic instruction substitutions insertion of bogus control-flow constructs mixed with opaque predicates control-flow flattening procedures merging as well as a code tamper-proofing algorithm embedding code and data checksums directly in the control-flow flattening mechanism. 2015 ieee acm 1st international workshop on software protection 2015 ieee acm 1st international workshop on software protection 2015 research-paper pascal junod hes-so university of applied sciences and arts western switzerland julien rinaldini hes-so university of applied sciences and arts western switzerland johan wehrli hes-so university of applied sciences and arts western switzerland julie michielin kudelski ir security ir security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -27253,7 +27253,7 @@
         "openalexId": "https://openalex.org/W2088383546",
         "sourceUrl": "https://doi.org/10.1145/2046707.2046713",
         "doi": "10.1145/2046707.2046713",
-        "citationCount": 101,
+        "citationCount": 102,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -27267,7 +27267,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 101,
+        "_citationCount": 102,
         "_titleLower": "combining control-flow integrity and static analysis for efficient and validated data sandboxing",
         "_authorLower": "bin zeng lehigh university gang tan lehigh university greg morrisett harvard university press",
         "_authorsLower": "bin zeng lehigh university gang tan lehigh university greg morrisett harvard university press",
@@ -27567,7 +27567,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 101
+          "citationCount": 102
         },
         "_searchBlob": "combining control-flow integrity and static analysis for efficient and validated data sandboxing in many software attacks inducing an illegal control-flow transfer in the target system is one common step. control-flow integrity cfi protects a software system by enforcing a pre-determined control-flow graph. in addition to providing strong security cfi enables static analysis on low-level code. this paper evaluates whether cfi-enabled static analysis can help build efficient and validated data sandboxing. previous systems generally sandbox memory writes for integrity but avoid protecting confidentiality due to the high overhead of sandboxing memory reads. to reduce overhead we have implemented a series of optimizations that remove sandboxing instructions if they are proven unnecessary by static analysis. on top of cfi our system adds only 2.7 runtime overhead on specint2000 for sandboxing memory writes and adds modest 19 for sandboxing both reads and writes. we have also built a principled data-sandboxing verifier based on range analysis. the verifier checks the safety of the results of the optimizer which removes the need to trust the rewriter and optimizer. our results show that the combination of cfi and static analysis has the potential of bringing down the cost of general inlined reference monitors while maintaining strong security. proceedings of 18th acm conference on computer and communications security proceedings of 18th acm conference on computer and communications security 2011 research-paper bin zeng lehigh university gang tan lehigh university greg morrisett harvard university press static analysis static analysis",
         "addedAt": "2026-02-20T23:08:48.000Z",

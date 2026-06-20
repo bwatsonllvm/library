@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7154864968": {
       "paper": {
@@ -2772,7 +2772,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4411522861",
-        "citationCount": 1,
+        "citationCount": 2,
         "doi": "10.1145/3728974",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2790,7 +2790,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 2,
         "_titleLower": "type-alias analysis: enabling llvm ir with accurate types",
         "_authorLower": "jinmeng zhou zhejiang university ziyue pan zhejiang university wenbo shen zhejiang university x.-d. wang zhejiang university kangjie lu university of minnesota zhiyun qian university of california, riverside",
         "_authorsLower": "jinmeng zhou zhejiang university ziyue pan zhejiang university wenbo shen zhejiang university x.-d. wang zhejiang university kangjie lu university of minnesota zhiyun qian university of california, riverside",
@@ -3081,7 +3081,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 1
+          "citationCount": 2
         },
         "_searchBlob": "type-alias analysis enabling llvm ir with accurate types llvm intermediate representation ir underpins the llvm compiler infrastructure offering a strong type system and a static single-assignment ssa form that are well-suited for program analysis. however its single-type design assigns exactly one type to each ir variable even when the variable may legitimately correspond to multiple types. the recent introduction of opaque pointers exacerbates this limitation all pointers in the ir are uniformly represented with a generic pointer type ptr that erases concrete pointee type information making many type-based analyses ineffective. to address the limitations of single-type design we introduce type-alias analysis a multiple-type design that maintains type-alias sets for ir variables and infers types across ir instructions. we have developed typecopilot a prototype that recovers concrete pointee types for opaque-pointer-enabled llvm ir generated from c programs. typecopilot achieves 98.57 accuracy with 94.98 coverage allowing existing analysis tools to retain their effectiveness despite the adoption of opaque pointers. to foster further research and security applications we have open-sourced typecopilot providing the community with a practical foundation for precise type-aware security analyses on modern llvm ir. proceedings of acm on software engineering proceedings of acm on software engineering vol. 2 issue issta 2025 research-paper jinmeng zhou zhejiang university ziyue pan zhejiang university wenbo shen zhejiang university x.-d. wang zhejiang university kangjie lu university of minnesota zhiyun qian university of california riverside infrastructure ir security infrastructure ir security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7812,7 +7812,7 @@
           "offload"
         ],
         "id": "openalex-w4411486154",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -7822,7 +7822,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "dx100: programmable data access accelerator for indirection",
         "_authorLower": "alireza khadem university of michigan–ann arbor kamalavasan kamalakkannan los alamos national laboratory zhenyan zhu university of michigan–ann arbor akash poptani university of michigan–ann arbor yufeng gu university of michigan–ann arbor jered dominguez-trujillo los alamos national laboratory nishil talati university of michigan–ann arbor daichi fujiki scott mahlke university of michigan–ann arbor galen shipman los alamos national laboratory reetuparna das university of michigan–ann arbor",
         "_authorsLower": "alireza khadem university of michigan–ann arbor kamalavasan kamalakkannan los alamos national laboratory zhenyan zhu university of michigan–ann arbor akash poptani university of michigan–ann arbor yufeng gu university of michigan–ann arbor jered dominguez-trujillo los alamos national laboratory nishil talati university of michigan–ann arbor daichi fujiki scott mahlke university of michigan–ann arbor galen shipman los alamos national laboratory reetuparna das university of michigan–ann arbor",
@@ -8209,7 +8209,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "dx100 programmable data access accelerator for indirection indirect memory accesses frequently appear in applications where memory bandwidth is a critical bottleneck. prior indirect memory access proposals such as indirect prefetchers runahead execution fetchers and decoupled access execute architectures primarily focus on improving memory access latency by loading data ahead of computation but still rely on the dram controllers to reorder memory requests and enhance memory bandwidth utilization. dram controllers have limited visibility to future memory accesses due to the small capacity of request buffers and the restricted memory-level parallelism of conventional core and memory systems. we introduce dx100 a programmable data access accelerator for indirect memory accesses. dx100 is shared across cores to offload bulk indirect memory accesses and associated address calculation operations. dx100 reorders interleaves and coalesces memory requests to improve dram row-buffer hit rate and memory bandwidth utilization. dx100 provides a general-purpose isa to support diverse access types loop patterns conditional accesses and address calculations. to support this accelerator without significant programming efforts we discuss a set of mlir compiler passes that automatically transform legacy code to utilize dx100. experimental evaluations on 12 benchmarks spanning scientific computing database and graph applications show that dx100 achieves performance improvements of 2.6x over a multicore baseline and 2.0x over the state-of-the-art indirect prefetcher. proceedings of 52nd annual international symposium on computer architecture proceedings of 52nd annual international symposium on computer architecture 2025 research-paper alireza khadem university of michigan ann arbor kamalavasan kamalakkannan los alamos national laboratory zhenyan zhu university of michigan ann arbor akash poptani university of michigan ann arbor yufeng gu university of michigan ann arbor jered dominguez-trujillo los alamos national laboratory nishil talati university of michigan ann arbor daichi fujiki scott mahlke university of michigan ann arbor galen shipman los alamos national laboratory reetuparna das university of michigan ann arbor mlir offload performance gpu mlir offload performance gpu offloading memory bandwidth utilization dx100 programmable memory accesses indirect memory accesses access accelerator dram controllers memory requests mlir offload",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -11981,7 +11981,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4379931510",
-        "citationCount": 14,
+        "citationCount": 15,
         "doi": "10.1109/tpds.2023.3284219",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11997,7 +11997,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 15,
         "_titleLower": "taskgraph: a low contention openmp tasking framework",
         "_authorLower": "chenle yu barcelona supercomputing center sara royuela barcelona supercomputing center eduardo quiñones barcelona supercomputing center",
         "_authorsLower": "chenle yu barcelona supercomputing center sara royuela barcelona supercomputing center eduardo quiñones barcelona supercomputing center",
@@ -12381,7 +12381,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 14
+          "citationCount": 15
         },
         "_searchBlob": "taskgraph a low contention openmp tasking framework openmp is the de-facto standard for shared memory systems in high-performance computing hpc . it includes a tasking model that offers a high-level of abstraction to effectively exploit structured loop-based and highly dynamic unstructured task-based parallelism in an easy and flexible way. unfortunately the run-time overheads introduced to manage tasks are very high in most common openmp frameworks e.g. gcc llvm which defeats the potential benefits of the tasking model and makes it suitable for coarse-grained tasks only. this paper presents monospace xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink taskgraph monospace a framework that uses a task dependency graph tdg to represent a region of code implemented with openmp tasks in order to reduce the run-time overheads associated with the management of tasks i.e. contention and parallel orchestration including task creation and synchronization. the tdg avoids the overheads related to the resolution of task dependencies and greatly reduces those deriving from accesses to shared resources. moreover the taskgraph framework introduces in openmp the italic xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink record-and-replay i execution model that accelerates the taskgraph region from its second execution. overall the multiple optimizations presented in this paper allow exploiting fine-grained openmp tasks to cope with the trend in current applications pointing to leverage massive on-node parallelism fine-grained and dynamic scheduling paradigms. the framework is implemented on llvm 15.0. results show that the taskgraph implementation outperforms the vanilla openmp system in terms of performance and scalability for all structured and unstructured parallelism and considering coarse and fine grained tasks. furthermore the proposed framework makes the tasking model a competitive alternative to the openmp thread model in most cases. ieee transactions on parallel and distributed systems ieee transactions on parallel and distributed systems vol. 34 issue 8 2023 research-paper chenle yu barcelona supercomputing center sara royuela barcelona supercomputing center eduardo quinones barcelona supercomputing center optimizations performance optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12444,7 +12444,7 @@
         "venue": "The International Journal of High Performance Computing Applications | Vol. 38 (Issue 2)",
         "type": "research-paper",
         "abstract": "This paper presents the evolution of the free agent threads for OpenMP to the new role-shifting threads model and their integration with the Dynamic Load Balancing (DLB) library. We demonstrate how free agent threads can improve resource utilization in OpenMP applications with load imbalance in their nested parallel regions. We also demonstrate how DLB efficiently manages the malleability exposed by the role-shifting threads to address load imbalance issues. We use three real-world scientific applications, one of them to demonstrate that free agents alone can improve the OpenMP model without external tools, and two other MPI+OpenMP applications, one of them with a coupling case, to illustrate the potential of the free agent threads’ malleability with an external resource manager to increase the efficiency of the system. In addition, we demonstrate that the new implementation is more usable than the former one, letting the runtime system automatically make decisions that were made by the programmer previously. All software is released open-source.",
-        "paperUrl": "https://upcommons.upc.edu/bitstreams/093fe24c-60de-42e4-872a-d2f29a7c57a9/download",
+        "paperUrl": "https://journals.sagepub.com/doi/pdf/10.1177/10943420231201153?download=true",
         "sourceUrl": "https://doi.org/10.1177/10943420231201153",
         "openalexId": "https://openalex.org/W4387845955",
         "doi": "10.1177/10943420231201153",
@@ -12825,7 +12825,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-031-31445-2_6",
         "tags": [],
         "openalexId": "https://openalex.org/W4376456610",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1007/978-3-031-31445-2_6",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12839,7 +12839,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "mpirace: a static data race detector for mpi programs",
         "_authorLower": "wenwen wang university of georgia",
         "_authorsLower": "wenwen wang university of georgia",
@@ -12964,7 +12964,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "mpirace a static data race detector for mpi programs data races in distributed parallel programs such as those developed with the message passing interface mpi can cause critical correctness and reliability issues. therefore it is highly necessary to detect and fix them. however existing mpi programming... lecture notes in computer science lecture notes in computer science 2023 research-paper wenwen wang university of georgia",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13602,7 +13602,7 @@
         "venue": "The International Journal of High Performance Computing Applications | Vol. 37 (Issue 5)",
         "type": "research-paper",
         "abstract": "Hybrid computer systems combine compute units (CUs) of different nature like CPUs, GPUs and FPGAs. Simultaneously exploiting the computing power of these CUs requires a careful decomposition of the applications into balanced parallel tasks according to both the performance of each CU type and the communication costs among them. This paper describes the design and implementation of runtime support for OpenMP hybrid GPU-CPU applications, when mixed with GPU-oriented programming models (e.g. CUDA/HIP). The paper describes the case for a hybrid multi-level parallelization of the NPB-MZ benchmark suite. The implementation exploits both coarse-grain and fine-grain parallelism, mapped to compute units of different nature (GPUs and CPUs). The paper describes the implementation of runtime support to bridge OpenMP and HIP, introducing the abstractions of Computing Unit and Data Placement. We compare hybrid and non-hybrid executions under state-of-the-art schedulers for OpenMP: static and dynamic task schedulings. Then, we improve the set of schedulers with two additional variants: a memorizing-dynamic task scheduling and a profile-based static task scheduling. On a computing node composed of one AMD EPYC 7742 @ 2.250 GHz (64 cores and 2 threads/core, totalling 128 threads per node) and 2 × GPU AMD Radeon Instinct MI50 with 32 GB, hybrid executions present speedups from 1.10× up to 3.5× with respect to a non-hybrid GPU implementation, depending on the number of activated CUs.",
-        "paperUrl": "https://upcommons.upc.edu/bitstreams/1a028c05-32fe-4dcb-a359-6c3ddc77bb6e/download",
+        "paperUrl": "https://journals.sagepub.com/doi/pdf/10.1177/10943420231188079?download=true",
         "sourceUrl": "https://doi.org/10.1177/10943420231188079",
         "openalexId": "https://openalex.org/W4385765206",
         "doi": "10.1177/10943420231188079",
@@ -23491,7 +23491,7 @@
         "paperUrl": "https://doi.org/10.1016/j.jss.2020.110884",
         "tags": [],
         "openalexId": "https://openalex.org/W3113205478",
-        "citationCount": 52,
+        "citationCount": 53,
         "doi": "10.1016/j.jss.2020.110884",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -23505,7 +23505,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 52,
+        "_citationCount": 53,
         "_titleLower": "an empirical study of optimization bugs in gcc and llvm",
         "_authorLower": "zhide zhou dalian university of technology zhilei ren dalian university of technology guojun gao dalian university of technology he jiang beijing institute of technology",
         "_authorsLower": "zhide zhou dalian university of technology zhilei ren dalian university of technology guojun gao dalian university of technology he jiang beijing institute of technology",
@@ -23622,7 +23622,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 52
+          "citationCount": 53
         },
         "_searchBlob": "an empirical study of optimization bugs in gcc and llvm no abstract available in openalex metadata. journal of systems and software journal of systems and software vol. 174 2020 research-paper zhide zhou dalian university of technology zhilei ren dalian university of technology guojun gao dalian university of technology he jiang beijing institute of technology",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -28199,7 +28199,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2205902796",
-        "citationCount": 22,
+        "citationCount": 23,
         "doi": "10.1145/2818000.2818023",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -28215,7 +28215,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 22,
+        "_citationCount": 23,
         "_titleLower": "defeating rop through denial of stack pivot",
         "_authorLower": "aravind prakash binghamton university heng yin syracuse university",
         "_authorsLower": "aravind prakash binghamton university heng yin syracuse university",
@@ -28539,7 +28539,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 22
+          "citationCount": 23
         },
         "_searchBlob": "defeating rop through denial of stack pivot return-oriented programming rop is a popular and prevalent infiltration technique. while current solutions based on code randomization artificial diversification and control-flow integrity cfi have rendered rop attacks harder to accomplish they have been unsuccessful in completely eliminating them. particularly cfi-based approaches lack incremental deployability and impose high performance overhead -- two key requirements for practical application. in this paper we present a novel compiler-level defense against rop attacks. we observe that stack pivoting -- a key step in executing rop attacks -- often moves the stack pointer from the stack region to a non-stack often heap region thereby violating the integrity of the stack pointer. unlike cfi-based defenses our defense does not rely on the control-flow of the program. instead we assert the sanity of stack pointer at predetermined execution points in order to detect stack pivoting and thereby defeat rop. the key advantage of our approach is that it allows for incremental deployability an achilles heel for cfi. that is we can selectively protect some modules that can coexist with other unprotected modules. other advantages include 1 we do not depend on aslr -- which is particularly vulnerable to information disclosure attacks and 2 we do not make any assumptions regarding the so called gadget . we implemented our defense in a proof-of-concept llvm-based system called pblocker. we evaluated pblocker on spec 2006 benchmark and show an average runtime overhead of 1.04 . proceedings of 31st annual computer security applications conference proceedings of 31st annual computer security applications conference 2015 research-paper aravind prakash binghamton university heng yin syracuse university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -28878,7 +28878,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4238851087",
-        "citationCount": 158,
+        "citationCount": 159,
         "doi": "10.1109/isca.2014.6853201",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -28895,7 +28895,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 158,
+        "_citationCount": 159,
         "_titleLower": "the cheri capability model: revisiting risc in an age of risk",
         "_authorLower": "jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge",
         "_authorsLower": "jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge",
@@ -29229,7 +29229,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 158
+          "citationCount": 159
         },
         "_searchBlob": "the cheri capability model revisiting risc in an age of risk motivated by contemporary security challenges we reevaluate and refine capability-based addressing for the risc era. we present cheri a hybrid capability model that extends the 64-bit mips isa with byte-granularity memory protection. we demonstrate that cheri enables language memory model enforcement and fault isolation in hardware rather than software and that the cheri mechanisms are easily adopted by existing programs for efficient in-program memory safety. in contrast to past capability models cheri complements rather than replaces the ubiquitous page-based protection mechanism providing a migration path towards deconflating data-structure protection and os memory management. furthermore. cheri adheres to a strict risc philosophy it maintains a load-store architecture and requires only single-cycle instructions and supplies protection primitives to the compiler language runtime and operating system. we demonstrate a mature fpga implementation that runs the freebsd operating system with a full range of software and an open-source application suite compiled with an extended llvm to use cheri memory protection. a limit study compares published memory safety mechanisms in terms of instruction count and memory overheads. the study illustrates that cheri is performance-competitive even while providing assurance and greater flexibility with simpler hardware. 2014 acm ieee 41st international symposium on computer architecture isca 2014 acm ieee 41st international symposium on computer architecture isca 2014 research-paper jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge performance security performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -29565,7 +29565,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W2064391085",
-        "citationCount": 26,
+        "citationCount": 27,
         "doi": "10.1145/2629335",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -29581,7 +29581,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 26,
+        "_citationCount": 27,
         "_titleLower": "a retargetable static binary translator for the arm architecture",
         "_authorLower": "bor-yeh shen national yang ming chiao tung university wei‐chung hsu national yang ming chiao tung university wuu yang national yang ming chiao tung university",
         "_authorsLower": "bor-yeh shen national yang ming chiao tung university wei‐chung hsu national yang ming chiao tung university wuu yang national yang ming chiao tung university",
@@ -29938,7 +29938,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 26
+          "citationCount": 27
         },
         "_searchBlob": "a retargetable static binary translator for the arm architecture machines designed with new but incompatible instruction set architecture isa may lack proper applications. binary translation can address this incompatibility by migrating applications from one legacy isa to a new one although binary translation has problems such as code discovery for variable-length isa and code location issues for handling indirect branches. dynamic binary translation dbt has been widely adopted for migrating applications since it avoids those problems. static binary translation sbt is a less general solution and has not been actively researched. however sbt performs more aggressive optimizations which could yield more compact code and better code quality. applications translated by sbt can consume less memory processor cycles and power than dbt and can be started more quickly. these advantages are even more critical for embedded systems than for general systems. in this article we designed and implemented a new sbt tool called llbt which translates arm instructions into llvm irs and then retargets the llvm irs to various isas including 86 86--64 arm and mips. llbt leverages two important functionalities from llvm comprehensive optimizations and retargetability. more importantly llbt solves the code discovery problem for arm thumb binaries without resorting to interpretation. llbt also effectively reduced the size of the address mapping table making sbt a viable solution for embedded systems. our experiments based on the eembc benchmark suite show that the llbt-generated code can run more than 6 and 2.3 faster on average than emulation with qemu and hqemu respectively. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 11 issue 2 2014 research-paper bor-yeh shen national yang ming chiao tung university wei chung hsu national yang ming chiao tung university wuu yang national yang ming chiao tung university embedded optimizations embedded optimizations",
         "addedAt": "2026-02-21T03:54:27.000Z",

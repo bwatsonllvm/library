@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131071118": {
       "paper": {
@@ -751,7 +751,7 @@
           "mlir"
         ],
         "id": "openalex-w7124680514",
-        "citationCount": 0,
+        "citationCount": 5,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -761,7 +761,7 @@
         "_year": "2026",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 5,
         "_titleLower": "from loop nests to silicon: mapping ai workloads onto amd npus with mlir-air",
         "_authorLower": "erwei wang advanced micro devices samuel bayliss advanced micro devices andra bisca advanced micro devices zachary taylor blair advanced micro devices sangeeta chowdhary advanced micro devices k. denolf advanced micro devices jeff fifield advanced micro devices brandon freiberger advanced micro devices erika hunhoff advanced micro devices phil james-roxby advanced micro devices jack lo advanced micro devices joseph melber advanced micro devices stephen neuendorffer advanced micro devices eddie richter advanced micro devices a. rosti advanced micro devices javier setoain advanced micro devices gagandeep singh advanced micro devices endri taka advanced micro devices pranathi vasireddy advanced micro devices zhewen yu advanced micro devices niansong zhang advanced micro devices jinming zhuang advanced micro devices",
         "_authorsLower": "erwei wang advanced micro devices samuel bayliss advanced micro devices andra bisca advanced micro devices zachary taylor blair advanced micro devices sangeeta chowdhary advanced micro devices k. denolf advanced micro devices jeff fifield advanced micro devices brandon freiberger advanced micro devices erika hunhoff advanced micro devices phil james-roxby advanced micro devices jack lo advanced micro devices joseph melber advanced micro devices stephen neuendorffer advanced micro devices eddie richter advanced micro devices a. rosti advanced micro devices javier setoain advanced micro devices gagandeep singh advanced micro devices endri taka advanced micro devices pranathi vasireddy advanced micro devices zhewen yu advanced micro devices niansong zhang advanced micro devices jinming zhuang advanced micro devices",
@@ -1224,7 +1224,7 @@
             }
           },
           "year": 2026,
-          "citationCount": 0
+          "citationCount": 5
         },
         "_searchBlob": "from loop nests to silicon mapping ai workloads onto amd npus with mlir-air general-purpose compilers abstract away parallelism locality and synchronization limiting their effectiveness on modern spatial architectures. as modern computing architectures increasingly rely on fine-grained control over data movement execution order and compute placement for performance compiler infrastructure must provide explicit mechanisms for orchestrating compute and data to fully exploit such architectures. we introduce mlir-air a novel open-source compiler stack built on mlir that bridges the semantic gap between high-level workloads and fine-grained spatial architectures such as amds npus. mlir-air defines the air dialect which provides structured representations for asynchronous and hierarchical operations across compute and memory resources. air primitives allow the compiler to orchestrate spatial scheduling distribute computation across hardware regions and overlap communication with computation without relying on ad hoc runtime coordination or manual scheduling. we demonstrate mlir-airs capabilities through two case studies matrix multiplication and the multi-head attention block from the llama 2 model. for matrix multiplication mlir-air achieves up to 78.7 compute efficiency and generates implementations with performance almost identical to state-of-the-art hand-optimized matrix multiplication written using the lower-level close-to-metal mlir-aie framework. for multi-head attention we demonstrate that the air interface supports fused implementations using approximately 150 lines of code enabling tractable expression of complex workloads with efficient mapping to spatial hardware. mlir-air transforms high-level structured control flow into spatial programs that efficiently utilize the compute fabric and memory hierarchy of an npu leveraging asynchronous execution tiling and communication overlap through compiler-managed scheduling. acm transactions on reconfigurable technology and systems acm transactions on reconfigurable technology and systems 2026 research-paper erwei wang advanced micro devices samuel bayliss advanced micro devices andra bisca advanced micro devices zachary taylor blair advanced micro devices sangeeta chowdhary advanced micro devices k. denolf advanced micro devices jeff fifield advanced micro devices brandon freiberger advanced micro devices erika hunhoff advanced micro devices phil james-roxby advanced micro devices jack lo advanced micro devices joseph melber advanced micro devices stephen neuendorffer advanced micro devices eddie richter advanced micro devices a. rosti advanced micro devices javier setoain advanced micro devices gagandeep singh advanced micro devices endri taka advanced micro devices pranathi vasireddy advanced micro devices zhewen yu advanced micro devices niansong zhang advanced micro devices jinming zhuang advanced micro devices mlir performance infrastructure ai mlir performance infrastructure ai mlir air compute spatial architectures matrix multiplication multi head attention workloads fine grained hardware memory silicon mapping mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -2205,7 +2205,7 @@
           "openmp"
         ],
         "id": "openalex-w4404169347",
-        "citationCount": 12,
+        "citationCount": 13,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -2215,7 +2215,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "petsc/tao users manual revision 3.22",
         "_authorLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcín argonne national laboratory v. eijkhout argonne national laboratory václav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory josé e. román argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory",
         "_authorsLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcín argonne national laboratory v. eijkhout argonne national laboratory václav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory josé e. román argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory",
@@ -3138,7 +3138,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "petsc tao users manual revision 3.22 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations pdes and related problems on high-performance computers.petsc tao is a suite of data structures and routines that provide the building blocks for implementing large-scale application codes on parallel and serial computers.petsc uses the mpi standard for all distributed memory communication.petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and optimizers that may be used in application codes written in fortran c c++ and python via petsc4py see getting started .the library is organized hierarchically enabling users to employ the abstraction level most appropriate for a particular problem.by using techniques of object-oriented programming petsc provides enormous flexibility for users.petsc is a sophisticated set of software tools it initially has a steeper learning curve than packages such as matlab or a simple subroutine library.in particular for individuals without some experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use.however the power of the petsc design and the algorithms it incorporates makes the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. several packages listed on https petsc.org built on petsc may satisfy your needs without requiring directly using petsc.we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code.this approach can provide modest improvements in the application time by utilizing modest numbers of mpi processes.see pcmpi for details on how to utilize the petsc mpi linear solver server.since petsc is under continued development small changes in usage and calling sequences of routines will occur.petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support.petsc tao users manual release 3.22.0dm interfacing between solvers and models discretizations details how a users models and discretizations can easily be interfaced with the solvers by using the dm construct.additional information describes a variety of useful information including profiling the options database viewers error handling and some details of petsc design.visual studio code eclipse emacs and vim users may find their development environments options for searching in the source code are useful for exploring the petsc source code.details of this feature are provided in developer environments.note to fortran programmers in most of the manual the examples and calling sequences are given for the c c++ family of programming languages.however fortran programmers can use all of the functionality of petsc from fortran with only minor differences in the user interface.petsc for fortran users provides a discussion of the differences between using petsc from fortran and c as well as several complete fortran examples. note to python programmers to program with petsc in python you need to enable python bindings i.e.petsc4py with the configure option --with-petsc4py 1.see the petsc installation guide for more details. mpiexec -n 8 . petsc program namepetsc optionspetsc also provides a script that automatically uses the correct mpiexec for your configuration. petsc dir lib petsc bin petscmpiexec -n 8 . petsc program namepetsc options certain options are supported by all petsc programs.we list a few particularly useful ones below a complete list can be obtained by running any petsc program with the option -help. -log view -summarize the programs performance see profiling -fp trap -stop on floating-point exceptions for example divide by zero -malloc dump -enable memory tracing dump list of unfreed memory at conclusion of the run see detecting memory allocation problems and memory usage kspcreate mpi comm comm argonne national laboratory anl argonne national laboratory anl 2024 research-paper satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark raymond adams argonne national laboratory j. dillon brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory a. dener argonne national laboratory j. faibussowitsch argonne national laboratory william gropp argonne national laboratory t. isaac argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory kong fan-de argonne national laboratory l. mcinnes argonne national laboratory t. munson argonne national laboratory k. rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian l. smith argonne national laboratory hong zhang argonne national laboratory s. benson argonne national laboratory hansol suh argonne national laboratory lisandro dalcin argonne national laboratory v. eijkhout argonne national laboratory vaclav hapla argonne national laboratory p. jolivet argonne national laboratory dmitry karpeev argonne national laboratory scott kruger argonne national laboratory dave a. may argonne national laboratory lawrence mitchell argonne national laboratory jose e. roman argonne national laboratory stefano zampini argonne national laboratory robert mills argonne national laboratory jing zhang argonne national laboratory lldb openmp optimizations performance programming languages lldb openmp optimizations performance programming languages fortran petsc tao users memory mpi python tao users manual petsc program namepetsc options solvers lldb openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -4284,7 +4284,7 @@
         "paperUrl": "https://doi.org/10.1109/cscwd61410.2024.10580120",
         "tags": [],
         "openalexId": "https://openalex.org/W4400490265",
-        "citationCount": 3,
+        "citationCount": 4,
         "doi": "10.1109/cscwd61410.2024.10580120",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4298,7 +4298,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 4,
         "_titleLower": "eatuner: comparative study of evolutionary algorithms for compiler auto-tuning",
         "_authorLower": "guojian xiao dongguan university of technology siyuan qin dongguan university of technology kuan li dongguan university of technology juan chen national university of defense technology jianping yin dongguan university of technology",
         "_authorsLower": "guojian xiao dongguan university of technology siyuan qin dongguan university of technology kuan li dongguan university of technology juan chen national university of defense technology jianping yin dongguan university of technology",
@@ -4630,7 +4630,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 3
+          "citationCount": 4
         },
         "_searchBlob": "eatuner comparative study of evolutionary algorithms for compiler auto-tuning the manual adjustment of compilation flags by compiler users is impractical due to the exponential size of the search space. to address this machine learning-based compiler auto-tuning methods particularly evolutionary algorithms have been proposed. however existing works use different benchmarks and experimental setups making it difficult to compare the strengths and weaknesses of various algorithms. to address this we present eatuner an evolutionary algorithm-based framework for compiler auto-tuning with the goal of benchmarking and identifying suitable algorithms for compiler auto-tuning. we implement ten discrete binary evolutionary algorithms and evaluate their effectiveness on the llvm compiler through experiments. notably eight of these algorithms have not been previously applied to compiler flag optimization problems before our work. the results show that all ten algorithms can effectively achieve compiler auto-tuning resulting in an average speedup of 1.204. however there are notable differences in the effectiveness and efficiency of each algorithm particularly in optimization efficiency which is positively correlated with the number of program compilations. based on this we classify the algorithms into three levels with differential evolution de showing significant advantages in optimization effectiveness and efficiency. additionally we provide a comprehensive summary of the applicability of compiler flags the correlation between them and their relationship with programs. 2024 27th international conference on computer supported cooperative work in design cscwd 2024 27th international conference on computer supported cooperative work in design cscwd 2024 research-paper guojian xiao dongguan university of technology siyuan qin dongguan university of technology kuan li dongguan university of technology juan chen national university of defense technology jianping yin dongguan university of technology",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11801,7 +11801,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3016059855",
-        "citationCount": 54,
+        "citationCount": 55,
         "doi": "10.48550/arxiv.1912.08788",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11818,7 +11818,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 54,
+        "_citationCount": 55,
         "_titleLower": "binsec/rel: efficient relational symbolic execution for constant-time at\\n binary-level",
         "_authorLower": "lesly-ann daniel université paris-saclay sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives tamara rezk institut national de recherche en sciences et technologies du numérique",
         "_authorsLower": "lesly-ann daniel université paris-saclay sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives tamara rezk institut national de recherche en sciences et technologies du numérique",
@@ -12131,7 +12131,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 54
+          "citationCount": 55
         },
         "_searchBlob": "binsec rel efficient relational symbolic execution for constant-time at n binary-level the constant-time programming discipline ct is an efficient countermeasure nagainst timing side-channel attacks requiring the control flow and the memory naccesses to be independent from the secrets. yet writing ct code is nchallenging as it demands to reason about pairs of execution traces 2- nhypersafety property and it is generally not preserved by the compiler nrequiring binary-level analysis. unfortunately current verification tools for nct either reason at higher level c or llvm or sacrifice bug-finding or nbounded-verification or do not scale. we tackle the problem of designing an nefficient binary-level verification tool for ct providing both bug-finding and nbounded-verification. the technique builds on relational symbolic execution nenhanced with new optimizations dedicated to information flow and binary-level nanalysis yielding a dramatic improvement over prior work based on symbolic nexecution. we implement a prototype binsec rel and perform extensive nexperiments on a set of 338 cryptographic implementations demonstrating the nbenefits of our approach in both bug-finding and bounded-verification. using nbinsec rel we also automate a previous manual study of ct preservation by ncompilers. interestingly we discovered that gcc -o0 and backend passes of nclang introduce violations of ct in implementations that were previously deemed nsecure by a state-of-the-art ct verification tool operating at llvm level nshowing the importance of reasoning at binary-level. n arxiv arxiv 2019 research-paper lesly-ann daniel universite paris-saclay sebastien bardin commissariat a lenergie atomique et aux energies alternatives tamara rezk institut national de recherche en sciences et technologies du numerique backend clang optimizations backend clang optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12615,7 +12615,7 @@
           "Infrastructure"
         ],
         "openalexId": "https://openalex.org/W2883422009",
-        "citationCount": 21,
+        "citationCount": 22,
         "doi": "10.1145/3196321.3197546",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12633,7 +12633,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 22,
         "_titleLower": "codecompass",
         "_authorLower": "zoltán porkoláb eötvös loránd university tibor brunner eötvös loránd university dániel krupp ericsson márton csordás ericsson",
         "_authorsLower": "zoltán porkoláb eötvös loránd university tibor brunner eötvös loránd university dániel krupp ericsson márton csordás ericsson",
@@ -12869,7 +12869,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 21
+          "citationCount": 22
         },
         "_searchBlob": "codecompass codecompass is an open source llvm clang-based tool developed by ericsson ltd. and eotvos lorand university budapest to help the understanding of large legacy software systems. based on the llvm clang compiler infrastructure codecompass gives exact information on complex c c++ language elements like overloading inheritance the usage of variables and types possible uses of function pointers and virtual functions - features that various existing tools support only partially. steensgaards and andersens pointer analysis algorithms are used to compute and visualize the use of pointers references. the wide range of interactive visualizations extends further than the usual class and function call diagrams architectural component and interface diagrams are a few of the implemented graphs. to make comprehension more extensive codecompass also utilizes build information to explore the system architecture as well as version control information. proceedings of 26th conference on program comprehension proceedings of 26th conference on program comprehension vol. 3 2018 research-paper zoltan porkolab eotvos lorand university tibor brunner eotvos lorand university daniel krupp ericsson marton csordas ericsson c++ clang infrastructure c++ clang infrastructure",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -12925,7 +12925,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2889788853",
-        "citationCount": 49,
+        "citationCount": 52,
         "doi": "10.1109/secdev.2018.00015",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12942,7 +12942,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 49,
+        "_citationCount": 52,
         "_titleLower": "checked c: making c safe by extension",
         "_authorLower": "archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland, college park",
         "_authorsLower": "archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland, college park",
@@ -13129,7 +13129,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 49
+          "citationCount": 52
         },
         "_searchBlob": "checked c making c safe by extension this paper presents checked c an extension to c designed to support spatial safety implemented in clang and llvm. checked cs design is distinguished by its focus on backward-compatibility incremental conversion developer control and enabling highly performant code. like past approaches to a safer c checked c employs a form of checked pointer whose accesses can be statically or dynamically verified. performance evaluation on a set of standard benchmark programs shows overheads to be relatively low. more interestingly checked c introduces the notions of a checked region and bounds-safe interfaces. 2018 ieee cybersecurity development secdev 2018 ieee cybersecurity development secdev 2018 research-paper archibald samuel elliott university of washington andrew ruef microsoft research michael hicks microsoft research david tarditi university of maryland college park clang performance clang performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13530,7 +13530,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2741661236",
-        "citationCount": 153,
+        "citationCount": 156,
         "doi": "10.1109/asap.2017.7995277",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -13546,7 +13546,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 153,
+        "_citationCount": 156,
         "_titleLower": "cgra-me: a unified framework for cgra modelling and exploration",
         "_authorLower": "s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara–azumi national institute of information and communications technology jason h. anderson university of toronto",
         "_authorsLower": "s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara–azumi national institute of information and communications technology jason h. anderson university of toronto",
@@ -13819,7 +13819,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 153
+          "citationCount": 156
         },
         "_searchBlob": "cgra-me a unified framework for cgra modelling and exploration coarse-grained reconfigurable arrays cgras are a style of programmable logic device situated between fpgas and custom asics on the spectrum of programmability performance power and cost. cgras have been proposed by both academia and industry however prior works have been mainly self-contained without broad architectural exploration and comparisons with competing cgras. we present cgra-me - a unified cgra framework that encompasses generic architecture description architecture modelling application mapping and physical implementation. within this framework we discuss our architecture description language cgra-adl a generic llvm-based simulated annealing mapper and a standard cell flow for physical implementation. an architecture exploration case study is presented highlighting the capabilities of cgra-me by exploring a variety of architectures with varying functionality interconnect array size and execution contexts through the mapping of application benchmarks and the production of standard cell designs. 2017 ieee 28th international conference on application-specific systems architectures and processors asap 2017 ieee 28th international conference on application-specific systems architectures and processors asap 2017 research-paper s. alexander chin noriaki sakamoto national institute of information and communications technology allan rui university of toronto jim zhao university of toronto jin hee kim university of toronto yuko hara azumi national institute of information and communications technology jason h. anderson university of toronto performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -20671,7 +20671,7 @@
           "C++"
         ],
         "openalexId": "https://openalex.org/W2156487548",
-        "citationCount": 231,
+        "citationCount": 233,
         "doi": "10.1145/2048147.2048224",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -20687,7 +20687,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 231,
+        "_citationCount": 233,
         "_titleLower": "emscripten",
         "_authorLower": "alon zakai mozilla foundation",
         "_authorsLower": "alon zakai mozilla foundation",
@@ -20892,7 +20892,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 231
+          "citationCount": 233
         },
         "_searchBlob": "emscripten we present emscripten a compiler from llvm low level virtual machine assembly to javascript. this opens up two avenues for running code written in languages other than javascript on the web 1 compile code directly into llvm assembly and then compile that into javascript using emscripten or 2 compile a languages entire runtime into llvm and then javascript as in the previous approach and then use the compiled runtime to run code written in that language. for example the former approach can work for c and c++ while the latter can work for python all three examples open up new opportunities for running code on the web. proceedings of acm international conference companion on object oriented programming systems languages and applications companion proceedings of acm international conference companion on object oriented programming systems languages and applications companion 2011 research-paper alon zakai mozilla foundation c++ c++",
         "addedAt": "2026-02-21T05:39:52.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7134954462": {
       "paper": {
@@ -3760,7 +3760,7 @@
           "openmp"
         ],
         "id": "openalex-w4362717258",
-        "citationCount": 67,
+        "citationCount": 68,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -3769,7 +3769,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 67,
+        "_citationCount": 68,
         "_titleLower": "petsc/tao users manual (rev. 3.19)",
         "_authorLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne université dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory josé e. román consejo superior de investigaciones científicas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory",
         "_authorsLower": "satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne université dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory josé e. román consejo superior de investigaciones científicas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory",
@@ -4516,7 +4516,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 67
+          "citationCount": 68
         },
         "_searchBlob": "petsc tao users manual rev. 3.19 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations and related problems on high-performance computers. petsc tao is a suite of data structures and routines that provide the building blocks for the implementation of large-scale application codes on parallel and serial computers. petsc uses the mpi standard for all distributed memory communication. petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and opti mization that may be used in application codes written in fortran c c++ and python via petsc4py see getting started . petsc provides many of the mechanisms needed within parallel application codes such as parallel matrix and vector assembly routines. the library is organized hierarchically enabling users to employ the level of abstraction that is most appropriate for a particular problem. by using techniques of object-oriented programming petsc provides enormous flexibility for users. petsc is a sophisticated set of software tools as such for some users it initially has a much steeper learning curve than packages such as matlab or a simple subroutine library. in particular for individuals without some computer science background experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use. however the power of the petsc design and the algorithms it incorporates may make the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. there are several packages built on petsc that may satisfy your needs without requiring directly using petsc. we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code. this approach cannot provide extremely large improvements in the application time by utilizing large numbers of mpi processes but can still improve the performance. certainly all parts of a previously sequential code need not be parallelized but the matrix generation portion must be parallelized to expect true scalability to large numbers of mpi processes. see pcmpi for details on how to utilize the petsc mpi linear solver server. since petsc is under continued development small changes in usage and calling sequences of routines will occur. petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support. osti oai u.s. department of energy office of scientific and technical information osti oai u.s. department of energy office of scientific and technical information 2023 research-paper satish balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory s. benson argonne national laboratory jed brown university of colorado boulder peter brune argonne national laboratory k. buschelman office of scientific and technical information e. constantinescu argonne national laboratory lisandro dalcin king abdullah university of science and technology alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch university of illinois urbana-champaign william gropp university of illinois urbana-champaign v. hapla eth zurich t. isaac georgia institute of technology p. jolivet sorbonne universite dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fande kong idaho national laboratory s. kruger tech-x corporation dave a. may university of oxford lois curfman mcinnes argonne national laboratory richard mills argonne national laboratory lawrence mitchell nvidia t. munson argonne national laboratory jose e. roman consejo superior de investigaciones cientificas k. rupp tu wien patrick sanan eth zurich j. sarich argonne national laboratory braeton smith flatiron institute stefano zampini king abdullah university of science and technology h. zhang illinois institute of technology jiejing zhang argonne national laboratory lldb openmp optimizations performance lldb openmp optimizations performance mpi processes petsc tao users linear solver matlab packages provide routines computers petsc parallel linear tao users manual lldb openmp",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -4980,6 +4980,7 @@
     },
     "openalex-w4389912041": {
       "paper": {
+        "id": "openalex-w4389912041",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Beyond Over-Protection: A Targeted Approach to Spectre Mitigation and Performance Optimization",
@@ -5057,7 +5058,6 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "id": "openalex-w4389912041",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7514,7 +7514,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W3192107477",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.1109/islped52811.2021.9502501",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7531,7 +7531,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "dosage: generating domain-specific accelerators for resource-constrained computing",
         "_authorLower": "ankur limaye university of arizona tosiron adegbija university of arizona",
         "_authorsLower": "ankur limaye university of arizona tosiron adegbija university of arizona",
@@ -7825,7 +7825,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "dosage generating domain-specific accelerators for resource-constrained computing integrating low-overhead domain-specific accelerators with low-energy general-purpose processors can improve the processors performance efficiency in resource-constrained systems e.g. embedded systems . however current function-based approaches for designing domain-specific accelerators require substantial programmer efforts for hardware software partitioning and program modifications to access the best available hardware accelerators. this paper presents dosage an llvm compiler-based methodology to generate domain-specific accelerators for resource-constrained computing systems. given a set of applications dosage automatically identifies and ranks the recurrent and similar code blocks that would benefit the most from hardware acceleration based on the code blocks composition. we illustrate the benefits of the proposed approach using a case study that involves generating domain-specific accelerators for a diverse set of healthcare applications and evaluate the accelerators via fpga-based prototyping. compared to a base low-resource risc-v processor dosage accelerators improved the systems performance and energy by 24.85 and 8.54 respectively. furthermore compared to a state-of-the-art function-based accelerator generation approach dosage eliminated the function-level granularity constraint of the generation process and reduced the number of required accelerators and in effect the interfacing overhead by 33.33 while achieving equal or better program coverage and performance energy results. 2021 ieee acm international symposium on low power electronics and design islped 2021 ieee acm international symposium on low power electronics and design islped 2021 research-paper ankur limaye university of arizona tosiron adegbija university of arizona embedded performance embedded performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7130645231": {
       "paper": {
@@ -7505,7 +7505,7 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 12,
+        "citationCount": 13,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -7514,7 +7514,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "binary level toolchain provenance identification with graph neural networks",
         "_authorLower": "tristan benoit centre national de la recherche scientifique jean-yves marion centre national de la recherche scientifique sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives",
         "_authorsLower": "tristan benoit centre national de la recherche scientifique jean-yves marion centre national de la recherche scientifique sébastien bardin commissariat à l'énergie atomique et aux énergies alternatives",
@@ -7807,7 +7807,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "binary level toolchain provenance identification with graph neural networks we consider the problem of recovering the compiling chain used to generate a given stripped binary code. we present a graph neural network framework at the binary level to solve this problem with the idea to take into account the shallow semantics provided by the binary codes structured control flow graph cfg . we introduce a graph neural network called site neural network snn dedicated to this problem. to attain scalability at the binary level feature extraction is simplified by forgetting almost everything in a cfg except transfer control instructions and performing a parametric graph reduction. our experiments show that our method recovers the compiler family with a very high f1-score of 0.9950 while the optimization level is recovered with a moderately high f1-score of 0.7517. on the compiler version prediction task the f1-score is about 0.8167 excluding the clang family. a comparison with a previous work demonstrates the accuracy and performance of this framework. 2021 ieee international conference on software analysis evolution and reengineering saner 2021 ieee international conference on software analysis evolution and reengineering saner vol. 14 2021 research-paper tristan benoit centre national de la recherche scientifique jean-yves marion centre national de la recherche scientifique sebastien bardin commissariat a lenergie atomique et aux energies alternatives clang optimizations performance infrastructure ml clang optimizations performance infrastructure ml control flow graph binary graph neural graph neural networks cfg toolchain provenance identification clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -11992,7 +11992,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2613993827",
-        "citationCount": 17,
+        "citationCount": 18,
         "doi": "10.1109/hpca.2017.59",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12008,7 +12008,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 17,
+        "_citationCount": 18,
         "_titleLower": "needle: leveraging program analysis to analyze and extract accelerators from whole programs",
         "_authorLower": "snehasish kumar simon fraser university william n. sumner simon fraser university vijayalakshmi srinivasan steve margerm simon fraser university arrvindh shriraman simon fraser university",
         "_authorsLower": "snehasish kumar simon fraser university william n. sumner simon fraser university vijayalakshmi srinivasan steve margerm simon fraser university arrvindh shriraman simon fraser university",
@@ -12383,7 +12383,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 17
+          "citationCount": 18
         },
         "_searchBlob": "needle leveraging program analysis to analyze and extract accelerators from whole programs technology constraints have increasingly led to the adoption of specialized coprocessors i.e. hardware accelerators. the first challenge that computer architects encounter is identifying what to specialize in the program . we demonstrate that this requires precise enumeration of program paths based on dynamic program behavior. we hypothesize that path-based 4 accelerator offloading leads to good coverage of dynamic instructions and improve energy efficiency. unfortunately hot paths across programs demonstrate diverse control flow behavior. accelerators typically based on dataflow execution often lack an energy-efficient complexity effective and high performance eg. branch prediction support for control flow. we have developed needle an llvm based compiler framework that leverages dynamic profile information to identify merge and offload acceleratable paths from whole applications. needle derives insight into what code coverage and consequently energy reduction an accelerator can achieve. we also develop a novel program abstraction for offload calledbraid that merges common code regions across different paths to improve coverage of the accelerator while trading off the increase in dataflow size. this enables coarse grained offloading reducing interaction with the host cpu core. to prepare the braids and paths for acceleration needle generates software frames. software frames enable energy efficient speculative execution on accelerators. they are accelerator microarchitecture independent support speculative execution including memory operations. needle is automated and has been used to analyze 225k paths across 29 workloads. it filtered and ranked 154k paths for acceleration across unmodified spec parsec and perfect workload suites. we target needles offload regions toward a cgra and demonstrate 34 performance and 20 energy improvement. 2017 ieee international symposium on high performance computer architecture hpca 2017 ieee international symposium on high performance computer architecture hpca 2017 research-paper snehasish kumar simon fraser university william n. sumner simon fraser university vijayalakshmi srinivasan steve margerm simon fraser university arrvindh shriraman simon fraser university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
