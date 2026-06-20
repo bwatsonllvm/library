@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w4409797717": {
       "paper": {
@@ -11317,7 +11317,7 @@
           "mlir"
         ],
         "id": "openalex-w4281950471",
-        "citationCount": 12,
+        "citationCount": 13,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -11326,7 +11326,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "irdl: an ir definition language for ssa compilers",
         "_authorLower": "mathieu fehr university of edinburgh jeff niu university of waterloo river riddle modular genetics mehdi amini google zhendong su eth zurich tobias grosser university of edinburgh",
         "_authorsLower": "mathieu fehr university of edinburgh jeff niu university of waterloo river riddle modular genetics mehdi amini google zhendong su eth zurich tobias grosser university of edinburgh",
@@ -11625,7 +11625,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "irdl an ir definition language for ssa compilers designing compiler intermediate representations irs is often a manual process that makes exploration and innovation in this space costly. developers typically use general-purpose programming languages to design irs. as a result ir implementations are verbose manual modifications are expensive and designing tooling for the inspection or generation of irs is impractical. while compilers relied historically on a few slowly evolving irs domain-specific optimizations and specialized hardware motivate compilers to use and evolve many irs. we facilitate the implementation of ssa-based irs by introducing irdl a domain-specific language to define irs. we analyze all 28 domain-specific irs developed as part of llvms mlir project over the last two years and demonstrate how to express these irs exclusively in irdl while only rarely falling back to irdls support for generic c++ extensions. by enabling the concise and explicit specification of irs we provide foundations for developing effective tooling to automate the compiler construction process. proceedings of 43rd acm sigplan international conference on programming language design and implementation proceedings of 43rd acm sigplan international conference on programming language design and implementation 2022 research-paper mathieu fehr university of edinburgh jeff niu university of waterloo river riddle modular genetics mehdi amini google zhendong su eth zurich tobias grosser university of edinburgh llvm mlir ir optimizations programming languages llvm mlir optimizations programming languages intermediate representation static single assignment domain specific ir definition language ssa compilers llvm mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -11636,6 +11636,7 @@
     },
     "openalex-w4226383816": {
       "paper": {
+        "id": "openalex-w4226383816",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Compiler-Driven Simulation of Reconfigurable Hardware Accelerators",
@@ -11675,6 +11676,7 @@
         "type": "research-paper",
         "abstract": "As customized accelerator design has become increasingly popular to keep up with the demand for high performance computing, it poses challenges for modern simulator design to adapt to such a large variety of accelerators. Existing simulators tend to two extremes: low-level and general approaches, such as RTL simulation, that can model any hardware but require substantial effort and long execution times; and higher-level application-specific models that can be much faster and easier to use but require one-off engineering effort.This work proposes a compiler-driven simulation workflow that can model configurable hardware accelerator. The key idea is to separate structure representation from simulation by developing an intermediate language that can flexibly represent a wide variety of hardware constructs. We design the Event Queue (EQueue) dialect of MLIR, a dialect that can model arbitrary hardware accelerators with explicit data movement and distributed event-based control; we also implement a generic simulation engine to model EQueue programs with hybrid MLIR dialects representing different abstraction levels. We demonstrate two case studies of EQueue-implemented accelerators: the systolic array of convolution and SIMD processors in a modern FPGA. In the former we show EQueue simulation is as accurate as a state-of-the-art simulator, while offering higher extensibility and lower iteration cost via compiler passes. In the latter we demonstrate our simulation flow can guide designer efficiently improve their design using visualizable simulation outputs.",
         "paperUrl": "https://doi.org/10.1109/hpca53966.2022.00052",
+        "sourceUrl": "https://openalex.org/W4226383816",
         "openalexId": "https://openalex.org/W4226383816",
         "doi": "10.1109/hpca53966.2022.00052",
         "tags": [
@@ -11701,11 +11703,9 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w4226383816",
         "citationCount": 3,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -12138,7 +12138,7 @@
           "addresssanitizer"
         ],
         "id": "openalex-w4312770919",
-        "citationCount": 5,
+        "citationCount": 6,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -12148,7 +12148,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "a source-level instrumentation framework for the dynamic analysis of memory safety",
         "_authorLower": "zhe chen nanjing university of aeronautics and astronautics qi zhang nanjing university of aeronautics and astronautics jun wu nanjing university of aeronautics and astronautics yan jun-qi nanjing university of aeronautics and astronautics jingling xue unsw sydney",
         "_authorsLower": "zhe chen nanjing university of aeronautics and astronautics qi zhang nanjing university of aeronautics and astronautics jun wu nanjing university of aeronautics and astronautics yan jun-qi nanjing university of aeronautics and astronautics jingling xue unsw sydney",
@@ -12617,7 +12617,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "a source-level instrumentation framework for the dynamic analysis of memory safety low-level control makes c unsafe resulting in memory errors that can lead to data corruption security vulnerabilities or program crashes. dynamic analysis tools which have been widely used for detecting memory errors at runtime usually perform instrumentation at the ir or binary level. however these non-source-level instrumentation frameworks and tools suffer from two inherent drawbacks optimization sensitivity and platform dependence. due to optimization sensitivity the user of these tools must trade either performance for effectiveness by compiling the program at monospace xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -o0 monospace or effectiveness for performance by compiling the program at a higher optimization level say monospace xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -o3 monospace . in this paper we propose a new source-level instrumentation framework to overcome these two drawbacks and implement it in a new dynamic analysis tool called sc xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink movec small that adopts a pointer-based monitoring algorithm. we have evaluated sc xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink movec small comprehensively by using the nists sard benchmark suite 1152 programs a set of 126 microbenchmarks with ground truth a set of 20 mibench benchmarks and 5 pure-c spec cpu 2017 benchmarks. in terms of effectiveness sc xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink movec small outperforms three state-of-the-art dynamic analysis tools addresssanitizer softboundcets and valgrind for all the standard optimization levels from monospace xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -o0 monospace to monospace xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink -o3 monospace . in terms of performance sc xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink movec small outperforms softboundcets and valgrind and is slower than addresssanitizer but consumes less memory. ieee transactions on software engineering ieee transactions on software engineering vol. 49 issue 4 2022 research-paper zhe chen nanjing university of aeronautics and astronautics qi zhang nanjing university of aeronautics and astronautics jun wu nanjing university of aeronautics and astronautics yan jun-qi nanjing university of aeronautics and astronautics jingling xue unsw sydney ir optimizations dynamic analysis testing security performance ir optimizations dynamic analysis testing security performance sanitizers memory safety instrumentation memory errors monospace optimization sensitivity effectiveness addresssanitizer addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",

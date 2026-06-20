@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7124513936": {
       "paper": {
@@ -3466,7 +3466,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4411552520",
-        "citationCount": 1,
+        "citationCount": 2,
         "doi": "10.1109/icse55347.2025.00130",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -3485,7 +3485,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 2,
         "_titleLower": "irfuzzer: specialized fuzzing for llvm backend code generation",
         "_authorLower": "yuyang rong advanced micro devices zhanghan yu university of california, davis zhenkai weng university of california, davis stephen neuendorffer advanced micro devices hao chen university of california, davis",
         "_authorsLower": "yuyang rong advanced micro devices zhanghan yu university of california, davis zhenkai weng university of california, davis stephen neuendorffer advanced micro devices hao chen university of california, davis",
@@ -3849,7 +3849,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 1
+          "citationCount": 2
         },
         "_searchBlob": "irfuzzer specialized fuzzing for llvm backend code generation modern compilers such as llvm are complex. due to their complexity manual testing is unlikely to suffice yet formal verification is difficult to scale. end-to-end fuzzing can be used but it has difficulties in discovering llvm backend problems for two reasons. first frontend preprocessing and middle optimization shield the backend from seeing diverse inputs. second branch coverage cannot provide effective feedback as llvm backend contains much reusable code. in this paper we implement irfuzzer to investigate the need of specialized fuzzing of the llvm compiler backend. we focus on two approaches to improve the fuzzer guaranteed input validity using constrained mutations to improve input diversity and new metrics to improve feedback quality. the mutator in irfuzzer can generate a wide range of llvm ir inputs including structured control flow vector types and function definitions. the system instruments coding patterns in the compiler to monitor the execution status of instruction selection. the instrumentation not only provides new coverage feedback on the matcher table but also guides the mutator on architecture-specific intrinsics. we ran irfuzzer on 29 mature llvm backend targets. irfuzzer discovered 78 new confirmed bugs in llvm upstream none of which existing fuzzers could discover. this demonstrates that irfuzzer is far more effective than existing fuzzers. upon receiving our bug report the developers have fixed 57 bugs and back-ported five fixes to llvm 15 which shows that specialized fuzzing provides actionable insights to llvm developers. 2025 ieee acm 47th international conference on software engineering icse 2025 ieee acm 47th international conference on software engineering icse 2025 research-paper yuyang rong advanced micro devices zhanghan yu university of california davis zhenkai weng university of california davis stephen neuendorffer advanced micro devices hao chen university of california davis backend frontend ir testing backend frontend ir testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -6133,7 +6133,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4399851369",
-        "citationCount": 11,
+        "citationCount": 12,
         "doi": "10.1145/3656404",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6148,7 +6148,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 12,
         "_titleLower": "refined input, degraded output: the counterintuitive world of compiler behavior",
         "_authorLower": "theodoros theodoridis eth zurich zhendong su eth zurich",
         "_authorsLower": "theodoros theodoridis eth zurich zhendong su eth zurich",
@@ -6461,7 +6461,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 11
+          "citationCount": 12
         },
         "_searchBlob": "refined input degraded output the counterintuitive world of compiler behavior to optimize a program a compiler needs precise information about it. significant effort is dedicated to improving the ability of compilers to analyze programs with the expectation that more information results in better optimization. but this assumption does not always hold due to unexpected interactions between compiler components and phase ordering issues sometimes more information leads to worse optimization. this can lead to wasted research and engineering effort whenever compilers cannot efficiently leverage additional information. in this work we systematically examine the extent to which additional information can be detrimental to compilers. we consider two types of information dead code i.e . whether a program location is unreachable and value ranges i.e . the possible values a variable can take at a specific program location. given a seed program we refine it with additional information and check whether this degrades the output. based on this approach we develop a fully automated and effective testing method for identifying such issues and through an extensive evaluation and analysis we quantify their existence and prevalence in widely used compilers. in particular we have reported 59 cases in gcc and llvm of which 55 have been confirmed or fixed so far highlighting the practical relevance and value of our findings. this works fresh perspective opens up a new direction in understanding and improving compilers. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue pldi 2024 research-paper theodoros theodoridis eth zurich zhendong su eth zurich testing testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -8496,7 +8496,7 @@
         "paperUrl": "https://doi.org/10.1142/s0218194024500475",
         "tags": [],
         "openalexId": "https://openalex.org/W4402283392",
-        "citationCount": 0,
+        "citationCount": 2,
         "doi": "10.1142/s0218194024500475",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -8510,7 +8510,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 2,
         "_titleLower": "enhancing translation validation of compiler transformations with large language models",
         "_authorLower": "yanzhao wang portland state university fei xie portland state university",
         "_authorsLower": "yanzhao wang portland state university fei xie portland state university",
@@ -8696,7 +8696,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 2
         },
         "_searchBlob": "enhancing translation validation of compiler transformations with large language models this paper presents a framework that integrates large language models llms into translation validation targeting llvm compiler transformations where formal verification tools fall short. our framework utilizes the existing tools like alive2 to perform initial validation. for transformations deemed unsolvable by traditional methods our approach leverages fine-tuned llms to predict soundness or unsoundness with subsequent fuzzing applied to identify counterexamples for unsound transformations. our approach has proven effective in complex scenarios such as deep-learning accelerator designs enhancing the reliability of compiler transformations. international journal of software engineering and knowledge engineering international journal of software engineering and knowledge engineering vol. 35 issue 01 2024 research-paper yanzhao wang portland state university fei xie portland state university",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9444,6 +9444,7 @@
     },
     "openalex-w4392120987": {
       "paper": {
+        "id": "openalex-w4392120987",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "CesASMe and Staticdeps: static detection of memory-carried dependencies for code analyzers",
@@ -9509,7 +9510,6 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "id": "openalex-w4392120987",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12406,17 +12406,17 @@
         "venue": "Proceedings of 32nd ACM SIGSOFT International Symposium on Software Testing and Analysis",
         "type": "research-paper",
         "abstract": "Fuzzing of compilers and code analysers has led to a large number of bugs being found and fixed in widely-used frameworks such as LLVM, GCC and Frama-C. Most such fuzzing techniques have taken a blackbox approach, with compilers and code analysers starting to become relatively immune to such fuzzers.",
-        "paperUrl": "https://doi.org/10.1145/3597926.3598130",
+        "paperUrl": "https://dl.acm.org/doi/pdf/10.1145/3597926.3598130",
         "tags": [
           "Clang",
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4384154578",
-        "citationCount": 50,
+        "citationCount": 54,
+        "sourceUrl": "https://doi.org/10.1145/3597926.3598130",
         "doi": "10.1145/3597926.3598130",
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [
@@ -12429,7 +12429,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 50,
+        "_citationCount": 54,
         "_titleLower": "grayc: greybox fuzzing of compilers and analysers for c",
         "_authorLower": "karine even-mendoza king's college london arindam sharma imperial college london alastair f. donaldson imperial college london cristian cadar imperial college london",
         "_authorsLower": "karine even-mendoza king's college london arindam sharma imperial college london alastair f. donaldson imperial college london cristian cadar imperial college london",
@@ -12599,7 +12599,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 50
+          "citationCount": 54
         },
         "_searchBlob": "grayc greybox fuzzing of compilers and analysers for c fuzzing of compilers and code analysers has led to a large number of bugs being found and fixed in widely-used frameworks such as llvm gcc and frama-c. most such fuzzing techniques have taken a blackbox approach with compilers and code analysers starting to become relatively immune to such fuzzers. proceedings of 32nd acm sigsoft international symposium on software testing and analysis proceedings of 32nd acm sigsoft international symposium on software testing and analysis 2023 research-paper karine even-mendoza kings college london arindam sharma imperial college london alastair f. donaldson imperial college london cristian cadar imperial college london clang testing clang testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -17119,7 +17119,7 @@
           "Clang"
         ],
         "openalexId": "https://openalex.org/W3114760331",
-        "citationCount": 48,
+        "citationCount": 50,
         "doi": "10.1109/cgo51591.2021.9370322",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17135,7 +17135,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 48,
+        "_citationCount": 50,
         "_titleLower": "anghabench: a suite with one million compilable c benchmarks for code-size reduction",
         "_authorLower": "anderson faustino da silva bruno conde kind hospital das clínicas da universidade federal de minas gerais josé wesley de souza magalhães hospital das clínicas da universidade federal de minas gerais jeronimo nunes rocha hospital das clínicas da universidade federal de minas gerais breno campos ferreira guimarães hospital das clínicas da universidade federal de minas gerais fernando magno quinao pereira hospital das clínicas da universidade federal de minas gerais",
         "_authorsLower": "anderson faustino da silva bruno conde kind hospital das clínicas da universidade federal de minas gerais josé wesley de souza magalhães hospital das clínicas da universidade federal de minas gerais jeronimo nunes rocha hospital das clínicas da universidade federal de minas gerais breno campos ferreira guimarães hospital das clínicas da universidade federal de minas gerais fernando magno quinao pereira hospital das clínicas da universidade federal de minas gerais",
@@ -17513,7 +17513,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 48
+          "citationCount": 50
         },
         "_searchBlob": "anghabench a suite with one million compilable c benchmarks for code-size reduction a predictive compiler uses properties of a program to decide how to optimize it. the compiler is trained on a collection of programs to derive a model which determines its actions in face of unknown codes. one of the challenges of predictive compilation is how to find good training sets. regardless of the programming language the availability of human-made benchmarks is limited. moreover current synthesizers produce code that is very different from actual programs and mining compilable code from open repositories is difficult due to program dependencies. in this paper we use a combination of web crawling and type inference to overcome these problems for the c programming language. we use a type reconstructor based on hindley-milners algorithm to produce anghabench a virtually unlimited collection of real-world compilable c programs. although anghabench programs are not executable they can be transformed into object files by any c compliant compiler. therefore they can be used to train compilers for code size reduction. we have used thousands of anghabench programs to train yacos a predictive compiler based on llvm. the version of yacos autotuned with anghabench generates binaries for the llvm test suite over 10 smaller than clang -oz. it compresses code impervious even to the state-of-the-art function sequence alignment technique published in 2019 as it does not require large binaries to work well. 2021 ieee acm international symposium on code generation and optimization cgo 2021 ieee acm international symposium on code generation and optimization cgo 2021 research-paper anderson faustino da silva bruno conde kind hospital das clinicas da universidade federal de minas gerais jose wesley de souza magalhaes hospital das clinicas da universidade federal de minas gerais jeronimo nunes rocha hospital das clinicas da universidade federal de minas gerais breno campos ferreira guimaraes hospital das clinicas da universidade federal de minas gerais fernando magno quinao pereira hospital das clinicas da universidade federal de minas gerais clang clang",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17582,7 +17582,7 @@
           "llvm"
         ],
         "id": "openalex-w3116487210",
-        "citationCount": 7,
+        "citationCount": 8,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -17591,7 +17591,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 8,
         "_titleLower": "an abstract interpretation for spmd divergence on reducible control flow graphs",
         "_authorLower": "julian rosemann saarland university simon moll nec sebastian hack saarland university",
         "_authorsLower": "julian rosemann saarland university simon moll nec sebastian hack saarland university",
@@ -17914,7 +17914,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 7
+          "citationCount": 8
         },
         "_searchBlob": "an abstract interpretation for spmd divergence on reducible control flow graphs vectorizing compilers employ divergence analysis to detect at which program point a specific variable is uniform i.e. has the same value on all spmd threads that execute this program point. they exploit uniformity to retain branching to counter branch divergence and defer computations to scalar processor units. divergence is a hyper-property and is closely related to non-interference and binding time. there exist several divergence binding time and non-interference analyses already but they either sacrifice precision or make significant restrictions to the syntactical structure of the program in order to achieve soundness. in this paper we present the first abstract interpretation for uniformity that is general enough to be applicable to reducible cfgs and at the same time more precise than other analyses that achieve at least the same generality. our analysis comes with a correctness proof that is to a large part mechanized in coq. our experimental evaluation shows that the compile time and the precision of our analysis is on par with llvms default divergence analysis that is only sound on more restricted cfgs. at the same time our analysis is faster and achieves better precision than a state-of-the-art non-interference analysis that is sound and at least as general as our analysis. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 5 issue popl 2021 research-paper julian rosemann saarland university simon moll nec sebastian hack saarland university llvm programming languages llvm programming languages spmd divergence non interference precision program point control flow graphs reducible control flow llvm",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -20886,7 +20886,7 @@
         "sourceUrl": "https://doi.org/10.1145/3290380",
         "tags": [],
         "openalexId": "https://openalex.org/W2899856510",
-        "citationCount": 51,
+        "citationCount": 53,
         "doi": "10.1145/3290380",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -20899,7 +20899,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 51,
+        "_citationCount": 53,
         "_titleLower": "exploring c semantics and pointer provenance",
         "_authorLower": "kayvan memarian university of cambridge victor b. f. gomes university of cambridge brooks davis sri international stephen kell university of cambridge alexander richardson university of cambridge robert n. m. watson university of cambridge peter sewell university of cambridge",
         "_authorsLower": "kayvan memarian university of cambridge victor b. f. gomes university of cambridge brooks davis sri international stephen kell university of cambridge alexander richardson university of cambridge robert n. m. watson university of cambridge peter sewell university of cambridge",
@@ -21340,7 +21340,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 51
+          "citationCount": 53
         },
         "_searchBlob": "exploring c semantics and pointer provenance the semantics of pointers and memory objects in c has been a vexed question for many years. c values cannot be treated as either purely abstract or purely concrete entities the language exposes their representations but compiler optimisations rely on analyses that reason about provenance and initialisation status not just runtime representations. the iso wg14 standard leaves much of this unclear and in some respects differs with de facto standard usage --- which itself is difficult to investigate. in this paper we explore the possible source-language semantics for memory objects and pointers in iso c and in c as it is used and implemented in practice focussing especially on pointer provenance. we aim to as far as possible reconcile the iso c standard mainstream compiler behaviour and the semantics relied on by the corpus of existing c code. we present two coherent proposals tracking provenance via integers and not both address many design questions. we highlight some pros and cons and open questions and illustrate the discussion with a library of test cases. we make our semantics executable as a test oracle integrating it with the cerberus semantics for much of the rest of c which we have made substantially more complete and robust and equipped with a web-interface gui. this allows us to experimentally assess our proposals on those test cases. to assess their viability with respect to larger bodies of c code we analyse the changes required and the resulting behaviour for a port of freebsd to cheri a research architecture supporting hardware capabilities which roughly speaking traps on the memory safety violations which our proposals deem undefined behaviour. we also develop a new runtime instrumentation tool to detect possible provenance violations in normal c code and apply it to some of the spec benchmarks. we compare our proposal with a source-language variant of the twin-allocation llvm semantics proposal of lee et al. finally we describe ongoing interactions with wg14 exploring how our proposals could be incorporated into the iso standard. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 3 issue popl 2019 research-paper kayvan memarian university of cambridge victor b. f. gomes university of cambridge brooks davis sri international stephen kell university of cambridge alexander richardson university of cambridge robert n. m. watson university of cambridge peter sewell university of cambridge",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -23767,7 +23767,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W2767813599",
-        "citationCount": 12,
+        "citationCount": 13,
         "doi": "10.1007/978-3-319-70389-3_2",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -23783,7 +23783,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "modeling undefined behaviour semantics for checking equivalence across compiler optimizations",
         "_authorLower": "manjeet dahiya indian institute of technology delhi sorav bansal indian institute of technology delhi",
         "_authorsLower": "manjeet dahiya indian institute of technology delhi sorav bansal indian institute of technology delhi",
@@ -23919,7 +23919,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "modeling undefined behaviour semantics for checking equivalence across compiler optimizations previous work on equivalence checking for synthesis and translation validation has usually verified programs across selected optimizations disabling the ones that exploit undefined behaviour. on the other hand modern compilers extensively exploit language level... lecture notes in computer science lecture notes in computer science 2017 research-paper manjeet dahiya indian institute of technology delhi sorav bansal indian institute of technology delhi optimizations optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24684,7 +24684,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W2506015293",
-        "citationCount": 60,
+        "citationCount": 61,
         "doi": "10.1109/icst.2016.19",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -24700,7 +24700,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 60,
+        "_citationCount": 61,
         "_titleLower": "test case prioritization for compilers: a text-vector based approach",
         "_authorLower": "junjie chen peking university yanwei bai peking university dan hao peking university yingfei xiong peking university hongyu zhang microsoft research asia lu zhang peking university bing xie peking university",
         "_authorsLower": "junjie chen peking university yanwei bai peking university dan hao peking university yingfei xiong peking university hongyu zhang microsoft research asia lu zhang peking university bing xie peking university",
@@ -25016,7 +25016,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 60
+          "citationCount": 61
         },
         "_searchBlob": "test case prioritization for compilers a text-vector based approach test case prioritization aims to schedule the execution order of test cases so as to detect bugs as early as possible. for compiler testing the demand for both effectiveness and efficiency imposes challenge to test case prioritization. in the literature most existing approaches prioritize test cases by using some coverage information e.g. statement coverage or branch coverage which is collected with considerable extra effort. although input-based test case prioritization relies only on test inputs it can hardly be applied when test inputs are programs. in this paper we propose a novel text-vector based test case prioritization approach which prioritizes test cases for c compilers without coverage information. our approach first transforms each test case into a text-vector by extracting its tokens which reflect fault-relevant characteristics and then prioritizes test cases based on these text-vectors. in particular in our approach we present three prioritization strategies greedy strategy adaptive random strategy and search strategy. to investigate the efficiency and effectiveness of our approach we conduct an experiment on two c compilers i.e. gcc and llvm and find that our approach is much more efficient than the existing approaches and is effective in prioritizing test cases. 2016 ieee international conference on software testing verification and validation icst 2016 ieee international conference on software testing verification and validation icst 2016 research-paper junjie chen peking university yanwei bai peking university dan hao peking university yingfei xiong peking university hongyu zhang microsoft research asia lu zhang peking university bing xie peking university testing testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -28583,7 +28583,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W2171482413",
-        "citationCount": 210,
+        "citationCount": 214,
         "doi": "10.1145/2678373.2665740",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -28600,7 +28600,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 210,
+        "_citationCount": 214,
         "_titleLower": "the cheri capability model",
         "_authorLower": "jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge",
         "_authorsLower": "jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge",
@@ -28920,7 +28920,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 210
+          "citationCount": 214
         },
         "_searchBlob": "the cheri capability model motivated by contemporary security challenges we reevaluate and refine capability-based addressing for the risc era. we present cheri a hybrid capability model that extends the 64-bit mips isa with byte-granularity memory protection. we demonstrate that cheri enables language memory model enforcement and fault isolation in hardware rather than software and that the cheri mechanisms are easily adopted by existing programs for efficient in-program memory safety. in contrast to past capability models cheri complements rather than replaces the ubiquitous page-based protection mechanism providing a migration path towards deconflating data-structure protection and os memory management. furthermore cheri adheres to a strict risc philosophy it maintains a load-store architecture and requires only singlecycle instructions and supplies protection primitives to the compiler language runtime and operating system. we demonstrate a mature fpga implementation that runs the freebsd operating system with a full range of software and an open-source application suite compiled with an extended llvm to use cheri memory protection. a limit study compares published memory safety mechanisms in terms of instruction count and memory overheads. the study illustrates that cheri is performance-competitive even while providing assurance and greater flexibility with simpler hardware acm sigarch computer architecture news acm sigarch computer architecture news vol. 42 issue 3 2014 research-paper jonathan woodruff university of cambridge robert n. m. watson university of cambridge david chisnall university of cambridge simon w. moore university of cambridge jonathan anderson university of cambridge brooks davis sri international ben laurie google peter g. neumann sri international robert m. norton university of cambridge michael roe university of cambridge performance security performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",

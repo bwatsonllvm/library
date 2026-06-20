@@ -1,9 +1,10 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7138918891": {
       "paper": {
+        "id": "openalex-w7138918891",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Differentiable Preconditioned Krylov Solvers for Square Unsymmetric Linear Systems",
@@ -43,6 +44,7 @@
         "type": "research-paper",
         "abstract": "Despite its seeming simplicity, differentiating through a linear solver is an exercise fraught with peril. The so-called low-level in-situ application of automatic differentiation (AD) to the linear solver implementation is unlikely to yield the desired accuracy in derivatives, particularly if combined with a preconditioner. We conduct a systematic comparison of the low-level approach with the high-level approach of solving the corresponding adjoint system. We then utilize an incomplete LU preconditioner and analyze how this specific case, as well as preconditioners in general, should be implemented to ensure accurate and efficient derivatives. These differentiation rules are then incorporated into the rules system of Enzyme, an LLVM-based AD tool. We demonstrate the efficacy of this approach by using differentiation rules for preconditioned Krylov solvers implemented in Julia.",
         "paperUrl": "https://doi.org/10.1137/1.9781611979039.17",
+        "sourceUrl": "https://openalex.org/W7138918891",
         "openalexId": "https://openalex.org/W7138918891",
         "doi": "10.1137/1.9781611979039.17",
         "tags": [
@@ -64,11 +66,9 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "id": "openalex-w7138918891",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -757,7 +757,7 @@
           "mlir"
         ],
         "id": "openalex-w4408151455",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -767,7 +767,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "hdcc: a hierarchical dataflow-oriented cgra compiler for complex applications",
         "_authorLower": "s.l. li institute of software mingjie xing institute of software yanjun wu university of chinese academy of sciences",
         "_authorsLower": "s.l. li institute of software mingjie xing institute of software yanjun wu university of chinese academy of sciences",
@@ -1026,7 +1026,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "hdcc a hierarchical dataflow-oriented cgra compiler for complex applications cgra coarse-grained reconfigurable architecture is characterized by high energy efficiency and reconfigurability plays an important role in various complex applications. however current cgra compilers only handle simple inner loops and struggle with complex nested loops making it hard to deploy large-scale complex applications on cgra for acceleration. therefore we proposed a hierarchical dataflow compiler hdcc based on mlir 1 to deal with complex loop structures in layers and developed a tool for generating dataflow graphs from mlir intermediate code to capture the dataflow of complex loop structures. we also propose a method to deploy large-scale applications to cpu-cgra with hdcc.the experimental results show that hdcc is capable of deploying large-scale complex applications such as neural network tasks and cryptographic tasks onto cgra achieving up to 11.4 performance improvement on these tasks. proceedings of 30th asia and south pacific design automation conference proceedings of 30th asia and south pacific design automation conference 2025 research-paper s.l. li institute of software mingjie xing institute of software yanjun wu university of chinese academy of sciences mlir performance ml mlir performance complex loop structures dataflow oriented cgra hierarchical dataflow oriented scale complex oriented cgra compiler mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -2537,7 +2537,7 @@
           "llvm"
         ],
         "id": "openalex-w4376309393",
-        "citationCount": 10,
+        "citationCount": 11,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -2546,7 +2546,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 11,
         "_titleLower": "cryptsan: leveraging arm pointer authentication for memory safety in c/c++",
         "_authorLower": "konrad hohentanner fraunhofer institute for applied and integrated security philipp zieris fraunhofer institute for applied and integrated security julian horsch fraunhofer institute for applied and integrated security",
         "_authorsLower": "konrad hohentanner fraunhofer institute for applied and integrated security philipp zieris fraunhofer institute for applied and integrated security julian horsch fraunhofer institute for applied and integrated security",
@@ -2898,7 +2898,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 10
+          "citationCount": 11
         },
         "_searchBlob": "cryptsan leveraging arm pointer authentication for memory safety in c c++ memory safety bugs remain in the top ranks of security vulnerabilities even after decades of research on their detection and prevention. various mitigations have been proposed for c c++ ranging from language dialects to instrumentation. among these compiler-based instrumentation is particularly promising not requiring manual code modifications and being able to achieve precise memory safety. unfortunately existing compiler-based solutions compromise in many areas including performance but also usability and memory safety guarantees. new developments in hardware can help improve performance and security of compiler-based memory safety. arm pointer authentication added in the armv8.3 architecture is intended to enable hardware-assisted control flow integrity cfi . but since its operations are generic it also enables other more comprehensive hardware-supported runtime integrity approaches. as such we propose cryptsan a memory safety approach based on arm pointer authentication. cryptsan uses pointer signatures to retrofit memory safety to c c++ programs protecting heap stack and globals against temporal and spatial vulnerabilities. we present a full llvm-based prototype implementation running on an m1 macbook pro i.e. on actual armv8.3 hardware. our prototype evaluation shows that the system outperforms similar approaches under real-world conditions. this together with its interoperability with uninstrumented libraries and cryptographic protection against attacks on metadata makes cryptsan a viable solution for retrofitting memory safety to c c++ programs. proceedings of 38th acm sigapp symposium on applied computing proceedings of 38th acm sigapp symposium on applied computing 2023 research-paper konrad hohentanner fraunhofer institute for applied and integrated security philipp zieris fraunhofer institute for applied and integrated security julian horsch fraunhofer institute for applied and integrated security llvm security performance libraries llvm security performance libraries memory safety arm pointer authentication cryptsan leveraging arm hardware armv8 instrumentation leveraging arm pointer llvm",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -4545,7 +4545,7 @@
           "llvm"
         ],
         "id": "openalex-w4220706374",
-        "citationCount": 19,
+        "citationCount": 20,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -4554,7 +4554,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 20,
         "_titleLower": "loop rolling for code size reduction",
         "_authorLower": "rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester björn franke university of edinburgh pramod bhatotia technical university of munich michael o’boyle university of edinburgh",
         "_authorsLower": "rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester björn franke university of edinburgh pramod bhatotia technical university of munich michael o’boyle university of edinburgh",
@@ -4900,7 +4900,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 19
+          "citationCount": 20
         },
         "_searchBlob": "loop rolling for code size reduction code size is critical for resource-constrained devices where memory and storage are limited. compilers therefore should offer optimizations aimed at code reduction. one such optimization is loop rerolling which transforms a partially unrolled loop into a fully rolled one. however existing techniques are limited and rarely applicable to real-world programs. they are incapable of handling partial rerolling or straight-line code. in this paper we propose rolag a novel code-size optimization that creates loops out of straight-line code. it identifies isomorphic code by aligning ssa graphs in a bottom-up fashion. the aligned code is later rolled into a loop. in addition we propose several optimizations that increase the amount of aligned code by identifying specific patterns of code. finally an analysis is used to estimate the profitability of the rolled loop before deciding which version should be kept in the code.our evaluation of rolag on full programs from mibench and spec 2017 show absolute reductions of up to 88 kb while llvms technique is hardly distinguishable from the baseline with no rerolling. finally our results show that rolag is highly applicable to real-world code extracted from popular github repositories. rolag is triggered several orders of magnitude more often than llvms rerolling resulting in meaningful reductions on real-world functions. 2022 ieee acm international symposium on code generation and optimization cgo 2022 ieee acm international symposium on code generation and optimization cgo 2022 research-paper rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester bjorn franke university of edinburgh pramod bhatotia technical university of munich michael oboyle university of edinburgh llvm backend code generation optimizations llvm backend code generation optimizations static single assignment real world straight line loop rolling size reduction llvm",
         "addedAt": "2026-04-28T06:27:48.000Z",
@@ -17853,7 +17853,7 @@
         "publication": "2010 IEEE Symposium on Security and Privacy",
         "openalexId": "https://openalex.org/W2133592286",
         "doi": "10.1109/sp.2010.30",
-        "citationCount": 408,
+        "citationCount": 409,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -17869,7 +17869,7 @@
         "_year": "2010",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 408,
+        "_citationCount": 409,
         "_titleLower": "hypersafe: a lightweight approach to provide lifetime hypervisor control-flow integrity",
         "_authorLower": "zhi wang north carolina state university xuxian jiang north carolina state university",
         "_authorsLower": "zhi wang north carolina state university xuxian jiang north carolina state university",
@@ -18190,7 +18190,7 @@
             }
           },
           "year": 2010,
-          "citationCount": 408
+          "citationCount": 409
         },
         "_searchBlob": "hypersafe a lightweight approach to provide lifetime hypervisor control-flow integrity virtualization is being widely adopted in todays computing systems. its unique security advantages in isolating and introspecting commodity oses as virtual machines vms have enabled a wide spectrum of applications. however a common fundamental assumption is the presence of a trustworthy hypervisor. unfortunately the large code base of commodity hypervisors and recent successful hypervisor attacks e.g. vm escape seriously question the validity of this assumption. in this paper we present hypersafe a lightweight approach that endows existing type-i bare-metal hypervisors with a unique self-protection capability to provide lifetime control flow integrity. specifically we propose two key techniques. the first one non-bypassable memory lockdown reliably protects the hypervisors code and static data from being compromised even in the presence of exploitable memory corruption bugs e.g. buffer overflows therefore successfully providing hypervisor code integrity. the second one restricted pointer indexing introduces one layer of indirection to convert the control data into pointer indexes. these pointer indexes are restricted such that the corresponding call return targets strictly follow the hypervisor control flow graph hence expanding protection to control-flow integrity. we have built a prototype and used it to protect two open-source type-i hypervisors bitvisor and xen. the experimental results with synthetic hypervisor exploits and benchmarking programs show hypersafe can reliably enable the hypervisor self-protection and provide the integrity guarantee with a small performance overhead. 2010 ieee symposium on security and privacy 2010 ieee symposium on security and privacy 2010 research-paper zhi wang north carolina state university xuxian jiang north carolina state university performance rust security performance rust security",
         "addedAt": "2026-02-20T23:08:48.000Z",

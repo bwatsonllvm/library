@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131219291": {
       "paper": {
@@ -4686,7 +4686,7 @@
           "mlir"
         ],
         "id": "openalex-w4407245202",
-        "citationCount": 3,
+        "citationCount": 5,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -4695,7 +4695,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 5,
         "_titleLower": "a multi-level compiler backend for accelerated micro-kernels targeting risc-v isa extensions",
         "_authorLower": "alexandre lopoukhine university of cambridge federico ficarelli cineca christos vasiladiotis university of edinburgh anton lydike university of edinburgh josse van delm ku leuven alban dutilleul école normale supérieure de rennes luca benini eth zurich marian verhelst ku leuven tobias grosser university of cambridge",
         "_authorsLower": "alexandre lopoukhine university of cambridge federico ficarelli cineca christos vasiladiotis university of edinburgh anton lydike university of edinburgh josse van delm ku leuven alban dutilleul école normale supérieure de rennes luca benini eth zurich marian verhelst ku leuven tobias grosser university of cambridge",
@@ -5054,7 +5054,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 3
+          "citationCount": 5
         },
         "_searchBlob": "a multi-level compiler backend for accelerated micro-kernels targeting risc-v isa extensions high-performance micro-kernels must fully exploit todays diverse and specialized hardware to deliver peak performance to deep neural networks dnns . while higher-level optimizations for dnns are offered by numerous compilers e.g. mlir tvm openxla performance-critical micro-kernels are left to specialized code generators or handwritten assembly. even though widely-adopted compilers e.g. llvm gcc offer tuned backends their cpu-focused input abstraction unstructured intermediate representation ir and general-purpose best-effort design inhibit tailored code generation for innovative hardware. we think it is time to widen the classical hourglass backend and embrace progressive lowering across a diverse set of structured abstractions to bring domain-specific code generation to compiler backends. we demonstrate this concept by implementing a custom backend for a risc-v-based accelerator with hardware loops and streaming registers leveraging knowledge about the hardware at levels of abstraction that match its custom instruction set architecture isa . we use incremental register allocation over structured irs while dropping classical spilling heuristics and show up to 90 floating-point unit fpu utilization across key dnn kernels. by breaking the backend hourglass model we reopen the path from domain-specific abstractions to specialized hardware. proceedings of 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper alexandre lopoukhine university of cambridge federico ficarelli cineca christos vasiladiotis university of edinburgh anton lydike university of edinburgh josse van delm ku leuven alban dutilleul ecole normale superieure de rennes luca benini eth zurich marian verhelst ku leuven tobias grosser university of cambridge llvm mlir ir backend code generation optimizations register allocation performance ml llvm mlir backend code generation optimizations register allocation performance intermediate representation specialized hardware accelerated micro kernels compiler backend domain specific isa extensions kernels targeting risc llvm mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -5668,7 +5668,7 @@
           "Embedded"
         ],
         "openalexId": "https://openalex.org/W4404101853",
-        "citationCount": 5,
+        "citationCount": 6,
         "doi": "10.1109/dsd64264.2024.00052",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -5685,7 +5685,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "seal5: semi-automated llvm support for risc-v isa extensions including autovectorization",
         "_authorLower": "philipp van kempen technical university of munich mathis salmen technical university of munich daniel mueller-gritschneder tu wien ulf schlichtmann technical university of munich",
         "_authorsLower": "philipp van kempen technical university of munich mathis salmen technical university of munich daniel mueller-gritschneder tu wien ulf schlichtmann technical university of munich",
@@ -6006,7 +6006,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "seal5 semi-automated llvm support for risc-v isa extensions including autovectorization the risc-v instruction set architecture isa is popular for its extensibility allowing easy integration of custom vendor-defined instructions tailored to specific applications. however a quick exploration of instruction candidates fails due to the lack of tools to auto-generate embedded software toolchain support. in particular exploiting simd instructions to accelerate typical dsp and machine learning workloads needs specialized integration. this work establishes a semi-automated flow to generate llvm compiler support for custom instructions based on a c-style isa description language. the implemented seal5 tool is capable of generating support for functionalities ranging from baseline assembler-level support over builtin functions to compiler code generation patterns for scalar as well as vector instructions while requiring no deeper compiler know-how. this paper focuses primarily on a novel pattern generator approach for the optimized code generation for simd instructions including support for autovectorization. the auto generated llvm toolchain reduces development times drastically while performing similarly or better compared to the existing manually implemented core-v reference llvm toolchain on a wide variety of benchmarks. seal5 further allows the addition of compiler code generation support for the core-vsimd instructions which is not yet available in the reference toolchain. additionally seal5 facilitates a quick exploration of custom instruction candidates as demonstrated for a cryptography extension. 2024 27th euromicro conference on digital system design dsd 2024 27th euromicro conference on digital system design dsd 2024 research-paper philipp van kempen technical university of munich mathis salmen technical university of munich daniel mueller-gritschneder tu wien ulf schlichtmann technical university of munich autovectorization embedded autovectorization embedded",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8158,7 +8158,7 @@
         "paperUrl": "https://doi.org/10.1109/micro56248.2022.00046",
         "tags": [],
         "openalexId": "https://openalex.org/W4308084052",
-        "citationCount": 51,
+        "citationCount": 56,
         "doi": "10.1109/micro56248.2022.00046",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -8172,7 +8172,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 51,
+        "_citationCount": 56,
         "_titleLower": "riptide: a programmable, energy-minimal dataflow compiler and architecture",
         "_authorLower": "graham gobieski carnegie mellon university souradip ghosh carnegie mellon university marijn j. h. heule carnegie mellon university todd c. mowry carnegie mellon university tony nowatzki university of california, los angeles nathan beckmann carnegie mellon university brandon lucia carnegie mellon university",
         "_authorsLower": "graham gobieski carnegie mellon university souradip ghosh carnegie mellon university marijn j. h. heule carnegie mellon university todd c. mowry carnegie mellon university tony nowatzki university of california, los angeles nathan beckmann carnegie mellon university brandon lucia carnegie mellon university",
@@ -8506,7 +8506,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 51
+          "citationCount": 56
         },
         "_searchBlob": "riptide a programmable energy-minimal dataflow compiler and architecture emerging sensing applications create an unprecedented need for energy efficiency in programmable processors. to achieve useful multi-year deployments on a small battery or energy harvester these applications must avoid off-device communication and instead process most data locally. recent work has proven coarse-grained reconfigurable arrays cgras as a promising architecture for this domain. unfortunately nearly all prior cgras support only computations with simple control flow and no memory aliasing e.g. affine inner loops causing an amdahl efficiency bottleneck as non-trivial fractions of programs must run on an inefficient von neumann core.riptide is a co-designed compiler and cgra architecture that achieves both high programmability and extreme energy efficiency eliminating this bottleneck. riptide provides a rich set of control-flow operators that support arbitrary control flow and memory access on the cgra fabric. riptide implements these primitives without tagged tokens to save energy this requires careful ordering analysis in the compiler to guarantee correctness. riptide further saves energy and area by offloading most control operations into its programmable on-chip network where they can re-use existing network switches. riptides compiler is implemented in llvm and its hardware is synthesized in intel 22ffl. riptide compiles applications written in c while saving 25 energy v. the state-of-the-art energy-minimal cgra and 6.6 energy v. a von neumann core. 2022 55th ieee acm international symposium on microarchitecture micro 2022 55th ieee acm international symposium on microarchitecture micro 2022 research-paper graham gobieski carnegie mellon university souradip ghosh carnegie mellon university marijn j. h. heule carnegie mellon university todd c. mowry carnegie mellon university tony nowatzki university of california los angeles nathan beckmann carnegie mellon university brandon lucia carnegie mellon university",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -10217,14 +10217,14 @@
         "venue": "Journal of Physics: Conference Series | Vol. 1856 (Issue 1)",
         "type": "research-paper",
         "abstract": "Abstract Instruction selection is a key component of code generation. High-quality instruction selection has a great impact on the size and quality of the generated code. The existing instruction selection technology is mostly limited to a single statement or a single basic block, and the global instruction selection based on LLVM degrades the entire function in the form of SSA. Global instruction selection optimization based on LLVM is implemented on Shenwei platform, including global instruction merge optimization based on cost model, register bank selection optimization and instruction locality optimization. Through the test of SPEC CPU2006, Experimental results show that the average speed-up ratio before and after the optimization of global instruction selection based on LLVM is 1.08, and the maximum speed-up ratio is 1.36. In addition, when the quality of the generated code is equivalent, the global instruction selection is compared with the default instruction selection, the LLC compilation speed is increased by an average of 20%, and the entire compilation cycle is increased by an average of 6%-8%.",
-        "paperUrl": "https://doi.org/10.1088/1742-6596/1856/1/012004",
+        "paperUrl": "https://iopscience.iop.org/article/10.1088/1742-6596/1856/1/012004/pdf",
         "tags": [],
         "openalexId": "https://openalex.org/W3153301918",
         "citationCount": 2,
+        "sourceUrl": "https://doi.org/10.1088/1742-6596/1856/1/012004",
         "doi": "10.1088/1742-6596/1856/1/012004",
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "keywords": [],
@@ -11609,7 +11609,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3136640119",
-        "citationCount": 9,
+        "citationCount": 10,
         "doi": "10.1007/978-3-030-72013-1_26",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11624,7 +11624,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "dartagnan: leveraging compiler optimizations and the price of precision (competition contribution)",
         "_authorLower": "hernán ponce-de-león universität der bundeswehr münchen thomas haas technische universität braunschweig roland meyer technische universität braunschweig",
         "_authorsLower": "hernán ponce-de-león universität der bundeswehr münchen thomas haas technische universität braunschweig roland meyer technische universität braunschweig",
@@ -11880,7 +11880,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "dartagnan leveraging compiler optimizations and the price of precision competition contribution abstract we describe the new features of the bounded model checker dartagnan for sv-comp 21. we participate for the first time in the reachsafety category on the verification of sequential programs. in some of these verification tasks bugs only show up after many loop iterations which is a challenge for bounded model checking. we address the challenge by simplifying the structure of the input program while preserving its semantics. for simplification we leverage common compiler optimizations which we get for free by using llvm. yet there is a price to pay. compiler optimizations may introduce bitwise operations which require bit-precise reasoning. we evaluated an smt encoding based on the theory of integers + bit conversions against one based on the theory of bit-vectors and found that the latter yields better performance. compared to the unoptimized version of dartagnan the combination of compiler optimizations and bit-vectors yields a speed-up of an order of magnitude on average. lecture notes in computer science lecture notes in computer science 2021 research-paper hernan ponce-de-leon universitat der bundeswehr munchen thomas haas technische universitat braunschweig roland meyer technische universitat braunschweig optimizations optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11959,7 +11959,7 @@
           "Polly"
         ],
         "openalexId": "https://openalex.org/W3214154787",
-        "citationCount": 23,
+        "citationCount": 25,
         "doi": "10.1002/cpe.6683",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11976,7 +11976,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 23,
+        "_citationCount": 25,
         "_titleLower": "autotuning polybench benchmarks with llvm clang/polly loop optimization pragmas using bayesian optimization",
         "_authorLower": "xingfu wu argonne national laboratory michael kruse argonne national laboratory prasanna balaprakash argonne national laboratory hal finkel argonne national laboratory paul hovland argonne national laboratory valerie taylor argonne national laboratory mary hall university of utah",
         "_authorsLower": "xingfu wu argonne national laboratory michael kruse argonne national laboratory prasanna balaprakash argonne national laboratory hal finkel argonne national laboratory paul hovland argonne national laboratory valerie taylor argonne national laboratory mary hall university of utah",
@@ -12295,7 +12295,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 23
+          "citationCount": 25
         },
         "_searchBlob": "autotuning polybench benchmarks with llvm clang polly loop optimization pragmas using bayesian optimization abstract we develop a ytopt autotuning framework that leverages bayesian optimization to explore the parameter space search and compare four different supervised learning methods within bayesian optimization and evaluate their effectiveness. we select six of the most complex polybench benchmarks and apply the newly developed llvm clang polly loop optimization pragmas to the benchmarks to optimize them. we then use the autotuning framework to optimize the pragma parameters to improve their performance. the experimental results show that our autotuning approach outperforms the other compiling methods to provide the smallest execution time for the benchmarks syr2k 3mm heat 3d lu and covariance with two large datasets in 200 code evaluations for effectively searching the parameter spaces with up to 170 368 different configurations. we find that the floyd warshall benchmark did not benefit from autotuning. to cope with this issue we provide some compiler option solutions to improve the performance. then we present loop autotuning without a users knowledge using a simple mctree autotuning framework to further improve the performance of the floyd warshall benchmark. we also extend the ytopt autotuning framework to tune a deep learning application. concurrency and computation practice and experience concurrency and computation practice and experience vol. 34 issue 20 2021 research-paper xingfu wu argonne national laboratory michael kruse argonne national laboratory prasanna balaprakash argonne national laboratory hal finkel argonne national laboratory paul hovland argonne national laboratory valerie taylor argonne national laboratory mary hall university of utah clang performance polly clang performance polly",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -20673,7 +20673,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3022144859",
-        "citationCount": 13,
+        "citationCount": 14,
         "doi": "10.1145/2555670.2466483",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -20689,7 +20689,7 @@
         "_year": "2013",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 14,
         "_titleLower": "precise and scalable context-sensitive pointer analysis via value flow graph",
         "_authorLower": "lian li cristina cifuentes nathan keynes",
         "_authorsLower": "lian li cristina cifuentes nathan keynes",
@@ -20946,7 +20946,7 @@
             }
           },
           "year": 2013,
-          "citationCount": 13
+          "citationCount": 14
         },
         "_searchBlob": "precise and scalable context-sensitive pointer analysis via value flow graph in this paper we propose a novel method for context-sensitive pointer analysis using the value flow graph vfg formulation. we achieve context-sensitivity by simultaneously applying function cloning and computing context-free language reachability cfl-reachability in a novel way. in contrast to existing clone-based and cfl-based approaches flow-sensitivity is easily integrated in our approach by using a flow-sensitive vfg where each value flow edge is computed in a flow-sensitive manner. we apply context-sensitivity to both local variables and heap objects and propose a new approximation for heap cloning. we prove that our approach can achieve context-sensitivity without loss of precision i.e. it is as precise as inlining all function calls. we develop an efficient algorithm and implement a context- flow- and field-sensitive pointer analysis with heap cloning support in llvm. we evaluate the efficiency and precision of our implementation using standard spec cpu2006 benchmarks. our experimental results show that the analysis is much faster than existing approaches it scales well to large real-world applications and it enables more effective compiler optimizations. acm sigplan notices acm sigplan notices vol. 48 issue 11 2013 research-paper lian li cristina cifuentes nathan keynes optimizations optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -22127,7 +22127,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2963762601",
-        "citationCount": 16,
+        "citationCount": 17,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -22144,7 +22144,7 @@
         "_year": "",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 16,
+        "_citationCount": 17,
         "_titleLower": "untitled",
         "_authorLower": "mikhail r. gadelha enrico steffinlongo university of southampton lucas c. cordeiro university of manchester bernd fischer stellenbosch university denis a. nicole university of southampton",
         "_authorsLower": "mikhail r. gadelha enrico steffinlongo university of southampton lucas c. cordeiro university of manchester bernd fischer stellenbosch university denis a. nicole university of southampton",
@@ -22376,7 +22376,7 @@
             }
           },
           "year": 0,
-          "citationCount": 16
+          "citationCount": 17
         },
         "_searchBlob": "untitled we describe and evaluate a bug refutation extension for the clang static analyzer csa that addresses the limitations of the existing built-in constraint solver. in particular we complement csas current heuristics for removing spurious bug reports. we encode the path constraints produced by csa as satisfiability modulo theories smt problems use smt solvers to precisely check them for satisfiability and remove bug reports whose associated path constraints are unsatisfiable. our refutation extension refutes spurious bug reports in 8 out of 12 widely used open-source applications on average it refutes ca. 7 of all bug reports and never refutes any true bug report. it incurs only negligible performance overheads and on average adds 1.2 to the runtime of the full clang llvm toolchain. a demonstration is available at https www.youtube.com watch v ylw5irynsga. research explorer the university of manchester research explorer the university of manchester research-paper mikhail r. gadelha enrico steffinlongo university of southampton lucas c. cordeiro university of manchester bernd fischer stellenbosch university denis a. nicole university of southampton clang performance clang performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

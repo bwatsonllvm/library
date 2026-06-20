@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131100837": {
       "paper": {
@@ -8352,7 +8352,7 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 9,
+        "citationCount": 10,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -8361,7 +8361,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "the taming of the stack: isolating stack data from memory errors",
         "_authorLower": "kaiming huang pennsylvania state university yongzhe huang mathias payer epfl zhiyun qian university of california, riverside jack sampson pennsylvania state university gang tan trent jaeger pennsylvania state university",
         "_authorsLower": "kaiming huang pennsylvania state university yongzhe huang mathias payer epfl zhiyun qian university of california, riverside jack sampson pennsylvania state university gang tan trent jaeger pennsylvania state university",
@@ -8800,7 +8800,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "the taming of the stack isolating stack data from memory errors despite vast research on defenses to protect stack objects from the exploitation of memory errors much stack data remains at risk. historically stack defenses focus on the protection of code pointers such as return addresses but emerging techniques to exploit memory errors motivate the need for practical solutions to protect stack data objects as well. however recent approaches provide an incomplete view of security by not accounting for memory errors comprehensively and by limiting the set of objects that can be protected unnecessarily. in this paper we present the dataguard system that identifies which stack objects are safe statically from spatial type and temporal memory errors to protect those objects efficiently. dataguard improves security through a more comprehensive and accurate safety analysis that proves a larger number of stack objects are safe from memory errors while ensuring that no unsafe stack objects are mistakenly classified as safe. dataguards analysis of server programs and the spec cpu2006 benchmark suite shows that dataguard improves security by 1 ensuring that no memory safety violations are possible for any stack objects classified as safe removing 6.3 of the stack objects previously classified safe by the safe stack method and 2 blocking exploit of all 118 stack vulnerabilities in the cgc binaries. dataguard extends the scope of stack protection by validating as safe over 70 of the stack objects classified as unsafe by the safe stack method leading to an average of 91.45 of all stack objects that can only be referenced safely. by identifying more functions with only safe stack objects dataguard reduces the overhead of using clangs safe stack defense for protection of the spec cpu2006 benchmarks from 11.3 to 4.3 . thus dataguard shows that a comprehensive and accurate analysis can both increase the scope of stack data protection and reduce overheads. proceedings 2022 network and distributed system security symposium proceedings 2022 network and distributed system security symposium 2022 research-paper kaiming huang pennsylvania state university yongzhe huang mathias payer epfl zhiyun qian university of california riverside jack sampson pennsylvania state university gang tan trent jaeger pennsylvania state university clang security clang security memory safety stack objects classified memory errors dataguard improves security protection protect stack spec cpu2006 isolating stack stack isolating clang",
         "addedAt": "2026-02-21T03:54:27.000Z",

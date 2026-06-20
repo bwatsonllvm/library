@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7127883925": {
       "paper": {
@@ -1429,7 +1429,7 @@
           "openmp"
         ],
         "id": "openalex-w4415353511",
-        "citationCount": 9,
+        "citationCount": 10,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -1438,7 +1438,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "petsc/tao users manual revision 3.24",
         "_authorLower": "s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory václav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california, san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory josé e. román universitat politècnica de valència karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee‐won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory",
         "_authorsLower": "s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcín king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory václav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california, san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory josé e. román universitat politècnica de valència karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee‐won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory",
@@ -2387,7 +2387,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "petsc tao users manual revision 3.24 this manual describes the use of the portable extensible toolkit for scientific computation petsc and the toolkit for advanced optimization tao for the numerical solution of partial differential equations pdes and related problems on high-performance computers.petsc tao is a suite of data structures and routines that provide the building blocks for implementing large-scale application codes on parallel and serial computers.petsc uses the mpi standard for all distributed memory communication.petsc tao includes a large suite of parallel linear solvers nonlinear solvers time integrators and optimizers that may be used in application codes written in fortran c c++ and python via petsc4py see getting started .the library is organized hierarchically enabling users to employ the abstraction level most appropriate for a particular problem.by using techniques of object-oriented programming petsc provides enormous flexibility for users.petsc is a sophisticated set of software tools it initially has a steeper learning curve than packages such as matlab or a simple subroutine library.in particular for individuals without some experience programming in c c++ python or fortran and experience using a debugger such as gdb or lldb it may require a significant amount of time to take full advantage of the features that enable efficient software use.however the power of the petsc design and the algorithms it incorporates makes the efficient implementation of many application codes simpler than rolling them yourself. for many tasks a package such as matlab is often the best tool petsc is not intended for the classes of problems for which effective matlab code can be written. several packages listed on https petsc.org built on petsc may satisfy your needs without requiring directly using petsc.we recommend reviewing these packages functionality before starting to code directly with petsc. petsc can be used to provide a mpi parallel linear solver in an otherwise sequential or openmp parallel code.this approach can provide modest improvements in the application time by utilizing modest numbers of mpi processes.see pcmpi for details on how to utilize the petsc mpi linear solver server.since petsc is under continued development small changes in usage and calling sequences of routines will occur.petsc has been supported for twenty-five years see mailing list information on our website for information on contacting support.petsc tao users manual release 3.24.0dm interfacing between solvers and models discretizations details how a users models and discretizations can easily be interfaced with the solvers by using the dm construct.additional information describes a variety of useful information including profiling the options database viewers error handling and some details of petsc design.visual studio code eclipse emacs and vim users may find their development environments options for searching in the source code are useful for exploring the petsc source code.details of this feature are provided in developer environments.note to fortran programmers in most of the manual the examples and calling sequences are given for the c c++ family of programming languages.however fortran programmers can use all of the functionality of petsc from fortran with only minor differences in the user interface.petsc for fortran users provides a discussion of the differences between using petsc from fortran and c as well as several complete fortran examples. note to python programmers to program with petsc in python you need to enable python bindings i.e.petsc4py with the configure option --with-petsc4py 1.see the petsc installation guide for more details. mpiexec -n 8 . petsc program namepetsc optionspetsc also provides a script that automatically uses the correct mpiexec for your configuration. petsc dir lib petsc bin petscmpiexec -n 8 . petsc program namepetsc options certain options are supported by all petsc programs.we list a few particularly useful ones below a complete list can be obtained by running any petsc program with the option -help. -log view -summarize the programs performance see profiling -fp trap -stop on floating-point exceptions for example divide by zero -malloc dump -enable memory tracing dump list of unfreed memory at conclusion of the run see detecting memory allocation problems and memory usage argonne national laboratory anl argonne il united states argonne national laboratory anl argonne il united states 2025 research-paper s. balay argonne national laboratory shrirang abhyankar argonne national laboratory mark f. adams lawrence berkeley national laboratory joshua w. brown argonne national laboratory p. brune argonne national laboratory k. buschelman argonne national laboratory e. constantinescu argonne national laboratory lisandro dalcin king abdullah university of science and technology s. benson argonne national laboratory alp dener argonne national laboratory v. eijkhout the university of texas at austin j. faibussowitsch argonne national laboratory w. gropp argonne national laboratory vaclav hapla board of the swiss federal institutes of technology t. isaac argonne national laboratory p. jolivet centre national de la recherche scientifique dmitry karpeev argonne national laboratory d. kaushik argonne national laboratory matthew g. knepley argonne national laboratory fei kong argonne national laboratory scott kruger tech-x corporation dave a. may university of california san diego lois curfman mcinnes argonne national laboratory r mills argonne national laboratory lawrence mitchell durham university t. munson argonne national laboratory jose e. roman universitat politecnica de valencia karl rupp argonne national laboratory p. sanan argonne national laboratory j. sarich argonne national laboratory brian f. smith argonne national laboratory hee won suh argonne national laboratory stefano zampini king abdullah university of science and technology haoyuan zhang argonne national laboratory jing zhang argonne national laboratory lldb openmp optimizations performance programming languages lldb openmp optimizations performance programming languages fortran petsc tao users memory python tao users manual petsc program namepetsc mpi options solvers lldb openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -2887,7 +2887,7 @@
           "mlir"
         ],
         "id": "openalex-w4411260257",
-        "citationCount": 2,
+        "citationCount": 3,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -2897,7 +2897,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "first-class verification dialects for mlir",
         "_authorLower": "mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac université grenoble alpes john regehr university of utah tobias grosser university of cambridge",
         "_authorsLower": "mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac université grenoble alpes john regehr university of utah tobias grosser university of cambridge",
@@ -3322,7 +3322,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "first-class verification dialects for mlir mlir is a toolkit supporting the development of extensible and composable intermediate representations irs called dialects it was created in response to rapid changes in hardware platforms programming languages and application domains such as machine learning. mlir supports development teams creating compilers and compiler-adjacent tools by factoring out common infrastructure such as parsers and printers. a major limitation of mlir is that it is syntax-focused it has no support for directly encoding the semantics of operations in its dialects. thus at present the parts of mlir tools that depend on semantics optimizers analyzers verifiers transformers must all be engineered by hand. our work makes formal semantics a first-class citizen in the mlir ecosystem. we designed and implemented a collection of semantics-supporting mlir dialects for encoding the semantics of compiler irs. these dialects support a separation of concerns between three domains of expertise when building formal-methods-based tooling for compilers. first compiler developers define their dialects semantics as a lowering compilation transformation from their dialect to one or more of ours. second smt solver experts provide tools to optimize domain-specific high-level semantics and lower them to smt queries. third tool builders create dialect-independent verification tools. we validate our work by defining semantics for five key mlir dialects defining a state-of-the-art smt encoding for memory-based semantics and building three dialect-agnostic tools which we used to find five miscompilation bugs in upstream mlir verify a canonicalization pass and also formally verify transfer functions for two dataflow analyses known bits that finds individual bits that are always zero or one in all executions and demanded bits that finds dont-care bits . the transfer functions that we verify are improved versions of those in upstream mlir they detect on average 36.6 more known bits in real-world mlir programs compared to the upstream implementation. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 9 issue pldi 2025 research-paper mathieu fehr university of edinburgh yuyou fan university of utah hugo pompougnac universite grenoble alpes john regehr university of utah tobias grosser university of cambridge mlir ir infrastructure ml programming languages mlir infrastructure programming languages intermediate representation semantics mlir dialects upstream mlir verify known bits class verification dialects mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3977,6 +3977,7 @@
     },
     "openalex-w4417515759": {
       "paper": {
+        "id": "openalex-w4417515759",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "An Empirical Study: MEMS as a Static Performance Metric",
@@ -4039,7 +4040,6 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "id": "openalex-w4417515759",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6626,6 +6626,7 @@
     },
     "openalex-w4391272839": {
       "paper": {
+        "id": "openalex-w4391272839",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Application of performance portability solutions for GPUs and many-core CPUs to track reconstruction kernels",
@@ -6762,7 +6763,6 @@
         "matchedSubprojects": [
           "libsycl"
         ],
-        "id": "openalex-w4391272839",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -8079,7 +8079,7 @@
           "clang"
         ],
         "id": "openalex-w4315631944",
-        "citationCount": 19,
+        "citationCount": 21,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -8088,7 +8088,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 21,
         "_titleLower": "mswasm: soundly enforcing memory-safe execution of unsafe code",
         "_authorLower": "alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california, san diego craig disselkoen university of california, san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california, san diego",
         "_authorsLower": "alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california, san diego craig disselkoen university of california, san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california, san diego",
@@ -8521,7 +8521,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 19
+          "citationCount": 21
         },
         "_searchBlob": "mswasm soundly enforcing memory-safe execution of unsafe code most programs compiled to webassembly wasm today are written in unsafe languages like c and c++. unfortunately memory-unsafe c code remains unsafe when compiled to wasm and attackers can exploit buffer overflows and use-after-frees in wasm almost as easily as they can on native platforms. memory- safe webassembly mswasm proposes to extend wasm with language-level memory-safety abstractions to precisely address this problem. in this paper we build on the original mswasm position paper to realize this vision. we give a precise and formal semantics of mswasm and prove that well-typed mswasm programs are by construction robustly memory safe. to this end we develop a novel language-independent memory-safety property based on colored memory locations and pointers. this property also lets us reason about the security guarantees of a formal c-to-mswasm compiler and prove that it always produces memory-safe programs and preserves the semantics of safe programs . we use these formal results to then guide several implementations two compilers of mswasm to native code and a c-to-mswasm compiler that extends clang . our mswasm compilers support different enforcement mechanisms allowing developers to make security-performance trade-offs according to their needs. our evaluation shows that on the polybenchc suite the overhead of enforcing memory safety in software ranges from 22 enforcing spatial safety alone to 198 enforcing full memory safety and 51.7 when using hardware memory capabilities for spatial safety and pointer integrity. more importantly mswasms design makes it easy to swap between enforcement mechanisms as fast especially hardware-based enforcement techniques become available mswasm will be able to take advantage of these advances almost for free. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 7 issue popl 2023 research-paper alexandra e. michael university of washington anitha gollamudi university of massachusetts lowell jay bosamiya carnegie mellon university evan johnson aidan denlinger university of california san diego craig disselkoen university of california san diego conrad watt university of cambridge bryan parno carnegie mellon university marco patrignani university of trento marco vassena utrecht university deian stefan university of california san diego clang security performance wasm programming languages clang security performance wasm programming languages memory safety soundly enforcing memory mswasm compiler unsafe enforcement mechanisms formal spatial safety hardware semantics clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -13107,7 +13107,7 @@
           "offload"
         ],
         "id": "openalex-w3036184137",
-        "citationCount": 10,
+        "citationCount": 11,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -13116,7 +13116,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 11,
         "_titleLower": "tdo-cim: transparent detection and offloading for computation in-memory",
         "_authorLower": "kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology",
         "_authorsLower": "kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology",
@@ -13376,7 +13376,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 10
+          "citationCount": 11
         },
         "_searchBlob": "tdo-cim transparent detection and offloading for computation in-memory computation in-memory is a promising non-von neumann approach aiming at completely diminishing the data transfer to and from the memory subsystem. although a lot of architectures have been proposed compiler support for such architectures is still lagging behind. in this paper we close this gap by proposing an end-to-end compilation flow for in-memory computing based on the llvm compiler infrastructure. starting from sequential code our approach automatically detects opti-mizes and offloads kernels suitable for in-memory acceleration. we demonstrate our compiler tool-flow on the polybench c benchmark suite and evaluate the benefits of our proposed in-memory architecture simulated in gem5 by comparing it with a state-of-the-art von neumann architecture. 2020 design automation and test in europe conference and exhibition date 2020 design automation and test in europe conference and exhibition date 2020 research-paper kanishkan vadivel eindhoven university of technology lorenzo chelini eindhoven university of technology ali banagozar eindhoven university of technology gagandeep singh eindhoven university of technology stefano corda eindhoven university of technology roel jordans eindhoven university of technology henk corporaal eindhoven university of technology llvm infrastructure gpu llvm infrastructure gpu offloading memory von neumann cim transparent detection tdo cim transparent llvm offload",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -13462,7 +13462,7 @@
           "addresssanitizer"
         ],
         "id": "openalex-w3015291177",
-        "citationCount": 125,
+        "citationCount": 130,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -13471,7 +13471,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 125,
+        "_citationCount": 130,
         "_titleLower": "retrowrite: statically instrumenting cots binaries for fuzzing and sanitization",
         "_authorLower": "s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette",
         "_authorsLower": "s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette",
@@ -13851,7 +13851,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 125
+          "citationCount": 130
         },
         "_searchBlob": "retrowrite statically instrumenting cots binaries for fuzzing and sanitization analyzing the security of closed source binaries is currently impractical for end-users or even developers who rely on third-party libraries. such analysis relies on automatic vulnerability discovery techniques most notably fuzzing with sanitizers enabled. the current state of the art for applying fuzzing or sanitization to binaries is dynamic binary translation which has prohibitive performance overhead. the alternate technique static binary rewriting cannot fully recover symbolization information and hence has difficulty modifying binaries to track code coverage for fuzzing or to add security checks for sanitizers.the ideal solution for binary security analysis would be a static rewriter that can intelligently add the required instrumentation as if it were inserted at compile time. such instrumentation requires an analysis to statically disambiguate between references and scalars a problem known to be undecidable in the general case. we show that recovering this information is possible in practice for the most common class of software and libraries 64-bit position independent code. based on this observation we develop retrowrite a binary-rewriting instrumentation to support american fuzzy lop afl and address sanitizer asan and show that it can achieve compiler-level performance while retaining precision. binaries rewritten for coverage-guided fuzzing using retrowrite are identical in performance to compiler-instrumented binaries and outperform the default qemu-based instrumentation by 4.5x while triggering more bugs. our implementation of binary-only address sanitizer is 3x faster than valgrinds memcheck the state-of-the-art binary-only memory checker and detects 80 more bugs in our evaluation. 2020 ieee symposium on security and privacy sp 2020 ieee symposium on security and privacy sp 2020 research-paper s. dinesh purdue university west lafayette nathan burow purdue university west lafayette dongyan xu purdue university west lafayette mathias payer purdue university west lafayette testing sanitizers security performance libraries testing sanitizers security performance libraries fuzzing binary translation instrumenting cots binaries binary rewriting instrumentation retrowrite statically instrumenting address sanitizer sanitization statically instrumenting cots addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -15783,7 +15783,7 @@
           "addresssanitizer"
         ],
         "id": "openalex-w2884076027",
-        "citationCount": 36,
+        "citationCount": 37,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -15793,7 +15793,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 36,
+        "_citationCount": 37,
         "_titleLower": "practical memory safety with rest",
         "_authorLower": "kanad sinha columbia university simha sethumadhavan columbia university",
         "_authorsLower": "kanad sinha columbia university simha sethumadhavan columbia university",
@@ -16122,7 +16122,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 36
+          "citationCount": 37
         },
         "_searchBlob": "practical memory safety with rest in this paper we propose random embedded secret tokens rest a simple hardware primitive to provide content-based checks and show how it can be used to mitigate common types of spatial and temporal memory errors at very low cost. rest is simply a very large random value that is embedded into programs. to provide memory safety rest is used to bookend data structures during allocation. if the hardware accesses a rest value during execution due to programming errors or adversarial actions it reports a privileged memory safety exception. implementing rest requires 1 bit of metadata per l1 data cache line and a comparator to check for rest tokens during a cache fill. the software infrastructure to provide memory safety with rest reuses a production-quality memory error detection tool addresssanitizer by changing less than 1.5k lines of code. rest based memory safety offers several advantages com-pared to extant methods 1 it does not require significant redesign of hardware or software 2 the overhead of heap and stack safety is 2 compared to 40 for addresssanitizer 3 the security of the memory safety implementation is improved compared addresssanitizer and 4 rest based memory safety can mitigate heap safety errors in legacy binaries without recom-pilation or source code. these advantages provide a significant step towards continuous runtime memory safety monitoring and mitigation for legacy and new binaries. 2018 acm ieee 45th annual international symposium on computer architecture isca 2018 acm ieee 45th annual international symposium on computer architecture isca 2018 research-paper kanad sinha columbia university simha sethumadhavan columbia university testing security infrastructure embedded testing security infrastructure embedded sanitizers memory safety provide memory safety addresssanitizer errors hardware addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -22633,7 +22633,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2405775600",
-        "citationCount": 12,
+        "citationCount": 13,
         "doi": "10.14232/actacyb.22.1.2015.2",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -22652,7 +22652,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 12,
+        "_citationCount": 13,
         "_titleLower": "automatic checking of the usage of the c++11 move semantics",
         "_authorLower": "áron baráth eötvös loránd university zoltán porkoláb eötvös loránd university",
         "_authorsLower": "áron baráth eötvös loránd university zoltán porkoláb eötvös loránd university",
@@ -22954,7 +22954,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 12
+          "citationCount": 13
         },
         "_searchBlob": "automatic checking of the usage of the c++11 move semantics the c++ programming language is a favorable choice when implementing high performance applications like real-time and embedded programming large telecommunication systems financial simulations as well as a wide range of other speed sensitive programs. while c++ has all the facilities to handle the computer hardware without compromises the copy based value semantics of assignment is a common source of performance degradation. new language features like the move semantics were introduced recently to serve an instrument to avoid unnecessary copies. unfortunately correct usage of move semantics is not trivial and unintentional expensive copies of c++ objects - like copying containers instead of using move semantics - may determine the main worst-case time characteristics of the programs. in this paper we introduce a new approach of investigating performance bottlenecks for c++ programs which operates at language source level and targets the move semantics of the c++ programming language. we detect copies occurring in operations marked as move operations i.e. intended not containing expensive copy actions. move operations are marked with generalized attributes - a new language feature introduced to c++11 standard. we implemented a tool prototype to detect such copy move semantic errors in c++ programs. our prototype is using the open source llvm clang parser infrastructure therefore highly portable. acta cybernetica acta cybernetica vol. 22 issue 1 2015 research-paper aron barath eotvos lorand university zoltan porkolab eotvos lorand university c++ clang embedded infrastructure performance c++ clang embedded infrastructure performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -23126,7 +23126,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-319-08867-9_7",
         "tags": [],
         "openalexId": "https://openalex.org/W121297392",
-        "citationCount": 135,
+        "citationCount": 137,
         "doi": "10.1007/978-3-319-08867-9_7",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -23140,7 +23140,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 135,
+        "_citationCount": 137,
         "_titleLower": "smack: decoupling source language details from verifier implementations",
         "_authorLower": "zvonimir rakamarić university of utah michael emmi imdea software",
         "_authorsLower": "zvonimir rakamarić university of utah michael emmi imdea software",
@@ -23238,7 +23238,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 135
+          "citationCount": 137
         },
         "_searchBlob": "smack decoupling source language details from verifier implementations no abstract available in openalex metadata. lecture notes in computer science lecture notes in computer science 2014 research-paper zvonimir rakamaric university of utah michael emmi imdea software",
         "addedAt": "2026-02-21T05:39:52.000Z",

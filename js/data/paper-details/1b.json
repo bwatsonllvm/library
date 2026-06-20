@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w4412171630": {
       "paper": {
@@ -1108,6 +1108,7 @@
     },
     "openalex-w7117991769": {
       "paper": {
+        "id": "openalex-w7117991769",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "RISC-V RVV Support in Clang-Based Compiler",
@@ -1126,6 +1127,7 @@
         "type": "research-paper",
         "abstract": "Clang can be viewed from two distinct perspectives. First, clang is a comprehensive toolchain, which supports compilation of C/C++/CUDA/Objective-С/Objective-C++/HIP source code into a machine code for a wide range of platforms. These include, but are not limited to, x86 (32/64-bit), ARM (32/64-bit), RISC-V(32/64-bit), Power PC (32/64-bit), as well as GPU architectures such as NVPTX (NVIDIA) and AMDGCN (AMD), both supporting 32-bit and 64-bit execution. Clang is designed to be highly portable and is compatible with multiple operating systems, including Linux, Windows, macOS, iOS, Android, FreeBSD, OpenBSD, and more. It offers competitive compile time/memory consumption/optimization level/feature set, making it a strong alternative to GCC-based toolchains. It provides extensive support for modern programming language standards, including full support for C99 and partial support for C11, C17, C23, and the evolving C2y standard. Similarly, for C++, it fully supports C++17, with partial implementations of C++20, C++23, and the upcoming C++2c standard. Clang also includes comprehensive support for OpenMP (fully implementing version 5.0 and partially supporting versions 5.1, 5.2, and 6.0). Additionally, it supports many nonstandard GCC extensions, making it a viable drop-in replacement for GCC-based compilers in numerous development environments.",
         "paperUrl": "https://doi.org/10.1007/979-8-8688-2169-1_2",
+        "sourceUrl": "https://openalex.org/W7117991769",
         "openalexId": "https://openalex.org/W7117991769",
         "doi": "10.1007/979-8-8688-2169-1_2",
         "tags": [
@@ -1156,11 +1158,9 @@
           "clang",
           "openmp"
         ],
-        "id": "openalex-w7117991769",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -2106,7 +2106,7 @@
           "IR"
         ],
         "openalexId": "https://openalex.org/W4407942537",
-        "citationCount": 20,
+        "citationCount": 24,
         "doi": "10.1145/3708493.3712691",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2122,7 +2122,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 20,
+        "_citationCount": 24,
         "_titleLower": "llm compiler: foundation language models for compiler optimization",
         "_authorLower": "chris cummins menlo school volker seeker alpha omega alpha medical honor society dejan grubisic alpha omega alpha medical honor society baptiste rozière jonas gehring gabriel synnaeve hugh leather alpha omega alpha medical honor society",
         "_authorsLower": "chris cummins menlo school volker seeker alpha omega alpha medical honor society dejan grubisic alpha omega alpha medical honor society baptiste rozière jonas gehring gabriel synnaeve hugh leather alpha omega alpha medical honor society",
@@ -2484,7 +2484,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 20
+          "citationCount": 24
         },
         "_searchBlob": "llm compiler foundation language models for compiler optimization large language models llms have demonstrated remarkable capabilities across a variety of software engineering and coding tasks. however their application in the domain of code and compiler optimization remains underexplored. training llms is resource-intensive requiring substantial gpu hours and extensive data collection which can be prohibitive. to address this gap we introduce llm compiler a suite of robust openly available pre-trained models specifically designed for compiler tasks. built on the foundation of code llama llm compiler enhances the understanding of compiler intermediate representations irs assembly language and optimization techniques. the models have been trained on a vast corpus of 546 billion tokens of llvm-ir and assembly code and have undergone instruction fine-tuning to interpret compiler behavior. to demonstrate the utility of these research tools we also present fine-tuned versions of the models with enhanced capabilities in optimizing code size and disassembling from x86 64 and arm assembly back into llvm-ir. these achieve 77 of the optimising potential of an autotuning search and 45 disassembly round trip 14 exact match . llm compiler is released under a bespoke commercial license to allow wide reuse and is available in two sizes 7 billion and 13 billion parameters. our aim is to provide scalable cost-effective foundational models for further research and development in compiler optimization by both academic researchers and industry practitioners. since we released llm compiler the community has quantized repackaged and downloaded the models over 250k times. proceedings of 34th acm sigplan international conference on compiler construction proceedings of 34th acm sigplan international conference on compiler construction 2025 research-paper chris cummins menlo school volker seeker alpha omega alpha medical honor society dejan grubisic alpha omega alpha medical honor society baptiste roziere jonas gehring gabriel synnaeve hugh leather alpha omega alpha medical honor society gpu ir gpu ir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -3539,6 +3539,409 @@
       },
       "source": "openalex-discovery"
     },
+    "openalex-w4414690751": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "An MLIR-Based Compilation Framework for Control Flow Management on Coarse Grained Reconfigurable Arrays",
+        "authors": [
+          {
+            "name": "Yuxuan Wang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Cristian Tirelli",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Giovanni Ansaloni",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Laura Pozzi",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "David Atienza",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2025",
+        "publication": "arXiv",
+        "venue": "arXiv",
+        "type": "research-paper",
+        "abstract": "Coarse Grained Reconfigurable Arrays (CGRAs) present both high flexibility and efficiency, making them well-suited for the acceleration of intensive workloads. Nevertheless, a key barrier towards their widespread adoption is posed by CGRA compilation, which must cope with a multi-dimensional space spanning both the spatial and the temporal domains. Indeed, state-of-the-art compilers are limited in scope as they mostly deal with the data flow of applications, while having little or no support for control flow. Hence, they mostly target the mapping of single loops and/or delegate the management of control flow divergences to ad-hoc hardware units. Conversely, in this paper we show that control flow can be effectively managed and optimized at the compilation level, allowing for a broad set of applications to be targeted while being hardware-agnostic and achieving high performance. We embody our methodology in a modular compilation framework consisting of transformation and optimization passes, enabling support for applications with arbitrary control flows running on abstract CGRA meshes. We also introduce a novel mapping methodology that acts as a compilation back-end, addressing the limitations in available CGRA hardware resources and guaranteeing a feasible solution in the compilation process. Our framework achieves up to 2.1X speedups over state-of-the-art approaches, purely through compilation optimizations.",
+        "paperUrl": "https://arxiv.org/pdf/2508.02167",
+        "sourceUrl": "https://doi.org/10.48550/arxiv.2508.02167",
+        "openalexId": "https://openalex.org/W4414690751",
+        "doi": "10.48550/arxiv.2508.02167",
+        "tags": [
+          "MLIR",
+          "Optimizations",
+          "Performance"
+        ],
+        "keywords": [
+          "MLIR",
+          "Optimizations",
+          "Performance",
+          "Compilation",
+          "Control Flow Management",
+          "Coarse Grained Reconfigurable",
+          "Grained Reconfigurable Arrays",
+          "CGRA",
+          "Hardware"
+        ],
+        "matchedAuthors": [
+          "Cristian Tirelli",
+          "David Atienza",
+          "Giovanni Ansaloni",
+          "Laura Pozzi",
+          "Yuxuan Wang"
+        ],
+        "matchedSubprojects": [
+          "mlir"
+        ],
+        "id": "openalex-w4414690751",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2025",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "an mlir-based compilation framework for control flow management on coarse grained reconfigurable arrays",
+        "_authorLower": "yuxuan wang cristian tirelli giovanni ansaloni laura pozzi david atienza",
+        "_authorsLower": "yuxuan wang cristian tirelli giovanni ansaloni laura pozzi david atienza",
+        "_abstractLower": "coarse grained reconfigurable arrays (cgras) present both high flexibility and efficiency, making them well-suited for the acceleration of intensive workloads. nevertheless, a key barrier towards their widespread adoption is posed by cgra compilation, which must cope with a multi-dimensional space spanning both the spatial and the temporal domains. indeed, state-of-the-art compilers are limited in scope as they mostly deal with the data flow of applications, while having little or no support for control flow. hence, they mostly target the mapping of single loops and/or delegate the management of control flow divergences to ad-hoc hardware units. conversely, in this paper we show that control flow can be effectively managed and optimized at the compilation level, allowing for a broad set of applications to be targeted while being hardware-agnostic and achieving high performance. we embody our methodology in a modular compilation framework consisting of transformation and optimization passes, enabling support for applications with arbitrary control flows running on abstract cgra meshes. we also introduce a novel mapping methodology that acts as a compilation back-end, addressing the limitations in available cgra hardware resources and guaranteeing a feasible solution in the compilation process. our framework achieves up to 2.1x speedups over state-of-the-art approaches, purely through compilation optimizations.",
+        "_tagsLower": "mlir optimizations performance",
+        "_keywordsLower": "mlir optimizations performance compilation control flow management coarse grained reconfigurable grained reconfigurable arrays cgra hardware",
+        "_topicsLower": "mlir optimizations performance mlir optimizations performance compilation control flow management coarse grained reconfigurable grained reconfigurable arrays cgra hardware mlir",
+        "_contentLower": "",
+        "_publicationLower": "arxiv",
+        "_venueLower": "arxiv",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2025",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "an mlir-based compilation framework for control flow management on coarse grained reconfigurable arrays",
+              "words": [
+                "an",
+                "mlir-based",
+                "compilation",
+                "framework",
+                "for",
+                "control",
+                "flow",
+                "management",
+                "on",
+                "coarse",
+                "grained",
+                "reconfigurable",
+                "arrays"
+              ]
+            },
+            "authors": {
+              "text": "yuxuan wang cristian tirelli giovanni ansaloni laura pozzi david atienza",
+              "words": [
+                "yuxuan",
+                "wang",
+                "cristian",
+                "tirelli",
+                "giovanni",
+                "ansaloni",
+                "laura",
+                "pozzi",
+                "david",
+                "atienza"
+              ]
+            },
+            "topics": {
+              "text": "mlir optimizations performance mlir optimizations performance compilation control flow management coarse grained reconfigurable grained reconfigurable arrays cgra hardware mlir",
+              "words": [
+                "mlir",
+                "optimizations",
+                "performance",
+                "mlir",
+                "optimizations",
+                "performance",
+                "compilation",
+                "control",
+                "flow",
+                "management",
+                "coarse",
+                "grained",
+                "reconfigurable",
+                "grained",
+                "reconfigurable",
+                "arrays",
+                "cgra",
+                "hardware",
+                "mlir"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "coarse grained reconfigurable arrays cgras present both high flexibility and efficiency making them well-suited for the acceleration of intensive workloads. nevertheless a key barrier towards their widespread adoption is posed by cgra compilation which must cope with a multi-dimensional space spanning both the spatial and the temporal domains. indeed state-of-the-art compilers are limited in scope as they mostly deal with the data flow of applications while having little or no support for control flow. hence they mostly target the mapping of single loops and or delegate the management of control flow divergences to ad-hoc hardware units. conversely in this paper we show that control flow can be effectively managed and optimized at the compilation level allowing for a broad set of applications to be targeted while being hardware-agnostic and achieving high performance. we embody our methodology in a modular compilation framework consisting of transformation and optimization passes enabling support for applications with arbitrary control flows running on abstract cgra meshes. we also introduce a novel mapping methodology that acts as a compilation back-end addressing the limitations in available cgra hardware resources and guaranteeing a feasible solution in the compilation process. our framework achieves up to 2.1x speedups over state-of-the-art approaches purely through compilation optimizations.",
+              "words": [
+                "coarse",
+                "grained",
+                "reconfigurable",
+                "arrays",
+                "cgras",
+                "present",
+                "both",
+                "high",
+                "flexibility",
+                "and",
+                "efficiency",
+                "making",
+                "them",
+                "well-suited",
+                "for",
+                "the",
+                "acceleration",
+                "of",
+                "intensive",
+                "workloads.",
+                "nevertheless",
+                "key",
+                "barrier",
+                "towards",
+                "their",
+                "widespread",
+                "adoption",
+                "is",
+                "posed",
+                "by",
+                "cgra",
+                "compilation",
+                "which",
+                "must",
+                "cope",
+                "with",
+                "multi-dimensional",
+                "space",
+                "spanning",
+                "both",
+                "the",
+                "spatial",
+                "and",
+                "the",
+                "temporal",
+                "domains.",
+                "indeed",
+                "state-of-the-art",
+                "compilers",
+                "are",
+                "limited",
+                "in",
+                "scope",
+                "as",
+                "they",
+                "mostly",
+                "deal",
+                "with",
+                "the",
+                "data",
+                "flow",
+                "of",
+                "applications",
+                "while",
+                "having",
+                "little",
+                "or",
+                "no",
+                "support",
+                "for",
+                "control",
+                "flow.",
+                "hence",
+                "they",
+                "mostly",
+                "target",
+                "the",
+                "mapping",
+                "of",
+                "single",
+                "loops",
+                "and",
+                "or",
+                "delegate",
+                "the",
+                "management",
+                "of",
+                "control",
+                "flow",
+                "divergences",
+                "to",
+                "ad-hoc",
+                "hardware",
+                "units.",
+                "conversely",
+                "in",
+                "this",
+                "paper",
+                "we",
+                "show",
+                "that",
+                "control",
+                "flow",
+                "can",
+                "be",
+                "effectively",
+                "managed",
+                "and",
+                "optimized",
+                "at",
+                "the",
+                "compilation",
+                "level",
+                "allowing",
+                "for",
+                "broad",
+                "set",
+                "of",
+                "applications",
+                "to",
+                "be",
+                "targeted",
+                "while",
+                "being",
+                "hardware-agnostic",
+                "and",
+                "achieving",
+                "high",
+                "performance.",
+                "we",
+                "embody",
+                "our",
+                "methodology",
+                "in",
+                "modular",
+                "compilation",
+                "framework",
+                "consisting",
+                "of",
+                "transformation",
+                "and",
+                "optimization",
+                "passes",
+                "enabling",
+                "support",
+                "for",
+                "applications",
+                "with",
+                "arbitrary",
+                "control",
+                "flows",
+                "running",
+                "on",
+                "abstract",
+                "cgra",
+                "meshes.",
+                "we",
+                "also",
+                "introduce",
+                "novel",
+                "mapping",
+                "methodology",
+                "that",
+                "acts",
+                "as",
+                "compilation",
+                "back-end",
+                "addressing",
+                "the",
+                "limitations",
+                "in",
+                "available",
+                "cgra",
+                "hardware",
+                "resources",
+                "and",
+                "guaranteeing",
+                "feasible",
+                "solution",
+                "in",
+                "the",
+                "compilation",
+                "process.",
+                "our",
+                "framework",
+                "achieves",
+                "up",
+                "to",
+                "2.1x",
+                "speedups",
+                "over",
+                "state-of-the-art",
+                "approaches",
+                "purely",
+                "through",
+                "compilation",
+                "optimizations."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "venue": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "year": {
+              "text": "2025",
+              "words": [
+                "2025"
+              ]
+            }
+          },
+          "year": 2025,
+          "citationCount": 0
+        },
+        "_searchBlob": "an mlir-based compilation framework for control flow management on coarse grained reconfigurable arrays coarse grained reconfigurable arrays cgras present both high flexibility and efficiency making them well-suited for the acceleration of intensive workloads. nevertheless a key barrier towards their widespread adoption is posed by cgra compilation which must cope with a multi-dimensional space spanning both the spatial and the temporal domains. indeed state-of-the-art compilers are limited in scope as they mostly deal with the data flow of applications while having little or no support for control flow. hence they mostly target the mapping of single loops and or delegate the management of control flow divergences to ad-hoc hardware units. conversely in this paper we show that control flow can be effectively managed and optimized at the compilation level allowing for a broad set of applications to be targeted while being hardware-agnostic and achieving high performance. we embody our methodology in a modular compilation framework consisting of transformation and optimization passes enabling support for applications with arbitrary control flows running on abstract cgra meshes. we also introduce a novel mapping methodology that acts as a compilation back-end addressing the limitations in available cgra hardware resources and guaranteeing a feasible solution in the compilation process. our framework achieves up to 2.1x speedups over state-of-the-art approaches purely through compilation optimizations. arxiv arxiv 2025 research-paper yuxuan wang cristian tirelli giovanni ansaloni laura pozzi david atienza mlir optimizations performance mlir optimizations performance compilation control flow management coarse grained reconfigurable grained reconfigurable arrays cgra hardware mlir",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
+    },
     "openalex-w4403780313": {
       "paper": {
         "source": "openalex-discovery",
@@ -4460,7 +4863,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4406164035",
-        "citationCount": 5,
+        "citationCount": 6,
         "doi": "10.1109/scw63240.2024.00133",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4480,7 +4883,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "fully integrating the flang fortran compiler with standard mlir",
         "_authorLower": "nick brown university of edinburgh",
         "_authorsLower": "nick brown university of edinburgh",
@@ -4743,7 +5146,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "fully integrating the flang fortran compiler with standard mlir fortran is the lingua franca of hpc code development and as such it is crucial that we as a community have open source fortran compilers capable of generating high performance executables. flang is llvms fortran compiler and leverages mlir which is a reusable compiler infrastructure which as part of llvm has become popular in recent years. however whilst flang leverages mlir it does not fully integrate with it and instead provides bespoke translation and optimisation passes to target llvm-ir. in this paper we first explore the performance of flang against other compilers popular in hpc for a range of benchmarks before describing a mapping between fortran and standard mlir exploring the performance of this. the result of this work is an up to three times speed up compared with flangs existing approach across the benchmarks and experiments run demonstrating that the flang community should seriously consider leveraging standard mlir. sc24-w workshops of the international conference for high performance computing networking storage and analysis sc24-w workshops of the international conference for high performance computing networking storage and analysis 2024 research-paper nick brown university of edinburgh flang infrastructure ir mlir performance flang infrastructure ir mlir performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -4798,7 +5201,7 @@
           "IR"
         ],
         "openalexId": "https://openalex.org/W4405362333",
-        "citationCount": 5,
+        "citationCount": 7,
         "doi": "10.1109/cars61786.2024.10778724",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4814,7 +5217,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 7,
         "_titleLower": "bi-directional transformers vs. word2vec: discovering vulnerabilities in lifted compiled code",
         "_authorLower": "gary a. mccully dakota state university john d. hastings dakota state university shengjie xu university of arizona adam fortier georgia institute of technology",
         "_authorsLower": "gary a. mccully dakota state university john d. hastings dakota state university shengjie xu university of arizona adam fortier georgia institute of technology",
@@ -5115,7 +5518,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 7
         },
         "_searchBlob": "bi-directional transformers vs. word2vec discovering vulnerabilities in lifted compiled code detecting vulnerabilities within compiled binaries is challenging due to lost high-level code structures and other factors such as architectural dependencies compilers and optimization options. to address these obstacles this research explores vulnerability detection using natural language processing nlp embedding techniques with word2vec bert and roberta to learn semantics from intermediate representation llvm ir code. long short-term memory lstm neural networks were trained on embeddings from encoders created using approximately 48k llvm functions from the juliet dataset. this study is pioneering in its comparison of word2vec models with multiple bidirectional transformers bert roberta embeddings built using llvm code to train neural networks to detect vulnerabilities in compiled binaries. word2vec skip-gram models achieved 92 validation accuracy in detecting vulnerabilities outperforming word2vec continuous bag of words cbow bert and roberta. this suggests that complex contextual embeddings may not provide advantages over simpler word2vec models for this task when a limited number e.g. 48k of data samples are used to train the bidirectional transformer-based models. the comparative results provide novel insights into selecting optimal embeddings for learning compiler-independent semantic code representations to advance machine learning detection of vulnerabilities in compiled binaries. 2024 cyber awareness and research symposium cars 2024 cyber awareness and research symposium cars 2024 research-paper gary a. mccully dakota state university john d. hastings dakota state university shengjie xu university of arizona adam fortier georgia institute of technology ir ir",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6107,7 +6510,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4378192124",
-        "citationCount": 9,
+        "citationCount": 10,
         "doi": "10.1109/host55118.2023.10132915",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6122,7 +6525,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "ec-cfi: control-flow integrity via code encryption counteracting fault attacks",
         "_authorLower": "pascal nasahl graz university of technology salmin sultana intel hans liljestrand intel karanvir grewal intel michael c. lemay intel david durham intel david schrammel graz university of technology stefan mangard graz university of technology",
         "_authorsLower": "pascal nasahl graz university of technology salmin sultana intel hans liljestrand intel karanvir grewal intel michael c. lemay intel david durham intel david schrammel graz university of technology stefan mangard graz university of technology",
@@ -6454,7 +6857,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "ec-cfi control-flow integrity via code encryption counteracting fault attacks fault attacks enable adversaries to manipulate the controlflow of security-critical applications. by inducing targeted faults into the cpu the softwares call graph can be escaped and the control-flow can be redirected to arbitrary functions inside the program. to protect the control-flow from these attacks dedicated fault control-flow integrity cfi countermeasures are commonly deployed. however these schemes either have high detection latencies or require intrusive hardware changes. in this paper we present ec-cfi a software-based cryptographically enforced cfi scheme with no detection latency utilizing hardware features of recent intel platforms. our ec-cfi prototype is designed to prevent an adversary from escaping the programs call graph using faults by encrypting each function with a different key before execution. at runtime the instrumented program dynamically derives the decryption key ensuring that the code only can be successfully decrypted when the program follows the intended call graph. to enable this level of protection on intel commodity systems we combine intel s tme-mk with the virtualization technology to achieve function-granular encryption. we open-source our custom llvm-based toolchain automatically protecting arbitrary programs with ec-cfi. furthermore we evaluate ept aliasing with the spec cpu2017 and embench- iot benchmarks and discuss and evaluate potential tme-mk hardware changes minimizing runtime overheads. 2023 ieee international symposium on hardware oriented security and trust host 2023 ieee international symposium on hardware oriented security and trust host 2023 research-paper pascal nasahl graz university of technology salmin sultana intel hans liljestrand intel karanvir grewal intel michael c. lemay intel david durham intel david schrammel graz university of technology stefan mangard graz university of technology security security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -12646,7 +13049,7 @@
         "venue": "Proceedings of 39th ACM SIGPLAN Conference on Programming Language Design and Implementation",
         "type": "research-paper",
         "abstract": "On-stack replacement (OSR) is essential technology for adaptive optimization, allowing changes to code actively executing in a managed runtime. The engineering aspects of OSR are well-known among VM architects, with several implementations available to date. However, OSR is yet to be explored as a general means to transfer execution between related program versions, which can pave the road to unprecedented applications that stretch beyond VMs. We aim at filling this gap with a constructive and provably correct OSR framework, allowing a class of general-purpose transformation functions to yield a special-purpose replacement. We describe and evaluate an implementation of our technique in LLVM. As a novel application of OSR, we present a feasibility study on debugging of optimized code, showing how our techniques can be used to fix variables holding incorrect values at breakpoints due to optimizations.",
-        "paperUrl": "http://hdl.handle.net/11573/1120597",
+        "paperUrl": "https://iris.uniroma1.it/bitstream/11573/1120597/1/Cono-D'Elia_Postprint-On-stack-replacemen_2018.pdf",
         "sourceUrl": "https://doi.org/10.1145/3192366.3192396",
         "tags": [
           "Optimizations"
@@ -16949,7 +17352,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W1904738922",
-        "citationCount": 260,
+        "citationCount": 266,
         "doi": "10.1109/sp.2015.9",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -16965,7 +17368,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 260,
+        "_citationCount": 266,
         "_titleLower": "cheri: a hybrid capability-system architecture for scalable software compartmentalization",
         "_authorLower": "robert n. m. watson university of cambridge jonathan woodruff university of cambridge peter g. neumann sri international simon w. moore university of cambridge jonathan anderson memorial david chisnall university of cambridge nirav dave sri international brooks davis sri international khilan gudka university of cambridge ben laurie google steven j. murdoch university college london robert m. norton university of cambridge michael roe university of cambridge stacey son university of cambridge munraj vadera university of cambridge",
         "_authorsLower": "robert n. m. watson university of cambridge jonathan woodruff university of cambridge peter g. neumann sri international simon w. moore university of cambridge jonathan anderson memorial david chisnall university of cambridge nirav dave sri international brooks davis sri international khilan gudka university of cambridge ben laurie google steven j. murdoch university college london robert m. norton university of cambridge michael roe university of cambridge stacey son university of cambridge munraj vadera university of cambridge",
@@ -17233,7 +17636,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 260
+          "citationCount": 266
         },
         "_searchBlob": "cheri a hybrid capability-system architecture for scalable software compartmentalization cheri extends a conventional risc instruction-set architecture compiler and operating system to support fine-grained capability-based memory protection to mitigate memory-related vulnerabilities in c-language tcbs. we describe how cheri capabilities can also underpin a hardware-software object-capability model for application compartmentalization that can mitigate broader classes of attack. prototyped as an extension to the open-source 64-bit beri risc fpga soft-core processor free bsd operating system and llvm compiler we demonstrate multiple orders-of-magnitude improvement in scalability simplified programmability and resulting tangible security benefits as compared to compartmentalization based on pure memory-management unit mmu designs. we evaluate incrementally deployable cheri-based compartmentalization using several real-world unix libraries and applications. 2015 ieee symposium on security and privacy 2015 ieee symposium on security and privacy 2015 research-paper robert n. m. watson university of cambridge jonathan woodruff university of cambridge peter g. neumann sri international simon w. moore university of cambridge jonathan anderson memorial david chisnall university of cambridge nirav dave sri international brooks davis sri international khilan gudka university of cambridge ben laurie google steven j. murdoch university college london robert m. norton university of cambridge michael roe university of cambridge stacey son university of cambridge munraj vadera university of cambridge libraries security libraries security",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -23647,7 +24050,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2106771621",
-        "citationCount": 458,
+        "citationCount": 463,
         "doi": "10.14778/2002938.2002940",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -23664,7 +24067,7 @@
         "_year": "2011",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 458,
+        "_citationCount": 463,
         "_titleLower": "efficiently compiling efficient query plans for modern hardware",
         "_authorLower": "thomas neumann technical university of munich",
         "_authorsLower": "thomas neumann technical university of munich",
@@ -23908,7 +24311,7 @@
             }
           },
           "year": 2011,
-          "citationCount": 458
+          "citationCount": 463
         },
         "_searchBlob": "efficiently compiling efficient query plans for modern hardware as main memory grows query performance is more and more determined by the raw cpu costs of query processing itself. the classical iterator style query processing technique is very simple and exible but shows poor performance on modern cpus due to lack of locality and frequent instruction mispredictions. several techniques like batch oriented processing or vectorized tuple processing have been proposed in the past to improve this situation but even these techniques are frequently out-performed by hand-written execution plans. in this work we present a novel compilation strategy that translates a query into compact and efficient machine code using the llvm compiler framework. by aiming at good code and data locality and predictable branch layout the resulting code frequently rivals the performance of hand-written c++ code. we integrated these techniques into the hyper main memory database system and show that this results in excellent query performance while requiring only modest compilation time. proceedings of vldb endowment proceedings of vldb endowment vol. 4 issue 9 2011 research-paper thomas neumann technical university of munich c++ performance c++ performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

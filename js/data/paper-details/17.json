@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7129530006": {
       "paper": {
@@ -748,7 +748,7 @@
           "mlir"
         ],
         "id": "openalex-w4407863036",
-        "citationCount": 3,
+        "citationCount": 5,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -758,7 +758,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 5,
         "_titleLower": "xdsl: sidekick compilation for ssa-based compilers",
         "_authorLower": "mathieu fehr university of edinburgh michel weber eth zurich christian ulmann eth zurich alexandre lopoukhine university of cambridge martin paul lücke university of edinburgh théo degioanni école normale supérieure de rennes christos vasiladiotis university of edinburgh michel steuwer technische universität berlin tobias grosser university of cambridge",
         "_authorsLower": "mathieu fehr university of edinburgh michel weber eth zurich christian ulmann eth zurich alexandre lopoukhine university of cambridge martin paul lücke university of edinburgh théo degioanni école normale supérieure de rennes christos vasiladiotis university of edinburgh michel steuwer technische universität berlin tobias grosser university of cambridge",
@@ -1167,7 +1167,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 3
+          "citationCount": 5
         },
         "_searchBlob": "xdsl sidekick compilation for ssa-based compilers traditionally compiler researchers either conduct experiments within an existing production compiler or develop their own prototype compiler both options come with trade-offs. on one hand prototyping in a production compiler can be cumbersome as they are often optimized for program compilation speed at the expense of software simplicity and development speed. on the other hand the transition from a prototype compiler to production requires significant engineering work. to bridge this gap we introduce the concept of sidekick compiler frameworks an approach that uses multiple frameworks that interoperate with each other by leveraging textual interchange formats and declarative descriptions of abstractions. each such compiler framework is specialized for specific use cases such as performance or prototyping. abstractions are by design shared across frameworks simplifying the transition from prototyping to production. we demonstrate this idea with xdsl a sidekick for mlir focused on prototyping and teaching. xdsl interoperates with mlir through a shared textual ir and the exchange of irs through an ir definition language. the benefits of sidekick compiler frameworks are evaluated by showing on three use cases how xdsl impacts their development teaching dsl compilation and rewrite system prototyping. we also investigate the trade-offs that xdsl offers and demonstrate how we simplify the transition between frameworks using the irdl dialect. with sidekick compilation we envision a future in which engineers minimize the cost of development by choosing a framework built for their immediate needs and later transitioning to production with minimal overhead. proceedings of 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper mathieu fehr university of edinburgh michel weber eth zurich christian ulmann eth zurich alexandre lopoukhine university of cambridge martin paul lucke university of edinburgh theo degioanni ecole normale superieure de rennes christos vasiladiotis university of edinburgh michel steuwer technische universitat berlin tobias grosser university of cambridge mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance static single assignment sidekick sidekick compiler frameworks production compiler xdsl sidekick compilation transition prototype compiler trade offs mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4221,7 +4221,7 @@
           "Programming Languages"
         ],
         "openalexId": "https://openalex.org/W4416548966",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1145/3719027.3765169",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4239,7 +4239,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "blackout: data-oblivious computation with blinded capabilities",
         "_authorLower": "hossam elatali university of waterloo merve gülmez ericsson thomas nyman ericsson n. asokan university of waterloo",
         "_authorsLower": "hossam elatali university of waterloo merve gülmez ericsson thomas nyman ericsson n. asokan university of waterloo",
@@ -4538,7 +4538,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "blackout data-oblivious computation with blinded capabilities lack of memory-safety and exposure to side channels are two prominent persistent challenges for the secure implementation of software. memory-safe programming languages promise to significantly reduce the prevalence of memory-safety bugs but make it more difficult to implement side-channel-resistant code. we aim to address both memory-safety and side-channel resistance by augmenting memory-safe hardware with the ability for data-oblivious programming. we describe an extension to the cheri capability architecture to provide blinded capabilities that allow data-oblivious computation to be carried out by userspace tasks. we also present blackout our realization of blinded capabilities on a fpga softcore based on the speculative out-of-order cheri-toooba processor and extend the cheri-enabled clang llvm compiler and the cheribsd operating system with support for blinded capabilities. blackout makes writing side-channel-resistant code easier by making non-data-oblivious operations via blinded capabilities explicitly fault. through rigorous evaluation we show that blackout ensures memory operated on through blinded capabilities is securely allocated used and reclaimed and demonstrate that in benchmarks comparable to those used by previous work blackout imposes only a small performance degradation 1.5 geometric mean compared to the baseline cheri-toooba processor. proceedings of 2025 acm sigsac conference on computer and communications security proceedings of 2025 acm sigsac conference on computer and communications security 2025 research-paper hossam elatali university of waterloo merve gulmez ericsson thomas nyman ericsson n. asokan university of waterloo clang performance programming languages clang performance programming languages",
         "addedAt": "2026-02-21T05:34:08.000Z",
@@ -5021,7 +5021,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4403223258",
-        "citationCount": 53,
+        "citationCount": 54,
         "doi": "10.1145/3689736",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -5038,7 +5038,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 53,
+        "_citationCount": 54,
         "_titleLower": "whitefox: white-box compiler fuzzing empowered by large language models",
         "_authorLower": "chenyuan yang university of illinois urbana-champaign yinlin deng university of illinois urbana-champaign runyu lu huazhong university of science and technology jiayi yao chinese university of hong kong, shenzhen jiawei liu university of illinois urbana-champaign reyhaneh jabbarvand university of illinois urbana-champaign lingming zhang university of illinois urbana-champaign",
         "_authorsLower": "chenyuan yang university of illinois urbana-champaign yinlin deng university of illinois urbana-champaign runyu lu huazhong university of science and technology jiayi yao chinese university of hong kong, shenzhen jiawei liu university of illinois urbana-champaign reyhaneh jabbarvand university of illinois urbana-champaign lingming zhang university of illinois urbana-champaign",
@@ -5514,7 +5514,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 53
+          "citationCount": 54
         },
         "_searchBlob": "whitefox white-box compiler fuzzing empowered by large language models compiler correctness is crucial as miscompilation can falsify program behaviors leading to serious consequences over the software supply chain. in the literature fuzzing has been extensively studied to uncover compiler defects. however compiler fuzzing remains challenging existing arts focus on black- and grey-box fuzzing which generates test programs without sufficient understanding of internal compiler behaviors. as such they often fail to construct test programs to exercise intricate optimizations. meanwhile traditional white-box techniques such as symbolic execution are computationally inapplicable to the giant codebase of compiler systems. recent advances demonstrate that large language models llms excel in code generation understanding tasks and even have achieved state-of-the-art performance in black-box fuzzing. nonetheless guiding llms with compiler source-code information remains a missing piece of research in compiler testing. to this end we propose w hite f ox the first white-box compiler fuzzer using llms with source-code information to test compiler optimization with a spotlight on detecting deep logic bugs in the emerging deep learning dl compilers. w hite f ox adopts a multi-agent framework i an llm-based analysis agent examines the low-level optimization source code and produces requirements on the high-level test programs that can trigger the optimization ii an llm-based generation agent produces test programs based on the summarized requirements. additionally optimization-triggering tests are also used as feedback to further enhance the test generation prompt on the fly. our evaluation on the three most popular dl compilers i.e . pytorch inductor tensorflow-xla and tensorflow lite shows that w hite f ox can generate high-quality test programs to exercise deep optimizations requiring intricate conditions practicing up to 8 times more optimizations than state-of-the-art fuzzers. to date w hite f ox has found in total 101 bugs for the compilers under test with 92 confirmed as previously unknown and 70 already fixed. notably w hite f ox has been recently acknowledged by the pytorch team and is in the process of being incorporated into its development workflow. finally beyond dl compilers w hite f ox can also be adapted for compilers in different domains such as llvm where whitefox has already found multiple bugs. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue oopsla2 2024 research-paper chenyuan yang university of illinois urbana-champaign yinlin deng university of illinois urbana-champaign runyu lu huazhong university of science and technology jiayi yao chinese university of hong kong shenzhen jiawei liu university of illinois urbana-champaign reyhaneh jabbarvand university of illinois urbana-champaign lingming zhang university of illinois urbana-champaign optimizations performance testing optimizations performance testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6143,7 +6143,7 @@
           "openmp"
         ],
         "id": "openalex-w4403816928",
-        "citationCount": 5,
+        "citationCount": 6,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -6152,7 +6152,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "pragformer: data-driven parallel source code classification with transformers",
         "_authorLower": "re’em harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion – israel institute of technology",
         "_authorsLower": "re’em harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion – israel institute of technology",
@@ -6594,7 +6594,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "pragformer data-driven parallel source code classification with transformers abstract multi-core shared memory architectures have become ubiquitous in computing hardware nowadays. as a result there is a growing need to fully utilize these architectures by introducing appropriate parallelization schemes such as openmp worksharing-loop constructs to applications. however most developers find introducing openmp directives to their code hard due to pervasive pitfalls in managing parallel shared memory. to assist developers in this process many compilers as well as source-to-source s2s translation tools have been developed over the years tasked with inserting openmp directives into code automatically. in addition to having limited robustness to their input format these compilers still do not achieve satisfactory coverage and precision in locating parallelizable code and generating appropriate directives. recently many data-driven ai-based code completion cc tools such as github copilot have been developed to ease and improve programming productivity. leveraging the insights from existing ai-based programming-assistance tools this work presents a novel ai model that can serve as a parallel-programming assistant. specifically our model named pragformer is tasked with identifying loops that can benefit from conversion to parallel worksharing-loop construct openmp directive and even predict the need for specific data-sharing attributes clauses on the fly. we created a unique database named open-omp specifically for this goal. open-omp contains over 32 000 unique code snippets from different domains half of which contain openmp directives while the other half do not. we experimented with different model design parameters for these tasks and showed that our best-performing model outperforms a statistically-trained baseline as well as a state-of-the-art s2s compiler. in fact it even outperforms the popular generative ai model of chatgpt. in the spirit of advancing research on this topic we have already released source code for pragformer as well as open-omp dataset to public. moreover an interactive demo of our tool as well as a hugging face webpage to experiment with our tool are already available. international journal of parallel programming international journal of parallel programming vol. 53 issue 1 2024 research-paper reem harel ben-gurion university of the negev tal kadosh ben-gurion university of the negev niranjan hasabnis intel timothy g. mattson intel yuval pinter ben-gurion university of the negev gal oren technion israel institute of technology openmp ai openmp ai parallel computing openmp directives open omp pragformer shared memory worksharing loop driven parallel openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -7529,7 +7529,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4400976816",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.1145/3664476.3664492",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7547,7 +7547,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "hemate: enhancing heap security through isolating primitive types with arm memory tagging extension",
         "_authorLower": "yunrong chen national taiwan university shih-wei li national taiwan university",
         "_authorsLower": "yunrong chen national taiwan university shih-wei li national taiwan university",
@@ -7876,7 +7876,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "hemate enhancing heap security through isolating primitive types with arm memory tagging extension memory safety vulnerabilities are a significant challenge for programming languages like c and c++. among these vulnerabilities heap-based issues have become more prevalent in recent years. exploiting these vulnerabilities allows adversaries to execute arbitrary memory reads writes and even code execution. the memory tagging extension mte introduced in the arm v8.5-a processor architecture is an example of such a security feature. mte has been utilized in modern software to implement probabilistic protection for heap-based memory safety vulnerabilities including use-after-free and heap-based buffer overflow. however the existing mte-based approaches offer probabilistic protection and are vulnerable to brute-force attacks. moreover these approaches offer inter-object isolation but are vulnerable to intra-object overflow. further adversaries leverage memory confusion to manipulate or leak pointers leading to arbitrary memory read write and code execution. in response to the limitation and security this work introduces a novel usage of mte called hemate to isolate memory storing different primitive types of data on the heap to enhance memory safety. this approach provides a non-probabilistic constraint on vulnerability exploitation against memory objects with different primitive data types such as intra-object overflow and use-after-free. we have implemented a hemate prototype compiler for c programs based on the llvm framework. our approach effectively leverages mte to protect against memory safety vulnerabilities while preserving the functionality of commonly used linux applications. proceedings of 19th international conference on availability reliability and security proceedings of 19th international conference on availability reliability and security 2024 research-paper yunrong chen national taiwan university shih-wei li national taiwan university c++ programming languages security c++ programming languages security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7939,7 +7939,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W4395686619",
-        "citationCount": 8,
+        "citationCount": 9,
         "doi": "10.1145/3674652",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7956,7 +7956,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 9,
         "_titleLower": "a two-phase infinite/finite low-level memory model: reconciling integer–pointer casts, finite space, and undef at the llvm ir level of abstraction",
         "_authorLower": "calvin beck university of pennsylvania irene yoon institut national de recherche en sciences et technologies du numérique hanxi chen university of pennsylvania yannick zakowski université claude bernard lyon 1 steve zdancewic university of pennsylvania",
         "_authorsLower": "calvin beck university of pennsylvania irene yoon institut national de recherche en sciences et technologies du numérique hanxi chen university of pennsylvania yannick zakowski université claude bernard lyon 1 steve zdancewic university of pennsylvania",
@@ -8271,7 +8271,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 8
+          "citationCount": 9
         },
         "_searchBlob": "a two-phase infinite finite low-level memory model reconciling integer pointer casts finite space and undef at the llvm ir level of abstraction this paper provides a novel approach to reconciling complex low-level memory model features such as pointerinteger casts with desired refinements that are needed to justify the correctness of program transformations. the idea is to use a two-phase memory model one with an unbounded memory and corresponding unbounded integer type and one with a finite memory the connection between the two levels is made explicit by a notion of refinement that handles out-of-memory behaviors. this approach allows for more optimizations to be performed and establishes a clear boundary between the idealized semantics of a program and the implementation of that program on finite hardware. the two-phase memory model has been incorporated into an llvm ir semantics demonstrating its utility in practice in the context of a low-level language with features like undef and bitcast. this yields infinite and finite memory versions of the language semantics that are proven to be in refinement with respect to out-of-memory behaviors. each semantics is accompanied by a verified executable reference interpreter. the semantics justify optimizations such as dead-alloca-elimination that were previously impossible or difficult to prove correct. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue icfp 2024 research-paper calvin beck university of pennsylvania irene yoon institut national de recherche en sciences et technologies du numerique hanxi chen university of pennsylvania yannick zakowski universite claude bernard lyon 1 steve zdancewic university of pennsylvania ir optimizations ir optimizations",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -10877,7 +10877,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4297042799",
-        "citationCount": 7,
+        "citationCount": 8,
         "doi": "10.1155/2022/6903370",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -10892,7 +10892,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 8,
         "_titleLower": "coops: a code obfuscation method based on obscuring program semantics",
         "_authorLower": "yang li fei kang hui shu xiaobing xiong zihan sha zhonghang sui",
         "_authorsLower": "yang li fei kang hui shu xiaobing xiong zihan sha zhonghang sui",
@@ -11234,7 +11234,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 7
+          "citationCount": 8
         },
         "_searchBlob": "coops a code obfuscation method based on obscuring program semantics as reverse engineering technology develops rapidly the financial loss caused by software security issues is urgent. therefore how to effectively protect software is a critical problem to solve. the software protection method based on code obfuscation is an effective way and constructing an effective obfuscation algorithm can increase the cost of reverse software. it is conspicuous that current development of code obfuscation focuses on increasing the complexity of the code structure without paying much attention to the protection of program semantic information which may help experienced attackers improve their analysis efficiency. this paper proposes coops for protecting software based on program semantic information in which functions are regarded as basic semantic units. the switch relationship between the intrafunction control flow and the interfunction calling is established. the interfunction calling can be hidden in the intrafunction control flow and in reverse the intrafunction control flow can also be converted to interfunction calling. in this way considering intraprogram function semantic unit level discrete this method reconstructs the intraprogram semantic relationship. to determine the relative effectiveness we have evaluated coops on openssl and specint-2000 test sets. for both of them the function calling graphs before and after obfuscation differ more than 90 which means coops significantly changes the control flow of the program. the evaluation shows that compared with o-llvm coops manifests strong resistance to asm2vec and other program similarity analysis techniques and significantly improves the level of software protection rather than necessitating time-consuming and heavyweight problems. security and communication networks security and communication networks vol. 2022 2022 research-paper yang li fei kang hui shu xiaobing xiong zihan sha zhonghang sui security security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11290,7 +11290,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4200074466",
-        "citationCount": 13,
+        "citationCount": 14,
         "doi": "10.1145/3480250",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11305,7 +11305,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 13,
+        "_citationCount": 14,
         "_titleLower": "iterative compilation optimization based on metric learning and collaborative filtering",
         "_authorLower": "hongzhi liu peking university jie luo peking university ying li peking university zhonghai wu peking university",
         "_authorsLower": "hongzhi liu peking university jie luo peking university ying li peking university zhonghai wu peking university",
@@ -11776,7 +11776,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 13
+          "citationCount": 14
         },
         "_searchBlob": "iterative compilation optimization based on metric learning and collaborative filtering pass selection and phase ordering are two critical compiler auto-tuning problems. traditional heuristic methods cannot effectively address these np-hard problems especially given the increasing number of compiler passes and diverse hardware architectures. recent research efforts have attempted to address these problems through machine learning. however the large search space of candidate pass sequences the large numbers of redundant and irrelevant features and the lack of training program instances make it difficult to learn models well. several methods have tried to use expert knowledge to simplify the problems such as using only the compiler passes or subsequences in the standard levels e.g. -o1 -o2 and -o3 provided by compiler designers. however these methods ignore other useful compiler passes that are not contained in the standard levels. principal component analysis pca and exploratory factor analysis efa have been utilized to reduce the redundancy of feature data. however these unsupervised methods retain all the information irrelevant to the performance of compilation optimization which may mislead the subsequent model learning. to solve these problems we propose a compiler pass selection and phase ordering approach called iterative compilation based on metric learning and collaborative filtering icmc . first we propose a data-driven method to construct pass subsequences according to the observed collaborative interactions and dependency among passes on a given program set. therefore we can make use of all available compiler passes and prune the search space. then a supervised metric learning method is utilized to retain useful feature information for compilation optimization while removing both the irrelevant and the redundant information. based on the learned similarity metric a neighborhood-based collaborative filtering method is employed to iteratively recommend a few superior compiler passes for each target program. last an iterative data enhancement method is designed to alleviate the problem of lacking training program instances and to enhance the performance of iterative pass recommendations. the experimental results using the llvm compiler on all 32 cbench programs show the following 1 icmc significantly outperforms several state-of-the-art compiler phase ordering methods 2 it performs the same or better than the standard level -o3 on all the test programs and 3 it can reach an average performance speedup of 1.20 up to 1.46 compared with the standard level -o3. acm transactions on architecture and code optimization acm transactions on architecture and code optimization vol. 19 issue 1 2021 research-paper hongzhi liu peking university jie luo peking university ying li peking university zhonghai wu peking university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14021,6 +14021,7 @@
     },
     "openalex-w2995506849": {
       "paper": {
+        "id": "openalex-w2995506849",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "RVSDG",
@@ -14092,7 +14093,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w2995506849",
         "citationCount": 4,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15545,6 +15545,7 @@
     },
     "openalex-w3007772124": {
       "paper": {
+        "id": "openalex-w3007772124",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "MLIR: A Compiler Infrastructure for the End of Moore's Law",
@@ -15660,7 +15661,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3007772124",
         "citationCount": 120,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -21566,7 +21566,7 @@
           "C++"
         ],
         "openalexId": "https://openalex.org/W2461570336",
-        "citationCount": 116,
+        "citationCount": 118,
         "doi": "10.1145/2931037.2931074",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -21582,7 +21582,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 116,
+        "_citationCount": 118,
         "_titleLower": "toward understanding compiler bugs in gcc and llvm",
         "_authorLower": "c. p. sun university of california, davis vu le university of california, davis qirun zhang university of california, davis zhendong su university of california, davis",
         "_authorsLower": "c. p. sun university of california, davis vu le university of california, davis qirun zhang university of california, davis zhendong su university of california, davis",
@@ -21950,7 +21950,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 116
+          "citationCount": 118
         },
         "_searchBlob": "toward understanding compiler bugs in gcc and llvm compilers are critical widely-used complex software. bugs in them have significant impact and can cause serious damage when they silently miscompile a safety-critical application. an in-depth understanding of compiler bugs can help detect and fix them. to this end we conduct the first empirical study on the characteristics of the bugs in two main-stream compilers gcc and llvm. our study is significant in scale it exhaustively examines about 50k bugs and 30k bug fix revisions over more than a decades span. this paper details our systematic study. summary findings include 1 in both compilers c++ is the most buggy component accounting for around 20 of the total bugs and twice as many as the second most buggy component 2 the bug revealing test cases are typically small with 80 having fewer than 45 lines of code 3 most of the bug fixes touch a single source file with small modifications 43 lines for gcc and 38 for llvm on average 4 the average lifetime of gcc bugs is 200 days and 111 days for llvm and 5 high priority tends to be assigned to optimizer bugs most notably 30 of the bugs in gccs inter-procedural analysis component are labeled p1 the highest priority . this study deepens our understanding of compiler bugs. for application developers it shows that even mature production compilers still have many bugs which may affect development. for researchers and compiler developers it sheds light on interesting characteristics of compiler bugs and highlights challenges and opportunities to more effectively test and debug compilers. proceedings of 25th international symposium on software testing and analysis proceedings of 25th international symposium on software testing and analysis 2016 research-paper c. p. sun university of california davis vu le university of california davis qirun zhang university of california davis zhendong su university of california davis c++ c++",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24182,7 +24182,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2245493112",
-        "citationCount": 1479,
+        "citationCount": 1500,
         "doi": "10.1145/2833157.2833162",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -24199,7 +24199,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1479,
+        "_citationCount": 1500,
         "_titleLower": "numba",
         "_authorLower": "siu kwan lam antoine pitrou stanley seibert",
         "_authorsLower": "siu kwan lam antoine pitrou stanley seibert",
@@ -24381,7 +24381,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 1479
+          "citationCount": 1500
         },
         "_searchBlob": "numba dynamic interpreted languages like python are attractive for domain-experts and scientists experimenting with new ideas. however the performance of the interpreter is often a barrier when scaling to larger data sets. this paper presents a just-in-time compiler for python that focuses in scientific and array-oriented computing. starting with the simple syntax of python numba compiles a subset of the language into efficient machine code that is comparable in performance to a traditional compiled language. in addition we share our experience in building a jit compiler using llvm 1 . proceedings of second workshop on the llvm compiler infrastructure in hpc proceedings of second workshop on the llvm compiler infrastructure in hpc 2015 research-paper siu kwan lam antoine pitrou stanley seibert jit performance jit performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -26732,7 +26732,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2098367419",
-        "citationCount": 165,
+        "citationCount": 167,
         "doi": "10.1093/bioinformatics/btv363",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -26749,7 +26749,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 165,
+        "_citationCount": 167,
         "_titleLower": "libroadrunner: a high performance sbml simulation and analysis library",
         "_authorLower": "endre somogyi biocom jean‐marie c. bouteiller university of southern california james a. glazier indiana university bloomington matthias könig charité - universitätsmedizin berlin kyle medley university of washington maciej swat biocom herbert m. sauro university of washington",
         "_authorsLower": "endre somogyi biocom jean‐marie c. bouteiller university of southern california james a. glazier indiana university bloomington matthias könig charité - universitätsmedizin berlin kyle medley university of washington maciej swat biocom herbert m. sauro university of washington",
@@ -26878,7 +26878,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 165
+          "citationCount": 167
         },
         "_searchBlob": "libroadrunner a high performance sbml simulation and analysis library supplementary data are available at bioinformatics online. bioinformatics bioinformatics vol. 31 issue 20 2015 research-paper endre somogyi biocom jean marie c. bouteiller university of southern california james a. glazier indiana university bloomington matthias konig charite - universitatsmedizin berlin kyle medley university of washington maciej swat biocom herbert m. sauro university of washington c++ jit performance c++ jit performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -30415,7 +30415,7 @@
         "publication": "Proceedings of 6th annual IEEE/ACM international symposium on Code generation and optimization",
         "openalexId": "https://openalex.org/W2080932040",
         "doi": "10.1145/1356058.1356065",
-        "citationCount": 22,
+        "citationCount": 23,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -30429,7 +30429,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 22,
+        "_citationCount": 23,
         "_titleLower": "near-optimal instruction selection on dags",
         "_authorLower": "david ryan koes carnegie mellon university seth copen goldstein carnegie mellon university",
         "_authorsLower": "david ryan koes carnegie mellon university seth copen goldstein carnegie mellon university",
@@ -30633,7 +30633,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 22
+          "citationCount": 23
         },
         "_searchBlob": "near-optimal instruction selection on dags instruction selection is a key component of code generation. high quality instruction selection is of particular importance in the embedded space where complex instruction sets are common and code size is a prime concern. although instruction selection on tree expressions is a well understood and easily solved problem instruction selection on directed acyclic graphs is np-complete. in this paper we present noltis a near-optimal linear time instruction selection algorithm for dag expressions. noltis is easy to implement fast and effective with a demonstrated average code size improvement of 5.1 compared to the traditional tree decomposition and tiling approach. proceedings of 6th annual ieee acm international symposium on code generation and optimization proceedings of 6th annual ieee acm international symposium on code generation and optimization 2008 research-paper david ryan koes carnegie mellon university seth copen goldstein carnegie mellon university embedded embedded",
         "addedAt": "2026-02-20T23:08:48.000Z",

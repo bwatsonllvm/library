@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w4415159921": {
       "paper": {
@@ -318,7 +318,7 @@
           "mlir"
         ],
         "id": "openalex-w4407848518",
-        "citationCount": 6,
+        "citationCount": 7,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "https://mlir.llvm.org/pubs/",
@@ -328,7 +328,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 7,
         "_titleLower": "the mlir transform dialect",
         "_authorLower": "martin paul lücke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universität berlin albert cohen",
         "_authorsLower": "martin paul lücke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universität berlin albert cohen",
@@ -655,7 +655,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 6
+          "citationCount": 7
         },
         "_searchBlob": "the mlir transform dialect to take full advantage of a specific hardware target performance engineers need to gain control on compilers in order to leverage their domain knowledge about the program and hardware. yet modern compilers are poorly controlled usually by configuring a sequence of coarse-grained monolithic black-box passes or by means of predefined compiler annotations pragmas. these can be effective but often do not let users precisely optimize their varying compute loads. as a consequence performance engineers have to resort to implementing custom passes for a specific optimization heuristic requiring compiler engineering expert knowledge. in this paper we present a technique that provides fine-grained control of general-purpose compilers by introducing the transform dialect a controllable ir-based transformation system implemented in mlir. the transform dialect empowers performance engineers to optimize their various compute loads by composing and reusing existing---but currently hidden---compiler features without the need to implement new passes or even rebuilding the compiler. we demonstrate in five case studies that the transform dialect enables precise safe composition of compiler transformations and allows for straightforward integration with state-of-the-art search methods. in proceedings of the 23rd acm ieee international symposium on code generation and optimization in proceedings of the 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper martin paul lucke university of edinburgh alex zinenko william s. moses university of illinois urbana-champaign michel steuwer technische universitat berlin albert cohen mlir ir backend code generation optimizations performance mlir backend code generation optimizations performance transform dialect performance engineers passes compute loads mlir transform dialect hardware mlir",
         "_mlirSourceUpstream": true,
@@ -3193,7 +3193,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4404133411",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1109/cluster59578.2024.00021",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -3213,7 +3213,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "high-performance fft code generation via mlir linalg dialect and simd micro-kernels",
         "_authorLower": "yifei he kth royal institute of technology stefano markidis kth royal institute of technology",
         "_authorsLower": "yifei he kth royal institute of technology stefano markidis kth royal institute of technology",
@@ -3562,7 +3562,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "high-performance fft code generation via mlir linalg dialect and simd micro-kernels fast fourier transform fft libraries are an indispensable and critical component of any high-performance computing hpc software stack. they are used in many applications from partial differential equation pde solvers to signal spectral analysis and deep-learning. to design and develop the next generation of hpc fft libraries it is essential to leverage modern compiler infrastructures such as multi-level intermediate representation mlir and the low-level virtual machine llvm alongside advanced computer architecture features including simd single instruction multiple data instructions. in this work we introduce fftc 2.0 an mlir-based domain-specific compilation framework for fft. we extend the mlir linalg dialect with fft-specific operations to harness high-level tensor-based abstractions for fft. these abstractions are ideal for formulating various fft algorithms and facilitating formula rewriting for fft decomposition and cache-friendly optimization. we employ micro-kernels to increase the performance particularly in response to the limited support for complex arithmetic in mlir and the general-purpose compiler llvm. these micro-kernels are designed to implement small-size fft kernels for integration into larger ffts. they utilize simd-friendly data layouts for complex arithmetic and feature an optimized memory access pattern enabling performance enhancements that are not achievable with standard compiler implementations. our method achieves performance levels comparable to or surpass those of widely used fft hpc libraries such as fftw ffte and spiral fft. additionally it establishes a robust software infrastructure that facilitates further optimizations and supports additional hardware backends. 2024 ieee international conference on cluster computing cluster 2024 ieee international conference on cluster computing cluster 2024 research-paper yifei he kth royal institute of technology stefano markidis kth royal institute of technology backend infrastructure libraries mlir optimizations performance backend infrastructure libraries mlir optimizations performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7389,7 +7389,7 @@
           "addresssanitizer"
         ],
         "id": "openalex-w4389571996",
-        "citationCount": 5,
+        "citationCount": 6,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -7399,7 +7399,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "a smart status based monitoring algorithm for the dynamic analysis of memory safety",
         "_authorLower": "zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney",
         "_authorsLower": "zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney",
@@ -7885,7 +7885,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "a smart status based monitoring algorithm for the dynamic analysis of memory safety c is a dominant programming language for implementing system and low-level embedded software. unfortunately the unsafe nature of its low-level control of memory often leads to memory errors. dynamic analysis has been widely used to detect memory errors at runtime. however existing monitoring algorithms for dynamic analysis are not yet satisfactory as they cannot deterministically and completely detect some types of errors such as segment confusion errors sub-object overflows use-after-frees and memory leaks. we propose a new monitoring algorithm namely smatus short for smart status that improves memory safety by performing comprehensive dynamic analysis. the key innovation is to maintain at runtime a small status node for each memory object. a status node records the status value and reference count of an object where the status value denotes the liveness and segment type of this object and the reference count tracks the number of pointer variables pointing to this object. smatus maintains at runtime a pointer metadata for each pointer variable to record not only the base and bound of a pointers referent but also the address of the referents status node. all the pointers pointing to the same referent share the same status node in their pointer metadata. a status node is smart in the sense that it is automatically deleted when it becomes useless indicated by its reference count reaching zero . to the best of our knowledge smatus represents the most comprehensive approach of its kind. we have evaluated smatus by using a large set of programs including the nist software assurance reference dataset msbench mibench spec and stress testing benchmarks. in terms of effectiveness detecting different types of memory errors smatus outperforms state-of-the-art tools googles addresssanitizer softboundcets and valgrind as it is capable of detecting more errors. in terms of performance the time and memory overheads smatus outperforms softboundcets and valgrind in terms of both lower time and memory overheads incurred and is on par with addresssanitizer in terms of the time and memory overhead tradeoff made with much lower memory overheads incurred . acm transactions on software engineering and methodology acm transactions on software engineering and methodology vol. 33 issue 4 2023 research-paper zhe chen nanjing university of aeronautics and astronautics rui yan nanjing university of aeronautics and astronautics yingzi ma nanjing university of aeronautics and astronautics yulei sui unsw sydney jingling xue unsw sydney dynamic analysis testing security performance embedded programming languages dynamic analysis testing security performance embedded programming languages sanitizers memory safety memory overheads incurred status node memory errors smatus outperforms object pointer metadata addresssanitizer",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -8142,6 +8142,7 @@
     },
     "openalex-w4226289789": {
       "paper": {
+        "id": "openalex-w4226289789",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Source Matching and Rewriting",
@@ -8205,7 +8206,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w4226289789",
         "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -9536,7 +9536,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3130095569",
-        "citationCount": 27,
+        "citationCount": 28,
         "doi": "10.1145/3446804.3446849",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -9553,7 +9553,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 28,
         "_titleLower": "exploring the space of optimization sequences for code-size reduction: insights and tools",
         "_authorLower": "anderson faustino da silva universidade estadual de maringá bernardo n. b. de lima universidade federal de minas gerais fernando magno quintão pereira universidade federal de minas gerais",
         "_authorsLower": "anderson faustino da silva universidade estadual de maringá bernardo n. b. de lima universidade federal de minas gerais fernando magno quintão pereira universidade federal de minas gerais",
@@ -9906,7 +9906,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 27
+          "citationCount": 28
         },
         "_searchBlob": "exploring the space of optimization sequences for code-size reduction insights and tools the optimization space of a compiler is the set of every possible sequence of optimizations that said compiler can use. the exploration of the optimization space of any mainstream compiler has been for decades hampered by the lack of benchmarks. however recent efforts from different research groups have made available a large quantity of compilable code that can be today used to overcome this problem. in this paper we use 15 000 programs from a public collection to explore the optimization space of llvm focusing on code-size reduction. this exploration reveals that the probability of beating the default optimization levels of llvm with random sequences ranges from 10 considering opt -oz to 19 considering clang -os . yet the distribution of probabilities is uneven across programs the default levels work well for most programs and poorly for a few. based on these observations we introduce the notion of an optimization cache a table of programs to optimization sequences that can be used to support predictive compilation. we then use an optimization cache to build what we call a default covering set a small ensemble of optimization sequences that once combined tend to be good for any program. optimization caches and default covering sets are used independently. the former when applied onto mibench yield programs that are 11.9 smaller than programs produced by opt -os on average. the latter produce programs 12.5 smaller. proceedings of 30th acm sigplan international conference on compiler construction proceedings of 30th acm sigplan international conference on compiler construction 2021 research-paper anderson faustino da silva universidade estadual de maringa bernardo n. b. de lima universidade federal de minas gerais fernando magno quintao pereira universidade federal de minas gerais clang optimizations clang optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -13559,7 +13559,7 @@
           "Quantum Computing"
         ],
         "openalexId": "https://openalex.org/W2913992572",
-        "citationCount": 364,
+        "citationCount": 369,
         "doi": "10.1145/3297858.3304075",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -13575,7 +13575,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 364,
+        "_citationCount": 369,
         "_titleLower": "noise-adaptive compiler mappings for noisy intermediate-scale quantum computers",
         "_authorLower": "prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university",
         "_authorsLower": "prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university",
@@ -14014,7 +14014,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 364
+          "citationCount": 369
         },
         "_searchBlob": "noise-adaptive compiler mappings for noisy intermediate-scale quantum computers a massive gap exists between current quantum computing qc prototypes and the size and scale required for many proposed qc algorithms. current qc implementations are prone to noise and variability which affect their reliability and yet with less than 80 quantum bits qubits total they are too resource-constrained to implement error correction. the term noisy intermediate-scale quantum nisq refers to these current and near-term systems of 1000 qubits or less. given nisqs severe resource constraints low reliability and high variability in physical characteristics such as coherence time or error rates it is of pressing importance to map computations onto them in ways that use resources efficiently and maximize the likelihood of successful runs. this paper proposes and evaluates backend compiler approaches to map and optimize high-level qc programs to execute with high reliability on nisq systems with diverse hardware characteristics. our techniques all start from an llvm intermediate representation of the quantum program such as would be generated from high-level qc languages like scaffold and generate qc executables runnable on the ibm q public qc machine. we then use this framework to implement and evaluate several optimal and heuristic mapping methods. these methods vary in how they account for the availability of dynamic machine calibration data the relative importance of various noise parameters the different possible routing strategies and the relative importance of compile-time scalability versus runtime success. using real-system measurements we show that fine grained spatial and temporal variations in hardware parameters can be exploited to obtain an average 2.9x and up to 18x improvement in program success rate over the industry standard ibm qiskit compiler. despite small qubit counts nisq systems will soon be large enough to demonstrate quantum supremacy i.e. an advantage over classical computing. tools like ours provide significant improvements in program reliability and execution time and offer high leverage in accelerating progress towards quantum supremacy. proceedings of twenty-fourth international conference on architectural support for programming languages and operating systems proceedings of twenty-fourth international conference on architectural support for programming languages and operating systems 2019 research-paper prakash murali princeton university jonathan m. baker university of illinois chicago ali javadi-abhari frederic t. chong university of chicago margaret martonosi princeton university backend quantum computing backend quantum computing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14694,7 +14694,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W2798573268",
-        "citationCount": 24,
+        "citationCount": 26,
         "doi": "10.1145/3192366.3192377",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -14711,7 +14711,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 24,
+        "_citationCount": 26,
         "_titleLower": "crellvm: verified credible compilation for llvm",
         "_authorLower": "jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university",
         "_authorsLower": "jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university",
@@ -14936,7 +14936,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 24
+          "citationCount": 26
         },
         "_searchBlob": "crellvm verified credible compilation for llvm production compilers such as gcc and llvm are large complex software systems for which achieving a high level of reliability is hard. although testing is an effective method for finding bugs it alone cannot guarantee a high level of reliability. to provide a higher level of reliability many approaches that examine compilers internal logics have been proposed. however none of them have been successfully applied to major optimizations of production compilers. proceedings of 39th acm sigplan conference on programming language design and implementation proceedings of 39th acm sigplan conference on programming language design and implementation 2018 research-paper jeehoon kang seoul national university yoonseung kim seoul national university youngju song seoul national university juneyoung lee seoul national university sanghoon park seoul national university mark dongyeon shin seoul national university yonghyun kim seoul national university sungkeun cho seoul national university joonwon choi massachusetts institute of technology chung-kil hur seoul national university kwangkeun yi seoul national university optimizations testing optimizations testing",
         "addedAt": "2026-02-21T05:12:17.000Z",
@@ -15379,7 +15379,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W2803592282",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.4204/eptcs.285.5",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15397,7 +15397,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "compiling with continuations and llvm",
         "_authorLower": "kavon farvardin university of chicago john reppy university of chicago",
         "_authorsLower": "kavon farvardin university of chicago john reppy university of chicago",
@@ -15625,7 +15625,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "compiling with continuations and llvm llvm is an infrastructure for code generation and low-level optimizations which has been gaining popularity as a backend for both research and industrial compilers including many compilers for functional languages. while llvm provides a relatively easy path to high-quality native code its design is based on a traditional runtime model which is not well suited to alternative compilation strategies used in high-level language compilers such as the use of heap-allocated continuation closures. this paper describes a new llvm-based backend that supports heap-allocated continuation closures which enables constant-time callcc and very-lightweight multithreading. the backend has been implemented in the parallel ml compiler which is part of the manticore system but the results should be useful for other compilers such as standard ml of new jersey that use heap-allocated continuation closures. electronic proceedings in theoretical computer science electronic proceedings in theoretical computer science vol. 285 2018 research-paper kavon farvardin university of chicago john reppy university of chicago backend infrastructure ml optimizations backend infrastructure ml optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17149,7 +17149,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2411334977",
-        "citationCount": 27,
+        "citationCount": 28,
         "doi": "10.1145/2872421.2872424",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17164,7 +17164,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 28,
         "_titleLower": "predictive modeling methodology for compiler phase-ordering",
         "_authorLower": "amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano",
         "_authorsLower": "amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano",
@@ -17479,7 +17479,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 27
+          "citationCount": 28
         },
         "_searchBlob": "predictive modeling methodology for compiler phase-ordering todays compilers offer a huge number of transformation options to choose among and this choice can significantly impact on the performance of the code being optimized. not only the selection of compiler options represents a hard problem to be solved but also the ordering of the phases is adding further complexity making it a long standing problem in compilation research. this paper presents an innovative approach for tackling the compiler phase-ordering problem by using predictive modeling. the proposed methodology enables i to efficiently explore compiler exploration space including optimization permutations and repetitions and ii to extract the application dynamic features to predict the next-best optimization to be applied to maximize the performance given the current status. experimental results are done by assessing the proposed methodology with utilizing two different search heuristics on the compiler optimization space and it demonstrates the effectiveness of the methodology on the selected set of applications. using the proposed methodology on average we observed up to 4 execution speedup with respect to llvm standard baseline. proceedings of 7th workshop on parallel programming and run-time management techniques for many-core architectures and the 5th workshop on design tools and architectures for multicore embedded computing platforms proceedings of 7th workshop on parallel programming and run-time management techniques for many-core architectures and the 5th workshop on design tools and architectures for multicore embedded computing platforms 2016 research-paper amir h. ashouri politecnico di milano andrea bignoli politecnico di milano gianluca palermo politecnico di milano cristina silvano politecnico di milano performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -22559,7 +22559,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2999411576",
-        "citationCount": 20,
+        "citationCount": 21,
         "doi": "10.1145/2370036.2145831",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -22576,7 +22576,7 @@
         "_year": "2012",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 20,
+        "_citationCount": 21,
         "_titleLower": "a gpu implementation of inclusion-based points-to analysis",
         "_authorLower": "mario méndez-lojo the university of texas at austin martin burtscher texas state university keshav pingali the university of texas at austin",
         "_authorsLower": "mario méndez-lojo the university of texas at austin martin burtscher texas state university keshav pingali the university of texas at austin",
@@ -22875,7 +22875,7 @@
             }
           },
           "year": 2012,
-          "citationCount": 20
+          "citationCount": 21
         },
         "_searchBlob": "a gpu implementation of inclusion-based points-to analysis graphics processing units gpus have emerged as powerful accelerators for many regular algorithms that operate on dense arrays and matrices. in contrast we know relatively little about using gpus to accelerate highly irregular algorithms that operate on pointer-based data structures such as graphs. for the most part research has focused on gpu implementations of graph analysis algorithms that do not modify the structure of the graph such as algorithms for breadth-first search and strongly-connected components. in this paper we describe a high-performance gpu implementation of an important graph algorithm used in compilers such as gcc and llvm andersen-style inclusion-based points-to analysis. this algorithm is challenging to parallelize effectively on gpus because it makes extensive modifications to the structure of the underlying graph and performs relatively little computation. in spite of this our program when executed on a 14 streaming multiprocessor gpu achieves an average speedup of 7x compared to a sequential cpu implementation and outperforms a parallel implementation of the same algorithm running on 16 cpu cores. our implementation provides general insights into how to produce high-performance gpu implementations of graph algorithms and it highlights key differences between optimizing parallel programs for multicore cpus and for gpus. acm sigplan notices acm sigplan notices vol. 47 issue 8 2012 research-paper mario mendez-lojo the university of texas at austin martin burtscher texas state university keshav pingali the university of texas at austin gpu performance gpu performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24391,7 +24391,7 @@
         "publication": "Lecture Notes in Computer Science",
         "openalexId": "https://openalex.org/W1587844310",
         "doi": "10.1007/978-3-540-68237-0_5",
-        "citationCount": 109,
+        "citationCount": 110,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -24405,7 +24405,7 @@
         "_year": "2008",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 109,
+        "_citationCount": 110,
         "_titleLower": "covac: compiler validation by program analysis of the cross-product",
         "_authorLower": "anna zaks new york university amir pnueli new york university",
         "_authorsLower": "anna zaks new york university amir pnueli new york university",
@@ -24620,7 +24620,7 @@
             }
           },
           "year": 2008,
-          "citationCount": 109
+          "citationCount": 110
         },
         "_searchBlob": "covac compiler validation by program analysis of the cross-product the paper presents a deductive framework for proving program equivalence and its application to automatic verification of transformations performed by optimizing compilers. to leverage existing program analysis techniques we reduce the equivalence checking problem to analysis of one system - a cross-product of the two input programs. we show how the approach can be effectively used for checking equivalence of consonant i.e. structurally similar programs. finally we report on the prototype tool that applies the developed methodology to verify that a compiler optimization run preserves the program semantics. unlike existing frameworks covac accommodates absence of compiler annotations and handles most of the classical intraprocedural optimizations such as constant folding reassociation common subexpression elimination code motion dead code elimination branch optimizations and others. lecture notes in computer science lecture notes in computer science 2008 research-paper anna zaks new york university amir pnueli new york university optimizations optimizations",
         "addedAt": "2026-02-20T23:08:48.000Z",

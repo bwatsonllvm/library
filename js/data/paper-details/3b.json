@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7128991505": {
       "paper": {
@@ -2912,7 +2912,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4403115814",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.1016/j.softx.2024.101897",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2929,7 +2929,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "numba-mpi v1.0: enabling mpi communication within numba/llvm jit-compiled python code",
         "_authorLower": "kacper derlatka jagiellonian university maciej manna jagiellonian university oleksii bulenok jagiellonian university david zwicker max planck institute for dynamics and self-organization sylwester arabas agh university of krakow",
         "_authorsLower": "kacper derlatka jagiellonian university maciej manna jagiellonian university oleksii bulenok jagiellonian university david zwicker max planck institute for dynamics and self-organization sylwester arabas agh university of krakow",
@@ -3292,7 +3292,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "numba-mpi v1.0 enabling mpi communication within numba llvm jit-compiled python code the numba-mpi package offers access to the message passing interface mpi routines from python code that uses the numba just-in-time jit compiler. as a result high-performance and multi-threaded python code may utilize mpi communication facilities without leaving the jit-compiled code blocks which is not possible with the mpi4py package a higher-level python interface to mpi. for debugging or code-coverage analysis purposes numba-mpi retains full functionality of the code even if the jit compilation is disabled. the numba-mpi api constitutes a thin wrapper around the c api of mpi and is built around numpy arrays including handling of non-contiguous views over array slices. project development is hosted at github leveraging the mpi4py setup-mpi workflow enabling continuous integration tests on linux mpich openmpi and intel mpi macos mpich and openmpi and windows ms mpi . the paper covers an overview of the package features architecture and performance. as of v1.0 the following mpi routines are exposed and covered by unit tests size rank i send i recv wait all any test all any allreduce bcast barrier scatter all gather and wtime . the package is implemented in pure python and depends on numpy numba and mpi4py the latter used at initialization and as a source of utility routines only . the performance advantage of using numba-mpi compared to mpi4py is depicted with a simple example with entirety of the code included in listings discussed in the text. application of numba-mpi for handling domain decomposition in numerical solvers for partial differential equations is presented using two external packages that depend on numba-mpi py-pde and pympdata-mpi . softwarex softwarex vol. 28 2024 research-paper kacper derlatka jagiellonian university maciej manna jagiellonian university oleksii bulenok jagiellonian university david zwicker max planck institute for dynamics and self-organization sylwester arabas agh university of krakow jit performance jit performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8357,7 +8357,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4384154509",
-        "citationCount": 14,
+        "citationCount": 15,
         "doi": "10.1145/3597926.3598087",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -8373,7 +8373,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 15,
         "_titleLower": "silent compiler bug de-duplication via three-dimensional analysis",
         "_authorLower": "chen yang tianjin university junjie chen tianjin university xingyu fan tianjin university jiajun jiang tianjin university jun sun singapore management university",
         "_authorsLower": "chen yang tianjin university junjie chen tianjin university xingyu fan tianjin university jiajun jiang tianjin university jun sun singapore management university",
@@ -8726,7 +8726,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 14
+          "citationCount": 15
         },
         "_searchBlob": "silent compiler bug de-duplication via three-dimensional analysis compiler testing is an important task for assuring the quality of compilers but investigating test failures is very time-consuming. this is because many test failures are caused by the same compiler bug known as bug duplication problem . in particular this problem becomes much more challenging on silent compiler bugs also called wrong code bugs since these bugs can provide little information unlike crash bugs that can produce error messages for bug de-duplication. in this work we propose a novel technique called d3 to solve the duplication problem on silent compiler bugs. its key insight is to characterize the silent bugs from the testing process and identify three-dimensional information i.e. test program optimizations and test execution for bug de-duplication. however there are huge amount of bug-irrelevant details on the three dimensions d3 then systematically conducts causal analysis to identify bug-causal features from each of the three dimensions for more accurate bug de-duplication. finally d3 ranks the test failures that are more likely to be caused by different silent bugs higher by measuring the distance among test failures based on the three-dimensional bug-causal features. our experimental results on four datasets including duplicate bugs of both gcc and llvm demonstrate the significant superiority of d3 over the two state-of-the-art compiler bug de-duplication techniques achieving the average improvement of 19.36 and 51.43 in identifying unique silent compiler bugs when analyzing the same number of test failures. proceedings of 32nd acm sigsoft international symposium on software testing and analysis proceedings of 32nd acm sigsoft international symposium on software testing and analysis 2023 research-paper chen yang tianjin university junjie chen tianjin university xingyu fan tianjin university jiajun jiang tianjin university jun sun singapore management university optimizations testing optimizations testing",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -14359,7 +14359,7 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W2898471596",
-        "citationCount": 24,
+        "citationCount": 25,
         "doi": "10.1145/3276495",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -14378,7 +14378,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 24,
+        "_citationCount": 25,
         "_titleLower": "reconciling high-level optimizations and low-level code in llvm",
         "_authorLower": "juneyoung lee seoul national university chung-kil hur seoul national university ralf jung max planck institute for software systems zhengyang liu university of utah john regehr university of utah nuno p. lopes microsoft research",
         "_authorsLower": "juneyoung lee seoul national university chung-kil hur seoul national university ralf jung max planck institute for software systems zhengyang liu university of utah john regehr university of utah nuno p. lopes microsoft research",
@@ -14657,7 +14657,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 24
+          "citationCount": 25
         },
         "_searchBlob": "reconciling high-level optimizations and low-level code in llvm llvm miscompiles certain programs in c c++ and rust that use low-level language features such as raw pointers in rust or conversion between integers and pointers in c or c++. the problem is that it is difficult for the compiler to implement aggressive high-level memory optimizations while also respecting the guarantees made by the programming languages to low-level programs. a deeper problem is that the memory model for llvms intermediate representation ir is informal and the semantics of corner cases are not always clear to all compiler developers. we developed a novel memory model for llvm ir and formalized it. the new model requires a handful of problematic ir-level optimizations to be removed but it also supports the addition of new optimizations that were not previously legal. we have implemented the new model and shown that it fixes known memory-model-related miscompilations without impacting the quality of generated code. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 2 issue oopsla 2018 research-paper juneyoung lee seoul national university chung-kil hur seoul national university ralf jung max planck institute for software systems zhengyang liu university of utah john regehr university of utah nuno p. lopes microsoft research c++ ir optimizations programming languages rust c++ ir optimizations programming languages rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -15111,7 +15111,7 @@
         "paperUrl": "https://doi.org/10.1109/tns.2018.2886094",
         "tags": [],
         "openalexId": "https://openalex.org/W2903722369",
-        "citationCount": 42,
+        "citationCount": 43,
         "doi": "10.1109/tns.2018.2886094",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15125,7 +15125,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 42,
+        "_citationCount": 43,
         "_titleLower": "microcontroller compiler-assisted software fault tolerance",
         "_authorLower": "matthew kendall bohman benjamin james michael wirthlin heather quinn los alamos national laboratory jeffrey goeders",
         "_authorsLower": "matthew kendall bohman benjamin james michael wirthlin heather quinn los alamos national laboratory jeffrey goeders",
@@ -15402,7 +15402,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 42
+          "citationCount": 43
         },
         "_searchBlob": "microcontroller compiler-assisted software fault tolerance commercial off-the-shelf microcontrollers can be useful for noncritical processing on spaceborne platforms. these microprocessors can be inexpensive and consume small amounts of power. however the software running on these processors is vulnerable to radiation upsets. in this paper we present a fully automated configurable software-based tool to increase the reliability of microprocessors in high-radiation environments. this tool consists of a set of open-source llvm compiler passes to automatically implement software-based mitigation techniques. we duplicate or triplicate computations and insert voting mechanisms into software during the compilation process allowing for runtime error correction. while the techniques we implement are not novel previous work has typically been closed source processor architecture dependent not automated and not tested in real high-radiation environments. in contrast the compiler passes presented in this paper are publicly available highly customizable and are platform independent and language independent. we have tested our modified software using both fault injection and through neutron beam radiation on a texas instruments msp430 microcontroller. when tested by a neutron beam we were able to decrease the cross section of programs by 17-29 increasing mean-work-to-failure by 4-7 . ieee transactions on nuclear science ieee transactions on nuclear science vol. 66 issue 1 2018 research-paper matthew kendall bohman benjamin james michael wirthlin heather quinn los alamos national laboratory jeffrey goeders",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -15475,7 +15475,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2786332448",
-        "citationCount": 45,
+        "citationCount": 47,
         "doi": "10.1145/3178487.3178493",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15493,7 +15493,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 45,
+        "_citationCount": 47,
         "_titleLower": "hpvm",
         "_authorLower": "maria kotsifakou university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign matthew d. sinclair university of illinois urbana-champaign rakesh komuravelli qualcomm vikram adve university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign",
         "_authorsLower": "maria kotsifakou university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign matthew d. sinclair university of illinois urbana-champaign rakesh komuravelli qualcomm vikram adve university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign",
@@ -15889,7 +15889,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 45
+          "citationCount": 47
         },
         "_searchBlob": "hpvm we propose a parallel program representation for heterogeneous systems designed to enable performance portability across a wide range of popular parallel hardware including gpus vector instruction sets multicore cpus and potentially fpgas. our representation which we call hpvm is a hierarchical dataflow graph with shared memory and vector instructions. hpvm supports three important capabilities for programming heterogeneous systems a compiler intermediate representation ir a virtual instruction set isa and a basis for runtime scheduling previous systems focus on only one of these capabilities. as a compiler ir hpvm aims to enable effective code generation and optimization for heterogeneous systems. as a virtual isa it can be used to ship executable programs in order to achieve both functional portability and performance portability across such systems. at runtime hpvm enables flexible scheduling policies both through the graph structure and the ability to compile individual nodes in a program to any of the target devices on a system. we have implemented a prototype hpvm system defining the hpvm ir as an extension of the llvm compiler ir compiler optimizations that operate directly on hpvm graphs and code generators that translate the virtual isa to nvidia gpus intels avx vector units and to multicore x86-64 processors. experimental results show that hpvm optimizations achieve significant performance improvements hpvm translators achieve performance competitive with manually developed opencl code for both gpus and vector hardware and that runtime scheduling policies can make use of both program and runtime information to exploit the flexible compilation capabilities. overall we conclude that the hpvm representation is a promising basis for achieving performance portability and for implementing parallelizing compilers for heterogeneous parallel systems. proceedings of 23rd acm sigplan symposium on principles and practice of parallel programming proceedings of 23rd acm sigplan symposium on principles and practice of parallel programming 2018 research-paper maria kotsifakou university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign matthew d. sinclair university of illinois urbana-champaign rakesh komuravelli qualcomm vikram adve university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign ir opencl optimizations performance ir opencl optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -15897,6 +15897,426 @@
         "_addedAtTs": 1771652392000
       },
       "source": "openalex-llvm-query"
+    },
+    "openalex-w2892388618": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "CHET: Compiler and Runtime for Homomorphic Evaluation of Tensor Programs",
+        "authors": [
+          {
+            "name": "Roshan Dathathri",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Olli Saarikivi",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hao Chen",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kim Laine",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kristin Lauter",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Saeed Maleki",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Madanlal Musuvathi",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Todd Mytkowicz",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2018",
+        "publication": "arXiv",
+        "venue": "arXiv",
+        "type": "research-paper",
+        "abstract": "Fully Homomorphic Encryption (FHE) refers to a set of encryption schemes that allow computations to be applied directly on encrypted data without requiring a secret key. This enables novel application scenarios where a client can safely offload storage and computation to a third-party cloud provider without having to trust the software and the hardware vendors with the decryption keys. Recent advances in both FHE schemes and implementations have moved such applications from theoretical possibilities into the realm of practicalities. This paper proposes a compact and well-reasoned interface called the Homomorphic Instruction Set Architecture (HISA) for developing FHE applications. Just as the hardware ISA interface enabled hardware advances to proceed independent of software advances in the compiler and language runtimes, HISA decouples compiler optimizations and runtimes for supporting FHE applications from advancements in the underlying FHE schemes. This paper demonstrates the capabilities of HISA by building an end-to-end software stack for evaluating neural network models on encrypted data. Our stack includes an end-to-end compiler, runtime, and a set of optimizations. Our approach shows generated code, on a set of popular neural network architectures, is faster than hand-optimized implementations.",
+        "paperUrl": "https://arxiv.org/pdf/1810.00845",
+        "sourceUrl": "https://doi.org/10.48550/arxiv.1810.00845",
+        "openalexId": "https://openalex.org/W2892388618",
+        "doi": "10.48550/arxiv.1810.00845",
+        "tags": [
+          "offload",
+          "runtimes",
+          "Optimizations",
+          "GPU",
+          "ML"
+        ],
+        "keywords": [
+          "offload",
+          "runtimes",
+          "Optimizations",
+          "GPU",
+          "ML",
+          "Offloading",
+          "Homomorphic",
+          "Advances",
+          "Hardware",
+          "Fhe Schemes",
+          "Neural Network",
+          "Chet Compiler",
+          "Tensor Programs"
+        ],
+        "matchedAuthors": [
+          "Hao Chen",
+          "Madanlal Musuvathi",
+          "Olli Saarikivi"
+        ],
+        "matchedSubprojects": [
+          "offload",
+          "runtimes"
+        ],
+        "id": "openalex-w2892388618",
+        "citationCount": 9,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2018",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 9,
+        "_titleLower": "chet: compiler and runtime for homomorphic evaluation of tensor programs",
+        "_authorLower": "roshan dathathri olli saarikivi hao chen kim laine kristin lauter saeed maleki madanlal musuvathi todd mytkowicz",
+        "_authorsLower": "roshan dathathri olli saarikivi hao chen kim laine kristin lauter saeed maleki madanlal musuvathi todd mytkowicz",
+        "_abstractLower": "fully homomorphic encryption (fhe) refers to a set of encryption schemes that allow computations to be applied directly on encrypted data without requiring a secret key. this enables novel application scenarios where a client can safely offload storage and computation to a third-party cloud provider without having to trust the software and the hardware vendors with the decryption keys. recent advances in both fhe schemes and implementations have moved such applications from theoretical possibilities into the realm of practicalities. this paper proposes a compact and well-reasoned interface called the homomorphic instruction set architecture (hisa) for developing fhe applications. just as the hardware isa interface enabled hardware advances to proceed independent of software advances in the compiler and language runtimes, hisa decouples compiler optimizations and runtimes for supporting fhe applications from advancements in the underlying fhe schemes. this paper demonstrates the capabilities of hisa by building an end-to-end software stack for evaluating neural network models on encrypted data. our stack includes an end-to-end compiler, runtime, and a set of optimizations. our approach shows generated code, on a set of popular neural network architectures, is faster than hand-optimized implementations.",
+        "_tagsLower": "offload runtimes optimizations gpu ml",
+        "_keywordsLower": "offload runtimes optimizations gpu ml offloading homomorphic advances hardware fhe schemes neural network chet compiler tensor programs",
+        "_topicsLower": "offload runtimes optimizations gpu ml offload runtimes optimizations gpu ml offloading homomorphic advances hardware fhe schemes neural network chet compiler tensor programs offload runtimes",
+        "_contentLower": "",
+        "_publicationLower": "arxiv",
+        "_venueLower": "arxiv",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2018",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "chet compiler and runtime for homomorphic evaluation of tensor programs",
+              "words": [
+                "chet",
+                "compiler",
+                "and",
+                "runtime",
+                "for",
+                "homomorphic",
+                "evaluation",
+                "of",
+                "tensor",
+                "programs"
+              ]
+            },
+            "authors": {
+              "text": "roshan dathathri olli saarikivi hao chen kim laine kristin lauter saeed maleki madanlal musuvathi todd mytkowicz",
+              "words": [
+                "roshan",
+                "dathathri",
+                "olli",
+                "saarikivi",
+                "hao",
+                "chen",
+                "kim",
+                "laine",
+                "kristin",
+                "lauter",
+                "saeed",
+                "maleki",
+                "madanlal",
+                "musuvathi",
+                "todd",
+                "mytkowicz"
+              ]
+            },
+            "topics": {
+              "text": "offload runtimes optimizations gpu ml offload runtimes optimizations gpu ml offloading homomorphic advances hardware fhe schemes neural network chet compiler tensor programs offload runtimes",
+              "words": [
+                "offload",
+                "runtimes",
+                "optimizations",
+                "gpu",
+                "ml",
+                "offload",
+                "runtimes",
+                "optimizations",
+                "gpu",
+                "ml",
+                "offloading",
+                "homomorphic",
+                "advances",
+                "hardware",
+                "fhe",
+                "schemes",
+                "neural",
+                "network",
+                "chet",
+                "compiler",
+                "tensor",
+                "programs",
+                "offload",
+                "runtimes"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "fully homomorphic encryption fhe refers to a set of encryption schemes that allow computations to be applied directly on encrypted data without requiring a secret key. this enables novel application scenarios where a client can safely offload storage and computation to a third-party cloud provider without having to trust the software and the hardware vendors with the decryption keys. recent advances in both fhe schemes and implementations have moved such applications from theoretical possibilities into the realm of practicalities. this paper proposes a compact and well-reasoned interface called the homomorphic instruction set architecture hisa for developing fhe applications. just as the hardware isa interface enabled hardware advances to proceed independent of software advances in the compiler and language runtimes hisa decouples compiler optimizations and runtimes for supporting fhe applications from advancements in the underlying fhe schemes. this paper demonstrates the capabilities of hisa by building an end-to-end software stack for evaluating neural network models on encrypted data. our stack includes an end-to-end compiler runtime and a set of optimizations. our approach shows generated code on a set of popular neural network architectures is faster than hand-optimized implementations.",
+              "words": [
+                "fully",
+                "homomorphic",
+                "encryption",
+                "fhe",
+                "refers",
+                "to",
+                "set",
+                "of",
+                "encryption",
+                "schemes",
+                "that",
+                "allow",
+                "computations",
+                "to",
+                "be",
+                "applied",
+                "directly",
+                "on",
+                "encrypted",
+                "data",
+                "without",
+                "requiring",
+                "secret",
+                "key.",
+                "this",
+                "enables",
+                "novel",
+                "application",
+                "scenarios",
+                "where",
+                "client",
+                "can",
+                "safely",
+                "offload",
+                "storage",
+                "and",
+                "computation",
+                "to",
+                "third-party",
+                "cloud",
+                "provider",
+                "without",
+                "having",
+                "to",
+                "trust",
+                "the",
+                "software",
+                "and",
+                "the",
+                "hardware",
+                "vendors",
+                "with",
+                "the",
+                "decryption",
+                "keys.",
+                "recent",
+                "advances",
+                "in",
+                "both",
+                "fhe",
+                "schemes",
+                "and",
+                "implementations",
+                "have",
+                "moved",
+                "such",
+                "applications",
+                "from",
+                "theoretical",
+                "possibilities",
+                "into",
+                "the",
+                "realm",
+                "of",
+                "practicalities.",
+                "this",
+                "paper",
+                "proposes",
+                "compact",
+                "and",
+                "well-reasoned",
+                "interface",
+                "called",
+                "the",
+                "homomorphic",
+                "instruction",
+                "set",
+                "architecture",
+                "hisa",
+                "for",
+                "developing",
+                "fhe",
+                "applications.",
+                "just",
+                "as",
+                "the",
+                "hardware",
+                "isa",
+                "interface",
+                "enabled",
+                "hardware",
+                "advances",
+                "to",
+                "proceed",
+                "independent",
+                "of",
+                "software",
+                "advances",
+                "in",
+                "the",
+                "compiler",
+                "and",
+                "language",
+                "runtimes",
+                "hisa",
+                "decouples",
+                "compiler",
+                "optimizations",
+                "and",
+                "runtimes",
+                "for",
+                "supporting",
+                "fhe",
+                "applications",
+                "from",
+                "advancements",
+                "in",
+                "the",
+                "underlying",
+                "fhe",
+                "schemes.",
+                "this",
+                "paper",
+                "demonstrates",
+                "the",
+                "capabilities",
+                "of",
+                "hisa",
+                "by",
+                "building",
+                "an",
+                "end-to-end",
+                "software",
+                "stack",
+                "for",
+                "evaluating",
+                "neural",
+                "network",
+                "models",
+                "on",
+                "encrypted",
+                "data.",
+                "our",
+                "stack",
+                "includes",
+                "an",
+                "end-to-end",
+                "compiler",
+                "runtime",
+                "and",
+                "set",
+                "of",
+                "optimizations.",
+                "our",
+                "approach",
+                "shows",
+                "generated",
+                "code",
+                "on",
+                "set",
+                "of",
+                "popular",
+                "neural",
+                "network",
+                "architectures",
+                "is",
+                "faster",
+                "than",
+                "hand-optimized",
+                "implementations."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "venue": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "year": {
+              "text": "2018",
+              "words": [
+                "2018"
+              ]
+            }
+          },
+          "year": 2018,
+          "citationCount": 9
+        },
+        "_searchBlob": "chet compiler and runtime for homomorphic evaluation of tensor programs fully homomorphic encryption fhe refers to a set of encryption schemes that allow computations to be applied directly on encrypted data without requiring a secret key. this enables novel application scenarios where a client can safely offload storage and computation to a third-party cloud provider without having to trust the software and the hardware vendors with the decryption keys. recent advances in both fhe schemes and implementations have moved such applications from theoretical possibilities into the realm of practicalities. this paper proposes a compact and well-reasoned interface called the homomorphic instruction set architecture hisa for developing fhe applications. just as the hardware isa interface enabled hardware advances to proceed independent of software advances in the compiler and language runtimes hisa decouples compiler optimizations and runtimes for supporting fhe applications from advancements in the underlying fhe schemes. this paper demonstrates the capabilities of hisa by building an end-to-end software stack for evaluating neural network models on encrypted data. our stack includes an end-to-end compiler runtime and a set of optimizations. our approach shows generated code on a set of popular neural network architectures is faster than hand-optimized implementations. arxiv arxiv 2018 research-paper roshan dathathri olli saarikivi hao chen kim laine kristin lauter saeed maleki madanlal musuvathi todd mytkowicz offload runtimes optimizations gpu ml offload runtimes optimizations gpu ml offloading homomorphic advances hardware fhe schemes neural network chet compiler tensor programs offload runtimes",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
     },
     "openalex-w2964064079": {
       "paper": {
@@ -15932,7 +16352,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2964064079",
-        "citationCount": 3,
+        "citationCount": 4,
         "doi": "10.1109/llvm-hpc.2018.8639381",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15950,7 +16370,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 4,
         "_titleLower": "aiwc: opencl-based architecture-independent workload characterization",
         "_authorLower": "beau johnston australian national university josh milthorpe australian national university",
         "_authorsLower": "beau johnston australian national university josh milthorpe australian national university",
@@ -16258,7 +16678,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 3
+          "citationCount": 4
         },
         "_searchBlob": "aiwc opencl-based architecture-independent workload characterization measuring performance-critical characteristics of application workloads is important both for developers who must understand and optimize the performance of codes as well as designers and integrators of hpc systems who must ensure that compute architectures are suitable for the intended workloads. however if these workload characteristics are tied to architectural features that are specific to a particular system they may not generalize well to alternative or future systems. an architecture-independent method ensures an accurate characterization of inherent program behaviour without bias due to architecture-dependent features that vary widely between different types of accelerators. this work presents the first architecture-independent workload characterization framework for heterogeneous compute platforms proposing a set of metrics determining the suitability and performance of an application on any parallel hpc architecture. the tool aiwc is a plugin for the open-source oclgrind simulator. it supports parallel workloads and is capable of characterizing opencl codes currently in use in the supercomputing setting. aiwc simulates an opencl device by directly interpreting llvm instructions and the resulting metrics may be used for performance prediction and developer feedback to guide device-specific optimizations. an evaluation of the metrics collected over a subset of the extended opendwarfs benchmark suite is also presented. 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc 2018 ieee acm 5th workshop on the llvm compiler infrastructure in hpc llvm-hpc vol. 2 2018 research-paper beau johnston australian national university josh milthorpe australian national university opencl optimizations performance opencl optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

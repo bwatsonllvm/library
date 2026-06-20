@@ -1,7 +1,349 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
+    "openalex-w7165064797": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Synthesizing Best Abstract Transformers via Parallel Bit-Vector Optimization",
+        "authors": [
+          {
+            "name": "Weiqi Wang",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Peisen Yao",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "HANRUI ZUO",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Yuan Li",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hongfei Fu",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Kui Ren",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2026",
+        "publication": "arXiv",
+        "venue": "arXiv",
+        "type": "research-paper",
+        "abstract": "Abstract interpretation provides a principled foundation for constructing sound static analyses through systematic abstraction. A central challenge is synthesizing the best abstract transformers that achieve optimal precision within a given abstract domain. This paper addresses this problem for low-level code modeled with fixed-size bit-vectors. Recent approaches formulate the synthesis task as a multi-objective Optimization Modulo Theories (OMT) problem, but suffer from limited scalability. We introduce Spear, a parallel synthesis framework that exploits a key structural insight: while the bits within each objective must be processed sequentially, the objectives themselves are independent. Spear leverages the independence of inter-objective bits to better parallelize the synthesis. Experimental results on benchmarks across two binary analysis domains show that Spear consistently outperforms state-of-the-art OMT solvers, solving more instances and achieving significantly improved runtimes. To our knowledge, this is the first approach to apply parallelism to accelerate the synthesis of optimal abstract transformers.",
+        "paperUrl": "https://arxiv.org/pdf/2606.16229",
+        "sourceUrl": "https://arxiv.org/abs/2606.16229",
+        "openalexId": "https://openalex.org/W7165064797",
+        "doi": "",
+        "tags": [
+          "runtimes",
+          "Optimizations"
+        ],
+        "keywords": [
+          "runtimes",
+          "Optimizations",
+          "Synthesis",
+          "Transformers",
+          "Objective",
+          "Bit Vector Optimization",
+          "Parallel Bit Vector",
+          "Synthesizing Best"
+        ],
+        "matchedAuthors": [
+          "Peisen Yao"
+        ],
+        "matchedSubprojects": [
+          "runtimes"
+        ],
+        "id": "openalex-w7165064797",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2026",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "synthesizing best abstract transformers via parallel bit-vector optimization",
+        "_authorLower": "weiqi wang peisen yao hanrui zuo yuan li hongfei fu kui ren",
+        "_authorsLower": "weiqi wang peisen yao hanrui zuo yuan li hongfei fu kui ren",
+        "_abstractLower": "abstract interpretation provides a principled foundation for constructing sound static analyses through systematic abstraction. a central challenge is synthesizing the best abstract transformers that achieve optimal precision within a given abstract domain. this paper addresses this problem for low-level code modeled with fixed-size bit-vectors. recent approaches formulate the synthesis task as a multi-objective optimization modulo theories (omt) problem, but suffer from limited scalability. we introduce spear, a parallel synthesis framework that exploits a key structural insight: while the bits within each objective must be processed sequentially, the objectives themselves are independent. spear leverages the independence of inter-objective bits to better parallelize the synthesis. experimental results on benchmarks across two binary analysis domains show that spear consistently outperforms state-of-the-art omt solvers, solving more instances and achieving significantly improved runtimes. to our knowledge, this is the first approach to apply parallelism to accelerate the synthesis of optimal abstract transformers.",
+        "_tagsLower": "runtimes optimizations",
+        "_keywordsLower": "runtimes optimizations synthesis transformers objective bit vector optimization parallel bit vector synthesizing best",
+        "_topicsLower": "runtimes optimizations runtimes optimizations synthesis transformers objective bit vector optimization parallel bit vector synthesizing best runtimes",
+        "_contentLower": "",
+        "_publicationLower": "arxiv",
+        "_venueLower": "arxiv",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2026",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "synthesizing best abstract transformers via parallel bit-vector optimization",
+              "words": [
+                "synthesizing",
+                "best",
+                "abstract",
+                "transformers",
+                "via",
+                "parallel",
+                "bit-vector",
+                "optimization"
+              ]
+            },
+            "authors": {
+              "text": "weiqi wang peisen yao hanrui zuo yuan li hongfei fu kui ren",
+              "words": [
+                "weiqi",
+                "wang",
+                "peisen",
+                "yao",
+                "hanrui",
+                "zuo",
+                "yuan",
+                "li",
+                "hongfei",
+                "fu",
+                "kui",
+                "ren"
+              ]
+            },
+            "topics": {
+              "text": "runtimes optimizations runtimes optimizations synthesis transformers objective bit vector optimization parallel bit vector synthesizing best runtimes",
+              "words": [
+                "runtimes",
+                "optimizations",
+                "runtimes",
+                "optimizations",
+                "synthesis",
+                "transformers",
+                "objective",
+                "bit",
+                "vector",
+                "optimization",
+                "parallel",
+                "bit",
+                "vector",
+                "synthesizing",
+                "best",
+                "runtimes"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "abstract interpretation provides a principled foundation for constructing sound static analyses through systematic abstraction. a central challenge is synthesizing the best abstract transformers that achieve optimal precision within a given abstract domain. this paper addresses this problem for low-level code modeled with fixed-size bit-vectors. recent approaches formulate the synthesis task as a multi-objective optimization modulo theories omt problem but suffer from limited scalability. we introduce spear a parallel synthesis framework that exploits a key structural insight while the bits within each objective must be processed sequentially the objectives themselves are independent. spear leverages the independence of inter-objective bits to better parallelize the synthesis. experimental results on benchmarks across two binary analysis domains show that spear consistently outperforms state-of-the-art omt solvers solving more instances and achieving significantly improved runtimes. to our knowledge this is the first approach to apply parallelism to accelerate the synthesis of optimal abstract transformers.",
+              "words": [
+                "abstract",
+                "interpretation",
+                "provides",
+                "principled",
+                "foundation",
+                "for",
+                "constructing",
+                "sound",
+                "static",
+                "analyses",
+                "through",
+                "systematic",
+                "abstraction.",
+                "central",
+                "challenge",
+                "is",
+                "synthesizing",
+                "the",
+                "best",
+                "abstract",
+                "transformers",
+                "that",
+                "achieve",
+                "optimal",
+                "precision",
+                "within",
+                "given",
+                "abstract",
+                "domain.",
+                "this",
+                "paper",
+                "addresses",
+                "this",
+                "problem",
+                "for",
+                "low-level",
+                "code",
+                "modeled",
+                "with",
+                "fixed-size",
+                "bit-vectors.",
+                "recent",
+                "approaches",
+                "formulate",
+                "the",
+                "synthesis",
+                "task",
+                "as",
+                "multi-objective",
+                "optimization",
+                "modulo",
+                "theories",
+                "omt",
+                "problem",
+                "but",
+                "suffer",
+                "from",
+                "limited",
+                "scalability.",
+                "we",
+                "introduce",
+                "spear",
+                "parallel",
+                "synthesis",
+                "framework",
+                "that",
+                "exploits",
+                "key",
+                "structural",
+                "insight",
+                "while",
+                "the",
+                "bits",
+                "within",
+                "each",
+                "objective",
+                "must",
+                "be",
+                "processed",
+                "sequentially",
+                "the",
+                "objectives",
+                "themselves",
+                "are",
+                "independent.",
+                "spear",
+                "leverages",
+                "the",
+                "independence",
+                "of",
+                "inter-objective",
+                "bits",
+                "to",
+                "better",
+                "parallelize",
+                "the",
+                "synthesis.",
+                "experimental",
+                "results",
+                "on",
+                "benchmarks",
+                "across",
+                "two",
+                "binary",
+                "analysis",
+                "domains",
+                "show",
+                "that",
+                "spear",
+                "consistently",
+                "outperforms",
+                "state-of-the-art",
+                "omt",
+                "solvers",
+                "solving",
+                "more",
+                "instances",
+                "and",
+                "achieving",
+                "significantly",
+                "improved",
+                "runtimes.",
+                "to",
+                "our",
+                "knowledge",
+                "this",
+                "is",
+                "the",
+                "first",
+                "approach",
+                "to",
+                "apply",
+                "parallelism",
+                "to",
+                "accelerate",
+                "the",
+                "synthesis",
+                "of",
+                "optimal",
+                "abstract",
+                "transformers."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "venue": {
+              "text": "arxiv",
+              "words": [
+                "arxiv"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026,
+          "citationCount": 0
+        },
+        "_searchBlob": "synthesizing best abstract transformers via parallel bit-vector optimization abstract interpretation provides a principled foundation for constructing sound static analyses through systematic abstraction. a central challenge is synthesizing the best abstract transformers that achieve optimal precision within a given abstract domain. this paper addresses this problem for low-level code modeled with fixed-size bit-vectors. recent approaches formulate the synthesis task as a multi-objective optimization modulo theories omt problem but suffer from limited scalability. we introduce spear a parallel synthesis framework that exploits a key structural insight while the bits within each objective must be processed sequentially the objectives themselves are independent. spear leverages the independence of inter-objective bits to better parallelize the synthesis. experimental results on benchmarks across two binary analysis domains show that spear consistently outperforms state-of-the-art omt solvers solving more instances and achieving significantly improved runtimes. to our knowledge this is the first approach to apply parallelism to accelerate the synthesis of optimal abstract transformers. arxiv arxiv 2026 research-paper weiqi wang peisen yao hanrui zuo yuan li hongfei fu kui ren runtimes optimizations runtimes optimizations synthesis transformers objective bit vector optimization parallel bit vector synthesizing best runtimes",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
+    },
     "openalex-w7128661364": {
       "paper": {
         "id": "openalex-w7128661364",
@@ -3051,7 +3393,7 @@
           "clang"
         ],
         "id": "openalex-w4409328033",
-        "citationCount": 18,
+        "citationCount": 20,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -3060,7 +3402,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 18,
+        "_citationCount": 20,
         "_titleLower": "the mutators reloaded: fuzzing compilers with large language model generated mutation operators",
         "_authorLower": "xianfei ou nanjing university cong li zhejiang university yanyan jiang nanjing university chang xu nanjing university",
         "_authorsLower": "xianfei ou nanjing university cong li zhejiang university yanyan jiang nanjing university chang xu nanjing university",
@@ -3331,7 +3673,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 18
+          "citationCount": 20
         },
         "_searchBlob": "the mutators reloaded fuzzing compilers with large language model generated mutation operators crafting high-quality mutators-the core of mutation-based fuzzing that shapes the search space-is challenging. it requires human expertise and creativity and their implementation demands knowledge of compiler internals. this paper presents metamut framework for developing new useful mutators for compiler fuzzing. it integrates our compiler-domain knowledge into prompts and processes that can best harness the capabilities of a large language model. with metamut we have successfully created 118 semantic-aware mutators at approximately 0.5 each with only moderate human effort. with these mutators our fuzzer uncovered 131 bugs in gcc and clang 129 of which were confirmed or fixed. the success of metamut suggests that the integration of ai into software and system engineering tasks traditionally thought to require expert human intervention could be a promising research direction. proceedings of 29th acm international conference on architectural support for programming languages and operating systems proceedings of 29th acm international conference on architectural support for programming languages and operating systems 2024 research-paper xianfei ou nanjing university cong li zhejiang university yanyan jiang nanjing university chang xu nanjing university clang testing ai programming languages clang testing ai programming languages fuzzing mutators mutators reloaded fuzzing metamut generated mutation operators reloaded fuzzing compilers clang",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -6989,7 +7331,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4388430442",
-        "citationCount": 9,
+        "citationCount": 10,
         "doi": "10.1109/tsusc.2023.3330671",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7005,7 +7347,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "automatic software tailoring for optimal performance",
         "_authorLower": "josé miguel aragón-jurado juan carlos de la torre patricia ruiz pedro l. galindo albert y. zomaya university of sydney bernabè dorronsoro",
         "_authorsLower": "josé miguel aragón-jurado juan carlos de la torre patricia ruiz pedro l. galindo albert y. zomaya university of sydney bernabè dorronsoro",
@@ -7306,7 +7648,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "automatic software tailoring for optimal performance efficient green software solutions require being aware of the characteristics of both the software and the hardware where it is executed. separately optimizing them leads to inefficient results and there is a need for a perfect synergy between software and hardware for optimal outcomes. we present a novel combinatorial optimization problem for the minimization of the software execution time on a specific hardware taking into account the existing uncertainty in the system. a solution to the problem is a sequence of llvm code transformations and a cellular genetic algorithm is used to find it. assuming that hardware does not change reducing the software runtime typically leads to a greener version with lower consumption. to cope with the uncertainty two novel approaches relying on bootstrap method to compute confident intervals of the software runtime at negligible cost are proposed and compared to three other techniques and -o3 clang compilation flag over four hardware architectures. results show how the proposed approach effectively copes with the uncertainty providing more robust solutions with respect to the compared methods. the execution time of the raw program is reduced from 28.1 to up to 63.2 outperforming -o3 flag by 13.9 to 26.3 for the different architectures. ieee transactions on sustainable computing ieee transactions on sustainable computing vol. 9 issue 3 2023 research-paper jose miguel aragon-jurado juan carlos de la torre patricia ruiz pedro l. galindo albert y. zomaya university of sydney bernabe dorronsoro clang performance clang performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9322,7 +9664,7 @@
           "openmp"
         ],
         "id": "openalex-w4313242131",
-        "citationCount": 1,
+        "citationCount": 2,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -9331,7 +9673,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 2,
         "_titleLower": "exploring the performance and portability of the k-means algorithm on sycl across cpu and gpu architectures",
         "_authorLower": "youssef faqir-rhazoui universidad complutense de madrid carlos garcía universidad complutense de madrid",
         "_authorsLower": "youssef faqir-rhazoui universidad complutense de madrid carlos garcía universidad complutense de madrid",
@@ -9598,7 +9940,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 1
+          "citationCount": 2
         },
         "_searchBlob": "exploring the performance and portability of the k-means algorithm on sycl across cpu and gpu architectures abstract the aim of sycl is to reduce the gap between the performance and code portability of the main accelerators used in hpc such as multi-vendor cpus gpus and fpgas. to evaluate sycls performance portability this paper uses the k-means algorithm as a case study. the k-means algorithm is simple to code but can be complex to optimize. in this study we compare our developed sycl version with the most efficient implementations of cuda and openmp. our resulting sycl code can potentially run on multi-vendor cpus and gpus. additionally we have created a hand-tuned sycl variation that is optimized for specific device architectures cpu nvidia gpu and intel gpu to evaluate the performance difference between a standard version and an optimized one. the results show that sycl outperforms intel gpus and cpus by 8 compared to the original versions while on nvidia gpus sycl offers equivalent performance compared to the native cuda implementation. research square research square research square research square 2022 research-paper youssef faqir-rhazoui universidad complutense de madrid carlos garcia universidad complutense de madrid openmp performance gpu cuda openmp performance gpu cuda multi vendor cpus gpu architectures portability libsycl openmp",
         "addedAt": "2026-02-26T14:24:19.000Z",
@@ -13142,7 +13484,7 @@
         "sourceUrl": "https://doi.org/10.1007/s12273-020-0709-z",
         "tags": [],
         "openalexId": "https://openalex.org/W3084431229",
-        "citationCount": 61,
+        "citationCount": 62,
         "doi": "10.1007/s12273-020-0709-z",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -13155,7 +13497,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 61,
+        "_citationCount": 62,
         "_titleLower": "fast prediction for multi-parameters (concentration, temperature and humidity) of indoor environment towards the online control of hvac system",
         "_authorLower": "hao-cheng zhu southeast university chen ren southeast university shi‐jie cao southeast university",
         "_authorsLower": "hao-cheng zhu southeast university chen ren southeast university shi‐jie cao southeast university",
@@ -13508,7 +13850,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 61
+          "citationCount": 62
         },
         "_searchBlob": "fast prediction for multi-parameters concentration temperature and humidity of indoor environment towards the online control of hvac system abstract heating ventilation and air conditioning hvac systems are the most energy-consuming building implements for the improvement of indoor environmental quality ieq . we have developed the optimal control strategies for hvac system to respectively achieve the optimal selections of ventilation rate and supplied air temperature with consideration of energy conservation through the fast prediction methods by using low-dimensional linear ventilation model llvm based artificial neural network ann and low-dimensional linear temperature model lltm based contribution ratio of indoor climate cri t . to be continued for integrated control of multi-parameters we further developed the fast prediction model for indoor humidity by using low-dimensional linear humidity model llhm and contribution ratio of indoor humidity cri h and thermal sensation index ts for assessment. cfd was used to construct the prediction database for co 2 temperature and humidity. low-dimensional linear models llm including llvm lltm and llhm were adopted to expand database for the sake of data storage reduction. then coupling with ann cri t and cri h the distributions of indoor co 2 concentration temperature and humidity were rapidly predicted on the basis of llvm-based ann lltm-based cri t and llhm-based cri h respectively. finally according to the self-defined indices i.e. e v e t e h the optimal balancing between ieq indicated by co 2 concentration pmv and ts and energy consumption indicated by ventilation rate supplied air temperature and humidity were synthetically evaluated. the total hvac energy consumption could be reduced by 35 on the strength of current control strategies. this work can further contribute to development of the intelligent online control for hvac systems. building simulation building simulation vol. 14 issue 3 2020 research-paper hao-cheng zhu southeast university chen ren southeast university shi jie cao southeast university",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -18890,7 +19232,7 @@
         "sourceUrl": "https://doi.org/10.1145/2892208.2892235",
         "tags": [],
         "openalexId": "https://openalex.org/W2297774820",
-        "citationCount": 404,
+        "citationCount": 410,
         "doi": "10.1145/2892208.2892235",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -18903,7 +19245,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 404,
+        "_citationCount": 410,
         "_titleLower": "svf: interprocedural static value-flow analysis in llvm",
         "_authorLower": "yulei sui unsw sydney jingling xue unsw sydney",
         "_authorsLower": "yulei sui unsw sydney jingling xue unsw sydney",
@@ -19142,7 +19484,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 404
+          "citationCount": 410
         },
         "_searchBlob": "svf interprocedural static value-flow analysis in llvm 2016 acm.this paper presents svf a tool that enables scalable and precise interprocedural static value-flow analysis for c programs by leveraging recent advances in sparse analysis. svf which is fully implemented in llvm allows value-flow construction and pointer analysis to be performed in an iterative manner thereby providing increasingly improved precision for both. svf accepts pointsto information generated by any pointer analysis e.g. andersens analysis and constructs an interprocedural memory ssa form in which the def-use chains of both top-level and address-taken variables are captured. such value-flows can be subsequently exploited to support various forms of program analysis or enable more precise pointer analysis e.g. flow-sensitive analysis to be performed sparsely. by dividing a pointer analysis into three loosely coupled components graph rules and solver svf provides an extensible interface for users to write their own solutions easily. svf is publicly available at http unsw-corg.github.io svf. proceedings of 25th international conference on compiler construction proceedings of 25th international conference on compiler construction 2016 research-paper yulei sui unsw sydney jingling xue unsw sydney",
         "addedAt": "2026-02-21T05:39:52.000Z",

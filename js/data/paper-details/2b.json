@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131087088": {
       "paper": {
@@ -57,6 +57,7 @@
         "type": "research-paper",
         "abstract": "Compiler optimizations may lead to loss of debug information, hampering developer productivity and techniques that rely on binary-to-source mappings, such as sampling-based feedback-directed optimization. While recent endeavors exposed debug information correctness and completeness bugs in compiler transformations, understanding where a complex optimizing pipeline \"loses\" debug information is an understudied problem.In this paper, we first rectify accuracy issues in methods for measuring the availability of debug information, and show that the synthetic programs evaluated so far lead to metric values that differ from those we observe for real-world programs. Building on this, we present DebugTuner, a framework for systematically analyzing the impact of individual compiler optimization passes on debug information, and assemble a test suite of programs for collecting more realistic metrics. Using DebugTuner and the test suite, we identify transformations in gcc and clang that cause more debug information loss, and construct modified optimization levels that improve debuggability while retaining competitive performance. We obtain levels that outperform gcc’s Og for both debuggability and performance, and make recommendations for constructing an Og level for clang. Finally, we present a case study on AutoFDO where, by disabling selected passes in the profiling stage, the final optimized binary is more performant due to the improved quality of the binary-to-source mapping.",
         "paperUrl": "https://doi.org/10.1109/cgo68049.2026.11395216",
+        "sourceUrl": "https://doi.org/10.1109/cgo68049.2026.11395216",
         "openalexId": "https://openalex.org/W7131087088",
         "doi": "10.1109/cgo68049.2026.11395216",
         "tags": [
@@ -93,7 +94,6 @@
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -532,7 +532,7 @@
           "mlir"
         ],
         "id": "openalex-w7131067420",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -542,7 +542,7 @@
         "_year": "2026",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "lego: a layout expression language for code generation of hierarchical mapping",
         "_authorLower": "amir mohammad tavakkoli university of utah cosmin e. oancea university of copenhagen mary jane hall university of utah",
         "_authorsLower": "amir mohammad tavakkoli university of utah cosmin e. oancea university of copenhagen mary jane hall university of utah",
@@ -798,7 +798,7 @@
             }
           },
           "year": 2026,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "lego a layout expression language for code generation of hierarchical mapping we describe lego a new approach to optimizing data movement whereby code is expressed as a layout-independent computation and composed with layouts for data and computation. this code generator organization derives complex indexing expressions associated with hierarchical parallel code and data movement for gpus. lego maps from layout specification to indexing expressions and can be integrated into existing compilers and code templates. it facilitates the explo-ration of data layouts in combination with other optimizations. we demonstrate legos integration with the triton and mlir compilers and with cuda templates. we show that lego is capable of deriving performance competitive with triton and shows broad applicability for data and thread layout mapping optimizations in its integration with cuda and mlir. 2026 ieee acm international symposium on code generation and optimization cgo 2026 ieee acm international symposium on code generation and optimization cgo 2026 research-paper amir mohammad tavakkoli university of utah cosmin e. oancea university of copenhagen mary jane hall university of utah mlir backend code generation optimizations performance gpu cuda mlir backend code generation optimizations performance gpu cuda layout expression language indexing expressions hierarchical mapping mlir",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -2071,7 +2071,7 @@
         "sourceUrl": "https://doi.org/10.1007/978-3-031-98679-6_6",
         "tags": [],
         "openalexId": "https://openalex.org/W4412515023",
-        "citationCount": 2,
+        "citationCount": 3,
         "doi": "10.1007/978-3-031-98679-6_6",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2084,7 +2084,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 3,
         "_titleLower": "a formally verified ieee 754 floating-point implementation of interval iteration for mdps",
         "_authorLower": "bram kohlen university of twente maximilian schäffeler technical university of munich mohammad abdulaziz king's college london arnd hartmanns university of twente peter lammich university of twente",
         "_authorsLower": "bram kohlen university of twente maximilian schäffeler technical university of munich mohammad abdulaziz king's college london arnd hartmanns university of twente peter lammich university of twente",
@@ -2308,7 +2308,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 2
+          "citationCount": 3
         },
         "_searchBlob": "a formally verified ieee 754 floating-point implementation of interval iteration for mdps abstract we present an efficiently executable formally verified implementation of interval iteration for mdps. our correctness proofs span the entire development from the high-level abstract semantics of mdps to a low-level implementation in llvm that is based on floating-point arithmetic. we use the isabelle hol proof assistant to verify convergence of our abstract definition of interval iteration and employ step-wise refinement to derive an efficient implementation in llvm code. to that end we extend the isabelle refinement framework with support for reasoning about floating-point arithmetic and directed rounding modes. we experimentally demonstrate that the verified implementation is competitive with state-of-the-art tools for mdps while providing formal guarantees on the correctness of the results. lecture notes in computer science lecture notes in computer science 2025 research-paper bram kohlen university of twente maximilian schaffeler technical university of munich mohammad abdulaziz kings college london arnd hartmanns university of twente peter lammich university of twente",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -3243,7 +3243,7 @@
           "mlir"
         ],
         "id": "openalex-w4393146751",
-        "citationCount": 3,
+        "citationCount": 4,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -3253,7 +3253,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 3,
+        "_citationCount": 4,
         "_titleLower": "towards automated generation of chiplet-based systems invited paper",
         "_authorLower": "ankur limaye pacific northwest national laboratory claudio barone pacific northwest national laboratory nícolas bohm agostini pacific northwest national laboratory marco minutoli pacific northwest national laboratory joseph manzano pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory giovanni gozzi politecnico di milano michele fiorito politecnico di milano serena curzel politecnico di milano fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory",
         "_authorsLower": "ankur limaye pacific northwest national laboratory claudio barone pacific northwest national laboratory nícolas bohm agostini pacific northwest national laboratory marco minutoli pacific northwest national laboratory joseph manzano pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory giovanni gozzi politecnico di milano michele fiorito politecnico di milano serena curzel politecnico di milano fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory",
@@ -3597,7 +3597,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 3
+          "citationCount": 4
         },
         "_searchBlob": "towards automated generation of chiplet-based systems invited paper the software defined architectures soda synthesizer is an open-source compiler-based tool able to automatically generate domain-specialized systems targeting application-specific integrated circuits asics or field programmable gate arrays fpgas starting from high-level programming. soda is composed of a high-level frontend soda-opt which leverages the multilevel intermediate representation mlir framework to interface with productive programming tools e.g. machine learning frameworks identify kernels suitable for acceleration and perform high-level optimizations and of a state-of-the-art high-level synthesis backend bambu from the panda framework to generate custom accelerators. one specific application of the soda synthesizer is the generation of accelerators to enable ultra-low latency inference and control on autonomous systems for scientific discovery e.g. electron microscopes sensors in particle accelerators etc. . this talk will discuss ongoing work on the soda synthesizer to enable no-human-in-the-loop generation and design space exploration of the chiplets for highly specialized artificial intelligence accelerators. connecting these highly specialized chiplets to general-purpose cores or programmable accelerators will allow to quickly deploy autonomous systems for scientific discovery. 2024 29th asia and south pacific design automation conference asp-dac 2024 29th asia and south pacific design automation conference asp-dac 2024 research-paper ankur limaye pacific northwest national laboratory claudio barone pacific northwest national laboratory nicolas bohm agostini pacific northwest national laboratory marco minutoli pacific northwest national laboratory joseph manzano pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory giovanni gozzi politecnico di milano michele fiorito politecnico di milano serena curzel politecnico di milano fabrizio ferrandi politecnico di milano antonino tumeo pacific northwest national laboratory mlir ir backend frontend optimizations ai ml mlir backend frontend optimizations ai intermediate representation accelerators soda synthesizer highly specialized scientific discovery automated generation mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -4461,7 +4461,7 @@
           "AI"
         ],
         "openalexId": "https://openalex.org/W4402727014",
-        "citationCount": 33,
+        "citationCount": 36,
         "doi": "10.1109/cvpr52733.2024.02061",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4477,7 +4477,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 33,
+        "_citationCount": 36,
         "_titleLower": "maplm: a real-world large-scale vision-language benchmark for map and traffic scene understanding",
         "_authorLower": "xu cao tencent tong zhou tencent yunsheng ma purdue university west lafayette wenqian ye university of virginia can cui purdue university west lafayette tang kun tencent zhipeng cao tencent kaizhao liang universitas ratu samban ziran wang purdue university west lafayette james m. rehg university of illinois urbana-champaign chao zheng tencent",
         "_authorsLower": "xu cao tencent tong zhou tencent yunsheng ma purdue university west lafayette wenqian ye university of virginia can cui purdue university west lafayette tang kun tencent zhipeng cao tencent kaizhao liang universitas ratu samban ziran wang purdue university west lafayette james m. rehg university of illinois urbana-champaign chao zheng tencent",
@@ -4783,7 +4783,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 33
+          "citationCount": 36
         },
         "_searchBlob": "maplm a real-world large-scale vision-language benchmark for map and traffic scene understanding vision-language generative ai has demonstrated re-markable promise for empowering cross-modal scene understanding of autonomous driving and high-definition hd map systems. however current benchmark datasets lack multi-modal point cloud image and language data pairs. recent approaches utilize visual instruction learning and cross-modal prompt engineering to expand vision-language models into this domain. in this paper we pro-pose a new vision-language benchmark that can be used to finetune traffic and hd map domain-specific foundation models. specifically we annotate and leverage large-scale broad-coverage traffic and map data extracted from huge hd map annotations and use clip and llama-2 vi-cuna to finetune a baseline model with instruction-following data. our experimental results across various algorithms reveal that while visual instruction-tuning large language models llms can effectively learn meaningful represen-tations from maplm-qa there remains significant room for further advancements. to facilitate applying llms and multi-modal data into self-driving research we will release our visual-language qa data and the baseline models at github.com llvm-ad maplm. 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 research-paper xu cao tencent tong zhou tencent yunsheng ma purdue university west lafayette wenqian ye university of virginia can cui purdue university west lafayette tang kun tencent zhipeng cao tencent kaizhao liang universitas ratu samban ziran wang purdue university west lafayette james m. rehg university of illinois urbana-champaign chao zheng tencent ai ai",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -6791,7 +6791,7 @@
           "openmp"
         ],
         "id": "openalex-w4382601326",
-        "citationCount": 10,
+        "citationCount": 12,
         "citationCountSource": "crossref",
         "citationCountStatus": "openalex-rejected:citations-before-publication-window",
         "publishedDate": "",
@@ -6801,7 +6801,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 10,
+        "_citationCount": 12,
         "_titleLower": "programming your gpu with openmp",
         "_authorLower": "tom deakin timothy g. mattson",
         "_authorsLower": "tom deakin timothy g. mattson",
@@ -7131,7 +7131,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 10
+          "citationCount": 12
         },
         "_searchBlob": "programming your gpu with openmp the essential guide for writing portable parallel programs for gpus using the openmp programming model. todays computers are complex multi-architecture systems multiple cores in a shared address space graphics processing units gpus and specialized accelerators. to get the most from these systems programs must use all these different processors. in programming your gpu with openmp tom deakin and timothy mattson help everyone from beginners to advanced programmers learn how to use openmp to program a gpu using just a few directives and runtime functions. then programmers can go further to maximize performance by using cpus and gpus in parallel true heterogeneous programming. and since openmp is a portable api the programs will run on almost any system. programming your gpu with openmp shares best practices for writing performance portable programs. key features include the most up-to-date apis for programming gpus with openmp with concepts that transfer to other approaches for gpu programming. written in a tutorial style that embraces active learning so that readers can make immediate use of what they learn via provided source code. builds the openmp gpu common core to get programmers to serious production-level gpu programming as fast as possible. additional features a reference guide at the end of the book covering all relevant parts of openmp 5.2. an online repository containing source code for the example programs from the book provided in all languages currently supported by openmp c c++ and fortran. tutorial videos and lecture slides. the mit press ebooks the mit press ebooks 2023 research-paper tom deakin timothy g. mattson openmp performance gpu openmp performance gpu gpu programming portable programmers openmp",
         "addedAt": "2026-02-21T23:38:34.000Z",
@@ -8803,7 +8803,7 @@
           "libfuzzer"
         ],
         "id": "openalex-w4387803006",
-        "citationCount": 2,
+        "citationCount": 4,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -8812,7 +8812,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 4,
         "_titleLower": "boosting fuzzer efficiency: an information theoretic perspective",
         "_authorLower": "marcel böhme monash university valentin j. m. manès korea advanced institute of science and technology sang kil korea advanced institute of science and technology",
         "_authorsLower": "marcel böhme monash university valentin j. m. manès korea advanced institute of science and technology sang kil korea advanced institute of science and technology",
@@ -9153,7 +9153,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 2
+          "citationCount": 4
         },
         "_searchBlob": "boosting fuzzer efficiency an information theoretic perspective in this paper we take the fundamental perspective of fuzzing as a learning process. suppose before fuzzing we know nothing about the behaviors of a program p what does it do executing the first test input we learn how p behaves for this input. executing the next input we either observe the same or discover a new behavior. as such each execution reveals some amount of information about p s behaviors. a classic measure of information is shannons entropy. measuring entropy allows us to quantify how much is learned from each generated test input about the behaviors of the program. within a probabilistic model of fuzzing we show how entropy also measures fuzzer efficiency. specifically it measures the general rate at which the fuzzer discovers new behaviors. intuitively efficient fuzzers maximize information. from this information theoretic perspective we develop entropic an entropy-based power schedule for greybox fuzzing that assigns more energy to seeds that maximize information. we implemented entropic into the popular greybox fuzzer libfuzzer. our experiments with more than 250 open-source programs 60 million loc demonstrate a substantially improved efficiency and confirm our hypothesis that an efficient fuzzer maximizes information. entropic has been independently evaluated and integrated into the main-line libfuzzer as the default power schedule. entropic now runs on more than 25 000 machines fuzzing hundreds of security-critical software systems simultaneously and continuously. communications of the acm communications of the acm vol. 66 issue 11 2023 research-paper marcel bohme monash university valentin j. m. manes korea advanced institute of science and technology sang kil korea advanced institute of science and technology testing security testing security fuzzing fuzzer behaviors entropic entropy boosting fuzzer efficiency theoretic perspective power schedule libfuzzer",
         "addedAt": "2026-02-23T18:01:35.000Z",
@@ -15746,7 +15746,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W3163661296",
-        "citationCount": 72,
+        "citationCount": 76,
         "doi": "10.1109/icse43902.2021.00110",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -15763,7 +15763,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 72,
+        "_citationCount": 76,
         "_titleLower": "efficient compiler autotuning via bayesian optimization",
         "_authorLower": "junjie chen tianjin university ningxin xu tianjin university peiqi chen tianjin university hongyu zhang university of newcastle australia",
         "_authorsLower": "junjie chen tianjin university ningxin xu tianjin university peiqi chen tianjin university hongyu zhang university of newcastle australia",
@@ -16102,7 +16102,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 72
+          "citationCount": 76
         },
         "_searchBlob": "efficient compiler autotuning via bayesian optimization a typical compiler such as gcc supports hundreds of optimizations controlled by compilation flags for improving the runtime performance of the compiled program. due to the large number of compilation flags and the exponential number of flag combinations it is impossible for compiler users to manually tune these optimization flags in order to achieve the required runtime performance of the compiled programs. over the years many compiler autotuning approaches have been proposed to automatically tune optimization flags but they still suffer from the efficiency problem due to the huge search space. in this paper we propose the first bayesian optimization based approach called boca for efficient compiler autotuning. in boca we leverage a tree-based model for approximating the objective function in order to make bayesian optimization scalable to a large number of optimization flags. moreover we design a novel searching strategy to improve the efficiency of bayesian optimization by incorporating the impact of each optimization flag measured by the tree-based model and a decay function to strike a balance between exploitation and exploration. we conduct extensive experiments to investigate the effectiveness of boca on two most popular c compilers i.e. gcc and llvm and two widely-used c benchmarks i.e. cbench and polybench . the results show that boca significantly outperforms the state-of-the-art compiler autotuning approaches and bayesion optimization methods in terms of the time spent on achieving specified speedups demonstrating the effectiveness of boca. 2021 ieee acm 43rd international conference on software engineering icse 2021 ieee acm 43rd international conference on software engineering icse 2021 research-paper junjie chen tianjin university ningxin xu tianjin university peiqi chen tianjin university hongyu zhang university of newcastle australia optimizations performance optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -16152,7 +16152,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W3033597692",
-        "citationCount": 8,
+        "citationCount": 9,
         "doi": "10.1145/3385412.3385962",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -16170,7 +16170,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 9,
         "_titleLower": "ooelala: order-of-evaluation based alias analysis for compiler optimization",
         "_authorLower": "ankush phulia indian institute of technology delhi vaibhav bhagee indian institute of technology delhi sorav bansal indian institute of technology delhi",
         "_authorsLower": "ankush phulia indian institute of technology delhi vaibhav bhagee indian institute of technology delhi sorav bansal indian institute of technology delhi",
@@ -16416,7 +16416,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 8
+          "citationCount": 9
         },
         "_searchBlob": "ooelala order-of-evaluation based alias analysis for compiler optimization in c the order of evaluation of expressions is unspecified further for expressions that do not involve function calls c semantics ensure that there cannot be a data race between two evaluations that can proceed in either order or concurrently . we explore the optimization opportunity enabled by these non-deterministic expression evaluation semantics in c and provide a sound compile-time alias analysis to realize the same. our algorithm is implemented as a part of the clang llvm infrastructure in a tool called ooelala. our experimental results demonstrate that the untapped optimization opportunity is significant code patterns that enable such optimizations are common the enabled transformations can range from vectorization to improved instruction selection and register allocation and the resulting speedups can be as high as 2.6x on already-optimized code. proceedings of 41st acm sigplan conference on programming language design and implementation proceedings of 41st acm sigplan conference on programming language design and implementation 2020 research-paper ankush phulia indian institute of technology delhi vaibhav bhagee indian institute of technology delhi sorav bansal indian institute of technology delhi clang infrastructure optimizations clang infrastructure optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -17030,7 +17030,7 @@
           "Rust"
         ],
         "openalexId": "https://openalex.org/W3159918205",
-        "citationCount": 4,
+        "citationCount": 5,
         "doi": "10.1109/hpcc-smartcity-dss50907.2020.00011",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17046,7 +17046,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 4,
+        "_citationCount": 5,
         "_titleLower": "lape: a lightweight attestation of program execution scheme for bare-metal systems",
         "_authorLower": "dongdong huo chinese academy of sciences yu wang institute of information engineering chao liu university of chinese academy of sciences mingxuan li institute of information engineering yazhe wang chinese academy of sciences zhen xu institute of information engineering",
         "_authorsLower": "dongdong huo chinese academy of sciences yu wang institute of information engineering chao liu university of chinese academy of sciences mingxuan li institute of information engineering yazhe wang chinese academy of sciences zhen xu institute of information engineering",
@@ -17434,7 +17434,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 4
+          "citationCount": 5
         },
         "_searchBlob": "lape a lightweight attestation of program execution scheme for bare-metal systems unlike traditional processors internet of things iot devices are short of resources to incorporate mature protections e.g. mmu trustzone against modern control-flow attacks. remote control-flow attestation is fast becoming a key instrument in securing such devices as it has proven the effectiveness on not only detecting runtime malware infestation of a remote device but also saving the computing resources by moving the costly verification process away. however few control-flow attestation schemes have been able to draw on any systematic research into the software specificity of bare-metal systems which are widely deployed on resource-constrained iot devices. to our knowledge the unique design patterns of the system limit implementations of such expositions. in this paper we present the design and proof-of-concept implementation of lape a lightweight attestation of program execution scheme that enables detecting control-flow attacks for bare-metal systems without requiring hardware modification. with rudimentary memory protection support found in modern iot-class microcontrollers lape leverages software instrumentation to compartmentalize the firmware functions into several attestation compartments . it then continuously tracks the control-flow events of each compartment and periodically reports them to the verifier. the poc of the scheme is incorporated into an llvm-based compiler to generate the lape-enabled firmware. by taking experiments with several real-world iot firmware the results show both the efficiency and practicality of lape. 2020 ieee 22nd international conference on high performance computing and communications ieee 18th international conference on smart city ieee 6th international conference on data science and systems hpcc smartcity dss 2020 ieee 22nd international conference on high performance computing and communications ieee 18th international conference on smart city ieee 6th international conference on data science and systems hpcc smartcity dss 2020 research-paper dongdong huo chinese academy of sciences yu wang institute of information engineering chao liu university of chinese academy of sciences mingxuan li institute of information engineering yazhe wang chinese academy of sciences zhen xu institute of information engineering rust rust",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -20962,7 +20962,7 @@
         "publication": "2014 IEEE Symposium on Security and Privacy",
         "openalexId": "https://openalex.org/W2015083179",
         "doi": "10.1109/sp.2014.26",
-        "citationCount": 178,
+        "citationCount": 179,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -20975,7 +20975,7 @@
         "_year": "2014",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 178,
+        "_citationCount": 179,
         "_titleLower": "kcofi: complete control-flow integrity for commodity operating system kernels",
         "_authorLower": "john criswell university of illinois urbana-champaign nathan dautenhahn university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
         "_authorsLower": "john criswell university of illinois urbana-champaign nathan dautenhahn university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
@@ -21273,7 +21273,7 @@
             }
           },
           "year": 2014,
-          "citationCount": 178
+          "citationCount": 179
         },
         "_searchBlob": "kcofi complete control-flow integrity for commodity operating system kernels we present a new system kcofi that is the first we know of to provide complete control-flow integrity protection for commodity operating systems without using heavyweight complete memory safety. unlike previous systems kcofi protects commodity operating systems from classical control-flow hijack attacks return-to-user attacks and code segment modification attacks. we formally verify a subset of kcofis design by modeling several features in small-step semantics and providing a partial proof that the semantics maintain control-flow integrity. the model and proof account for operations such as page table management trap handlers context switching and signal delivery. our evaluation shows that kcofi prevents all the gadgets found by an open-source return oriented programming rop gadget-finding tool in the freebsd kernel from being used it also reduces the number of indirect control-flow targets by 98.18 . our evaluation also shows that the performance impact of kcofi on web server bandwidth is negligible while file transfer bandwidth using openssh is reduced by an average of 13 and at worst 27 across a wide range of file sizes. postmark an extremely file-system intensive benchmark shows 2x overhead. where comparable numbers are available the overheads of kcofi are far lower than heavyweight memory-safety techniques. 2014 ieee symposium on security and privacy 2014 ieee symposium on security and privacy 2014 research-paper john criswell university of illinois urbana-champaign nathan dautenhahn university of illinois urbana-champaign vikram adve university of illinois urbana-champaign",
         "addedAt": "2026-02-20T23:08:48.000Z",

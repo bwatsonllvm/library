@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w4407857386": {
       "paper": {
@@ -1952,6 +1952,7 @@
     },
     "openalex-w4411144230": {
       "paper": {
+        "id": "openalex-w4411144230",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Cross-Architecture Binary Code Similarity Detection Based on Hybrid Neural Networks",
@@ -1991,6 +1992,7 @@
         "type": "research-paper",
         "abstract": "Binary code similarity detection is a technique that analyzes the semantic and structural features of binary code, compares it with known vulnerable code for similarity, and determines whether the tested code contains vulnerabilities. With the increasing complexity of firmware vulnerabilities in IoT devices, binary code similarity detection has become a core task in firmware security analysis. However, existing methods face challenges in accurately modeling binary code semantics across architectures(ARM/x86/MIPS) and compilers(GCC/Clang), resulting in low precision and accuracy. This paper proposes a novel hybrid model, CABech, which integrates a natural language processing module(DeBERTa-V3) with a Multi-Track Graph Convolutional Network(MTGCN) for semantic feature vector extraction. The model also incorporates Low-Rank Adaptation(LoRA) technology into the NLP module to reduce training parameters and computational costs. DeBERTa- V3 enhances semantic modeling of binary code through its decoupled attention mechanism.MTGCN mitigates the over-smoothing issue in traditional GCN by separating structural features of binary code via multi-track message passing. The low-rank adaptive matrix fine-tunes the parameters of DeBERTa- V3,making the model suitable for resource-constrained firmware analysis terminals. Experiments demonstrate that our model outperforms state-of-the-art methods in cross-architecture and cross-compiler tasks, achieving improvements of 3.4% in accuracy, 4.0% in precision, and 1.9% in F1-score.",
         "paperUrl": "https://doi.org/10.1109/icaace65325.2025.11020079",
+        "sourceUrl": "https://openalex.org/W4411144230",
         "openalexId": "https://openalex.org/W4411144230",
         "doi": "10.1109/icaace65325.2025.11020079",
         "tags": [
@@ -2020,11 +2022,9 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "id": "openalex-w4411144230",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -3549,6 +3549,399 @@
       },
       "source": "openalex-discovery"
     },
+    "openalex-w4406157193": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Protocol Buffer Deserialization DPU Offloading in the RPC Datapath",
+        "authors": [
+          {
+            "name": "Raphaël Frantz",
+            "affiliation": "Eindhoven University of Technology",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Jerónimo Sánchez García",
+            "affiliation": "Aalborg University",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Marcin Copik",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Idelfonso Tafur Monroy",
+            "affiliation": "Eindhoven University of Technology",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Juan José Vegas Olmos",
+            "affiliation": "",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Gil Bloch",
+            "affiliation": "Israel Electric",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Salvatore Di Girolamo",
+            "affiliation": "Tamedia",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2024",
+        "publication": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "venue": "SC24-W: Workshops of the International Conference for High Performance Computing, Networking, Storage and Analysis",
+        "type": "research-paper",
+        "abstract": "In the microservice paradigm, monolithic applications are decomposed into finer-grained modules invoked independently in a data-flow fashion. The different modules communicate through remote procedure calls (RPCs), which constitute a critical component of the infrastructure. To ensure portable passage of RPC metadata, arguments, and return values between different microservices, RPCs involve serialization/deserialization activities, part of the RPC data center tax. We demonstrate how RPC server logic, including serialization/deserialization, can be offloaded to Data Processing Units (DPUs). This effectively reduces the RPC data center tax on the host, where applications’ business logic runs. While we focus on offloading Protocol Buffers deserialization used by the popular gRPC framework, our findings can be applied to other RPC infrastructures. Our experimental results demonstrate that RPC offloading performs similarly to traditional methods while significantly reducing CPU usage.",
+        "paperUrl": "https://pure.tue.nl/ws/files/387980526/Protocol_Buffer_Deserialization_DPU_Offloading_in_the_RPC_Datapath.pdf",
+        "sourceUrl": "https://doi.org/10.1109/scw63240.2024.00126",
+        "openalexId": "https://openalex.org/W4406157193",
+        "doi": "10.1109/scw63240.2024.00126",
+        "tags": [
+          "Performance",
+          "Infrastructure",
+          "GPU"
+        ],
+        "keywords": [
+          "Performance",
+          "Infrastructure",
+          "GPU",
+          "Offloading",
+          "Serialization Deserialization",
+          "Deserialization Dpu Offloading",
+          "Buffer Deserialization Dpu",
+          "Protocol Buffer Deserialization",
+          "Rpc Datapath"
+        ],
+        "matchedAuthors": [
+          "Marcin Copik"
+        ],
+        "matchedSubprojects": [
+          "offload"
+        ],
+        "id": "openalex-w4406157193",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2024",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "protocol buffer deserialization dpu offloading in the rpc datapath",
+        "_authorLower": "raphaël frantz eindhoven university of technology jerónimo sánchez garcía aalborg university marcin copik idelfonso tafur monroy eindhoven university of technology juan josé vegas olmos gil bloch israel electric salvatore di girolamo tamedia",
+        "_authorsLower": "raphaël frantz eindhoven university of technology jerónimo sánchez garcía aalborg university marcin copik idelfonso tafur monroy eindhoven university of technology juan josé vegas olmos gil bloch israel electric salvatore di girolamo tamedia",
+        "_abstractLower": "in the microservice paradigm, monolithic applications are decomposed into finer-grained modules invoked independently in a data-flow fashion. the different modules communicate through remote procedure calls (rpcs), which constitute a critical component of the infrastructure. to ensure portable passage of rpc metadata, arguments, and return values between different microservices, rpcs involve serialization/deserialization activities, part of the rpc data center tax. we demonstrate how rpc server logic, including serialization/deserialization, can be offloaded to data processing units (dpus). this effectively reduces the rpc data center tax on the host, where applications’ business logic runs. while we focus on offloading protocol buffers deserialization used by the popular grpc framework, our findings can be applied to other rpc infrastructures. our experimental results demonstrate that rpc offloading performs similarly to traditional methods while significantly reducing cpu usage.",
+        "_tagsLower": "performance infrastructure gpu",
+        "_keywordsLower": "performance infrastructure gpu offloading serialization deserialization deserialization dpu offloading buffer deserialization dpu protocol buffer deserialization rpc datapath",
+        "_topicsLower": "performance infrastructure gpu performance infrastructure gpu offloading serialization deserialization deserialization dpu offloading buffer deserialization dpu protocol buffer deserialization rpc datapath offload",
+        "_contentLower": "",
+        "_publicationLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_venueLower": "sc24-w: workshops of the international conference for high performance computing, networking, storage and analysis",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2024",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "protocol buffer deserialization dpu offloading in the rpc datapath",
+              "words": [
+                "protocol",
+                "buffer",
+                "deserialization",
+                "dpu",
+                "offloading",
+                "in",
+                "the",
+                "rpc",
+                "datapath"
+              ]
+            },
+            "authors": {
+              "text": "raphael frantz eindhoven university of technology jeronimo sanchez garcia aalborg university marcin copik idelfonso tafur monroy eindhoven university of technology juan jose vegas olmos gil bloch israel electric salvatore di girolamo tamedia",
+              "words": [
+                "raphael",
+                "frantz",
+                "eindhoven",
+                "university",
+                "of",
+                "technology",
+                "jeronimo",
+                "sanchez",
+                "garcia",
+                "aalborg",
+                "university",
+                "marcin",
+                "copik",
+                "idelfonso",
+                "tafur",
+                "monroy",
+                "eindhoven",
+                "university",
+                "of",
+                "technology",
+                "juan",
+                "jose",
+                "vegas",
+                "olmos",
+                "gil",
+                "bloch",
+                "israel",
+                "electric",
+                "salvatore",
+                "di",
+                "girolamo",
+                "tamedia"
+              ]
+            },
+            "topics": {
+              "text": "performance infrastructure gpu performance infrastructure gpu offloading serialization deserialization deserialization dpu offloading buffer deserialization dpu protocol buffer deserialization rpc datapath offload",
+              "words": [
+                "performance",
+                "infrastructure",
+                "gpu",
+                "performance",
+                "infrastructure",
+                "gpu",
+                "offloading",
+                "serialization",
+                "deserialization",
+                "deserialization",
+                "dpu",
+                "offloading",
+                "buffer",
+                "deserialization",
+                "dpu",
+                "protocol",
+                "buffer",
+                "deserialization",
+                "rpc",
+                "datapath",
+                "offload"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "in the microservice paradigm monolithic applications are decomposed into finer-grained modules invoked independently in a data-flow fashion. the different modules communicate through remote procedure calls rpcs which constitute a critical component of the infrastructure. to ensure portable passage of rpc metadata arguments and return values between different microservices rpcs involve serialization deserialization activities part of the rpc data center tax. we demonstrate how rpc server logic including serialization deserialization can be offloaded to data processing units dpus . this effectively reduces the rpc data center tax on the host where applications business logic runs. while we focus on offloading protocol buffers deserialization used by the popular grpc framework our findings can be applied to other rpc infrastructures. our experimental results demonstrate that rpc offloading performs similarly to traditional methods while significantly reducing cpu usage.",
+              "words": [
+                "in",
+                "the",
+                "microservice",
+                "paradigm",
+                "monolithic",
+                "applications",
+                "are",
+                "decomposed",
+                "into",
+                "finer-grained",
+                "modules",
+                "invoked",
+                "independently",
+                "in",
+                "data-flow",
+                "fashion.",
+                "the",
+                "different",
+                "modules",
+                "communicate",
+                "through",
+                "remote",
+                "procedure",
+                "calls",
+                "rpcs",
+                "which",
+                "constitute",
+                "critical",
+                "component",
+                "of",
+                "the",
+                "infrastructure.",
+                "to",
+                "ensure",
+                "portable",
+                "passage",
+                "of",
+                "rpc",
+                "metadata",
+                "arguments",
+                "and",
+                "return",
+                "values",
+                "between",
+                "different",
+                "microservices",
+                "rpcs",
+                "involve",
+                "serialization",
+                "deserialization",
+                "activities",
+                "part",
+                "of",
+                "the",
+                "rpc",
+                "data",
+                "center",
+                "tax.",
+                "we",
+                "demonstrate",
+                "how",
+                "rpc",
+                "server",
+                "logic",
+                "including",
+                "serialization",
+                "deserialization",
+                "can",
+                "be",
+                "offloaded",
+                "to",
+                "data",
+                "processing",
+                "units",
+                "dpus",
+                "this",
+                "effectively",
+                "reduces",
+                "the",
+                "rpc",
+                "data",
+                "center",
+                "tax",
+                "on",
+                "the",
+                "host",
+                "where",
+                "applications",
+                "business",
+                "logic",
+                "runs.",
+                "while",
+                "we",
+                "focus",
+                "on",
+                "offloading",
+                "protocol",
+                "buffers",
+                "deserialization",
+                "used",
+                "by",
+                "the",
+                "popular",
+                "grpc",
+                "framework",
+                "our",
+                "findings",
+                "can",
+                "be",
+                "applied",
+                "to",
+                "other",
+                "rpc",
+                "infrastructures.",
+                "our",
+                "experimental",
+                "results",
+                "demonstrate",
+                "that",
+                "rpc",
+                "offloading",
+                "performs",
+                "similarly",
+                "to",
+                "traditional",
+                "methods",
+                "while",
+                "significantly",
+                "reducing",
+                "cpu",
+                "usage."
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "sc24-w workshops of the international conference for high performance computing networking storage and analysis",
+              "words": [
+                "sc24-w",
+                "workshops",
+                "of",
+                "the",
+                "international",
+                "conference",
+                "for",
+                "high",
+                "performance",
+                "computing",
+                "networking",
+                "storage",
+                "and",
+                "analysis"
+              ]
+            },
+            "venue": {
+              "text": "sc24-w workshops of the international conference for high performance computing networking storage and analysis",
+              "words": [
+                "sc24-w",
+                "workshops",
+                "of",
+                "the",
+                "international",
+                "conference",
+                "for",
+                "high",
+                "performance",
+                "computing",
+                "networking",
+                "storage",
+                "and",
+                "analysis"
+              ]
+            },
+            "year": {
+              "text": "2024",
+              "words": [
+                "2024"
+              ]
+            }
+          },
+          "year": 2024,
+          "citationCount": 0
+        },
+        "_searchBlob": "protocol buffer deserialization dpu offloading in the rpc datapath in the microservice paradigm monolithic applications are decomposed into finer-grained modules invoked independently in a data-flow fashion. the different modules communicate through remote procedure calls rpcs which constitute a critical component of the infrastructure. to ensure portable passage of rpc metadata arguments and return values between different microservices rpcs involve serialization deserialization activities part of the rpc data center tax. we demonstrate how rpc server logic including serialization deserialization can be offloaded to data processing units dpus . this effectively reduces the rpc data center tax on the host where applications business logic runs. while we focus on offloading protocol buffers deserialization used by the popular grpc framework our findings can be applied to other rpc infrastructures. our experimental results demonstrate that rpc offloading performs similarly to traditional methods while significantly reducing cpu usage. sc24-w workshops of the international conference for high performance computing networking storage and analysis sc24-w workshops of the international conference for high performance computing networking storage and analysis 2024 research-paper raphael frantz eindhoven university of technology jeronimo sanchez garcia aalborg university marcin copik idelfonso tafur monroy eindhoven university of technology juan jose vegas olmos gil bloch israel electric salvatore di girolamo tamedia performance infrastructure gpu performance infrastructure gpu offloading serialization deserialization deserialization dpu offloading buffer deserialization dpu protocol buffer deserialization rpc datapath offload",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
+    },
     "openalex-w4392265898": {
       "paper": {
         "id": "openalex-w4392265898",
@@ -4417,7 +4810,7 @@
           "MLIR"
         ],
         "openalexId": "https://openalex.org/W4400459006",
-        "citationCount": 9,
+        "citationCount": 10,
         "doi": "10.21105/joss.06720",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4433,7 +4826,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "catalyst: a python jit compiler for auto-differentiablehybrid quantum programs",
         "_authorLower": "david ittah ali asadi erick ochoa lopez sergei mironov samuel banning romain moyard mai jacob peng josh izaac",
         "_authorsLower": "david ittah ali asadi erick ochoa lopez sergei mironov samuel banning romain moyard mai jacob peng josh izaac",
@@ -4646,7 +5039,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "catalyst a python jit compiler for auto-differentiablehybrid quantum programs catalyst is a software package for capturing python-based hybrid quantum programs that is programs that contain both quantum and classical instructions and just-in-time jit compiling them down to an mlir and llvm representation and generating binary code.as a result catalyst enables the ability to rapidly prototype quantum algorithms in python alongside efficient compilation optimization and execution of the program on classical and quantum accelerators.in addition catalyst allows for advanced quantum programming features essential for fault-tolerant hardware support and advanced algorithm design such as mid-circuit measurement with arbitrary post-processing support for classical control flow in and around quantum algorithms built-in measurement statistics and hardware-compatible automatic differentiation ad . journal of open source software journal of open source software vol. 9 issue 99 2024 research-paper david ittah ali asadi erick ochoa lopez sergei mironov samuel banning romain moyard mai jacob peng josh izaac jit mlir jit mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -4701,7 +5094,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4402777432",
-        "citationCount": 21,
+        "citationCount": 27,
         "doi": "10.1109/cvpr52733.2024.01126",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4717,7 +5110,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 27,
         "_titleLower": "atlantis: enabling underwater depth estimation with stable diffusion",
         "_authorLower": "fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology",
         "_authorsLower": "fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology",
@@ -5072,7 +5465,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 21
+          "citationCount": 27
         },
         "_searchBlob": "atlantis enabling underwater depth estimation with stable diffusion monocular depth estimation has experienced significant progress on terrestrial images in recent years thanks to deep learning advancements. but it remains inadequate for underwater scenes primarily due to data scarcity. given the inherent challenges of light attenuation and backscat-ter in water acquiring clear underwater images or precise depth is notably difficult and costly. to mitigate this issue learning-based approaches often rely on synthetic data or turn to self- or unsupervised manners. nonetheless their performance is often hindered by domain gap and looser constraints. in this paper we propose a novel pipeline for generating photorealistic underwater images using accurate terrestrial depth. this approach facilitates the supervised training of models for underwater depth estimation effectively reducing the performance disparity between ter-restrial and underwater environments. contrary to previous synthetic datasets that merely apply style transfer to terres-trial images without scene content change our approach uniquely creates vivid non-existent underwater scenes by leveraging terrestrial depth data through the innovative stable diffusion model. specifically we introduce a specialized depth2underwater controlnet trained on prepared underwater depth text data triplets for this generation task. our newly developed dataset atlantis enables terres-trial depth estimation models to achieve considerable improvements on unseen underwater scenes surpassing their terrestrial pretrained counterparts both quantitatively and qualitatively. moreover we further show its practical utility by applying the improved depth in underwater image enhancement and its smaller domain gap from the llvm perspective. code and dataset are publicly available at https github.com zkawfanx atlantis. 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 ieee cvf conference on computer vision and pattern recognition cvpr 2024 research-paper fan zhang beijing institute of technology shaodi you university of amsterdam yu li ying fu beijing institute of technology performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -8148,6 +8541,7 @@
     },
     "openalex-w4225718726": {
       "paper": {
+        "id": "openalex-w4225718726",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Quantum Circuit Transformations with a Multi-Level Intermediate Representation Compiler",
@@ -8233,7 +8627,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w4225718726",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11548,7 +11941,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2993507867",
-        "citationCount": 30,
+        "citationCount": 31,
         "doi": "10.1109/vlsi-soc.2019.8920373",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11564,7 +11957,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 30,
+        "_citationCount": 31,
         "_titleLower": "memory sizing of a scalable sram in-memory computing tile based architecture",
         "_authorLower": "roman gauchi institut polytechnique de grenoble maha kooli université grenoble alpes pascal vivet laboratoire d'électronique des technologies de l'information jean-philippe noël université grenoble alpes édith beigné université grenoble alpes subhasish mitra palo alto university henri‐pierre charles institut polytechnique de grenoble",
         "_authorsLower": "roman gauchi institut polytechnique de grenoble maha kooli université grenoble alpes pascal vivet laboratoire d'électronique des technologies de l'information jean-philippe noël université grenoble alpes édith beigné université grenoble alpes subhasish mitra palo alto university henri‐pierre charles institut polytechnique de grenoble",
@@ -11952,7 +12345,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 30
+          "citationCount": 31
         },
         "_searchBlob": "memory sizing of a scalable sram in-memory computing tile based architecture modern computing applications require more and more data to be processed. unfortunately the trend in memory technologies does not scale as fast as the computing performances leading to the so called memory wall. new architectures are currently explored to solve this issue for both embedded and off-chip memories. recent techniques that bringing computing as close as possible to the memory array such as in-memory computing imc near-memory computing nmc processing-in-memory pim allow to reduce the cost of data movement between computing cores and memories. for embedded computing in-memory computing scheme presents advantageous computing and energy gains for certain class of applications. however current solutions are not scaling to large size memories and high amount of data to compute. in this paper we propose a new methodology to tile a sram imc based architecture and scale the memory requirements according to an application set. by using a high level llvm-based simulation platform we extract imc memory requirements for a certain class of applications. then we detail the physical and performance costs of tiling sram instances. by exploring multi-tile sram place and route in 28nm fd-soi we explore the respective performance energy and cost of memory interconnect. as a result we obtain a detailed wire cost model in order to explore memory sizing trade-offs. to achieve a large capacity imc memory by splitting the memory in multiple sub-tiles we can achieve lower energy up to 78 gain and faster up to 49 gain imc tile compared to a single large imc memory instance. 2019 ifip ieee 27th international conference on very large scale integration vlsi-soc 2019 ifip ieee 27th international conference on very large scale integration vlsi-soc 2019 research-paper roman gauchi institut polytechnique de grenoble maha kooli universite grenoble alpes pascal vivet laboratoire delectronique des technologies de linformation jean-philippe noel universite grenoble alpes edith beigne universite grenoble alpes subhasish mitra palo alto university henri pierre charles institut polytechnique de grenoble embedded performance embedded performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -12685,7 +13078,7 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2883365010",
-        "citationCount": 9,
+        "citationCount": 10,
         "doi": "10.1145/3196321.3196352",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -12704,7 +13097,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 9,
+        "_citationCount": 10,
         "_titleLower": "the codecompass comprehension framework",
         "_authorLower": "zoltán porkoláb eötvös loránd university tibor brunner eötvös loránd university",
         "_authorsLower": "zoltán porkoláb eötvös loránd university tibor brunner eötvös loránd university",
@@ -12981,7 +13374,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 9
+          "citationCount": 10
         },
         "_searchBlob": "the codecompass comprehension framework codecompass is an open source llvm clang based tool developed by ericsson ltd. and the eotvos lorand university budapest to help understanding large legacy software systems. based on the llvm clang compiler infrastructure codecompass gives exact information on complex c c++ language elements like overloading inheritance the usage of variables and types possible uses of function pointers and the virtual functions - features that various existing tools support only partially. steensgaards and andersens pointer analysis algorithm are used to compute and visualize the use of pointers references. the wide range of interactive visualizations extends further than the usual class and function call diagrams architectural component and interface diagrams are a few of the implemented graphs. to make comprehension more extensive codecompass is not restricted to the source code. it also utilizes build information to explore the system architecture as well as version control information e.g. git commit history and blame view. clang based static analysis results are also integrated to codecompass. although the tool focuses mainly on c and c++ it also supports java and python languages. proceedings of 26th conference on program comprehension proceedings of 26th conference on program comprehension 2018 research-paper zoltan porkolab eotvos lorand university tibor brunner eotvos lorand university c++ clang infrastructure static analysis c++ clang infrastructure static analysis",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -16892,7 +17285,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2506829169",
-        "citationCount": 21,
+        "citationCount": 22,
         "doi": "10.1145/2907950.2907959",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -16911,7 +17304,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 22,
         "_titleLower": "a graph-based iterative compiler pass selection and phase ordering approach",
         "_authorLower": "ricardo nobre universidade do porto luiz g. a. martins universidade federal de uberlândia joão m. p. cardoso universidade do porto",
         "_authorsLower": "ricardo nobre universidade do porto luiz g. a. martins universidade federal de uberlândia joão m. p. cardoso universidade do porto",
@@ -17328,7 +17721,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 21
+          "citationCount": 22
         },
         "_searchBlob": "a graph-based iterative compiler pass selection and phase ordering approach nowadays compilers include tens or hundreds of optimization passes which makes it difficult to find sequences of optimizations that achieve compiled code more optimized than the one obtained using typical compiler options such as -o2 and -o3. the problem involves both the selection of the compiler passes to use and their ordering in the compilation pipeline. the improvement achieved by the use of custom phase orders for each function can be significant and thus important to satisfy strict requirements such as the ones present in high-performance embedded computing systems. in this paper we present a new and fast iterative approach to the phase selection and ordering challenges resulting in compiled code with higher performance than the one achieved with the standard optimization levels of the llvm compiler. the obtained performance improvements are comparable with the ones achieved by other iterative approaches while requiring considerably less time and resources. our approach is based on sampling over a graph representing transitions between compiler passes. we performed a number of experiments targeting the leon3 microarchitecture using the clang llvm 3.7 compiler considering 140 llvm passes and a set of 42 representative signal and image processing c functions. an exhaustive cross-validation shows our new exploration method is able to achieve a geometric mean performance speedup of 1.28x over the best individually selected -ox flag when considering 100 000 iterations versus geometric mean speedups from 1.16x to 1.25x obtained with state-of-the-art iterative methods not using the graph. from the set of exploration methods tested our new method is the only one consistently finding compiler sequences that result in performance improvements when considering 100 or less exploration iterations. specifically it achieved geometric mean speedups of 1.08x and 1.16x for 10 and 100 iterations respectively. proceedings of 17th acm sigplan sigbed conference on languages compilers tools and theory for embedded systems proceedings of 17th acm sigplan sigbed conference on languages compilers tools and theory for embedded systems 2016 research-paper ricardo nobre universidade do porto luiz g. a. martins universidade federal de uberlandia joao m. p. cardoso universidade do porto clang embedded optimizations performance clang embedded optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

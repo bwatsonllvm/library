@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7125352923": {
       "paper": {
@@ -657,390 +657,6 @@
         "addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAt": "2026-04-10T14:29:02.000Z",
         "_addedAtTs": 1775831342000
-      },
-      "source": "openalex-discovery"
-    },
-    "openalex-w7155370812": {
-      "paper": {
-        "source": "openalex-discovery",
-        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
-        "title": "Going MLIR-native: Demonstrating a Future for DSL compilers on a NumPy-like Example",
-        "authors": [
-          {
-            "name": "Karl F. A. Friebel",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Jascha A. Ohlmann",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          },
-          {
-            "name": "Jeronimo Castrillon",
-            "affiliation": "",
-            "github": "",
-            "linkedin": "",
-            "twitter": ""
-          }
-        ],
-        "year": "2026",
-        "publication": "arXiv",
-        "venue": "arXiv",
-        "type": "research-paper",
-        "abstract": "Compilers for general-purpose languages have been shown to be at a disadvantage when it comes to specialized application domains as opposed to their Domain-Specific Language (DSL) counterparts. However, the field of DSL compilers features little consolidation in terms of compiler frameworks and adjacent software ecosystems. As a result, considerable work is duplicated, lost to maintenance issues, or remains undiscovered, and most DSLs are never considered \"production-ready\". One notable development is the introduction of the Multi-Level Intermediate Representation (MLIR), which promises a similar impact on DSL compilers as LLVM had on general-purpose tooling. In this work, we present a NumPy-like DSL made for offloading numeric tensor kernels that is entirely MLIR-native. In a first for open-source, it implements all frontend actions and semantic analyses directly within MLIR. Most notably, this is made possible by our new dialect-agnostic MLIR type checker, created for the future of DSLs in MLIR. We implement a simple, yet effective, parallel-first lowering scheme that connects our language to another MLIR dataflow dialect for seamless offloading. We show that our approach performs well in real-world use cases from the domain of weather modeling and Computational Fluid Dynamics (CFD) in Fortran.",
-        "paperUrl": "https://doi.org/10.48550/arxiv.2604.19906",
-        "openalexId": "https://openalex.org/W7155370812",
-        "doi": "10.48550/arxiv.2604.19906",
-        "tags": [
-          "LLVM",
-          "MLIR",
-          "IR",
-          "Frontend",
-          "GPU"
-        ],
-        "keywords": [
-          "LLVM",
-          "MLIR",
-          "Frontend",
-          "GPU",
-          "Intermediate Representation",
-          "Offloading",
-          "Going MLIR Native",
-          "DSL Compilers",
-          "Numpy Like",
-          "DSLs",
-          "MLIR Native Demonstrating"
-        ],
-        "matchedAuthors": [
-          "Jeronimo Castrillon",
-          "Karl F. A. Friebel"
-        ],
-        "matchedSubprojects": [
-          "llvm",
-          "mlir",
-          "offload"
-        ],
-        "id": "openalex-w7155370812",
-        "citationCount": 0,
-        "citationCountSource": "openalex",
-        "publishedDate": "",
-        "sourceUrl": "",
-        "contentFormat": "",
-        "content": "",
-        "bodyText": "",
-        "_year": "2026",
-        "_publishedDate": "",
-        "_publishedDateLabel": "",
-        "_citationCount": 0,
-        "_titleLower": "going mlir-native: demonstrating a future for dsl compilers on a numpy-like example",
-        "_authorLower": "karl f. a. friebel jascha a. ohlmann jeronimo castrillon",
-        "_authorsLower": "karl f. a. friebel jascha a. ohlmann jeronimo castrillon",
-        "_abstractLower": "compilers for general-purpose languages have been shown to be at a disadvantage when it comes to specialized application domains as opposed to their domain-specific language (dsl) counterparts. however, the field of dsl compilers features little consolidation in terms of compiler frameworks and adjacent software ecosystems. as a result, considerable work is duplicated, lost to maintenance issues, or remains undiscovered, and most dsls are never considered \"production-ready\". one notable development is the introduction of the multi-level intermediate representation (mlir), which promises a similar impact on dsl compilers as llvm had on general-purpose tooling. in this work, we present a numpy-like dsl made for offloading numeric tensor kernels that is entirely mlir-native. in a first for open-source, it implements all frontend actions and semantic analyses directly within mlir. most notably, this is made possible by our new dialect-agnostic mlir type checker, created for the future of dsls in mlir. we implement a simple, yet effective, parallel-first lowering scheme that connects our language to another mlir dataflow dialect for seamless offloading. we show that our approach performs well in real-world use cases from the domain of weather modeling and computational fluid dynamics (cfd) in fortran.",
-        "_tagsLower": "llvm mlir ir frontend gpu",
-        "_keywordsLower": "llvm mlir frontend gpu intermediate representation offloading going mlir native dsl compilers numpy like dsls mlir native demonstrating",
-        "_topicsLower": "llvm mlir ir frontend gpu llvm mlir frontend gpu intermediate representation offloading going mlir native dsl compilers numpy like dsls mlir native demonstrating llvm mlir offload",
-        "_contentLower": "",
-        "_publicationLower": "arxiv",
-        "_venueLower": "arxiv",
-        "_typeLower": "research-paper",
-        "_sourceLower": "openalex-discovery",
-        "_yearLower": "2026",
-        "_isBlog": false,
-        "_searchDoc": {
-          "fields": {
-            "title": {
-              "text": "going mlir-native demonstrating a future for dsl compilers on a numpy-like example",
-              "words": [
-                "going",
-                "mlir-native",
-                "demonstrating",
-                "future",
-                "for",
-                "dsl",
-                "compilers",
-                "on",
-                "numpy-like",
-                "example"
-              ]
-            },
-            "authors": {
-              "text": "karl f. a. friebel jascha a. ohlmann jeronimo castrillon",
-              "words": [
-                "karl",
-                "f.",
-                "a.",
-                "friebel",
-                "jascha",
-                "a.",
-                "ohlmann",
-                "jeronimo",
-                "castrillon"
-              ]
-            },
-            "topics": {
-              "text": "llvm mlir ir frontend gpu llvm mlir frontend gpu intermediate representation offloading going mlir native dsl compilers numpy like dsls mlir native demonstrating llvm mlir offload",
-              "words": [
-                "llvm",
-                "mlir",
-                "ir",
-                "frontend",
-                "gpu",
-                "llvm",
-                "mlir",
-                "frontend",
-                "gpu",
-                "intermediate",
-                "representation",
-                "offloading",
-                "going",
-                "mlir",
-                "native",
-                "dsl",
-                "compilers",
-                "numpy",
-                "like",
-                "dsls",
-                "mlir",
-                "native",
-                "demonstrating",
-                "llvm",
-                "mlir",
-                "offload"
-              ]
-            },
-            "type": {
-              "text": "research-paper paper",
-              "words": [
-                "research-paper",
-                "paper"
-              ]
-            },
-            "abstract": {
-              "text": "compilers for general-purpose languages have been shown to be at a disadvantage when it comes to specialized application domains as opposed to their domain-specific language dsl counterparts. however the field of dsl compilers features little consolidation in terms of compiler frameworks and adjacent software ecosystems. as a result considerable work is duplicated lost to maintenance issues or remains undiscovered and most dsls are never considered production-ready . one notable development is the introduction of the multi-level intermediate representation mlir which promises a similar impact on dsl compilers as llvm had on general-purpose tooling. in this work we present a numpy-like dsl made for offloading numeric tensor kernels that is entirely mlir-native. in a first for open-source it implements all frontend actions and semantic analyses directly within mlir. most notably this is made possible by our new dialect-agnostic mlir type checker created for the future of dsls in mlir. we implement a simple yet effective parallel-first lowering scheme that connects our language to another mlir dataflow dialect for seamless offloading. we show that our approach performs well in real-world use cases from the domain of weather modeling and computational fluid dynamics cfd in fortran.",
-              "words": [
-                "compilers",
-                "for",
-                "general-purpose",
-                "languages",
-                "have",
-                "been",
-                "shown",
-                "to",
-                "be",
-                "at",
-                "disadvantage",
-                "when",
-                "it",
-                "comes",
-                "to",
-                "specialized",
-                "application",
-                "domains",
-                "as",
-                "opposed",
-                "to",
-                "their",
-                "domain-specific",
-                "language",
-                "dsl",
-                "counterparts.",
-                "however",
-                "the",
-                "field",
-                "of",
-                "dsl",
-                "compilers",
-                "features",
-                "little",
-                "consolidation",
-                "in",
-                "terms",
-                "of",
-                "compiler",
-                "frameworks",
-                "and",
-                "adjacent",
-                "software",
-                "ecosystems.",
-                "as",
-                "result",
-                "considerable",
-                "work",
-                "is",
-                "duplicated",
-                "lost",
-                "to",
-                "maintenance",
-                "issues",
-                "or",
-                "remains",
-                "undiscovered",
-                "and",
-                "most",
-                "dsls",
-                "are",
-                "never",
-                "considered",
-                "production-ready",
-                "one",
-                "notable",
-                "development",
-                "is",
-                "the",
-                "introduction",
-                "of",
-                "the",
-                "multi-level",
-                "intermediate",
-                "representation",
-                "mlir",
-                "which",
-                "promises",
-                "similar",
-                "impact",
-                "on",
-                "dsl",
-                "compilers",
-                "as",
-                "llvm",
-                "had",
-                "on",
-                "general-purpose",
-                "tooling.",
-                "in",
-                "this",
-                "work",
-                "we",
-                "present",
-                "numpy-like",
-                "dsl",
-                "made",
-                "for",
-                "offloading",
-                "numeric",
-                "tensor",
-                "kernels",
-                "that",
-                "is",
-                "entirely",
-                "mlir-native.",
-                "in",
-                "first",
-                "for",
-                "open-source",
-                "it",
-                "implements",
-                "all",
-                "frontend",
-                "actions",
-                "and",
-                "semantic",
-                "analyses",
-                "directly",
-                "within",
-                "mlir.",
-                "most",
-                "notably",
-                "this",
-                "is",
-                "made",
-                "possible",
-                "by",
-                "our",
-                "new",
-                "dialect-agnostic",
-                "mlir",
-                "type",
-                "checker",
-                "created",
-                "for",
-                "the",
-                "future",
-                "of",
-                "dsls",
-                "in",
-                "mlir.",
-                "we",
-                "implement",
-                "simple",
-                "yet",
-                "effective",
-                "parallel-first",
-                "lowering",
-                "scheme",
-                "that",
-                "connects",
-                "our",
-                "language",
-                "to",
-                "another",
-                "mlir",
-                "dataflow",
-                "dialect",
-                "for",
-                "seamless",
-                "offloading.",
-                "we",
-                "show",
-                "that",
-                "our",
-                "approach",
-                "performs",
-                "well",
-                "in",
-                "real-world",
-                "use",
-                "cases",
-                "from",
-                "the",
-                "domain",
-                "of",
-                "weather",
-                "modeling",
-                "and",
-                "computational",
-                "fluid",
-                "dynamics",
-                "cfd",
-                "in",
-                "fortran."
-              ]
-            },
-            "content": {
-              "text": "",
-              "words": []
-            },
-            "publication": {
-              "text": "arxiv",
-              "words": [
-                "arxiv"
-              ]
-            },
-            "venue": {
-              "text": "arxiv",
-              "words": [
-                "arxiv"
-              ]
-            },
-            "year": {
-              "text": "2026",
-              "words": [
-                "2026"
-              ]
-            }
-          },
-          "year": 2026,
-          "citationCount": 0
-        },
-        "_searchBlob": "going mlir-native demonstrating a future for dsl compilers on a numpy-like example compilers for general-purpose languages have been shown to be at a disadvantage when it comes to specialized application domains as opposed to their domain-specific language dsl counterparts. however the field of dsl compilers features little consolidation in terms of compiler frameworks and adjacent software ecosystems. as a result considerable work is duplicated lost to maintenance issues or remains undiscovered and most dsls are never considered production-ready . one notable development is the introduction of the multi-level intermediate representation mlir which promises a similar impact on dsl compilers as llvm had on general-purpose tooling. in this work we present a numpy-like dsl made for offloading numeric tensor kernels that is entirely mlir-native. in a first for open-source it implements all frontend actions and semantic analyses directly within mlir. most notably this is made possible by our new dialect-agnostic mlir type checker created for the future of dsls in mlir. we implement a simple yet effective parallel-first lowering scheme that connects our language to another mlir dataflow dialect for seamless offloading. we show that our approach performs well in real-world use cases from the domain of weather modeling and computational fluid dynamics cfd in fortran. arxiv arxiv 2026 research-paper karl f. a. friebel jascha a. ohlmann jeronimo castrillon llvm mlir ir frontend gpu llvm mlir frontend gpu intermediate representation offloading going mlir native dsl compilers numpy like dsls mlir native demonstrating llvm mlir offload",
-        "addedAt": "2026-04-28T06:27:48.000Z",
-        "_addedAt": "2026-04-28T06:27:48.000Z",
-        "_addedAtTs": 1777357668000
       },
       "source": "openalex-discovery"
     },
@@ -6026,7 +5642,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4399850836",
-        "citationCount": 19,
+        "citationCount": 21,
         "doi": "10.1145/3656386",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6041,7 +5657,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 19,
+        "_citationCount": 21,
         "_titleLower": "boosting compiler testing by injecting real-world code",
         "_authorLower": "shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich",
         "_authorsLower": "shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich",
@@ -6376,7 +5992,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 19
+          "citationCount": 21
         },
         "_searchBlob": "boosting compiler testing by injecting real-world code we introduce a novel approach for testing optimizing compilers with code from real-world applications the main idea is to construct well-formed programs by fusing multiple code snippets from various realworld projects. the key insight is backed by the fact that the large volume of real-world code exercises rich syntactical and semantic language features which current engineering-intensive approaches like random program generators are hard to fully support. to construct well-formed programs from real-world code our approach works by 1 extracting real-world code at the granularity of function 2 injecting function calls into seed programs and 3 leveraging dynamic execution information to maintain the semantics and build complex data dependencies between injected functions and the seed program. with this idea our approach complements the existing generators by boosting their expressiveness via fusing real-world code in a semantics-preserving way. we implement our idea in a tool creal to test c compilers. in a nine-month testing period we have reported 132 bugs to gcc and llvm two of the most popular and well-tested c compilers. at the time of writing 121 of them have been confirmed as unknown bugs and 101 of them have been fixed. most of these bugs were miscompilations and many were recognized as long-latent and critical. our evaluation results evidently demonstrate the significant advantage of using real-world code to stress-test compilers. we believe this idea will benefit the general compiler testing direction and will be directly applicable to other compilers. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue pldi 2024 research-paper shaohua li eth zurich theodoros theodoridis eth zurich zhendong su eth zurich testing testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -9652,7 +9268,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-030-99766-3_5",
         "tags": [],
         "openalexId": "https://openalex.org/W3157213858",
-        "citationCount": 8,
+        "citationCount": 9,
         "doi": "10.1007/978-3-030-99766-3_5",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -9666,7 +9282,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 9,
         "_titleLower": "fipac: thwarting fault- and software-induced control-flow attacks with arm pointer authentication",
         "_authorLower": "robert schilling graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology",
         "_authorsLower": "robert schilling graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology",
@@ -10027,7 +9643,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 8
+          "citationCount": 9
         },
         "_searchBlob": "fipac thwarting fault- and software-induced control-flow attacks with arm pointer authentication with the improvements of computing technology more and more applications embed powerful arm processors into their devices. these systems can be attacked by redirecting the control-flow of a program to bypass critical pieces of code such as privilege checks or signature verifications. control-flow hijacks can be performed using classical software vulnerabilities physical fault attacks or software-induced fault attacks. to cope with this threat and to protect the control-flow dedicated countermeasures are needed. to counteract control-flow hijacks control-flow integrity cfi aims to be a generic solution. however software-based cfi typically either protects against software or fault attacks but not against both. while hardware-assisted cfi can mitigate both types of attacks they require extensive hardware modifications. as hardware changes are unrealistic for existing arm architectures a wide range of systems remains unprotected and vulnerable to control-flow attacks. in this work we present fipac an efficient software-based cfi scheme protecting the execution at basic block granularity of arm-based devices against software and fault attacks. fipac exploits arm pointer authentication of armv8.6-a to implement a cryptographically signed control-flow graph. we cryptographically link the correct sequence of executed basic blocks to enforce cfi at this granularity. we use an llvm-based toolchain to automatically instrument programs. the evaluation on spec2017 with different security policies shows a code overhead between 54-97 and a runtime overhead between 35-105 . while these overheads are higher than for countermeasures against software attacks fipac outperforms related work protecting the control-flow against fault attacks. fipac is an efficient solution to provide protection against software- and fault-based cfi attacks on basic block level on modern arm devices. lecture notes in computer science lecture notes in computer science 2022 research-paper robert schilling graz university of technology pascal nasahl graz university of technology stefan mangard graz university of technology",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -10035,6 +9651,222 @@
         "_addedAtTs": 1771652392000
       },
       "source": "openalex-llvm-query"
+    },
+    "openalex-w3183793818": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "Streamlining the OpenMP Programming Model on Ultra-Low-Power Multi-core MCUs",
+        "authors": [
+          {
+            "name": "Fabio Montagna",
+            "affiliation": "University of Bologna",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Giuseppe Tagliavini",
+            "affiliation": "University of Bologna",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Davide Rossi",
+            "affiliation": "University of Bologna",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Angelo Garofalo",
+            "affiliation": "University of Bologna",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Luca Benini",
+            "affiliation": "ETH Zurich",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2021",
+        "publication": "Lecture Notes in Computer Science",
+        "venue": "Lecture Notes in Computer Science",
+        "type": "research-paper",
+        "abstract": "Montagna, Fabio; Tagliavini, Giuseppe; Rossi, Davide; Garofalo, Angelo; Benini, Luca",
+        "paperUrl": "http://hdl.handle.net/11585/828853",
+        "sourceUrl": "https://doi.org/10.1007/978-3-030-81682-7_11",
+        "openalexId": "https://openalex.org/W3183793818",
+        "doi": "10.1007/978-3-030-81682-7_11",
+        "tags": [
+          "OpenMP"
+        ],
+        "keywords": [
+          "OpenMP",
+          "Multi Core Mcus",
+          "Power Multi Core",
+          "OpenMP Programming"
+        ],
+        "matchedAuthors": [
+          "Giuseppe Tagliavini",
+          "Luca Benini"
+        ],
+        "matchedSubprojects": [
+          "openmp"
+        ],
+        "id": "openalex-w3183793818",
+        "citationCount": 4,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2021",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 4,
+        "_titleLower": "streamlining the openmp programming model on ultra-low-power multi-core mcus",
+        "_authorLower": "fabio montagna university of bologna giuseppe tagliavini university of bologna davide rossi university of bologna angelo garofalo university of bologna luca benini eth zurich",
+        "_authorsLower": "fabio montagna university of bologna giuseppe tagliavini university of bologna davide rossi university of bologna angelo garofalo university of bologna luca benini eth zurich",
+        "_abstractLower": "montagna, fabio; tagliavini, giuseppe; rossi, davide; garofalo, angelo; benini, luca",
+        "_tagsLower": "openmp",
+        "_keywordsLower": "openmp multi core mcus power multi core openmp programming",
+        "_topicsLower": "openmp openmp multi core mcus power multi core openmp programming openmp",
+        "_contentLower": "",
+        "_publicationLower": "lecture notes in computer science",
+        "_venueLower": "lecture notes in computer science",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2021",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "streamlining the openmp programming model on ultra-low-power multi-core mcus",
+              "words": [
+                "streamlining",
+                "the",
+                "openmp",
+                "programming",
+                "model",
+                "on",
+                "ultra-low-power",
+                "multi-core",
+                "mcus"
+              ]
+            },
+            "authors": {
+              "text": "fabio montagna university of bologna giuseppe tagliavini university of bologna davide rossi university of bologna angelo garofalo university of bologna luca benini eth zurich",
+              "words": [
+                "fabio",
+                "montagna",
+                "university",
+                "of",
+                "bologna",
+                "giuseppe",
+                "tagliavini",
+                "university",
+                "of",
+                "bologna",
+                "davide",
+                "rossi",
+                "university",
+                "of",
+                "bologna",
+                "angelo",
+                "garofalo",
+                "university",
+                "of",
+                "bologna",
+                "luca",
+                "benini",
+                "eth",
+                "zurich"
+              ]
+            },
+            "topics": {
+              "text": "openmp openmp multi core mcus power multi core openmp programming openmp",
+              "words": [
+                "openmp",
+                "openmp",
+                "multi",
+                "core",
+                "mcus",
+                "power",
+                "multi",
+                "core",
+                "openmp",
+                "programming",
+                "openmp"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "montagna fabio tagliavini giuseppe rossi davide garofalo angelo benini luca",
+              "words": [
+                "montagna",
+                "fabio",
+                "tagliavini",
+                "giuseppe",
+                "rossi",
+                "davide",
+                "garofalo",
+                "angelo",
+                "benini",
+                "luca"
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "lecture notes in computer science",
+              "words": [
+                "lecture",
+                "notes",
+                "in",
+                "computer",
+                "science"
+              ]
+            },
+            "venue": {
+              "text": "lecture notes in computer science",
+              "words": [
+                "lecture",
+                "notes",
+                "in",
+                "computer",
+                "science"
+              ]
+            },
+            "year": {
+              "text": "2021",
+              "words": [
+                "2021"
+              ]
+            }
+          },
+          "year": 2021,
+          "citationCount": 4
+        },
+        "_searchBlob": "streamlining the openmp programming model on ultra-low-power multi-core mcus montagna fabio tagliavini giuseppe rossi davide garofalo angelo benini luca lecture notes in computer science lecture notes in computer science 2021 research-paper fabio montagna university of bologna giuseppe tagliavini university of bologna davide rossi university of bologna angelo garofalo university of bologna luca benini eth zurich openmp openmp multi core mcus power multi core openmp programming openmp",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
     },
     "openalex-w3135440348": {
       "paper": {
@@ -14799,7 +14631,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-319-45871-7_20",
         "tags": [],
         "openalexId": "https://openalex.org/W2517358422",
-        "citationCount": 41,
+        "citationCount": 42,
         "doi": "10.1007/978-3-319-45871-7_20",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -14813,7 +14645,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 41,
+        "_citationCount": 42,
         "_titleLower": "generalized dynamic opaque predicates: a new control flow obfuscation method",
         "_authorLower": "dongpeng xu pennsylvania state university jiang ming pennsylvania state university dinghao wu pennsylvania state university",
         "_authorsLower": "dongpeng xu pennsylvania state university jiang ming pennsylvania state university dinghao wu pennsylvania state university",
@@ -14947,7 +14779,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 41
+          "citationCount": 42
         },
         "_searchBlob": "generalized dynamic opaque predicates a new control flow obfuscation method opaque predicate obfuscation a low-cost and stealthy control flow obfuscation method to introduce superfluous branches has been demonstrated to be effective to impede reverse engineering efforts and broadly used in various areas of software security. conventional... lecture notes in computer science lecture notes in computer science 2016 research-paper dongpeng xu pennsylvania state university jiang ming pennsylvania state university dinghao wu pennsylvania state university",
         "addedAt": "2026-02-21T05:39:52.000Z",

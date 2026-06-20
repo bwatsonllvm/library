@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7140842654": {
       "paper": {
@@ -458,6 +458,404 @@
       },
       "source": "openalex-discovery"
     },
+    "openalex-w7162285141": {
+      "paper": {
+        "source": "openalex-discovery",
+        "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
+        "title": "FunSp: countering binary code similarity detection through function splitting",
+        "authors": [
+          {
+            "name": "Ran Wei",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Hui Shu",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Fei Kang",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Xiaobing Xiong",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Yang Lan",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          },
+          {
+            "name": "Cong Li",
+            "affiliation": "Henan Institute of Education",
+            "github": "",
+            "linkedin": "",
+            "twitter": ""
+          }
+        ],
+        "year": "2026",
+        "publication": "The Computer Journal",
+        "venue": "The Computer Journal",
+        "type": "research-paper",
+        "abstract": "Abstract Binary code similarity detection (BCSD) poses a significant threat to software security by enabling reverse engineers to identify critical functions in binaries. Code obfuscation is a primary defense, yet existing techniques often incur high performance overhead and introduce recognizable patterns. To address these limitations, we present FunSp, a lightweight code obfuscation method based on function splitting at the compiler intermediate representation level. FunSp partitions a function’s control flow graph into multiple subgraphs via dominator-tree analysis, repairs inter-subgraph data dependencies, reconstructs control flow, and finally rewrites the code to produce semantically equivalent sub-functions. This approach redistributes basic blocks across subfunctions without injecting substantial redundant code, thereby minimizing overhead. Experimental results show that FunSp effectively undermines state-of-the-art BCSD models, reducing Recall@1 to 0.016 in a 10 000-function pool. It maintains practicality, introducing a mean code expansion ratio of 1.353 $\\times $ and a runtime overhead of 12.7%. Compared with Obfuscator-LLVM and Tigress, FunSp reduces code bloat by 73.5% and runtime overhead by 5.5%.",
+        "paperUrl": "https://doi.org/10.1093/comjnl/bxag054",
+        "openalexId": "https://openalex.org/W7162285141",
+        "doi": "10.1093/comjnl/bxag054",
+        "tags": [
+          "LLVM",
+          "IR",
+          "Security",
+          "Performance"
+        ],
+        "keywords": [
+          "LLVM",
+          "IR",
+          "Security",
+          "Performance",
+          "Intermediate Representation",
+          "Control Flow Graph",
+          "Runtime Overhead",
+          "Similarity Detection",
+          "Funsp Countering Binary",
+          "Obfuscation"
+        ],
+        "matchedAuthors": [
+          "Cong Li",
+          "Fei Kang",
+          "Hui Shu",
+          "Ran Wei",
+          "Xiaobing Xiong"
+        ],
+        "matchedSubprojects": [
+          "llvm"
+        ],
+        "id": "openalex-w7162285141",
+        "citationCount": 0,
+        "citationCountSource": "openalex",
+        "publishedDate": "",
+        "sourceUrl": "",
+        "contentFormat": "",
+        "content": "",
+        "bodyText": "",
+        "_year": "2026",
+        "_publishedDate": "",
+        "_publishedDateLabel": "",
+        "_citationCount": 0,
+        "_titleLower": "funsp: countering binary code similarity detection through function splitting",
+        "_authorLower": "ran wei henan institute of education hui shu henan institute of education fei kang henan institute of education xiaobing xiong henan institute of education yang lan henan institute of education cong li henan institute of education",
+        "_authorsLower": "ran wei henan institute of education hui shu henan institute of education fei kang henan institute of education xiaobing xiong henan institute of education yang lan henan institute of education cong li henan institute of education",
+        "_abstractLower": "abstract binary code similarity detection (bcsd) poses a significant threat to software security by enabling reverse engineers to identify critical functions in binaries. code obfuscation is a primary defense, yet existing techniques often incur high performance overhead and introduce recognizable patterns. to address these limitations, we present funsp, a lightweight code obfuscation method based on function splitting at the compiler intermediate representation level. funsp partitions a function’s control flow graph into multiple subgraphs via dominator-tree analysis, repairs inter-subgraph data dependencies, reconstructs control flow, and finally rewrites the code to produce semantically equivalent sub-functions. this approach redistributes basic blocks across subfunctions without injecting substantial redundant code, thereby minimizing overhead. experimental results show that funsp effectively undermines state-of-the-art bcsd models, reducing recall@1 to 0.016 in a 10 000-function pool. it maintains practicality, introducing a mean code expansion ratio of 1.353 $\\times $ and a runtime overhead of 12.7%. compared with obfuscator-llvm and tigress, funsp reduces code bloat by 73.5% and runtime overhead by 5.5%.",
+        "_tagsLower": "llvm ir security performance",
+        "_keywordsLower": "llvm ir security performance intermediate representation control flow graph runtime overhead similarity detection funsp countering binary obfuscation",
+        "_topicsLower": "llvm ir security performance llvm ir security performance intermediate representation control flow graph runtime overhead similarity detection funsp countering binary obfuscation llvm",
+        "_contentLower": "",
+        "_publicationLower": "the computer journal",
+        "_venueLower": "the computer journal",
+        "_typeLower": "research-paper",
+        "_sourceLower": "openalex-discovery",
+        "_yearLower": "2026",
+        "_isBlog": false,
+        "_searchDoc": {
+          "fields": {
+            "title": {
+              "text": "funsp countering binary code similarity detection through function splitting",
+              "words": [
+                "funsp",
+                "countering",
+                "binary",
+                "code",
+                "similarity",
+                "detection",
+                "through",
+                "function",
+                "splitting"
+              ]
+            },
+            "authors": {
+              "text": "ran wei henan institute of education hui shu henan institute of education fei kang henan institute of education xiaobing xiong henan institute of education yang lan henan institute of education cong li henan institute of education",
+              "words": [
+                "ran",
+                "wei",
+                "henan",
+                "institute",
+                "of",
+                "education",
+                "hui",
+                "shu",
+                "henan",
+                "institute",
+                "of",
+                "education",
+                "fei",
+                "kang",
+                "henan",
+                "institute",
+                "of",
+                "education",
+                "xiaobing",
+                "xiong",
+                "henan",
+                "institute",
+                "of",
+                "education",
+                "yang",
+                "lan",
+                "henan",
+                "institute",
+                "of",
+                "education",
+                "cong",
+                "li",
+                "henan",
+                "institute",
+                "of",
+                "education"
+              ]
+            },
+            "topics": {
+              "text": "llvm ir security performance llvm ir security performance intermediate representation control flow graph runtime overhead similarity detection funsp countering binary obfuscation llvm",
+              "words": [
+                "llvm",
+                "ir",
+                "security",
+                "performance",
+                "llvm",
+                "ir",
+                "security",
+                "performance",
+                "intermediate",
+                "representation",
+                "control",
+                "flow",
+                "graph",
+                "runtime",
+                "overhead",
+                "similarity",
+                "detection",
+                "funsp",
+                "countering",
+                "binary",
+                "obfuscation",
+                "llvm"
+              ]
+            },
+            "type": {
+              "text": "research-paper paper",
+              "words": [
+                "research-paper",
+                "paper"
+              ]
+            },
+            "abstract": {
+              "text": "abstract binary code similarity detection bcsd poses a significant threat to software security by enabling reverse engineers to identify critical functions in binaries. code obfuscation is a primary defense yet existing techniques often incur high performance overhead and introduce recognizable patterns. to address these limitations we present funsp a lightweight code obfuscation method based on function splitting at the compiler intermediate representation level. funsp partitions a functions control flow graph into multiple subgraphs via dominator-tree analysis repairs inter-subgraph data dependencies reconstructs control flow and finally rewrites the code to produce semantically equivalent sub-functions. this approach redistributes basic blocks across subfunctions without injecting substantial redundant code thereby minimizing overhead. experimental results show that funsp effectively undermines state-of-the-art bcsd models reducing recall 1 to 0.016 in a 10 000-function pool. it maintains practicality introducing a mean code expansion ratio of 1.353 times and a runtime overhead of 12.7 . compared with obfuscator-llvm and tigress funsp reduces code bloat by 73.5 and runtime overhead by 5.5 .",
+              "words": [
+                "abstract",
+                "binary",
+                "code",
+                "similarity",
+                "detection",
+                "bcsd",
+                "poses",
+                "significant",
+                "threat",
+                "to",
+                "software",
+                "security",
+                "by",
+                "enabling",
+                "reverse",
+                "engineers",
+                "to",
+                "identify",
+                "critical",
+                "functions",
+                "in",
+                "binaries.",
+                "code",
+                "obfuscation",
+                "is",
+                "primary",
+                "defense",
+                "yet",
+                "existing",
+                "techniques",
+                "often",
+                "incur",
+                "high",
+                "performance",
+                "overhead",
+                "and",
+                "introduce",
+                "recognizable",
+                "patterns.",
+                "to",
+                "address",
+                "these",
+                "limitations",
+                "we",
+                "present",
+                "funsp",
+                "lightweight",
+                "code",
+                "obfuscation",
+                "method",
+                "based",
+                "on",
+                "function",
+                "splitting",
+                "at",
+                "the",
+                "compiler",
+                "intermediate",
+                "representation",
+                "level.",
+                "funsp",
+                "partitions",
+                "functions",
+                "control",
+                "flow",
+                "graph",
+                "into",
+                "multiple",
+                "subgraphs",
+                "via",
+                "dominator-tree",
+                "analysis",
+                "repairs",
+                "inter-subgraph",
+                "data",
+                "dependencies",
+                "reconstructs",
+                "control",
+                "flow",
+                "and",
+                "finally",
+                "rewrites",
+                "the",
+                "code",
+                "to",
+                "produce",
+                "semantically",
+                "equivalent",
+                "sub-functions.",
+                "this",
+                "approach",
+                "redistributes",
+                "basic",
+                "blocks",
+                "across",
+                "subfunctions",
+                "without",
+                "injecting",
+                "substantial",
+                "redundant",
+                "code",
+                "thereby",
+                "minimizing",
+                "overhead.",
+                "experimental",
+                "results",
+                "show",
+                "that",
+                "funsp",
+                "effectively",
+                "undermines",
+                "state-of-the-art",
+                "bcsd",
+                "models",
+                "reducing",
+                "recall",
+                "to",
+                "0.016",
+                "in",
+                "10",
+                "000-function",
+                "pool.",
+                "it",
+                "maintains",
+                "practicality",
+                "introducing",
+                "mean",
+                "code",
+                "expansion",
+                "ratio",
+                "of",
+                "1.353",
+                "times",
+                "and",
+                "runtime",
+                "overhead",
+                "of",
+                "12.7",
+                "compared",
+                "with",
+                "obfuscator-llvm",
+                "and",
+                "tigress",
+                "funsp",
+                "reduces",
+                "code",
+                "bloat",
+                "by",
+                "73.5",
+                "and",
+                "runtime",
+                "overhead",
+                "by",
+                "5.5"
+              ]
+            },
+            "content": {
+              "text": "",
+              "words": []
+            },
+            "publication": {
+              "text": "the computer journal",
+              "words": [
+                "the",
+                "computer",
+                "journal"
+              ]
+            },
+            "venue": {
+              "text": "the computer journal",
+              "words": [
+                "the",
+                "computer",
+                "journal"
+              ]
+            },
+            "year": {
+              "text": "2026",
+              "words": [
+                "2026"
+              ]
+            }
+          },
+          "year": 2026,
+          "citationCount": 0
+        },
+        "_searchBlob": "funsp countering binary code similarity detection through function splitting abstract binary code similarity detection bcsd poses a significant threat to software security by enabling reverse engineers to identify critical functions in binaries. code obfuscation is a primary defense yet existing techniques often incur high performance overhead and introduce recognizable patterns. to address these limitations we present funsp a lightweight code obfuscation method based on function splitting at the compiler intermediate representation level. funsp partitions a functions control flow graph into multiple subgraphs via dominator-tree analysis repairs inter-subgraph data dependencies reconstructs control flow and finally rewrites the code to produce semantically equivalent sub-functions. this approach redistributes basic blocks across subfunctions without injecting substantial redundant code thereby minimizing overhead. experimental results show that funsp effectively undermines state-of-the-art bcsd models reducing recall 1 to 0.016 in a 10 000-function pool. it maintains practicality introducing a mean code expansion ratio of 1.353 times and a runtime overhead of 12.7 . compared with obfuscator-llvm and tigress funsp reduces code bloat by 73.5 and runtime overhead by 5.5 . the computer journal the computer journal 2026 research-paper ran wei henan institute of education hui shu henan institute of education fei kang henan institute of education xiaobing xiong henan institute of education yang lan henan institute of education cong li henan institute of education llvm ir security performance llvm ir security performance intermediate representation control flow graph runtime overhead similarity detection funsp countering binary obfuscation llvm",
+        "addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAt": "2026-06-20T07:26:52.000Z",
+        "_addedAtTs": 1781940412000
+      },
+      "source": "openalex-discovery"
+    },
     "openalex-w4399837024": {
       "paper": {
         "id": "openalex-w4399837024",
@@ -892,7 +1290,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4393406930",
-        "citationCount": 5,
+        "citationCount": 7,
         "doi": "10.1109/hpca57654.2024.00017",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -912,7 +1310,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 7,
         "_titleLower": "an optimizing framework on mlir for efficient fpga-based accelerator generation",
         "_authorLower": "weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university",
         "_authorsLower": "weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university",
@@ -1311,7 +1709,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 5
+          "citationCount": 7
         },
         "_searchBlob": "an optimizing framework on mlir for efficient fpga-based accelerator generation with the increasing demand for computing capability given limited resource and power budgets it is prominent to deploy applications to customized accelerators like fpgas. however fpga programming is non-trivial. although existing high-level synthesis hls tools improve productivity to a certain extent they are limited in scope and capability to support sufficient fpga-oriented transformations and optimizations. this paper focuses on fpga-based accelerators and proposes pom an end-to-end optimizing framework built on multi-level intermediate representation mlir . pom has several features which demonstrate its scope and capability of performance optimization. first most hls tools depend exclusively on a single-level ir like llvm ir to perform all the optimizations introducing excessive information into the ir and making debugging an arduous task. in contrast pom explicitly introduces three layers of ir to perform operations at suitable abstraction levels streamlining the implementation and debugging process and exhibiting better flexibility extensibility and systematicness. second pom integrates the polyhedral model into mlir and hence enables advanced dependence analysis and a wide range of fpga-oriented loop transformations. by representing nested loops with integer sets and maps at suitable ir loop transformations can be conducted conveniently through a series of manipulations on polyhedral semantics. finally to further relieve design effort pom is equipped with a user-friendly programming interface dsl that allows a concise description of computation and includes a rich collection of scheduling primitives. an automatic design space exploration dse engine is also provided to search for high-performance optimization schemes efficiently and generate optimized accelerators automatically. experimental results show that pom achieves a 6.46 average speedup on typical benchmark suites and a 6.06 average speedup on real-world applications compared to the state-of-the-art. 2024 ieee international symposium on high 2024 ieee international symposium on high 2024 research-paper weichuang zhang shanghai jiao tong university jieru zhao shanghai jiao tong university shen guan shanghai jiao tong university quan chen shanghai jiao tong university chen chen shanghai jiao tong university minyi guo shanghai jiao tong university ir loop transformations mlir optimizations performance ir loop transformations mlir optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -2656,7 +3054,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W4389459074",
-        "citationCount": 6,
+        "citationCount": 7,
         "doi": "10.1109/access.2023.3340680",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -2672,7 +3070,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 6,
+        "_citationCount": 7,
         "_titleLower": "microcfi: microarchitecture-level control-flow restrictions for spectre mitigation",
         "_authorLower": "hyerean jang korea university youngjoo shin korea university",
         "_authorsLower": "hyerean jang korea university youngjoo shin korea university",
@@ -2960,7 +3358,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 6
+          "citationCount": 7
         },
         "_searchBlob": "microcfi microarchitecture-level control-flow restrictions for spectre mitigation spectre attack exploits the vulnerability in speculative execution an optimization technique for modern superscalar processors. among the attack variants spectre-btb and spectre-rsb are the most threatening because they allow adversaries to execute arbitrary code in the transient execution context. however there are few mitigation techniques for these spectre variants due to the high degree of implementation difficulty. in this paper we propose microcfi a hardware software co-design approach to mitigate spectre-btb and spectre-rsb. the main idea of microcfi is to enforce control-flow integrity cfi in microarchitectural level of a programs execution. specifically microcfi strictly limits possible forward and backward indirect branch targets predicted by btb and rsb by imposing cfi properties on all potential targets. as indirect branches only have destinations to valid targets that satisfy these properties microcfi significantly reduces the chance of arbitrary code execution in spectre attacks. we implemented a prototype of microcfi using an llvm compiler and performed an evaluation on marssx86 a simulator for x86 microarchitectures. the security evaluation shows that microcfi reduces the number of available spectre gadgets by more than 90 significantly increasing the complexity of the attack. the performance evaluation using the spec cpu 2017 benchmarks shows that microcfi introduces negligible performance overhead. ieee access ieee access vol. 11 2023 research-paper hyerean jang korea university youngjoo shin korea university performance security performance security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -3748,6 +4146,7 @@
     },
     "openalex-w4220830361": {
       "paper": {
+        "id": "openalex-w4220830361",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "HECATE: Performance-Aware Scale Optimization for Homomorphic Encryption Compiler",
@@ -3815,6 +4214,7 @@
         "type": "research-paper",
         "abstract": "Despite the benefit of Fully Homomorphic Encryption (FHE) that supports encrypted computation, writing an efficient FHE application is challenging due to magnitude scale management. Each FHE operation increases scales of ciphertext and leaving the scales high harms performance of the following FHE operations. Thus, rescaling ciphertext is inevitable to optimize an FHE application, but since FHE requires programmers to match the rescaling levels of operands of each FHE operation, programmers should rescale ciphertext reflecting the entire FHE application. Although recently proposed FHE compilers reduce the programming burden by automatically manipulating ciphertext scales, they fail to fully optimize the FHE application because they greedily rescale the ciphertext without considering their performance impacts throughout the entire application. This work proposes HECATE, a new FHE compiler framework that optimizes scales of ciphertext reflecting their rescaling levels and performance impact. With a new type system that embeds the scale and rescaling level, and a new rescaling operation called downscale, HECATE makes various scale management plans, analyzes their expected performance, and finds the optimal rescaling points throughout the entire FHE application. This work implements HECATE on top of the MLIR framework with a Python frontend and shows that HECATE achieves 27% speedup over the state-of-the-art approach for various FHE applications.",
         "paperUrl": "https://doi.org/10.1109/cgo53902.2022.9741265",
+        "sourceUrl": "https://openalex.org/W4220830361",
         "openalexId": "https://openalex.org/W4220830361",
         "doi": "10.1109/cgo53902.2022.9741265",
         "tags": [
@@ -3854,18 +4254,16 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w4220830361",
-        "citationCount": 26,
+        "citationCount": 27,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 26,
+        "_citationCount": 27,
         "_titleLower": "hecate: performance-aware scale optimization for homomorphic encryption compiler",
         "_authorLower": "yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university",
         "_authorsLower": "yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university",
@@ -4226,7 +4624,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 26
+          "citationCount": 27
         },
         "_searchBlob": "hecate performance-aware scale optimization for homomorphic encryption compiler despite the benefit of fully homomorphic encryption fhe that supports encrypted computation writing an efficient fhe application is challenging due to magnitude scale management. each fhe operation increases scales of ciphertext and leaving the scales high harms performance of the following fhe operations. thus rescaling ciphertext is inevitable to optimize an fhe application but since fhe requires programmers to match the rescaling levels of operands of each fhe operation programmers should rescale ciphertext reflecting the entire fhe application. although recently proposed fhe compilers reduce the programming burden by automatically manipulating ciphertext scales they fail to fully optimize the fhe application because they greedily rescale the ciphertext without considering their performance impacts throughout the entire application. this work proposes hecate a new fhe compiler framework that optimizes scales of ciphertext reflecting their rescaling levels and performance impact. with a new type system that embeds the scale and rescaling level and a new rescaling operation called downscale hecate makes various scale management plans analyzes their expected performance and finds the optimal rescaling points throughout the entire fhe application. this work implements hecate on top of the mlir framework with a python frontend and shows that hecate achieves 27 speedup over the state-of-the-art approach for various fhe applications. 2022 ieee acm international symposium on code generation and optimization cgo 2022 ieee acm international symposium on code generation and optimization cgo 2022 research-paper yongwoo lee yonsei university seonyeong heo eth zurich seonyoung cheon yonsei university shinnung jeong yonsei university changsu kim seoul national university eunkyung kim samsung dongyoon lee stony brook university hanjun kim yonsei university mlir backend frontend code generation optimizations performance mlir backend frontend code generation optimizations performance ciphertext reflecting hecate hecate performance aware scales homomorphic encryption compiler entire fhe fhe operation rescaling levels mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -5652,6 +6050,7 @@
     },
     "openalex-w3010243192": {
       "paper": {
+        "id": "openalex-w3010243192",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "LAMINA: An MLIR-Based Translation Library for Heterogeneous Quantum-Classical Compilation",
@@ -5902,7 +6301,6 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3010243192",
         "citationCount": 312,
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -6321,7 +6719,7 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "citationCount": 21,
+        "citationCount": 22,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -6330,7 +6728,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 22,
         "_titleLower": "deepdataflow",
         "_authorLower": "chris cummins university of edinburgh",
         "_authorsLower": "chris cummins university of edinburgh",
@@ -6748,7 +7146,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 21
+          "citationCount": 22
         },
         "_searchBlob": "deepdataflow this dataset contains 493k llvm-irs taken from a wide range of projects and source programming languages and includes labels for several compiler data analyses. we also include the logs for the machine learning jobs which produced our published experimental results. the uncompressed dataset uses the following layout code labels code directory containing machine learning features and labels for programs for compiler data flow analyses. code labels and lt analysis and gt and lt source and gt . and lt id and gt . and lt lang and gt .programfeatureslist.pb code a programfeatureslist protocol buffer containing a list of features resulting from running a data flow analysis on a program. code graphs code directory containing programl representations of llvm irs. code graphs and lt source and gt . and lt id and gt . and lt lang and gt .programgraph.pb code a programgraph protocol buffer of an llvm ir in the programl representation. code ll code directory containing llvm-ir files. code ir and lt source and gt . and lt id and gt . and lt lang and gt .ll code an llvm ir in text format as produced by code clang -emit-llvm -s code or equivalent. code test code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the test set. code train code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the training set. code val code a directory containing symlinks to graphs in the code graphs code directory indicating which graphs should be used as part of the validation set. code vocab code directory containing vocabulary files. code vocab and lt type and gt .csv code a vocabulary file which lists unique node texts their frequency in the dataset and the cumulative proportion of total unique node texts that is covered. for further information please see our programl repository. arxiv arxiv 2020 research-paper chris cummins university of edinburgh llvm clang ir static analysis ml programming languages llvm clang ir static analysis ml programming languages intermediate representation dataflow analysis graphs should directory containing symlinks llvm irs directory indicating labels unique node texts clang",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -7676,7 +8074,7 @@
           "Infrastructure"
         ],
         "openalexId": "https://openalex.org/W2907452459",
-        "citationCount": 14,
+        "citationCount": 15,
         "doi": "10.1007/978-3-030-05807-4_41",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7692,7 +8090,7 @@
         "_year": "2018",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 14,
+        "_citationCount": 15,
         "_titleLower": "application of the llvm compiler infrastructure to the program analysis in sapfor",
         "_authorLower": "",
         "_authorsLower": "",
@@ -7820,7 +8218,7 @@
             }
           },
           "year": 2018,
-          "citationCount": 14
+          "citationCount": 15
         },
         "_searchBlob": "application of the llvm compiler infrastructure to the program analysis in sapfor the paper proposes an approach to implementation of program analysis in sapfor system for automated parallelization . this is a software development suit that is focused on cost reduction of manual program parallelization. it was primarily designed to perform... communications in computer and information science communications in computer and information science 2018 research-paper infrastructure infrastructure",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -9798,7 +10196,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-662-46681-0_28",
         "tags": [],
         "openalexId": "https://openalex.org/W1719093023",
-        "citationCount": 103,
+        "citationCount": 107,
         "doi": "10.1007/978-3-662-46681-0_28",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -9812,7 +10210,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 103,
+        "_citationCount": 107,
         "_titleLower": "stateless model checking for tso and pso",
         "_authorLower": "parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jönsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
         "_authorsLower": "parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jönsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
@@ -9958,7 +10356,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 103
+          "citationCount": 107
         },
         "_searchBlob": "stateless model checking for tso and pso we present a technique for efficient stateless model checking of programs that execute under the relaxed memory models tso and pso. the basis for our technique is a novel representation of executions under tso and pso called chronological traces. chronological... lecture notes in computer science lecture notes in computer science 2015 research-paper parosh aziz abdulla uppsala university stavros aronis uppsala university mohamed faouzi atig uppsala university bengt jonsson uppsala university carl leonardsson uppsala university konstantinos sagonas uppsala university",
         "addedAt": "2026-02-21T05:39:52.000Z",

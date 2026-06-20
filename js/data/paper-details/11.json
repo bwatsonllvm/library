@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7141772604": {
       "paper": {
@@ -2729,6 +2729,7 @@
     },
     "openalex-w7133739909": {
       "paper": {
+        "id": "openalex-w7133739909",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Research on Compiler Fuzzing Based on Syntax-semantics Dual-Dimensional Classification",
@@ -2768,6 +2769,7 @@
         "type": "research-paper",
         "abstract": "Fuzz testing is an effective method for compiler testing, but existing tools generate test programs with low syntactic correctness due to a lack of program semantic awareness. To address this, this paper proposes a syntax-semantic aware gray-box fuzz testing method and designs the improved tool VarFuzz based on AFL: replacing AFL's character-level mutations with semantic mutations, and integrating a semantic distance matrix with Thompson sampling for dynamic operator probability allocation. Experiments show that, compared to AFL and GrayC, VarFuzz increases code coverage on GCC and LLVM compilers by approximately 10.46% and 6.2%, respectively.",
         "paperUrl": "https://doi.org/10.1109/eiecc67963.2025.11409518",
+        "sourceUrl": "https://openalex.org/W7133739909",
         "openalexId": "https://openalex.org/W7133739909",
         "doi": "10.1109/eiecc67963.2025.11409518",
         "tags": [
@@ -2792,11 +2794,9 @@
         "matchedSubprojects": [
           "llvm"
         ],
-        "id": "openalex-w7133739909",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -4010,7 +4010,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W4407848466",
-        "citationCount": 8,
+        "citationCount": 11,
         "doi": "10.1145/3696443.3708929",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4028,7 +4028,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 8,
+        "_citationCount": 11,
         "_titleLower": "llm-vectorizer: llm-based verified loop vectorizer",
         "_authorLower": "jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft",
         "_authorsLower": "jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft",
@@ -4332,7 +4332,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 8
+          "citationCount": 11
         },
         "_searchBlob": "llm-vectorizer llm-based verified loop vectorizer vectorization is a powerful optimization technique that significantly boosts the performance of high performance computing applications operating on large data arrays. despite decades of research on auto-vectorization compilers frequently miss opportunities to vectorize code. on the other hand writing vectorized code manually using compiler intrinsics is still a complex error-prone task that demands deep knowledge of specific architecture and compilers. in this paper we evaluate the potential of large-language models llms to generate vectorized single instruction multiple data code from scalar programs that process individual array elements. we propose a novel finite-state-machine multi-agents based approach that harnesses llms and test-based feedback to generate vectorized code. our findings indicate that llms are capable of producing high-performance vectorized code with run-time speedup ranging from 1.1x to 9.4x as compared to the state-of-the-art compilers such as intel compiler gcc and clang. to verify the correctness of vectorized code we use alive2 a leading bounded translation validation tool for llvm ir. we describe a few domain-specific techniques to improve the scalability of alive2 on our benchmark dataset. overall our approach is able to verify 38.2 of vectorizations as correct on the tsvc benchmark dataset. proceedings of 23rd acm ieee international symposium on code generation and optimization proceedings of 23rd acm ieee international symposium on code generation and optimization 2025 research-paper jubi taneja microsoft avery laird university of toronto cong yan microsoft madanlal musuvathi microsoft shuvendu k. lahiri microsoft clang ir performance clang ir performance",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -5944,7 +5944,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W7117455432",
-        "citationCount": 0,
+        "citationCount": 1,
         "doi": "10.1109/tcad.2025.3649448",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -5961,7 +5961,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "an arbitrary register grouping scheme for risc-v vector extension: compilation support and hardware implementation",
         "_authorLower": "limin jiang shanghai university siyi xu shanghai university yintao liu shanghai university yihao shen shanghai university y c shi tsinghua university shan cao shanghai university zhiyuan jiang shanghai university",
         "_authorsLower": "limin jiang shanghai university siyi xu shanghai university yintao liu shanghai university yihao shen shanghai university y c shi tsinghua university shan cao shanghai university zhiyuan jiang shanghai university",
@@ -6334,7 +6334,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "an arbitrary register grouping scheme for risc-v vector extension compilation support and hardware implementation vector instruction set architectures isas play a critical role in accelerating data-parallel computation yet mainstream designs such as the risc-v v vector extension rvv still rely on rigid power-of-two register grouping strategies. these limitations hinder performance when handling ultra-long vectors or non-uniform workloads as they require extensive strip-mining and careful low-level tuning to maintain efficiency. to overcome these bottlenecks we propose italic xmlns mml http www.w3.org 1998 math mathml xmlns xlink http www.w3.org 1999 xlink zoozve i a flexible strip-mining-free extension to the risc-v vector isa. zoozve introduces an arbitrary register grouping mechanism that enables more precise register utilization and eliminates the need for data slicing across multiple loop iterations. this work presents a full-stack realization of zoozve including 1 a hardware-compatible isa with support for flexible vector lengths and asymmetric instructions 2 a compiler backend based on llvm that performs intrinsic splitting register allocation with live-interval modification and instruction coalescing and 3 a hardware proof-of-concept implementation that integrates hazard detection and a register-level element exchange engine. experimental evaluation using instruction-level simulation shows that zoozve achieves up to 344.44 speedup in fast fourier transform fft 76 in dot product 58.92 in axpy and 20.41 in 2d convolution compared to rvv primarily by eliminating strip-mining and improving register reuse. register transfer level rtl synthesis in a 40 nm process shows that zoozves additional hardware logic incurs only 9 area overhead confirming its feasibility for real-world deployment. together these results demonstrate zoozves potential as a scalable and efficient vector processing solution for high-performance computing machine learning and signal processing. ieee transactions on computer-aided design of integrated circuits and systems ieee transactions on computer-aided design of integrated circuits and systems 2025 research-paper limin jiang shanghai university siyi xu shanghai university yintao liu shanghai university yihao shen shanghai university y c shi tsinghua university shan cao shanghai university zhiyuan jiang shanghai university backend performance backend performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -7381,7 +7381,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W4403223076",
-        "citationCount": 7,
+        "citationCount": 9,
         "doi": "10.1145/3689766",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -7397,7 +7397,7 @@
         "_year": "2024",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 9,
         "_titleLower": "minotaur: a simd-oriented synthesizing superoptimizer",
         "_authorLower": "z. liu university of utah stefan mada university of utah john regehr university of utah",
         "_authorsLower": "z. liu university of utah stefan mada university of utah john regehr university of utah",
@@ -7626,7 +7626,7 @@
             }
           },
           "year": 2024,
-          "citationCount": 7
+          "citationCount": 9
         },
         "_searchBlob": "minotaur a simd-oriented synthesizing superoptimizer a superoptimizing compiler one that performs a meaningful search of the program space as part of the optimization process can find optimization opportunities that are missed by even the best existing optimizing compilers. we created minotaur a superoptimizer for llvm that uses program synthesis to improve its code generation focusing on integer and floating-point simd code. on an intel cascade lake processor minotaur achieves an average speedup of 7.3 on the gnu multiple precision library gmp s benchmark suite with a maximum speedup of 13 . on spec cpu 2017 our superoptimizer produces an average speedup of 1.5 with a maximum speedup of 4.5 for 638.imagick. every optimization produced by minotaur has been formally verified and several optimizations that it has discovered have been implemented in llvm as a result of our work. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 8 issue oopsla2 2024 research-paper z. liu university of utah stefan mada university of utah john regehr university of utah optimizations optimizations",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -10436,8 +10436,9 @@
           "openmp"
         ],
         "id": "openalex-w4362655956",
-        "citationCount": 2,
-        "citationCountSource": "openalex",
+        "citationCount": 0,
+        "citationCountSource": "crossref",
+        "citationCountStatus": "openalex-rejected:citations-before-publication-window",
         "publishedDate": "",
         "contentFormat": "",
         "content": "",
@@ -10445,7 +10446,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 2,
+        "_citationCount": 0,
         "_titleLower": "portable programming model exploration for lartpc simulation in a heterogeneous computing environment: openmp vs. sycl",
         "_authorLower": "meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college",
         "_authorsLower": "meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college",
@@ -10807,7 +10808,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 2
+          "citationCount": 0
         },
         "_searchBlob": "portable programming model exploration for lartpc simulation in a heterogeneous computing environment openmp vs. sycl the evolution of the computing landscape has resulted in the proliferation of diverse hardware architectures with different flavors of gpus and other compute accelerators becoming more widely available. to facilitate the efficient use of these architectures in a heterogeneous computing environment several programming models are available to enable portability and performance across different computing systems such as kokkos sycl openmp and others. as part of the high energy physics center for computational excellence hep-cce project we investigate if and how these different programming models may be suitable for experimental hep workflows through a few representative use cases. one of such use cases is the liquid argon time projection chamber lartpc simulation which is essential for lartpc detector design validation and data analysis. following up on our previous investigations of using kokkos to port lartpc simulation in the wire-cell toolkit wct to gpus we have explored openmp and sycl as potential portable programming models for wct with the goal to make diverse computing resources accessible to the lartpc simulations. in this work we describe how we utilize relevant features of openmp and sycl for the lartpc simulation module in wct. we also show performance benchmark results on multi-core cpus nvidia and amd gpus for both the openmp and the sycl implementations. comparisons with different compilers will also be given where appropriate. arxiv arxiv 2023 research-paper meifeng lin brookhaven college zhihua dong brookhaven college tianle wang brookhaven college mohammad atif brookhaven college meghna battacharya fermi national accelerator laboratory k. knoepfel fermi national accelerator laboratory c. leggett lawrence berkeley national laboratory b. viren brookhaven college h. yu brookhaven college openmp performance gpu openmp performance gpu heterogeneous computing lartpc simulation computing environment openmp heterogeneous computing environment portable programming libsycl openmp",
         "addedAt": "2026-04-10T14:29:02.000Z",
@@ -11274,7 +11275,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W4379512400",
-        "citationCount": 32,
+        "citationCount": 35,
         "doi": "10.1145/3591295",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -11292,7 +11293,7 @@
         "_year": "2023",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 32,
+        "_citationCount": 35,
         "_titleLower": "fuzzing loop optimizations in compilers for c++ and data-parallel languages",
         "_authorLower": "vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah",
         "_authorsLower": "vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah",
@@ -11557,7 +11558,7 @@
             }
           },
           "year": 2023,
-          "citationCount": 32
+          "citationCount": 35
         },
         "_searchBlob": "fuzzing loop optimizations in compilers for c++ and data-parallel languages compilers are part of the foundation upon which software systems are built they need to be as correct as possible. this paper is about stress-testing loop optimizers it presents a major reimplementation of yet another random program generator yarpgen an open-source generative compiler fuzzer. this new version has found 122 bugs both in compilers for data-parallel languages such as the intel implicit spmd program compiler and the intel oneapi dpc++ compiler and in c++ compilers such as gcc and clang llvm. the first main contribution of our work is a novel method for statically avoiding undefined behavior when generating loops the resulting programs conform to the relevant language standard enabling automated testing. the second main contribution is a collection of mechanisms for increasing the diversity of generated loop code in our evaluation we demonstrate that these make it possible to trigger loop optimizations significantly more often providing opportunities to discover bugs in the optimizers. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 7 issue pldi 2023 research-paper vsevolod livinskii university of utah dmitry babokin intel john regehr university of utah c++ clang optimizations testing c++ clang optimizations testing",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -15119,6 +15120,7 @@
     },
     "openalex-w3196156237": {
       "paper": {
+        "id": "openalex-w3196156237",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Towards Automatic and Agile AI/ML Accelerator Design with End-to-End Synthesis",
@@ -15214,6 +15216,7 @@
         "type": "research-paper",
         "abstract": "Domain-specific designs offer greater energy efficiency and performance gain than general-purpose processors. For this reason, modern system-on-chips have a significant portion of their silicon area with custom accelerators. However, designing hardware by hand is laborious and time-consuming, given the large design space and the performance, power, and area constraints that are not realized in the software. Moreover, domain-specific algorithms (e.g., machine learning models) are evolving quickly, challenging the accelerator design further. To address these issues, this paper presents SODA Synthesizer, an automated open-source high-level ML framework to Verilog modular compiler targeting AI/ML Application-Specific Integrated Circuits (ASICs) accelerators. SODA tightly couples the Multi-Level Intermediate Representation (MLIR) compiler infrastructure [24] and open-source HLS approaches. Thus, SODA can support various ML frameworks and algorithms and can perform optimizations that combine specialized architecture templates and conventional HLS to generate the hardware modules. In addition, SODA&#x2019;s closed-loop design space exploration (DSE) engine allows developers to perform end-to-end design space explorations on different metrics and technology nodes.",
         "paperUrl": "https://doi.org/10.1109/asap52443.2021.00040",
+        "sourceUrl": "https://openalex.org/W3196156237",
         "openalexId": "https://openalex.org/W3196156237",
         "doi": "10.1109/asap52443.2021.00040",
         "tags": [
@@ -15254,18 +15257,16 @@
         "matchedSubprojects": [
           "mlir"
         ],
-        "id": "openalex-w3196156237",
-        "citationCount": 11,
+        "citationCount": 12,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 12,
         "_titleLower": "towards automatic and agile ai/ml accelerator design with end-to-end synthesis",
         "_authorLower": "jeff zhang harvard university press nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press",
         "_authorsLower": "jeff zhang harvard university press nícolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press",
@@ -15621,7 +15622,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 11
+          "citationCount": 12
         },
         "_searchBlob": "towards automatic and agile ai ml accelerator design with end-to-end synthesis domain-specific designs offer greater energy efficiency and performance gain than general-purpose processors. for this reason modern system-on-chips have a significant portion of their silicon area with custom accelerators. however designing hardware by hand is laborious and time-consuming given the large design space and the performance power and area constraints that are not realized in the software. moreover domain-specific algorithms e.g. machine learning models are evolving quickly challenging the accelerator design further. to address these issues this paper presents soda synthesizer an automated open-source high-level ml framework to verilog modular compiler targeting ai ml application-specific integrated circuits asics accelerators. soda tightly couples the multi-level intermediate representation mlir compiler infrastructure 24 and open-source hls approaches. thus soda can support various ml frameworks and algorithms and can perform optimizations that combine specialized architecture templates and conventional hls to generate the hardware modules. in addition soda and #x2019 s closed-loop design space exploration dse engine allows developers to perform end-to-end design space explorations on different metrics and technology nodes. 2021 ieee 32nd international conference on application-specific systems architectures and processors asap 2021 ieee 32nd international conference on application-specific systems architectures and processors asap 2021 research-paper jeff zhang harvard university press nicolas bohm agostini pacific northwest national laboratory shihao song pacific northwest national laboratory cheng tan pacific northwest national laboratory ankur limaye pacific northwest national laboratory vinay amatya pacific northwest national laboratory joseph manzano pacific northwest national laboratory marco minutoli pacific northwest national laboratory vito giovanni castellana pacific northwest national laboratory antonino tumeo pacific northwest national laboratory gu-yeon wei harvard university press david brooks harvard university press mlir ir optimizations performance infrastructure ai ml mlir optimizations performance infrastructure ai intermediate representation ml accelerator domain specific hardware hls mlir",
         "addedAt": "2026-02-21T22:58:54.000Z",
@@ -16400,7 +16401,7 @@
           "Polly"
         ],
         "openalexId": "https://openalex.org/W3205717712",
-        "citationCount": 78,
+        "citationCount": 81,
         "doi": "10.1109/pact52795.2021.00011",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -16425,7 +16426,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 78,
+        "_citationCount": 81,
         "_titleLower": "polygeist: raising c to polyhedral mlir",
         "_authorLower": "william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google",
         "_authorsLower": "william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google",
@@ -16690,7 +16691,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 78
+          "citationCount": 81
         },
         "_searchBlob": "polygeist raising c to polyhedral mlir we present polygeist a new compilation flow that connects the mlir compiler infrastructure to cutting edge polyhedral optimization tools. it consists of a c and c++ frontend capable of converting a broad range of existing codes into mlir suitable for polyhedral transformation and a bi-directional conversion between mlir and openscop exchange format. the polygeist mlir intermediate representation featuring high-level affine loop constructs and n-d arrays embedded into a single static assignment ssa substrate enables an unprecedented combination of ssa-based and polyhedral optimizations. we illustrate this by proposing and implementing two extra transformations statement splitting and reduction parallelization. our evaluation demonstrates that polygeist outperforms on average both an llvm ir-level optimizer polly and a source-to-source state-of-the-art polyhedral compiler pluto when exercised on the polybench c benchmark suite in sequential 2.53x vs 1.41x 2.34x and parallel mode 9.47x vs 3.26x 7.54x thanks to the new representation and transformations. 2021 30th international conference on parallel architectures and compilation techniques pact 2021 30th international conference on parallel architectures and compilation techniques pact 2021 research-paper william s. moses lorenzo chelini eindhoven university of technology rongxuan zhao imperial college london alex zinenko google c++ embedded frontend infrastructure ir mlir optimizations polly c++ embedded frontend infrastructure ir mlir optimizations polly mlir",
         "_mlirSourceUpstream": true,
@@ -17046,7 +17047,7 @@
           "Security"
         ],
         "openalexId": "https://openalex.org/W3142439607",
-        "citationCount": 35,
+        "citationCount": 36,
         "doi": "10.3390/app11073201",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -17062,7 +17063,7 @@
         "_year": "2021",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 35,
+        "_citationCount": 36,
         "_titleLower": "automated software vulnerability detection based on hybrid neural network",
         "_authorLower": "xin li guizhou university lu wang beijing university of posts and telecommunications yang xin guizhou university yixian yang beijing university of posts and telecommunications qifeng tang shanghai stock exchange yuling chen guizhou university",
         "_authorsLower": "xin li guizhou university lu wang beijing university of posts and telecommunications yang xin guizhou university yixian yang beijing university of posts and telecommunications qifeng tang shanghai stock exchange yuling chen guizhou university",
@@ -17380,7 +17381,7 @@
             }
           },
           "year": 2021,
-          "citationCount": 35
+          "citationCount": 36
         },
         "_searchBlob": "automated software vulnerability detection based on hybrid neural network vulnerabilities threaten the security of information systems. it is crucial to detect and patch vulnerabilities before attacks happen. however existing vulnerability detection methods suffer from long-term dependency out of vocabulary bias towards global features or local features and coarse detection granularity. this paper proposes an automatic vulnerability detection framework in source code based on a hybrid neural network. first the inputs are transformed into an intermediate representation with explicit structure information using lower level virtual machine intermediate representation llvm ir and backward program slicing. after the transformation the size of samples and the size of vocabulary are significantly reduced. a hybrid neural network model is then applied to extract high-level features of vulnerability which learns features both from convolutional neural networks cnns and recurrent neural networks rnns . the former is applied to learn local vulnerability features such as buffer size. furthermore the latter is utilized to learn global features such as data dependency. the extracted features are made up of concatenated outputs of cnn and rnn. experiments are performed to validate our vulnerability detection method. the results show that our proposed method achieves excellent results with f1-scores of 98.6 and accuracy of 99.0 on the sard dataset. it outperforms state-of-the-art methods. applied sciences applied sciences vol. 11 issue 7 2021 research-paper xin li guizhou university lu wang beijing university of posts and telecommunications yang xin guizhou university yixian yang beijing university of posts and telecommunications qifeng tang shanghai stock exchange yuling chen guizhou university ir security ir security",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -18007,7 +18008,7 @@
           "ML"
         ],
         "openalexId": "https://openalex.org/W3186753954",
-        "citationCount": 1,
+        "citationCount": 2,
         "doi": "10.1145/3462172.3462191",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -18024,7 +18025,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 1,
+        "_citationCount": 2,
         "_titleLower": "a new backend for standard ml of new jersey",
         "_authorLower": "kavon farvardin university of chicago john reppy university of chicago",
         "_authorsLower": "kavon farvardin university of chicago john reppy university of chicago",
@@ -18253,7 +18254,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 1
+          "citationCount": 2
         },
         "_searchBlob": "a new backend for standard ml of new jersey this paper describes the design and implementation of a new backend for the standard ml of new jersey sml nj system that is based on the llvm compiler infrastructure. we first describe the history and design of the current backend which is based on the mlrisc framework. while mlrisc has many similarities to llvm it provides a lower-level policy-agnostic approach to code generation that enables customization of the code generator for non-standard runtime models i.e. register pinning calling conventions etc. . in particular sml nj uses a stackless runtime model based on continuation-passing style with heap-allocated continuation closures. this feature and others pose challenges to building a backend using llvm. we describe these challenges and how we address them in our backend. proceedings of 32nd symposium on implementation and application of functional languages proceedings of 32nd symposium on implementation and application of functional languages 2020 research-paper kavon farvardin university of chicago john reppy university of chicago backend infrastructure ml backend infrastructure ml",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -19245,7 +19246,7 @@
         "paperUrl": "https://doi.org/10.1007/978-3-030-28596-8_2",
         "tags": [],
         "openalexId": "https://openalex.org/W2969918555",
-        "citationCount": 11,
+        "citationCount": 12,
         "doi": "10.1007/978-3-030-28596-8_2",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -19259,7 +19260,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 12,
         "_titleLower": "score-p and ompt: navigating the perils of callback-driven parallel runtime introspection",
         "_authorLower": "christian feld forschungszentrum jülich simon convent rwth aachen university marc-andré hermanns forschungszentrum jülich joachim protze rwth aachen university markus geimer forschungszentrum jülich bernd mohr forschungszentrum jülich",
         "_authorsLower": "christian feld forschungszentrum jülich simon convent rwth aachen university marc-andré hermanns forschungszentrum jülich joachim protze rwth aachen university markus geimer forschungszentrum jülich bernd mohr forschungszentrum jülich",
@@ -19404,7 +19405,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 11
+          "citationCount": 12
         },
         "_searchBlob": "score-p and ompt navigating the perils of callback-driven parallel runtime introspection event-based performance analysis aims at modeling the behavior of parallel applications through a series of state transitions during execution. different approaches to obtain such transition points for openmp programs include source-level instrumentation e.g. ... lecture notes in computer science lecture notes in computer science 2019 research-paper christian feld forschungszentrum julich simon convent rwth aachen university marc-andre hermanns forschungszentrum julich joachim protze rwth aachen university markus geimer forschungszentrum julich bernd mohr forschungszentrum julich",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24111,7 +24112,7 @@
           "Clang"
         ],
         "openalexId": "https://openalex.org/W2555913832",
-        "citationCount": 63,
+        "citationCount": 64,
         "doi": "10.1093/comjnl/bxx046",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -24126,7 +24127,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 63,
+        "_citationCount": 64,
         "_titleLower": "faster population counts using avx2 instructions",
         "_authorLower": "wojciech muła université du québec à montréal nathan kurz université du québec à montréal daniel lemire université téluq",
         "_authorsLower": "wojciech muła université du québec à montréal nathan kurz université du québec à montréal daniel lemire université téluq",
@@ -24321,7 +24322,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 63
+          "citationCount": 64
         },
         "_searchBlob": "faster population counts using avx2 instructions counting the number of ones in a binary stream is a common operation in database information-retrieval cryptographic and machine-learning applications. most processors have dedicated instructions to count the number of ones in a word e.g. popcnt on 64 processors . maybe surprisingly we show that a vectorized approach using simd instructions can be twice as fast as using the dedicated instructions on recent intel processors. the benefits can be even greater for applications such as similarity measures e.g. the jaccard index that require additional boolean operations. our approach has been adopted by llvm it is used by its popular c compiler clang . the computer journal the computer journal vol. 61 issue 1 2017 research-paper wojciech mu a universite du quebec a montreal nathan kurz universite du quebec a montreal daniel lemire universite teluq clang clang",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -25765,7 +25766,7 @@
           "Optimizations"
         ],
         "openalexId": "https://openalex.org/W2003164052",
-        "citationCount": 128,
+        "citationCount": 130,
         "doi": "10.1145/2737924.2737965",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -25782,7 +25783,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 128,
+        "_citationCount": 130,
         "_titleLower": "provably correct peephole optimizations with alive",
         "_authorLower": "nuno p. lopes microsoft research david menendez rutgers, the state university of new jersey santosh nagarakatte rutgers, the state university of new jersey john regehr university of utah",
         "_authorsLower": "nuno p. lopes microsoft research david menendez rutgers, the state university of new jersey santosh nagarakatte rutgers, the state university of new jersey john regehr university of utah",
@@ -26045,7 +26046,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 128
+          "citationCount": 130
         },
         "_searchBlob": "provably correct peephole optimizations with alive compilers should not miscompile. our work addresses problems in developing peephole optimizations that perform local rewriting to improve the efficiency of llvm code. these optimizations are individually difficult to get right particularly in the presence of undefined behavior taken together they represent a persistent source of bugs. this paper presents alive a domain-specific language for writing optimizations and for automatically either proving them correct or else generating counterexamples. furthermore alive can be automatically translated into c++ code that is suitable for inclusion in an llvm optimization pass. alive is based on an attempt to balance usability and formal methods for example it captures---but largely hides---the detailed semantics of three different kinds of undefined behavior in llvm. we have translated more than 300 llvm optimizations into alive and in the process found that eight of them were wrong. proceedings of 36th acm sigplan conference on programming language design and implementation proceedings of 36th acm sigplan conference on programming language design and implementation 2015 research-paper nuno p. lopes microsoft research david menendez rutgers the state university of new jersey santosh nagarakatte rutgers the state university of new jersey john regehr university of utah c++ optimizations c++ optimizations",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -27714,7 +27715,7 @@
           "Testing"
         ],
         "openalexId": "https://openalex.org/W2095445208",
-        "citationCount": 138,
+        "citationCount": 141,
         "doi": "10.1145/2814270.2814319",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -27730,7 +27731,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 138,
+        "_citationCount": 141,
         "_titleLower": "finding deep compiler bugs via guided stochastic program mutation",
         "_authorLower": "vu le university of california, davis c. p. sun university of california, davis zhendong su university of california, davis",
         "_authorsLower": "vu le university of california, davis c. p. sun university of california, davis zhendong su university of california, davis",
@@ -28052,7 +28053,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 138
+          "citationCount": 141
         },
         "_searchBlob": "finding deep compiler bugs via guided stochastic program mutation compiler testing is important and challenging. equivalence modulo inputs emi is a recent promising approach for compiler validation. it is based on mutating the unexecuted statements of an existing program under some inputs to produce new equivalent test programs w.r.t. these inputs. orion is a simple realization of emi by only randomly deleting unexecuted statements. despite its success in finding many bugs in production compilers orions effectiveness is still limited by its simple blind mutation strategy. to more effectively realize emi this paper introduces a guided advanced mutation strategy based on bayesian optimization. our goal is to generate diverse programs to more thoroughly exercise compilers. we achieve this with two techniques 1 the support of both code deletions and insertions in the unexecuted regions leading to a much larger test program space and 2 the use of an objective function that promotes control-flow-diverse programs for guiding markov chain monte carlo mcmc optimization to explore the search space. our technique helps discover deep bugs that require elaborate mutations. our realization athena targets c compilers. in 19 months athena has found 72 new bugs many of which are deep and important bugs in gcc and llvm. developers have confirmed all 72 bugs and fixed 68 of them. proceedings of 2015 acm sigplan international conference on object-oriented programming systems languages and applications proceedings of 2015 acm sigplan international conference on object-oriented programming systems languages and applications 2015 research-paper vu le university of california davis c. p. sun university of california davis zhendong su university of california davis testing testing",
         "addedAt": "2026-02-21T05:39:52.000Z",

@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7134291786": {
       "paper": {
@@ -18252,7 +18252,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2914884088",
-        "citationCount": 5,
+        "citationCount": 6,
         "doi": "10.3390/electronics8020166",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -18267,7 +18267,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 5,
+        "_citationCount": 6,
         "_titleLower": "sscfm: separate signature-based control flow error monitoring for multi-threaded and multi-core environments",
         "_authorLower": "kiho choi kyungpook national university daejin park kyungpook national university jeonghun cho kyungpook national university",
         "_authorsLower": "kiho choi kyungpook national university daejin park kyungpook national university jeonghun cho kyungpook national university",
@@ -18584,7 +18584,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 5
+          "citationCount": 6
         },
         "_searchBlob": "sscfm separate signature-based control flow error monitoring for multi-threaded and multi-core environments soft error is a key challenge in computer systems. without soft error mitigation control flow error cfe can lead to system crash. signature-based cfe monitoring scheme is a representative technique for detecting cfes during runtime. however most of the signature-based cfe monitoring schemes proposed thus far are based on a single thread. currently the widely used multi-threaded and multi-core environments have greatly improved the performance of the computing system but if the these schemes are applied in these environments performance improvement is difficult to achieve or rather performance degradation may occur. in this paper we propose a separate signature-based cfe monitoring sscfm scheme that separates the signature update and the signature verification on the thread level. the signature update is combined with application thread and signature verification and executed on separate monitor threads so that we can expect performance improvements in multi-threaded or multi-core environments. furthermore the sscfm scheme can fully cover inter-procedural cfe not covered by many signature-based cfe monitoring schemes by using inter-procedural control flow analysis. with the proposed sscfm scheme the execution time overhead is reduced by approximately 26.67 on average from the sedsr scheme and the average cfe detection rate with sscfm is approximately 93.69 . in addition this paper also introduces the llvm compiler-based sscfm generator that makes it easy to apply the sscfm scheme to software applications. electronics electronics vol. 8 issue 2 2019 research-paper kiho choi kyungpook national university daejin park kyungpook national university jeonghun cho kyungpook national university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -18626,7 +18626,7 @@
           "Dynamic Analysis"
         ],
         "openalexId": "https://openalex.org/W2985831349",
-        "citationCount": 49,
+        "citationCount": 51,
         "doi": "10.1145/3319535.3363212",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -18641,7 +18641,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 49,
+        "_citationCount": 51,
         "_titleLower": "slake",
         "_authorLower": "yueqi chen pennsylvania state university xinyu xing pennsylvania state university",
         "_authorsLower": "yueqi chen pennsylvania state university xinyu xing pennsylvania state university",
@@ -18960,7 +18960,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 49
+          "citationCount": 51
         },
         "_searchBlob": "slake to determine the exploitability for a kernel vulnerability a secu- rity analyst usually has to manipulate slab and thus demonstrate the capability of obtaining the control over a program counter or performing privilege escalation. however this is a lengthy process because 1 an analyst typically has no clue about what objects and system calls are useful for kernel exploitation and 2 he lacks the knowledge of manipulating a slab and obtaining the desired layout. in the past researchers have proposed various techniques to facilitate exploit development. unfortunately none of them can be easily applied to address these challenges. on the one hand this is because of the complexity of the linux kernel. on the other hand this is due to the dynamics and non-deterministic of slab variations. in this work we tackle the challenges above from two perspectives. first we use static and dynamic analysis techniques to explore the kernel objects and the corresponding system calls useful for exploitation. second we model commonly-adopted exploitation methods and develop a technical approach to facilitate the slab layout adjustment. by extending llvm as well as syzkaller we implement our techniques and name their combination after slake. we evaluate slake by using 27 real-world kernel vulnerabilities demonstrating that it could not only diversify the ways to perform kernel exploitation but also sometimes escalate the exploitability of kernel vulnerabilities. proceedings of 2019 acm sigsac conference on computer and communications security proceedings of 2019 acm sigsac conference on computer and communications security 2019 research-paper yueqi chen pennsylvania state university xinyu xing pennsylvania state university dynamic analysis dynamic analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -28449,7 +28449,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2761242776",
-        "citationCount": 246,
+        "citationCount": 252,
         "doi": "10.1145/3133920",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -28464,7 +28464,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 246,
+        "_citationCount": 252,
         "_titleLower": "alpaca: intermittent execution without checkpoints",
         "_authorLower": "kiwan maeng carnegie mellon university alexei colin carnegie mellon university brandon lucia carnegie mellon university",
         "_authorsLower": "kiwan maeng carnegie mellon university alexei colin carnegie mellon university brandon lucia carnegie mellon university",
@@ -28769,7 +28769,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 246
+          "citationCount": 252
         },
         "_searchBlob": "alpaca intermittent execution without checkpoints the emergence of energy harvesting devices creates the potential for batteryless sensing and computing devices. such devices operate only intermittently as energy is available presenting a number of challenges for software developers. programmers face a complex design space requiring reasoning about energy memory consistency and forward progress. this paper introduces alpaca a low-overhead programming model for intermittent computing on energy-harvesting devices. alpaca programs are composed of a sequence of user-defined tasks. the alpaca runtime preserves execution progress at the granularity of a task. the key insight in alpaca is the privatization of data shared between tasks. shared values written in a task are detected using idempotence analysis and copied into a buffer private to the task. at the end of the task modified values from the private buffer are atomically committed to main memory ensuring that data remain consistent despite power failures. alpaca provides a familiar programming interface a highly efficient runtime model and places fewer restrictions on a target devices hardware architecture. we implemented a prototype of alpaca as an extension to c with an llvm compiler pass. we evaluated alpaca and directly compared to two systems from prior work. alpaca eliminates checkpoints which improves performance up to 15x and avoids static multi-versioning which improves memory consumption by up to 5.5x. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 1 issue oopsla 2017 research-paper kiwan maeng carnegie mellon university alexei colin carnegie mellon university brandon lucia carnegie mellon university performance performance",
         "addedAt": "2026-02-21T05:39:52.000Z",

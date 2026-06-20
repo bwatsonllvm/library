@@ -1,6 +1,6 @@
 {
-  "dataVersion": "viewer-precomputed-v1-39abbf3f5735",
-  "generatedAt": "2026-04-28T22:46:50.000Z",
+  "dataVersion": "viewer-precomputed-v1-0735ab16c5b4",
+  "generatedAt": "2026-06-20T07:27:02.000Z",
   "papers": {
     "openalex-w7131093401": {
       "paper": {
@@ -76,7 +76,7 @@
           "mlir"
         ],
         "id": "openalex-w7131093401",
-        "citationCount": 0,
+        "citationCount": 1,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "sourceUrl": "",
@@ -86,7 +86,7 @@
         "_year": "2026",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 0,
+        "_citationCount": 1,
         "_titleLower": "enabling automatic compiler-driven vectorization of transformers",
         "_authorLower": "shreya alladi universidad de murcia alberto ros universidad de murcia alexandra jimborean universidad de murcia",
         "_authorsLower": "shreya alladi universidad de murcia alberto ros universidad de murcia alexandra jimborean universidad de murcia",
@@ -417,7 +417,7 @@
             }
           },
           "year": 2026,
-          "citationCount": 0
+          "citationCount": 1
         },
         "_searchBlob": "enabling automatic compiler-driven vectorization of transformers compiling neural networks and transformers for edge devices faces significant challenges due to resource constraints and the reliance on manually optimized operations for performance among others. these limitations hinder the scalability and portability of neural networks on resource-constrained platforms such as edge devices utilizing the risc-v ecosystem. addressing these issues this paper introduces innovative techniques to overcome the inefficiencies of current compilation methods and reduce dependence on manual optimizations.this work proposes a novel compilation flow onnx- mlir-llvm oml which leverages mlir and llvm ir to enable automatic optimizations and generate stand-alone risc-v binaries. through comprehensive analysis we identify key barriers preventing the auto-vectorizer from handling vectorization-friendly operators particularly reduction operations and vectorization-unfriendly data layouts. we address these through a versatile mlir reduction detection pass and a compile-time transpose pass respectively.our automatic transformations oml-vect unlock the capabilities of the mlir affine super-vectorizer reducing reliance on manual vectorization. evaluations on both x86 and risc-v across eight neural networks and transformer models demonstrate that automatic vectorization via oml-vect achieves on average 5 and 59 on x86 and risc-v respectively compared to baseline manually vectorized libraries offering an efficient and portable solution for edge device deployments. 2026 ieee acm international symposium on code generation and optimization cgo 2026 ieee acm international symposium on code generation and optimization cgo 2026 research-paper shreya alladi universidad de murcia alberto ros universidad de murcia alexandra jimborean universidad de murcia llvm mlir ir backend code generation optimizations autovectorization performance libraries ml llvm mlir backend code generation optimizations autovectorization performance libraries intermediate representation compiler driven vectorization neural networks edge devices oml vect compilation llvm mlir",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -2332,6 +2332,7 @@
     },
     "openalex-w4409311173": {
       "paper": {
+        "id": "openalex-w4409311173",
         "source": "openalex-discovery",
         "sourceName": "OpenAlex Discovery (seeded by LLVM speakers/authors)",
         "title": "Fast Constraint Synthesis for C++ Function Templates",
@@ -2357,6 +2358,7 @@
         "type": "research-paper",
         "abstract": "C++ templates are a powerful feature for generic programming and compile-time computations, but C++ compilers often emit overly verbose template error messages. Even short error messages often involve unnecessary and confusing implementation details, which are difficult for developers to read and understand. To address this problem, C++20 introduced constraints and concepts, which impose requirements on template parameters. The new features can define clearer interfaces for templates and can improve compiler diagnostics. However, manually specifying template constraints can still be non-trivial, which becomes even more challenging when working with legacy C++ projects or with frequent code changes. This paper bridges the gap and proposes an automatic approach to synthesizing constraints for C++ function templates. We utilize a lightweight static analysis to analyze the usage patterns within the template body and summarize them into constraints for each type parameter of the template. The analysis is inter-procedural and uses disjunctions of constraints to model function overloading. We have implemented our approach based on the Clang frontend and evaluated it on two C++ libraries chosen separately from two popular library sets: algorithm from the Standard Template Library (STL) and special functions from the Boost library, both of which extensively use templates. Our tool can process over 110k lines of C++ code in less than 1.5 seconds and synthesize non-trivial constraints for 30%-40% of the function templates. The constraints synthesized for algorithm align well with the standard documentation, and on average, the synthesized constraints can reduce error message lengths by 56.6% for algorithm and 63.8% for special functions.",
         "paperUrl": "https://doi.org/10.1145/3720422",
+        "sourceUrl": "https://openalex.org/W4409311173",
         "openalexId": "https://openalex.org/W4409311173",
         "doi": "10.1145/3720422",
         "tags": [
@@ -2385,11 +2387,9 @@
         "matchedSubprojects": [
           "clang"
         ],
-        "id": "openalex-w4409311173",
         "citationCount": 0,
         "citationCountSource": "openalex",
         "publishedDate": "",
-        "sourceUrl": "",
         "contentFormat": "",
         "content": "",
         "bodyText": "",
@@ -4874,7 +4874,7 @@
         "paperUrl": "https://doi.org/10.1016/j.iot.2025.101521",
         "tags": [],
         "openalexId": "https://openalex.org/W4407025681",
-        "citationCount": 7,
+        "citationCount": 9,
         "doi": "10.1016/j.iot.2025.101521",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -4888,7 +4888,7 @@
         "_year": "2025",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 9,
         "_titleLower": "automatic software tailoring for green internet of things",
         "_authorLower": "josé miguel aragón-jurado universidad de cádiz juan carlos de la torre universidad de cádiz patricia ruiz universidad de cádiz bernabè dorronsoro universidad de cádiz",
         "_authorsLower": "josé miguel aragón-jurado universidad de cádiz juan carlos de la torre universidad de cádiz patricia ruiz universidad de cádiz bernabè dorronsoro universidad de cádiz",
@@ -5187,7 +5187,7 @@
             }
           },
           "year": 2025,
-          "citationCount": 7
+          "citationCount": 9
         },
         "_searchBlob": "automatic software tailoring for green internet of things the proliferation of low-capacity interconnected internet of things devices has increased the need for energy efficient software. optimizing software performance for specific hardware requires tailored code transformations as universal compiler optimizations are insufficient. moreover the diversity of devices and the software running on them requires automating this process. this work presents a novel combinatorial optimization problem focused on minimizing software energy consumption for specific hardware and a methodology for solving it that accounts for system uncertainty. additionally a novel device for measuring the energy consumption during run time is introduced. this meter synchronizes with the experiments enabling the automatic optimization of software as a combinatorial optimization problem. specifically the problem involves finding an llvm transformation sequence that minimizes energy consumption during software execution. in our experiments we considered two different software benchmarks and two embedded devices using a cellular genetic algorithm to optimize them alongside five state-of-the-art approaches to manage uncertainty. our results demonstrate that the proposed methodology successfully overcomes uncertainty leading to greener solutions with improvements of up to 62.29 in run time and up to 58.21 in energy consumption outperforming the best generic compilation flags by up to 32.12 in run time and 27.84 in energy consumption. internet of things internet of things vol. 30 2025 research-paper jose miguel aragon-jurado universidad de cadiz juan carlos de la torre universidad de cadiz patricia ruiz universidad de cadiz bernabe dorronsoro universidad de cadiz",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -11243,7 +11243,7 @@
           "mlir"
         ],
         "id": "openalex-w4312121047",
-        "citationCount": 31,
+        "citationCount": 34,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -11252,7 +11252,7 @@
         "_year": "2022",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 31,
+        "_citationCount": 34,
         "_titleLower": "an mlir-based compiler flow for system-level design and hardware acceleration",
         "_authorLower": "nícolas bohm agostini serena curzel politecnico di milano vinay amatya cheng tan marco minutoli vito giovanni castellana joseph manzano david kaeli universidad del noreste antonino tumeo",
         "_authorsLower": "nícolas bohm agostini serena curzel politecnico di milano vinay amatya cheng tan marco minutoli vito giovanni castellana joseph manzano david kaeli universidad del noreste antonino tumeo",
@@ -11617,7 +11617,7 @@
             }
           },
           "year": 2022,
-          "citationCount": 31
+          "citationCount": 34
         },
         "_searchBlob": "an mlir-based compiler flow for system-level design and hardware acceleration the generation of custom hardware accelerators for applications implemented within high-level productive programming frameworks requires considerable manual effort. to automate this process we introduce soda-opt a compiler tool that extends the mlir infrastructure. soda-opt automatically searches outlines tiles and pre-optimizes relevant code regions to generate high-quality accelerators through high-level synthesis. soda-opt can support any high-level programming framework and domain-specific language that interface with the mlir infrastructure. by leveraging mlir soda-opt solves compiler optimization problems with specialized abstractions. backend synthesis tools connect to soda-opt through progressive intermediate representation lowerings. sodaopt interfaces to a design space exploration engine to identify the combination of compiler optimization passes and options that provides high-performance generated designs for different backends and targets. we demonstrate the practical applicability of the compilation flow by exploring the automatic generation of accelerators for deep neural networks operators outlined at arbitrary granularity and by combining outlining with tiling on large convolution layers. experimental results with kernels from the polybench benchmark show that our high-level optimizations improve execution delays of synthesized accelerators up to 60x. we also show that for the selected kernels our solution outperforms the current of state-ofthe art in more than 70 of the benchmarks and provides better average speedup in 55 of them. soda-opt is an open source project available at https gitlab.pnnl.gov sodalite soda-opt. proceedings of 41st ieee acm international conference on computer-aided design proceedings of 41st ieee acm international conference on computer-aided design 2022 research-paper nicolas bohm agostini serena curzel politecnico di milano vinay amatya cheng tan marco minutoli vito giovanni castellana joseph manzano david kaeli universidad del noreste antonino tumeo mlir ir backend optimizations performance infrastructure ml mlir backend optimizations performance infrastructure intermediate representation soda opt mlir infrastructure accelerators compiler optimization hardware acceleration kernels synthesis compiler flow mlir",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -16220,7 +16220,7 @@
         "sourceUrl": "https://doi.org/10.1145/3385412.3386030",
         "tags": [],
         "openalexId": "https://openalex.org/W3033154127",
-        "citationCount": 27,
+        "citationCount": 29,
         "doi": "10.1145/3385412.3386030",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -16233,7 +16233,7 @@
         "_year": "2020",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 27,
+        "_citationCount": 29,
         "_titleLower": "effective function merging in the ssa form",
         "_authorLower": "rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester zheng wang university of leeds murray cole university of edinburgh hugh leather university of edinburgh",
         "_authorsLower": "rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester zheng wang university of leeds murray cole university of edinburgh hugh leather university of edinburgh",
@@ -16481,7 +16481,7 @@
             }
           },
           "year": 2020,
-          "citationCount": 27
+          "citationCount": 29
         },
         "_searchBlob": "effective function merging in the ssa form function merging is an important optimization for reducing code size. this technique eliminates redundant code across functions by merging them into a single function. while initially limited to identical or trivially similar functions the most recent approach can identify all merging opportunities in arbitrary pairs of functions. however this approach has a serious limitation which prevents it from reaching its full potential. because it cannot handle phi-nodes the state-of-the-art applies register demotion to eliminate them before applying its core algorithm. while a superficially minor workaround this has a three-fold negative effect by artificially lengthening the instruction sequences to be aligned it hinders the identification of mergeable instruction it prevents a vast number of functions from being profitably merged it increases compilation overheads both in terms of compile-time and memory usage. proceedings of 41st acm sigplan conference on programming language design and implementation proceedings of 41st acm sigplan conference on programming language design and implementation 2020 research-paper rodrigo c. o. rocha university of edinburgh pavlos petoumenos university of manchester zheng wang university of leeds murray cole university of edinburgh hugh leather university of edinburgh",
         "addedAt": "2026-02-21T03:54:27.000Z",
@@ -17367,7 +17367,7 @@
           "offload"
         ],
         "id": "openalex-w2979645155",
-        "citationCount": 21,
+        "citationCount": 22,
         "citationCountSource": "openalex",
         "publishedDate": "",
         "contentFormat": "",
@@ -17376,7 +17376,7 @@
         "_year": "2019",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 21,
+        "_citationCount": 22,
         "_titleLower": "approxhpvm: a portable compiler ir for accuracy-aware optimizations",
         "_authorLower": "hashim sharif university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign muhammad huzaifa university of illinois urbana-champaign maria kotsifakou university of illinois urbana-champaign keyur joshi university of illinois urbana-champaign yasmin sarita cornell university nathan zhao university of illinois urbana-champaign vikram adve university of illinois urbana-champaign saša misailovíc university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign",
         "_authorsLower": "hashim sharif university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign muhammad huzaifa university of illinois urbana-champaign maria kotsifakou university of illinois urbana-champaign keyur joshi university of illinois urbana-champaign yasmin sarita cornell university nathan zhao university of illinois urbana-champaign vikram adve university of illinois urbana-champaign saša misailovíc university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign",
@@ -17757,7 +17757,7 @@
             }
           },
           "year": 2019,
-          "citationCount": 21
+          "citationCount": 22
         },
         "_searchBlob": "approxhpvm a portable compiler ir for accuracy-aware optimizations we propose approxhpvm a compiler ir and system designed to enable accuracy-aware performance and energy tuning on heterogeneous systems with multiple compute units and approximation methods. approxhpvm automatically translates end-to-end application-level quality metrics into accuracy requirements for individual operations. approxhpvm uses a hardware-agnostic accuracy-tuning phase to do this translation that provides greater portability across heterogeneous hardware platforms and enables future capabilities like accuracy-aware dynamic scheduling and design space exploration. approxhpvm incorporates three main components a a compiler ir with hardware-agnostic approximation metrics b a hardware-agnostic accuracy-tuning phase to identify error-tolerant computations and c an accuracy-aware hardware scheduler that maps error-tolerant computations to approximate hardware components. as approxhpvm does not incorporate any hardware-specific knowledge as part of the ir it can serve as a portable virtual isa that can be shipped to all kinds of hardware platforms. we evaluate our framework on nine benchmarks from the deep learning domain and five image processing benchmarks. our results show that our framework can offload chunks of approximable computations to special-purpose accelerators that provide significant gains in performance and energy while staying within user-specified application-level quality metrics with high probability. across the 14 benchmarks we observe from 1-9x performance speedups and 1.1-11.3x energy reduction for very small reductions in accuracy. proceedings of the acm on programming languages proceedings of the acm on programming languages vol. 3 issue oopsla 2019 research-paper hashim sharif university of illinois urbana-champaign prakalp srivastava university of illinois urbana-champaign muhammad huzaifa university of illinois urbana-champaign maria kotsifakou university of illinois urbana-champaign keyur joshi university of illinois urbana-champaign yasmin sarita cornell university nathan zhao university of illinois urbana-champaign vikram adve university of illinois urbana-champaign sasa misailovic university of illinois urbana-champaign sarita v. adve university of illinois urbana-champaign offload ir optimizations performance gpu ml programming languages offload ir optimizations performance gpu ml programming languages offloading accuracy aware optimizations hardware agnostic accuracy approxhpvm portable compiler ir accuracy tuning phase agnostic accuracy tuning offload",
         "addedAt": "2026-02-26T00:55:34.000Z",
@@ -20805,7 +20805,7 @@
           "Static Analysis"
         ],
         "openalexId": "https://openalex.org/W2624178362",
-        "citationCount": 41,
+        "citationCount": 43,
         "doi": "10.1145/3062341.3062343",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -20826,7 +20826,7 @@
         "_year": "2017",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 41,
+        "_citationCount": 43,
         "_titleLower": "taming undefined behavior in llvm",
         "_authorLower": "juneyoung lee seoul national university yoonseung kim seoul national university youngju song seoul national university chung-kil hur seoul national university sanjoy das david majnemer google john regehr university of utah nuno p. lopes microsoft research",
         "_authorsLower": "juneyoung lee seoul national university yoonseung kim seoul national university youngju song seoul national university chung-kil hur seoul national university sanjoy das david majnemer google john regehr university of utah nuno p. lopes microsoft research",
@@ -21158,7 +21158,7 @@
             }
           },
           "year": 2017,
-          "citationCount": 41
+          "citationCount": 43
         },
         "_searchBlob": "taming undefined behavior in llvm a central concern for an optimizing compiler is the design of its intermediate representation ir for code. the ir should make it easy to perform transformations and should also afford efficient and precise static analysis. in this paper we study an aspect of ir design that has received little attention the role of undefined behavior. the ir for every optimizing compiler we have looked at including gcc llvm intels and microsofts supports one or more forms of undefined behavior ub not only to reflect the semantics of ub-heavy programming languages such as c and c++ but also to model inherently unsafe low-level operations such as memory stores and to avoid over-constraining ir semantics to the point that desirable transformations become illegal. the current semantics of llvms ir fails to justify some cases of loop unswitching global value numbering and other important textbook optimizations causing long-standing bugs. we present solutions to the problems we have identified in llvms ir and show that most optimizations currently in llvm remain sound and that some desirable new transformations become permissible. our solutions do not degrade compile time or performance of generated code. proceedings of 38th acm sigplan conference on programming language design and implementation proceedings of 38th acm sigplan conference on programming language design and implementation 2017 research-paper juneyoung lee seoul national university yoonseung kim seoul national university youngju song seoul national university chung-kil hur seoul national university sanjoy das david majnemer google john regehr university of utah nuno p. lopes microsoft research c++ ir optimizations performance programming languages static analysis c++ ir optimizations performance programming languages static analysis",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24141,7 +24141,7 @@
           "Infrastructure"
         ],
         "openalexId": "https://openalex.org/W2495571323",
-        "citationCount": 11,
+        "citationCount": 12,
         "doi": "10.5281/zenodo.51303",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -24157,7 +24157,7 @@
         "_year": "2016",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 11,
+        "_citationCount": 12,
         "_titleLower": "artiq 1.0",
         "_authorLower": "sébastien bourdeauducq pain care labs robert jördens national institute of science and technology peter zotov pain care labs j. britton d. h. slichter david r. leibrandt d. t. c. allcock aaron hankin florent kermarrec digital science yann sionneau pain care labs r. srinivas ting rei tan justin bohnet",
         "_authorsLower": "sébastien bourdeauducq pain care labs robert jördens national institute of science and technology peter zotov pain care labs j. britton d. h. slichter david r. leibrandt d. t. c. allcock aaron hankin florent kermarrec digital science yann sionneau pain care labs r. srinivas ting rei tan justin bohnet",
@@ -24555,7 +24555,7 @@
             }
           },
           "year": 2016,
-          "citationCount": 11
+          "citationCount": 12
         },
         "_searchBlob": "artiq 1.0 artiq advanced real-time infrastructure for quantum physics is the next-generation control system for quantum information experiments. it is developed by m-labs for and in partnership with the ion storage group at nist as free software. it is offered to the entire research community as a solution equally applicable to other challenging control tasks outside the field of ion trapping. the system features a high-level programming language that helps describing complex experiments which is compiled and executed on dedicated hardware with nanosecond timing resolution and sub-microsecond latency. it includes graphical user interfaces to parametrize and schedule experiments and to visualize and explore the results. artiq uses fpga hardware to perform its time-critical tasks. it is designed to be portable to hardware platforms from different vendors and fpga manufacturers. currently one configuration of a low-cost open hardware fpga board and several different configurations of a high-end fpga evaluation kit are used and supported. any of these fpga platforms can be combined with any number of additional peripherals either already accessible from artiq or made accessible with little effort. custom hardware components with widely extended capabilities and advanced support for scalable and fully distributed real-time control of experiments are being designed. artiq and its dependencies are available in the form of conda packages for both linux and windows. packages containing pre-compiled binary images to be loaded onto the hardware platforms are supplied for each configuration. like any open source software artiq can equally be built and installed directly from source. artiq is supported by m-labs and developed openly. components features fixes improvements and extensions are funded by and developed for the partnering research groups. technologies employed include python migen misoc mor1kx llvm llvmlite and qt5. figshare figshare 2016 research-paper sebastien bourdeauducq pain care labs robert jordens national institute of science and technology peter zotov pain care labs j. britton d. h. slichter david r. leibrandt d. t. c. allcock aaron hankin florent kermarrec digital science yann sionneau pain care labs r. srinivas ting rei tan justin bohnet infrastructure infrastructure",
         "addedAt": "2026-02-21T05:39:52.000Z",
@@ -24878,7 +24878,7 @@
           "Performance"
         ],
         "openalexId": "https://openalex.org/W2006642696",
-        "citationCount": 7,
+        "citationCount": 8,
         "doi": "10.1145/2737924.2737990",
         "citationCountSource": "openalex",
         "publishedDate": "",
@@ -24895,7 +24895,7 @@
         "_year": "2015",
         "_publishedDate": "",
         "_publishedDateLabel": "",
-        "_citationCount": 7,
+        "_citationCount": 8,
         "_titleLower": "profile-guided meta-programming",
         "_authorLower": "william j. bowman northeastern university swaha miller cisco systems vincent st-amour northeastern university r. kent dybvig cisco systems",
         "_authorsLower": "william j. bowman northeastern university swaha miller cisco systems vincent st-amour northeastern university r. kent dybvig cisco systems",
@@ -25118,7 +25118,7 @@
             }
           },
           "year": 2015,
-          "citationCount": 7
+          "citationCount": 8
         },
         "_searchBlob": "profile-guided meta-programming contemporary compiler systems such as gcc .net and llvm incorporate profile-guided optimizations pgos on low-level intermediate code and basic blocks with impressive results over purely static heuristics. recent work shows that profile information is also useful for performing source-to-source optimizations via meta-programming. for example using profiling information to inform decisions about data structures and algorithms can potentially lead to asymptotic improvements in performance. we present a design for profile-guided meta-programming in a general-purpose meta-programming system. our design is parametric over the particular profiler and meta-programming system. we implement this design in two different meta-programming systems---the syntactic extensions systems of chez scheme and racket---and provide several profile-guided meta-programs as usability case studies. proceedings of 36th acm sigplan conference on programming language design and implementation proceedings of 36th acm sigplan conference on programming language design and implementation 2015 research-paper william j. bowman northeastern university swaha miller cisco systems vincent st-amour northeastern university r. kent dybvig cisco systems optimizations performance optimizations performance",
         "addedAt": "2026-02-21T05:39:52.000Z",
